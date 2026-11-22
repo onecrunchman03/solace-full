@@ -21,7 +21,7 @@
 // the code under test. If you ever parallelize this, give every harness its
 // own port first.
 import { spawn } from "node:child_process";
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -99,6 +99,10 @@ if (has("--list")) {
 // --claims prints what the doc is understood to promise, without running
 // anything. The parser is the fiddly half of this script; this is how you
 // check it after touching CLAUDE.md's prose.
+if (has("--claims") && !existsSync(DOC)) {
+  console.log("No CLAUDE.md here, so there are no documented counts to show.");
+  process.exit(0);
+}
 if (has("--claims")) {
   const found = claimsIn(readFileSync(DOC, "utf8"));
   const live = new Set(files);
@@ -199,6 +203,8 @@ for (const r of failed) {
 }
 
 // ---- verify (or repair) the documented counts --------------------------------
+// A copy without CLAUDE.md (the public release) has nothing to verify against.
+if (!existsSync(DOC)) process.exit(failed.length ? 1 : 0);
 let doc = readFileSync(DOC, "utf8");
 const claims = claimsIn(doc);
 const drift = [];

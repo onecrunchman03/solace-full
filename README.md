@@ -43,7 +43,8 @@ Sign in as `admin` with the password from `.env`. Voice needs
 `livekit-server --dev` running too; without it, everything else still works.
 
 Checks: `npm run build && npm run checks` runs every test harness in
-`scripts/checks/`.
+`scripts/checks/`. A few of them check art files that aren't in this repo
+(see below) and fail here for that reason.
 
 ## Deploy it
 
