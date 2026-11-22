@@ -1,0 +1,1428 @@
+<!doctype html>
+<!--
+  SURVIVORZ: bakes a move BUILT IN CODE (scripts/survivorz/anim-recipes.js) onto one packed
+  body. The base clip plays, the recipe adds its motion in world space each frame, and every
+  animated bone's local rotation (plus the hips' position) is recorded into an ordinary clip —
+  the same JSON shape retarget.html writes, so pack.mjs and the floor checks treat it like any
+  other. Driven by scripts/survivorz/anim-build.cjs.
+  ?body=/assets/downloads/survivorz/game/eric.glb
+  window.build.bake(recipe, fps) -> AnimationClip JSON
+-->
+<meta charset="utf-8" />
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+  import { RECIPES, handFrame, handRigid, gunPose, GUN_HOLDS, GUN_GRIP_R, HELD, heldShapes } from "./anim-recipes.js";
+  import { vertexIndex, torsoSurface, skinned, LAW, canon } from "./anim-law.js";
+  import { armMeasures, rollIntoForearm } from "./anim-natural.js";
+  import { gripCal, gunField, fingerPoints, capsule, gunSeat, thumbAvoid } from "./anim-hands.js";
+  const q = new URLSearchParams(location.search);
+  const B = (window.build = { ready: false, error: null });
+  // (this body's name, for a pair move that plays the partner's clip made for it: zd-kicked-<this body>)
+  const SELF = (q.get("body") || "").split("/").pop().replace(/\.glb$/, "");
+  try {
+    const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+    const gltf = await loader.loadAsync(q.get("body"));
+    const body = gltf.scene;
+    body.traverse((o) => { if (/body_proxy/.test(o.name)) o.visible = false; });   // (the person inside a suit: for the law only, anim-law.js)
+    const clips = Object.fromEntries(gltf.animations.map((c) => [c.name, c]));
+    const byName = {}; body.traverse((o) => { if (o.isBone) byName[o.name] = o; });
+    // every bone's rest, restored before each frame: a packed clip carries no track for a bone
+    // that never moves, so without this a recipe's turns would pile up frame on frame
+    const rest = Object.fromEntries(Object.entries(byName).map(([n, b]) => [n, { q: b.quaternion.clone(), p: b.position.clone() }]));
+    const restOf = new Map(Object.entries(byName).map(([n, b]) => [b, rest[n].q]));
+    const toRest = () => { for (const [n, r] of Object.entries(rest)) { byName[n].quaternion.copy(r.q); byName[n].position.copy(r.p); } };
+    // three of the scans prefix every bone ("rp_manuel_animated_001_dancing_upperarm_r"): a
+    // recipe's short name finds the bone that ends with it
+    const bone = (n) => {
+      // (a zombie's bones by their survivor names too: anim-law.js canon)
+      const b = byName[n] ?? Object.entries(byName).find(([k]) => k.endsWith("_" + n))?.[1] ?? Object.entries(byName).find(([k]) => canon(k) === n)?.[1];
+      if (!b) throw new Error("no bone " + n); return b;
+    };
+    const Y = new THREE.Vector3(0, 1, 0);
+    let home = null, lawIndex = null, suitIndex = null, skinIndex = null, headIndex = null; const unclipPrev = {}, rollPrev = {}, legPrev = {};
+    let NAT = null;   // this body's natural ranges (anim-natural.cjs -> anim/<body>/natural-base.json)
+    // what a joint's angle costs: nothing inside where most real motion sits (core: 5th-95th),
+    // a little out to the furthest real bodies went (range: 0.3rd-99.7th), steeply beyond
+    // a joint's turn from its bind pose in its own frame, as a rotation vector in degrees (the
+    // measure anim-natural.js jointMeasures reads), and back
+    const wrap180 = (d) => ((((d + 180) % 360) + 360) % 360) - 180;
+    const jointVec = (b) => { const q = restOf.get(b).clone().invert().multiply(b.quaternion); if (q.w < 0) q.set(-q.x, -q.y, -q.z, -q.w); const sn = Math.sqrt(Math.max(0, 1 - q.w * q.w)), a = 2 * Math.acos(Math.min(1, q.w)) * 180 / Math.PI; return sn < 1e-6 ? new THREE.Vector3() : new THREE.Vector3(q.x / sn, q.y / sn, q.z / sn).multiplyScalar(a); };
+    const setJointVec = (b, v) => { const l = v.length(); const dq = l < 1e-6 ? new THREE.Quaternion() : new THREE.Quaternion().setFromAxisAngle(v.clone().normalize(), l * Math.PI / 180); b.quaternion.copy(restOf.get(b)).multiply(dq); };
+    // the whole arm's joints against the mocap's range (not just the wrist and the rolls: a solver
+    // free to pick any elbow picked winged ones, the upper arm turned 30-65 degrees past any real one)
+    // how far a thumb's base sits past the range the cast's thumbs reach (0 inside it, with slack): every
+    // swing of a thumb at its base is held to it — swung freely to clear a gun's receiver, the pistol
+    // thumb went 9-12 degrees past real ones on every pistol clip of two bodies
+    // (in DEGREES past the range, and allowed THUMB_SLACK of them — under the natural check's own 8: the
+    // soft cost natPen also charges for leaving the middle of the range, and held to that, the swing
+    // that clears Carla's thumb by 8 mm, 45 degrees and a fraction of one past her range, was refused)
+    const THUMB_SLACK = 6;
+    // (the same for any finger, over all three of its joints)
+    const fingerPast = (f, side) => { let m = 0; for (const k of ["01", "02", "03"]) { const b = bone(`${f}_${k}_${side}`), v = jointVec(b); for (const a of ["x", "y", "z"]) { const r = NAT?.range?.[`j:${f}_${k}_${side}:${a}`]; if (r) m = Math.max(m, r[0] - v[a], v[a] - r[1]); } } return Math.max(0, m - THUMB_SLACK); };
+    const thumbPen = (side) => { const v = jointVec(bone("thumb_01_" + side)); let m = 0; for (const a of ["x", "y", "z"]) { const r = NAT?.range?.[`j:thumb_01_${side}:${a}`]; if (r) m = Math.max(m, r[0] - v[a], v[a] - r[1]); } return Math.max(0, m - THUMB_SLACK); };
+    const armJointPen = (side) => {
+      let c = 0;
+      for (const n of ["upperarm", "lowerarm", "hand"]) { const v = jointVec(bone(n + "_" + side)); c += natPen(v.x, `j:${n}_${side}:x`) + natPen(v.y, `j:${n}_${side}:y`) + natPen(v.z, `j:${n}_${side}:z`); }
+      return c;
+    };
+    // FINGERS STOP WHERE REAL FINGERS STOP: a joint a recipe bent is held inside the range this
+    // body's mocap fingers reach (a fist written as fixed angles bent knuckles to 150 degrees);
+    // a joint the mocap itself took further keeps the mocap's
+    const FINGER_JOINTS = ["l", "r"].flatMap((s) => ["thumb", "index", "middle", "ring", "pinky"].flatMap((f) => ["01", "02", "03"].map((k) => `${f}_${k}_${s}`)));
+    const limitFingers = (before) => {
+      if (!NAT?.range) return;
+      for (const n of FINGER_JOINTS) {
+        let b; try { b = bone(n); } catch { continue; }
+        const was = before[n]; if (!was || b.quaternion.equals(was)) continue;
+        const v = jointVec(b), cur = b.quaternion.clone(); b.quaternion.copy(was); const v0 = jointVec(b); b.quaternion.copy(cur);
+        let moved = false;
+        for (const c of ["x", "y", "z"]) {
+          const r = NAT.range[`j:${n}:${c}`]; if (!r) continue;
+          const lo = Math.min(r[0], v0[c]), hi = Math.max(r[1], v0[c]);
+          if (v[c] < lo) { v[c] = lo; moved = true; } else if (v[c] > hi) { v[c] = hi; moved = true; }
+        }
+        if (moved) setJointVec(b, v);
+      }
+      body.updateMatrixWorld(true);
+    };
+    const fingersNow = () => Object.fromEntries(FINGER_JOINTS.map((n) => { try { return [n, bone(n).quaternion.clone()]; } catch { return [n, null]; } }));
+    const natPen = (v, key) => {
+      const c = NAT?.core?.[key], r = NAT?.range?.[key]; if (!c || !r) return 0;
+      const ec = Math.max(0, c[0] - v, v - c[1]), er = Math.max(0, r[0] - v, v - r[1]);
+      return (ec / 40) ** 2 + 10 * (er / 10) ** 2;
+    };
+    let frame = { fwd: new THREE.Vector3(0, 0, 1), right: new THREE.Vector3(-1, 0, 0), left: new THREE.Vector3(1, 0, 0) };
+    // the body's own frame this moment, from its shoulders: right = left shoulder -> right shoulder
+    function bodyFrame() {
+      const r = bone("upperarm_r").getWorldPosition(new THREE.Vector3()).sub(bone("upperarm_l").getWorldPosition(new THREE.Vector3()));
+      r.y = 0; r.normalize();
+      const fwd = new THREE.Vector3().crossVectors(Y, r).normalize();
+      frame = { fwd, right: r, left: r.clone().negate() };
+    }
+    const axisOf = (a) => a === "x" ? frame.left : a === "y" ? Y : a === "z" ? frame.fwd : a;
+    const setWorldQuat = (b, w) => {
+      const pw = b.parent.getWorldQuaternion(new THREE.Quaternion());
+      b.quaternion.copy(pw.invert().multiply(w)); b.updateMatrixWorld(true);
+    };
+    const h = {
+      frame: () => frame,
+      vec: (x, y, z) => new THREE.Vector3(x, y, z),
+      quat: (n) => bone(n).getWorldQuaternion(new THREE.Quaternion()),
+      // the torso's surface this moment (anim-law.js): a gun's stock, a prop, checked against it
+      torso: () => { suitIndex ??= vertexIndex(body, 2); return torsoSurface(suitIndex, (n) => bone(n).getWorldPosition(new THREE.Vector3())); },
+      // a sample of this body's skin as it is posed now — [{p, limb, torso}] — for a pair move that must keep
+      // its whole body off another (the finisher fit); every 24th vertex, read where it is, not where its bone is
+      // (idx: just those sample points — a fit scores only the ones near the other body)
+      skin: (idx = null) => { skinIndex ??= vertexIndex(body, 24); const v = new THREE.Vector3(); return (idx ?? skinIndex.map((_, i) => i)).map((i) => { const x = skinIndex[i]; return { i, p: skinned(x, v).clone(), limb: x.limb, torso: x.torso, bone: x.bone }; }); },
+      // (this body's HEAD skin, every second vertex where it is posed now: a head read off the 24th-vertex sample was 55
+      // points on a low-poly zombie, too few to be a surface — a bite's face measured off it was a blob)
+      // (hair left out — its own material on the zombies, ZombieHair; HairCap is the scalp and stays: hair is not a body)
+      headSkin: () => { headIndex ??= vertexIndex(body, 2).filter((x) => /(^|_)(head|eye|jaw|brow|lid|nose|teeth|tongue|mouth)/i.test(canon(x.bone ?? "")) && !/hair(?!cap)/i.test(x.m?.material?.name ?? "")); const v = new THREE.Vector3(); return headIndex.map((x) => skinned(x, v).clone()); },
+      at: (n) => bone(n).getWorldPosition(new THREE.Vector3()),
+      ahead: (p, f = 0, u = 0, r = 0) => p.clone().addScaledVector(frame.fwd, f).addScaledVector(Y, u).addScaledVector(frame.right, r),
+      turn(n, axis, deg) {
+        const b = bone(n), w = b.getWorldQuaternion(new THREE.Quaternion());
+        w.premultiply(new THREE.Quaternion().setFromAxisAngle(axisOf(axis), THREE.MathUtils.degToRad(deg)));
+        setWorldQuat(b, w);
+      },
+      // two-bone IK for an arm: the elbow bends toward the pole, the hand reaches the point
+      reach(side, target, w = 1, pole) {
+        if (w <= 0) return;
+        const up = bone("upperarm_" + side), lo = bone("lowerarm_" + side), ha = bone("hand_" + side);
+        const A = up.getWorldPosition(new THREE.Vector3()), Bp = lo.getWorldPosition(new THREE.Vector3()), C = ha.getWorldPosition(new THREE.Vector3());
+        const l1 = A.distanceTo(Bp), l2 = Bp.distanceTo(C);
+        const want = C.clone().lerp(target, w);
+        const toT = want.clone().sub(A); const d = Math.min(toT.length(), l1 + l2 - 1e-4); toT.normalize();
+        const a = (l1 * l1 - l2 * l2 + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, l1 * l1 - a * a));
+        // the elbow's way: the pole's, blended in as the reach is (a reach a tenth of the way in
+        // moves the elbow a tenth of the way, not all of it at once)
+        const perp = (q) => { const v = q.clone().sub(A); v.addScaledVector(toT, -v.dot(toT)); return v.lengthSq() < 1e-8 ? null : v.normalize(); };
+        const pB = perp(Bp), pP = pole ? perp(pole) : null;
+        const p = pB && pP ? pB.clone().multiplyScalar(1 - w).addScaledVector(pP, w) : (pP ?? pB ?? frame.fwd.clone().negate());
+        if (p.lengthSq() < 1e-8) p.copy(pP ?? frame.fwd).negate(); p.normalize();
+        const E = A.clone().addScaledVector(toT, a).addScaledVector(p, hh);
+        const aim = (b, from, to) => {
+          const wq = b.getWorldQuaternion(new THREE.Quaternion());
+          wq.premultiply(new THREE.Quaternion().setFromUnitVectors(from.normalize(), to.normalize()));
+          setWorldQuat(b, wq);
+        };
+        if (!NAT?.hinge?.[side]) {
+          aim(up, Bp.clone().sub(A), E.clone().sub(A));
+          const B2 = lo.getWorldPosition(new THREE.Vector3()), C2 = ha.getWorldPosition(new THREE.Vector3());
+          aim(lo, C2.clone().sub(B2), A.clone().addScaledVector(toT, d).sub(B2));
+          return;
+        }
+        // THE ELBOW IS A HINGE: the upper arm is turned so its elbow's own bending way (this body's
+        // mocap: NAT.hinge, in the upper arm's frame) faces the bend, and the forearm then swings
+        // about that hinge alone — an IK that turns each bone the shortest way bends elbows
+        // sideways and backwards as a hand passes the shoulder
+        const upAxis = lo.position.clone().normalize(), ang = NAT.hinge[side].mean * Math.PI / 180;
+        const r1 = new THREE.Vector3(0, 1, 0).addScaledVector(upAxis, -upAxis.y).normalize(), r2 = new THREE.Vector3().crossVectors(upAxis, r1);
+        const hingeL = r1.multiplyScalar(Math.cos(ang)).addScaledVector(r2, Math.sin(ang));
+        const uW = E.clone().sub(A).normalize(), Wp = A.clone().addScaledVector(toT, d);
+        const bendW = Wp.clone().sub(E); bendW.addScaledVector(uW, -bendW.dot(uW));
+        if (bendW.lengthSq() < 1e-8) bendW.copy(p).addScaledVector(uW, -p.dot(uW)).negate();
+        bendW.normalize();
+        const basis = (x, y) => new THREE.Matrix4().makeBasis(x, y, new THREE.Vector3().crossVectors(x, y));
+        const hL = hingeL.clone().addScaledVector(upAxis, -hingeL.dot(upAxis)).normalize();
+        const Q = new THREE.Quaternion().setFromRotationMatrix(basis(uW, bendW).multiply(basis(upAxis, hL).invert()));
+        // a nearly straight arm has no bending way to face: the hinge is lined up only as far as
+        // the elbow is bent, and a straight arm keeps the roll it had (else it spins)
+        const Qmin = up.getWorldQuaternion(new THREE.Quaternion()).premultiply(new THREE.Quaternion().setFromUnitVectors(Bp.clone().sub(A).normalize(), uW));
+        const bendDeg = uW.angleTo(Wp.clone().sub(E).normalize()) * 180 / Math.PI;
+        const k = Math.min(1, Math.max(0, (bendDeg - 8) / 27)); const kk = k * k * (3 - 2 * k);
+        setWorldQuat(up, Qmin.slerp(Q, kk));
+        // the forearm: from its bind-pose way to the wrist, keeping its own roll
+        const loAxis = ha.position.clone().normalize(), qr = restOf.get(lo);
+        const dl = qr.clone().invert().multiply(lo.quaternion);
+        const tw = new THREE.Vector3(dl.x, dl.y, dl.z).projectOnVector(loAxis);
+        const twist = new THREE.Quaternion(tw.x, tw.y, tw.z, dl.w).normalize();
+        const fW = Wp.clone().sub(lo.getWorldPosition(new THREE.Vector3())).normalize();
+        const fL = fW.applyQuaternion(up.getWorldQuaternion(new THREE.Quaternion()).invert());
+        const r0 = loAxis.clone().applyQuaternion(qr);
+        lo.quaternion.copy(new THREE.Quaternion().setFromUnitVectors(r0, fL).multiply(qr).multiply(twist));
+        lo.updateMatrixWorld(true);
+      },
+      // turn a hand so its fingers point along `fingers` and its palm faces `palm` (world
+      // directions), blended w over the pose it has. The palm's way is read off the fingers'
+      // own rest curl (they bend toward it), so it holds for either hand on every rig
+      // (rigid: by the hand's own bone, anim-recipes.js handRigid — how a gun is seated)
+      orient(side, fingers, palm, w = 1, rigid = true) {
+        if (w <= 0) return;
+        const ha = bone("hand_" + side), m1 = bone("middle_01_" + side), m2 = bone("middle_02_" + side), m3 = bone("middle_03_" + side);
+        const H = ha.getWorldPosition(new THREE.Vector3()), M1 = m1.getWorldPosition(new THREE.Vector3()), M2 = m2.getWorldPosition(new THREE.Vector3()), M3 = m3.getWorldPosition(new THREE.Vector3());
+        const f0 = M1.clone().sub(H).normalize();
+        let p0;
+        if (rigid) p0 = h.handRigid(side).p;
+        else { const curl = M3.clone().sub(M2).normalize().sub(M2.clone().sub(M1).normalize()); p0 = curl.addScaledVector(f0, -curl.dot(f0)); if (p0.lengthSq() < 1e-8) return; p0.normalize(); }
+        const f1 = fingers.clone().normalize(), p1 = palm.clone().addScaledVector(f1, -palm.dot(f1)).normalize();
+        const basis = (f, p) => new THREE.Matrix4().makeBasis(f, p, new THREE.Vector3().crossVectors(f, p));
+        const rot = new THREE.Quaternion().setFromRotationMatrix(basis(f1, p1).multiply(basis(f0, p0).invert()));
+        const wq = ha.getWorldQuaternion(new THREE.Quaternion());
+        setWorldQuat(ha, wq.clone().slerp(wq.clone().premultiply(rot), w));
+      },
+      // close a hand: each finger's three joints bend further the way they already curl at rest
+      // (amount 1 = a fist), the thumb less
+      // the fingers OPENED to their rest (straight) and then curled `amount`: a relaxed open hand
+      // whatever the base clip's fingers were doing (an idle's half-fist on someone's back read as
+      // knuckles knocking on it)
+      // (blended in by w, so the hand eases open as the arms come up rather than snapping)
+      relaxHand(side, amount = 0.2, per = {}, w = 1, thumb = false) {
+        const fb = [];
+        // (the thumb keeps the clip's own: its rest is spread wide, T-pose fashion, and stuck out — unless it is
+        // asked for: a palm flat on a door has its thumb spread, and the idle's, curled across a fist, went into the door)
+        // (the thumb is BLENDED in with the rest even when it keeps the clip's own: its extra curl (per.thumb) used
+        // to arrive whole on the first frame of an ease-in — a one-frame twitch 1.4x the fastest real thumb)
+        for (const f of ["index", "middle", "ring", "pinky", "thumb"]) for (const i of [1, 2, 3]) {
+          let b; try { b = bone(`${f}_0${i}_${side}`); } catch { continue; }
+          fb.push([b, b.quaternion.clone()]); if (f !== "thumb" || thumb) b.quaternion.copy(restOf.get(b));
+        }
+        body.updateMatrixWorld(true);
+        h.fist(side, amount, { thumb: 0, ...per });
+        if (w < 1) { for (const [b, q0] of fb) b.quaternion.copy(q0.slerp(b.quaternion, w)); body.updateMatrixWorld(true); }
+      },
+      fist(side, amount = 1, per = {}) {
+        const hand = bone("hand_" + side).getWorldPosition(new THREE.Vector3());
+        for (const f of ["index", "middle", "ring", "pinky", "thumb"]) {
+          const segs = [1, 2, 3].map((i) => bone(`${f}_0${i}_${side}`));
+          const P = segs.map((x) => x.getWorldPosition(new THREE.Vector3()));
+          // the finger's own bending plane (bending about this axis keeps it in that plane, so
+          // one axis serves all three joints)
+          const s1 = P[1].clone().sub(P[0]), s2 = P[2].clone().sub(P[1]);
+          let ax = new THREE.Vector3().crossVectors(s1, s2);
+          // a STRAIGHT finger has no bending plane of its own: the cross of two nearly parallel
+          // segments is noise, and curling about it bent fingers sideways 80 degrees (an opened hand
+          // on a hug). It bends toward the palm then: about the finger crossed with the palm's way.
+          // BLENDED, not switched: a finger crossing the line between the two snapped its curl from
+          // one axis to the other in a frame (the hammer's thumbs, 2.6x the fastest real thumb)
+          const bend = ax.length() / Math.max(1e-9, s1.length() * s2.length());
+          if (bend < 0.12) {
+            const R = handRigid((n) => bone(n).getWorldPosition(new THREE.Vector3()), side);
+            const fb = new THREE.Vector3().crossVectors(s1, R.p).normalize();   // (same sense as a curled finger's own plane)
+            const own = ax.lengthSq() > 1e-12 ? ax.clone().normalize() : fb.clone();
+            if (own.dot(fb) < 0) own.negate();
+            const k = Math.min(1, Math.max(0, (bend - 0.03) / 0.09));
+            ax = fb.multiplyScalar(1 - k).add(own.multiplyScalar(k));
+          }
+          if (ax.lengthSq() < 1e-12) continue;
+          ax.normalize();
+          // per[f]: a curl, or [curl, share] — a share > 0 moves the bend from the fingertip's joints
+          // toward the knuckle (a finger lying along a deep grip, not hooked over it: the wrap)
+          const pf = per[f] ?? amount, k = Array.isArray(pf) ? pf[0] : pf, sh = Array.isArray(pf) ? pf[1] : 0;
+          (f === "thumb" ? [0, 25, 30] : [65 * (1 + sh), 85 * (1 - 0.3 * sh), 55 * (1 - sh)]).forEach((deg, i) => {
+            if (!deg || !k) return;
+            const w = segs[i].getWorldQuaternion(new THREE.Quaternion());
+            w.premultiply(new THREE.Quaternion().setFromAxisAngle(ax, THREE.MathUtils.degToRad(deg * k)));
+            setWorldQuat(segs[i], w);
+          });
+        }
+      },
+      // the hand's frame as the props see it (scripts/survivorz/anim-recipes.js handFrame): the
+      // wrist, the fingers' way, the palm's way and the thumb side
+      // (rigid to the hand bone — the finger-curl reading flips on clips that pose their fingers
+      // oddly, and laid hands back-first: every recipe now reads the hand by its bone)
+      hand: (side) => handRigid((n) => bone(n).getWorldPosition(new THREE.Vector3()), side, h.gripCals?.[side]),
+      handRigid: (side) => handRigid((n) => bone(n).getWorldPosition(new THREE.Vector3()), side, h.gripCals?.[side]),
+      // THE WRAP (Oct 22 2026): a hand round a thing closes each finger until it TOUCHES it (sdf:
+      // the thing's signed distance, metres) — not by a fixed amount: a fist written as "close 1"
+      // closed into the palm in front of the hammer's handle, and round a can it closed through the
+      // can. Each finger from open, the curl searched (the fist's own curl, so the three joints keep
+      // their natural shares) for the first touch, the skin pressed a little; eased frame to frame.
+      // A finger that never meets the thing closes to kmax; one already IN it at open opens back out.
+      wrap(side, sdf, o = {}) {
+        const w = o.w ?? 1; if (w <= 0 || !sdf) return;
+        const R = h.gripCals?.[side]?.r ?? 0.01, want = R * (o.press ?? 0.85);
+        const at = (n) => bone(n).getWorldPosition(new THREE.Vector3());
+        h.wrapPrev ??= {};
+        const snap = fingersNow(), found = {};
+        for (const f of o.fingers ?? ["index", "middle", "ring", "pinky", "thumb"]) {
+          const segs = [1, 2, 3].map((i) => bone(`${f}_0${i}_${side}`)), q0 = segs.map((b) => b.quaternion.clone());
+          // (each try held to the finger range the bake holds every finger to after the recipe,
+          // limitFingers — found against the straight bind pose, the contact was undone by that
+          // limit curling the fingers back into a real range: a bracing hand's fingertips sank into the board)
+          // (and, while the hold eases in (w < 1), measured on the pose that ships — blended with the
+          // clip's own fingers: searched at full and blended after, the blend put the base clip's
+          // curled fingers 1.6 cm into a can)
+          let share = 0, lieOut = null, tried = null;
+          const closeTo = (k) => { segs.forEach((b) => b.quaternion.copy(restOf.get(b))); segs[0].updateMatrixWorld(true); if (k) h.fist(side, 0, { [f]: share ? [k, share] : k }); limitFingers(snap); if (w < 1) { segs.forEach((b, i) => b.quaternion.copy(q0[i].clone().slerp(b.quaternion, w))); segs[0].updateMatrixWorld(true); } };
+          const nearOn = (fn) => { const c = [1, 2, 3].map((i) => at(`${f}_0${i}_${side}`)); const tip = c[2].clone().addScaledVector(c[2].clone().sub(c[1]), 0.75); return Math.min(...fingerPoints([c[0], c[1], c[2], tip]).map(fn)); };
+          // (searched against the GRIP when o.contact is given: a straight finger, where every search
+          // starts, already lay in the carbine's magazine — no curled hand passes through that pose —
+          // and opened back out; the whole gun is checked once the finger has its curl, below)
+          const near = () => nearOn(touch);
+          // a finger WRAPS: it keeps closing until its last segment and tip arrive, so long as no part
+          // of it presses in past `deep` — stopped at the first touch, the base of a finger lying under
+          // a handguard held the whole finger straight, the hand a saucer under the gun
+          // (ARRIVING is judged on o.contact when given — a gun's GRIP, not the whole gun: closing on the
+          // whole carbine, the middle finger's tip met the magazine 7 cm past the grip with the finger
+          // straight, and it stopped there. Pressing IN is still judged on the whole thing)
+          // (never the thumb's: it lies ALONG the receiver or the stock's top, and touching them is where it rests)
+          const touch = (f !== "thumb" && o.contact) || sdf;
+          const tipNear = () => { const b = at(`${f}_02_${side}`), c = at(`${f}_03_${side}`); const tip = c.clone().addScaledVector(c.clone().sub(b), 0.75); return Math.min(touch(c), touch(c.clone().lerp(tip, 0.5)), touch(tip)); };
+          const deep = R * (o.deep ?? 0.62);
+          const done = () => tipNear() <= want || near() <= deep;
+          const kmax = f === "thumb" ? (o.thumb ?? 1.2) : (o.kmax ?? 1.1);
+          let k;
+          closeTo(0);
+          // A THUMB IN IT at open (the hammer's handle runs out past the thumb's side): curling and
+          // opening the thumb's own joints can't move it — its base swings, about the hand's length,
+          // away from the palm until it lies along the thing's side, no further than 70 degrees
+          if (f === "thumb" && near() <= deep && !o.thumbStay) {   // (o.thumbStay: leave it)
+            const RH = h.hand(side), Q = THREE.Quaternion;
+            const swingBy = (deg) => { closeTo(0); const wq = segs[0].getWorldQuaternion(new Q()); wq.premultiply(new Q().setFromAxisAngle(RH.f, deg * Math.PI / 180 * w)); setWorldQuat(segs[0], wq); };
+            swingBy(6); const a1 = at(`thumb_03_${side}`).dot(RH.p); swingBy(-6); const a2 = at(`thumb_03_${side}`).dot(RH.p);
+            const sgn = a1 < a2 ? 1 : -1;
+            const BMAX = o.thumbSwing ?? 70;
+            swingBy(BMAX * sgn); let b = BMAX;
+            if (near() > deep) { let lo = 0, hi = BMAX; for (let it = 0; it < 6; it++) { const m = (lo + hi) / 2; swingBy(m * sgn); if (near() > deep) hi = m; else lo = m; } b = hi; }
+            // (no further than the thumb's own range: the swing gives way first)
+            if (NAT) { swingBy(0); const p0 = thumbPen(side); while (b > 0) { swingBy(b * sgn); if (thumbPen(side) <= p0 + 1e-6) break; b = Math.max(0, b - 4); } }
+            const was = h.wrapPrev[side + "thumbS"];
+            if (!h.free && was != null) b = was + Math.max(-4, Math.min(4, b - was));
+            h.wrapPrev[side + "thumbS"] = b; h.wrapPrev[side + f] = 0;
+            swingBy(b * sgn);
+            continue;
+          }
+          if (near() <= deep) {
+            // ALREADY IN IT at open (a thumb lying along a handle that runs out past it): opened
+            // backward just far enough to come out and lie on it, no further than `open`
+            const omin = f === "thumb" ? (o.thumbOpen ?? -0.8) : (o.open ?? -0.25);
+            closeTo(omin);
+            if (near() <= deep) k = omin;
+            else { let lo = omin, hi = 0; for (let it = 0; it < 6; it++) { const m = (lo + hi) / 2; closeTo(m); if (near() > deep) lo = m; else hi = m; } k = lo; }
+          } else if (done()) k = 0;
+          else {
+            const solve = () => { closeTo(kmax); if (!done()) return kmax; let lo = 0, hi = kmax; for (let it = 0; it < 7; it++) { const m = (lo + hi) / 2; closeTo(m); if (done()) hi = m; else lo = m; } return hi; };
+            k = solve(); closeTo(k);
+            // A FINGER LIES ALONG A GRIP, it doesn't hook over it: closed in the fist's own shares, the
+            // tip met a deep grip (the HK416's, 5 cm front to back) with the finger's middle joint
+            // standing 2.7 cm off it, a loop round air. The bend is shifted toward the knuckle as far
+            // as lays the finger's length closest to the thing without pressing in past `deep`
+            // (o.share: false keeps the fist's shares — a thing held at the fingertips)
+            if (f !== "thumb" && o.share !== false && k > 0 && k < kmax) {
+              const lie = () => { const b = at(`${f}_02_${side}`), c = at(`${f}_03_${side}`), a = at(`${f}_01_${side}`); return Math.max(touch(b), touch(c), touch(a.clone().lerp(b, 0.6))); };
+              const was = h.wrapPrev[side + f + "S"] ?? 0;
+              let best = { s: 0, k, gap: lie() + 0.002 * Math.abs(was) }; const all = [[0, +k.toFixed(2), +best.gap.toFixed(3)]];
+              for (const sh of [0.25, 0.5, 0.75]) {
+                share = sh; const kk = solve(); closeTo(kk);
+                if (kk >= kmax || tipNear() > want * 1.2) continue;   // (stopped pressing in before its tip arrived: no wrap)
+                const gap = lie() + 0.002 * Math.abs(sh - was);   // (a little preferring the last frame's)
+                all.push([sh, +kk.toFixed(2), +gap.toFixed(3)]);
+                if (gap < best.gap - 0.001) best = { s: sh, k: kk, gap };
+              }
+              share = best.s; k = best.k; closeTo(k); lieOut = best.gap; tried = all;
+            }
+          }
+          // ... and the whole thing once it has its curl: still in it (a fingertip in the magazine), the
+          // finger comes back open just far enough to be clear
+          if (touch !== sdf && k > 0) { closeTo(k); if (nearOn(sdf) <= deep) { let lo = Math.min(0, k), hi = k; for (let it = 0; it < 6; it++) { const m = (lo + hi) / 2; closeTo(m); if (nearOn(sdf) > deep) lo = m; else hi = m; } k = lo; } }
+          found[f] = { k, closeTo, near: () => nearOn(sdf), deep, min: k <= 0 ? k : 0, share: () => share, setShare: (v) => { share = v; }, lie: lieOut, tried };   // (the neighbours' pull, below, is held off the WHOLE thing)
+        }
+        // FINGERS MOVE TOGETHER (the ring and little fingers share tendons, the middle pulls both):
+        // one left straight beside a curled neighbour reads as no hand anyone has. Each is drawn
+        // toward its curled neighbours, to within COUPLE of them, as far as it can go without
+        // pressing in past `deep`
+        const COUPLE = o.couple ?? 0.35, chain = ["index", "middle", "ring", "pinky"].filter((f) => found[f]);
+        for (let pass = 0; pass < 2; pass++) for (let i = 0; i < chain.length; i++) {
+          const me = found[chain[i]], nb = [chain[i - 1], chain[i + 1]].filter(Boolean).map((n) => found[n].k);
+          const want = Math.max(...nb) - COUPLE; if (!(me.k < want)) continue;
+          me.closeTo(want);
+          if (me.near() > me.deep) { me.k = want; continue; }
+          let lo = me.k, hi = want; for (let it = 0; it < 6; it++) { const m = (lo + hi) / 2; me.closeTo(m); if (me.near() > me.deep) lo = m; else hi = m; } me.k = lo;
+        }
+        (h.wrapDebug ??= {})[side] = Object.assign(h.wrapDebug[side] ?? {}, Object.fromEntries(Object.entries(found).map(([f, me]) => [f, [+me.k.toFixed(2), +me.share().toFixed(2), +(me.lie ?? 0).toFixed(3), me.tried]])));
+        // how well this hand holds (for a recipe's CHOICE, below): a finger closed all the way on
+        // nothing, or opened back out of the thing, is a finger not gripping
+        (h.wrapBad ??= {})[side] = Object.entries(found).filter(([f, me]) => f !== "thumb" && (me.k >= (o.kmax ?? 1.1) - 1e-3 || me.k < 0)).length * Math.max(0, Math.min(1, w));
+        for (const [f, me] of Object.entries(found)) {
+          let k = me.k; const was = h.wrapPrev[side + f];
+          if (!h.free && was != null) k = was + Math.max(-0.12, Math.min(0.12, k - was));
+          let sh = me.share(); const wasS = h.wrapPrev[side + f + "S"];
+          if (!h.free && wasS != null) sh = wasS + Math.max(-0.1, Math.min(0.1, sh - wasS));
+          me.setShare(sh); h.wrapPrev[side + f + "S"] = sh;
+          h.wrapPrev[side + f] = k; me.closeTo(k);
+        }
+      },
+      // where the WRIST goes so a thing of radius r held along the hand's thumb side has its middle
+      // at `hold`, with the fingers along f and the palm facing p (the grip channel, gripCal)
+      wristFor(side, hold, f, p, r = 0.015) {
+        const c = h.gripCals?.[side]; if (!c) return hold.clone().addScaledVector(f, -0.07);
+        const F = f.clone().normalize(), P = p.clone().addScaledVector(F, -p.dot(F)).normalize();
+        const U = side === "r" ? new THREE.Vector3().crossVectors(F, P) : new THREE.Vector3().crossVectors(P, F);
+        return hold.clone().addScaledVector(F, -c.f).addScaledVector(P, -(c.p + r)).addScaledVector(U, -c.u);
+      },
+      // a gun's signed distance this moment (its voxel field placed by gunPose's G)
+      gunSdf(id, G) {
+        const g = h.gunFields?.[id]; if (!g) return null;
+        g.root.matrix.makeBasis(G.X, G.Y, G.Z).setPosition(G.o); g.root.matrixWorld.copy(g.root.matrix);
+        return g.field.field;
+      },
+      // the body's place and facing at the clip's first frame: where a wall, a door or a keypad
+      // stands (fixed while the body sways). home(fwd, up, right) is a point off those hips.
+      home: (f = 0, u = 0, r = 0) => home.o.clone().addScaledVector(home.fwd, f).addScaledVector(Y, u).addScaledVector(home.right, r),
+      homeFrame: () => home,
+      // move a bone in world space (the hips: a jolt, a brace)
+      move(n, d) {
+        const b = bone(n); const p = b.getWorldPosition(new THREE.Vector3()).add(d);
+        b.position.copy(b.parent.worldToLocal(p)); b.updateMatrixWorld(true);
+      },
+      // THE ANIMATION LAW in the bake (SURVIVORZ.md §10: no arm into the body). If any of this
+      // arm's skin is inside the torso, swing the elbow round the shoulder-to-wrist line — the
+      // wrist stays where the recipe put it, and the hand keeps its turn — by the smallest angle
+      // that clears it, preferring the angle the last frame used so nothing jitters.
+      // how unnatural an arm is right now (the solver's own measure): skin sunk into the torso,
+      // and the wrist, forearm and upper arm past where real bodies take theirs
+      // CALM a bone toward its average over the base clip (k = 0 leaves it, 1 holds it still): a
+      // runner's shoulders twist to pump the arms, and with both hands on a gun they don't
+      calm(names, k) {
+        for (const n of names) {
+          const b = bone(n), mean = h.meanOf?.(b.name); if (!mean) continue;
+          b.quaternion.slerp(mean, k);
+        }
+        body.updateMatrixWorld(true); bodyFrame();
+      },
+      // THE SHOULDER POCKET (where a rifle's butt goes): read off this body's own skin this moment —
+      // the front of the upper chest a few centimetres in from the shoulder joint, at its height
+      pocket(side = "r") {
+        lawIndex ??= vertexIndex(body, 2, { law: true });
+        const S = h.at("upperarm_" + side), F = h.frame(), inward = side === "r" ? F.left : F.right;
+        const c = S.clone().addScaledVector(inward, 0.06), v = new THREE.Vector3();
+        // (the front-most few, averaged: one vertex jumped 6 cm between frames)
+        const cand = [];
+        for (const x of lawIndex) {
+          if (!/(spine_03|shoulder_[lr]|upperarm_[lr])$/.test(x.bone)) continue;
+          skinned(x, v); const d = v.clone().sub(c);
+          if (Math.abs(d.dot(inward)) > 0.035 || d.y > 0.02 || d.y < -0.08) continue;
+          cand.push({ p: v.clone(), f: d.dot(F.fwd) });
+        }
+        if (!cand.length) return null;
+        cand.sort((a2, b2) => b2.f - a2.f);
+        const top = cand.slice(0, 8), front = top[0].f;
+        const mid = top.reduce((acc, x) => acc.add(x.p), new THREE.Vector3()).multiplyScalar(1 / top.length);
+        // its depth the front-most's, its place across and up the top few's middle
+        return mid.addScaledVector(F.fwd, front - mid.clone().sub(c).dot(F.fwd));
+      },
+      // how far this arm's skin is inside the body's own torso, past the law's tolerance (0 when only a few
+      // vertices touch: contact, not a clip) — the clip half of armCost, for a recipe that solves against it
+      armClip(side) {
+        lawIndex ??= vertexIndex(body, 2, { law: true });
+        const limb = "arm_" + side, arm = lawIndex.filter((x) => x.limb === limb), v = new THREE.Vector3();
+        const surf = torsoSurface(lawIndex, (n) => bone(n).getWorldPosition(new THREE.Vector3()));
+        let c = 0, k = 0, worst = 0; for (const x of arm) { const d = surf.depth(skinned(x, v), limb) - LAW.tol; if (d > 0) { c += d; k++; worst = Math.max(worst, d); } }
+        return k > 6 ? worst : 0;
+      },
+      armCost(side) {
+        lawIndex ??= vertexIndex(body, 2, { law: true });
+        const limb = "arm_" + side, arm = lawIndex.filter((x) => x.limb === limb), v = new THREE.Vector3();
+        const surf = torsoSurface(lawIndex, (n) => bone(n).getWorldPosition(new THREE.Vector3()));
+        let c = 0, k = 0; for (const x of arm) { const d = surf.depth(skinned(x, v), limb) - LAW.tol; if (d > 0) { c += d; k++; } }
+        const clip = k > 6 ? c : 0;
+        if (!NAT) return 50 * clip;
+        const m = armMeasures(bone, (b) => restOf.get(b), side);
+        const pen = (val, key) => natPen(val, key + "_" + side);
+        return 50 * clip + pen(m.wristRoll, "wristRoll") + pen(m.wristFlex, "wristFlex") + pen(m.wristDev, "wristDev") + pen(m.foreRoll, "foreRoll") + pen(m.armRoll, "armRoll") + armJointPen(side);
+      },
+      unclip(side) {
+        lawIndex ??= vertexIndex(body, 2, { law: true });
+        const limb = "arm_" + side, arm = lawIndex.filter((x) => x.limb === limb);
+        let surf = torsoSurface(lawIndex, (n) => bone(n).getWorldPosition(new THREE.Vector3()));
+        // THE HAND FIRST: a hand the clip put INSIDE the body (a rifle held low across a fuller
+        // belly — the mocap's body was slimmer) is moved out along the body's surface before the
+        // elbow is searched. The search keeps the hand where it is, so it can't fix that — it swung
+        // the elbow round over the shoulder looking for a way to get the forearm out instead
+        let preOut = 0;
+        {
+          const handVerts = arm.filter((x) => /^(hand|thumb|index|middle|ring|pinky)/.test(x.bone.replace(/^.*?(hand|thumb|index|middle|ring|pinky)/, "$1")));
+          const hb = bone("hand_" + side), v0 = new THREE.Vector3();
+          for (let k = 0; k < 4 && preOut < 0.12; k++) {
+            let worst = null, nIn = 0;
+            for (const x of handVerts) { const pr = surf.probe(skinned(x, v0), limb); if (pr.d > LAW.tol) { nIn++; if (!worst || pr.d > worst.d) worst = { ...pr }; } }
+            if (!worst || nIn <= 6 || !worst.out) break;
+            const step = Math.min(0.12 - preOut, worst.d + 0.01), hq0 = hb.getWorldQuaternion(new THREE.Quaternion());
+            const o = worst.out.clone(); o.y *= 0.3; o.normalize();
+            h.reach(side, hb.getWorldPosition(new THREE.Vector3()).addScaledVector(o, step), 1, bone("lowerarm_" + side).getWorldPosition(new THREE.Vector3()).addScaledVector(o, 0.1));
+            setWorldQuat(hb, hq0);
+            preOut += step;
+          }
+          if (preOut) surf = torsoSurface(lawIndex, (n) => bone(n).getWorldPosition(new THREE.Vector3()));
+        }
+        const up = bone("upperarm_" + side), hand = bone("hand_" + side);
+        const S = up.getWorldPosition(new THREE.Vector3()), axis = hand.getWorldPosition(new THREE.Vector3()).sub(S).normalize();
+        const w0 = up.getWorldQuaternion(new THREE.Quaternion()), hq = hand.getWorldQuaternion(new THREE.Quaternion());
+        const v = new THREE.Vector3();
+        // the same line the check draws: skin more than LAW.tol in, and more than a few vertices
+        // of it — an arm merely resting against the ribs is contact, and pushing it off them
+        // makes the chicken-wing that breaks the law's other half
+        const TOL = LAW.tol, FEW = 6, LIFT_CAP = 12;
+        // ... and the other half of the law (natural movement): an elbow raised above the shoulder
+        // to get out of the way reads as robotic, so a swing that lifts it costs as much as a
+        // clip does
+        const shoulderY = S.y, lo = bone("lowerarm_" + side);
+        const clipCost = () => { let c = 0, n = 0; for (const x of arm) { const d = surf.depth(skinned(x, v), limb) - TOL; if (d > 0) { c += d; n++; } } return n > FEW ? c : 0; };
+        // (and a PARTNER the recipe names, h.armAvoid(side): the arm kept off another body too — the revive's
+        // elbow, swung clear of the partner by the recipe, was swung straight back down into her here)
+        const cost = () => clipCost() + 0.6 * Math.max(0, lo.getWorldPosition(new THREE.Vector3()).y - (shoulderY - 0.08)) + (h.armAvoid ? 50 * h.armAvoid(side) : 0);
+        const swing = (deg) => { setWorldQuat(up, new THREE.Quaternion().setFromAxisAngle(axis, deg * Math.PI / 180).multiply(w0)); setWorldQuat(hand, hq); };
+        // THE NATURAL ARM (the law's other half, anim-natural.js): the same elbow swing is also how
+        // the arm finds a NATURAL pose for the hand the recipe placed — the wrist bent and rolled
+        // no further than real bodies bend and roll theirs (this body's mocap: NAT.core) — and the
+        // roll a hand needs is carried by the forearm, the way an arm does it, not twisted into
+        // the wrist like a candy wrapper
+        const lo0 = lo.quaternion.clone(), hand0 = hand.quaternion.clone();
+        const pen = (v, k) => natPen(v, k + "_" + side);
+        const natCost = (m) => pen(m.wristRoll, "wristRoll") + pen(m.wristFlex, "wristFlex") + pen(m.wristDev, "wristDev") + pen(m.foreRoll, "foreRoll") + pen(m.armRoll, "armRoll") + armJointPen(side);
+        const restQ = (b) => restOf.get(b);
+        const wasRoll = rollPrev[side] ?? 0, wasFore = rollPrev[side + "F"];
+        // the roll split that suits wrist and forearm both, for the pose as it stands
+        const bestRoll = () => {
+          if (!NAT) return 0;
+          const m = armMeasures(bone, restQ, side); let bestA = 0, bc = Infinity;
+          // (every difference WRAPPED round the circle: a wrist recorded near 180 degrees reads +175
+          // one frame and -175 the next, and unwrapped the target flipped sides and the wrist
+          // chased it 26 degrees a frame, back and forth — Nathan's crouch-walk)
+          for (let a = -180; a <= 180; a += 5) {
+            const wr = wrap180(m.wristRoll - a), fr = wrap180(m.foreRoll + a);
+            // (continuity is in the forearm's FINAL twist, not in the roll added to it: the base
+            // clip's own forearm twist swings, and a steady added roll let the wrist wander the
+            // whole circle under a hand held still on a rifle — Nathan's crouch-walk again)
+            const cont = wasFore == null ? Math.abs(wrap180(a - wasRoll)) : Math.abs(wrap180(fr - wasFore));
+            const c = pen(wr, "wristRoll") + pen(fr, "foreRoll") + 0.3 * (wr / 45) ** 2 + 0.0015 * cont;
+            if (c < bc) { bc = c; bestA = a; }
+          }
+          return bestA;
+        };
+        const tryPose = (deg, roll = null) => {
+          lo.quaternion.copy(lo0); hand.quaternion.copy(hand0); lo.updateMatrixWorld(true);
+          swing(deg); let a = roll ?? bestRoll();
+          // scored with the roll it can really have THIS frame (eased from the forearm's last
+          // twist): scored with the full roll and then eased, the elbow was chosen for a roll it
+          // never got, and the wrist was left rolled 166 degrees (Nathan's crouch-walk)
+          if (roll == null && !h.free && NAT && wasFore != null) {
+            const fr0 = armMeasures(bone, restQ, side).foreRoll;
+            a = wrap180(wrap180(wasFore + Math.max(-15, Math.min(15, wrap180(fr0 + a - wasFore)))) - fr0);
+          }
+          if (a) rollIntoForearm(bone, side, a); return a;
+        };
+        const score = (deg, a) => 50 * clipCost() + 50 * 0.6 * Math.max(0, lo.getWorldPosition(new THREE.Vector3()).y - (shoulderY - 0.08))
+          + (NAT ? natCost(armMeasures(bone, restQ, side)) : 0) + 0.01 * Math.abs(deg - was);
+        const was = unclipPrev[side] ?? 0;
+        let best = { deg: 0 };
+        const cands = NAT ? [0, ...Array.from({ length: 18 }, (_, k) => [10 * (k + 1), -10 * (k + 1)]).flat().filter((d) => d > -180)] : (clipCost() > 0 ? [0, ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].flatMap((k) => [6 * k, -6 * k])] : [0]);
+        let bs = Infinity;
+        for (const deg of [...cands, was]) { const a = tryPose(deg); const c = score(deg, a); if (c < bs - 1e-9) { bs = c; best = { deg, roll: a }; } }
+        // ease toward it from the last frame's, so a sudden need doesn't snap the elbow or the roll
+        if (!h.free) {
+          best.deg = was + Math.max(-12, Math.min(12, best.deg - was));
+          if (wasFore == null || !NAT) best.roll = wrap180(wasRoll + Math.max(-15, Math.min(15, wrap180((best.roll ?? 0) - wasRoll))));
+          // (else the roll was already eased in tryPose)
+        }
+        lo.quaternion.copy(lo0); hand.quaternion.copy(hand0); lo.updateMatrixWorld(true);
+        swing(best.deg); if (best.roll) rollIntoForearm(bone, side, best.roll); unclipPrev[side] = best.deg; rollPrev[side] = best.roll; if (NAT) rollPrev[side + "F"] = armMeasures(bone, restQ, side).foreRoll;
+        if (preOut) best.handOut = preOut;
+        // still in: the hand or forearm ITSELF is inside (a hand tucked into the ribs, a hand on its
+        // way back down through the belly) — no elbow swing moves that, so lift the whole arm out at
+        // the shoulder, straight out of the body at the deepest point, a little at a time
+        // capped: a small correction only. A pose that needs more is the recipe's fault, and forcing
+        // it out makes a puppet (it once flung an arm overhead) - it is reported instead
+        for (let k = 0; k < 12 && (best.lifted ?? 0) < LIFT_CAP; k++) {
+          let worst = null, n = 0;
+          for (const x of arm) { const pr = surf.probe(skinned(x, v), limb); if (pr.d > TOL) { n++; if (!worst || pr.d > worst.d) worst = { ...pr, p: v.clone() }; } }
+          if (!worst || n <= FEW) break;
+          // out of the body sideways rather than up: lifting a hand clear by raising the arm reads
+          // as a puppet's
+          const out = worst.out.clone(); out.y *= 0.3; out.normalize();
+          const lever = worst.p.clone().sub(S), ax = new THREE.Vector3().crossVectors(lever, out);
+          if (ax.lengthSq() < 1e-10) break;
+          const ang = Math.min(8, (THREE.MathUtils.radToDeg(worst.d / lever.length()) * 1.2) + 0.5);
+          setWorldQuat(up, new THREE.Quaternion().setFromAxisAngle(ax.normalize(), THREE.MathUtils.degToRad(ang)).multiply(up.getWorldQuaternion(new THREE.Quaternion())));
+          setWorldQuat(hand, hq);
+          best.lifted = (best.lifted ?? 0) + ang;
+        }
+        // still in: the HAND itself is passing through the body (a hand on its way back down
+        // across a fuller belly) — a real hand goes round a body, so it is moved out along the
+        // body's surface by the depth, a centimetre clear, at most 8 cm (reported past 3)
+        for (let k = 0; k < 3; k++) {
+          let worst = null, nIn = 0;
+          for (const x of arm) { const pr = surf.probe(skinned(x, v), limb); if (pr.d > TOL) { nIn++; if (!worst || pr.d > worst.d) worst = { ...pr, p: v.clone() }; } }
+          if (!worst || nIn <= FEW || !worst.out) break;
+          const moved = best.handOut ?? 0; if (moved >= 0.08) break;
+          const step = Math.min(0.08 - moved, worst.d + 0.01);
+          const hp = hand.getWorldPosition(new THREE.Vector3()).addScaledVector(worst.out, step);
+          h.reach(side, hp, 1, lo.getWorldPosition(new THREE.Vector3()).addScaledVector(worst.out, 0.1));
+          setWorldQuat(hand, hq);
+          best.handOut = moved + step;
+        }
+        return best;
+      },
+      // THE LAW FOR LEGS (Oct 23 2026): a thigh into the belly (a deep crouch, a kick, climbing up, the
+      // zombie's stand-up — up to 17 cm on Carla, recorded that way) is cleared the way the arm's elbow
+      // is: the KNEE swings out round the line from the hip to the ankle, so the foot stays where it is
+      // planted and the leg opens — knees out, as a body squats. Both ways are tried, the smallest
+      // swing that clears wins, eased from the last frame's
+      unclipLeg(side) {
+        lawIndex ??= vertexIndex(body, 2, { law: true });
+        const limb = "leg_" + side, leg = lawIndex.filter((x) => x.limb === limb);
+        const was = legPrev[side] ?? 0;
+        if (!leg.length) return 0;
+        const surf = torsoSurface(lawIndex, (n) => bone(n).getWorldPosition(new THREE.Vector3()));
+        const v = new THREE.Vector3(), TOL = LAW.tol, FEW = 6;
+        const cost = () => { let c = 0, n = 0; for (const x of leg) { const d = surf.depth(skinned(x, v), limb) - TOL; if (d > 0) { c += d; n++; } } return n > FEW ? c : 0; };
+        if (cost() === 0 && Math.abs(was) < 0.5) { legPrev[side] = 0; return 0; }
+        const up = bone("upperleg_" + side), foot = bone("foot_" + side);
+        const H = up.getWorldPosition(new THREE.Vector3()), axis = foot.getWorldPosition(new THREE.Vector3()).sub(H).normalize();
+        const w0 = up.getWorldQuaternion(new THREE.Quaternion()), fq = foot.getWorldQuaternion(new THREE.Quaternion());
+        const swing = (deg) => { setWorldQuat(up, new THREE.Quaternion().setFromAxisAngle(axis, deg * Math.PI / 180).multiply(w0)); setWorldQuat(foot, fq); };
+        let best = 0, bs = Infinity;
+        for (const deg of [0, was, ...Array.from({ length: 12 }, (_, k) => [5 * (k + 1), -5 * (k + 1)]).flat()]) {   // (to 60: Carla's deep crouches needed more than 40)
+          swing(deg); const c = 50 * cost() + 0.02 * Math.abs(deg) + 0.01 * Math.abs(deg - was);
+          if (c < bs - 1e-9) { bs = c; best = deg; }
+        }
+        if (!h.free) best = was + Math.max(-8, Math.min(8, best - was));
+        swing(best); legPrev[side] = best;
+        return best;
+      },
+      // POSE TO POSE: an arm's joint turns (shoulder to hand), read and written — a move keyed the
+      // way an animator keys it solves each key pose on its own and blends the JOINTS between them
+      armLocals(side) { return ["shoulder", "upperarm", "lowerarm", "hand"].map((n) => bone(n + "_" + side).quaternion.clone()); },
+      // look at a clip of this body at time t without disturbing the frame being built: every bone is
+      // saved, the clip posed, fn() measures, and the frame comes back exactly (the revive finds its
+      // compression and its rescue breath this way)
+      durOf: (clip) => clips[clip]?.duration ?? 0,
+      peek(clip, t, fn) {
+        const c = clips[clip]; if (!c) throw new Error("no clip " + clip);
+        const keep = Object.values(byName).map((b) => [b, b.quaternion.clone(), b.position.clone()]);
+        toRest();
+        for (const tr of c.tracks) { const [n, pr] = tr.name.split("."); const b = byName[n]; if (b && (pr === "quaternion" || pr === "position")) b[pr].fromArray(tr.createInterpolant().evaluate(Math.min(t, c.duration - 1e-4))); }
+        body.updateMatrixWorld(true);
+        try { return fn(); } finally { for (const [b, q, p] of keep) { b.quaternion.copy(q); b.position.copy(p); } body.updateMatrixWorld(true); }
+      },
+      setArmLocals(side, qs) { ["shoulder", "upperarm", "lowerarm", "hand"].forEach((n, i) => bone(n + "_" + side).quaternion.copy(qs[i])); bone("shoulder_" + side).updateMatrixWorld(true); },
+      // an arm back to its bind pose (the shoulder untouched): what a recipe reaches from when the clip's
+      // own arm is doing something else entirely — reached from a pistol clip's raised support arm, a
+      // hand dropped to the belly kept that arm's roll and twisted 140 degrees
+      restArm(side) { ["upperarm", "lowerarm", "hand"].forEach((n) => { const b = bone(n + "_" + side); b.quaternion.copy(restOf.get(b)); }); bone("upperarm_" + side).updateMatrixWorld(true); },
+      // keep an arm's pose to try it again: an IK pass that has to be corrected (a fingertip on a
+      // key) is run, measured, put back and run once more
+      save(side) {
+        const list = []; bone("upperarm_" + side).traverse((o) => { if (o.isBone) list.push([o, o.quaternion.clone()]); });
+        return () => { for (const [o, q] of list) o.quaternion.copy(q); bone("upperarm_" + side).updateMatrixWorld(true); };
+      },
+      loop: (t, dur, k) => (Math.PI * 2 * k * t) / dur,
+      pulse: (t, at, rise, fall) => t < at ? Math.max(0, 1 - (at - t) / rise) ** 2 : Math.exp(-(t - at) / fall) * (t - at < fall * 4 ? 1 : 0),
+      ease: (t, a, b) => { const x = Math.min(1, Math.max(0, (t - a) / (b - a))); return x * x * (3 - 2 * x); },
+    };
+    // A PARTNER (?partner=<glb>): a recipe for two (the hug) is fitted to the other body's real
+    // shape. Both are posed in the standing idle and their torsos measured from the skin — the
+    // vertices weighted to the hips/spine/neck/clavicles, read as a surface round each height
+    // band's own centre in angle slices. This body stands at the origin facing +Z, the partner
+    // HUG apart facing back at it (the pair video and the game place them the same way).
+    const TORSO = /(^|_)(hip|pelvis|spine_0\d|neck|shoulder_[lr]|clavicle_[lr])$/;
+    // a HEAD as a surface: its skin points binned by direction round their middle (12 rings x 24 slices), the
+    // furthest point in a bin its radius there — a point closer to the middle than that is inside (anim-pair.html
+    // reads heads the same way)
+    const HEAD_BONE = /(^|_)(head|eye|jaw|brow|lid|nose|teeth|tongue)/i;
+    function headSurface(pts) {
+      if (!pts.length) return () => ({ d: -1 });
+      const c = pts.reduce((a, q) => a.add(q), new THREE.Vector3()).multiplyScalar(1 / pts.length);
+      const NL = 16, NO = 32, R = new Float32Array(NL * NO);
+      const bin = (dx, dy, dz, r) => Math.min(NL - 1, Math.floor((Math.acos(Math.max(-1, Math.min(1, dy / r))) / Math.PI) * NL)) * NO + Math.floor(((Math.atan2(dz, dx) + Math.PI) / (2 * Math.PI)) * NO) % NO;
+      for (const q of pts) { const dx = q.x - c.x, dy = q.y - c.y, dz = q.z - c.z, r = Math.hypot(dx, dy, dz); if (r > 1e-6) { const b = bin(dx, dy, dz, r); R[b] = Math.max(R[b], r); } }
+      // (an empty bin takes the AVERAGE of its filled neighbours, not the largest: by the largest, the nose's radius
+      // spread round a sparsely sampled skull and the head read as a ball 16 cm round)
+      for (let pass = 0; pass < 4; pass++) { const R0 = R.slice(); for (let l = 0; l < NL; l++) for (let o = 0; o < NO; o++) if (!R0[l * NO + o]) { const nb = [R0[l * NO + (o + 1) % NO], R0[l * NO + (o + NO - 1) % NO], l > 0 ? R0[(l - 1) * NO + o] : 0, l < NL - 1 ? R0[(l + 1) * NO + o] : 0].filter((x) => x > 0); if (nb.length) R[l * NO + o] = nb.reduce((a, b) => a + b, 0) / nb.length; } }
+      return (q) => { const dx = q.x - c.x, dy = q.y - c.y, dz = q.z - c.z, r = Math.hypot(dx, dy, dz); if (r < 1e-6) return { d: 0.1, from: c }; const rr = R[bin(dx, dy, dz, r)]; return { d: rr ? rr - r : -1, from: c }; };
+    }
+    const NB = 40, NA = 36;
+    function posed(root, clip, t = 0) {
+      const by = {}; root.traverse((o) => { if (o.isBone) by[o.name] = o; });
+      for (const tr of clip.tracks) { const [n, p] = tr.name.split("."); if (by[n] && (p === "quaternion" || p === "position")) by[n][p].fromArray(tr.createInterpolant().evaluate(t)); }
+      root.updateMatrixWorld(true);
+      const find = (s) => Object.entries(by).find(([k]) => k === s || k.endsWith("_" + s) || canon(k) === s)?.[1].getWorldPosition(new THREE.Vector3());
+      const legs = ["l", "r"].flatMap((sd) => [["upperleg", "lowerleg", 0.08], ["lowerleg", "foot", 0.06], ["foot", "ball", 0.05]].map(([a, b, rad]) => ({ a: find(`${a}_${sd}`), b: find(`${b}_${sd}`), rad })));
+      const head = find("head"), fwd = new THREE.Vector3(0, 0, 1);
+      return { neck: find("neck"), shoulders: find("upperarm_l").add(find("upperarm_r")).multiplyScalar(0.5), back: find("spine_02"), hip: find("hip"), legs, mouth: head.clone().addScaledVector(fwd, 0.1).add(new THREE.Vector3(0, 0.012, 0)) };
+    }
+    function torso(root) {
+      const pts = [], v = new THREE.Vector3();
+      root.traverse((m) => {
+        if (!m.isSkinnedMesh || /body_proxy/.test(m.name)) return;   // (a partner's SUIT is what's hugged)
+        const pos = m.geometry.attributes.position, si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
+        for (let i = 0; i < pos.count; i += 2) {
+          let best = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; best = si.getComponent(i, k); } }
+          if (!TORSO.test(canon(m.skeleton.bones[best]?.name ?? ""))) continue;
+          m.getVertexPosition(i, v); pts.push(v.clone().applyMatrix4(m.matrixWorld));
+        }
+      });
+      const y0 = Math.min(...pts.map((p) => p.y)), y1 = Math.max(...pts.map((p) => p.y));
+      const band = (y) => Math.min(NB - 1, Math.max(0, Math.floor(((y - y0) / (y1 - y0)) * NB)));
+      const cen = Array.from({ length: NB }, () => new THREE.Vector3()), cnt = new Array(NB).fill(0), R = Array.from({ length: NB }, () => new Float32Array(NA));
+      for (const p of pts) { const b = band(p.y); cen[b].x += p.x; cen[b].z += p.z; cnt[b]++; }
+      cen.forEach((c, b) => { if (cnt[b]) c.multiplyScalar(1 / cnt[b]); });
+      const slice = (dx, dz) => Math.floor(((Math.atan2(dz, dx) + Math.PI) / (2 * Math.PI)) * NA) % NA;
+      for (const p of pts) { const b = band(p.y), c = cen[b], dx = p.x - c.x, dz = p.z - c.z; const a = slice(dx, dz); R[b][a] = Math.max(R[b][a], Math.hypot(dx, dz)); }
+      // an empty slice takes the larger of its neighbours (a thin band can miss one)
+      for (const r of R) for (let a = 0; a < NA; a++) if (!r[a]) r[a] = Math.max(r[(a + 1) % NA], r[(a + NA - 1) % NA]);
+      // the surface's distance from the band's centre toward a direction, and the centre
+      const at = (y, dx, dz) => { const b = band(y); return { c: cen[b], r: R[b][slice(dx, dz)], has: cnt[b] > 0 }; };
+      return { y0, y1, at };
+    }
+    if (q.get("partner")) {
+      const pg = await loader.loadAsync(q.get("partner"));
+      // (standing measured in the idle; a zombie has its own)
+      const IDLES = ["ual1-idle-loop", "ual2-zombie-idle-loop", "mx-zombie-idle"];
+      const pIdle = IDLES.map((n) => pg.animations.find((c) => c.name === n)).find(Boolean), mIdle = IDLES.map((n) => clips[n]).find(Boolean);
+      const pm = posed(pg.scene, pIdle), mm = posed(body, mIdle);
+      const pt = torso(pg.scene), mt = torso(body);
+      // the gap between the two hips: their fronts a finger apart at the deepest height, hips to
+      // shoulders (a chest-only gap stood a small body close enough for the thighs to meet) ...
+      let gap = 0;
+      for (let y = Math.max(pt.y0, mt.y0) + 0.03; y < Math.min(pm.shoulders.y, mm.shoulders.y); y += 0.02) {
+        const m = mt.at(y, 0, 1), p = pt.at(y, 0, 1);
+        if (m.has && p.has) gap = Math.max(gap, m.c.z + m.r + p.c.z + p.r);
+      }
+      gap += 0.015;
+      const chestGap = gap;
+      // ... and the legs, as capsules, three centimetres clear of each other in the idle stance
+      const segD = (p1, q1, p2, q2) => { let best = Infinity; for (let i = 0; i <= 10; i++) for (let j = 0; j <= 10; j++) best = Math.min(best, p1.clone().lerp(q1, i / 10).distanceTo(p2.clone().lerp(q2, j / 10))); return best; };
+      const flip = (v, g) => new THREE.Vector3(-v.x, v.y, g - v.z);
+      const legGap = (g) => Math.min(...mm.legs.flatMap((x) => pm.legs.map((y) => segD(x.a, x.b, flip(y.a, g), flip(y.b, g)) - x.rad - y.rad)));
+      while (legGap(gap) < 0.03 && gap < 0.8) gap += 0.005;
+      // ... and each body's THIGHS out of the other's torso (a tall body's thigh stood in a short one's
+      // pelvis — Eric and Sophia's kiss, 16 cm — with the torsos and the legs each clear of their own kind)
+      const inT = (T, q) => { const c = T.at(q.y, 1, 0); if (!c.has || q.y < T.y0 || q.y > T.y1) return -1; const dx = q.x - c.c.x, dz = q.z - c.c.z; return T.at(q.y, dx, dz).r - Math.hypot(dx, dz); };
+      // (the thighs' SKIN, both bodies posed in the idle: points on the thigh bone with a set radius missed the
+      // front of the hip, where Eric's thigh met Sophia's belly)
+      const legSkin = (root) => { const out = [], v = new THREE.Vector3(); root.traverse((m) => { if (!m.isSkinnedMesh || /body_proxy/.test(m.name)) return; const pos = m.geometry.attributes.position, si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight; for (let i = 0; i < pos.count; i += 4) { let best = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; best = si.getComponent(i, k); } } if (!/(^|_)upperleg(_twist)?_[lr]$/.test(canon(m.skeleton.bones[best]?.name ?? ""))) continue; m.getVertexPosition(i, v); out.push(v.clone().applyMatrix4(m.matrixWorld)); } }); return out; };
+      posed(pg.scene, pIdle); posed(body, mIdle);
+      const myLegs = legSkin(body), pLegs = legSkin(pg.scene);
+      const thighIn = (g) => Math.max(...myLegs.map((q) => inT(pt, flip(q, g))), ...pLegs.map((q) => inT(mt, flip(q, g))));
+      while (thighIn(gap) > 0.01 && gap < 0.8) gap += 0.005;
+      toRest();   // the measuring posed this body; the bake starts each frame from rest anyway
+      // the partner faces back at this body from `gap` ahead: a point in this body's world,
+      // turned into the partner's own (facing +Z) and measured against its torso
+      // (a pair can stand further apart than the hug's chests-a-finger gap: withGap(g) is the same
+      // partner stood g apart — comforting someone is done at arm's length. The bake records the gap
+      // a move used, and the game stands the two that far apart)
+      const makePartner = (gap) => {
+      const toP = (p) => new THREE.Vector3(-p.x, p.y, gap - p.z);
+      const toMe = (p) => new THREE.Vector3(-p.x, p.y, gap - p.z);
+      return {
+        gap, chestGap, withGap: (g) => { const q = makePartner(g); h.pairGap = g; return q; }, shoulderY: pm.shoulders.y, backY: pm.back.y, neckY: pm.neck.y, hipY: pm.hip.y,
+        // the middle of the partner's torso at height y, in this body's world
+        centre(y) { const c = pt.at(y, 1, 0).c; return toMe(new THREE.Vector3(c.x, y, c.z)); },
+        // how far a point is inside the partner's torso (metres, >0 inside)
+        into(p) {
+          const l = toP(p); if (l.y < pt.y0 || l.y > pt.y1) return -1;
+          const s = pt.at(l.y, 1, 0); if (!s.has) return -1;
+          const dx = l.x - s.c.x, dz = l.z - s.c.z, r = pt.at(l.y, dx, dz).r;
+          return r - Math.hypot(dx, dz);
+        },
+        // a point `out` metres off the partner's surface at height y, in a direction given as
+        // THIS body sees it: `across` along this body's right, `away` along its forward (so a
+        // positive `away` is round the partner's back)
+        surface(y, across, away, out = 0) {
+          // a direction in this body's world (right = -X, forward = +Z) turned half round into
+          // the partner's: (-across, away) -> (across, -away)
+          const dx = across, dz = -away, s = pt.at(y, dx, dz); const d = new THREE.Vector2(dx, dz).normalize();
+          return toMe(new THREE.Vector3(s.c.x + d.x * (s.r + out), y, s.c.z + d.y * (s.r + out)));
+        },
+        // the partner's mouth (its head bone's height less the face's drop), in this body's world
+        mouth: toMe(pm.mouth),
+      };
+      };
+      const partner = makePartner(gap);
+      // THE PARTNER IN ITS OWN CLIP (Oct 23 2026: the revive): pose(clip, t, place) poses the partner in
+      // one of its own clips at t, stood where `place` says in this body's world ({x, z, yaw} degrees,
+      // its own facing +Z turned by yaw), and returns where its bones are. The bake records the place a
+      // move used (h.pairPlace) so the game puts the two bodies the same way
+      const pBy = {}; pg.scene.traverse((o) => { if (o.isBone) pBy[o.name] = o; });
+      const pClips = Object.fromEntries(pg.animations.map((c) => [c.name, c])), pSamp = {}; let pSkinIndex = null;
+      partner.has = (clip) => !!pClips[clip];
+      partner.pose = (clip, t, place = { x: 0, z: 0, yaw: 0 }) => {
+        const c = pClips[clip]; if (!c) throw new Error("the partner has no clip " + clip);
+        const sm = (pSamp[clip] ??= c.tracks.map((tr) => { const [n, pr] = tr.name.split("."); return pBy[n] && (pr === "quaternion" || pr === "position") ? { obj: pBy[n][pr], it: tr.createInterpolant() } : null; }).filter(Boolean));
+        for (const x of sm) x.obj.fromArray(x.it.evaluate(Math.min(t, c.duration - 1e-4)));
+        pg.scene.updateMatrixWorld(true);
+        const yaw = (place.yaw ?? 0) * Math.PI / 180, cy = Math.cos(yaw), sy = Math.sin(yaw);
+        const find = (s2) => Object.entries(pBy).find(([k]) => k === s2 || k.endsWith("_" + s2) || canon(k) === s2)?.[1];
+        const toW = (v) => new THREE.Vector3(v.x * cy + v.z * sy + place.x, v.y + (place.y ?? 0), -v.x * sy + v.z * cy + place.z);   // (y: a ceiling ambush hangs the ZOMBIE up; the partner stands that much lower in its frame)
+        return {
+          at: (n) => toW(find(n).getWorldPosition(new THREE.Vector3())), dur: c.duration,
+          // (a sample of the partner's skin as posed, in this body's world — the finisher fit's measure)
+          // (step: every step-th vertex — 24 by default; a bite reads the skin near the mouth at 4, or a forearm was a few
+          // dozen points the face could slip between)
+          skin: (step = 24) => { const ix = (pSkinIndex ??= {})[step] ??= vertexIndex(pg.scene, step); const v = new THREE.Vector3(); return ix.map((x) => ({ p: toW(skinned(x, v)), limb: x.limb, torso: x.torso, bone: x.bone })); },
+          // how far a point is inside the partner's TORSO as it is posed now (metres, >0 inside) — the same
+          // measure as anim-pair.html's check: its skin banded along its own spine, hips to neck, and read
+          // as a surface in angle slices round each band's middle
+          // how far the partner's head reaches from its head bone along a direction (its skin; a hood counts)
+          headOut: (dir) => {
+            let m = 0; const v = new THREE.Vector3(), hb = toW(find("head").getWorldPosition(new THREE.Vector3()));
+            pg.scene.traverse((mm) => {
+              if (!mm.isSkinnedMesh || /body_proxy/.test(mm.name)) return;
+              const pos = mm.geometry.attributes.position, si = mm.geometry.attributes.skinIndex, sw = mm.geometry.attributes.skinWeight;
+              for (let i = 0; i < pos.count; i += 3) {
+                let best = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; best = si.getComponent(i, k); } }
+                if (canon(mm.skeleton.bones[best]?.name ?? "") !== "head") continue;
+                mm.getVertexPosition(i, v); m = Math.max(m, toW(v.clone().applyMatrix4(mm.matrixWorld)).sub(hb).dot(dir));
+              }
+            });
+            return m;
+          },
+          into: () => {
+            const pts = [], v = new THREE.Vector3();
+            pg.scene.traverse((m) => {
+              if (!m.isSkinnedMesh || /body_proxy/.test(m.name)) return;
+              const pos = m.geometry.attributes.position, si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
+              for (let i = 0; i < pos.count; i += 3) {
+                let best = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; best = si.getComponent(i, k); } }
+                if (!TORSO.test(canon(m.skeleton.bones[best]?.name ?? ""))) continue;
+                m.getVertexPosition(i, v); pts.push(toW(v.clone().applyMatrix4(m.matrixWorld)));
+              }
+            });
+            const ax = toW(find("neck").getWorldPosition(new THREE.Vector3())).sub(toW(find("hip").getWorldPosition(new THREE.Vector3()))).normalize();
+            const ref = Math.abs(ax.y) < 0.9 ? new THREE.Vector3(0, 1, 0) : new THREE.Vector3(1, 0, 0), ux = new THREE.Vector3().crossVectors(ref, ax).normalize(), uz = new THREE.Vector3().crossVectors(ux, ax).normalize();
+            const fr = (q) => [q.dot(ux), q.dot(ax), q.dot(uz)], F = pts.map(fr);
+            const y0 = Math.min(...F.map((x) => x[1])), y1 = Math.max(...F.map((x) => x[1])), NB2 = 24, NA2 = 32, band = (y) => Math.floor(((y - y0) / (y1 - y0 + 1e-6)) * NB2);
+            const cen = Array.from({ length: NB2 }, () => [0, 0, 0]), R = Array.from({ length: NB2 }, () => new Float32Array(NA2));
+            for (const [x, y, z] of F) { const c2 = cen[band(y)]; c2[0] += x; c2[1] += z; c2[2]++; }
+            for (const c2 of cen) if (c2[2]) { c2[0] /= c2[2]; c2[1] /= c2[2]; }
+            const ang = (dx, dz) => Math.floor(((Math.atan2(dz, dx) + Math.PI) / (2 * Math.PI)) * NA2) % NA2;
+            for (const [x, y, z] of F) { const b = band(y), c2 = cen[b], dx = x - c2[0], dz = z - c2[1]; R[b][ang(dx, dz)] = Math.max(R[b][ang(dx, dz)], Math.hypot(dx, dz)); }
+            // (an empty slice takes the larger of its neighbours, as the pair check does: every third vertex
+            // leaves gaps, and a point in one read as outside while the check read it 15 cm in)
+            for (const r of R) for (let a = 0; a < NA2; a++) if (!r[a]) r[a] = Math.max(r[(a + 1) % NA2], r[(a + NA2 - 1) % NA2]);
+            return (q) => {
+              const [x, y, z] = fr(q); if (y < y0 || y > y1) return { d: -1 };
+              const b = band(y), c2 = cen[b]; if (!c2[2]) return { d: -1 };
+              const dx = x - c2[0], dz = z - c2[1], r = R[b][ang(dx, dz)];
+              const from = ux.clone().multiplyScalar(c2[0]).addScaledVector(ax, y).addScaledVector(uz, c2[1]);
+              return { d: r ? r - Math.hypot(dx, dz) : -1, from };
+            };
+          },
+          // how far a point is inside the partner's HEAD as it is posed now (metres, >0 inside). The torso
+          // measure stops at the neck, so a zombie biting a shoulder put its face in the survivor's jaw and read
+          // clean — Nov 11 2026
+          headInto: () => {
+            const pts = [], v = new THREE.Vector3();
+            pg.scene.traverse((m) => {
+              if (!m.isSkinnedMesh || /body_proxy/.test(m.name)) return;
+              const pos = m.geometry.attributes.position, si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
+              for (let i = 0; i < pos.count; i += 2) {
+                let best = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; best = si.getComponent(i, k); } }
+                if (!HEAD_BONE.test(canon(m.skeleton.bones[best]?.name ?? ""))) continue;
+                m.getVertexPosition(i, v); pts.push(toW(v.clone().applyMatrix4(m.matrixWorld)));
+              }
+            });
+            return headSurface(pts);
+          },
+        };
+      };
+      h.partner = partner;
+    }
+    // does this clip's gun WANDER (a sprint's swinging hand)? Over the clip, the gun's pose in the
+    // chest's frame (from this clip's own seat); if its barrel swings more than 25 degrees about
+    // its average (12: a sprint swung it 0-34 degrees down four times a second), the gun is anchored to the chest at that average instead (anim-recipes.js
+    // anchoredGun). Only moments with the left hand plausibly on the gun count toward the average.
+    function gunAnchorFor(clip, gunId) {
+      // only the moves where a steady gun is right (running, sprinting, turning): a reload or an
+      // aim coming up MOVES the gun on purpose, and anchoring them froze that
+      if (!/run-|sprint-|turn-90/.test(clip)) return null;
+      // a sprint carries the gun at PORT ARMS (anim-recipes.js anchoredGun): its averaged carry put
+      // the gun low at the right hip and the left arm had to cross the body to reach it (Josh: "left
+      // arm is messed up")
+      if (/sprint-/.test(clip)) return { port: true, spread: 0 };
+      const c = clips[clip], hold = GUN_HOLDS[gunId]; if (!c || !hold || !h.gunCal) return null;
+      const samplers = c.tracks.map((tr) => { const [n, prop] = tr.name.split("."); const b = byName[n]; return b && (prop === "quaternion" || prop === "position") ? { obj: b[prop], it: tr.createInterpolant() } : null; }).filter(Boolean);
+      const rows = [];
+      for (let i = 0; i < 40; i++) {
+        toRest(); for (const s2 of samplers) s2.obj.fromArray(s2.it.evaluate((c.duration * (i + 0.5)) / 40)); body.updateMatrixWorld(true);
+        // its angle against the HIPS (what reads as bobbing is against the way of travel; the chest
+        // itself pitches with each stride), its place against the chest
+        const G = gunPose(h.handRigid("r"), hold, h.clipCal ?? h.gunCal, { noLean: !!h.clipCal }), qi = h.quat("hip").invert(), chest = h.at("spine_03");
+        rows.push({ z: G.Z.clone().applyQuaternion(qi), y: G.Y.clone().applyQuaternion(qi), o: G.o.clone().sub(chest).applyQuaternion(qi), on: h.hand("l").fist.distanceTo(G.at(hold.support)) < 0.2 });
+      }
+      toRest();
+      const use = rows.filter((r) => r.on).length >= 6 ? rows.filter((r) => r.on) : rows;
+      const mean = (k) => use.reduce((a, r) => a.add(r[k]), new THREE.Vector3()).multiplyScalar(1 / use.length);
+      const z = mean("z").normalize();
+      const spread = rows.map((r) => r.z.angleTo(z) * 180 / Math.PI).sort((a, b) => a - b)[Math.floor(rows.length * 0.9)];
+      if (spread < 12) return null;
+      return { z: z.toArray(), y: mean("y").normalize().toArray(), o: mean("o").toArray(), spread: +spread.toFixed(1) };
+    }
+    B.h = h;   // (for probes)
+    B.gap = () => h.partner?.gap ?? null;
+    B.chestGap = () => h.partner?.chestGap ?? null;
+    // THE GUN'S SEAT in this body's fist (see anim-recipes.js GUN_CAL): over the rifle pack's aiming
+    // clip, the barrel's way (right fist -> the clip's own left hand) and level-up, in the right
+    // hand's frame, averaged
+    B.gunCal = (clip = "mx-pro-rifle-pack--idle-aiming") => {
+      const c = clips[clip]; if (!c) throw new Error("no clip " + clip);
+      const samplers = c.tracks.map((tr) => { const [n, prop] = tr.name.split("."); const b = byName[n]; return b && (prop === "quaternion" || prop === "position") ? { obj: b[prop], it: tr.createInterpolant() } : null; }).filter(Boolean);
+      // only moments where the left hand is plausibly ON the gun (a reload takes it away), and the
+      // median of each component (a stray moment can't drag it)
+      const zs = [], ys = []; let reach = [];
+      for (let i = 0; i < 40; i++) {
+        toRest(); for (const s2 of samplers) s2.obj.fromArray(s2.it.evaluate((c.duration * (i + 0.5)) / 40)); body.updateMatrixWorld(true);
+        const R = h.handRigid("r"), L = h.hand("l");
+        const z = L.fist.clone().sub(R.fist); const d = z.length(); if (d < 0.17 || d > 0.5) continue; z.normalize();
+        const y = new THREE.Vector3(0, 1, 0).addScaledVector(z, -z.y).normalize();
+        zs.push([z.dot(R.f), z.dot(R.p), z.dot(R.u)]); ys.push([y.dot(R.f), y.dot(R.p), y.dot(R.u)]); reach.push(d);
+      }
+      toRest();
+      if (zs.length < 6) return null;
+      const med = (rows, k) => { const v = rows.map((r) => r[k]).sort((a, b) => a - b); return v[v.length >> 1]; };
+      const norm = (a) => { const l = Math.hypot(...a); return a.map((v) => +(v / l).toFixed(4)); };
+      return { z: norm([0, 1, 2].map((k) => med(zs, k))), y: norm([0, 1, 2].map((k) => med(ys, k))), reach: +reach.sort((a, b) => a - b)[reach.length >> 1].toFixed(3), n: zs.length };
+    };
+    // THE PISTOL'S SEAT: a pistol isn't held like a rifle's pistol grip (the barrel nearly along the
+    // forearm, the wrist straight), and its two hands are a fist apart, so the rifle's measure can't
+    // read it. Over Mixamo's two-handed pistol aim the barrel runs down the SIGHT LINE — from the
+    // eye through the sights (a hand's height above the fist) — and level is up; kept in the right
+    // hand's frame like the rifle seat (cal.json <body>.pistol)
+    B.pistolCal = (clip = "mx-pistol-shooting") => {
+      const c = clips[clip]; if (!c) throw new Error("no clip " + clip);
+      const samplers = c.tracks.map((tr) => { const [n, prop] = tr.name.split("."); const b = byName[n]; return b && (prop === "quaternion" || prop === "position") ? { obj: b[prop], it: tr.createInterpolant() } : null; }).filter(Boolean);
+      let zs = [], ys = [];
+      const all = [];
+      for (let i = 0; i < 40; i++) {
+        toRest(); for (const s2 of samplers) s2.obj.fromArray(s2.it.evaluate((c.duration * (i + 0.5)) / 40)); body.updateMatrixWorld(true); bodyFrame();
+        const R = h.handRigid("r"), L = h.hand("l"), d = L.fist.distanceTo(R.fist);
+        const eye = h.ahead(h.at("head"), 0.09, 0.08, 0), sights = R.fist.clone().add(new THREE.Vector3(0, 0.065, 0));
+        const z = sights.sub(eye).normalize(), y = new THREE.Vector3(0, 1, 0).addScaledVector(z, -z.y).normalize();
+        all.push({ d, z: [z.dot(R.f), z.dot(R.p), z.dot(R.u)], y: [y.dot(R.f), y.dot(R.p), y.dot(R.u)] });
+      }
+      toRest();
+      // the moments the two hands are TOGETHER on the gun: fists within 15 cm. A BROAD BODY'S HANDS ARE NEVER THAT
+      // CLOSE (Nov 14 2026): put on shoulders 38 cm across, the same two-handed aim holds its fists 16-19 cm apart
+      // the whole clip, no moment passed, and four creator bodies (David, Leonard, Pete, the vanguard soldier) got
+      // no pistol seat at all — the gun rode on top of an open hand. With too few such moments the hands are
+      // together when they are as near as this clip brings them (within 3 cm of its nearest, 30 cm at most)
+      const take = (lim) => { const k = all.filter((m) => m.d <= lim); zs = k.map((m) => m.z); ys = k.map((m) => m.y); };
+      take(0.15);
+      if (zs.length < 6) { const near = Math.min(...all.map((m) => m.d)); if (near <= 0.3) take(near + 0.03); }
+      if (zs.length < 6) return null;
+      const med = (rows, k) => { const v = rows.map((r) => r[k]).sort((a, b) => a - b); return v[v.length >> 1]; };
+      const norm = (a) => { const l = Math.hypot(...a); return a.map((v) => +(v / l).toFixed(4)); };
+      return { z: norm([0, 1, 2].map((k) => med(zs, k))), y: norm([0, 1, 2].map((k) => med(ys, k))), n: zs.length };
+    };
+    // EACH GUN'S SEAT, BY ITS ID, FOR THE GAME (Nov 14 2026): the bake seats a gun in the hand's grip channel and
+    // closes the fingers round it there (anim-hands.js gunSeat, measured at load into h.gripCals.r.seats), but the
+    // seats were never written down, and the game drew every gun on the fist's middle — 3-5 cm back through the
+    // hand the fingers had closed in front of. Measured here against a calibration (the one --gun-cal has just
+    // made), exactly as the load measures them, and kept in cal.json for the show to place the gun by
+    B.gunSeats = (cal) => {
+      if (!h.gripCals?.r || !cal) return null;
+      toRest(); body.updateMatrixWorld(true);
+      const at = (n) => bone(n).getWorldPosition(new THREE.Vector3());
+      const g = { ...h.gripCals.r, seats: {} }, R0 = handRigid(at, "r", g), out = {};
+      g.avoid = thumbAvoid(at, "r", R0, g.r);
+      for (const [id, F] of Object.entries(h.gunFields ?? {})) {
+        const hold = GUN_HOLDS[id], c = id === "pistol" ? cal.pistol : cal; if (!hold || !c) continue;
+        const G0 = gunPose(R0, hold, c);
+        out[id] = gunSeat({ root: F.root, field: F.field.field }, R0, (o) => ({ ...G0, o }), hold, R0.hold(GUN_GRIP_R));
+      }
+      toRest();
+      return out;
+    };
+    // recipes for one body, or (pair = true) the ones fitted to a partner
+    // (pair: false the moves for one, true the survivor pairs, "zombie" a zombie's moves on a survivor)
+    // ("victim": a survivor's moves on a zombie partner — the knife that ends a grab, the stamp off an ankle)
+    B.recipes = (pair = false) => Object.keys(RECIPES).filter((n) => (pair === "zombie" || !n.includes("@")) && (pair === "zombie" || pair === "victim" ? RECIPES[n].pair === pair : RECIPES[n].pair !== "zombie" && RECIPES[n].pair !== "victim" && !!RECIPES[n].pair === pair));
+    // the clip a recipe bakes to: bd-<recipe>, or its own id (a gun clip: gr-<base clip>)
+    B.idOf = (n) => RECIPES[n].id ?? "bd-" + n;
+    B.bake = (name, fps = 30) => {
+      const R = RECIPES[name]; if (!R) throw new Error("no recipe " + name);
+      // (a move fast enough that the game's blend between two frames cuts a corner through a body asks for
+      // more of them: the stamp's foot swung past a shoulder between two clean frames, 10 cm into it)
+      if (R.fps) fps = R.fps;
+      const base0 = clips[R.base]; if (!base0) throw new Error("no base clip " + R.base);
+      // a recipe's length may be its base clip's own (a walk with a flashlight loops with the walk)
+      const DUR = R.dur === "base" ? base0.duration : R.dur;
+      for (const k of Object.keys(unclipPrev)) delete unclipPrev[k]; for (const k of Object.keys(legPrev)) delete legPrev[k];
+      for (const k of Object.keys(rollPrev)) delete rollPrev[k];
+      // a gun clip: how THIS clip's own rifle sat in the fist (other Mixamo downloads held theirs
+      // at other angles); the bake turns the wrist so the body's one standard seat gives that pose
+      // (a pistol's two hands are a fist apart, not a barrel's length: the clip's own seat can't be
+      // read that way, so the pistol rides the body's standard one)
+      // (Oct 22 2026: the STANDARD seat is now how a hand really holds a grip — across the palm,
+      // the palm on its right side, anim-build.cjs canonSeat — and the measured mocap angles are
+      // each clip's AIM, which the wrist turns to keep. The pistol's aim is its measured sight line)
+      h.gunCal = R.gun === "pistol" ? (rifleCal?.pistol ?? null) : rifleCal;
+      const holdClip = R.armsFrom ?? R.base;   // whose hands hold the gun
+      h.clipCal = !R.gun ? null : R.gun === "pistol" ? (rifleCal?.pistol?.aim ?? null) : (B.gunCal(holdClip) ?? rifleCal?.aim ?? h.gunCal);
+      h.gunAnchor = R.gun && R.gun !== "pistol" ? gunAnchorFor(holdClip, R.gun) : null;
+      // the most the law had to LIFT an arm (moving its hand): a recipe leaning on that is the
+      // recipe's fault — it put the hand somewhere a body can't — and is reported for fixing
+      let lawLift = 0, handOut = 0, legOpen = 0; const gripW = {}; const lawFrame = new Uint8Array(Math.round(DUR * fps) + 1);
+      h.stuck = 0;   // frames where a recipe's own fitting gave up (the hug's arm clearance)
+      const base = clips[R.base]; if (!base) throw new Error("no base clip " + R.base);
+      // the base clip is sampled track by track rather than through the mixer: the mixer only
+      // writes a value that changed since its last write, so a bone that holds still in the base
+      // (arms folded the whole loop) was never re-posed after toRest() and baked at rest
+      // ARMS FROM ANOTHER CLIP (R.armsFrom): the legs, hips and spine are the base's, the shoulders,
+      // arms and hands real motion from a clip that carries something in them — a sprint's arms
+      // pump, so a rifle sprint's arms are the rifle RUN's, time-matched to the stride
+      const ARM = /(shoulder|upperarm|lowerarm|hand|thumb|index|middle|ring|pinky)_[lr]$|spine_0[123]$|neck$|head$/;
+      const arms = R.armsFrom ? clips[R.armsFrom] : null; if (R.armsFrom && !arms) throw new Error("no arms clip " + R.armsFrom);
+      const samplers = base.tracks.map((tr) => {
+        const [n, prop] = tr.name.split("."); const b = byName[n];
+        if (arms && ARM.test(n)) return null;
+        return b && (prop === "quaternion" || prop === "position") ? { obj: b[prop], it: tr.createInterpolant() } : null;
+      }).filter(Boolean).concat(arms ? arms.tracks.map((tr) => {
+        const [n, prop] = tr.name.split("."); const b = byName[n];
+        if (!ARM.test(n) || prop !== "quaternion" || !b) return null;
+        const it = tr.createInterpolant();
+        return { obj: b[prop], it: { evaluate: (bt) => it.evaluate(((bt / base.duration) * arms.duration) % arms.duration) } };
+      }).filter(Boolean) : []);
+      // every bone, recorded in the body's own (sanitised) names
+      const names = Object.keys(byName);
+      const posName = base.tracks.find((t) => t.name.endsWith(".position"))?.name.split(".")[0];
+      const n = Math.round(DUR * fps) + 1;
+      const times = new Float32Array(n), quats = Object.fromEntries(names.map((b) => [b, new Float32Array(n * 4)])), hips = new Float32Array(n * 3);
+      // home: the body at the first frame
+      toRest(); for (const s of samplers) s.obj.fromArray(s.it.evaluate(R.reverse ? base.duration - 1e-4 : 0)); body.updateMatrixWorld(true); bodyFrame();
+      home = { o: bone("hip").getWorldPosition(new THREE.Vector3()), fwd: frame.fwd.clone(), right: frame.right.clone(), left: frame.left.clone() };
+      // with the upper body from another clip, the chest is turned to face the way THAT clip's
+      // chest faced in the world: the two clips' hips point differently (a rifle runner's chest is
+      // bladed off its hips), so the copied spine alone aimed the chest — and the gun — 35° wrong
+      const hipB = bone("hip"), hipTrack = arms?.tracks.find((tr) => tr.name.split(".")[0] === hipB.name && tr.name.endsWith(".quaternion"));
+      const hipIt = hipTrack?.createInterpolant();
+      const fwdOfHip = (() => { toRest(); body.updateMatrixWorld(true); const q0 = hipB.getWorldQuaternion(new THREE.Quaternion()); return new THREE.Vector3(0, 0, 1).applyQuaternion(q0.invert()); })();
+      h.yawFix = null;
+      const yawOf = (qWorld) => { const f = fwdOfHip.clone().applyQuaternion(qWorld); return Math.atan2(f.x, f.z); };
+      const alignChest = (bt) => {
+        if (!arms || !hipIt) return;
+        const pq = hipB.parent.getWorldQuaternion(new THREE.Quaternion());
+        const runHip = pq.clone().multiply(new THREE.Quaternion().fromArray(hipIt.evaluate(((bt / base.duration) * arms.duration) % arms.duration)));
+        // the whole turn between the two clips' hips — the way they face AND how far they lean
+        // (by the way only, two sprints came out hunched over a gun pointing at the floor)
+        const fix = runHip.clone().multiply(hipB.getWorldQuaternion(new THREE.Quaternion()).invert());
+        h.yawFix = fix;
+        // spread down the spine, the way a back bends (all on the lowest joint folded it 54
+        // degrees at the waist): each joint takes a share of the same turn, so the shares
+        // commute and the chest still ends exactly where the whole turn puts it
+        const I = new THREE.Quaternion();
+        for (const [n, f] of [["spine_01", 0.35], ["spine_02", 0.35], ["spine_03", 0.3]]) {
+          const sp = bone(n), w = sp.getWorldQuaternion(new THREE.Quaternion());
+          setWorldQuat(sp, w.premultiply(I.clone().slerp(fix, f)));
+        }
+      };
+      // where in the base clip frame i plays: a one-shot holds its end; the LAST frame is the
+      // clip's end, never its start again (it snapped back for a frame); and a move that loops
+      // over a base of another length (a shiver over the idle) plays the base a whole number of
+      // times, stretched a touch, so the loop seam meets itself
+      const LOOPED = /shiver|hammer|bandage|look-back/.test(name);
+      // a recording whose FIRST frame pops (ual1-pistol-shoot's arm is 12-19 degrees off its second
+      // frame, which then barely moves): its first frame plays the second's pose. A real start
+      // that moves on keeps its own
+      const firstPop = (() => {
+        if (R.reverse) return false;
+        const qAt = (bn, t) => { const sm = samplers.find((x) => x.obj === byName[bn]?.quaternion); return sm ? new THREE.Quaternion().fromArray(Array.from(sm.it.evaluate(t))) : null; };
+        const ang = (a, b) => 2 * Math.acos(Math.min(1, Math.abs(a.dot(b)))) * 180 / Math.PI;
+        let s01 = 0, s12 = 0;
+        for (const bn of ["upperarm_l", "lowerarm_l", "hand_l", "upperarm_r", "lowerarm_r", "hand_r", "spine_02", "head"]) {
+          const a = qAt(bn, 0), b = qAt(bn, 1 / fps), c = qAt(bn, 2 / fps); if (!a || !b || !c) continue;
+          s01 = Math.max(s01, ang(a, b)); s12 = Math.max(s12, ang(b, c));
+        }
+        return s01 > 8 && s01 > 4 * s12 + 2;
+      })();
+      const reps = LOOPED && R.dur !== "base" ? Math.max(1, Math.round(DUR / base.duration)) : 0;
+      const baseTime = (t, i) => {
+        // (a move that holds its base clip on a frame, or plays it out of order: time(t) says where the base is)
+        if (R.time) return Math.max(0, Math.min(base.duration - 1e-4, R.time(t)));
+        if (reps) return ((t / DUR) * reps * base.duration) % base.duration;
+        if (firstPop && i === 0) return Math.min(1 / fps, base.duration - 1e-4);
+        return R.once || i === n - 1 ? Math.min(t, base.duration - 1e-4) : t % base.duration;
+      };
+      // the frame loop; a WARM-UP pass first (recording nothing), so the arm solver's frame-to-frame
+      // easing starts where it settles: a loop then joins its own end, and a short held pose (a
+      // six-frame aim) never ramps its elbow in over the first frames and snaps back at the seam
+      const frameAt = (i) => {
+        const t = Math.min(DUR, i / fps);
+        toRest();
+        let bt = baseTime(t, i);
+        if (R.reverse) bt = base.duration - 1e-4 - bt;
+        for (const s of samplers) s.obj.fromArray(s.it.evaluate(bt));
+        body.updateMatrixWorld(true); alignChest(bt); bodyFrame();
+        const fb = fingersNow();
+        R.frame(h, t, DUR);
+        if (R.unclip !== false) for (const side of R.unclip ?? ["l", "r"]) h.unclip(side);
+        limitFingers(fb);
+      };
+      // each bone's average turn over the base clip (h.calm)
+      const means = {};
+      h.meanOf = (bn) => {
+        if (means[bn]) return means[bn];
+        const sm = samplers.find((x) => x.obj === byName[bn]?.quaternion); if (!sm) return null;
+        const acc = new THREE.Vector4(), q0 = new THREE.Quaternion(), qi = new THREE.Quaternion();
+        for (let i = 0; i < 24; i++) {
+          qi.fromArray(sm.it.evaluate((base.duration * (i + 0.5)) / 24));
+          if (i === 0) q0.copy(qi); if (qi.dot(q0) < 0) qi.set(-qi.x, -qi.y, -qi.z, -qi.w);
+          acc.x += qi.x; acc.y += qi.y; acc.z += qi.z; acc.w += qi.w;
+        }
+        return (means[bn] = new THREE.Quaternion(acc.x, acc.y, acc.z, acc.w).normalize());
+      };
+      // A CHOICE the recipe leaves open (how a gun is turned across the chest, which way a
+      // support hand wraps): each option is tried over the clip and the one that leaves both arms
+      // most natural is kept — chosen by the body, not guessed by the recipe
+      // (every frame-to-frame memory a recipe keeps starts clean for each bake)
+      const GRIP_BAD = 4;   // a finger not gripping, against arm cost (10 = a joint 10 degrees past real ones)
+      const PALM_GAP = 400; // a metre of gun off the palm: 1 cm costs what one finger not gripping does
+      const forget = () => { h.fitLog = null; h.axeShift = null; h.doorRoll = null; h.axeFit = null; h.rootFit = null; h.legRate = null; h.self = SELF; h.kickYaw = null; h.pairGap = null; h.pairPlace = B.presetPlace ? { ...B.presetPlace } : null; h.mercyLean = null; h.reviveFace = null; h.hugStep = null; h.hugAng = null; h.hugUp = null; h.hugQ = null; h.supW = null; h.supAt = null; h.supR = null; h.supBack = null; h.supSh = null; h.supAx = null; h.wrapPrev = null; };
+      h.choice = null; let chosen = null; forget();
+      const opts = typeof R.choose === "function" ? R.choose(h) : R.choose;
+      if (opts?.length) {
+        let bc = Infinity; h.free = true;
+        const samples = [0, 0.17, 0.33, 0.5, 0.67, 0.83].map((f) => Math.floor(f * (n - 1)));
+        for (const o of opts) {
+          h.choice = o; let c = 0;
+          // (and how well the hands hold what they hold: a turn the wrist likes that leaves the
+          // fingers closed on nothing is the saucer under the handguard again)
+          for (const i of samples) { for (const k of Object.keys(unclipPrev)) delete unclipPrev[k]; for (const k of Object.keys(legPrev)) delete legPrev[k]; for (const k of Object.keys(rollPrev)) delete rollPrev[k]; h.wrapBad = {}; h.palmGap = {}; frameAt(i); const parts = [h.armCost("l"), h.armCost("r"), GRIP_BAD * ((h.wrapBad.l ?? 0) + (h.wrapBad.r ?? 0)), PALM_GAP * ((h.palmGap.l ?? 0) + (h.palmGap.r ?? 0))]; c += parts.reduce((a, b) => a + b, 0); }
+          if (c < bc) { bc = c; chosen = o; }
+        }
+        h.free = false; h.choice = chosen; forget();
+        for (const k of Object.keys(unclipPrev)) delete unclipPrev[k]; for (const k of Object.keys(legPrev)) delete legPrev[k]; for (const k of Object.keys(rollPrev)) delete rollPrev[k];
+      }
+      if (R.unclip !== false) { if (R.once) for (let k = 0; k < 10; k++) frameAt(0); else for (let i = 0; i < n; i++) frameAt(i); }
+      // a ONE-SHOT starts from its own first frame, not its last: warmed through the whole clip,
+      // a pistol shot began with the elbow and the grip where the clip ENDS and swung 36 degrees
+      // back over its first frames (the name rule is the videos' and the natural check's)
+      if (R.unclip !== false && !R.once && !LOOPED && !/loop|walk|run|sprint|idle|crawl|strafe|jog|swim|breath|moan|sleep|struggle-idle|typing|terrified|shiver|hammer|bandage|laying-.*cough/i.test(name)) {
+        forget(); for (const k of Object.keys(unclipPrev)) delete unclipPrev[k]; for (const k of Object.keys(legPrev)) delete legPrev[k]; for (const k of Object.keys(rollPrev)) delete rollPrev[k];
+        for (let k = 0; k < 10; k++) frameAt(0);
+      }
+      h.stuck = 0;
+      for (let i = 0; i < n; i++) {
+        const t = Math.min(DUR, i / fps); times[i] = t;
+        toRest();
+        // a recipe may play its base backwards (walking backward, dragging a body)
+        let bt = baseTime(t, i);
+        if (R.reverse) bt = base.duration - 1e-4 - bt;
+        for (const s of samplers) s.obj.fromArray(s.it.evaluate(bt));
+        body.updateMatrixWorld(true);
+        alignChest(bt);
+        bodyFrame();
+        const fb = fingersNow();
+        h.grip = {}; h.armAvoid = null;
+        R.frame(h, t, DUR);
+        for (const side of ["l", "r"]) (gripW[side] ??= [])[i] = h.grip[side] ?? 0;
+        // the law, last: every built move's arms cleared of the body (a recipe can opt out)
+        if (R.unclip !== false) for (const side of R.unclip ?? ["l", "r"]) { const u = h.unclip(side); lawLift = Math.max(lawLift, u.lifted ?? 0); handOut = Math.max(handOut, u.handOut ?? 0); if (u.handOut || u.lifted) lawFrame[i] = 1; }
+        if (R.legs !== false) for (const side of ["l", "r"]) legOpen = Math.max(legOpen, Math.abs(h.unclipLeg(side)));
+        limitFingers(fb);
+        B.afterFrame?.(h, i, t);   // a probe's hook (nothing sets it in a real bake)
+        for (const b of names) byName[b].quaternion.toArray(quats[b], i * 4);
+        if (posName) byName[posName].position.toArray(hips, i * 3);
+      }
+      // SMOOTHED, last: the arm's joints and the collarbones through a light three-frame filter. A
+      // solver choosing between neighbouring frames can change its mind in one frame, which a real
+      // limb never does; smooth motion passes through unchanged, a one-frame spike is taken out.
+      // The clip's first and last frames are left exactly where they are.
+      // (a two-handed gun: the support hand rides the gun. Where the smoothing below evens out a twitch
+      // in the RIGHT arm, the gun swings about the grip and, placed against the unsmoothed gun, the left
+      // hand was left 2 cm off the handguard. So each frame's left hand is kept relative to the right,
+      // and re-reached wherever the smoothing moved the right)
+      const keepL = R.gun && R.gun !== "pistol" && !R.noSmooth ? [] : null;
+      const poseAt = (i) => { for (const b of names) byName[b].quaternion.fromArray(quats[b], i * 4); if (posName) byName[posName].position.fromArray(hips, i * 3); body.updateMatrixWorld(true); bodyFrame(); };
+      const rightArm = names.filter((b) => /(shoulder|upperarm|lowerarm|hand)_r$/.test(b));
+      const rightBefore = keepL ? Object.fromEntries(rightArm.map((b) => [b, Float32Array.from(quats[b])])) : null;
+      if (keepL) for (let i = 0; i < n; i++) {
+        poseAt(i); const hr = bone("hand_r"), RL = h.handRigid("l"), inv = hr.matrixWorld.clone().invert();
+        keepL.push({ w: (gripW.l ?? [])[i] ?? 0, wrist: h.at("hand_l").applyMatrix4(inv), f: RL.f.clone().transformDirection(inv), p: RL.p.clone().transformDirection(inv) });
+      }
+      const smoothArms = (re) => { for (const b of names) {
+        if (!re.test(b)) continue;
+        // ONLY SPIKES: a frame whose turn changes far more suddenly than the clip's own motion
+        // does (four times its median acceleration, and past 6 degrees a frame) is replaced by its
+        // neighbours' average; everything else stays exactly as solved (a blanket filter dragged a
+        // sprinting hand, and the gun on it, centimetres off its mark)
+        const v = quats[b], q = (i) => new THREE.Quaternion(v[i * 4], v[i * 4 + 1], v[i * 4 + 2], v[i * 4 + 3]);
+        const step = (a, c) => { const d = c.clone().multiply(a.clone().invert()); if (d.w < 0) d.set(-d.x, -d.y, -d.z, -d.w); const sn = Math.sqrt(Math.max(0, 1 - d.w * d.w)); return sn < 1e-7 ? new THREE.Vector3() : new THREE.Vector3(d.x / sn, d.y / sn, d.z / sn).multiplyScalar(2 * Math.acos(Math.min(1, d.w)) * 180 / Math.PI); };
+        const vel = []; for (let i = 0; i < n - 1; i++) vel.push(step(q(i), q(i + 1)));
+        const acc = []; for (let i = 1; i < n - 1; i++) acc.push(vel[i].clone().sub(vel[i - 1]).length());
+        const med = [...acc].sort((x, y) => x - y)[acc.length >> 1] ?? 0;
+        for (let i = 1; i < n - 1; i++) {
+          if (lawFrame[i] || acc[i - 1] < Math.max(6, 4 * med)) continue;
+          const a = q(i - 1), d = q(i + 1); if (d.dot(a) < 0) d.set(-d.x, -d.y, -d.z, -d.w);
+          a.slerp(d, 0.5).toArray(v, i * 4);
+        }
+      } };
+      if (!R.noSmooth) smoothArms(/(shoulder|upperarm|lowerarm|hand)_[lr]$/);
+      if (keepL) {
+        const leftArm = names.filter((b) => /(upperarm|lowerarm|hand)_l$/.test(b));
+        for (let i = 0; i < n; i++) {
+          const k = keepL[i]; if (!(k.w > 0.5) || !rightArm.some((b) => [0, 1, 2, 3].some((c) => Math.abs(quats[b][i * 4 + c] - rightBefore[b][i * 4 + c]) > 1e-6))) continue;
+          poseAt(i);
+          const M = bone("hand_r").matrixWorld, wrist = k.wrist.clone().applyMatrix4(M), f = k.f.clone().transformDirection(M), p = k.p.clone().transformDirection(M);
+          for (let it = 0; it < 2; it++) { h.reach("l", wrist, 1, h.ahead(h.at("upperarm_l"), 0.05, -0.5, -0.25)); h.orient("l", f, p, 1); }
+          for (const b of leftArm) byName[b].quaternion.toArray(quats[b], i * 4);
+        }
+        smoothArms(/(upperarm|lowerarm|hand)_l$/);   // (and its own twitches taken out again)
+      }
+      // A HAND ON A GUN DOESN'T SNAP ITS FINGERS. The mocap was a real person picking a rifle up,
+      // and its support thumb jumps 18 degrees in a frame as it closed on the handguard; here the
+      // hand is on the gun the whole clip, so that snap has no cause. While a recipe says a hand
+      // is gripping (h.grip[side], 0..1) its fingers take a five-frame average, blended in by
+      // the grip: the slow close and open of the grab passes through, a one-frame snap does not.
+      for (const side of ["l", "r"]) {
+        const g0 = gripW[side] ?? []; if (window.__noFS || !g0.some((w) => w > 0)) continue;
+        // (held a few frames either side, so the grab and the let-go are smoothed too: the fingers
+        // opening as the grip let go was where the speed was)
+        const gw = g0.map((_, i) => Math.max(...g0.slice(Math.max(0, i - 4), i + 5)));
+        for (const b of names) {
+          if (!new RegExp(`(^|_)(thumb|index|middle|ring|pinky)_0[123]_${side}$`).test(b)) continue;   // (three bodies prefix every bone: rp_nathan_..._thumb_02_l)
+          const v = quats[b];
+          for (let pass = 0; pass < 2; pass++) {
+            const src = Float32Array.from(v);
+            const q = (i) => new THREE.Quaternion(src[i * 4], src[i * 4 + 1], src[i * 4 + 2], src[i * 4 + 3]);
+            for (let i = 1; i < n - 1; i++) {
+              const w = gw[i] ?? 0; if (w <= 0) continue;
+              const c = q(i), sum = new THREE.Vector4(0, 0, 0, 0);   // (Vector4 starts at w = 1)
+              for (const [k, kw] of [[-2, 1], [-1, 2], [0, 3], [1, 2], [2, 1]]) {
+                const j = Math.min(n - 1, Math.max(0, i + k)), o = q(j); if (o.dot(c) < 0) o.set(-o.x, -o.y, -o.z, -o.w);
+                sum.x += o.x * kw; sum.y += o.y * kw; sum.z += o.z * kw; sum.w += o.w * kw;
+              }
+              const avg = new THREE.Quaternion(sum.x, sum.y, sum.z, sum.w).normalize();
+              c.slerp(avg, w).toArray(v, i * 4);
+            }
+          }
+        }
+      }
+      // NO FINGER IN A GUN, LAST (Oct 22 2026): the wrap stops every finger short of the gun, but what
+      // runs after it — the curl eased frame to frame, the gripping fingers' five-frame smoothing, the
+      // law moving an arm — pushed support fingers back in, a median 1.2 finger-radii deep on the pump.
+      // Like the law for the arms, it is enforced on the finished frames: each frame posed as it
+      // ships, the gun placed off the right hand as the game places it, and a finger sunk past 0.62 of
+      // its radius opened toward straight just far enough to lie on the gun
+      let fingersOpened = 0;
+      // (and in a HELD thing the same: a finger in an axe handle is a finger in a gun)
+      // (and anything a recipe names as SOLID to the hands — a lever, a sheet: R.solid(h, t))
+      if (!window.__noOpen && ((R.gun && h.gunFields?.[R.gun] && GUN_HOLDS[R.gun]) || (R.held && HELD[R.held]) || R.solid)) {
+        // (planned over the whole clip, not frame by frame: opened independently each frame, the
+        // fingers flickered — jerk on every support finger of the shotgun clips. Each finger's opening
+        // is found per frame, then spread: never less than any frame within 8 needs, eased in and out over a third of a second — a
+        // quicker ramp still read as a twitch beside the recordings' fingers)
+        const hold = R.gun ? GUN_HOLDS[R.gun] : null, need = {}, segsOf = {}, Q = THREE.Quaternion;
+        for (let i = 0; i < n; i++) {
+          for (const b of names) byName[b].quaternion.fromArray(quats[b], i * 4);
+          if (posName) byName[posName].position.fromArray(hips, i * 3);
+          body.updateMatrixWorld(true);
+          const sdf = R.gun ? h.gunSdf(R.gun, gunPose(h.handRigid("r"), hold, h.gunCal)) : R.held ? ((R.release != null && i / fps > R.release) || (R.pickup != null && i / fps < R.pickup - 0.12) ? () => 1 : heldShapes(h.hand(R.heldSide ?? "r"), HELD[R.held]).handle) : R.solid(h, i / fps); if (!sdf) break;
+          for (const side of ["l", "r"]) {
+            const deep = (h.gripCals?.[side]?.r ?? 0.01) * 0.62;
+            for (const f of ["index", "middle", "ring", "pinky", "thumb"]) {
+              const key = f + "_" + side, segs = segsOf[key] ??= [1, 2, 3].map((k) => bone(`${f}_0${k}_${side}`)); if (segs.some((b) => !b || !quats[b.name])) continue;
+              const near = () => { const c = segs.map((b) => b.getWorldPosition(new THREE.Vector3())); const tip = c[2].clone().addScaledVector(c[2].clone().sub(c[1]), 0.75); return Math.min(...fingerPoints([c[0], c[1], c[2], tip]).map(sdf)); };
+              if (near() > deep) continue;
+              const q1 = segs.map((b) => b.quaternion.clone()), q0 = segs.map((b) => restOf.get(b) ?? b.quaternion);
+              const set = (t) => { segs.forEach((b, k) => b.quaternion.copy(q1[k]).slerp(q0[k], t)); segs[0].updateMatrixWorld(true); };
+              set(1);
+              if (near() <= deep) {
+                set(0);
+                // a THUMB in it even straight lies along the receiver from its base: first it curls FURTHER
+                // round the grip (a real thumb wraps the grip's far side; Carla's, straight or curled as
+                // wrapped, ran its tip into the receiver), then it swings out at the base — both inside
+                // the thumb's own range
+                // (and a FINGER in it even straight lies along the thing: it too curls further round it,
+                // within its own range — a support finger under a pump, the cupping hand on a pistol)
+                { const others = { index: 0, middle: 0, ring: 0, pinky: 0, thumb: 0 }, p0c = NAT ? fingerPast(f, side) : 0; let gotC = 0;
+                  for (const dk of [0.1, 0.2, 0.3, 0.45, 0.6]) { segs.forEach((b, k) => b.quaternion.copy(q1[k])); segs[0].updateMatrixWorld(true); h.fist(side, 0, { ...others, [f]: dk }); if (near() > deep && (!NAT || fingerPast(f, side) <= p0c + 1e-6)) { gotC = dk; break; } }
+                  segs.forEach((b, k) => b.quaternion.copy(q1[k])); segs[0].updateMatrixWorld(true);
+                  if (gotC) { (need[key + ":curl"] ??= new Float32Array(n))[i] = gotC; continue; } }
+                if (f !== "thumb") continue;
+                const RH = h.hand(side), base = segs[0].quaternion.clone(), wq0 = segs[0].getWorldQuaternion(new Q());
+                const swing = (a) => { segs[0].quaternion.copy(base); segs[0].updateMatrixWorld(true); if (a) { const wq = wq0.clone().premultiply(new Q().setFromAxisAngle(RH.f, a * Math.PI / 180)); const pw = segs[0].parent.getWorldQuaternion(new Q()); segs[0].quaternion.copy(pw.invert().multiply(wq)); segs[0].updateMatrixWorld(true); } };
+                let got = 0; const p0 = NAT ? thumbPen(side) : 0, inRange = () => !NAT || thumbPen(side) <= p0 + 1e-6;
+                for (const a of [4, 8, 12, 16, 20, 25, 30]) { for (const sg of [1, -1]) { swing(a * sg); if (near() > deep && inRange()) { got = a * sg; break; } } if (got) break; }
+                swing(0); if (got) (need[key + ":swing"] ??= new Float32Array(n))[i] = got;
+                continue;
+              }
+              let lo = 0, hi = 1; for (let it = 0; it < 7; it++) { const m = (lo + hi) / 2; set(m); if (near() > deep) hi = m; else lo = m; }
+              set(0); (need[key] ??= new Float32Array(n))[i] = hi;
+            }
+          }
+        }
+        for (const [key0, t] of Object.entries(need)) {
+          const swingKey = key0.endsWith(":swing"), curlKey = key0.endsWith(":curl"), key = key0.replace(/:(swing|curl)$/, "");
+          const at = (a, i) => a[Math.min(n - 1, Math.max(0, i))];
+          const mx = t.map((_, i) => { let m = 0; for (let k = -8; k <= 8; k++) m = Math.max(m, at(t, i + k)); return m; });
+          const box = (a) => a.map((_, i) => { let x = 0; for (let k = -5; k <= 5; k++) x += at(a, i + k); return x / 11; });
+          const sm = box(box(mx));
+          const segs = segsOf[key];
+          if (curlKey) {
+            // (the extra curl spread like the opening, and held to the thumb's range frame by frame)
+            const mx2 = t.map((_, i) => { let m = 0; for (let k = -8; k <= 8; k++) m = Math.max(m, at(t, i + k)); return m; }), cu = box(box(mx2)), side = key.slice(-1);
+            for (let i = 0; i < n; i++) {
+              if (cu[i] < 0.02) continue;
+              for (const b of names) byName[b].quaternion.fromArray(quats[b], i * 4);
+              if (posName) byName[posName].position.fromArray(hips, i * 3);
+              body.updateMatrixWorld(true);
+              const fn = key.slice(0, -2), q1 = segs.map((b) => b.quaternion.clone()), p0 = NAT ? fingerPast(fn, side) : 0;
+              let dk = cu[i]; const put = (k) => { segs.forEach((b, j) => b.quaternion.copy(q1[j])); segs[0].updateMatrixWorld(true); if (k) h.fist(side, 0, { index: 0, middle: 0, ring: 0, pinky: 0, thumb: 0, [fn]: k }); };
+              put(dk); while (NAT && dk > 0 && fingerPast(fn, side) > p0 + 1e-6) { dk = Math.max(0, dk - 0.05); put(dk); }
+              segs.forEach((b) => b.quaternion.toArray(quats[b.name], i * 4)); fingersOpened++;
+            }
+            continue;
+          }
+          if (swingKey) {
+            // (a swing is signed: spread by its largest size, keeping the sign the frames chose)
+            const sg = t.reduce((a, v) => a + v, 0) >= 0 ? 1 : -1, mag = Float32Array.from(t, (v) => Math.max(0, v * sg));
+            const mx2 = mag.map((_, i) => { let m = 0; for (let k = -8; k <= 8; k++) m = Math.max(m, at(mag, i + k)); return m; }), sw = box(box(mx2));
+            const side = key.slice(-1), RHf = () => h.hand(side).f;
+            for (let i = 0; i < n; i++) {
+              if (sw[i] < 0.2) continue;
+              for (const b of names) byName[b].quaternion.fromArray(quats[b], i * 4);
+              if (posName) byName[posName].position.fromArray(hips, i * 3);
+              body.updateMatrixWorld(true);
+              const b0 = segs[0], base0 = b0.quaternion.clone(), wq0 = b0.getWorldQuaternion(new Q()), p0 = NAT ? thumbPen(side) : 0;
+              const put = (a) => { b0.quaternion.copy(base0); b0.updateMatrixWorld(true); const pw = b0.parent.getWorldQuaternion(new Q()); b0.quaternion.copy(pw.invert().multiply(wq0.clone().premultiply(new Q().setFromAxisAngle(RHf(), sg * a * Math.PI / 180)))); b0.updateMatrixWorld(true); };
+              let a = sw[i]; put(a); while (NAT && a > 0 && thumbPen(side) > p0 + 1e-6) { a = Math.max(0, a - 2); put(a); }   // (held to the thumb's own range)
+              b0.quaternion.toArray(quats[b0.name], i * 4); fingersOpened++;
+            }
+            continue;
+          }
+          for (let i = 0; i < n; i++) {
+            if (sm[i] < 1e-3) continue;
+            segs.forEach((b) => { const q = new THREE.Quaternion().fromArray(quats[b.name], i * 4).slerp(restOf.get(b) ?? b.quaternion, sm[i]); q.toArray(quats[b.name], i * 4); });
+            fingersOpened++;
+          }
+        }
+      }
+      const tracks = names.map((b) => new THREE.QuaternionKeyframeTrack(`${b}.quaternion`, times, quats[b]));
+      if (posName) tracks.push(new THREE.VectorKeyframeTrack(`${posName}.position`, times, hips));
+      const out = new THREE.AnimationClip(q.get("name") || name, DUR, tracks);
+      const j = THREE.AnimationClip.toJSON(out);
+      j.built = { recipe: name, base: R.base, ...(chosen ? { choice: chosen } : {}), ...(h.gunAnchor ? { gunAnchored: h.gunAnchor.spread } : {}), ...(lawLift > 3 ? { lawLift: +lawLift.toFixed(1) } : {}), ...(legOpen > 0 ? { legOpen } : {}), ...(handOut > 0.03 ? { handOut: +handOut.toFixed(3) } : {}), ...(h.stuck ? { stuck: h.stuck } : {}), ...(fingersOpened ? { fingersOpened } : {}), ...(h.partner ? { gap: +(h.pairGap ?? h.partner.gap).toFixed(3) } : {}), ...(h.pairPlace ? { place: h.pairPlace } : {}), ...(h.fitLog ? { fitLog: h.fitLog } : {}) };
+      return j;
+    };
+    // this body's measured gun seat (if there is one yet)
+    const bodyId = (q.get("body") || "").split("/").pop().replace(/\.glb$/, "");
+    const { GUN_CAL } = await import("./anim-recipes.js");
+    const rifleCal = GUN_CAL[bodyId] ?? null; h.gunCal = rifleCal;
+    // the GRIP CHANNEL of each hand, from the skin at rest (anim-hands.js gripCal)
+    {
+      toRest(); body.updateMatrixWorld(true);
+      const vi = vertexIndex(body, 1), at = (n) => { try { return bone(n).getWorldPosition(new THREE.Vector3()); } catch { return null; } };
+      h.gripCals = {};
+      for (const side of ["l", "r"]) { try { const hb = bone("hand_" + side).name; h.gripCals[side] = gripCal(at, side, vi.filter((x) => x.bone === hb).map((x) => skinned(x)), handRigid(at, side)); } catch { h.gripCals[side] = null; } }
+      B.gripCals = h.gripCals;
+    }
+    // the GUNS' voxel fields (anim-hands.js gunField), for a hand closing on a gun
+    h.gunFields = {};
+    for (const id of Object.keys(GUN_HOLDS)) {
+      try { const g = await loader.loadAsync(`/assets/downloads/survivorz/props/guns/${id}.glb`); const root = g.scene; root.matrixAutoUpdate = false; h.gunFields[id] = { root, field: gunField(root) }; } catch { /* a gun with no model: hands close as before */ }
+    }
+    // each gun's SEAT in this body's right hand (anim-hands.js gunSeat), against the body's own gun
+    // calibration — the render measures the same, so the gun is drawn where the hand closed on it
+    if (h.gripCals?.r) {
+      toRest(); body.updateMatrixWorld(true);
+      const at = (n) => bone(n).getWorldPosition(new THREE.Vector3()), R0 = handRigid(at, "r", h.gripCals.r);
+      h.gripCals.r.seats = {}; h.gripCals.r.avoid = thumbAvoid(at, "r", R0, h.gripCals.r.r);   // (the thumb's base kept clear: anim-hands.js gunSeat)
+      for (const [id, F] of Object.entries(h.gunFields)) {
+        const hold = GUN_HOLDS[id], cal = id === "pistol" ? rifleCal?.pistol : rifleCal; if (!hold || !cal) continue;
+        const G0 = gunPose(R0, hold, cal);
+        h.gripCals.r.seats[hold.name] = gunSeat({ root: F.root, field: F.field.field }, R0, (o) => ({ ...G0, o }), hold, R0.hold(GUN_GRIP_R));
+      }
+      B.gripCals = h.gripCals;
+    }
+    h.__bone = bone; h.__restQ = (b) => restOf.get(b);   // for probes
+    // CLEANING A MOCAP CLIP (anim-build.cjs --clean): the take's own defects, on the joints that
+    // carry no acting — every finger, thumb and toe — and nothing else: a joint held to the
+    // range this body's mocap covers (a thumb bent backwards 178 degrees in a roll, a toe at 117
+    // degrees under a crawl), and a ONE-KEY POP taken out (a key whose turn changes four times more
+    // suddenly than the track's own motion, and by more than 10 degrees, is replaced by its
+    // neighbours' average). The body's joints are left alone: their tails are falls, deaths and
+    // sword swings, and those are looked at, not clamped.
+    // held to the range PLUS the natural check's slack (anim-natural.cjs SLACK.angle): only what
+    // the check flags moves — the range is a percentile, so real poses sit just past its edge
+    // (the zombies' rig names them index1l, thumb3r, toes_01l)
+    const CLEAN = /^(((thumb|index|middle|ring|pinky)_0[123]|ball)_[lr]|(thumb|index|middle|ring|pinky)[123][lr]|toes_01[lr])$/, SLACK = 8;
+    B.clean = (j) => {
+      if (!NAT?.range) throw new Error("no natural baseline for this body (anim-natural.cjs)");
+      let clamped = 0, popped = 0;
+      for (const tr of j.tracks) {
+        // (some rigs name their bones long — rp_manuel_animated_001_dancing_thumb_01_l — and the
+        // baseline keys the short name: matched on the long one the cleaner touched nothing)
+        const [full, prop] = tr.name.split("."), n = full.replace(/^.*?_(?=(thumb|index|middle|ring|pinky|ball)_0?\d?_?[lr]?)/, "");
+        if (prop !== "quaternion" || !CLEAN.test(n)) continue;
+        let b; try { b = bone(n); } catch { continue; }
+        // the baseline keys every joint by the survivors' names (anim-render's alias): a zombie's
+        // thumb2r is thumb_02_r there, its toes_01r is ball_r — read by its own name, no range
+        // was ever found and nothing on a zombie was held in range
+        const zf = /^(thumb|index|middle|ring|pinky)([123])([lr])$/.exec(n), zt = /^toes_01([lr])$/.exec(n);
+        const key = zf ? `${zf[1]}_0${zf[2]}_${zf[3]}` : zt ? `ball_${zt[1]}` : n;
+        const v = tr.values, k = tr.times.length, q = (i) => new THREE.Quaternion(v[i * 4], v[i * 4 + 1], v[i * 4 + 2], v[i * 4 + 3]);
+        const was = b.quaternion.clone();
+        for (let i = 0; i < k; i++) {
+          b.quaternion.copy(q(i)); const jv = jointVec(b); let moved = false;
+          for (const c of ["x", "y", "z"]) { const r = NAT.range[`j:${key}:${c}`]; if (!r) continue; if (jv[c] < r[0] - SLACK) { jv[c] = r[0] - SLACK + 0.5; moved = true; } else if (jv[c] > r[1] + SLACK) { jv[c] = r[1] + SLACK - 0.5; moved = true; } }   // (held half a degree inside the line, or the check reads the edge as past it)
+          if (moved) { setJointVec(b, jv); b.quaternion.toArray(v, i * 4); clamped++; }
+        }
+        b.quaternion.copy(was);
+        if (k < 4) continue;
+        const ang = (a, c) => 2 * Math.acos(Math.min(1, Math.abs(a.dot(c)))) * 180 / Math.PI;
+        const vel = []; for (let i = 0; i < k - 1; i++) vel.push(ang(q(i), q(i + 1)) / Math.max(1e-3, tr.times[i + 1] - tr.times[i]));
+        const acc = []; for (let i = 1; i < k - 1; i++) acc.push(Math.abs(vel[i] - vel[i - 1]));
+        const med = [...acc].sort((x, y) => x - y)[acc.length >> 1] ?? 0;
+        for (let i = 1; i < k - 1; i++) {
+          const a = q(i - 1), c = q(i + 1); if (c.dot(a) < 0) c.set(-c.x, -c.y, -c.z, -c.w);
+          const mid = a.clone().slerp(c, (tr.times[i] - tr.times[i - 1]) / (tr.times[i + 1] - tr.times[i - 1]));
+          if (acc[i - 1] > Math.max(300, 4 * med) && ang(q(i), mid) > 10) { mid.toArray(v, i * 4); popped++; }
+        }
+      }
+      j.cleaned = 4;   // the version: 1 ran against baselines without the every-joint measures, 2 missed long bone names, 3 missed the zombies' names
+      return { clamped, popped };
+    };
+    NAT = await fetch(`/assets/downloads/survivorz/anim/${bodyId}/natural-base.json`).then((r) => r.ok ? r.json() : null).catch(() => null);
+    B.ready = true;
+  } catch (e) { B.error = String(e && e.stack || e); B.ready = true; }
+</script>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <!-- interactive-widget=resizes-content: Android Chrome (108+) otherwise
+         keeps the layout viewport tall behind the on-screen keyboard, so the
+         composer at the foot of the chat sat UNDER the keys. With it the
+         layout shrinks and the composer rides up. iOS ignores it (Safari
+         already scrolls the focused field into view). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <!-- Repainted by lib/prefs.svelte.ts to the live theme's panel colour so
+         a phone's browser chrome / PWA status bar matches the app. -->
+    <meta name="theme-color" content="#1b1712" />
+    <!-- Installed on an iPhone home screen: edge-to-edge under a translucent
+         status bar; the app pads its own safe areas (viewport-fit=cover). -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Solace" />
+    <meta
+      name="description"
+      content="Solace — a cozy, invite-only hangout: chat, voice, and a collectible emoji casino for the crew."
+    />
+    <!-- Social cards for solace.zone (the app itself is invite-only). -->
+    <meta property="og:title" content="Solace" />
+    <meta
+      property="og:description"
+      content="A cozy, invite-only hangout: chat, voice, and a collectible emoji casino."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://solace.zone" />
+    <meta property="og:image" content="https://solace.zone/solace-logo.png" />
+    <!-- Inter is self-hosted (@font-face in app.css → hashed immutable
+         assets) — no third-party connections on first paint. -->
+    <title>Solace</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

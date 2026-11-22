@@ -1,0 +1,73 @@
+  keep  car-away-0.mp3             falls away 33.9 dB by the end
+  keep  car-away-1.mp3             falls away 39.7 dB by the end
+  keep  car-away-2.mp3             falls away 51.6 dB by the end
+  keep  car-door-0.mp3             event at +0.68 s, 0.97 s long, tone 0%
+  keep  car-door-1.mp3             event at +0.22 s, 0.62 s long, tone 0%
+  keep  car-door-2.mp3             event at +0.51 s, 0.71 s long, tone 0%
+  keep  car-door-3.mp3             event at +0.02 s, 0.82 s long, tone 0%
+  keep  car-door-4.mp3             event at +0.19 s, 0.72 s long, tone 0%
+  keep  crest-set-0.mp3            the click at +0.12 s (it was 1.07 s into the take)
+  keep  crest-set-1.mp3            the click at +0.12 s (it was 0.21 s into the take)
+  keep  crest-set-2.mp3            the click at +0.12 s (it was 1.54 s into the take)
+  keep  crest-set-3.mp3            the click at +0.12 s (it was 1.78 s into the take)
+  keep  crest-set-4.mp3            the click at +0.12 s (it was 1.06 s into the take)
+  keep  door-bolt-0.mp3            event at +0.09 s, 0.58 s long, tone 0%
+  keep  door-bolt-1.mp3            event at +0.18 s, 0.56 s long, tone 0%
+  keep  door-bolt-2.mp3            event at +0.34 s, 0.75 s long, tone 0%
+  keep  door-bolt-3.mp3            event at +0.63 s, 1.03 s long, tone 0%
+  keep  door-bolt-4.mp3            event at +0.13 s, 0.47 s long, tone 0%
+  keep  door-wood-close-0.mp3      event at +0.06 s, 0.59 s long, tone 0%
+  keep  door-wood-close-1.mp3      event at +0.05 s, 0.77 s long, tone 0%
+  keep  door-wood-close-2.mp3      event at +0.03 s, 0.44 s long, tone 0%
+  keep  door-wood-close-3.mp3      event at +0.06 s, 0.75 s long, tone 0%
+  keep  door-wood-close-4.mp3      event at +0.09 s, 0.65 s long, tone 0%
+  keep  door-wood-close-5.mp3      event at +0.04 s, 0.54 s long, tone 0%
+  keep  door-wood-open-0.mp3       event at +0.42 s, 1.77 s long, tone 0%
+  keep  door-wood-open-1.mp3       event at +0.32 s, 1.67 s long, tone 0%
+  DROP  door-wood-open-2.mp3       its loudest moment is 1.78 s in (must be within 0.9)
+  keep  door-wood-open-3.mp3       event at +0.42 s, 1.85 s long, tone 0%
+  keep  door-wood-open-4.mp3       event at +0.12 s, 1.72 s long, tone 0%
+  keep  door-wood-open-5.mp3       event at +0.40 s, 2.00 s long, tone 0%
+  DROP  door-wood-pound-0.mp3      only 0 blow in it
+  DROP  door-wood-pound-1.mp3      only 1 blow in it
+  keep  door-wood-pound-2.mp3      2 blows
+  keep  door-wood-pound-3.mp3      3 blows
+  keep  door-wood-pound-4.mp3      3 blows
+  keep  door-wood-pound-5.mp3      2 blows
+  keep  fire-crackle-0.mp3         level steady to 0.7 dB over 30 s, tone 0%
+  keep  fire-crackle-1.mp3         level steady to 0.8 dB over 30 s, tone 0%
+  keep  house-creak-0.mp3          13 creaks, one a file
+  keep  house-creak-1.mp3          1 creaks, one a file
+  keep  house-creak-2.mp3          4 creaks, one a file
+  keep  rain-in-0.mp3              level steady to 0.5 dB over 30 s, tone 0%
+  keep  rain-in-1.mp3              level steady to 0.3 dB over 30 s, tone 0%
+  keep  rain-out-0.mp3             level steady to 0.4 dB over 30 s, tone 0%
+  keep  rain-out-1.mp3             level steady to 0.4 dB over 30 s, tone 0%
+  keep  step-carpet-walk-0.mp3     6 steps, one a file
+  keep  step-carpet-walk-1.mp3     9 steps, one a file
+  keep  step-carpet-walk-2.mp3     6 steps, one a file
+  keep  step-gravel-walk-0.mp3     12 steps, one a file
+  keep  step-gravel-walk-1.mp3     9 steps, one a file
+  keep  step-gravel-walk-2.mp3     7 steps, one a file
+  keep  step-stone-walk-0.mp3      10 steps, one a file
+  keep  step-stone-walk-1.mp3      8 steps, one a file
+  keep  step-stone-walk-2.mp3      7 steps, one a file
+  keep  step-wood-walk-0.mp3       10 steps, one a file
+  keep  step-wood-walk-1.mp3       8 steps, one a file
+  keep  step-wood-walk-2.mp3       7 steps, one a file
+  keep  stone-grind-0.mp3          4.1 s of it
+  keep  stone-grind-1.mp3          4.0 s of it
+  keep  stone-grind-2.mp3          4.3 s of it
+  keep  thunder-0.mp3              attack 13 dB, tone 0%
+  keep  thunder-1.mp3              it rolls in (attack 8 dB): kept as FAR thunder
+  keep  thunder-2.mp3              attack 17 dB, tone 0%
+  keep  thunder-3.mp3              it rolls in (attack 4 dB): kept as FAR thunder
+  keep  thunder-4.mp3              attack 16 dB, tone 0%
+  keep  thunder-5.mp3              it rolls in (attack 4 dB): kept as FAR thunder
+  keep  thunder-6.mp3              attack 16 dB, tone 0%
+  keep  thunder-7.mp3              attack 9 dB, tone 0%
+  keep  thunder-far-0.mp3          a roll, attack 8 dB, tone 0%
+  DROP  thunder-far-1.mp3          it opens too hard for a far stroke (17 dB in 30 ms)
+  keep  thunder-far-2.mp3          a roll, attack 9 dB, tone 0%
+  keep  thunder-far-3.mp3          a roll, attack 8 dB, tone 0%
+  DROP  thunder-far-4.mp3          it opens too hard for a far stroke (23 dB in 30 ms)

@@ -1,0 +1,278 @@
+{
+ "file": "vegas/slot-vegas-star.glb",
+ "id": "slot-vegas-star",
+ "what": "upright 3-reel slot, 'Vegas Star' topper + paytable glass, chrome cabinet",
+ "size": [
+  0.937,
+  1.75,
+  0.911
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 2608,
+ "drawCalls": 9,
+ "bytes": 907752,
+ "materials": [
+  {
+   "name": "Mat_0",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Mat.1",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Mat_1",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Mat_2",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Mat_3",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Mat_7",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Mat_8",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Mat_9",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Mat_10",
+   "alpha": "MASK",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "Slot-machine",
+  "author": "nermin",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/slot-machine-b853ed93538a4405949800ab501606d8"
+ },
+ "sourceScale": 0.011,
+ "objects": [
+  {
+   "name": "slot-vegas-star_0",
+   "dim": [
+    0.55,
+    0.421,
+    0.236
+   ],
+   "loc": [
+    -0.037,
+    0.736,
+    0.102
+   ],
+   "tris": 322,
+   "mats": [
+    "Mat_7"
+   ]
+  },
+  {
+   "name": "slot-vegas-star_1",
+   "dim": [
+    0.215,
+    0.087,
+    0.021
+   ],
+   "loc": [
+    -0.029,
+    0.214,
+    0.251
+   ],
+   "tris": 58,
+   "mats": [
+    "Mat_0"
+   ]
+  },
+  {
+   "name": "slot-vegas-star_2",
+   "dim": [
+    0.383,
+    0.041,
+    0.06
+   ],
+   "loc": [
+    0.043,
+    0.535,
+    0.192
+   ],
+   "tris": 90,
+   "mats": [
+    "Mat.1"
+   ]
+  },
+  {
+   "name": "slot-vegas-star_3",
+   "dim": [
+    0.17,
+    1.015,
+    0.654
+   ],
+   "loc": [
+    0.235,
+    0.948,
+    -0.075
+   ],
+   "tris": 144,
+   "mats": [
+    "Mat_1"
+   ]
+  },
+  {
+   "name": "slot-vegas-star_4",
+   "dim": [
+    0.937,
+    1.75,
+    0.911
+   ],
+   "loc": [
+    0,
+    0.875,
+    0
+   ],
+   "tris": 1900,
+   "mats": [
+    "Mat_2"
+   ]
+  },
+  {
+   "name": "slot-vegas-star_5",
+   "dim": [
+    0.062,
+    0.033,
+    0.065
+   ],
+   "loc": [
+    -0.284,
+    0.535,
+    0.19
+   ],
+   "tris": 88,
+   "mats": [
+    "Mat_3"
+   ]
+  },
+  {
+   "name": "slot-vegas-star_6",
+   "dim": [
+    0.764,
+    0.042,
+    0.18
+   ],
+   "loc": [
+    -0.029,
+    0.399,
+    0.296
+   ],
+   "tris": 2,
+   "mats": [
+    "Mat_8"
+   ]
+  },
+  {
+   "name": "slot-vegas-star_7",
+   "dim": [
+    0.694,
+    0.533,
+    0.017
+   ],
+   "loc": [
+    -0.032,
+    1.225,
+    0.073
+   ],
+   "tris": 2,
+   "mats": [
+    "Mat_9"
+   ]
+  },
+  {
+   "name": "slot-vegas-star_8",
+   "dim": [
+    0.742,
+    0.438,
+    0.078
+   ],
+   "loc": [
+    -0.034,
+    0.732,
+    0.108
+   ],
+   "tris": 2,
+   "mats": [
+    "Mat_10"
+   ]
+  }
+ ]
+}

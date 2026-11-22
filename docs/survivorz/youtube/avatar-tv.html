@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Solace TV avatar</title>
+<!--
+  THE CHANNEL PICTURE: "Solace TV" (Josh, 2026-11-01). 800×800, rendered to avatar-tv.png by
+  scripts/survivorz/render-youtube-art.mjs. Solace's own speech-bubble ring in the brand's
+  peach→pink, with TV inside it, on near-black. YouTube crops it to a circle and shows it
+  as small as 32px, so it is two letters and a ring, nothing finer.
+-->
+<style>
+  @font-face { font-family: "Inter"; font-weight: 100 900; src: url("../../../client/src/assets/fonts/inter-latin.woff2") format("woff2"); }
+  html, body { margin: 0; width: 800px; height: 800px; overflow: hidden; background: #0b0d0e; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.45" r="0.65">
+      <stop offset="0" stop-color="#1b1f22" />
+      <stop offset="1" stop-color="#0b0d0e" />
+    </radialGradient>
+    <!-- the logo's own gradient (client/public/favicon.svg) -->
+    <linearGradient id="brand" x1="0.35" y1="0" x2="0.45" y2="1">
+      <stop offset="0" stop-color="#f8b04c" />
+      <stop offset="0.55" stop-color="#f2907c" />
+      <stop offset="1" stop-color="#ec6f92" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7" />
+    </filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)" />
+  <g transform="translate(400 400) scale(1.36) translate(-194 -214)">
+    <path d="M 350.3 139.0 A 168 168 0 1 0 51.3 292.0 L 14 384 L 101.6 347.6 A 168 168 0 0 0 363.1 178.8"
+          fill="none" stroke="url(#brand)" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"
+          opacity="0.35" filter="url(#glow)" />
+    <path d="M 350.3 139.0 A 168 168 0 1 0 51.3 292.0 L 14 384 L 101.6 347.6 A 168 168 0 0 0 363.1 178.8"
+          fill="none" stroke="url(#brand)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <text x="408" y="398" text-anchor="middle" dominant-baseline="central"
+        font-family="Inter, 'Segoe UI', sans-serif" font-weight="900" font-size="250" letter-spacing="-6"
+        fill="#f3f3f3">TV</text>
+</svg>
+</body>
+</html>

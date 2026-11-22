@@ -1,0 +1,18 @@
+# One-shot backup job, run by solace-backup.timer.
+# Install alongside the timer:
+#   sudo cp deploy/solace-backup.service /etc/systemd/system/
+#   sudo cp deploy/solace-backup.timer   /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now solace-backup.timer
+# Run once by hand to test:  sudo systemctl start solace-backup.service
+
+[Unit]
+Description=Solace database + uploads backup
+
+[Service]
+Type=oneshot
+User=solace
+Group=solace
+ExecStart=/opt/solace/deploy/backup.sh
+# Uncomment to override defaults (destination / retention):
+# Environment=BACKUP_DIR=/var/backups/solace
+# Environment=KEEP_DAYS=14

@@ -1,0 +1,726 @@
+{
+ "about": "THE VAULT LOBBY's hand-off to the effects (EFFECTS.md section 5), written by scripts/survivorz/room-build.py: where its fixtures, vents, pipes, panels and puddles are, in world metres (x east, y up, z south). Each fixture's `at` is the light's own face (the panel's underside, the caged tube); `bank` is the order the power comes back in. The effects place beams, steam, drips and sparks from these; the room never wires effects in itself.",
+ "map": "halcyon-site-9-v2",
+ "fixtures": [
+  {
+   "id": "FIXTURE_c0",
+   "kind": "caged",
+   "at": [
+    55,
+    5.22,
+    11.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "vault-chamber",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c1",
+   "kind": "caged",
+   "at": [
+    65,
+    5.22,
+    11.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "vault-chamber",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c2",
+   "kind": "caged",
+   "at": [
+    55,
+    5.22,
+    15.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "vault-chamber",
+   "bank": 1
+  },
+  {
+   "id": "FIXTURE_c3",
+   "kind": "caged",
+   "at": [
+    65,
+    5.22,
+    15.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "vault-chamber",
+   "bank": 1
+  },
+  {
+   "id": "FIXTURE_c4",
+   "kind": "caged",
+   "at": [
+    50,
+    5.22,
+    4
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "outside",
+   "bank": 0,
+   "style": "failing"
+  },
+  {
+   "id": "FIXTURE_c5",
+   "kind": "caged",
+   "at": [
+    70,
+    5.22,
+    4
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "outside",
+   "bank": 0,
+   "style": "dying"
+  },
+  {
+   "id": "FIXTURE_p6",
+   "kind": "panel",
+   "at": [
+    60,
+    2.67,
+    36
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "decon-entry",
+   "bank": 0,
+   "style": "buzz"
+  },
+  {
+   "id": "FIXTURE_e7",
+   "kind": "emergency",
+   "at": [
+    50.22,
+    3.37,
+    13.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "vault-chamber",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e8",
+   "kind": "emergency",
+   "at": [
+    69.78,
+    3.37,
+    13.0
+   ],
+   "face": [
+    -1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "vault-chamber",
+   "bank": 0,
+   "style": "buzz"
+  },
+  {
+   "id": "FIXTURE_x9",
+   "kind": "exit",
+   "at": [
+    60.0,
+    2.71,
+    18.13
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "reception",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x10",
+   "kind": "exit",
+   "at": [
+    60.0,
+    2.84,
+    8.13
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "vault-chamber",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x11",
+   "kind": "exit",
+   "at": [
+    76.13,
+    2.51,
+    25.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "security-desk",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e12",
+   "kind": "emergency",
+   "at": [
+    56.4,
+    3.02,
+    18.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "reception",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e13",
+   "kind": "emergency",
+   "at": [
+    65.2,
+    3.02,
+    31.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "reception",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p19",
+   "kind": "panel",
+   "at": [
+    56.5,
+    2.67,
+    36
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "decon-entry",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p20",
+   "kind": "panel",
+   "at": [
+    63.5,
+    2.67,
+    36
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "decon-entry",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_s17",
+   "kind": "slot",
+   "at": [
+    45.6,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "battery",
+   "style": "dying"
+  },
+  {
+   "id": "FIXTURE_m1",
+   "kind": "slot",
+   "at": [
+    48.0,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m2",
+   "kind": "slot",
+   "at": [
+    50.4,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_s14",
+   "kind": "slot",
+   "at": [
+    52.8,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "battery",
+   "style": "buzz"
+  },
+  {
+   "id": "FIXTURE_m4",
+   "kind": "slot",
+   "at": [
+    55.2,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m5",
+   "kind": "slot",
+   "at": [
+    57.6,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_s15",
+   "kind": "slot",
+   "at": [
+    60.0,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "battery"
+  },
+  {
+   "id": "FIXTURE_m7",
+   "kind": "slot",
+   "at": [
+    62.4,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m8",
+   "kind": "slot",
+   "at": [
+    64.8,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_s16",
+   "kind": "slot",
+   "at": [
+    67.2,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "battery"
+  },
+  {
+   "id": "FIXTURE_m10",
+   "kind": "slot",
+   "at": [
+    69.6,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m11",
+   "kind": "slot",
+   "at": [
+    72.0,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m12",
+   "kind": "slot",
+   "at": [
+    74.4,
+    3.659,
+    25.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "reception",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m13",
+   "kind": "slot",
+   "at": [
+    78.6,
+    2.959,
+    25.0
+   ],
+   "size": [
+    0.06,
+    8.5
+   ],
+   "room": "security-desk",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_s18",
+   "kind": "slot",
+   "at": [
+    81.0,
+    2.959,
+    25.0
+   ],
+   "size": [
+    0.06,
+    8.5
+   ],
+   "room": "security-desk",
+   "bank": 0,
+   "circuit": "battery",
+   "style": "failing"
+  },
+  {
+   "id": "FIXTURE_m15",
+   "kind": "slot",
+   "at": [
+    83.4,
+    2.959,
+    25.0
+   ],
+   "size": [
+    0.06,
+    8.5
+   ],
+   "room": "security-desk",
+   "bank": 0,
+   "circuit": "mains"
+  }
+ ],
+ "vents": [
+  {
+   "at": [
+    48.0,
+    3.6,
+    25.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "reception",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    50.4,
+    3.6,
+    25.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "reception",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    55.2,
+    3.6,
+    25.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "reception",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    57.6,
+    3.6,
+    25.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "reception",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    62.4,
+    3.6,
+    25.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "reception",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    64.8,
+    3.6,
+    25.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "reception",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    69.6,
+    3.6,
+    25.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "reception",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    72.0,
+    3.6,
+    25.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "reception",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  }
+ ],
+ "pipes": [],
+ "panels": [
+  {
+   "at": [
+    79.9,
+    1.0,
+    29.86
+   ],
+   "yaw": 180,
+   "room": "security-desk",
+   "kind": "utility-box"
+  }
+ ],
+ "puddles": [
+  {
+   "at": [
+    55.6,
+    0.0,
+    26.8
+   ],
+   "radius": 1.1,
+   "room": "reception",
+   "under": "a ceiling leak"
+  },
+  {
+   "at": [
+    61.5,
+    0.0,
+    14.6
+   ],
+   "radius": 0.8,
+   "room": "vault-chamber"
+  }
+ ]
+}

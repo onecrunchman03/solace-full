@@ -1,0 +1,7021 @@
+{
+ "packs": {
+  "carla": {
+   "backpack-small": {
+    "back": 0.209,
+    "up": -0.171,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.018,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.018,
+     "hd-knife-mx-stabbing": 0.018,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.018,
+     "mx-cheering": 0.011,
+     "ual1-hit-chest": 0.014,
+     "ual1-hit-head": 0.02
+    }
+   },
+   "backpack-large": {
+    "back": 0.168,
+    "up": -0.211,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {
+     "mx-cheering": 0.017,
+     "ual1-hit-head": 0.02
+    }
+   }
+  },
+  "claudia": {
+   "backpack-small": {
+    "back": 0.187,
+    "up": -0.161,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-look-back-r": 0.012,
+     "gr-mx-pro-rifle-pack--idle-crouching": 0.01,
+     "gs-mx-pro-rifle-pack--walk-crouching-forward": 0.009,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.013,
+     "hd-crowbar-ual2-sword-regular-a": 0.029,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.013,
+     "hd-hammer-ual2-sword-regular-a": 0.029,
+     "hd-knife-mx-stabbing": 0.031,
+     "hd-knife-ual2-sword-regular-a": 0.029,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.013,
+     "hd-pipe-ual2-sword-regular-a": 0.029,
+     "mx-cheering": 0.019,
+     "mx-fist-pump": 0.021,
+     "mx-laughing": 0.019,
+     "mx-push": 0.016,
+     "mx-searching-files-high": 0.016,
+     "mx-shrugging": 0.031,
+     "mx-slow-run": 0.009,
+     "mx-standing-arguing-1": 0.023,
+     "mx-standing-arguing": 0.02,
+     "mx-talking-2": 0.011,
+     "mx-talking": 0.021,
+     "mx-terrified": 0.02,
+     "ual1-hit-chest": 0.025
+    }
+   },
+   "backpack-large": {
+    "back": 0.167,
+    "up": -0.201,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "eric": {
+   "backpack-small": {
+    "back": 0.217,
+    "up": -0.227,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-flashlight-run": 0.015,
+     "bd-look-back-l": 0.016,
+     "bd-look-back-r": 0.015,
+     "gp-ual1-pistol-reload": 0.015,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.015,
+     "hd-crowbar-ual2-sword-regular-a": 0.018,
+     "hd-crowbar-ual2-sword-regular-b": 0.011,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.015,
+     "hd-hammer-ual2-sword-regular-a": 0.018,
+     "hd-hammer-ual2-sword-regular-b": 0.011,
+     "hd-knife-ual2-sword-regular-a": 0.018,
+     "hd-knife-ual2-sword-regular-b": 0.011,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.015,
+     "hd-pipe-ual2-sword-regular-a": 0.018,
+     "hd-pipe-ual2-sword-regular-b": 0.011,
+     "mx-cheering": 0.009,
+     "mx-searching-files-high": 0.009,
+     "ual1-jog-fwd-loop": 0.015,
+     "ual1-sprint-loop": 0.014
+    }
+   },
+   "backpack-large": {
+    "back": 0.208,
+    "up": -0.267,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "manuel": {
+   "backpack-small": {
+    "back": 0.237,
+    "up": -0.251,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "fza-front-struggle-start-idle": 0.018,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.031,
+     "hd-crowbar-ual2-sword-regular-a": 0.01,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.031,
+     "hd-hammer-ual2-sword-regular-a": 0.01,
+     "hd-knife-mx-stabbing": 0.028,
+     "hd-knife-ual2-sword-regular-a": 0.01,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.031,
+     "hd-pipe-ual2-sword-regular-a": 0.01,
+     "mx-jogging": 0.015,
+     "mx-looking-through-files-low": 0.009,
+     "ual1-punch-jab": 0.01
+    }
+   },
+   "backpack-large": {
+    "back": 0.21,
+    "up": -0.291,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {
+     "hd-crowbar-ual2-sword-regular-a": 0.009,
+     "hd-hammer-ual2-sword-regular-a": 0.009,
+     "hd-knife-ual2-sword-regular-a": 0.009,
+     "hd-pipe-ual2-sword-regular-a": 0.009
+    }
+   }
+  },
+  "nathan": {
+   "backpack-small": {
+    "back": 0.216,
+    "up": -0.236,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-flashlight-run": 0.013,
+     "bd-look-back-l": 0.016,
+     "bd-look-back-r": 0.01,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.012,
+     "hd-crowbar-ual2-sword-regular-a": 0.015,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.012,
+     "hd-hammer-ual2-sword-regular-a": 0.015,
+     "hd-hammer-ual2-sword-regular-b": 0.011,
+     "hd-knife-mx-stabbing": 0.025,
+     "hd-knife-ual2-sword-regular-a": 0.015,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.012,
+     "hd-pipe-ual2-sword-regular-a": 0.015,
+     "ual1-jog-fwd-loop": 0.013,
+     "ual1-punch-jab": 0.011,
+     "ual1-sprint-loop": 0.015
+    }
+   },
+   "backpack-large": {
+    "back": 0.204,
+    "up": -0.276,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "sophia": {
+   "backpack-small": {
+    "back": 0.178,
+    "up": -0.214,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "hd-crowbar-ual2-sword-regular-a": 0.013,
+     "hd-hammer-ual2-sword-regular-a": 0.013,
+     "hd-knife-mx-stabbing": 0.019,
+     "hd-knife-ual2-sword-regular-a": 0.013,
+     "hd-pipe-ual2-sword-regular-a": 0.013
+    }
+   },
+   "backpack-large": {
+    "back": 0.161,
+    "up": -0.254,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "swat-soldier": {
+   "backpack-small": {
+    "back": 0.24,
+    "up": -0.204,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "gp-ual1-pistol-aim-neutral": 0.013,
+     "gp-ual1-pistol-idle-loop": 0.013,
+     "gp-ual1-pistol-reload": 0.015,
+     "gp-ual1-pistol-shoot": 0.013,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.014,
+     "hd-crowbar-ual2-sword-regular-a": 0.009,
+     "hd-crowbar-ual2-sword-regular-b": 0.01,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.014,
+     "hd-hammer-ual2-sword-regular-a": 0.009,
+     "hd-hammer-ual2-sword-regular-b": 0.01,
+     "hd-knife-ual2-sword-regular-a": 0.009,
+     "hd-knife-ual2-sword-regular-b": 0.01,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.014,
+     "hd-pipe-ual2-sword-regular-a": 0.009,
+     "hd-pipe-ual2-sword-regular-b": 0.01,
+     "mx-disappointed": 0.011,
+     "mx-door-opening": 0.01,
+     "mx-push": 0.01
+    }
+   },
+   "backpack-large": {
+    "back": 0.226,
+    "up": -0.244,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "alex": {
+   "backpack-small": {
+    "back": 0.19,
+    "up": -0.201,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-flashlight-run": 0.02,
+     "bd-shiver": 0.01,
+     "gp-ual1-pistol-aim-neutral": 0.015,
+     "gp-ual1-pistol-idle-loop": 0.015,
+     "gp-ual1-pistol-reload": 0.015,
+     "gp-ual1-pistol-shoot": 0.015,
+     "gr-mx-pro-rifle-pack--walk-forward": 0.009,
+     "gr-mx-shoot-rifle": 0.011,
+     "gs-mx-pro-rifle-pack--walk-forward": 0.01,
+     "gs-mx-shoot-rifle": 0.011,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.032,
+     "hd-crowbar-ual2-sword-regular-a": 0.009,
+     "hd-crowbar-ual2-sword-regular-b": 0.023,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.032,
+     "hd-hammer-ual2-sword-regular-a": 0.009,
+     "hd-hammer-ual2-sword-regular-b": 0.023,
+     "hd-knife-mx-stabbing": 0.032,
+     "hd-knife-ual2-sword-regular-a": 0.009,
+     "hd-knife-ual2-sword-regular-b": 0.023,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.032,
+     "hd-pipe-ual2-sword-regular-a": 0.009,
+     "hd-pipe-ual2-sword-regular-b": 0.023,
+     "mx-cheering": 0.01,
+     "mx-climbing-ladder": 0.009,
+     "mx-disappointed": 0.013,
+     "mx-stomp": 0.009,
+     "ual1-jog-fwd-loop": 0.02,
+     "ual2-chest-open": 0.01
+    }
+   },
+   "backpack-large": {
+    "back": 0.204,
+    "up": -0.241,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "chad": {
+   "backpack-small": {
+    "back": 0.208,
+    "up": -0.2,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-flashlight-run": 0.011,
+     "gr-mx-pro-rifle-pack--run-forward": 0.009,
+     "gr-mx-pro-rifle-pack--walk-crouching-forward": 0.01,
+     "gs-mx-pro-rifle-pack--run-forward": 0.009,
+     "gs-mx-pro-rifle-pack--walk-crouching-forward": 0.01,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.02,
+     "hd-crowbar-ual2-sword-regular-a": 0.016,
+     "hd-crowbar-ual2-sword-regular-b": 0.011,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.02,
+     "hd-hammer-ual2-sword-regular-a": 0.016,
+     "hd-hammer-ual2-sword-regular-b": 0.011,
+     "hd-knife-mx-stabbing": 0.019,
+     "hd-knife-ual2-sword-regular-a": 0.016,
+     "hd-knife-ual2-sword-regular-b": 0.011,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.02,
+     "hd-pipe-ual2-sword-regular-a": 0.016,
+     "hd-pipe-ual2-sword-regular-b": 0.011,
+     "mx-cheering": 0.013,
+     "mx-fist-pump": 0.013,
+     "mx-laughing": 0.009,
+     "mx-push": 0.012,
+     "mx-searching-files-high": 0.01,
+     "mx-standing-arguing-1": 0.011,
+     "mx-standing-arguing": 0.012,
+     "mx-talking": 0.012,
+     "ual1-jog-fwd-loop": 0.011,
+     "ual1-sprint-loop": 0.015
+    }
+   },
+   "backpack-large": {
+    "back": 0.183,
+    "up": -0.24,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "david": {
+   "backpack-small": {
+    "back": 0.22,
+    "up": -0.185,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "gp-ual1-pistol-shoot": 0.009,
+     "gr-mx-pro-rifle-pack--run-forward": 0.009,
+     "gs-mx-pro-rifle-pack--run-forward": 0.009,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.023,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.023,
+     "hd-knife-mx-stabbing": 0.017,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.023,
+     "mx-fist-pump": 0.009,
+     "mx-male-injured-pack--injured-walk": 0.009,
+     "mx-standing-arguing-1": 0.009,
+     "mx-standing-arguing": 0.01,
+     "mx-stomp": 0.009
+    }
+   },
+   "backpack-large": {
+    "back": 0.184,
+    "up": -0.225,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "leonard": {
+   "backpack-small": {
+    "back": 0.197,
+    "up": -0.196,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-flashlight-slow-run": 0.009,
+     "gp-ual1-pistol-reload": 0.01,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.01,
+     "hd-crowbar-ual2-sword-regular-a": 0.014,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.01,
+     "hd-hammer-ual2-sword-regular-a": 0.014,
+     "hd-knife-mx-stabbing": 0.012,
+     "hd-knife-ual2-sword-regular-a": 0.014,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.01,
+     "hd-pipe-ual2-sword-regular-a": 0.014,
+     "mx-fist-pump": 0.009,
+     "mx-push": 0.01,
+     "mx-slow-run": 0.009,
+     "mx-standing-arguing": 0.01,
+     "mx-talking": 0.01
+    }
+   },
+   "backpack-large": {
+    "back": 0.191,
+    "up": -0.236,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "lewis": {
+   "backpack-small": {
+    "back": 0.189,
+    "up": -0.182,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "hd-crowbar-ual2-sword-regular-a": 0.014,
+     "hd-hammer-ual2-sword-regular-a": 0.014,
+     "hd-knife-mx-stabbing": 0.016,
+     "hd-knife-ual2-sword-regular-a": 0.014,
+     "hd-pipe-ual2-sword-regular-a": 0.014
+    }
+   },
+   "backpack-large": {
+    "back": 0.162,
+    "up": -0.222,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {
+     "gp-ual1-pistol-aim-neutral": 0.01,
+     "gp-ual1-pistol-idle-loop": 0.01,
+     "gp-ual1-pistol-reload": 0.01,
+     "gp-ual1-pistol-shoot": 0.01
+    }
+   }
+  },
+  "paladin": {
+   "backpack-small": {
+    "back": 0.217,
+    "up": -0.203,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "gp-ual1-pistol-aim-neutral": 0.013,
+     "gp-ual1-pistol-idle-loop": 0.015,
+     "gp-ual1-pistol-reload": 0.015,
+     "gp-ual1-pistol-shoot": 0.013,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.012,
+     "hd-crowbar-ual2-sword-regular-b": 0.009,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.012,
+     "hd-hammer-ual2-sword-regular-b": 0.009,
+     "hd-knife-ual2-sword-regular-b": 0.009,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.012,
+     "hd-pipe-ual2-sword-regular-b": 0.009,
+     "mx-disappointed": 0.014,
+     "mx-door-opening": 0.011,
+     "mx-push": 0.009
+    }
+   },
+   "backpack-large": {
+    "back": 0.202,
+    "up": -0.243,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.015,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.014,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.015
+    }
+   }
+  },
+  "pete": {
+   "backpack-small": {
+    "back": 0.191,
+    "up": -0.197,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "fza-front-struggle-start-idle": 0.011,
+     "gp-ual1-pistol-aim-neutral": 0.01,
+     "gp-ual1-pistol-idle-loop": 0.01,
+     "gp-ual1-pistol-reload": 0.012,
+     "gp-ual1-pistol-shoot": 0.01,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.009,
+     "hd-crowbar-ual2-sword-regular-a": 0.028,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.009,
+     "hd-hammer-ual2-sword-regular-a": 0.028,
+     "hd-knife-mx-stabbing": 0.015,
+     "hd-knife-ual2-sword-regular-a": 0.028,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.009,
+     "hd-pipe-ual2-sword-regular-a": 0.028,
+     "mx-disappointed": 0.012
+    }
+   },
+   "backpack-large": {
+    "back": 0.172,
+    "up": -0.237,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {
+     "gr-mx-pro-rifle-pack--walk-forward": 0.015,
+     "gs-mx-pro-rifle-pack--walk-forward": 0.015,
+     "mx-rummaging": 0.013
+    }
+   }
+  },
+  "soldier-blue": {
+   "backpack-small": {
+    "back": 0.277,
+    "up": -0.248,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-flashlight-jog": 0.011,
+     "fza-front-struggle-start-idle": 0.041,
+     "gr-mx-pro-rifle-pack--walk-crouching-forward": 0.009,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.015,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.015,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.015,
+     "mx-cheering": 0.011,
+     "mx-door-opening": 0.01,
+     "mx-hit-reaction": 0.013,
+     "mx-jogging": 0.011,
+     "mx-laughing": 0.013,
+     "mx-searching-files-high": 0.013,
+     "mx-standing-arguing": 0.018,
+     "mx-typing": 0.015
+    }
+   },
+   "backpack-large": {
+    "back": 0.297,
+    "up": -0.288,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "soldier-gas-mask": {
+   "backpack-small": {
+    "back": 0.233,
+    "up": -0.171,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-flashlight-run": 0.018,
+     "bd-look-back-l": 0.022,
+     "fza-front-struggle-start-idle": 0.024,
+     "gs-mx-pro-rifle-pack--walk-forward": 0.01,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.026,
+     "hd-crowbar-ual2-sword-regular-a": 0.031,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.026,
+     "hd-hammer-ual2-sword-regular-a": 0.031,
+     "hd-knife-ual2-sword-regular-a": 0.031,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.026,
+     "hd-pipe-ual2-sword-regular-a": 0.031,
+     "mx-disappointed": 0.018,
+     "mx-looking-through-files-low": 0.033,
+     "mx-push": 0.011,
+     "mx-terrified": 0.01,
+     "ual1-jog-fwd-loop": 0.018,
+     "ual1-sprint-loop": 0.015
+    }
+   },
+   "backpack-large": {
+    "back": 0.228,
+    "up": -0.211,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "suzie": {
+   "backpack-small": {
+    "back": 0.173,
+    "up": -0.18,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "gp-ual1-pistol-reload": 0.009,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.009,
+     "hd-crowbar-ual2-sword-regular-a": 0.022,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.009,
+     "hd-hammer-ual2-sword-regular-a": 0.022,
+     "hd-knife-mx-stabbing": 0.019,
+     "hd-knife-ual2-sword-regular-a": 0.022,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.009,
+     "hd-pipe-ual2-sword-regular-a": 0.022
+    }
+   },
+   "backpack-large": {
+    "back": 0.163,
+    "up": -0.22,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  },
+  "vanguard-soldier": {
+   "backpack-small": {
+    "back": 0.253,
+    "up": -0.179,
+    "tilt": 4,
+    "scale": 1,
+    "push": {
+     "bd-flashlight-run": 0.025,
+     "gp-ual1-pistol-idle-loop": 0.014,
+     "gp-ual1-pistol-reload": 0.011,
+     "gp-ual1-pistol-shoot": 0.014,
+     "gr-mx-pro-rifle-pack--idle-crouching": 0.013,
+     "gr-mx-shoot-rifle": 0.019,
+     "gs-mx-pro-rifle-pack--idle-crouching": 0.013,
+     "gs-mx-shoot-rifle": 0.019,
+     "hd-crowbar-mx-standing-melee-attack-downward": 0.022,
+     "hd-crowbar-ual2-sword-regular-a": 0.02,
+     "hd-hammer-mx-standing-melee-attack-downward": 0.022,
+     "hd-hammer-ual2-sword-regular-a": 0.02,
+     "hd-knife-ual2-sword-regular-a": 0.02,
+     "hd-pipe-mx-standing-melee-attack-downward": 0.022,
+     "hd-pipe-ual2-sword-regular-a": 0.02,
+     "mx-cheering": 0.01,
+     "mx-disappointed": 0.013,
+     "mx-male-injured-pack--injured-run": 0.017,
+     "mx-male-injured-pack--injured-walk": 0.015,
+     "mx-push": 0.012,
+     "mx-shrugging": 0.01,
+     "mx-terrified": 0.009,
+     "ual1-jog-fwd-loop": 0.025,
+     "ual1-sprint-loop": 0.028
+    }
+   },
+   "backpack-large": {
+    "back": 0.287,
+    "up": -0.219,
+    "tilt": 4,
+    "scale": 0.64,
+    "push": {}
+   }
+  }
+ },
+ "stow": {
+  "carla": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.149
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.151
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.133
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.132
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.137
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.187
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.157
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.13,
+     -0.209
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.099,
+     -0.209
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.099,
+     -0.209
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.099,
+     -0.209
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.214,
+     -0.219
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.184,
+     -0.219
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.184,
+     -0.219
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.184,
+     -0.219
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "claudia": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.15
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.152
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.134
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.13
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.135
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.185
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.155
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.14,
+     -0.187
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.11,
+     -0.187
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.11,
+     -0.187
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.11,
+     -0.187
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.224,
+     -0.218
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.194,
+     -0.218
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.194,
+     -0.218
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.194,
+     -0.218
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "eric": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.165
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.167
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.149
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.163
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.168
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.218
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.188
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.073,
+     -0.217
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.043,
+     -0.217
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.043,
+     -0.217
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.043,
+     -0.217
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.158,
+     -0.259
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.128,
+     -0.259
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.128,
+     -0.259
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.128,
+     -0.259
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "manuel": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.189
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.191
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.173
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.167
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.172
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.222
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.192
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.05,
+     -0.237
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.02,
+     -0.237
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.02,
+     -0.237
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.02,
+     -0.237
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.134,
+     -0.261
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.104,
+     -0.261
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.104,
+     -0.261
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.104,
+     -0.261
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "nathan": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.157
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.159
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.141
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.149
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.154
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.204
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.174
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.065,
+     -0.216
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.035,
+     -0.216
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.035,
+     -0.216
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.035,
+     -0.216
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.149,
+     -0.255
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.119,
+     -0.255
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.119,
+     -0.255
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.119,
+     -0.255
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "rollo": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.227
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.229
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.211
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.351
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.356
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.406
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.376
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   }
+  },
+  "sophia": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.14
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.142
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.124
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.121
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.126
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.176
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.146
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.087,
+     -0.178
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.057,
+     -0.178
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.057,
+     -0.178
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.057,
+     -0.178
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.171,
+     -0.212
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.141,
+     -0.212
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.141,
+     -0.212
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.141,
+     -0.212
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "swat-soldier": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.173
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.175
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.157
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.17
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.175
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.225
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.335
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.097,
+     -0.24
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.067,
+     -0.24
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.067,
+     -0.24
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.067,
+     -0.24
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.181,
+     -0.277
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.151,
+     -0.277
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.151,
+     -0.277
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.151,
+     -0.277
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "alex": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.158
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.16
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.142
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.14
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.145
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.195
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.165
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.099,
+     -0.19
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.069,
+     -0.19
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.069,
+     -0.19
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.069,
+     -0.19
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.184,
+     -0.255
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.154,
+     -0.255
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.154,
+     -0.255
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.154,
+     -0.255
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "chad": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.156
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.158
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.14
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.127
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.132
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.182
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.212
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.1,
+     -0.208
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.07,
+     -0.208
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.07,
+     -0.208
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.07,
+     -0.208
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.185,
+     -0.234
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.155,
+     -0.234
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.155,
+     -0.234
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.155,
+     -0.234
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "david": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.15
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.152
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.134
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.131
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.136
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.186
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.196
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.116,
+     -0.22
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.086,
+     -0.22
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.086,
+     -0.22
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.086,
+     -0.22
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.2,
+     -0.235
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.17,
+     -0.235
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.17,
+     -0.235
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.17,
+     -0.235
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "leonard": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.154
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.156
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.138
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.128
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.133
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.183
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.193
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.104,
+     -0.197
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.074,
+     -0.197
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.074,
+     -0.197
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.074,
+     -0.197
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.189,
+     -0.242
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.159,
+     -0.242
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.159,
+     -0.242
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.159,
+     -0.242
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "lewis": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.136
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.138
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.12
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.112
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.117
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.167
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.197
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.119,
+     -0.189
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.089,
+     -0.189
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.089,
+     -0.189
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.089,
+     -0.189
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.203,
+     -0.213
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.173,
+     -0.213
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.173,
+     -0.213
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.173,
+     -0.213
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "paladin": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.193
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.195
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.177
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.155
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.16
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.21
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.18
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.097,
+     -0.217
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.067,
+     -0.217
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.067,
+     -0.217
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.067,
+     -0.217
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.182,
+     -0.253
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.152,
+     -0.253
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.152,
+     -0.253
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.152,
+     -0.253
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "pete": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.148
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.15
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.132
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.127
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.132
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.182
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.152
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.103,
+     -0.191
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.073,
+     -0.191
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.073,
+     -0.191
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.073,
+     -0.191
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.188,
+     -0.223
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.158,
+     -0.223
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.158,
+     -0.223
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.158,
+     -0.223
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "soldier-blue": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.223
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.225
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.207
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.215
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.22
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.27
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.24
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.053,
+     -0.277
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.023,
+     -0.277
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.023,
+     -0.277
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.023,
+     -0.277
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.137,
+     -0.348
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.107,
+     -0.348
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.107,
+     -0.348
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.107,
+     -0.348
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "soldier-gas-mask": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.17
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.172
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.154
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.156
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.161
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.211
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.221
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.13,
+     -0.233
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.099,
+     -0.233
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.099,
+     -0.233
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.099,
+     -0.233
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.214,
+     -0.279
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.184,
+     -0.279
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.184,
+     -0.279
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.184,
+     -0.279
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "suzie": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.142
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.144
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.126
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.106
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.111
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.161
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.191
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.121,
+     -0.173
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.091,
+     -0.173
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.091,
+     -0.173
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.091,
+     -0.173
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.205,
+     -0.214
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.175,
+     -0.214
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.175,
+     -0.214
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.175,
+     -0.214
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  },
+  "vanguard-soldier": {
+   "holster": {
+    "frame": "hip",
+    "at": [
+     0.1,
+     0,
+     -0.229
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     -1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.02,
+     0.06
+    ]
+   },
+   "belt:claw-hammer": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0.06,
+     -0.231
+    ],
+    "y": [
+     0,
+     1,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "belt:chef-knife": {
+    "frame": "hip",
+    "at": [
+     -0.1,
+     0,
+     -0.213
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0,
+     1,
+     0
+    ],
+    "pivot": [
+     0,
+     0.008,
+     0.05
+    ]
+   },
+   "back:crowbar": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.209
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "back:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.16,
+     -0.214
+    ],
+    "y": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "z": [
+     0,
+     0,
+     -1
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "back:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0,
+     0.04,
+     -0.264
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     0.865,
+     -0.502,
+     0
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "back:hk416": {
+    "frame": "chest",
+    "at": [
+     0,
+     -0.12,
+     -0.234
+    ],
+    "y": [
+     0,
+     0,
+     -1
+    ],
+    "z": [
+     -0.502,
+     0.865,
+     0
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.232,
+     0.122,
+     -0.253
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-small:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.092,
+     -0.253
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-small:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.217,
+     0.092,
+     -0.253
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-small:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.247,
+     0.092,
+     -0.253
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   },
+   "backpack-large:hk416": {
+    "frame": "chest",
+    "at": [
+     -0.197,
+     0.206,
+     -0.338
+    ],
+    "y": [
+     -1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "pivot": [
+     0,
+     0.06,
+     0.17
+    ]
+   },
+   "backpack-large:crowbar": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.176,
+     -0.338
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.31,
+     0
+    ]
+   },
+   "backpack-large:lead-pipe": {
+    "frame": "chest",
+    "at": [
+     0.182,
+     0.176,
+     -0.338
+    ],
+    "y": [
+     0,
+     0.997,
+     -0.08
+    ],
+    "z": [
+     1,
+     0,
+     0
+    ],
+    "pivot": [
+     0,
+     0.29,
+     0
+    ]
+   },
+   "backpack-large:fire-axe-a": {
+    "frame": "chest",
+    "at": [
+     0.212,
+     0.176,
+     -0.338
+    ],
+    "y": [
+     1,
+     0,
+     0
+    ],
+    "z": [
+     0,
+     0.08,
+     0.997
+    ],
+    "pivot": [
+     0,
+     0.03,
+     0
+    ]
+   }
+  }
+ }
+}

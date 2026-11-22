@@ -1,0 +1,56 @@
+{
+ "file": "vegas/slot-lucky-spin.glb",
+ "id": "slot-lucky-spin",
+ "what": "rounded red 'Lucky Spin' upright slot (one material)",
+ "size": [
+  0.817,
+  1.6,
+  0.677
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 1968,
+ "drawCalls": 1,
+ "bytes": 776088,
+ "materials": [
+  {
+   "name": "Material.001",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base",
+    "normal",
+    "orm"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "Slot_machine",
+  "author": "morrrtu1o",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/slot-machine-d58181162e154af2ab73e8667db2e81d"
+ },
+ "sourceScale": 1.23,
+ "objects": [
+  {
+   "name": "slot-lucky-spin_0",
+   "dim": [
+    0.817,
+    1.6,
+    0.677
+   ],
+   "loc": [
+    0,
+    0.8,
+    0
+   ],
+   "tris": 1968,
+   "mats": [
+    "Material.001"
+   ]
+  }
+ ]
+}

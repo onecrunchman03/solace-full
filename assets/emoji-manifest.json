@@ -1,0 +1,9306 @@
+[
+ {
+  "code": "gemheart_01",
+  "tier": "legendary",
+  "name": "gemheartpalegold",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_01.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_02",
+  "tier": "legendary",
+  "name": "gemheartpalegreen",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_02.gif",
+  "animated": true
+ },
+ {
+  "code": "gem_01",
+  "tier": "mythic",
+  "name": "diamond 4",
+  "pack": "gem",
+  "file": "mythic/gem_01.gif",
+  "animated": true
+ },
+ {
+  "code": "gem_02",
+  "tier": "mythic",
+  "name": "diamond 8",
+  "pack": "gem",
+  "file": "mythic/gem_02.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_03",
+  "tier": "legendary",
+  "name": "gemheartorange",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_03.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_04",
+  "tier": "legendary",
+  "name": "gemheartpurple",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_04.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_05",
+  "tier": "legendary",
+  "name": "gemheartgreen",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_05.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_06",
+  "tier": "legendary",
+  "name": "gemheartpalered",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_06.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_07",
+  "tier": "legendary",
+  "name": "gemheartpaleblue",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_07.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_08",
+  "tier": "legendary",
+  "name": "gemheartpaleorange",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_08.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_09",
+  "tier": "legendary",
+  "name": "gemheartpalepink",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_09.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_10",
+  "tier": "legendary",
+  "name": "gemheartcyan",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_10.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_11",
+  "tier": "legendary",
+  "name": "gemheartpaleyellow",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_11.gif",
+  "animated": true
+ },
+ {
+  "code": "gem_03",
+  "tier": "mythic",
+  "name": "black diamond",
+  "pack": "gem",
+  "file": "mythic/gem_03.gif",
+  "animated": true
+ },
+ {
+  "code": "gem_04",
+  "tier": "mythic",
+  "name": "diamond 2",
+  "pack": "gem",
+  "file": "mythic/gem_04.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_12",
+  "tier": "legendary",
+  "name": "gemheartpalepurple",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_12.gif",
+  "animated": true
+ },
+ {
+  "code": "gem_05",
+  "tier": "mythic",
+  "name": "white diamond",
+  "pack": "gem",
+  "file": "mythic/gem_05.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_13",
+  "tier": "legendary",
+  "name": "gemheartred",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_13.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_14",
+  "tier": "legendary",
+  "name": "gemheartblue",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_14.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_15",
+  "tier": "legendary",
+  "name": "gemheartyellow",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_15.gif",
+  "animated": true
+ },
+ {
+  "code": "gemheart_16",
+  "tier": "legendary",
+  "name": "gemheartpink",
+  "pack": "gemheart",
+  "file": "legendary/gemheart_16.gif",
+  "animated": true
+ },
+ {
+  "code": "mochathebear_01",
+  "tier": "rare",
+  "name": "mochaheart",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_01.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_02",
+  "tier": "rare",
+  "name": "mocha heart",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_02.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_03",
+  "tier": "rare",
+  "name": "mocha sleep",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_03.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_04",
+  "tier": "rare",
+  "name": "mochaokay",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_04.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_05",
+  "tier": "rare",
+  "name": "mocha question",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_05.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_06",
+  "tier": "rare",
+  "name": "mochasit",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_06.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_07",
+  "tier": "rare",
+  "name": "mochabye",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_07.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_08",
+  "tier": "rare",
+  "name": "mocha sick",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_08.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_09",
+  "tier": "rare",
+  "name": "mocha celebrate",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_09.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_10",
+  "tier": "rare",
+  "name": "mocha inlove",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_10.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_11",
+  "tier": "rare",
+  "name": "mocha kickrock",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_11.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_12",
+  "tier": "rare",
+  "name": "mocha sweat",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_12.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_13",
+  "tier": "rare",
+  "name": "mochaclock",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_13.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_14",
+  "tier": "rare",
+  "name": "mocha eat",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_14.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_15",
+  "tier": "rare",
+  "name": "mocha inawe",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_15.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_16",
+  "tier": "rare",
+  "name": "mocha cheer",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_16.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_17",
+  "tier": "rare",
+  "name": "mocha hi",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_17.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_18",
+  "tier": "rare",
+  "name": "mocha",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_18.gif",
+  "animated": true
+ },
+ {
+  "code": "mochathebear_19",
+  "tier": "rare",
+  "name": "mocha think",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_19.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_20",
+  "tier": "rare",
+  "name": "mocha hungry",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_20.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_21",
+  "tier": "rare",
+  "name": "mocha angry",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_21.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_22",
+  "tier": "rare",
+  "name": "mocha sad",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_22.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_23",
+  "tier": "rare",
+  "name": "mocha kiss",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_23.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_24",
+  "tier": "rare",
+  "name": "mocha tired",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_24.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_25",
+  "tier": "rare",
+  "name": "mocha lol",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_25.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_26",
+  "tier": "rare",
+  "name": "mocha flowers",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_26.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_27",
+  "tier": "rare",
+  "name": "mocha shy",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_27.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_28",
+  "tier": "rare",
+  "name": "mocha exclaim",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_28.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_29",
+  "tier": "rare",
+  "name": "mocha no",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_29.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_30",
+  "tier": "rare",
+  "name": "mocha ok",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_30.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_31",
+  "tier": "rare",
+  "name": "mocha cry",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_31.png",
+  "animated": false
+ },
+ {
+  "code": "mochathebear_32",
+  "tier": "rare",
+  "name": "mocha bored",
+  "pack": "mochathebear",
+  "file": "rare/mochathebear_32.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_01",
+  "tier": "common",
+  "name": "check2000",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_01.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_02",
+  "tier": "common",
+  "name": "theme",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_02.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_03",
+  "tier": "common",
+  "name": "windows xp",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_03.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_04",
+  "tier": "common",
+  "name": "packagernt4",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_04.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_05",
+  "tier": "common",
+  "name": "cmdxp",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_05.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_06",
+  "tier": "common",
+  "name": "windows 2000",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_06.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_07",
+  "tier": "common",
+  "name": "crayonsnt",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_07.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_08",
+  "tier": "common",
+  "name": "confirmxp",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_08.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_09",
+  "tier": "common",
+  "name": "windowsupdate",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_09.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_10",
+  "tier": "common",
+  "name": "windows 7",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_10.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_11",
+  "tier": "common",
+  "name": "runwindowsxp",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_11.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_12",
+  "tier": "common",
+  "name": "warning2000",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_12.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_13",
+  "tier": "common",
+  "name": "attemptingtogiveadamn",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_13.gif",
+  "animated": true
+ },
+ {
+  "code": "nostalgiaos_14",
+  "tier": "common",
+  "name": "win95media",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_14.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_15",
+  "tier": "common",
+  "name": "windows95discspin",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_15.gif",
+  "animated": true
+ },
+ {
+  "code": "nostalgiaos_16",
+  "tier": "common",
+  "name": "windowxp",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_16.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_17",
+  "tier": "common",
+  "name": "taskmanagerxp",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_17.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_18",
+  "tier": "common",
+  "name": "documentation",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_18.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_19",
+  "tier": "common",
+  "name": "w98 computer",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_19.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_20",
+  "tier": "common",
+  "name": "regexplore",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_20.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_21",
+  "tier": "common",
+  "name": "syskey",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_21.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_22",
+  "tier": "common",
+  "name": "windowspc",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_22.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_23",
+  "tier": "common",
+  "name": "infoxp",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_23.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_24",
+  "tier": "common",
+  "name": "cardsnt4",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_24.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_25",
+  "tier": "common",
+  "name": "battery2000",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_25.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_26",
+  "tier": "common",
+  "name": "cdwindows2000",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_26.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_27",
+  "tier": "common",
+  "name": "floppy2000",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_27.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_28",
+  "tier": "common",
+  "name": "printer95",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_28.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_29",
+  "tier": "common",
+  "name": "contrast",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_29.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_30",
+  "tier": "common",
+  "name": "software",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_30.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_31",
+  "tier": "common",
+  "name": "pc2000",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_31.png",
+  "animated": false
+ },
+ {
+  "code": "nostalgiaos_32",
+  "tier": "common",
+  "name": "lockxp",
+  "pack": "nostalgiaos",
+  "file": "common/nostalgiaos_32.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_01",
+  "tier": "common",
+  "name": "fruitygrapes",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_01.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_02",
+  "tier": "common",
+  "name": "fruitypineapple",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_02.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_03",
+  "tier": "common",
+  "name": "fruitywatermelon",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_03.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_04",
+  "tier": "common",
+  "name": "fruityblueberries",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_04.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_05",
+  "tier": "common",
+  "name": "fruitykiwi",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_05.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_06",
+  "tier": "common",
+  "name": "fruitystrawberry",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_06.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_07",
+  "tier": "common",
+  "name": "fruitygreengrapes",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_07.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_08",
+  "tier": "common",
+  "name": "fruityavocado",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_08.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_09",
+  "tier": "common",
+  "name": "fruitypear",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_09.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_10",
+  "tier": "common",
+  "name": "fruitypeach",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_10.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_11",
+  "tier": "common",
+  "name": "fruitylemon",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_11.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_12",
+  "tier": "common",
+  "name": "fruitycherries",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_12.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_13",
+  "tier": "common",
+  "name": "fruityorange",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_13.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_14",
+  "tier": "common",
+  "name": "fruityapple",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_14.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_15",
+  "tier": "common",
+  "name": "fruityorangeslice",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_15.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_16",
+  "tier": "common",
+  "name": "fruitybanana",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_16.png",
+  "animated": false
+ },
+ {
+  "code": "fruitystickers_17",
+  "tier": "common",
+  "name": "fruitypersimmon",
+  "pack": "fruitystickers",
+  "file": "common/fruitystickers_17.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_01",
+  "tier": "common",
+  "name": "clownge",
+  "pack": "pepe",
+  "file": "common/pepe_01.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_02",
+  "tier": "common",
+  "name": "poggies peepo",
+  "pack": "pepe",
+  "file": "common/pepe_02.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_03",
+  "tier": "common",
+  "name": "pepecry",
+  "pack": "pepe",
+  "file": "common/pepe_03.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_04",
+  "tier": "common",
+  "name": "pepenosign",
+  "pack": "pepe",
+  "file": "common/pepe_04.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_05",
+  "tier": "common",
+  "name": "pepe with jesus",
+  "pack": "pepe",
+  "file": "common/pepe_05.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_06",
+  "tier": "common",
+  "name": "hmm",
+  "pack": "pepe",
+  "file": "common/pepe_06.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_07",
+  "tier": "common",
+  "name": "pepe rage",
+  "pack": "pepe",
+  "file": "common/pepe_07.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_08",
+  "tier": "common",
+  "name": "prayge",
+  "pack": "pepe",
+  "file": "common/pepe_08.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_09",
+  "tier": "common",
+  "name": "death",
+  "pack": "pepe",
+  "file": "common/pepe_09.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_10",
+  "tier": "common",
+  "name": "PepeClown",
+  "pack": "pepe",
+  "file": "common/pepe_10.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_11",
+  "tier": "common",
+  "name": "sadge",
+  "pack": "pepe",
+  "file": "common/pepe_11.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_12",
+  "tier": "common",
+  "name": "sadge pray",
+  "pack": "pepe",
+  "file": "common/pepe_12.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_13",
+  "tier": "common",
+  "name": "think",
+  "pack": "pepe",
+  "file": "common/pepe_13.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_14",
+  "tier": "common",
+  "name": "pepeclown",
+  "pack": "pepe",
+  "file": "common/pepe_14.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_15",
+  "tier": "common",
+  "name": "Sadge",
+  "pack": "pepe",
+  "file": "common/pepe_15.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_16",
+  "tier": "common",
+  "name": "copium",
+  "pack": "pepe",
+  "file": "common/pepe_16.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_17",
+  "tier": "common",
+  "name": "pepeok",
+  "pack": "pepe",
+  "file": "common/pepe_17.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_18",
+  "tier": "common",
+  "name": "pepecringe",
+  "pack": "pepe",
+  "file": "common/pepe_18.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_19",
+  "tier": "common",
+  "name": "PepeHands",
+  "pack": "pepe",
+  "file": "common/pepe_19.png",
+  "animated": false
+ },
+ {
+  "code": "pepe_20",
+  "tier": "common",
+  "name": "monkaS",
+  "pack": "pepe",
+  "file": "common/pepe_20.png",
+  "animated": false
+ },
+ {
+  "code": "green_01",
+  "tier": "common",
+  "name": "tiramisu",
+  "pack": "green",
+  "file": "common/green_01.png",
+  "animated": false
+ },
+ {
+  "code": "green_02",
+  "tier": "common",
+  "name": "tea cup",
+  "pack": "green",
+  "file": "common/green_02.png",
+  "animated": false
+ },
+ {
+  "code": "green_03",
+  "tier": "common",
+  "name": "apple",
+  "pack": "green",
+  "file": "common/green_03.png",
+  "animated": false
+ },
+ {
+  "code": "green_04",
+  "tier": "common",
+  "name": "greenspawn",
+  "pack": "green",
+  "file": "common/green_04.gif",
+  "animated": true
+ },
+ {
+  "code": "green_05",
+  "tier": "common",
+  "name": "coquettestrawberrymatcha",
+  "pack": "green",
+  "file": "common/green_05.png",
+  "animated": false
+ },
+ {
+  "code": "green_06",
+  "tier": "common",
+  "name": "green heart",
+  "pack": "green",
+  "file": "common/green_06.png",
+  "animated": false
+ },
+ {
+  "code": "green_07",
+  "tier": "common",
+  "name": "green",
+  "pack": "green",
+  "file": "common/green_07.gif",
+  "animated": true
+ },
+ {
+  "code": "green_08",
+  "tier": "common",
+  "name": "green butterfly",
+  "pack": "green",
+  "file": "common/green_08.png",
+  "animated": false
+ },
+ {
+  "code": "green_09",
+  "tier": "common",
+  "name": "dinosaur",
+  "pack": "green",
+  "file": "common/green_09.gif",
+  "animated": true
+ },
+ {
+  "code": "green_10",
+  "tier": "common",
+  "name": "greenribbon",
+  "pack": "green",
+  "file": "common/green_10.gif",
+  "animated": true
+ },
+ {
+  "code": "green_11",
+  "tier": "common",
+  "name": "cupofmatcha",
+  "pack": "green",
+  "file": "common/green_11.png",
+  "animated": false
+ },
+ {
+  "code": "green_12",
+  "tier": "common",
+  "name": "matcha mochi",
+  "pack": "green",
+  "file": "common/green_12.png",
+  "animated": false
+ },
+ {
+  "code": "green_13",
+  "tier": "common",
+  "name": "spin",
+  "pack": "green",
+  "file": "common/green_13.gif",
+  "animated": true
+ },
+ {
+  "code": "green_14",
+  "tier": "common",
+  "name": "pixelsprout",
+  "pack": "green",
+  "file": "common/green_14.gif",
+  "animated": true
+ },
+ {
+  "code": "green_15",
+  "tier": "common",
+  "name": "leaf",
+  "pack": "green",
+  "file": "common/green_15.gif",
+  "animated": true
+ },
+ {
+  "code": "green_16",
+  "tier": "common",
+  "name": "creeperplushie",
+  "pack": "green",
+  "file": "common/green_16.png",
+  "animated": false
+ },
+ {
+  "code": "green_17",
+  "tier": "common",
+  "name": "green",
+  "pack": "green",
+  "file": "common/green_17.png",
+  "animated": false
+ },
+ {
+  "code": "green_18",
+  "tier": "common",
+  "name": "clover",
+  "pack": "green",
+  "file": "common/green_18.png",
+  "animated": false
+ },
+ {
+  "code": "green_19",
+  "tier": "common",
+  "name": "bentobox",
+  "pack": "green",
+  "file": "common/green_19.gif",
+  "animated": true
+ },
+ {
+  "code": "green_20",
+  "tier": "common",
+  "name": "green flower",
+  "pack": "green",
+  "file": "common/green_20.gif",
+  "animated": true
+ },
+ {
+  "code": "green_21",
+  "tier": "common",
+  "name": "yoshi",
+  "pack": "green",
+  "file": "common/green_21.gif",
+  "animated": true
+ },
+ {
+  "code": "green_22",
+  "tier": "common",
+  "name": "strawberry",
+  "pack": "green",
+  "file": "common/green_22.gif",
+  "animated": true
+ },
+ {
+  "code": "green_23",
+  "tier": "common",
+  "name": "happyfrog",
+  "pack": "green",
+  "file": "common/green_23.gif",
+  "animated": true
+ },
+ {
+  "code": "green_24",
+  "tier": "common",
+  "name": "greenspiral",
+  "pack": "green",
+  "file": "common/green_24.gif",
+  "animated": true
+ },
+ {
+  "code": "green_25",
+  "tier": "common",
+  "name": "goaway",
+  "pack": "green",
+  "file": "common/green_25.png",
+  "animated": false
+ },
+ {
+  "code": "green_26",
+  "tier": "common",
+  "name": "lightgreenstar",
+  "pack": "green",
+  "file": "common/green_26.png",
+  "animated": false
+ },
+ {
+  "code": "green_27",
+  "tier": "common",
+  "name": "alien yap",
+  "pack": "green",
+  "file": "common/green_27.gif",
+  "animated": true
+ },
+ {
+  "code": "green_28",
+  "tier": "common",
+  "name": "bobateacute",
+  "pack": "green",
+  "file": "common/green_28.png",
+  "animated": false
+ },
+ {
+  "code": "green_29",
+  "tier": "common",
+  "name": "chanel perfume",
+  "pack": "green",
+  "file": "common/green_29.png",
+  "animated": false
+ },
+ {
+  "code": "green_30",
+  "tier": "common",
+  "name": "green cute star",
+  "pack": "green",
+  "file": "common/green_30.png",
+  "animated": false
+ },
+ {
+  "code": "green_31",
+  "tier": "common",
+  "name": "green bow",
+  "pack": "green",
+  "file": "common/green_31.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_01",
+  "tier": "rare",
+  "name": "mousey love 2",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_01.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_02",
+  "tier": "rare",
+  "name": "bluebutterfly",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_02.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_03",
+  "tier": "rare",
+  "name": "bluebearlove",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_03.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_04",
+  "tier": "rare",
+  "name": "bluecatplushie",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_04.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_05",
+  "tier": "rare",
+  "name": "narwhal",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_05.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_06",
+  "tier": "rare",
+  "name": "stardewchicken",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_06.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_07",
+  "tier": "rare",
+  "name": "bluedeer",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_07.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_08",
+  "tier": "rare",
+  "name": "sharkpopcat",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_08.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_09",
+  "tier": "rare",
+  "name": "bubuwinterhopblue",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_09.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_10",
+  "tier": "rare",
+  "name": "mousey blue wink",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_10.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_11",
+  "tier": "rare",
+  "name": "kitty cat",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_11.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_12",
+  "tier": "rare",
+  "name": "sadpenguin yt",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_12.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_13",
+  "tier": "rare",
+  "name": "gummysharks",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_13.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_14",
+  "tier": "rare",
+  "name": "chrome butterfly",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_14.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_15",
+  "tier": "rare",
+  "name": "bluecat",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_15.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_16",
+  "tier": "rare",
+  "name": "jellyfish",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_16.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_17",
+  "tier": "rare",
+  "name": "dolphin",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_17.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_18",
+  "tier": "rare",
+  "name": "bluenod",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_18.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_19",
+  "tier": "rare",
+  "name": "minecraftpartyparrotb",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_19.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_20",
+  "tier": "rare",
+  "name": "pastelbluebouncybunny",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_20.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_21",
+  "tier": "rare",
+  "name": "bluebear",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_21.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_22",
+  "tier": "rare",
+  "name": "blue whale",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_22.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_23",
+  "tier": "rare",
+  "name": "bluefish",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_23.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_24",
+  "tier": "rare",
+  "name": "butterfly 2",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_24.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_25",
+  "tier": "rare",
+  "name": "hellokittypenguin",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_25.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_26",
+  "tier": "rare",
+  "name": "babybluebutterfly",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_26.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_27",
+  "tier": "rare",
+  "name": "mousey blue confused",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_27.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_28",
+  "tier": "rare",
+  "name": "angrysharkbongocat",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_28.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_29",
+  "tier": "rare",
+  "name": "bluekoifish",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_29.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_30",
+  "tier": "rare",
+  "name": "blue elephant stuffie",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_30.png",
+  "animated": false
+ },
+ {
+  "code": "blueanimals_31",
+  "tier": "rare",
+  "name": "Butterfly Blue",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_31.gif",
+  "animated": true
+ },
+ {
+  "code": "blueanimals_32",
+  "tier": "rare",
+  "name": "mousey blue love",
+  "pack": "blueanimals",
+  "file": "rare/blueanimals_32.gif",
+  "animated": true
+ },
+ {
+  "code": "mehneutral_01",
+  "tier": "common",
+  "name": "telegram neutral face",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_01.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_02",
+  "tier": "common",
+  "name": "expressionless cat",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_02.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_03",
+  "tier": "common",
+  "name": "Indifferent",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_03.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_04",
+  "tier": "common",
+  "name": "unimpressed",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_04.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_05",
+  "tier": "common",
+  "name": "MehCat",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_05.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_06",
+  "tier": "common",
+  "name": "neutral",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_06.gif",
+  "animated": true
+ },
+ {
+  "code": "mehneutral_07",
+  "tier": "common",
+  "name": "feedback neutral",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_07.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_08",
+  "tier": "common",
+  "name": "staringlime",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_08.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_09",
+  "tier": "common",
+  "name": "neutralcube",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_09.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_10",
+  "tier": "common",
+  "name": "meh",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_10.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_11",
+  "tier": "common",
+  "name": "expressionlessfaceemoji",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_11.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_12",
+  "tier": "common",
+  "name": "yellowguysideeye",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_12.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_13",
+  "tier": "common",
+  "name": "cat stare",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_13.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_14",
+  "tier": "common",
+  "name": "b expressionless",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_14.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_15",
+  "tier": "common",
+  "name": "neutralface emoji",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_15.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_16",
+  "tier": "common",
+  "name": "neutral face",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_16.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_17",
+  "tier": "common",
+  "name": "Meh",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_17.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_18",
+  "tier": "common",
+  "name": "expressionless",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_18.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_19",
+  "tier": "common",
+  "name": "neutralfaceemoji",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_19.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_20",
+  "tier": "common",
+  "name": "aaja stare",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_20.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_21",
+  "tier": "common",
+  "name": "huh",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_21.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_22",
+  "tier": "common",
+  "name": "neutral sure",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_22.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_23",
+  "tier": "common",
+  "name": "neutral face",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_23.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_24",
+  "tier": "common",
+  "name": "neutral face",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_24.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_25",
+  "tier": "common",
+  "name": "neutral",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_25.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_26",
+  "tier": "common",
+  "name": "OH MY MEH",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_26.png",
+  "animated": false
+ },
+ {
+  "code": "mehneutral_27",
+  "tier": "common",
+  "name": "dazed",
+  "pack": "mehneutral",
+  "file": "common/mehneutral_27.png",
+  "animated": false
+ },
+ {
+  "code": "cucarach_01",
+  "tier": "common",
+  "name": "nice",
+  "pack": "cucarach",
+  "file": "common/cucarach_01.png",
+  "animated": false
+ },
+ {
+  "code": "cucarach_02",
+  "tier": "common",
+  "name": "cockroach rainbows",
+  "pack": "cucarach",
+  "file": "common/cucarach_02.gif",
+  "animated": true
+ },
+ {
+  "code": "cucarach_03",
+  "tier": "common",
+  "name": "cockroach dancing",
+  "pack": "cucarach",
+  "file": "common/cucarach_03.gif",
+  "animated": true
+ },
+ {
+  "code": "cucarach_04",
+  "tier": "common",
+  "name": "cockroach",
+  "pack": "cucarach",
+  "file": "common/cucarach_04.gif",
+  "animated": true
+ },
+ {
+  "code": "blueandbrown_01",
+  "tier": "common",
+  "name": "bye car blank bearish",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_01.gif",
+  "animated": true
+ },
+ {
+  "code": "blueandbrown_02",
+  "tier": "common",
+  "name": "strawberrycake cat1",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_02.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_03",
+  "tier": "common",
+  "name": "unicorncupcake",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_03.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_04",
+  "tier": "common",
+  "name": "bluebearicecream",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_04.gif",
+  "animated": true
+ },
+ {
+  "code": "blueandbrown_05",
+  "tier": "common",
+  "name": "skippy",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_05.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_06",
+  "tier": "common",
+  "name": "cryingcookie",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_06.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_07",
+  "tier": "common",
+  "name": "pretzelmacaroon",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_07.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_08",
+  "tier": "common",
+  "name": "bluebearicecream",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_08.gif",
+  "animated": true
+ },
+ {
+  "code": "blueandbrown_09",
+  "tier": "common",
+  "name": "toasterfriend",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_09.gif",
+  "animated": true
+ },
+ {
+  "code": "blueandbrown_10",
+  "tier": "common",
+  "name": "flyingicecreamcone",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_10.gif",
+  "animated": true
+ },
+ {
+  "code": "blueandbrown_11",
+  "tier": "common",
+  "name": "dessert miitopia",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_11.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_12",
+  "tier": "common",
+  "name": "oreopeanutbuttermacaroon",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_12.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_13",
+  "tier": "common",
+  "name": "coldbrownbearish",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_13.gif",
+  "animated": true
+ },
+ {
+  "code": "blueandbrown_14",
+  "tier": "common",
+  "name": "cookie and",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_14.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_15",
+  "tier": "common",
+  "name": "pixel puppy sick",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_15.gif",
+  "animated": true
+ },
+ {
+  "code": "blueandbrown_16",
+  "tier": "common",
+  "name": "pepeghostpirate",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_16.png",
+  "animated": false
+ },
+ {
+  "code": "blueandbrown_17",
+  "tier": "common",
+  "name": "cookie question",
+  "pack": "blueandbrown",
+  "file": "common/blueandbrown_17.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_01",
+  "tier": "common",
+  "name": "knife",
+  "pack": "retarted",
+  "file": "common/retarted_01.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_02",
+  "tier": "common",
+  "name": "gigachad",
+  "pack": "retarted",
+  "file": "common/retarted_02.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_03",
+  "tier": "common",
+  "name": "angycat",
+  "pack": "retarted",
+  "file": "common/retarted_03.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_04",
+  "tier": "common",
+  "name": "pray",
+  "pack": "retarted",
+  "file": "common/retarted_04.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_05",
+  "tier": "common",
+  "name": "ok",
+  "pack": "retarted",
+  "file": "common/retarted_05.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_06",
+  "tier": "common",
+  "name": "done",
+  "pack": "retarted",
+  "file": "common/retarted_06.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_07",
+  "tier": "common",
+  "name": "deadpan",
+  "pack": "retarted",
+  "file": "common/retarted_07.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_08",
+  "tier": "common",
+  "name": "sadcat",
+  "pack": "retarted",
+  "file": "common/retarted_08.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_09",
+  "tier": "common",
+  "name": "weebs land",
+  "pack": "retarted",
+  "file": "common/retarted_09.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_10",
+  "tier": "common",
+  "name": "shut",
+  "pack": "retarted",
+  "file": "common/retarted_10.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_11",
+  "tier": "common",
+  "name": "debil",
+  "pack": "retarted",
+  "file": "common/retarted_11.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_12",
+  "tier": "common",
+  "name": "joe innocent",
+  "pack": "retarted",
+  "file": "common/retarted_12.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_13",
+  "tier": "common",
+  "name": "happywisetree",
+  "pack": "retarted",
+  "file": "common/retarted_13.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_14",
+  "tier": "common",
+  "name": "sadsponge",
+  "pack": "retarted",
+  "file": "common/retarted_14.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_15",
+  "tier": "common",
+  "name": "pwease",
+  "pack": "retarted",
+  "file": "common/retarted_15.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_16",
+  "tier": "common",
+  "name": "monkeythink",
+  "pack": "retarted",
+  "file": "common/retarted_16.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_17",
+  "tier": "common",
+  "name": "thousandyardstare",
+  "pack": "retarted",
+  "file": "common/retarted_17.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_18",
+  "tier": "common",
+  "name": "whoknows",
+  "pack": "retarted",
+  "file": "common/retarted_18.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_19",
+  "tier": "common",
+  "name": "gigachad",
+  "pack": "retarted",
+  "file": "common/retarted_19.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_20",
+  "tier": "common",
+  "name": "pepeknife",
+  "pack": "retarted",
+  "file": "common/retarted_20.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_21",
+  "tier": "common",
+  "name": "salute",
+  "pack": "retarted",
+  "file": "common/retarted_21.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_22",
+  "tier": "common",
+  "name": "ban",
+  "pack": "retarted",
+  "file": "common/retarted_22.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_23",
+  "tier": "common",
+  "name": "sideeye",
+  "pack": "retarted",
+  "file": "common/retarted_23.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_24",
+  "tier": "common",
+  "name": "popcorn",
+  "pack": "retarted",
+  "file": "common/retarted_24.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_25",
+  "tier": "common",
+  "name": "pepecross",
+  "pack": "retarted",
+  "file": "common/retarted_25.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_26",
+  "tier": "common",
+  "name": "thinky",
+  "pack": "retarted",
+  "file": "common/retarted_26.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_27",
+  "tier": "common",
+  "name": "pepepunch",
+  "pack": "retarted",
+  "file": "common/retarted_27.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_28",
+  "tier": "common",
+  "name": "cheems triggered",
+  "pack": "retarted",
+  "file": "common/retarted_28.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_29",
+  "tier": "common",
+  "name": "cat sideeye",
+  "pack": "retarted",
+  "file": "common/retarted_29.png",
+  "animated": false
+ },
+ {
+  "code": "retarted_30",
+  "tier": "common",
+  "name": "okaybro",
+  "pack": "retarted",
+  "file": "common/retarted_30.png",
+  "animated": false
+ },
+ {
+  "code": "pixelouterspac_01",
+  "tier": "legendary",
+  "name": "pixelmeteor",
+  "pack": "pixelouterspac",
+  "file": "legendary/pixelouterspac_01.png",
+  "animated": false
+ },
+ {
+  "code": "pixelouterspac_02",
+  "tier": "legendary",
+  "name": "pixelsparkle",
+  "pack": "pixelouterspac",
+  "file": "legendary/pixelouterspac_02.png",
+  "animated": false
+ },
+ {
+  "code": "pixelouterspac_03",
+  "tier": "legendary",
+  "name": "pixelufo",
+  "pack": "pixelouterspac",
+  "file": "legendary/pixelouterspac_03.png",
+  "animated": false
+ },
+ {
+  "code": "pixelouterspac_04",
+  "tier": "legendary",
+  "name": "pixelshootingstar",
+  "pack": "pixelouterspac",
+  "file": "legendary/pixelouterspac_04.png",
+  "animated": false
+ },
+ {
+  "code": "pixelouterspac_05",
+  "tier": "legendary",
+  "name": "pixelsaturn",
+  "pack": "pixelouterspac",
+  "file": "legendary/pixelouterspac_05.png",
+  "animated": false
+ },
+ {
+  "code": "pixelouterspac_06",
+  "tier": "legendary",
+  "name": "pixelmoon",
+  "pack": "pixelouterspac",
+  "file": "legendary/pixelouterspac_06.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_01",
+  "tier": "common",
+  "name": "coolguy",
+  "pack": "emotes",
+  "file": "common/emotes_01.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_02",
+  "tier": "common",
+  "name": "facepalm",
+  "pack": "emotes",
+  "file": "common/emotes_02.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_03",
+  "tier": "common",
+  "name": "smug",
+  "pack": "emotes",
+  "file": "common/emotes_03.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_04",
+  "tier": "common",
+  "name": "looking",
+  "pack": "emotes",
+  "file": "common/emotes_04.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_05",
+  "tier": "common",
+  "name": "nyeh",
+  "pack": "emotes",
+  "file": "common/emotes_05.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_06",
+  "tier": "common",
+  "name": "slay",
+  "pack": "emotes",
+  "file": "common/emotes_06.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_07",
+  "tier": "common",
+  "name": "buffering",
+  "pack": "emotes",
+  "file": "common/emotes_07.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_08",
+  "tier": "common",
+  "name": "irritated",
+  "pack": "emotes",
+  "file": "common/emotes_08.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_09",
+  "tier": "common",
+  "name": "owo",
+  "pack": "emotes",
+  "file": "common/emotes_09.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_10",
+  "tier": "common",
+  "name": "innocentangel",
+  "pack": "emotes",
+  "file": "common/emotes_10.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_11",
+  "tier": "common",
+  "name": "annoyed",
+  "pack": "emotes",
+  "file": "common/emotes_11.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_12",
+  "tier": "common",
+  "name": "hello",
+  "pack": "emotes",
+  "file": "common/emotes_12.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_13",
+  "tier": "common",
+  "name": "tired",
+  "pack": "emotes",
+  "file": "common/emotes_13.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_14",
+  "tier": "common",
+  "name": "confused",
+  "pack": "emotes",
+  "file": "common/emotes_14.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_15",
+  "tier": "common",
+  "name": "devil",
+  "pack": "emotes",
+  "file": "common/emotes_15.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_16",
+  "tier": "common",
+  "name": "love",
+  "pack": "emotes",
+  "file": "common/emotes_16.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_17",
+  "tier": "common",
+  "name": "awwcute",
+  "pack": "emotes",
+  "file": "common/emotes_17.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_18",
+  "tier": "common",
+  "name": "angry",
+  "pack": "emotes",
+  "file": "common/emotes_18.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_19",
+  "tier": "common",
+  "name": "sweating",
+  "pack": "emotes",
+  "file": "common/emotes_19.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_20",
+  "tier": "common",
+  "name": "okay",
+  "pack": "emotes",
+  "file": "common/emotes_20.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_21",
+  "tier": "common",
+  "name": "evilhehe",
+  "pack": "emotes",
+  "file": "common/emotes_21.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_22",
+  "tier": "common",
+  "name": "despair",
+  "pack": "emotes",
+  "file": "common/emotes_22.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_23",
+  "tier": "common",
+  "name": "party",
+  "pack": "emotes",
+  "file": "common/emotes_23.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_24",
+  "tier": "common",
+  "name": "poggers",
+  "pack": "emotes",
+  "file": "common/emotes_24.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_25",
+  "tier": "common",
+  "name": "cringe",
+  "pack": "emotes",
+  "file": "common/emotes_25.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_26",
+  "tier": "common",
+  "name": "annoyed",
+  "pack": "emotes",
+  "file": "common/emotes_26.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_27",
+  "tier": "common",
+  "name": "lipbite",
+  "pack": "emotes",
+  "file": "common/emotes_27.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_28",
+  "tier": "common",
+  "name": "sleepy",
+  "pack": "emotes",
+  "file": "common/emotes_28.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_29",
+  "tier": "common",
+  "name": "adoring",
+  "pack": "emotes",
+  "file": "common/emotes_29.png",
+  "animated": false
+ },
+ {
+  "code": "emotes_30",
+  "tier": "common",
+  "name": "bigfrown",
+  "pack": "emotes",
+  "file": "common/emotes_30.png",
+  "animated": false
+ },
+ {
+  "code": "meep_01",
+  "tier": "rare",
+  "name": "meepeyeroll",
+  "pack": "meep",
+  "file": "rare/meep_01.png",
+  "animated": false
+ },
+ {
+  "code": "meep_02",
+  "tier": "rare",
+  "name": "meepcool",
+  "pack": "meep",
+  "file": "rare/meep_02.png",
+  "animated": false
+ },
+ {
+  "code": "meep_03",
+  "tier": "rare",
+  "name": "meepworried",
+  "pack": "meep",
+  "file": "rare/meep_03.png",
+  "animated": false
+ },
+ {
+  "code": "meep_04",
+  "tier": "rare",
+  "name": "meepangel",
+  "pack": "meep",
+  "file": "rare/meep_04.png",
+  "animated": false
+ },
+ {
+  "code": "meep_05",
+  "tier": "rare",
+  "name": "meepbleh",
+  "pack": "meep",
+  "file": "rare/meep_05.png",
+  "animated": false
+ },
+ {
+  "code": "meep_06",
+  "tier": "rare",
+  "name": "meeplove",
+  "pack": "meep",
+  "file": "rare/meep_06.png",
+  "animated": false
+ },
+ {
+  "code": "meep_07",
+  "tier": "rare",
+  "name": "meepstarstruck",
+  "pack": "meep",
+  "file": "rare/meep_07.png",
+  "animated": false
+ },
+ {
+  "code": "meep_08",
+  "tier": "rare",
+  "name": "meepjoy",
+  "pack": "meep",
+  "file": "rare/meep_08.png",
+  "animated": false
+ },
+ {
+  "code": "meep_09",
+  "tier": "rare",
+  "name": "meepsmile",
+  "pack": "meep",
+  "file": "rare/meep_09.png",
+  "animated": false
+ },
+ {
+  "code": "meep_10",
+  "tier": "rare",
+  "name": "meepsurpised",
+  "pack": "meep",
+  "file": "rare/meep_10.png",
+  "animated": false
+ },
+ {
+  "code": "meep_11",
+  "tier": "rare",
+  "name": "meepblush",
+  "pack": "meep",
+  "file": "rare/meep_11.png",
+  "animated": false
+ },
+ {
+  "code": "meep_12",
+  "tier": "rare",
+  "name": "meepwink",
+  "pack": "meep",
+  "file": "rare/meep_12.png",
+  "animated": false
+ },
+ {
+  "code": "meep_13",
+  "tier": "rare",
+  "name": "meepsob",
+  "pack": "meep",
+  "file": "rare/meep_13.png",
+  "animated": false
+ },
+ {
+  "code": "meep_14",
+  "tier": "rare",
+  "name": "meepdown",
+  "pack": "meep",
+  "file": "rare/meep_14.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_01",
+  "tier": "rare",
+  "name": "insomniabutterfly",
+  "pack": "redanimals",
+  "file": "rare/redanimals_01.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_02",
+  "tier": "rare",
+  "name": "bo7butterfly",
+  "pack": "redanimals",
+  "file": "rare/redanimals_02.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_03",
+  "tier": "rare",
+  "name": "cheems triggered",
+  "pack": "redanimals",
+  "file": "rare/redanimals_03.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_04",
+  "tier": "rare",
+  "name": "catjam",
+  "pack": "redanimals",
+  "file": "rare/redanimals_04.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_05",
+  "tier": "rare",
+  "name": "strawberry catto",
+  "pack": "redanimals",
+  "file": "rare/redanimals_05.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_06",
+  "tier": "rare",
+  "name": "red bandana cat",
+  "pack": "redanimals",
+  "file": "rare/redanimals_06.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_07",
+  "tier": "rare",
+  "name": "minecraftpartyparrotr",
+  "pack": "redanimals",
+  "file": "rare/redanimals_07.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_08",
+  "tier": "rare",
+  "name": "angree",
+  "pack": "redanimals",
+  "file": "rare/redanimals_08.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_09",
+  "tier": "rare",
+  "name": "redbutterfly",
+  "pack": "redanimals",
+  "file": "rare/redanimals_09.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_10",
+  "tier": "rare",
+  "name": "c harvest",
+  "pack": "redanimals",
+  "file": "rare/redanimals_10.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_11",
+  "tier": "rare",
+  "name": "crab",
+  "pack": "redanimals",
+  "file": "rare/redanimals_11.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_12",
+  "tier": "rare",
+  "name": "redbutterflywingleft",
+  "pack": "redanimals",
+  "file": "rare/redanimals_12.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_13",
+  "tier": "rare",
+  "name": "strawberryplushie",
+  "pack": "redanimals",
+  "file": "rare/redanimals_13.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_14",
+  "tier": "rare",
+  "name": "cowboycrab",
+  "pack": "redanimals",
+  "file": "rare/redanimals_14.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_15",
+  "tier": "rare",
+  "name": "butterfly 7",
+  "pack": "redanimals",
+  "file": "rare/redanimals_15.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_16",
+  "tier": "rare",
+  "name": "lovebird",
+  "pack": "redanimals",
+  "file": "rare/redanimals_16.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_17",
+  "tier": "rare",
+  "name": "butterfliesred",
+  "pack": "redanimals",
+  "file": "rare/redanimals_17.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_18",
+  "tier": "rare",
+  "name": "parrotdance",
+  "pack": "redanimals",
+  "file": "rare/redanimals_18.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_19",
+  "tier": "rare",
+  "name": "redfish",
+  "pack": "redanimals",
+  "file": "rare/redanimals_19.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_20",
+  "tier": "rare",
+  "name": "keksquid yt",
+  "pack": "redanimals",
+  "file": "rare/redanimals_20.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_21",
+  "tier": "rare",
+  "name": "crabtrain",
+  "pack": "redanimals",
+  "file": "rare/redanimals_21.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_22",
+  "tier": "rare",
+  "name": "red fish",
+  "pack": "redanimals",
+  "file": "rare/redanimals_22.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_23",
+  "tier": "rare",
+  "name": "shrimpfriedrice",
+  "pack": "redanimals",
+  "file": "rare/redanimals_23.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_24",
+  "tier": "rare",
+  "name": "wuewuewue",
+  "pack": "redanimals",
+  "file": "rare/redanimals_24.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_25",
+  "tier": "rare",
+  "name": "strawberry kitten",
+  "pack": "redanimals",
+  "file": "rare/redanimals_25.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_26",
+  "tier": "rare",
+  "name": "redfish",
+  "pack": "redanimals",
+  "file": "rare/redanimals_26.png",
+  "animated": false
+ },
+ {
+  "code": "redanimals_27",
+  "tier": "rare",
+  "name": "catbugred",
+  "pack": "redanimals",
+  "file": "rare/redanimals_27.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_28",
+  "tier": "rare",
+  "name": "reddeer",
+  "pack": "redanimals",
+  "file": "rare/redanimals_28.gif",
+  "animated": true
+ },
+ {
+  "code": "redanimals_29",
+  "tier": "rare",
+  "name": "milkshake bear",
+  "pack": "redanimals",
+  "file": "rare/redanimals_29.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_01",
+  "tier": "common",
+  "name": "pepe copium",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_01.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_02",
+  "tier": "common",
+  "name": "pepe sweat",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_02.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_03",
+  "tier": "common",
+  "name": "pepe oof",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_03.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_04",
+  "tier": "common",
+  "name": "pepe angry",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_04.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_05",
+  "tier": "common",
+  "name": "pepe suffering",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_05.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_06",
+  "tier": "common",
+  "name": "pepe youcantifyoudont",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_06.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_07",
+  "tier": "common",
+  "name": "pepe glare",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_07.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_08",
+  "tier": "common",
+  "name": "pepe clownmakeup",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_08.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_09",
+  "tier": "common",
+  "name": "pepe 5head",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_09.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_10",
+  "tier": "common",
+  "name": "pepe popcorn",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_10.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_11",
+  "tier": "common",
+  "name": "pepe crying",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_11.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_12",
+  "tier": "common",
+  "name": "pepe toast",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_12.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_13",
+  "tier": "common",
+  "name": "pepe happy",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_13.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_14",
+  "tier": "common",
+  "name": "pepe trollface",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_14.png",
+  "animated": false
+ },
+ {
+  "code": "essentialpepep_15",
+  "tier": "common",
+  "name": "pepe kek",
+  "pack": "essentialpepep",
+  "file": "common/essentialpepep_15.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_01",
+  "tier": "rare",
+  "name": "woodenbadgesmile",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_01.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_02",
+  "tier": "rare",
+  "name": "woodenbadgecat",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_02.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_03",
+  "tier": "rare",
+  "name": "woodenbadgeballoons",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_03.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_04",
+  "tier": "rare",
+  "name": "woodenbadgebow",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_04.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_05",
+  "tier": "rare",
+  "name": "woodenbadgeheart",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_05.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_06",
+  "tier": "rare",
+  "name": "woodenbadgeflower",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_06.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_07",
+  "tier": "rare",
+  "name": "woodenbadgestar",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_07.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_08",
+  "tier": "rare",
+  "name": "woodenbadgerainbow",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_08.png",
+  "animated": false
+ },
+ {
+  "code": "woodenbadges_09",
+  "tier": "rare",
+  "name": "woodenbadgethink",
+  "pack": "woodenbadges",
+  "file": "rare/woodenbadges_09.png",
+  "animated": false
+ },
+ {
+  "code": "flustered_01",
+  "tier": "common",
+  "name": "fluster glow",
+  "pack": "flustered",
+  "file": "common/flustered_01.png",
+  "animated": false
+ },
+ {
+  "code": "flustered_02",
+  "tier": "common",
+  "name": "flustered girl",
+  "pack": "flustered",
+  "file": "common/flustered_02.png",
+  "animated": false
+ },
+ {
+  "code": "flustered_03",
+  "tier": "common",
+  "name": "flustered",
+  "pack": "flustered",
+  "file": "common/flustered_03.gif",
+  "animated": true
+ },
+ {
+  "code": "flustered_04",
+  "tier": "common",
+  "name": "flustered",
+  "pack": "flustered",
+  "file": "common/flustered_04.png",
+  "animated": false
+ },
+ {
+  "code": "flustered_05",
+  "tier": "common",
+  "name": "flustered",
+  "pack": "flustered",
+  "file": "common/flustered_05.png",
+  "animated": false
+ },
+ {
+  "code": "sob_01",
+  "tier": "common",
+  "name": "blood sob",
+  "pack": "sob",
+  "file": "common/sob_01.png",
+  "animated": false
+ },
+ {
+  "code": "sob_02",
+  "tier": "common",
+  "name": "raised sobbing hands",
+  "pack": "sob",
+  "file": "common/sob_02.png",
+  "animated": false
+ },
+ {
+  "code": "sob_03",
+  "tier": "common",
+  "name": "sob float",
+  "pack": "sob",
+  "file": "common/sob_03.png",
+  "animated": false
+ },
+ {
+  "code": "sob_04",
+  "tier": "common",
+  "name": "sob emoji without water",
+  "pack": "sob",
+  "file": "common/sob_04.png",
+  "animated": false
+ },
+ {
+  "code": "sob_05",
+  "tier": "common",
+  "name": "applegun",
+  "pack": "sob",
+  "file": "common/sob_05.png",
+  "animated": false
+ },
+ {
+  "code": "sob_06",
+  "tier": "common",
+  "name": "sobflow",
+  "pack": "sob",
+  "file": "common/sob_06.png",
+  "animated": false
+ },
+ {
+  "code": "sob_07",
+  "tier": "common",
+  "name": "treesob",
+  "pack": "sob",
+  "file": "common/sob_07.png",
+  "animated": false
+ },
+ {
+  "code": "sob_08",
+  "tier": "common",
+  "name": "party sob",
+  "pack": "sob",
+  "file": "common/sob_08.png",
+  "animated": false
+ },
+ {
+  "code": "sob_09",
+  "tier": "common",
+  "name": "sob",
+  "pack": "sob",
+  "file": "common/sob_09.png",
+  "animated": false
+ },
+ {
+  "code": "sob_10",
+  "tier": "common",
+  "name": "oldman sob",
+  "pack": "sob",
+  "file": "common/sob_10.png",
+  "animated": false
+ },
+ {
+  "code": "sob_11",
+  "tier": "common",
+  "name": "lego sob",
+  "pack": "sob",
+  "file": "common/sob_11.png",
+  "animated": false
+ },
+ {
+  "code": "sob_12",
+  "tier": "common",
+  "name": "pinksob",
+  "pack": "sob",
+  "file": "common/sob_12.png",
+  "animated": false
+ },
+ {
+  "code": "sob_13",
+  "tier": "common",
+  "name": "egg sob",
+  "pack": "sob",
+  "file": "common/sob_13.png",
+  "animated": false
+ },
+ {
+  "code": "sob_14",
+  "tier": "common",
+  "name": "sob praying",
+  "pack": "sob",
+  "file": "common/sob_14.png",
+  "animated": false
+ },
+ {
+  "code": "sob_15",
+  "tier": "common",
+  "name": "sobsquare",
+  "pack": "sob",
+  "file": "common/sob_15.png",
+  "animated": false
+ },
+ {
+  "code": "sob_16",
+  "tier": "common",
+  "name": "sob",
+  "pack": "sob",
+  "file": "common/sob_16.png",
+  "animated": false
+ },
+ {
+  "code": "sob_17",
+  "tier": "common",
+  "name": "sob cat",
+  "pack": "sob",
+  "file": "common/sob_17.png",
+  "animated": false
+ },
+ {
+  "code": "space_01",
+  "tier": "legendary",
+  "name": "sun",
+  "pack": "space",
+  "file": "legendary/space_01.png",
+  "animated": false
+ },
+ {
+  "code": "space_02",
+  "tier": "legendary",
+  "name": "jupiter",
+  "pack": "space",
+  "file": "legendary/space_02.png",
+  "animated": false
+ },
+ {
+  "code": "space_03",
+  "tier": "legendary",
+  "name": "mars",
+  "pack": "space",
+  "file": "legendary/space_03.png",
+  "animated": false
+ },
+ {
+  "code": "space_04",
+  "tier": "legendary",
+  "name": "mercury",
+  "pack": "space",
+  "file": "legendary/space_04.png",
+  "animated": false
+ },
+ {
+  "code": "space_05",
+  "tier": "legendary",
+  "name": "blackhole",
+  "pack": "space",
+  "file": "legendary/space_05.png",
+  "animated": false
+ },
+ {
+  "code": "space_06",
+  "tier": "legendary",
+  "name": "earth",
+  "pack": "space",
+  "file": "legendary/space_06.png",
+  "animated": false
+ },
+ {
+  "code": "space_07",
+  "tier": "legendary",
+  "name": "moon",
+  "pack": "space",
+  "file": "legendary/space_07.png",
+  "animated": false
+ },
+ {
+  "code": "space_08",
+  "tier": "legendary",
+  "name": "pluto",
+  "pack": "space",
+  "file": "legendary/space_08.png",
+  "animated": false
+ },
+ {
+  "code": "space_09",
+  "tier": "legendary",
+  "name": "venus",
+  "pack": "space",
+  "file": "legendary/space_09.png",
+  "animated": false
+ },
+ {
+  "code": "space_10",
+  "tier": "legendary",
+  "name": "neptune",
+  "pack": "space",
+  "file": "legendary/space_10.png",
+  "animated": false
+ },
+ {
+  "code": "space_11",
+  "tier": "legendary",
+  "name": "uranus",
+  "pack": "space",
+  "file": "legendary/space_11.png",
+  "animated": false
+ },
+ {
+  "code": "space_12",
+  "tier": "legendary",
+  "name": "saturn",
+  "pack": "space",
+  "file": "legendary/space_12.png",
+  "animated": false
+ },
+ {
+  "code": "space_13",
+  "tier": "legendary",
+  "name": "nasa",
+  "pack": "space",
+  "file": "legendary/space_13.png",
+  "animated": false
+ },
+ {
+  "code": "plantbadgepack_01",
+  "tier": "rare",
+  "name": "blossom",
+  "pack": "plantbadgepack",
+  "file": "rare/plantbadgepack_01.png",
+  "animated": false
+ },
+ {
+  "code": "plantbadgepack_02",
+  "tier": "rare",
+  "name": "potted plant",
+  "pack": "plantbadgepack",
+  "file": "rare/plantbadgepack_02.png",
+  "animated": false
+ },
+ {
+  "code": "plantbadgepack_03",
+  "tier": "rare",
+  "name": "maple",
+  "pack": "plantbadgepack",
+  "file": "rare/plantbadgepack_03.png",
+  "animated": false
+ },
+ {
+  "code": "plantbadgepack_04",
+  "tier": "rare",
+  "name": "clover",
+  "pack": "plantbadgepack",
+  "file": "rare/plantbadgepack_04.png",
+  "animated": false
+ },
+ {
+  "code": "plantbadgepack_05",
+  "tier": "rare",
+  "name": "wilted flower",
+  "pack": "plantbadgepack",
+  "file": "rare/plantbadgepack_05.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_01",
+  "tier": "rare",
+  "name": "frogsparkles",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_01.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_02",
+  "tier": "rare",
+  "name": "kidcorefrog",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_02.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_03",
+  "tier": "rare",
+  "name": "greennod",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_03.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_04",
+  "tier": "rare",
+  "name": "frogcrying",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_04.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_05",
+  "tier": "rare",
+  "name": "sakurabird",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_05.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_06",
+  "tier": "rare",
+  "name": "frogscared",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_06.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_07",
+  "tier": "rare",
+  "name": "happysleepingfrog",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_07.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_08",
+  "tier": "rare",
+  "name": "frogangry",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_08.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_09",
+  "tier": "rare",
+  "name": "excited frog",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_09.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_10",
+  "tier": "rare",
+  "name": "frogdance",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_10.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_11",
+  "tier": "rare",
+  "name": "frogdance",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_11.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_12",
+  "tier": "rare",
+  "name": "green butterfly",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_12.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_13",
+  "tier": "rare",
+  "name": "frogdance",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_13.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_14",
+  "tier": "rare",
+  "name": "frogquestion",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_14.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_15",
+  "tier": "rare",
+  "name": "geckolick",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_15.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_16",
+  "tier": "rare",
+  "name": "greendeer",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_16.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_17",
+  "tier": "rare",
+  "name": "frogdance",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_17.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_18",
+  "tier": "rare",
+  "name": "froggrin",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_18.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_19",
+  "tier": "rare",
+  "name": "frogonalilypad",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_19.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_20",
+  "tier": "rare",
+  "name": "frogshiny",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_20.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_21",
+  "tier": "rare",
+  "name": "frogbegging",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_21.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_22",
+  "tier": "rare",
+  "name": "frogplushie",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_22.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_23",
+  "tier": "rare",
+  "name": "hitwithheart",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_23.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_24",
+  "tier": "rare",
+  "name": "cutesnake",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_24.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_25",
+  "tier": "rare",
+  "name": "frog",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_25.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_26",
+  "tier": "rare",
+  "name": "nikkihi",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_26.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_27",
+  "tier": "rare",
+  "name": "frogsweat",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_27.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_28",
+  "tier": "rare",
+  "name": "shockedfrog",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_28.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_29",
+  "tier": "rare",
+  "name": "frogteary",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_29.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_30",
+  "tier": "rare",
+  "name": "frogbible",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_30.png",
+  "animated": false
+ },
+ {
+  "code": "greenanimals_31",
+  "tier": "rare",
+  "name": "turtle",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_31.gif",
+  "animated": true
+ },
+ {
+  "code": "greenanimals_32",
+  "tier": "rare",
+  "name": "froghop",
+  "pack": "greenanimals",
+  "file": "rare/greenanimals_32.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_01",
+  "tier": "rare",
+  "name": "star cat",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_01.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_02",
+  "tier": "rare",
+  "name": "lemonponycupcake",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_02.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_03",
+  "tier": "rare",
+  "name": "teddyshock",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_03.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_04",
+  "tier": "rare",
+  "name": "teddysilly",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_04.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_05",
+  "tier": "rare",
+  "name": "cat1",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_05.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_06",
+  "tier": "rare",
+  "name": "rainydaybear",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_06.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_07",
+  "tier": "rare",
+  "name": "minecraftbee",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_07.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_08",
+  "tier": "rare",
+  "name": "pixelchick",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_08.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_09",
+  "tier": "rare",
+  "name": "birb hug",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_09.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_10",
+  "tier": "rare",
+  "name": "sky butterfly",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_10.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_11",
+  "tier": "rare",
+  "name": "littletiger",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_11.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_12",
+  "tier": "rare",
+  "name": "birb waving",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_12.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_13",
+  "tier": "rare",
+  "name": "birb love",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_13.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_14",
+  "tier": "rare",
+  "name": "fatcatkiss",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_14.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_15",
+  "tier": "rare",
+  "name": "y butterfly",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_15.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_16",
+  "tier": "rare",
+  "name": "peekinglurkingduck",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_16.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_17",
+  "tier": "rare",
+  "name": "bubuwinterhopyellow",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_17.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_18",
+  "tier": "rare",
+  "name": "birb ohno",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_18.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_19",
+  "tier": "rare",
+  "name": "sadfatchickie",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_19.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_20",
+  "tier": "rare",
+  "name": "Butterfly Yellow",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_20.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_21",
+  "tier": "rare",
+  "name": "birb question",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_21.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_22",
+  "tier": "rare",
+  "name": "duck no",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_22.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_23",
+  "tier": "rare",
+  "name": "korilakkumacry",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_23.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_24",
+  "tier": "rare",
+  "name": "tiger",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_24.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_25",
+  "tier": "rare",
+  "name": "yellownod",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_25.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_26",
+  "tier": "rare",
+  "name": "yellowdeer",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_26.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_27",
+  "tier": "rare",
+  "name": "bunnywigglearms",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_27.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_28",
+  "tier": "rare",
+  "name": "chibitiger",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_28.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_29",
+  "tier": "rare",
+  "name": "chick thumbsup",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_29.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_30",
+  "tier": "rare",
+  "name": "cat scratch",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_30.gif",
+  "animated": true
+ },
+ {
+  "code": "yellowanimals_31",
+  "tier": "rare",
+  "name": "teddyidea",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_31.png",
+  "animated": false
+ },
+ {
+  "code": "yellowanimals_32",
+  "tier": "rare",
+  "name": "lemon fox",
+  "pack": "yellowanimals",
+  "file": "rare/yellowanimals_32.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_01",
+  "tier": "rare",
+  "name": "scgreenpartyhat",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_01.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_02",
+  "tier": "rare",
+  "name": "sccheers",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_02.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_03",
+  "tier": "rare",
+  "name": "scbow",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_03.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_04",
+  "tier": "rare",
+  "name": "scmacarons",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_04.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_05",
+  "tier": "rare",
+  "name": "scpopper",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_05.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_06",
+  "tier": "rare",
+  "name": "scmatchacupcake",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_06.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_07",
+  "tier": "rare",
+  "name": "scfirework",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_07.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_08",
+  "tier": "rare",
+  "name": "scchampagne",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_08.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_09",
+  "tier": "rare",
+  "name": "sccake",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_09.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_10",
+  "tier": "rare",
+  "name": "scstars",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_10.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_11",
+  "tier": "rare",
+  "name": "scbouquet",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_11.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_12",
+  "tier": "rare",
+  "name": "scpastelcupcake",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_12.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_13",
+  "tier": "rare",
+  "name": "scballoons",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_13.png",
+  "animated": false
+ },
+ {
+  "code": "simplecelebrat_14",
+  "tier": "rare",
+  "name": "scpinkpartyhat",
+  "pack": "simplecelebrat",
+  "file": "rare/simplecelebrat_14.png",
+  "animated": false
+ },
+ {
+  "code": "aestheticrainb_01",
+  "tier": "legendary",
+  "name": "greencrystalball",
+  "pack": "aestheticrainb",
+  "file": "legendary/aestheticrainb_01.png",
+  "animated": false
+ },
+ {
+  "code": "aestheticrainb_02",
+  "tier": "legendary",
+  "name": "purplecrystalball",
+  "pack": "aestheticrainb",
+  "file": "legendary/aestheticrainb_02.png",
+  "animated": false
+ },
+ {
+  "code": "aestheticrainb_03",
+  "tier": "legendary",
+  "name": "redcrystalball",
+  "pack": "aestheticrainb",
+  "file": "legendary/aestheticrainb_03.png",
+  "animated": false
+ },
+ {
+  "code": "aestheticrainb_04",
+  "tier": "legendary",
+  "name": "bluecrystalball",
+  "pack": "aestheticrainb",
+  "file": "legendary/aestheticrainb_04.png",
+  "animated": false
+ },
+ {
+  "code": "aestheticrainb_05",
+  "tier": "legendary",
+  "name": "pinkcrystalball",
+  "pack": "aestheticrainb",
+  "file": "legendary/aestheticrainb_05.png",
+  "animated": false
+ },
+ {
+  "code": "aestheticrainb_06",
+  "tier": "legendary",
+  "name": "turquoisecrystalball",
+  "pack": "aestheticrainb",
+  "file": "legendary/aestheticrainb_06.png",
+  "animated": false
+ },
+ {
+  "code": "aestheticrainb_07",
+  "tier": "legendary",
+  "name": "orangecrystalball",
+  "pack": "aestheticrainb",
+  "file": "legendary/aestheticrainb_07.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_01",
+  "tier": "common",
+  "name": "netheriteleggings",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_01.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_02",
+  "tier": "common",
+  "name": "diamond",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_02.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_03",
+  "tier": "common",
+  "name": "netheriteboots",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_03.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_04",
+  "tier": "common",
+  "name": "iron",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_04.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_05",
+  "tier": "common",
+  "name": "redstone",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_05.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_06",
+  "tier": "common",
+  "name": "lapis lazuli",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_06.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_07",
+  "tier": "common",
+  "name": "netheritehoe",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_07.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_08",
+  "tier": "common",
+  "name": "gold block",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_08.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_09",
+  "tier": "common",
+  "name": "netheriteshovel",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_09.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_10",
+  "tier": "common",
+  "name": "bedrock",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_10.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_11",
+  "tier": "common",
+  "name": "gold",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_11.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_12",
+  "tier": "common",
+  "name": "netheritepickaxe",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_12.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_13",
+  "tier": "common",
+  "name": "netheritesword",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_13.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_14",
+  "tier": "common",
+  "name": "furnace",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_14.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_15",
+  "tier": "common",
+  "name": "minecraftcamperfire",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_15.gif",
+  "animated": true
+ },
+ {
+  "code": "minecraftemoji_16",
+  "tier": "common",
+  "name": "netheriteaxe",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_16.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_17",
+  "tier": "common",
+  "name": "minecraft orb",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_17.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_18",
+  "tier": "common",
+  "name": "netheritechestplate",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_18.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_19",
+  "tier": "common",
+  "name": "nether quartz",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_19.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_20",
+  "tier": "common",
+  "name": "emerald",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_20.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_21",
+  "tier": "common",
+  "name": "netherite block",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_21.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_22",
+  "tier": "common",
+  "name": "iron block",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_22.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_23",
+  "tier": "common",
+  "name": "netheritehelmet",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_23.png",
+  "animated": false
+ },
+ {
+  "code": "minecraftemoji_24",
+  "tier": "common",
+  "name": "netheriteingot",
+  "pack": "minecraftemoji",
+  "file": "common/minecraftemoji_24.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_01",
+  "tier": "common",
+  "name": "spidermanasilis",
+  "pack": "spidey",
+  "file": "common/spidey_01.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_02",
+  "tier": "common",
+  "name": "SpiderMan",
+  "pack": "spidey",
+  "file": "common/spidey_02.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_03",
+  "tier": "common",
+  "name": "spiderman swing",
+  "pack": "spidey",
+  "file": "common/spidey_03.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_04",
+  "tier": "common",
+  "name": "spiderman point",
+  "pack": "spidey",
+  "file": "common/spidey_04.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_05",
+  "tier": "common",
+  "name": "among us spiderman",
+  "pack": "spidey",
+  "file": "common/spidey_05.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_06",
+  "tier": "common",
+  "name": "crackingup",
+  "pack": "spidey",
+  "file": "common/spidey_06.gif",
+  "animated": true
+ },
+ {
+  "code": "spidey_07",
+  "tier": "common",
+  "name": "spidermanhmm",
+  "pack": "spidey",
+  "file": "common/spidey_07.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_08",
+  "tier": "common",
+  "name": "spidermanohno",
+  "pack": "spidey",
+  "file": "common/spidey_08.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_09",
+  "tier": "common",
+  "name": "spiderman huh",
+  "pack": "spidey",
+  "file": "common/spidey_09.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_10",
+  "tier": "common",
+  "name": "spidermanokay",
+  "pack": "spidey",
+  "file": "common/spidey_10.png",
+  "animated": false
+ },
+ {
+  "code": "spidey_11",
+  "tier": "common",
+  "name": "bullyflick maguire",
+  "pack": "spidey",
+  "file": "common/spidey_11.gif",
+  "animated": true
+ },
+ {
+  "code": "snoopy_01",
+  "tier": "common",
+  "name": "snoopy confused",
+  "pack": "snoopy",
+  "file": "common/snoopy_01.png",
+  "animated": false
+ },
+ {
+  "code": "snoopy_02",
+  "tier": "common",
+  "name": "snoopy drool",
+  "pack": "snoopy",
+  "file": "common/snoopy_02.png",
+  "animated": false
+ },
+ {
+  "code": "snoopy_03",
+  "tier": "common",
+  "name": "snoopycry",
+  "pack": "snoopy",
+  "file": "common/snoopy_03.png",
+  "animated": false
+ },
+ {
+  "code": "snoopy_04",
+  "tier": "common",
+  "name": "snoopyhappy",
+  "pack": "snoopy",
+  "file": "common/snoopy_04.png",
+  "animated": false
+ },
+ {
+  "code": "snoopy_05",
+  "tier": "common",
+  "name": "snoopy spooked",
+  "pack": "snoopy",
+  "file": "common/snoopy_05.png",
+  "animated": false
+ },
+ {
+  "code": "snoopy_06",
+  "tier": "common",
+  "name": "snoopy facepalm",
+  "pack": "snoopy",
+  "file": "common/snoopy_06.png",
+  "animated": false
+ },
+ {
+  "code": "snoopy_07",
+  "tier": "common",
+  "name": "neon snoopy",
+  "pack": "snoopy",
+  "file": "common/snoopy_07.gif",
+  "animated": true
+ },
+ {
+  "code": "snoopy_08",
+  "tier": "common",
+  "name": "snoopy cheer",
+  "pack": "snoopy",
+  "file": "common/snoopy_08.png",
+  "animated": false
+ },
+ {
+  "code": "snoopy_09",
+  "tier": "common",
+  "name": "snoopy stress",
+  "pack": "snoopy",
+  "file": "common/snoopy_09.png",
+  "animated": false
+ },
+ {
+  "code": "snoopy_10",
+  "tier": "common",
+  "name": "snoopy pucker",
+  "pack": "snoopy",
+  "file": "common/snoopy_10.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_01",
+  "tier": "common",
+  "name": "tiktokfacewithrollingeye",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_01.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_02",
+  "tier": "common",
+  "name": "TikTokHappy",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_02.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_03",
+  "tier": "common",
+  "name": "TikTokFlushed",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_03.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_04",
+  "tier": "common",
+  "name": "tiktokfunnyface",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_04.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_05",
+  "tier": "common",
+  "name": "TikTokSweat",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_05.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_06",
+  "tier": "common",
+  "name": "TikTokSpeechless",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_06.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_07",
+  "tier": "common",
+  "name": "tiktokdrool",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_07.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_08",
+  "tier": "common",
+  "name": "TikTokSmile",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_08.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_09",
+  "tier": "common",
+  "name": "TikTokDrool",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_09.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_10",
+  "tier": "common",
+  "name": "TikTokPout",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_10.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_11",
+  "tier": "common",
+  "name": "tiktokcry",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_11.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_12",
+  "tier": "common",
+  "name": "TikTokAngery",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_12.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_13",
+  "tier": "common",
+  "name": "TikTokWeep",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_13.png",
+  "animated": false
+ },
+ {
+  "code": "tiktokemojis_14",
+  "tier": "common",
+  "name": "TikTokIdk",
+  "pack": "tiktokemojis",
+  "file": "common/tiktokemojis_14.png",
+  "animated": false
+ },
+ {
+  "code": "southpark_01",
+  "tier": "common",
+  "name": "worried butters stotch",
+  "pack": "southpark",
+  "file": "common/southpark_01.png",
+  "animated": false
+ },
+ {
+  "code": "southpark_02",
+  "tier": "common",
+  "name": "cartmancry",
+  "pack": "southpark",
+  "file": "common/southpark_02.gif",
+  "animated": true
+ },
+ {
+  "code": "southpark_03",
+  "tier": "common",
+  "name": "smilingrandy",
+  "pack": "southpark",
+  "file": "common/southpark_03.png",
+  "animated": false
+ },
+ {
+  "code": "southpark_04",
+  "tier": "common",
+  "name": "southpark",
+  "pack": "southpark",
+  "file": "common/southpark_04.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_01",
+  "tier": "rare",
+  "name": "bearlove",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_01.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_02",
+  "tier": "rare",
+  "name": "pinkwhale",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_02.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_03",
+  "tier": "rare",
+  "name": "bird coffee",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_03.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_04",
+  "tier": "rare",
+  "name": "puppyshy",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_04.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_05",
+  "tier": "rare",
+  "name": "darlingsugarhearts",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_05.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_06",
+  "tier": "rare",
+  "name": "pinkpanda",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_06.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_07",
+  "tier": "rare",
+  "name": "peachcat",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_07.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_08",
+  "tier": "rare",
+  "name": "preciousteddybear",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_08.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_09",
+  "tier": "rare",
+  "name": "donutbear",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_09.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_10",
+  "tier": "rare",
+  "name": "pinkcatsleeping",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_10.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_11",
+  "tier": "rare",
+  "name": "pandaheart",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_11.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_12",
+  "tier": "rare",
+  "name": "axolotlspin",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_12.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_13",
+  "tier": "rare",
+  "name": "bunnycrazy",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_13.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_14",
+  "tier": "rare",
+  "name": "bunnyheartbounce",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_14.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_15",
+  "tier": "rare",
+  "name": "bunnyplushie",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_15.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_16",
+  "tier": "rare",
+  "name": "lionrun",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_16.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_17",
+  "tier": "rare",
+  "name": "bunnyrelaxing",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_17.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_18",
+  "tier": "rare",
+  "name": "strawberryfairybunny",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_18.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_19",
+  "tier": "rare",
+  "name": "axelotl",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_19.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_20",
+  "tier": "rare",
+  "name": "pinkllama",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_20.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_21",
+  "tier": "rare",
+  "name": "pinkpandawave",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_21.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_22",
+  "tier": "rare",
+  "name": "crocscreech yt",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_22.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_23",
+  "tier": "rare",
+  "name": "pigheart",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_23.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_24",
+  "tier": "rare",
+  "name": "flowerbunny",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_24.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_25",
+  "tier": "rare",
+  "name": "pinkbat",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_25.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_26",
+  "tier": "rare",
+  "name": "pinkdeer",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_26.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_27",
+  "tier": "rare",
+  "name": "nekoheart",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_27.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_28",
+  "tier": "rare",
+  "name": "pigwow",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_28.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_29",
+  "tier": "rare",
+  "name": "bunnyheart",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_29.png",
+  "animated": false
+ },
+ {
+  "code": "pinkanimals_30",
+  "tier": "rare",
+  "name": "pink nodders",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_30.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_31",
+  "tier": "rare",
+  "name": "pinkfrogheart",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_31.gif",
+  "animated": true
+ },
+ {
+  "code": "pinkanimals_32",
+  "tier": "rare",
+  "name": "iloveyoubunny",
+  "pack": "pinkanimals",
+  "file": "rare/pinkanimals_32.png",
+  "animated": false
+ },
+ {
+  "code": "possums3_01",
+  "tier": "rare",
+  "name": "possum ree",
+  "pack": "possums3",
+  "file": "rare/possums3_01.png",
+  "animated": false
+ },
+ {
+  "code": "possums3_02",
+  "tier": "rare",
+  "name": "possum glare",
+  "pack": "possums3",
+  "file": "rare/possums3_02.png",
+  "animated": false
+ },
+ {
+  "code": "possums3_03",
+  "tier": "rare",
+  "name": "possumscream",
+  "pack": "possums3",
+  "file": "rare/possums3_03.png",
+  "animated": false
+ },
+ {
+  "code": "possums3_04",
+  "tier": "rare",
+  "name": "possum cry",
+  "pack": "possums3",
+  "file": "rare/possums3_04.png",
+  "animated": false
+ },
+ {
+  "code": "possums3_05",
+  "tier": "rare",
+  "name": "possum blush",
+  "pack": "possums3",
+  "file": "rare/possums3_05.png",
+  "animated": false
+ },
+ {
+  "code": "possums3_06",
+  "tier": "rare",
+  "name": "Possum AAA",
+  "pack": "possums3",
+  "file": "rare/possums3_06.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_01",
+  "tier": "rare",
+  "name": "purpleween",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_01.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_02",
+  "tier": "rare",
+  "name": "batsleep",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_02.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_03",
+  "tier": "rare",
+  "name": "jellyfish",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_03.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_04",
+  "tier": "rare",
+  "name": "purplebat",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_04.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_05",
+  "tier": "rare",
+  "name": "skelecat",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_05.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_06",
+  "tier": "rare",
+  "name": "y2kpurplebutterfly",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_06.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_07",
+  "tier": "rare",
+  "name": "butterfly",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_07.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_08",
+  "tier": "rare",
+  "name": "Little Kitty Jelly Purpl",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_08.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_09",
+  "tier": "rare",
+  "name": "pixel octopus",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_09.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_10",
+  "tier": "rare",
+  "name": "purpleween",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_10.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_11",
+  "tier": "rare",
+  "name": "purple butterflies",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_11.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_12",
+  "tier": "rare",
+  "name": "purplenod",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_12.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_13",
+  "tier": "rare",
+  "name": "octoplushspin",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_13.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_14",
+  "tier": "rare",
+  "name": "purple jellyfish",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_14.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_15",
+  "tier": "rare",
+  "name": "butterfly 5",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_15.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_16",
+  "tier": "rare",
+  "name": "purplecow",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_16.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_17",
+  "tier": "rare",
+  "name": "purple bat",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_17.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_18",
+  "tier": "rare",
+  "name": "butterfly role",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_18.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_19",
+  "tier": "rare",
+  "name": "purple bandana cat",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_19.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_20",
+  "tier": "rare",
+  "name": "lilacalf",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_20.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_21",
+  "tier": "rare",
+  "name": "purple bat",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_21.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_22",
+  "tier": "rare",
+  "name": "purple froggie",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_22.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_23",
+  "tier": "rare",
+  "name": "purplellama",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_23.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_24",
+  "tier": "rare",
+  "name": "purple bat",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_24.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_25",
+  "tier": "rare",
+  "name": "purplebonkgun",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_25.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_26",
+  "tier": "rare",
+  "name": "kiisu galaxy",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_26.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_27",
+  "tier": "rare",
+  "name": "purplepenguin",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_27.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_28",
+  "tier": "rare",
+  "name": "purplepogfish",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_28.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_29",
+  "tier": "rare",
+  "name": "madcat",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_29.png",
+  "animated": false
+ },
+ {
+  "code": "purpleanimals_30",
+  "tier": "rare",
+  "name": "purpleblob",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_30.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_31",
+  "tier": "rare",
+  "name": "5056purplebutterfly",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_31.gif",
+  "animated": true
+ },
+ {
+  "code": "purpleanimals_32",
+  "tier": "rare",
+  "name": "purplebutterflyholo",
+  "pack": "purpleanimals",
+  "file": "rare/purpleanimals_32.gif",
+  "animated": true
+ },
+ {
+  "code": "putontheshoes_01",
+  "tier": "common",
+  "name": "evolving clown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_01.gif",
+  "animated": true
+ },
+ {
+  "code": "putontheshoes_02",
+  "tier": "common",
+  "name": "imp clown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_02.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_03",
+  "tier": "common",
+  "name": "clowngrimace",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_03.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_04",
+  "tier": "common",
+  "name": "discord clown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_04.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_05",
+  "tier": "common",
+  "name": "uwuclown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_05.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_06",
+  "tier": "common",
+  "name": "clownbike",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_06.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_07",
+  "tier": "common",
+  "name": "clownunamused",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_07.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_08",
+  "tier": "common",
+  "name": "clownlock",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_08.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_09",
+  "tier": "common",
+  "name": "pensive clown 2",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_09.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_10",
+  "tier": "common",
+  "name": "clownrollingeyes",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_10.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_11",
+  "tier": "common",
+  "name": "relievedclown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_11.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_12",
+  "tier": "common",
+  "name": "clownweary",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_12.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_13",
+  "tier": "common",
+  "name": "pepeclown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_13.gif",
+  "animated": true
+ },
+ {
+  "code": "putontheshoes_14",
+  "tier": "common",
+  "name": "madclown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_14.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_15",
+  "tier": "common",
+  "name": "sob clown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_15.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_16",
+  "tier": "common",
+  "name": "clown thinking",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_16.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_17",
+  "tier": "common",
+  "name": "what clown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_17.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_18",
+  "tier": "common",
+  "name": "honker clown 2",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_18.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_19",
+  "tier": "common",
+  "name": "disguised clown",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_19.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_20",
+  "tier": "common",
+  "name": "clownmonocle",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_20.png",
+  "animated": false
+ },
+ {
+  "code": "putontheshoes_21",
+  "tier": "common",
+  "name": "clowncontroller",
+  "pack": "putontheshoes",
+  "file": "common/putontheshoes_21.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_01",
+  "tier": "rare",
+  "name": "pusheenthumbsup",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_01.gif",
+  "animated": true
+ },
+ {
+  "code": "cutepusheen_02",
+  "tier": "rare",
+  "name": "cute pusheen",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_02.gif",
+  "animated": true
+ },
+ {
+  "code": "cutepusheen_03",
+  "tier": "rare",
+  "name": "tired pusheen",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_03.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_04",
+  "tier": "rare",
+  "name": "love pusheen",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_04.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_05",
+  "tier": "rare",
+  "name": "Pusheen popcorn",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_05.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_06",
+  "tier": "rare",
+  "name": "Lovely pusheen",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_06.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_07",
+  "tier": "rare",
+  "name": "hello byebye pusheen",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_07.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_08",
+  "tier": "rare",
+  "name": "sad pusheen",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_08.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_09",
+  "tier": "rare",
+  "name": "pusheen love",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_09.gif",
+  "animated": true
+ },
+ {
+  "code": "cutepusheen_10",
+  "tier": "rare",
+  "name": "cool pusheen",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_10.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_11",
+  "tier": "rare",
+  "name": "PusheenHeart",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_11.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_12",
+  "tier": "rare",
+  "name": "PusheenDrool",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_12.gif",
+  "animated": true
+ },
+ {
+  "code": "cutepusheen_13",
+  "tier": "rare",
+  "name": "Pusheendraw",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_13.png",
+  "animated": false
+ },
+ {
+  "code": "cutepusheen_14",
+  "tier": "rare",
+  "name": "pusheenbook",
+  "pack": "cutepusheen",
+  "file": "rare/cutepusheen_14.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_01",
+  "tier": "common",
+  "name": "screaming",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_01.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_02",
+  "tier": "common",
+  "name": "sobbing",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_02.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_03",
+  "tier": "common",
+  "name": "pwease",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_03.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_04",
+  "tier": "common",
+  "name": "praying",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_04.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_05",
+  "tier": "common",
+  "name": "sending love",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_05.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_06",
+  "tier": "common",
+  "name": "noo joobi",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_06.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_07",
+  "tier": "common",
+  "name": "innocentandprettyblueemo",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_07.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_08",
+  "tier": "common",
+  "name": "amazed",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_08.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_09",
+  "tier": "common",
+  "name": "pled",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_09.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_10",
+  "tier": "common",
+  "name": "devious",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_10.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_11",
+  "tier": "common",
+  "name": "hiss",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_11.png",
+  "animated": false
+ },
+ {
+  "code": "blueemojis_12",
+  "tier": "common",
+  "name": "joobi blue shocked",
+  "pack": "blueemojis",
+  "file": "common/blueemojis_12.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_01",
+  "tier": "common",
+  "name": "joe mischievous",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_01.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_02",
+  "tier": "common",
+  "name": "joecomputer",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_02.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_03",
+  "tier": "common",
+  "name": "joe pray",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_03.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_04",
+  "tier": "common",
+  "name": "joe haha funny",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_04.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_05",
+  "tier": "common",
+  "name": "joecrazy",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_05.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_06",
+  "tier": "common",
+  "name": "joe love",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_06.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_07",
+  "tier": "common",
+  "name": "hahahjoe",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_07.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_08",
+  "tier": "common",
+  "name": "joerock",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_08.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_09",
+  "tier": "common",
+  "name": "joe deaf",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_09.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_10",
+  "tier": "common",
+  "name": "thumbs up joe",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_10.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_11",
+  "tier": "common",
+  "name": "stare",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_11.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_12",
+  "tier": "common",
+  "name": "uh ok",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_12.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_13",
+  "tier": "common",
+  "name": "sadjoe",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_13.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_14",
+  "tier": "common",
+  "name": "joe shrug",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_14.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_15",
+  "tier": "common",
+  "name": "joe devious",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_15.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_16",
+  "tier": "common",
+  "name": "joe cool",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_16.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_17",
+  "tier": "common",
+  "name": "joe dead",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_17.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_18",
+  "tier": "common",
+  "name": "yellowguy bicycle",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_18.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_19",
+  "tier": "common",
+  "name": "angry",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_19.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_20",
+  "tier": "common",
+  "name": "joe shhhh",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_20.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_21",
+  "tier": "common",
+  "name": "joe uh ok",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_21.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_22",
+  "tier": "common",
+  "name": "joesad",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_22.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_23",
+  "tier": "common",
+  "name": "joe stare",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_23.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_24",
+  "tier": "common",
+  "name": "joeamazed",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_24.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_25",
+  "tier": "common",
+  "name": "joe murder",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_25.png",
+  "animated": false
+ },
+ {
+  "code": "yellowjoedivo_26",
+  "tier": "common",
+  "name": "mad",
+  "pack": "yellowjoedivo",
+  "file": "common/yellowjoedivo_26.png",
+  "animated": false
+ },
+ {
+  "code": "desserts_01",
+  "tier": "rare",
+  "name": "honeydipper",
+  "pack": "desserts",
+  "file": "rare/desserts_01.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_02",
+  "tier": "rare",
+  "name": "icecream6",
+  "pack": "desserts",
+  "file": "rare/desserts_02.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_03",
+  "tier": "rare",
+  "name": "icecream3",
+  "pack": "desserts",
+  "file": "rare/desserts_03.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_04",
+  "tier": "rare",
+  "name": "icecream4",
+  "pack": "desserts",
+  "file": "rare/desserts_04.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_05",
+  "tier": "rare",
+  "name": "icecream1",
+  "pack": "desserts",
+  "file": "rare/desserts_05.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_06",
+  "tier": "rare",
+  "name": "caramelflan",
+  "pack": "desserts",
+  "file": "rare/desserts_06.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_07",
+  "tier": "rare",
+  "name": "croissant",
+  "pack": "desserts",
+  "file": "rare/desserts_07.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_08",
+  "tier": "rare",
+  "name": "cake",
+  "pack": "desserts",
+  "file": "rare/desserts_08.png",
+  "animated": false
+ },
+ {
+  "code": "desserts_09",
+  "tier": "rare",
+  "name": "icecream",
+  "pack": "desserts",
+  "file": "rare/desserts_09.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_10",
+  "tier": "rare",
+  "name": "sweetbunnyok",
+  "pack": "desserts",
+  "file": "rare/desserts_10.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_11",
+  "tier": "rare",
+  "name": "pinkhellokittydonut",
+  "pack": "desserts",
+  "file": "rare/desserts_11.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_12",
+  "tier": "rare",
+  "name": "icecream2",
+  "pack": "desserts",
+  "file": "rare/desserts_12.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_13",
+  "tier": "rare",
+  "name": "sweetbunnysleep",
+  "pack": "desserts",
+  "file": "rare/desserts_13.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_14",
+  "tier": "rare",
+  "name": "sweetbunnyyay",
+  "pack": "desserts",
+  "file": "rare/desserts_14.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_15",
+  "tier": "rare",
+  "name": "sweetbunnycake",
+  "pack": "desserts",
+  "file": "rare/desserts_15.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_16",
+  "tier": "rare",
+  "name": "icecreamwithchocolatespr",
+  "pack": "desserts",
+  "file": "rare/desserts_16.png",
+  "animated": false
+ },
+ {
+  "code": "desserts_17",
+  "tier": "rare",
+  "name": "cottoncandy",
+  "pack": "desserts",
+  "file": "rare/desserts_17.gif",
+  "animated": true
+ },
+ {
+  "code": "desserts_18",
+  "tier": "rare",
+  "name": "bunnydonut",
+  "pack": "desserts",
+  "file": "rare/desserts_18.png",
+  "animated": false
+ },
+ {
+  "code": "desserts_19",
+  "tier": "rare",
+  "name": "box of chocolates",
+  "pack": "desserts",
+  "file": "rare/desserts_19.png",
+  "animated": false
+ },
+ {
+  "code": "desserts_20",
+  "tier": "rare",
+  "name": "icecream5",
+  "pack": "desserts",
+  "file": "rare/desserts_20.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_01",
+  "tier": "rare",
+  "name": "thinkingpug",
+  "pack": "dogs",
+  "file": "rare/dogs_01.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_02",
+  "tier": "rare",
+  "name": "thisisfine",
+  "pack": "dogs",
+  "file": "rare/dogs_02.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_03",
+  "tier": "rare",
+  "name": "PugpoSad",
+  "pack": "dogs",
+  "file": "rare/dogs_03.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_04",
+  "tier": "rare",
+  "name": "pug dance",
+  "pack": "dogs",
+  "file": "rare/dogs_04.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_05",
+  "tier": "rare",
+  "name": "maxthepug triggered",
+  "pack": "dogs",
+  "file": "rare/dogs_05.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_06",
+  "tier": "rare",
+  "name": "christmas pug",
+  "pack": "dogs",
+  "file": "rare/dogs_06.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_07",
+  "tier": "rare",
+  "name": "pug dance",
+  "pack": "dogs",
+  "file": "rare/dogs_07.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_08",
+  "tier": "rare",
+  "name": "doge lick",
+  "pack": "dogs",
+  "file": "rare/dogs_08.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_09",
+  "tier": "rare",
+  "name": "walterjam",
+  "pack": "dogs",
+  "file": "rare/dogs_09.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_10",
+  "tier": "rare",
+  "name": "shibaquestion",
+  "pack": "dogs",
+  "file": "rare/dogs_10.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_11",
+  "tier": "rare",
+  "name": "saddoge",
+  "pack": "dogs",
+  "file": "rare/dogs_11.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_12",
+  "tier": "rare",
+  "name": "pug",
+  "pack": "dogs",
+  "file": "rare/dogs_12.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_13",
+  "tier": "rare",
+  "name": "imcook",
+  "pack": "dogs",
+  "file": "rare/dogs_13.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_14",
+  "tier": "rare",
+  "name": "dog pat",
+  "pack": "dogs",
+  "file": "rare/dogs_14.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_15",
+  "tier": "rare",
+  "name": "dogtor",
+  "pack": "dogs",
+  "file": "rare/dogs_15.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_16",
+  "tier": "rare",
+  "name": "happydoge",
+  "pack": "dogs",
+  "file": "rare/dogs_16.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_17",
+  "tier": "rare",
+  "name": "dogkeyboard",
+  "pack": "dogs",
+  "file": "rare/dogs_17.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_18",
+  "tier": "rare",
+  "name": "poordogreading",
+  "pack": "dogs",
+  "file": "rare/dogs_18.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_19",
+  "tier": "rare",
+  "name": "pepepug",
+  "pack": "dogs",
+  "file": "rare/dogs_19.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_20",
+  "tier": "rare",
+  "name": "dog laughing at you",
+  "pack": "dogs",
+  "file": "rare/dogs_20.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_21",
+  "tier": "rare",
+  "name": "alert",
+  "pack": "dogs",
+  "file": "rare/dogs_21.png",
+  "animated": false
+ },
+ {
+  "code": "dogs_22",
+  "tier": "rare",
+  "name": "pug vibe",
+  "pack": "dogs",
+  "file": "rare/dogs_22.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_23",
+  "tier": "rare",
+  "name": "pugparty",
+  "pack": "dogs",
+  "file": "rare/dogs_23.gif",
+  "animated": true
+ },
+ {
+  "code": "dogs_24",
+  "tier": "rare",
+  "name": "derp duke dog",
+  "pack": "dogs",
+  "file": "rare/dogs_24.png",
+  "animated": false
+ },
+ {
+  "code": "regions_01",
+  "tier": "common",
+  "name": "continent ids",
+  "pack": "regions",
+  "file": "common/regions_01.png",
+  "animated": false
+ },
+ {
+  "code": "regions_02",
+  "tier": "common",
+  "name": "continent ids",
+  "pack": "regions",
+  "file": "common/regions_02.png",
+  "animated": false
+ },
+ {
+  "code": "regions_03",
+  "tier": "common",
+  "name": "continent ids",
+  "pack": "regions",
+  "file": "common/regions_03.png",
+  "animated": false
+ },
+ {
+  "code": "regions_04",
+  "tier": "common",
+  "name": "continent ids",
+  "pack": "regions",
+  "file": "common/regions_04.png",
+  "animated": false
+ },
+ {
+  "code": "regions_05",
+  "tier": "common",
+  "name": "continent ids",
+  "pack": "regions",
+  "file": "common/regions_05.png",
+  "animated": false
+ },
+ {
+  "code": "regions_06",
+  "tier": "common",
+  "name": "continent ids",
+  "pack": "regions",
+  "file": "common/regions_06.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_01",
+  "tier": "rare",
+  "name": "hamster2",
+  "pack": "hammypack",
+  "file": "rare/hammypack_01.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_02",
+  "tier": "rare",
+  "name": "hamsterhearts",
+  "pack": "hammypack",
+  "file": "rare/hammypack_02.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_03",
+  "tier": "rare",
+  "name": "hammyhuh",
+  "pack": "hammypack",
+  "file": "rare/hammypack_03.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_04",
+  "tier": "rare",
+  "name": "dahampter",
+  "pack": "hammypack",
+  "file": "rare/hammypack_04.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_05",
+  "tier": "rare",
+  "name": "hammyuuuuh",
+  "pack": "hammypack",
+  "file": "rare/hammypack_05.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_06",
+  "tier": "rare",
+  "name": "hamster munch",
+  "pack": "hammypack",
+  "file": "rare/hammypack_06.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_07",
+  "tier": "rare",
+  "name": "hamsterlove",
+  "pack": "hammypack",
+  "file": "rare/hammypack_07.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_08",
+  "tier": "rare",
+  "name": "hamster1",
+  "pack": "hammypack",
+  "file": "rare/hammypack_08.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_09",
+  "tier": "rare",
+  "name": "hamster sad",
+  "pack": "hammypack",
+  "file": "rare/hammypack_09.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_10",
+  "tier": "rare",
+  "name": "pethamster",
+  "pack": "hammypack",
+  "file": "rare/hammypack_10.gif",
+  "animated": true
+ },
+ {
+  "code": "hammypack_11",
+  "tier": "rare",
+  "name": "hamster3",
+  "pack": "hammypack",
+  "file": "rare/hammypack_11.png",
+  "animated": false
+ },
+ {
+  "code": "hammypack_12",
+  "tier": "rare",
+  "name": "hammyhide",
+  "pack": "hammypack",
+  "file": "rare/hammypack_12.png",
+  "animated": false
+ },
+ {
+  "code": "creepycrawlies_01",
+  "tier": "rare",
+  "name": "snail",
+  "pack": "creepycrawlies",
+  "file": "rare/creepycrawlies_01.png",
+  "animated": false
+ },
+ {
+  "code": "creepycrawlies_02",
+  "tier": "rare",
+  "name": "butterfly",
+  "pack": "creepycrawlies",
+  "file": "rare/creepycrawlies_02.png",
+  "animated": false
+ },
+ {
+  "code": "creepycrawlies_03",
+  "tier": "rare",
+  "name": "bee",
+  "pack": "creepycrawlies",
+  "file": "rare/creepycrawlies_03.png",
+  "animated": false
+ },
+ {
+  "code": "creepycrawlies_04",
+  "tier": "rare",
+  "name": "caterpillar",
+  "pack": "creepycrawlies",
+  "file": "rare/creepycrawlies_04.png",
+  "animated": false
+ },
+ {
+  "code": "creepycrawlies_05",
+  "tier": "rare",
+  "name": "spider",
+  "pack": "creepycrawlies",
+  "file": "rare/creepycrawlies_05.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_01",
+  "tier": "common",
+  "name": "flowersforyou",
+  "pack": "uwu",
+  "file": "common/uwu_01.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_02",
+  "tier": "common",
+  "name": "guraglance",
+  "pack": "uwu",
+  "file": "common/uwu_02.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_03",
+  "tier": "common",
+  "name": "thumbsup",
+  "pack": "uwu",
+  "file": "common/uwu_03.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_04",
+  "tier": "common",
+  "name": "panickedno",
+  "pack": "uwu",
+  "file": "common/uwu_04.gif",
+  "animated": true
+ },
+ {
+  "code": "uwu_05",
+  "tier": "common",
+  "name": "pepepeter",
+  "pack": "uwu",
+  "file": "common/uwu_05.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_06",
+  "tier": "common",
+  "name": "pepebbq",
+  "pack": "uwu",
+  "file": "common/uwu_06.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_07",
+  "tier": "common",
+  "name": "mew",
+  "pack": "uwu",
+  "file": "common/uwu_07.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_08",
+  "tier": "common",
+  "name": "gura gun",
+  "pack": "uwu",
+  "file": "common/uwu_08.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_09",
+  "tier": "common",
+  "name": "fbi",
+  "pack": "uwu",
+  "file": "common/uwu_09.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_10",
+  "tier": "common",
+  "name": "pepehitharder",
+  "pack": "uwu",
+  "file": "common/uwu_10.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_11",
+  "tier": "common",
+  "name": "sanji ok",
+  "pack": "uwu",
+  "file": "common/uwu_11.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_12",
+  "tier": "common",
+  "name": "gura gun",
+  "pack": "uwu",
+  "file": "common/uwu_12.gif",
+  "animated": true
+ },
+ {
+  "code": "uwu_13",
+  "tier": "common",
+  "name": "catgirlsleep",
+  "pack": "uwu",
+  "file": "common/uwu_13.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_14",
+  "tier": "common",
+  "name": "sleep",
+  "pack": "uwu",
+  "file": "common/uwu_14.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_15",
+  "tier": "common",
+  "name": "gura and ina scared",
+  "pack": "uwu",
+  "file": "common/uwu_15.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_16",
+  "tier": "common",
+  "name": "pepeokay",
+  "pack": "uwu",
+  "file": "common/uwu_16.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_17",
+  "tier": "common",
+  "name": "guraglance",
+  "pack": "uwu",
+  "file": "common/uwu_17.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_18",
+  "tier": "common",
+  "name": "gurapray",
+  "pack": "uwu",
+  "file": "common/uwu_18.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_19",
+  "tier": "common",
+  "name": "pepeyahoo",
+  "pack": "uwu",
+  "file": "common/uwu_19.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_20",
+  "tier": "common",
+  "name": "shhhhh",
+  "pack": "uwu",
+  "file": "common/uwu_20.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_21",
+  "tier": "common",
+  "name": "gurascare",
+  "pack": "uwu",
+  "file": "common/uwu_21.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_22",
+  "tier": "common",
+  "name": "yes",
+  "pack": "uwu",
+  "file": "common/uwu_22.png",
+  "animated": false
+ },
+ {
+  "code": "uwu_23",
+  "tier": "common",
+  "name": "moneyhands",
+  "pack": "uwu",
+  "file": "common/uwu_23.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_01",
+  "tier": "common",
+  "name": "orange",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_01.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_02",
+  "tier": "common",
+  "name": "orange innocent",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_02.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_03",
+  "tier": "common",
+  "name": "thisisfinefrog",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_03.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_04",
+  "tier": "common",
+  "name": "flower kitten",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_04.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_05",
+  "tier": "common",
+  "name": "kemomimidance",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_05.gif",
+  "animated": true
+ },
+ {
+  "code": "orangeandgreen_06",
+  "tier": "common",
+  "name": "gummyworm2",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_06.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_07",
+  "tier": "common",
+  "name": "orangecake bunny",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_07.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_08",
+  "tier": "common",
+  "name": "pumpkin bunny",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_08.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_09",
+  "tier": "common",
+  "name": "neon orange",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_09.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_10",
+  "tier": "common",
+  "name": "dumpsterfire",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_10.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_11",
+  "tier": "common",
+  "name": "tangydrool",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_11.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_12",
+  "tier": "common",
+  "name": "orange",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_12.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_13",
+  "tier": "common",
+  "name": "oraros",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_13.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_14",
+  "tier": "common",
+  "name": "pixeldragon",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_14.gif",
+  "animated": true
+ },
+ {
+  "code": "orangeandgreen_15",
+  "tier": "common",
+  "name": "fox sip",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_15.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_16",
+  "tier": "common",
+  "name": "orange tree",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_16.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_17",
+  "tier": "common",
+  "name": "ios tangerine",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_17.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_18",
+  "tier": "common",
+  "name": "orange rose",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_18.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_19",
+  "tier": "common",
+  "name": "ora plead",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_19.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_20",
+  "tier": "common",
+  "name": "carrotstare",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_20.gif",
+  "animated": true
+ },
+ {
+  "code": "orangeandgreen_21",
+  "tier": "common",
+  "name": "pumpkin mickey",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_21.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_22",
+  "tier": "common",
+  "name": "orangeblossom",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_22.gif",
+  "animated": true
+ },
+ {
+  "code": "orangeandgreen_23",
+  "tier": "common",
+  "name": "orange wink",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_23.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_24",
+  "tier": "common",
+  "name": "tangy pathetic",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_24.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_25",
+  "tier": "common",
+  "name": "sparklyorange",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_25.gif",
+  "animated": true
+ },
+ {
+  "code": "orangeandgreen_26",
+  "tier": "common",
+  "name": "spookyok",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_26.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_27",
+  "tier": "common",
+  "name": "sushi",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_27.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_28",
+  "tier": "common",
+  "name": "quintsyotsuba",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_28.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_29",
+  "tier": "common",
+  "name": "minecraft cat red",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_29.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_30",
+  "tier": "common",
+  "name": "orange tulip",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_30.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_31",
+  "tier": "common",
+  "name": "mario carrot",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_31.png",
+  "animated": false
+ },
+ {
+  "code": "orangeandgreen_32",
+  "tier": "common",
+  "name": "orange ily",
+  "pack": "orangeandgreen",
+  "file": "common/orangeandgreen_32.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_01",
+  "tier": "common",
+  "name": "josephhm",
+  "pack": "jojo",
+  "file": "common/jojo_01.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_02",
+  "tier": "common",
+  "name": "josuke laugh",
+  "pack": "jojo",
+  "file": "common/jojo_02.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_03",
+  "tier": "common",
+  "name": "kirasmoog",
+  "pack": "jojo",
+  "file": "common/jojo_03.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_04",
+  "tier": "common",
+  "name": "johnnylook",
+  "pack": "jojo",
+  "file": "common/jojo_04.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_05",
+  "tier": "common",
+  "name": "jolyne bruh",
+  "pack": "jojo",
+  "file": "common/jojo_05.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_06",
+  "tier": "common",
+  "name": "josephomg",
+  "pack": "jojo",
+  "file": "common/jojo_06.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_07",
+  "tier": "common",
+  "name": "cherrylover",
+  "pack": "jojo",
+  "file": "common/jojo_07.gif",
+  "animated": true
+ },
+ {
+  "code": "jojo_08",
+  "tier": "common",
+  "name": "jojo salty tears",
+  "pack": "jojo",
+  "file": "common/jojo_08.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_09",
+  "tier": "common",
+  "name": "IWon",
+  "pack": "jojo",
+  "file": "common/jojo_09.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_10",
+  "tier": "common",
+  "name": "ger",
+  "pack": "jojo",
+  "file": "common/jojo_10.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_11",
+  "tier": "common",
+  "name": "evenspeedwagonisafraid",
+  "pack": "jojo",
+  "file": "common/jojo_11.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_12",
+  "tier": "common",
+  "name": "bite za dusto",
+  "pack": "jojo",
+  "file": "common/jojo_12.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_13",
+  "tier": "common",
+  "name": "polnareff",
+  "pack": "jojo",
+  "file": "common/jojo_13.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_14",
+  "tier": "common",
+  "name": "jolynehurt",
+  "pack": "jojo",
+  "file": "common/jojo_14.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_15",
+  "tier": "common",
+  "name": "diocat",
+  "pack": "jojo",
+  "file": "common/jojo_15.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_16",
+  "tier": "common",
+  "name": "JoJo Think",
+  "pack": "jojo",
+  "file": "common/jojo_16.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_17",
+  "tier": "common",
+  "name": "hayato",
+  "pack": "jojo",
+  "file": "common/jojo_17.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_18",
+  "tier": "common",
+  "name": "gyromercoledi",
+  "pack": "jojo",
+  "file": "common/jojo_18.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_19",
+  "tier": "common",
+  "name": "kakyoin moyai",
+  "pack": "jojo",
+  "file": "common/jojo_19.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_20",
+  "tier": "common",
+  "name": "kakyoinshook",
+  "pack": "jojo",
+  "file": "common/jojo_20.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_21",
+  "tier": "common",
+  "name": "kakyoinsmirk",
+  "pack": "jojo",
+  "file": "common/jojo_21.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_22",
+  "tier": "common",
+  "name": "josukewhat",
+  "pack": "jojo",
+  "file": "common/jojo_22.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_23",
+  "tier": "common",
+  "name": "Menacing",
+  "pack": "jojo",
+  "file": "common/jojo_23.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_24",
+  "tier": "common",
+  "name": "josukeeh",
+  "pack": "jojo",
+  "file": "common/jojo_24.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_25",
+  "tier": "common",
+  "name": "drip twoh",
+  "pack": "jojo",
+  "file": "common/jojo_25.png",
+  "animated": false
+ },
+ {
+  "code": "jojo_26",
+  "tier": "common",
+  "name": "kakyoin",
+  "pack": "jojo",
+  "file": "common/jojo_26.gif",
+  "animated": true
+ },
+ {
+  "code": "retrobirthday_01",
+  "tier": "rare",
+  "name": "retrogift",
+  "pack": "retrobirthday",
+  "file": "rare/retrobirthday_01.png",
+  "animated": false
+ },
+ {
+  "code": "retrobirthday_02",
+  "tier": "rare",
+  "name": "retrogiftheart",
+  "pack": "retrobirthday",
+  "file": "rare/retrobirthday_02.png",
+  "animated": false
+ },
+ {
+  "code": "retrobirthday_03",
+  "tier": "rare",
+  "name": "retrobirthdaycake",
+  "pack": "retrobirthday",
+  "file": "rare/retrobirthday_03.png",
+  "animated": false
+ },
+ {
+  "code": "retrobirthday_04",
+  "tier": "rare",
+  "name": "retrocupcake",
+  "pack": "retrobirthday",
+  "file": "rare/retrobirthday_04.png",
+  "animated": false
+ },
+ {
+  "code": "retrobirthday_05",
+  "tier": "rare",
+  "name": "retropopper",
+  "pack": "retrobirthday",
+  "file": "rare/retrobirthday_05.png",
+  "animated": false
+ },
+ {
+  "code": "retrobirthday_06",
+  "tier": "rare",
+  "name": "retroballoons",
+  "pack": "retrobirthday",
+  "file": "rare/retrobirthday_06.png",
+  "animated": false
+ },
+ {
+  "code": "retrobirthday_07",
+  "tier": "rare",
+  "name": "retropartyhat",
+  "pack": "retrobirthday",
+  "file": "rare/retrobirthday_07.png",
+  "animated": false
+ },
+ {
+  "code": "petbadgepack_01",
+  "tier": "rare",
+  "name": "frog",
+  "pack": "petbadgepack",
+  "file": "rare/petbadgepack_01.png",
+  "animated": false
+ },
+ {
+  "code": "petbadgepack_02",
+  "tier": "rare",
+  "name": "cat",
+  "pack": "petbadgepack",
+  "file": "rare/petbadgepack_02.png",
+  "animated": false
+ },
+ {
+  "code": "petbadgepack_03",
+  "tier": "rare",
+  "name": "bunny",
+  "pack": "petbadgepack",
+  "file": "rare/petbadgepack_03.png",
+  "animated": false
+ },
+ {
+  "code": "petbadgepack_04",
+  "tier": "rare",
+  "name": "goat",
+  "pack": "petbadgepack",
+  "file": "rare/petbadgepack_04.png",
+  "animated": false
+ },
+ {
+  "code": "petbadgepack_05",
+  "tier": "rare",
+  "name": "dog",
+  "pack": "petbadgepack",
+  "file": "rare/petbadgepack_05.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_01",
+  "tier": "common",
+  "name": "feelsgood",
+  "pack": "memecollab",
+  "file": "common/memecollab_01.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_02",
+  "tier": "common",
+  "name": "doakes",
+  "pack": "memecollab",
+  "file": "common/memecollab_02.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_03",
+  "tier": "common",
+  "name": "chud",
+  "pack": "memecollab",
+  "file": "common/memecollab_03.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_04",
+  "tier": "common",
+  "name": "meinchambles",
+  "pack": "memecollab",
+  "file": "common/memecollab_04.gif",
+  "animated": true
+ },
+ {
+  "code": "memecollab_05",
+  "tier": "common",
+  "name": "speed happyplace",
+  "pack": "memecollab",
+  "file": "common/memecollab_05.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_06",
+  "tier": "common",
+  "name": "bugsbunnyyesgif",
+  "pack": "memecollab",
+  "file": "common/memecollab_06.gif",
+  "animated": true
+ },
+ {
+  "code": "memecollab_07",
+  "tier": "common",
+  "name": "ai baby",
+  "pack": "memecollab",
+  "file": "common/memecollab_07.gif",
+  "animated": true
+ },
+ {
+  "code": "memecollab_08",
+  "tier": "common",
+  "name": "distress",
+  "pack": "memecollab",
+  "file": "common/memecollab_08.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_09",
+  "tier": "common",
+  "name": "im done",
+  "pack": "memecollab",
+  "file": "common/memecollab_09.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_10",
+  "tier": "common",
+  "name": "evilplanning",
+  "pack": "memecollab",
+  "file": "common/memecollab_10.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_11",
+  "tier": "common",
+  "name": "same think",
+  "pack": "memecollab",
+  "file": "common/memecollab_11.gif",
+  "animated": true
+ },
+ {
+  "code": "memecollab_12",
+  "tier": "common",
+  "name": "dog laughing at you",
+  "pack": "memecollab",
+  "file": "common/memecollab_12.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_13",
+  "tier": "common",
+  "name": "allroadsleadtorome",
+  "pack": "memecollab",
+  "file": "common/memecollab_13.gif",
+  "animated": true
+ },
+ {
+  "code": "memecollab_14",
+  "tier": "common",
+  "name": "sukuna googoogaga",
+  "pack": "memecollab",
+  "file": "common/memecollab_14.png",
+  "animated": false
+ },
+ {
+  "code": "memecollab_15",
+  "tier": "common",
+  "name": "rahhh",
+  "pack": "memecollab",
+  "file": "common/memecollab_15.gif",
+  "animated": true
+ },
+ {
+  "code": "paintedflowers_01",
+  "tier": "common",
+  "name": "pfhydrangea",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_01.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_02",
+  "tier": "common",
+  "name": "pfbellflower",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_02.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_03",
+  "tier": "common",
+  "name": "pfsakuras",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_03.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_04",
+  "tier": "common",
+  "name": "pfdandelion",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_04.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_05",
+  "tier": "common",
+  "name": "pfhyacinth",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_05.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_06",
+  "tier": "common",
+  "name": "pfpoppy",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_06.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_07",
+  "tier": "common",
+  "name": "pfcosmos",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_07.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_08",
+  "tier": "common",
+  "name": "pfzinnia",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_08.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_09",
+  "tier": "common",
+  "name": "pfrose",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_09.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_10",
+  "tier": "common",
+  "name": "pfcarnation",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_10.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_11",
+  "tier": "common",
+  "name": "pfforgetmenot",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_11.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_12",
+  "tier": "common",
+  "name": "pflilyofthevalley",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_12.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_13",
+  "tier": "common",
+  "name": "pfphlox",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_13.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_14",
+  "tier": "common",
+  "name": "pftulip",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_14.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_15",
+  "tier": "common",
+  "name": "pfsakura",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_15.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_16",
+  "tier": "common",
+  "name": "pfcoreopsis",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_16.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_17",
+  "tier": "common",
+  "name": "pftulips",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_17.png",
+  "animated": false
+ },
+ {
+  "code": "paintedflowers_18",
+  "tier": "common",
+  "name": "pfanemone",
+  "pack": "paintedflowers",
+  "file": "common/paintedflowers_18.png",
+  "animated": false
+ },
+ {
+  "code": "crystals_01",
+  "tier": "mythic",
+  "name": "crystal",
+  "pack": "crystals",
+  "file": "mythic/crystals_01.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_02",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_02.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_03",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_03.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_04",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_04.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_05",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_05.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_06",
+  "tier": "mythic",
+  "name": "crystalclouds",
+  "pack": "crystals",
+  "file": "mythic/crystals_06.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_07",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_07.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_08",
+  "tier": "mythic",
+  "name": "crystal",
+  "pack": "crystals",
+  "file": "mythic/crystals_08.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_09",
+  "tier": "mythic",
+  "name": "moonsparkles",
+  "pack": "crystals",
+  "file": "mythic/crystals_09.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_10",
+  "tier": "mythic",
+  "name": "crystal",
+  "pack": "crystals",
+  "file": "mythic/crystals_10.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_11",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_11.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_12",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_12.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_13",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_13.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_14",
+  "tier": "mythic",
+  "name": "crystalbox",
+  "pack": "crystals",
+  "file": "mythic/crystals_14.gif",
+  "animated": true
+ },
+ {
+  "code": "crystals_15",
+  "tier": "mythic",
+  "name": "crystals",
+  "pack": "crystals",
+  "file": "mythic/crystals_15.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_01",
+  "tier": "rare",
+  "name": "angry cat",
+  "pack": "cats",
+  "file": "rare/cats_01.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_02",
+  "tier": "rare",
+  "name": "catcatcat",
+  "pack": "cats",
+  "file": "rare/cats_02.png",
+  "animated": false
+ },
+ {
+  "code": "cats_03",
+  "tier": "rare",
+  "name": "vibecat",
+  "pack": "cats",
+  "file": "rare/cats_03.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_04",
+  "tier": "rare",
+  "name": "catstare",
+  "pack": "cats",
+  "file": "rare/cats_04.png",
+  "animated": false
+ },
+ {
+  "code": "cats_05",
+  "tier": "rare",
+  "name": "toro zzz",
+  "pack": "cats",
+  "file": "rare/cats_05.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_06",
+  "tier": "rare",
+  "name": "sadhamster",
+  "pack": "cats",
+  "file": "rare/cats_06.png",
+  "animated": false
+ },
+ {
+  "code": "cats_07",
+  "tier": "rare",
+  "name": "thathurts",
+  "pack": "cats",
+  "file": "rare/cats_07.png",
+  "animated": false
+ },
+ {
+  "code": "cats_08",
+  "tier": "rare",
+  "name": "kuromihuh",
+  "pack": "cats",
+  "file": "rare/cats_08.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_09",
+  "tier": "rare",
+  "name": "pepedeleted",
+  "pack": "cats",
+  "file": "rare/cats_09.png",
+  "animated": false
+ },
+ {
+  "code": "cats_10",
+  "tier": "rare",
+  "name": "blush man",
+  "pack": "cats",
+  "file": "rare/cats_10.png",
+  "animated": false
+ },
+ {
+  "code": "cats_11",
+  "tier": "rare",
+  "name": "bearheart",
+  "pack": "cats",
+  "file": "rare/cats_11.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_12",
+  "tier": "rare",
+  "name": "melody sleep",
+  "pack": "cats",
+  "file": "rare/cats_12.png",
+  "animated": false
+ },
+ {
+  "code": "cats_13",
+  "tier": "rare",
+  "name": "kittsu",
+  "pack": "cats",
+  "file": "rare/cats_13.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_14",
+  "tier": "rare",
+  "name": "catJAM",
+  "pack": "cats",
+  "file": "rare/cats_14.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_15",
+  "tier": "rare",
+  "name": "yippee",
+  "pack": "cats",
+  "file": "rare/cats_15.png",
+  "animated": false
+ },
+ {
+  "code": "cats_16",
+  "tier": "rare",
+  "name": "pepehehe",
+  "pack": "cats",
+  "file": "rare/cats_16.png",
+  "animated": false
+ },
+ {
+  "code": "cats_17",
+  "tier": "rare",
+  "name": "hear me out",
+  "pack": "cats",
+  "file": "rare/cats_17.png",
+  "animated": false
+ },
+ {
+  "code": "cats_18",
+  "tier": "rare",
+  "name": "img 2584",
+  "pack": "cats",
+  "file": "rare/cats_18.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_19",
+  "tier": "rare",
+  "name": "lovecat",
+  "pack": "cats",
+  "file": "rare/cats_19.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_20",
+  "tier": "rare",
+  "name": "justagirl",
+  "pack": "cats",
+  "file": "rare/cats_20.png",
+  "animated": false
+ },
+ {
+  "code": "cats_21",
+  "tier": "rare",
+  "name": "period",
+  "pack": "cats",
+  "file": "rare/cats_21.png",
+  "animated": false
+ },
+ {
+  "code": "cats_22",
+  "tier": "rare",
+  "name": "cat 1",
+  "pack": "cats",
+  "file": "rare/cats_22.png",
+  "animated": false
+ },
+ {
+  "code": "cats_23",
+  "tier": "rare",
+  "name": "skillissue",
+  "pack": "cats",
+  "file": "rare/cats_23.png",
+  "animated": false
+ },
+ {
+  "code": "cats_24",
+  "tier": "rare",
+  "name": "KEKW",
+  "pack": "cats",
+  "file": "rare/cats_24.png",
+  "animated": false
+ },
+ {
+  "code": "cats_25",
+  "tier": "rare",
+  "name": "verycat",
+  "pack": "cats",
+  "file": "rare/cats_25.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_26",
+  "tier": "rare",
+  "name": "ahahaha",
+  "pack": "cats",
+  "file": "rare/cats_26.png",
+  "animated": false
+ },
+ {
+  "code": "cats_27",
+  "tier": "rare",
+  "name": "kuromimymelodyexcited",
+  "pack": "cats",
+  "file": "rare/cats_27.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_28",
+  "tier": "rare",
+  "name": "kuromishock",
+  "pack": "cats",
+  "file": "rare/cats_28.gif",
+  "animated": true
+ },
+ {
+  "code": "cats_29",
+  "tier": "rare",
+  "name": "catbleh",
+  "pack": "cats",
+  "file": "rare/cats_29.png",
+  "animated": false
+ },
+ {
+  "code": "cats_30",
+  "tier": "rare",
+  "name": "pinkieboy",
+  "pack": "cats",
+  "file": "rare/cats_30.png",
+  "animated": false
+ },
+ {
+  "code": "cats_31",
+  "tier": "rare",
+  "name": "uwu",
+  "pack": "cats",
+  "file": "rare/cats_31.png",
+  "animated": false
+ },
+ {
+  "code": "flexbadgepack_01",
+  "tier": "rare",
+  "name": "cash",
+  "pack": "flexbadgepack",
+  "file": "rare/flexbadgepack_01.png",
+  "animated": false
+ },
+ {
+  "code": "flexbadgepack_02",
+  "tier": "rare",
+  "name": "trophy",
+  "pack": "flexbadgepack",
+  "file": "rare/flexbadgepack_02.png",
+  "animated": false
+ },
+ {
+  "code": "flexbadgepack_03",
+  "tier": "rare",
+  "name": "diamond",
+  "pack": "flexbadgepack",
+  "file": "rare/flexbadgepack_03.png",
+  "animated": false
+ },
+ {
+  "code": "flexbadgepack_04",
+  "tier": "rare",
+  "name": "pouch",
+  "pack": "flexbadgepack",
+  "file": "rare/flexbadgepack_04.png",
+  "animated": false
+ },
+ {
+  "code": "flexbadgepack_05",
+  "tier": "rare",
+  "name": "crown",
+  "pack": "flexbadgepack",
+  "file": "rare/flexbadgepack_05.png",
+  "animated": false
+ },
+ {
+  "code": "mc_01",
+  "tier": "common",
+  "name": "minecraftredstone",
+  "pack": "mc",
+  "file": "common/mc_01.png",
+  "animated": false
+ },
+ {
+  "code": "mc_02",
+  "tier": "common",
+  "name": "minecraftenderpearl",
+  "pack": "mc",
+  "file": "common/mc_02.png",
+  "animated": false
+ },
+ {
+  "code": "mc_03",
+  "tier": "common",
+  "name": "minecraftironsword",
+  "pack": "mc",
+  "file": "common/mc_03.png",
+  "animated": false
+ },
+ {
+  "code": "mc_04",
+  "tier": "common",
+  "name": "minecraftdiamondshovel",
+  "pack": "mc",
+  "file": "common/mc_04.png",
+  "animated": false
+ },
+ {
+  "code": "mc_05",
+  "tier": "common",
+  "name": "minecraftclock",
+  "pack": "mc",
+  "file": "common/mc_05.gif",
+  "animated": true
+ },
+ {
+  "code": "mc_06",
+  "tier": "common",
+  "name": "minecraftlavabucket",
+  "pack": "mc",
+  "file": "common/mc_06.png",
+  "animated": false
+ },
+ {
+  "code": "mc_07",
+  "tier": "common",
+  "name": "minecraftbee",
+  "pack": "mc",
+  "file": "common/mc_07.png",
+  "animated": false
+ },
+ {
+  "code": "mc_08",
+  "tier": "common",
+  "name": "furnace",
+  "pack": "mc",
+  "file": "common/mc_08.png",
+  "animated": false
+ },
+ {
+  "code": "mc_09",
+  "tier": "common",
+  "name": "minecraftcoal",
+  "pack": "mc",
+  "file": "common/mc_09.png",
+  "animated": false
+ },
+ {
+  "code": "mc_10",
+  "tier": "common",
+  "name": "minecraftxp",
+  "pack": "mc",
+  "file": "common/mc_10.gif",
+  "animated": true
+ },
+ {
+  "code": "mc_11",
+  "tier": "common",
+  "name": "creeper",
+  "pack": "mc",
+  "file": "common/mc_11.png",
+  "animated": false
+ },
+ {
+  "code": "mc_12",
+  "tier": "common",
+  "name": "minecraftheart",
+  "pack": "mc",
+  "file": "common/mc_12.png",
+  "animated": false
+ },
+ {
+  "code": "mc_13",
+  "tier": "common",
+  "name": "minecraftdiamond",
+  "pack": "mc",
+  "file": "common/mc_13.png",
+  "animated": false
+ },
+ {
+  "code": "mc_14",
+  "tier": "common",
+  "name": "minecraftgoldingot",
+  "pack": "mc",
+  "file": "common/mc_14.png",
+  "animated": false
+ },
+ {
+  "code": "mc_15",
+  "tier": "common",
+  "name": "minecraftcow",
+  "pack": "mc",
+  "file": "common/mc_15.png",
+  "animated": false
+ },
+ {
+  "code": "mc_16",
+  "tier": "common",
+  "name": "minecraftirongolem",
+  "pack": "mc",
+  "file": "common/mc_16.gif",
+  "animated": true
+ },
+ {
+  "code": "mc_17",
+  "tier": "common",
+  "name": "minecraftironingot",
+  "pack": "mc",
+  "file": "common/mc_17.png",
+  "animated": false
+ },
+ {
+  "code": "mc_18",
+  "tier": "common",
+  "name": "minecraftemerald",
+  "pack": "mc",
+  "file": "common/mc_18.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_01",
+  "tier": "legendary",
+  "name": "shizu",
+  "pack": "espadas",
+  "file": "legendary/espadas_01.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_02",
+  "tier": "legendary",
+  "name": "tushita",
+  "pack": "espadas",
+  "file": "legendary/espadas_02.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_03",
+  "tier": "legendary",
+  "name": "cursed dual katana",
+  "pack": "espadas",
+  "file": "legendary/espadas_03.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_04",
+  "tier": "legendary",
+  "name": "spikey trident",
+  "pack": "espadas",
+  "file": "legendary/espadas_04.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_05",
+  "tier": "legendary",
+  "name": "darkblade bloxfruits",
+  "pack": "espadas",
+  "file": "legendary/espadas_05.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_06",
+  "tier": "legendary",
+  "name": "yama",
+  "pack": "espadas",
+  "file": "legendary/espadas_06.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_07",
+  "tier": "legendary",
+  "name": "trident",
+  "pack": "espadas",
+  "file": "legendary/espadas_07.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_08",
+  "tier": "legendary",
+  "name": "saishi",
+  "pack": "espadas",
+  "file": "legendary/espadas_08.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_09",
+  "tier": "legendary",
+  "name": "longsword",
+  "pack": "espadas",
+  "file": "legendary/espadas_09.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_10",
+  "tier": "legendary",
+  "name": "oroshi",
+  "pack": "espadas",
+  "file": "legendary/espadas_10.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_11",
+  "tier": "legendary",
+  "name": "dragon trident",
+  "pack": "espadas",
+  "file": "legendary/espadas_11.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_12",
+  "tier": "legendary",
+  "name": "saber",
+  "pack": "espadas",
+  "file": "legendary/espadas_12.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_13",
+  "tier": "legendary",
+  "name": "canvander",
+  "pack": "espadas",
+  "file": "legendary/espadas_13.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_14",
+  "tier": "legendary",
+  "name": "triple katana",
+  "pack": "espadas",
+  "file": "legendary/espadas_14.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_15",
+  "tier": "legendary",
+  "name": "midnight blade",
+  "pack": "espadas",
+  "file": "legendary/espadas_15.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_16",
+  "tier": "legendary",
+  "name": "shark anchor",
+  "pack": "espadas",
+  "file": "legendary/espadas_16.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_17",
+  "tier": "legendary",
+  "name": "gravity blade",
+  "pack": "espadas",
+  "file": "legendary/espadas_17.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_18",
+  "tier": "legendary",
+  "name": "cutlass",
+  "pack": "espadas",
+  "file": "legendary/espadas_18.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_19",
+  "tier": "legendary",
+  "name": "twin hooks",
+  "pack": "espadas",
+  "file": "legendary/espadas_19.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_20",
+  "tier": "legendary",
+  "name": "wardens sword",
+  "pack": "espadas",
+  "file": "legendary/espadas_20.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_21",
+  "tier": "legendary",
+  "name": "koko sword",
+  "pack": "espadas",
+  "file": "legendary/espadas_21.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_22",
+  "tier": "legendary",
+  "name": "triple dark blade",
+  "pack": "espadas",
+  "file": "legendary/espadas_22.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_23",
+  "tier": "legendary",
+  "name": "buddy sword",
+  "pack": "espadas",
+  "file": "legendary/espadas_23.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_24",
+  "tier": "legendary",
+  "name": "hallow scythe",
+  "pack": "espadas",
+  "file": "legendary/espadas_24.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_25",
+  "tier": "legendary",
+  "name": "triple katana black",
+  "pack": "espadas",
+  "file": "legendary/espadas_25.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_26",
+  "tier": "legendary",
+  "name": "bisento",
+  "pack": "espadas",
+  "file": "legendary/espadas_26.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_27",
+  "tier": "legendary",
+  "name": "fox lamp",
+  "pack": "espadas",
+  "file": "legendary/espadas_27.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_28",
+  "tier": "legendary",
+  "name": "pole 29",
+  "pack": "espadas",
+  "file": "legendary/espadas_28.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_29",
+  "tier": "legendary",
+  "name": "rengoku",
+  "pack": "espadas",
+  "file": "legendary/espadas_29.png",
+  "animated": false
+ },
+ {
+  "code": "espadas_30",
+  "tier": "legendary",
+  "name": "pipe",
+  "pack": "espadas",
+  "file": "legendary/espadas_30.png",
+  "animated": false
+ },
+ {
+  "code": "pregnantanimal_01",
+  "tier": "rare",
+  "name": "pregnant cat",
+  "pack": "pregnantanimal",
+  "file": "rare/pregnantanimal_01.png",
+  "animated": false
+ },
+ {
+  "code": "pregnantanimal_02",
+  "tier": "rare",
+  "name": "pregnant unicorn",
+  "pack": "pregnantanimal",
+  "file": "rare/pregnantanimal_02.png",
+  "animated": false
+ },
+ {
+  "code": "pregnantanimal_03",
+  "tier": "rare",
+  "name": "pregnant kangaroo",
+  "pack": "pregnantanimal",
+  "file": "rare/pregnantanimal_03.png",
+  "animated": false
+ },
+ {
+  "code": "pregnantanimal_04",
+  "tier": "rare",
+  "name": "pregnant giraffe",
+  "pack": "pregnantanimal",
+  "file": "rare/pregnantanimal_04.png",
+  "animated": false
+ },
+ {
+  "code": "pregnantanimal_05",
+  "tier": "rare",
+  "name": "pregnant horse",
+  "pack": "pregnantanimal",
+  "file": "rare/pregnantanimal_05.png",
+  "animated": false
+ },
+ {
+  "code": "pregnantanimal_06",
+  "tier": "rare",
+  "name": "pregnant dog",
+  "pack": "pregnantanimal",
+  "file": "rare/pregnantanimal_06.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_01",
+  "tier": "rare",
+  "name": "redbearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_01.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_02",
+  "tier": "rare",
+  "name": "catburger improved",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_02.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_03",
+  "tier": "rare",
+  "name": "nekoburgerbounce",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_03.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_04",
+  "tier": "rare",
+  "name": "catdonut",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_04.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_05",
+  "tier": "rare",
+  "name": "bearcookie",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_05.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_06",
+  "tier": "rare",
+  "name": "bearrice",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_06.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_07",
+  "tier": "rare",
+  "name": "Banana cat",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_07.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_08",
+  "tier": "rare",
+  "name": "bluebearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_08.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_09",
+  "tier": "rare",
+  "name": "orangebearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_09.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_10",
+  "tier": "rare",
+  "name": "peachcat",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_10.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_11",
+  "tier": "rare",
+  "name": "catdonut",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_11.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_12",
+  "tier": "rare",
+  "name": "cat rice",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_12.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_13",
+  "tier": "rare",
+  "name": "bunnydonut",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_13.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_14",
+  "tier": "rare",
+  "name": "rainbowcatboba",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_14.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_15",
+  "tier": "rare",
+  "name": "bunnymacaroon",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_15.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_16",
+  "tier": "rare",
+  "name": "dango",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_16.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_17",
+  "tier": "rare",
+  "name": "purplebearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_17.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_18",
+  "tier": "rare",
+  "name": "bluebearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_18.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_19",
+  "tier": "rare",
+  "name": "vanillabearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_19.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_20",
+  "tier": "rare",
+  "name": "Mochi bear",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_20.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_21",
+  "tier": "rare",
+  "name": "yellowbearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_21.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_22",
+  "tier": "rare",
+  "name": "greenbearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_22.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_23",
+  "tier": "rare",
+  "name": "pinkbearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_23.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_24",
+  "tier": "rare",
+  "name": "catmacaroon",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_24.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_25",
+  "tier": "rare",
+  "name": "CatIceCream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_25.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_26",
+  "tier": "rare",
+  "name": "sweetbunnysleep",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_26.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_27",
+  "tier": "rare",
+  "name": "sweetbunnyyay",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_27.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_28",
+  "tier": "rare",
+  "name": "toastbread",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_28.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_29",
+  "tier": "rare",
+  "name": "nekoburger",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_29.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_30",
+  "tier": "rare",
+  "name": "strawberrychoclate",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_30.png",
+  "animated": false
+ },
+ {
+  "code": "animalfoods_31",
+  "tier": "rare",
+  "name": "chocolatebearicecream",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_31.gif",
+  "animated": true
+ },
+ {
+  "code": "animalfoods_32",
+  "tier": "rare",
+  "name": "bunnydonut",
+  "pack": "animalfoods",
+  "file": "rare/animalfoods_32.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_01",
+  "tier": "common",
+  "name": "blue slushie",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_01.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_02",
+  "tier": "common",
+  "name": "cute piglet cup drink",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_02.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_03",
+  "tier": "common",
+  "name": "bunnyblue",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_03.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_04",
+  "tier": "common",
+  "name": "planen",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_04.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_05",
+  "tier": "common",
+  "name": "cherries",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_05.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_06",
+  "tier": "common",
+  "name": "fruityblueberries",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_06.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_07",
+  "tier": "common",
+  "name": "bowblue",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_07.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_08",
+  "tier": "common",
+  "name": "mintlollipop",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_08.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_09",
+  "tier": "common",
+  "name": "bunnyred",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_09.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_10",
+  "tier": "common",
+  "name": "milk",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_10.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_11",
+  "tier": "common",
+  "name": "blueberries",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_11.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_12",
+  "tier": "common",
+  "name": "greenribbon",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_12.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_13",
+  "tier": "common",
+  "name": "blue boba",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_13.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_14",
+  "tier": "common",
+  "name": "drink blue",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_14.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_15",
+  "tier": "common",
+  "name": "simplemelonsoda",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_15.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_16",
+  "tier": "common",
+  "name": "autumn mushroom",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_16.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_17",
+  "tier": "common",
+  "name": "ssmarblesoda",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_17.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_18",
+  "tier": "common",
+  "name": "pixelleaf",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_18.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_19",
+  "tier": "common",
+  "name": "idolblueribbon",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_19.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_20",
+  "tier": "common",
+  "name": "blueaesthetic",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_20.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_21",
+  "tier": "common",
+  "name": "idolredribbon",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_21.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_22",
+  "tier": "common",
+  "name": "fourleafclover",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_22.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_23",
+  "tier": "common",
+  "name": "blueflower",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_23.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_24",
+  "tier": "common",
+  "name": "icecreamcone",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_24.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_25",
+  "tier": "common",
+  "name": "grapefruit tea bag",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_25.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_26",
+  "tier": "common",
+  "name": "plant teabag",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_26.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_27",
+  "tier": "common",
+  "name": "turtle",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_27.gif",
+  "animated": true
+ },
+ {
+  "code": "cuteroleemoji_28",
+  "tier": "common",
+  "name": "pixelduoheartsblue",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_28.png",
+  "animated": false
+ },
+ {
+  "code": "cuteroleemoji_29",
+  "tier": "common",
+  "name": "blueplanet",
+  "pack": "cuteroleemoji",
+  "file": "common/cuteroleemoji_29.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_01",
+  "tier": "common",
+  "name": "yap",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_01.gif",
+  "animated": true
+ },
+ {
+  "code": "sibidiemoti_02",
+  "tier": "common",
+  "name": "emotielder",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_02.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_03",
+  "tier": "common",
+  "name": "blowkiss",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_03.gif",
+  "animated": true
+ },
+ {
+  "code": "sibidiemoti_04",
+  "tier": "common",
+  "name": "emotimiddlefinger",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_04.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_05",
+  "tier": "common",
+  "name": "sigma",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_05.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_06",
+  "tier": "common",
+  "name": "suspicious",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_06.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_07",
+  "tier": "common",
+  "name": "salute",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_07.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_08",
+  "tier": "common",
+  "name": "drool",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_08.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_09",
+  "tier": "common",
+  "name": "shrug",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_09.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_10",
+  "tier": "common",
+  "name": "goofy",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_10.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_11",
+  "tier": "common",
+  "name": "rofl",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_11.gif",
+  "animated": true
+ },
+ {
+  "code": "sibidiemoti_12",
+  "tier": "common",
+  "name": "emoticelebration",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_12.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_13",
+  "tier": "common",
+  "name": "sigma",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_13.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_14",
+  "tier": "common",
+  "name": "tease",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_14.gif",
+  "animated": true
+ },
+ {
+  "code": "sibidiemoti_15",
+  "tier": "common",
+  "name": "emotievil",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_15.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_16",
+  "tier": "common",
+  "name": "huh",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_16.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_17",
+  "tier": "common",
+  "name": "emotiengineer",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_17.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_18",
+  "tier": "common",
+  "name": "nod creepy",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_18.gif",
+  "animated": true
+ },
+ {
+  "code": "sibidiemoti_19",
+  "tier": "common",
+  "name": "emotiexcited",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_19.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_20",
+  "tier": "common",
+  "name": "emotistare",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_20.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_21",
+  "tier": "common",
+  "name": "emotiearmuffs",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_21.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_22",
+  "tier": "common",
+  "name": "hesitant",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_22.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_23",
+  "tier": "common",
+  "name": "emotithink2",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_23.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_24",
+  "tier": "common",
+  "name": "innocent",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_24.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_25",
+  "tier": "common",
+  "name": "emotiexhausted",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_25.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_26",
+  "tier": "common",
+  "name": "stank",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_26.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_27",
+  "tier": "common",
+  "name": "sob",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_27.gif",
+  "animated": true
+ },
+ {
+  "code": "sibidiemoti_28",
+  "tier": "common",
+  "name": "gasp",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_28.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_29",
+  "tier": "common",
+  "name": "blank",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_29.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_30",
+  "tier": "common",
+  "name": "thumbsup",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_30.png",
+  "animated": false
+ },
+ {
+  "code": "sibidiemoti_31",
+  "tier": "common",
+  "name": "beg",
+  "pack": "sibidiemoti",
+  "file": "common/sibidiemoti_31.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_01",
+  "tier": "rare",
+  "name": "ffmushroom",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_01.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_02",
+  "tier": "rare",
+  "name": "ffladybug",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_02.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_03",
+  "tier": "rare",
+  "name": "ffpothos",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_03.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_04",
+  "tier": "rare",
+  "name": "fffroggie",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_04.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_05",
+  "tier": "rare",
+  "name": "fffroggiehat",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_05.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_06",
+  "tier": "rare",
+  "name": "ffmapleleaf",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_06.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_07",
+  "tier": "rare",
+  "name": "fffroggiesleeping",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_07.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_08",
+  "tier": "rare",
+  "name": "fffroggieknitting",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_08.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_09",
+  "tier": "rare",
+  "name": "ffbookstack",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_09.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_10",
+  "tier": "rare",
+  "name": "ffteakettle",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_10.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_11",
+  "tier": "rare",
+  "name": "fffroggiefriends",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_11.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_12",
+  "tier": "rare",
+  "name": "ffpumpkins",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_12.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_13",
+  "tier": "rare",
+  "name": "ffcandle",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_13.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_14",
+  "tier": "rare",
+  "name": "ffleaf",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_14.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_15",
+  "tier": "rare",
+  "name": "ffflowers",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_15.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_16",
+  "tier": "rare",
+  "name": "ffacorn",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_16.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_17",
+  "tier": "rare",
+  "name": "ffleaves",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_17.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_18",
+  "tier": "rare",
+  "name": "fffroggieteatime",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_18.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_19",
+  "tier": "rare",
+  "name": "ffteabag",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_19.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_20",
+  "tier": "rare",
+  "name": "ffwood",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_20.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_21",
+  "tier": "rare",
+  "name": "ffcottage",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_21.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_22",
+  "tier": "rare",
+  "name": "ffmoth",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_22.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_23",
+  "tier": "rare",
+  "name": "ffcookies",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_23.png",
+  "animated": false
+ },
+ {
+  "code": "fallfrogcollec_24",
+  "tier": "rare",
+  "name": "ffteacup",
+  "pack": "fallfrogcollec",
+  "file": "rare/fallfrogcollec_24.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_01",
+  "tier": "rare",
+  "name": "blushed",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_01.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_02",
+  "tier": "rare",
+  "name": "sob",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_02.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_03",
+  "tier": "rare",
+  "name": "exhausted",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_03.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_04",
+  "tier": "rare",
+  "name": "kissing heart",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_04.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_05",
+  "tier": "rare",
+  "name": "moyai",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_05.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_06",
+  "tier": "rare",
+  "name": "skull",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_06.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_07",
+  "tier": "rare",
+  "name": "video game",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_07.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_08",
+  "tier": "rare",
+  "name": "star",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_08.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_09",
+  "tier": "rare",
+  "name": "crown",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_09.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_10",
+  "tier": "rare",
+  "name": "muscle",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_10.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_11",
+  "tier": "rare",
+  "name": "check mark",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_11.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_12",
+  "tier": "rare",
+  "name": "ok hand",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_12.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_13",
+  "tier": "rare",
+  "name": "sparkles",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_13.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_14",
+  "tier": "rare",
+  "name": "pressf",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_14.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_15",
+  "tier": "rare",
+  "name": "eyes",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_15.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_16",
+  "tier": "rare",
+  "name": "smirk",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_16.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_17",
+  "tier": "rare",
+  "name": "amongus",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_17.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_18",
+  "tier": "rare",
+  "name": "wink",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_18.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_19",
+  "tier": "rare",
+  "name": "nerd",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_19.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_20",
+  "tier": "rare",
+  "name": "flushed",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_20.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_21",
+  "tier": "rare",
+  "name": "x",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_21.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_22",
+  "tier": "rare",
+  "name": "gg",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_22.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_23",
+  "tier": "rare",
+  "name": "zipper mouth",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_23.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_24",
+  "tier": "rare",
+  "name": "sunglasses smile",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_24.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_25",
+  "tier": "rare",
+  "name": "no mouth",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_25.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_26",
+  "tier": "rare",
+  "name": "exploding head",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_26.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_27",
+  "tier": "rare",
+  "name": "joy",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_27.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_28",
+  "tier": "rare",
+  "name": "zany face",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_28.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_29",
+  "tier": "rare",
+  "name": "hot face",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_29.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_30",
+  "tier": "rare",
+  "name": "saluting face",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_30.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_31",
+  "tier": "rare",
+  "name": "face with monocle",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_31.png",
+  "animated": false
+ },
+ {
+  "code": "emojispixel_32",
+  "tier": "rare",
+  "name": "cold face",
+  "pack": "emojispixel",
+  "file": "rare/emojispixel_32.png",
+  "animated": false
+ },
+ {
+  "code": "miku_01",
+  "tier": "rare",
+  "name": "hatsune kittu",
+  "pack": "miku",
+  "file": "rare/miku_01.png",
+  "animated": false
+ },
+ {
+  "code": "miku_02",
+  "tier": "rare",
+  "name": "miku snail",
+  "pack": "miku",
+  "file": "rare/miku_02.png",
+  "animated": false
+ },
+ {
+  "code": "miku_03",
+  "tier": "rare",
+  "name": "miku chair spin",
+  "pack": "miku",
+  "file": "rare/miku_03.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_04",
+  "tier": "rare",
+  "name": "miku dance",
+  "pack": "miku",
+  "file": "rare/miku_04.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_05",
+  "tier": "rare",
+  "name": "miku happy",
+  "pack": "miku",
+  "file": "rare/miku_05.png",
+  "animated": false
+ },
+ {
+  "code": "miku_06",
+  "tier": "rare",
+  "name": "miku dab",
+  "pack": "miku",
+  "file": "rare/miku_06.png",
+  "animated": false
+ },
+ {
+  "code": "miku_07",
+  "tier": "rare",
+  "name": "miku wtf",
+  "pack": "miku",
+  "file": "rare/miku_07.png",
+  "animated": false
+ },
+ {
+  "code": "miku_08",
+  "tier": "rare",
+  "name": "miku vibin",
+  "pack": "miku",
+  "file": "rare/miku_08.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_09",
+  "tier": "rare",
+  "name": "miku dance 2",
+  "pack": "miku",
+  "file": "rare/miku_09.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_10",
+  "tier": "rare",
+  "name": "hatsune miku",
+  "pack": "miku",
+  "file": "rare/miku_10.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_11",
+  "tier": "rare",
+  "name": "miku spin",
+  "pack": "miku",
+  "file": "rare/miku_11.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_12",
+  "tier": "rare",
+  "name": "miku shock",
+  "pack": "miku",
+  "file": "rare/miku_12.png",
+  "animated": false
+ },
+ {
+  "code": "miku_13",
+  "tier": "rare",
+  "name": "excited miku",
+  "pack": "miku",
+  "file": "rare/miku_13.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_14",
+  "tier": "rare",
+  "name": "miku head tilt",
+  "pack": "miku",
+  "file": "rare/miku_14.png",
+  "animated": false
+ },
+ {
+  "code": "miku_15",
+  "tier": "rare",
+  "name": "miku neko dance",
+  "pack": "miku",
+  "file": "rare/miku_15.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_16",
+  "tier": "rare",
+  "name": "battlecat miku",
+  "pack": "miku",
+  "file": "rare/miku_16.png",
+  "animated": false
+ },
+ {
+  "code": "miku_17",
+  "tier": "rare",
+  "name": "miku peek",
+  "pack": "miku",
+  "file": "rare/miku_17.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_18",
+  "tier": "rare",
+  "name": "miku dance 3",
+  "pack": "miku",
+  "file": "rare/miku_18.gif",
+  "animated": true
+ },
+ {
+  "code": "miku_19",
+  "tier": "rare",
+  "name": "miku raid",
+  "pack": "miku",
+  "file": "rare/miku_19.png",
+  "animated": false
+ },
+ {
+  "code": "miku_20",
+  "tier": "rare",
+  "name": "leek miku",
+  "pack": "miku",
+  "file": "rare/miku_20.gif",
+  "animated": true
+ }
+]

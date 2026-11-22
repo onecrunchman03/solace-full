@@ -1,0 +1,300 @@
+<!doctype html>
+<!--
+  SURVIVORZ RETARGET BENCH (Oct 2026). The general form of scripts/retarget.html:
+  any of four source skeletons onto any of four target skeletons, by one table
+  of canonical joints.
+
+    sources: mixamo ("mixamorig:*"), ue (Unreal mannequin: Quaternius UAL,
+             the Halloween mocap's UE5 files), zombiepack (Auto-Rig Pro export)
+    targets: rp (a Renderpeople body), zombie (a pack zombie), hazmat (Rollo)
+
+  Each target bone takes its source partner's rotation AS A CHANGE FROM REST,
+  in world space, after the target has first been stood in the source's rest
+  pose (bone by bone, parent first, so each bone POINTS where its partner
+  points). The hips carry the source's vertical travel only by default: the
+  server moves the bodies, so a clip that walks forward must walk in place.
+
+  Rest pose: a skinned body's bind pose (skeleton.pose()), else the file's
+  bones as loaded (a Mixamo "without skin" download rests in its T-pose).
+
+    ?src=<url .fbx|.glb>&clip=<name in a multi-clip glb>&target=<url .glb>
+    &tfam=rp|zombie|hazmat&from=<s>&until=<s>&travel=1&name=<id>&t=<s>
+-->
+<meta charset="utf-8" />
+<title>Survivorz — retarget bench</title>
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #14120c; color: #e8dcae; font: 12px ui-monospace, monospace; }
+  #hud { position: fixed; left: 8px; top: 8px; white-space: pre; background: rgba(0,0,0,.55); padding: 6px 9px; }
+  canvas { display: block; }
+</style>
+<div id="hud">loading…</div>
+<script type="module">
+  import * as THREE from "three";
+  import { FBXLoader } from "three/addons/loaders/FBXLoader.js";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+  const P = new URLSearchParams(location.search);
+  const hud = document.getElementById("hud");
+  const san = (n) => THREE.PropertyBinding.sanitizeNodeName(n);
+
+  // canonical joint → [mixamo, ue, rp, zombie(ARP), hazmat]
+  const J = {
+    hips: ["Hips", "pelvis", "hip", "root.x", "DEF-spine"],
+    spine1: ["Spine", "spine_01", "spine_01", "spine_01.x", "DEF-spine.001"],
+    spine2: ["Spine1", "spine_02", "spine_02", "spine_02.x", "DEF-spine.002"],
+    spine3: ["Spine2", "spine_03", "spine_03", "spine_03.x", "DEF-spine.003"],
+    neck: ["Neck", "neck_01", "neck", "neck.x", "DEF-spine.004"],
+    head: ["Head", "Head", "head", "head.x", "DEF-spine.006"],
+  };
+  for (const [s, ue, z] of [["Left", "l", "l"], ["Right", "r", "r"]]) {
+    const H = s === "Left" ? "L" : "R";
+    Object.assign(J, {
+      ["shoulder" + H]: [`${s}Shoulder`, `clavicle_${ue}`, `shoulder_${ue}`, `shoulder.${z}`, `DEF-shoulder.${H}`],
+      ["upperarm" + H]: [`${s}Arm`, `upperarm_${ue}`, `upperarm_${ue}`, `arm_stretch.${z}`, `DEF-upper_arm.${H}`],
+      ["forearm" + H]: [`${s}ForeArm`, `lowerarm_${ue}`, `lowerarm_${ue}`, `forearm_stretch.${z}`, `DEF-forearm.${H}`],
+      ["hand" + H]: [`${s}Hand`, `hand_${ue}`, `hand_${ue}`, `hand.${z}`, `DEF-hand.${H}`],
+      ["thigh" + H]: [`${s}UpLeg`, `thigh_${ue}`, `upperleg_${ue}`, `thigh_stretch.${z}`, `DEF-thigh.${H}`],
+      ["shin" + H]: [`${s}Leg`, `calf_${ue}`, `lowerleg_${ue}`, `leg_stretch.${z}`, `DEF-shin.${H}`],
+      ["foot" + H]: [`${s}Foot`, `foot_${ue}`, `foot_${ue}`, `foot.${z}`, `DEF-foot.${H}`],
+      ["toe" + H]: [`${s}ToeBase`, `ball_${ue}`, `ball_${ue}`, `toes_01.${z}`, `DEF-toe.${H}`],
+    });
+    for (const f of ["Thumb", "Index", "Middle", "Ring", "Pinky"]) {
+      const fl = f.toLowerCase();
+      for (const k of [1, 2, 3]) {
+        J[`${fl}${k}${H}`] = [`${s}Hand${f}${k}`, `${fl}_0${k}_${ue}`, `${fl}_0${k}_${ue}`, `${fl}${k}.${z}`, null];
+      }
+    }
+  }
+  // the UE5 mannequin (the Halloween mocap) has five spine bones and two necks
+  for (const c of Object.keys(J)) J[c].push(J[c][1]);
+  Object.assign(J.spine2, { 5: "spine_03" }); Object.assign(J.spine3, { 5: "spine_05" });
+  Object.assign(J.head, { 5: "head" });
+  const FAM = { mixamo: 0, ue: 1, rp: 2, zombie: 3, hazmat: 4, ue5: 5 };
+  // parent → child, for standing the target in the source's rest pose
+  const CHAIN = [["spine1", "spine2"], ["spine2", "spine3"], ["spine3", "neck"], ["neck", "head"]];
+  for (const H of ["L", "R"]) {
+    CHAIN.push([`shoulder${H}`, `upperarm${H}`], [`upperarm${H}`, `forearm${H}`], [`forearm${H}`, `hand${H}`],
+      [`thigh${H}`, `shin${H}`], [`shin${H}`, `foot${H}`], [`foot${H}`, `toe${H}`]);
+    for (const f of ["thumb", "index", "middle", "ring", "pinky"]) CHAIN.push([`${f}1${H}`, `${f}2${H}`], [`${f}2${H}`, `${f}3${H}`]);
+  }
+
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x14120c);
+  const camera = new THREE.PerspectiveCamera(22, innerWidth / innerHeight, 0.05, 100);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  renderer.setSize(innerWidth, innerHeight); document.body.appendChild(renderer.domElement);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x30302a, 2.2));
+  const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(3, 6, 4); scene.add(key);
+  scene.add(new THREE.GridHelper(8, 16, 0x4a4128, 0x2a2620));
+
+  const load = async (url) => {
+    if (/\.(glb|gltf)$/i.test(url)) { const g = await new GLTFLoader().loadAsync(url); g.scene.animations = g.animations; return g.scene; }
+    return new FBXLoader().loadAsync(url);
+  };
+  // an unskinned glTF (a Mixamo "without skin" download through fbx2gltf) has
+  // its joints as plain nodes, not Bones — take every named node then
+  const bones = (root) => {
+    const m = new Map(); root.traverse((o) => { if (o.isBone) m.set(o.name, o); });
+    if (!m.size) root.traverse((o) => { if (o !== root && o.name && !o.isMesh) m.set(o.name, o); });
+    return m;
+  };
+  // the BIND pose, from each skinned mesh's own bind matrix: skeleton.pose()
+  // assumes the mesh sits at the origin, and a Blender export with an armature
+  // offset or a 0.01 scale (the zombie pack) does not
+  const restPose = (root) => {
+    root.updateMatrixWorld(true);
+    const want = new Map();
+    root.traverse((o) => {
+      if (!o.isSkinnedMesh) return;
+      o.skeleton.bones.forEach((b, i) => { if (!want.has(b)) want.set(b, o.bindMatrix.clone().multiply(o.skeleton.boneInverses[i].clone().invert())); });
+    });
+    root.traverse((o) => {
+      const w = want.get(o); if (!w) return;
+      new THREE.Matrix4().copy(o.parent.matrixWorld).invert().multiply(w).decompose(o.position, o.quaternion, o.scale);
+      o.updateMatrixWorld(true);
+    });
+    root.updateMatrixWorld(true);
+  };
+  // a skeleton-only file (no skin) has plain nodes, not bones, and UE names are lower case
+  const box = (root) => { root.updateMatrixWorld(true); const b = new THREE.Box3(); root.traverse((o) => { if (o.isBone || /hips|pelvis|head|foot|hand|toe/i.test(o.name)) b.expandByPoint(o.getWorldPosition(new THREE.Vector3())); }); return b; };
+
+  const bench = { ready: false };
+  window.bench = bench;
+  try {
+    const target = await load(P.get("target"));
+    const src = await load(P.get("src"));
+    // ?rest=<a file with the same skeleton AND a mesh>: a skeleton-only export (the zombie
+    // finisher pack) has no bind pose, and its bones load in some frame of the clip instead —
+    // borrow the rest pose from a skinned file of the same rig (the Halloween UE5 mannequin)
+    if (P.get("rest")) {
+      // in WORLD space: the pack wraps its skeleton in an extra node turned 90 degrees that the
+      // donor doesn't have, so copying local transforms would lay the rest pose on its back
+      const donor = await load(P.get("rest")); restPose(donor);
+      const dAll = bones(donor);
+      donor.updateMatrixWorld(true); src.updateMatrixWorld(true);
+      const donorInv = new THREE.Matrix4().copy(donor.matrixWorld).invert();
+      let n = 0;
+      src.traverse((o) => {
+        const d = dAll.get(o.name); if (!d || o === src) return;
+        const w = new THREE.Matrix4().copy(src.matrixWorld).multiply(donorInv).multiply(d.matrixWorld);
+        new THREE.Matrix4().copy(o.parent.matrixWorld).invert().multiply(w).decompose(o.position, o.quaternion, o.scale);
+        o.updateMatrixWorld(true); n++;
+      });
+      window.__restDonor = n;
+    }
+    const clip = P.get("clip") ? src.animations.find((a) => a.name === P.get("clip")) : src.animations[0];
+    if (!clip) throw new Error("no clip " + P.get("clip") + " in " + src.animations.map((a) => a.name).join(","));
+    const wp = (o) => o.getWorldPosition(new THREE.Vector3());
+    const sAll = bones(src), tAll = bones(target);
+    window.__names0 = { srcTop: src.children.map((c) => c.name + ":" + c.type), clipTracks: (P.get("clip") ? src.animations.find((a) => a.name === P.get("clip")) : src.animations[0]).tracks.slice(0, 3).map((t) => t.name) };
+    const strip = (n) => n.replace(/^mixamorig\d*:?/, "");
+    const sByName = new Map([...sAll].map(([n, b]) => [strip(n), b]));
+    // the source's family, from what is in it
+    const sf = sByName.has("Hips") ? "mixamo" : sByName.has("spine_05") ? "ue5" : sByName.has("pelvis") ? "ue" : sByName.has(san("root.x")) || sByName.has("root.x") ? "zombie" : "?";
+    const tf = P.get("tfam");
+    const pick = (map, name) => {
+      if (name == null) return undefined;
+      const hit = map.get(name) ?? map.get(san(name));
+      if (hit) return hit;
+      // a Renderpeople ANIMATED body prefixes every bone: rp_<who>_animated_00N_<take>_hip
+      for (const [n, b] of map) if (n.endsWith("_" + name) && /^rp_/.test(n)) return b;
+    };
+    const S = new Map(), T = new Map();
+    for (const [c, names] of Object.entries(J)) {
+      const sb = pick(sByName, names[FAM[sf]]), tb = pick(tAll, names[FAM[tf]]);
+      if (sb && tb) { S.set(c, sb); T.set(c, tb); }
+    }
+    restPose(src); restPose(target);
+    const tBox = box(target), sBox = box(src);
+    const fit = (root, b, x) => { const s = 1.8 / (b.max.y - b.min.y); root.scale.multiplyScalar(s); root.position.set(x - ((b.min.x + b.max.x) / 2) * s, -b.min.y * s, -((b.min.z + b.max.z) / 2) * s); scene.add(root); };
+    if (!sAll.size) throw new Error("source has no bones");
+    // the source as a stick figure over the MAPPED joints only: SkeletonHelper on a
+    // node-only glTF draws through helper nodes and reads as a different pose
+    const STICK = [["hips", "spine1"], ...CHAIN, ["spine3", "shoulderL"], ["spine3", "shoulderR"], ["hips", "thighL"], ["hips", "thighR"]];
+    const stickGeo = new THREE.BufferGeometry(); stickGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(STICK.length * 6), 3));
+    const stick = new THREE.LineSegments(stickGeo, new THREE.LineBasicMaterial({ color: 0x5fe0ff })); stick.frustumCulled = false; scene.add(stick);
+    const drawStick = () => {
+      const a = stickGeo.attributes.position; let i = 0;
+      for (const [x, y] of STICK) { const bx = S.get(x), by = S.get(y); if (!bx || !by) { a.setXYZ(i++, 0, 0, 0); a.setXYZ(i++, 0, 0, 0); continue; } a.setXYZ(i++, ...wp(bx).toArray()); a.setXYZ(i++, ...wp(by).toArray()); }
+      a.needsUpdate = true;
+    };
+    fit(src, sBox, -0.75); fit(target, tBox, 0.75);
+    { const meshes = []; target.updateMatrixWorld(true);
+      target.traverse((o) => { if (o.isMesh) { const bb = new THREE.Box3().setFromObject(o); meshes.push([o.name, o.isSkinnedMesh, o.visible, bb.min.toArray().map((v) => +v.toFixed(2)), bb.max.toArray().map((v) => +v.toFixed(2))]); } });
+      window.__dbg = { tBox: [tBox.min.toArray(), tBox.max.toArray()], scale: target.scale.toArray(), pos: target.position.toArray(), meshes }; }
+    target.updateMatrixWorld(true); src.updateMatrixWorld(true);
+
+    // stand the target in the source's rest pose
+    
+    for (const [a, b] of CHAIN) {
+      const ta = T.get(a), tb = T.get(b), sa = S.get(a), sb = S.get(b);
+      if (!ta || !tb || !sa || !sb) continue;
+      const dirT = wp(tb).sub(wp(ta)).normalize(), dirS = wp(sb).sub(wp(sa)).normalize();
+      if (dirT.lengthSq() < 1e-8 || dirS.lengthSq() < 1e-8) continue;
+      const turn = new THREE.Quaternion().setFromUnitVectors(dirT, dirS);
+      const w = ta.getWorldQuaternion(new THREE.Quaternion()).premultiply(turn);
+      ta.quaternion.copy(ta.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(w));
+      ta.updateMatrixWorld(true);
+    }
+    target.updateMatrixWorld(true);
+    const restS = new Map(), restT = new Map();
+    for (const c of S.keys()) { restS.set(c, S.get(c).getWorldQuaternion(new THREE.Quaternion())); restT.set(c, T.get(c).getWorldQuaternion(new THREE.Quaternion())); }
+
+    const hipS = S.get("hips"), hipT = T.get("hips");
+    const hipRestS = wp(hipS), hipRestW = wp(hipT);
+    const hipParentInv = new THREE.Matrix4().copy(hipT.parent.matrixWorld).invert();
+    const travel = !!P.get("travel");
+
+    const mixer = new THREE.AnimationMixer(src);
+    const act = mixer.clipAction(clip); act.play();
+    // parent-first order: walk the target's hierarchy
+    const order = []; target.traverse((o) => { for (const [c, b] of T) if (b === o) order.push(c); });
+    const q = new THREE.Quaternion(), pw = new THREE.Quaternion(), d = new THREE.Quaternion();
+    const from = Number(P.get("from") ?? 0), until = Math.min(clip.duration, Number(P.get("until") ?? 1e9));
+    function poseAt(time) {
+      act.time = time; mixer.update(0); src.updateMatrixWorld(true);
+      for (const c of order) {
+        const sb = S.get(c), tb = T.get(c);
+        sb.getWorldQuaternion(q);
+        d.copy(q).multiply(restS.get(c).clone().invert());
+        const want = d.multiply(restT.get(c));
+        tb.parent.getWorldQuaternion(pw);
+        tb.quaternion.copy(pw.invert().multiply(want));
+        tb.updateMatrixWorld(true);
+      }
+      const delta = wp(hipS).sub(hipRestS);
+      if (!travel) { delta.x = 0; delta.z = 0; }
+      hipT.position.copy(hipRestW.clone().add(delta).applyMatrix4(hipParentInv));
+      target.updateMatrixWorld(true);
+    }
+    // how far the source's hips travel across the kept span (metres, at 1.8m tall)
+    const travelOf = () => { poseAt(from); const a = wp(hipS); poseAt(until); const b = wp(hipS); return +Math.hypot(b.x - a.x, b.z - a.z).toFixed(2); };
+
+    bench.bake = (fps = 30) => {
+      const dur = until - from, n = Math.max(2, Math.round(dur * fps) + 1);
+      const times = new Float32Array(n), quats = new Map(order.map((c) => [c, new Float32Array(n * 4)])), hips = new Float32Array(n * 3);
+      for (let i = 0; i < n; i++) {
+        const t = Math.min(dur, i / fps); times[i] = t; poseAt(from + t);
+        for (const c of order) T.get(c).quaternion.toArray(quats.get(c), i * 4);
+        hipT.position.toArray(hips, i * 3);
+      }
+      const tracks = order.map((c) => new THREE.QuaternionKeyframeTrack(`${T.get(c).name}.quaternion`, times, quats.get(c)));
+      tracks.push(new THREE.VectorKeyframeTrack(`${hipT.name}.position`, times, hips));
+      const out = new THREE.AnimationClip(P.get("name") ?? "clip", dur, tracks); out.optimize();
+      const j = THREE.AnimationClip.toJSON(out);
+      // the ground the source covered (metres, on a 1.8m body), stripped from the
+      // hips above: [t, dx, dz] at 10 a second, so a one-shot (a fall, a stagger)
+      // can slide the body along in the game while a loop plays in place
+      const path = [], h0 = (poseAt(from), wp(hipS));
+      for (let t = 0; t <= dur + 1e-6; t += 0.1) { poseAt(from + t); const h = wp(hipS); path.push([+t.toFixed(2), +(h.x - h0.x).toFixed(3), +(h.z - h0.z).toFixed(3)]); }
+      j.travel = path;
+      for (const t of j.tracks) { t.times = t.times.map((v) => +v.toFixed(3)); t.values = t.values.map((v) => +v.toFixed(4)); }
+      return j;
+    };
+    bench.dirs = (time) => {
+      poseAt(from + time);
+      const v = (m, a, b) => { const x = wp(m.get(b)).sub(wp(m.get(a))).normalize(); return x.toArray().map((n) => +n.toFixed(2)); };
+      const out = {};
+      for (const [a, b] of [["shoulderL", "upperarmR"], ["upperarmL", "forearmL"], ["forearmL", "handL"], ["upperarmR", "forearmR"], ["hips", "spine1"], ["thighL", "thighR"]]) {
+        if (!b.endsWith("R") || a !== "shoulderL") out[a + ">" + b] = { s: v(S, a, b), t: v(T, a, b) };
+        else out["shoulders"] = { s: v(S, "upperarmL", "upperarmR"), t: v(T, "upperarmL", "upperarmR") };
+      }
+      return out;
+    };
+    // the worst angle (degrees) between a source bone and its partner on the body,
+    // across the kept span — the conversion's error, measured, not eyeballed
+    const errOf = () => {
+      let worst = 0, at = "";
+      for (let k = 0; k <= 20; k++) {
+        poseAt(from + ((until - from) * k) / 20);
+        for (const [a, b] of CHAIN) {
+          if (!S.has(a) || !S.has(b) || /thumb|index|middle|ring|pinky/.test(a)) continue;
+          const ds = wp(S.get(b)).sub(wp(S.get(a))).normalize(), dt = wp(T.get(b)).sub(wp(T.get(a))).normalize();
+          const deg = (Math.acos(Math.min(1, Math.max(-1, ds.dot(dt)))) * 180) / Math.PI;
+          if (deg > worst) { worst = deg; at = a; }
+        }
+      }
+      return { err: +worst.toFixed(1), errAt: at };
+    };
+    bench.info = () => ({ ...errOf(),
+      srcFam: sf, tgtFam: tf, clip: clip.name, dur: +clip.duration.toFixed(2), kept: +(until - from).toFixed(2),
+      mapped: T.size, travel: travelOf(),
+      missing: Object.keys(J).filter((c) => !T.has(c) && J[c][FAM[tf]] != null && J[c][FAM[sf]] != null),
+    });
+    // yaw 0 = straight on; each body is turned about its own spot so both stay framed
+    bench.view = (yaw) => {
+      const r = (yaw * Math.PI) / 180;
+      for (const [root, x] of [[src, -0.75], [target, 0.75]]) { root.userData.x ??= root.position.x - x; root.rotation.y = -r; root.position.x = x + root.userData.x * Math.cos(r); }
+    };
+    camera.position.set(0, 1.1, 8.6); camera.lookAt(0, 0.92, 0);
+    bench.show = (time) => { poseAt(from + time); drawStick(); renderer.render(scene, camera); hud.textContent = `${(P.get("name") ?? "")}  ${sf}→${tf}  t=${time.toFixed(2)}/${(until - from).toFixed(2)}`; };
+    bench.show(Number(P.get("t") ?? 0));
+    bench.ready = true;
+  } catch (e) {
+    hud.textContent = "ERROR " + e.message; bench.error = String(e.message || e); bench.ready = true;
+  }
+</script>

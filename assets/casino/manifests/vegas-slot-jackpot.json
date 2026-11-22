@@ -1,0 +1,196 @@
+{
+ "file": "vegas/slot-jackpot.glb",
+ "id": "slot-jackpot",
+ "what": "modern upright slot, lit JACKPOT topper (emissive map on the cabinet sides)",
+ "size": [
+  0.91,
+  1.83,
+  0.943
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 4440,
+ "drawCalls": 6,
+ "bytes": 686704,
+ "materials": [
+  {
+   "name": "front1",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "StingrayPBS1",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.462,
+   "emissive": null,
+   "textures": [
+    "base",
+    "normal",
+    "orm"
+   ]
+  },
+  {
+   "name": "phong5",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.894,
+   "emissive": "map",
+   "textures": [
+    "base",
+    "emit"
+   ]
+  },
+  {
+   "name": "phong2",
+   "alpha": "MASK",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.736,
+   "emissive": "factor",
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "blinn1",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": "factor",
+   "textures": [
+    "normal",
+    "orm"
+   ]
+  },
+  {
+   "name": "blinn2",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.921,
+   "emissive": "factor",
+   "textures": []
+  }
+ ],
+ "credit": {
+  "title": "Slot Machine",
+  "author": "deepakyhr",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/slot-machine-aff86b4e07fe4a22bc1b6bc3fa91d662"
+ },
+ "sourceScale": 1.001,
+ "objects": [
+  {
+   "name": "slot-jackpot_0",
+   "dim": [
+    0.762,
+    0.712,
+    0.349
+   ],
+   "loc": [
+    -0.041,
+    1.038,
+    0.12
+   ],
+   "tris": 164,
+   "mats": [
+    "front1"
+   ]
+  },
+  {
+   "name": "slot-jackpot_1",
+   "dim": [
+    0.893,
+    1.808,
+    0.932
+   ],
+   "loc": [
+    0.009,
+    0.915,
+    0.005
+   ],
+   "tris": 2514,
+   "mats": [
+    "StingrayPBS1"
+   ]
+  },
+  {
+   "name": "slot-jackpot_2",
+   "dim": [
+    0.829,
+    1.83,
+    0.875
+   ],
+   "loc": [
+    -0.041,
+    0.915,
+    -0.034
+   ],
+   "tris": 920,
+   "mats": [
+    "phong5"
+   ]
+  },
+  {
+   "name": "slot-jackpot_3",
+   "dim": [
+    0.762,
+    0.412,
+    0.099
+   ],
+   "loc": [
+    -0.041,
+    1.599,
+    0.346
+   ],
+   "tris": 4,
+   "mats": [
+    "phong2"
+   ]
+  },
+  {
+   "name": "slot-jackpot_4",
+   "dim": [
+    0.075,
+    0.421,
+    0.417
+   ],
+   "loc": [
+    0.417,
+    0.841,
+    0.111
+   ],
+   "tris": 578,
+   "mats": [
+    "blinn1"
+   ]
+  },
+  {
+   "name": "slot-jackpot_5",
+   "dim": [
+    0.055,
+    0.055,
+    0.014
+   ],
+   "loc": [
+    0.273,
+    0.767,
+    0.275
+   ],
+   "tris": 260,
+   "mats": [
+    "blinn2"
+   ]
+  }
+ ]
+}

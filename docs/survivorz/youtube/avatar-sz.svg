@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!-- Solace Survivorz avatar, fallback: SZ inside a thin ring. -->
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.45" r="0.65">
+      <stop offset="0" stop-color="#1b1f22"/>
+      <stop offset="1" stop-color="#0b0d0e"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="400" cy="400" r="270" fill="none" stroke="#e8b04a" stroke-width="22"/>
+  <text x="400" y="400" text-anchor="middle" dominant-baseline="central"
+        font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="900" font-size="250"
+        letter-spacing="-8" fill="#e8b04a">SZ</text>
+</svg>

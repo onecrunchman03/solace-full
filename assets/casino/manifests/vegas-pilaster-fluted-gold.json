@@ -1,0 +1,52 @@
+{
+ "file": "vegas/pilaster-fluted-gold.glb",
+ "id": "pilaster-fluted-gold",
+ "what": "fluted wall pilaster with base + capital, untextured — tinted gold (flat back, 9.5cm deep)",
+ "size": [
+  0.358,
+  2.97,
+  0.095
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 11504,
+ "drawCalls": 1,
+ "bytes": 246368,
+ "materials": [
+  {
+   "name": "07_-_Default",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.38,
+   "emissive": null,
+   "textures": []
+  }
+ ],
+ "credit": {
+  "title": "Пилястра EViRO Модель 1.20.002",
+  "author": "EViRO",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/eviro-120002-f54b9670ebae440b87c8f4db0fd19816"
+ },
+ "sourceScale": 1,
+ "objects": [
+  {
+   "name": "pilaster-fluted-gold_0",
+   "dim": [
+    0.358,
+    2.97,
+    0.095
+   ],
+   "loc": [
+    0,
+    1.485,
+    0
+   ],
+   "tris": 11504,
+   "mats": [
+    "07_-_Default"
+   ]
+  }
+ ]
+}

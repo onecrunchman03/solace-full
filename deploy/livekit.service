@@ -1,0 +1,34 @@
+# systemd unit for the LiveKit voice server (install the linux amd64 binary
+# from https://github.com/livekit/livekit/releases to /usr/local/bin).
+#   sudo cp deploy/livekit.service /etc/systemd/system/
+#   sudo cp deploy/livekit.yaml /etc/livekit.yaml   (after replacing the keys)
+#   sudo systemctl enable --now livekit
+
+[Unit]
+Description=LiveKit voice SFU for Solace
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/livekit-server --config /etc/livekit.yaml
+# always, not on-failure: at boot LiveKit can start before DNS answers, fail
+# to resolve its STUN host, and exit 0 — which on-failure never restarts
+# (the R220 came back from a power cut on 2026-09-16 with voice dead).
+Restart=always
+RestartSec=5
+# ...but a config that is genuinely broken (bad YAML, bad keys, port already
+# taken) must still settle into the failed state rather than looping every 5s
+# forever: with systemd's 10s/5-start defaults a 5s RestartSec can never trip
+# the burst limit. This window tolerates the boot DNS race and still gives up
+# on a real fault, so is-failed and the weekly restart counts stay honest.
+StartLimitIntervalSec=300
+StartLimitBurst=20
+User=livekit
+Group=livekit
+DynamicUser=yes
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

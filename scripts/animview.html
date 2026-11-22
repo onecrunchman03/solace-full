@@ -1,0 +1,284 @@
+<!doctype html>
+<!--
+  ANIMATION TEST BENCH — a standalone viewer for the backrooms models.
+
+  It exists because four rounds were spent guessing at "the entity is still
+  static" from screenshots. This loads any GLB, lists what is actually IN it,
+  plays a clip at any speed, and — the important part — exposes a numeric API
+  so a script can MEASURE whether bones are moving instead of squinting at a
+  picture. Playwright drives it headless; a human can open it too.
+
+  Serve the REPO ROOT and open /scripts/animview.html. Zero build step: three
+  is imported straight out of client/node_modules via an import map.
+
+    node scripts/serve-root.mjs 8791
+    → http://127.0.0.1:8791/scripts/animview.html?model=/client/public/assets/entity/entity.glb
+
+  Query params: model, clip (name or index), rate, wave (0/1 undulation amp),
+  t (jump to a time and pause).
+-->
+<meta charset="utf-8" />
+<title>Solace — animation bench</title>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/"
+    }
+  }
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #14120c; color: #e8dcae;
+    font: 12px ui-monospace, monospace; }
+  #hud { position: fixed; left: 8px; top: 8px; z-index: 2; white-space: pre;
+    background: rgba(0,0,0,.55); padding: 8px 10px; border: 1px solid #4a4128;
+    border-radius: 4px; line-height: 1.6; max-width: 46vw; }
+  canvas { display: block; }
+</style>
+<div id="hud">loading…</div>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { FBXLoader } from "three/addons/loaders/FBXLoader.js";
+
+  const P = new URLSearchParams(location.search);
+  const MODEL = P.get("model") ?? "/client/public/assets/entity/entity.glb";
+  const RATE = Number(P.get("rate") ?? 1);
+  const WAVE = Number(P.get("wave") ?? 0);
+  const hud = document.getElementById("hud");
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x14120c);
+  // FOV matches the game (world.ts createScene) so first-person framing tested
+  // here is the framing that ships. `fov=` overrides it.
+  const camera = new THREE.PerspectiveCamera(Number(P.get("fov") ?? 72), innerWidth / innerHeight, 0.05, 200);
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(innerWidth, innerHeight);
+  document.body.appendChild(renderer.domElement);
+  // Lit plainly and from two sides: this bench is for reading MOTION, not for
+  // reproducing the game's baked-vertex look.
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x30302a, 2.2));
+  const key = new THREE.DirectionalLight(0xffffff, 1.4);
+  key.position.set(3, 6, 4);
+  scene.add(key);
+  const grid = new THREE.GridHelper(12, 12, 0x4a4128, 0x2a2620);
+  scene.add(grid);
+
+  // Exposed for Playwright / the console.
+  const bench = {
+    ready: false, clips: [], clip: null, time: 0, bones: 0,
+    /** Sum of |Δ| in bone WORLD positions between two times — the objective
+     *  "is it actually moving" number, immune to lighting and camera. */
+    motionBetween(t0, t1) {
+      if (!bench.mixer || !bench.action) return null;
+      const sample = (t) => {
+        bench.action.time = t;
+        bench.mixer.update(0);
+        bench.model.updateMatrixWorld(true);
+        return bench.boneList.map((b) => b.getWorldPosition(new THREE.Vector3()));
+      };
+      const a = sample(t0), b = sample(t1);
+      let sum = 0, max = 0;
+      for (let i = 0; i < a.length; i++) {
+        const d = a[i].distanceTo(b[i]);
+        sum += d; if (d > max) max = d;
+      }
+      return { bones: a.length, sum: +sum.toFixed(4), max: +max.toFixed(4), mean: +(sum / a.length).toFixed(5) };
+    },
+    /** Do a clip's tracks actually BIND to this model's bones? Mixamo clips
+     *  address bones by name, so a mismatched skeleton yields an action that
+     *  plays perfectly and moves nothing. This is the check for that. */
+    trackAudit() {
+      const names = new Set();
+      bench.model.traverse((o) => names.add(o.name));
+      return bench.gltf.animations.map((c) => {
+        const targets = new Set(c.tracks.map((t) => t.name.split(".")[0]));
+        const missing = [...targets].filter((n) => !names.has(n));
+        return {
+          clip: c.name, dur: +c.duration.toFixed(2), tracks: c.tracks.length,
+          bones: targets.size, unbound: missing.length,
+          sample: missing.slice(0, 3),
+        };
+      });
+    },
+    /** Play a clip by name-fragment or index. */
+    play(which, rate = 1) {
+      const i = typeof which === "number" ? which
+        : bench.gltf.animations.findIndex((c) => c.name.toLowerCase().includes(String(which).toLowerCase()));
+      if (i < 0) return false;
+      bench.mixer.stopAllAction();
+      bench.action = bench.mixer.clipAction(bench.gltf.animations[i]);
+      bench.action.reset(); bench.action.timeScale = rate;
+      bench.action.setEffectiveWeight(1); bench.action.play();
+      bench.clip = bench.gltf.animations[i].name;
+      return true;
+    },
+  };
+  window.bench = bench;
+  bench.scene = scene; // so a simulation can re-parent things the way the game does
+
+  // Mixamo ships one FBX per clip, all sharing a skeleton, so a model can be
+  // assembled from a mesh file plus a list of animation files. `anims` is a
+  // comma-separated list of urls; each contributes its first clip, named after
+  // its filename.
+  const ANIMS = (P.get("anims") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+  const loadAny = (url, onDone, onErr) => {
+    const L = /\.fbx$/i.test(url) ? new FBXLoader() : new GLTFLoader();
+    L.load(url, onDone, undefined, onErr);
+  };
+
+  loadAny(MODEL, async (loaded) => {
+    // FBXLoader returns the Group itself; GLTFLoader returns { scene, animations }.
+    const g = loaded.scene ? loaded : { scene: loaded, animations: loaded.animations ?? [] };
+    // Pull in external clips, tagging each with its file name.
+    for (const url of ANIMS) {
+      await new Promise((done) => {
+        loadAny(
+          url,
+          (a) => {
+            const clips = a.animations ?? a.scene?.animations ?? [];
+            if (clips[0]) {
+              const c = clips[0].clone();
+              c.name = url.split("/").pop().replace(/\.(fbx|glb|gltf)$/i, "");
+              g.animations.push(c);
+            }
+            done();
+          },
+          () => done(),
+        );
+      });
+    }
+    bench.gltf = g;
+    const model = g.scene;
+    bench.model = model;
+    model.traverse((o) => { if (o.isMesh) o.frustumCulled = false; });
+
+    // STRAY SCENE GEOMETRY. Sketchfab rips often carry the room the creature
+    // was posed in. This model has a mesh 233 units away from everything else,
+    // which inflates the bounding box to 245 units deep — so a naive
+    // "scale to 2.3m tall" makes the actual creature a few centimetres.
+    // Reject outliers by MEDIAN distance (robust: one huge outlier cannot drag
+    // the median the way it drags a mean) and measure what's left.
+    model.updateMatrixWorld(true);
+    const parts = [];
+    model.traverse((o) => {
+      if (!o.isMesh) return;
+      if (!o.geometry.boundingBox) o.geometry.computeBoundingBox();
+      const bb = o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld);
+      parts.push({ o, bb, c: bb.getCenter(new THREE.Vector3()) });
+    });
+    const med = (a) => [...a].sort((x, y) => x - y)[Math.floor(a.length / 2)];
+    const mc = new THREE.Vector3(med(parts.map((p) => p.c.x)), med(parts.map((p) => p.c.y)), med(parts.map((p) => p.c.z)));
+    const md = Math.max(0.001, med(parts.map((p) => p.c.distanceTo(mc))));
+    bench.dropped = [];
+    for (const p of parts) {
+      if (p.c.distanceTo(mc) > md * 8) { p.o.visible = false; bench.dropped.push(p.o.name); }
+    }
+    // Measure from the BONES when there are any — matching the game exactly.
+    // For a skinned mesh geometry.boundingBox is the BIND pose, which on the
+    // entity is spread over 27 units while the assembled creature is 2.4 tall.
+    const bonesForBox = [];
+    model.traverse((o) => { if (o.isBone) bonesForBox.push(o); });
+    const box = new THREE.Box3();
+    if (bonesForBox.length) {
+      for (const bo of bonesForBox) box.expandByPoint(bo.getWorldPosition(new THREE.Vector3()));
+    } else {
+      for (const p of parts) if (p.o.visible) box.union(p.bb);
+    }
+    const size = box.getSize(new THREE.Vector3());
+    const s = 2.3 / (size.y || 1);
+    model.scale.setScalar(s);
+    // Centre it horizontally and stand it on the grid.
+    const c = box.getCenter(new THREE.Vector3());
+    model.position.set(-c.x * s, -box.min.y * s, -c.z * s);
+    bench.nativeExtent = [+size.x.toFixed(1), +size.y.toFixed(1), +size.z.toFixed(1)];
+    bench.renderedExtent = [+(size.x * s).toFixed(2), 2.3, +(size.z * s).toFixed(2)];
+    scene.add(model);
+
+    bench.boneList = [];
+    bench.boneDepth = [];
+    model.traverse((o) => {
+      if (!o.isBone) return;
+      let d = 0; for (let p = o.parent; p && d < 64; p = p.parent) { d++; if (p.isBone === undefined) break; }
+      bench.boneList.push(o); bench.boneDepth.push(d);
+    });
+    bench.bones = bench.boneList.length;
+
+    bench.mixer = new THREE.AnimationMixer(model);
+    bench.clips = g.animations.map((c) => ({ name: c.name, dur: +c.duration.toFixed(2), tracks: c.tracks.length }));
+    const want = P.get("clip");
+    if (want !== null) bench.play(/^\d+$/.test(want) ? Number(want) : want, RATE);
+    else if (g.animations.length) {
+      // Default to the LONGEST clip — the only kind that can carry motion.
+      let bi = 0; g.animations.forEach((c, i) => { if (c.duration > g.animations[bi].duration) bi = i; });
+      bench.play(bi, RATE);
+    }
+
+    // Frame the CLEANED extent, so a long creature is actually in shot.
+    // FIRST-PERSON MODE (fp=1): put the camera where the head is and look
+    // forward, to answer "would a player see their own arms?" without
+    // guessing. The head is taken as the highest bone.
+    if (P.get("fp") === "1" && bonesForBox.length) {
+      let head = bonesForBox[0];
+      let best = -1e9;
+      for (const bo of bonesForBox) {
+        const y = bo.getWorldPosition(new THREE.Vector3()).y;
+        if (y > best) { best = y; head = bo; }
+      }
+      bench.headBone = head.name;
+      // getWorldPosition ALREADY includes the model's scale and position, which
+      // were set above — multiplying by `s` again (and re-adding the grounding
+      // offset) put the camera nowhere near the head and rendered empty frames.
+      model.updateMatrixWorld(true);
+      const hp = head.getWorldPosition(new THREE.Vector3());
+      // Sit slightly BEHIND the head so the face doesn't fill the lens, and
+      // look the way the model faces (the game rotates the body 180°, so -Z).
+      // The rig faces +Z in its own space (the game rotates the body 180° so
+      // that the avatar faces its heading). Sit just behind the head and look
+      // the way it faces, or you are staring through your own chest.
+      // `pitch` (degrees, default -35) is how far down the player is looking —
+      // the whole question for "can I see my hands and feet" is where the gaze
+      // is, not where the body is.
+      const pitch = ((Number(P.get("pitch") ?? -35)) * Math.PI) / 180;
+      camera.position.set(hp.x, hp.y, hp.z - 0.14);
+      camera.lookAt(hp.x, hp.y + Math.sin(pitch) * 3, hp.z + Math.cos(pitch) * 3);
+      camera.near = 0.08;
+      camera.updateProjectionMatrix();
+      bench.fp = { head: head.name, at: [+hp.x.toFixed(2), +hp.y.toFixed(2), +hp.z.toFixed(2)] };
+    } else {
+      const r = 2.3; // everything is normalised to 2.3m tall, so frame for that
+      camera.position.set(r * 1.15, r * 0.68, r * 1.45);
+      camera.lookAt(0, r * 0.45, 0);
+    }
+    bench.camera = camera;
+    bench.ready = true;
+
+    const jump = P.get("t");
+    if (jump !== null && bench.action) { bench.action.paused = true; bench.action.time = Number(jump); bench.mixer.update(0); }
+  }, (e) => { hud.textContent = "LOAD FAILED: " + (e?.message ?? e); });
+
+  const clock = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    const dt = clock.getDelta();
+    if (bench.mixer && !(bench.action?.paused)) bench.mixer.update(dt);
+    // Mirror the game's undulation so it can be judged here before shipping.
+    if (WAVE > 0 && bench.boneList) {
+      const ph = performance.now() / 1000 * (RATE > 1 ? 9 : 3.2);
+      const q = new THREE.Quaternion(); const ax = new THREE.Vector3(1, 0, 0);
+      bench.boneList.forEach((b, i) => {
+        q.setFromAxisAngle(ax, Math.sin(ph - bench.boneDepth[i] * 0.55) * WAVE);
+        b.quaternion.multiply(q);
+      });
+    }
+    if (bench.ready) {
+      bench.time = bench.action?.time ?? 0;
+      hud.textContent =
+        `model ${MODEL.split("/").pop()}\nbones ${bench.bones}  rate ${RATE}  wave ${WAVE}\n` +
+        `native ${bench.nativeExtent?.join("×")}  rendered ${bench.renderedExtent?.join("×")}m\n` +
+        `dropped strays: ${bench.dropped?.length ? bench.dropped.join(", ") : "none"}\n` +
+        `playing: ${bench.clip ?? "(none)"}  t=${bench.time.toFixed(2)}\n\nclips:\n` +
+        bench.clips.map((c) => `  ${c.name.split("|").pop()}  ${c.dur}s  ${c.tracks} tracks`).join("\n");
+    }
+    renderer.render(scene, camera);
+  });
+</script>

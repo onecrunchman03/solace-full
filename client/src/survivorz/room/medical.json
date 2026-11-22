@@ -1,0 +1,3574 @@
+{
+  "about": "MEDICAL AND QUARANTINE (docs/survivorz/ASSETS.md step D, zone 4). Written by scripts/survivorz/layout-medical.mjs (edit that, not this); read by scripts/survivorz/room-build.py --set medical and client/src/survivorz/room/lobby.ts.",
+  "rooms": [
+    "med-corridor",
+    "med-hall",
+    "pharmacy",
+    "exam-rooms",
+    "med-office",
+    "staff-lounge",
+    "safe-med",
+    "quarantine",
+    "quarantine-cell",
+    "ward",
+    "operating",
+    "morgue",
+    "cold-storage"
+  ],
+  "roomRects": {
+    "med-corridor": {
+      "x": 0,
+      "z": 46,
+      "w": 6,
+      "h": 24,
+      "zone": "medical"
+    },
+    "med-hall": {
+      "x": 0,
+      "z": 70,
+      "w": 66,
+      "h": 6,
+      "zone": "medical"
+    },
+    "pharmacy": {
+      "x": 6,
+      "z": 60,
+      "w": 12,
+      "h": 10,
+      "zone": "medical"
+    },
+    "exam-rooms": {
+      "x": 18,
+      "z": 60,
+      "w": 14,
+      "h": 10,
+      "zone": "medical"
+    },
+    "med-office": {
+      "x": 32,
+      "z": 60,
+      "w": 12,
+      "h": 10,
+      "zone": "medical"
+    },
+    "staff-lounge": {
+      "x": 44,
+      "z": 60,
+      "w": 10,
+      "h": 10,
+      "zone": "medical"
+    },
+    "safe-med": {
+      "x": 54,
+      "z": 58,
+      "w": 12,
+      "h": 12,
+      "zone": "medical"
+    },
+    "quarantine": {
+      "x": 6,
+      "z": 76,
+      "w": 14,
+      "h": 12,
+      "zone": "medical"
+    },
+    "quarantine-cell": {
+      "x": 6,
+      "z": 88,
+      "w": 6,
+      "h": 6,
+      "zone": "medical"
+    },
+    "ward": {
+      "x": 20,
+      "z": 76,
+      "w": 16,
+      "h": 14,
+      "zone": "medical"
+    },
+    "operating": {
+      "x": 36,
+      "z": 76,
+      "w": 10,
+      "h": 10,
+      "zone": "medical"
+    },
+    "morgue": {
+      "x": 46,
+      "z": 76,
+      "w": 10,
+      "h": 10,
+      "zone": "medical"
+    },
+    "cold-storage": {
+      "x": 56,
+      "z": 78,
+      "w": 6,
+      "h": 6,
+      "zone": "medical"
+    }
+  },
+  "styles": {
+    "med-corridor": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "med-hall": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "pharmacy": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "exam-rooms": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "ward": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "med-office": {
+      "floor": "carpet-tile",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "staff-lounge": {
+      "floor": "vinyl-oak",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "safe-med": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "quarantine": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "quarantine-cell": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "operating": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "morgue": {
+      "floor": "steel-plate",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          1.2,
+          "stainless"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "cold-storage": {
+      "floor": "steel-plate",
+      "ceiling": "stainless",
+      "bands": [
+        [
+          99,
+          "stainless"
+        ]
+      ]
+    }
+  },
+  "skins": {
+    "med-corridor": {
+      "room": "med-corridor",
+      "ceilY": 2.7,
+      "slotAxis": "z",
+      "slotPitch": 1.6,
+      "slotX0": 3,
+      "slotInset": 0.8,
+      "slotWidth": 0.06
+    },
+    "med-hall": {
+      "room": "med-hall",
+      "ceilY": 2.7,
+      "slotAxis": "x",
+      "slotPitch": 1.6,
+      "slotZ0": 73,
+      "slotInset": 0.8,
+      "slotWidth": 0.06
+    }
+  },
+  "arch": [
+    {
+      "what": "corridor crash rail",
+      "key": "steel",
+      "box": [
+        0.12,
+        0.9,
+        46.3,
+        0.17,
+        1.05,
+        69.7
+      ]
+    },
+    {
+      "what": "corridor crash rail",
+      "key": "steel",
+      "box": [
+        5.83,
+        0.9,
+        46.3,
+        5.88,
+        1.05,
+        69.7
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        0.4,
+        0.9,
+        70.12,
+        1.95,
+        1.05,
+        70.17
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        4.05,
+        0.9,
+        70.12,
+        11.3,
+        1.05,
+        70.17
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        12.7,
+        0.9,
+        70.12,
+        24.3,
+        1.05,
+        70.17
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        25.7,
+        0.9,
+        70.12,
+        37.3,
+        1.05,
+        70.17
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        38.7,
+        0.9,
+        70.12,
+        48.3,
+        1.05,
+        70.17
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        49.7,
+        0.9,
+        70.12,
+        59.25,
+        1.05,
+        70.17
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        60.75,
+        0.9,
+        70.12,
+        65.45,
+        1.05,
+        70.17
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        0.4,
+        0.9,
+        75.83,
+        12.3,
+        1.05,
+        75.88
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        13.7,
+        0.9,
+        75.83,
+        27.3,
+        1.05,
+        75.88
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        28.7,
+        0.9,
+        75.83,
+        50.3,
+        1.05,
+        75.88
+      ]
+    },
+    {
+      "what": "hall crash rail",
+      "key": "steel",
+      "box": [
+        51.7,
+        0.9,
+        75.83,
+        65.45,
+        1.05,
+        75.88
+      ]
+    },
+    {
+      "what": "observation window pane",
+      "glass": [
+        10.04,
+        0.95,
+        87.988,
+        11.76,
+        2.05,
+        88.012
+      ]
+    },
+    {
+      "what": "observation window frame",
+      "key": "steel",
+      "box": [
+        10,
+        0.8899999999999999,
+        87.89,
+        11.8,
+        0.95,
+        88.11
+      ]
+    },
+    {
+      "what": "observation window frame",
+      "key": "steel",
+      "box": [
+        10,
+        2.05,
+        87.89,
+        11.8,
+        2.11,
+        88.11
+      ]
+    },
+    {
+      "what": "observation window frame",
+      "key": "steel",
+      "box": [
+        9.96,
+        0.95,
+        87.89,
+        10.04,
+        2.05,
+        88.11
+      ]
+    },
+    {
+      "what": "observation window frame",
+      "key": "steel",
+      "box": [
+        11.76,
+        0.95,
+        87.89,
+        11.84,
+        2.05,
+        88.11
+      ]
+    }
+  ],
+  "cutouts": [
+    {
+      "axis": "z",
+      "c": 88,
+      "a0": 10,
+      "a1": 11.8,
+      "y0": 0.95,
+      "y1": 2.05
+    }
+  ],
+  "props": [
+    {
+      "id": "wheelchair",
+      "at": [
+        1.1,
+        0,
+        58
+      ],
+      "yaw": 160,
+      "room": "med-corridor"
+    },
+    {
+      "id": "stretcher",
+      "at": [
+        4.6,
+        0,
+        62.5
+      ],
+      "yaw": 92,
+      "room": "med-corridor",
+      "note": "brought in from the residential wing"
+    },
+    {
+      "id": "stretcher",
+      "at": [
+        17,
+        0,
+        73.6
+      ],
+      "yaw": 98,
+      "room": "med-hall"
+    },
+    {
+      "id": "wheelchair",
+      "at": [
+        23.2,
+        0,
+        71.6
+      ],
+      "yaw": -30,
+      "room": "med-hall"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        14.6,
+        0,
+        73.95
+      ],
+      "yaw": 0,
+      "room": "med-hall",
+      "rot": [
+        84,
+        30,
+        0
+      ]
+    },
+    {
+      "id": "body-bag",
+      "at": [
+        47.6,
+        0,
+        74.8
+      ],
+      "yaw": 2,
+      "room": "med-hall"
+    },
+    {
+      "id": "stretcher",
+      "at": [
+        44,
+        0,
+        73.9
+      ],
+      "yaw": 90,
+      "room": "med-hall"
+    },
+    {
+      "id": "sharps-bin",
+      "at": [
+        33,
+        0,
+        71.6
+      ],
+      "yaw": 40,
+      "room": "med-hall"
+    },
+    {
+      "id": "water-dispenser",
+      "at": [
+        31,
+        0,
+        70.309
+      ],
+      "yaw": 0,
+      "room": "med-hall"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        40,
+        0.6,
+        75.813
+      ],
+      "yaw": 180,
+      "room": "med-hall"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        11,
+        0,
+        75.667
+      ],
+      "yaw": 180,
+      "room": "med-hall"
+    },
+    {
+      "id": "glove-dispenser",
+      "at": [
+        15.4,
+        1.2,
+        75.806
+      ],
+      "yaw": 180,
+      "room": "med-hall"
+    },
+    {
+      "id": "pharmacy-shelves",
+      "at": [
+        7.4,
+        0,
+        60.325
+      ],
+      "yaw": 0,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pharmacy-shelves",
+      "at": [
+        9.25,
+        0,
+        60.325
+      ],
+      "yaw": 0,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pharmacy-shelves",
+      "at": [
+        6.325,
+        0,
+        62.4
+      ],
+      "yaw": 90,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pharmacy-shelves",
+      "at": [
+        6.325,
+        0,
+        64.25
+      ],
+      "yaw": 90,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pharmacy-cage",
+      "at": [
+        16.35,
+        0,
+        60.76
+      ],
+      "yaw": 0,
+      "room": "pharmacy"
+    },
+    {
+      "id": "steel-counter",
+      "at": [
+        12.3,
+        0,
+        66.6
+      ],
+      "yaw": 180,
+      "room": "pharmacy"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        12.6,
+        0.9,
+        66.5
+      ],
+      "yaw": 180,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pill-bottle",
+      "at": [
+        11.9,
+        0.9,
+        66.65
+      ],
+      "yaw": 180,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pill-bottle",
+      "at": [
+        11.8,
+        0.9,
+        66.55
+      ],
+      "yaw": 220,
+      "room": "pharmacy"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        12.2,
+        0.9,
+        66.75
+      ],
+      "yaw": 200,
+      "room": "pharmacy"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        12.3,
+        0,
+        65.6
+      ],
+      "yaw": 20,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pill-blister",
+      "at": [
+        9.441,
+        0,
+        64.1
+      ],
+      "yaw": 135.183,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pill-bottle",
+      "at": [
+        10.164,
+        0,
+        65.223
+      ],
+      "yaw": 191.325,
+      "room": "pharmacy",
+      "rot": [
+        90,
+        42.64923054724932,
+        0
+      ]
+    },
+    {
+      "id": "pill-blister",
+      "at": [
+        9.97,
+        0,
+        63.392
+      ],
+      "yaw": 44.51,
+      "room": "pharmacy",
+      "rot": [
+        90,
+        60.71822184138,
+        0
+      ]
+    },
+    {
+      "id": "pill-blister",
+      "at": [
+        9.164,
+        0,
+        65.29
+      ],
+      "yaw": 271.621,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pill-bottle",
+      "at": [
+        10.688,
+        0,
+        64.542
+      ],
+      "yaw": 357.235,
+      "room": "pharmacy"
+    },
+    {
+      "id": "pill-bottle",
+      "at": [
+        11.083,
+        0,
+        64.483
+      ],
+      "yaw": 161.979,
+      "room": "pharmacy",
+      "rot": [
+        90,
+        121.59498000517488,
+        0
+      ]
+    },
+    {
+      "id": "pill-bottle",
+      "at": [
+        9.521,
+        0,
+        63.556
+      ],
+      "yaw": 239.125,
+      "room": "pharmacy",
+      "rot": [
+        90,
+        170.28555518947542,
+        0
+      ]
+    },
+    {
+      "id": "medicine-cabinet",
+      "at": [
+        17.813,
+        1.3,
+        66.6
+      ],
+      "yaw": -90,
+      "room": "pharmacy"
+    },
+    {
+      "id": "bed-curtain",
+      "at": [
+        20.8,
+        0.3,
+        61.25
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "exam-table",
+      "at": [
+        20.8,
+        0,
+        61.25
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "medical-cart",
+      "at": [
+        21.75,
+        0,
+        60.55
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "sharps-bin",
+      "at": [
+        19.9,
+        1.2,
+        60.205
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "bed-curtain",
+      "at": [
+        25,
+        0.3,
+        61.25
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "exam-table",
+      "at": [
+        25,
+        0,
+        61.25
+      ],
+      "yaw": 4,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "medical-cart",
+      "at": [
+        25.95,
+        0,
+        60.55
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "sharps-bin",
+      "at": [
+        24.1,
+        1.2,
+        60.205
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "bed-curtain",
+      "at": [
+        29.2,
+        0.3,
+        61.25
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "exam-table",
+      "at": [
+        29.2,
+        0,
+        61.25
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "medical-cart",
+      "at": [
+        30.15,
+        0,
+        60.55
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "sharps-bin",
+      "at": [
+        28.3,
+        1.2,
+        60.205
+      ],
+      "yaw": 0,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "xray-viewer",
+      "at": [
+        21.5,
+        1.3,
+        69.792
+      ],
+      "yaw": 180,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "sink-basin",
+      "at": [
+        29.6,
+        0,
+        69.645
+      ],
+      "yaw": 180,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "privacy-screen",
+      "at": [
+        27.3,
+        0,
+        66.8
+      ],
+      "yaw": 160,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        25.2,
+        0,
+        64.9
+      ],
+      "yaw": 30,
+      "room": "exam-rooms"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        38,
+        0,
+        62.9
+      ],
+      "yaw": 180,
+      "room": "med-office"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        38.3,
+        0.787,
+        63.15
+      ],
+      "yaw": 180,
+      "room": "med-office",
+      "note": "the cmo-terminal (logged in)"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        37.65,
+        0.787,
+        63.15
+      ],
+      "yaw": 165,
+      "room": "med-office"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        38.85,
+        0.787,
+        63.1
+      ],
+      "yaw": 180,
+      "room": "med-office"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        37.25,
+        0.787,
+        62.8
+      ],
+      "yaw": 180,
+      "room": "med-office"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        37.8,
+        0.787,
+        62.75
+      ],
+      "yaw": 210,
+      "room": "med-office"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        38.2,
+        0,
+        61.75
+      ],
+      "yaw": -1.541,
+      "room": "med-office"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        32.468,
+        0,
+        61.2
+      ],
+      "yaw": 90,
+      "room": "med-office"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        32.468,
+        0,
+        61.6
+      ],
+      "yaw": 90,
+      "room": "med-office"
+    },
+    {
+      "id": "cube-shelf",
+      "at": [
+        43.701,
+        0,
+        62.4
+      ],
+      "yaw": -90,
+      "room": "med-office"
+    },
+    {
+      "id": "lobby-armchair",
+      "at": [
+        35,
+        0,
+        67.6
+      ],
+      "yaw": 140,
+      "room": "med-office"
+    },
+    {
+      "id": "lobby-armchair",
+      "at": [
+        37,
+        0,
+        68.2
+      ],
+      "yaw": 200,
+      "room": "med-office"
+    },
+    {
+      "id": "coffee-table",
+      "at": [
+        36,
+        0,
+        67
+      ],
+      "yaw": 70,
+      "room": "med-office"
+    },
+    {
+      "id": "whiteboard",
+      "at": [
+        32.144,
+        0.9,
+        66.5
+      ],
+      "yaw": 90,
+      "room": "med-office"
+    },
+    {
+      "id": "snake-plant",
+      "at": [
+        43.718,
+        0,
+        68.8
+      ],
+      "yaw": -90,
+      "room": "med-office"
+    },
+    {
+      "id": "kitchenette",
+      "at": [
+        48,
+        0,
+        60.415
+      ],
+      "yaw": 0,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "coffee-maker",
+      "at": [
+        49.2,
+        0.9,
+        60.295
+      ],
+      "yaw": 90,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "mug-white",
+      "at": [
+        48.9,
+        0.9,
+        60.515
+      ],
+      "yaw": 30,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "microwave",
+      "at": [
+        48.3,
+        0.9,
+        60.365
+      ],
+      "yaw": 0,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "fridge",
+      "at": [
+        50.6,
+        0,
+        60.451
+      ],
+      "yaw": 0,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        53.615,
+        0,
+        66.6
+      ],
+      "yaw": -90,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "staff-lockers-open",
+      "at": [
+        53.435,
+        0,
+        64.8
+      ],
+      "yaw": -90,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "lobby-sofa",
+      "at": [
+        44.5,
+        0,
+        66
+      ],
+      "yaw": 90,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "coffee-table",
+      "at": [
+        45.6,
+        0,
+        66
+      ],
+      "yaw": 0,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        49.8,
+        0,
+        65.2
+      ],
+      "yaw": 90,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        49.17,
+        0,
+        64.7
+      ],
+      "yaw": 95.629,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        49.17,
+        0,
+        65.7
+      ],
+      "yaw": 98.503,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        50.43,
+        0,
+        64.7
+      ],
+      "yaw": -73.545,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        50.43,
+        0,
+        65.7
+      ],
+      "yaw": -112.784,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        49.6,
+        0.75,
+        65
+      ],
+      "yaw": 0,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "mug-white",
+      "at": [
+        50,
+        0.75,
+        65.6
+      ],
+      "yaw": 120,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "magazine-pile",
+      "at": [
+        45.6,
+        0.39,
+        66.2
+      ],
+      "yaw": 20,
+      "room": "staff-lounge"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        56.4,
+        0,
+        58.545
+      ],
+      "yaw": 0,
+      "room": "safe-med"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        59,
+        0,
+        58.545
+      ],
+      "yaw": 0,
+      "room": "safe-med"
+    },
+    {
+      "id": "air-filter",
+      "at": [
+        62.6,
+        0.6,
+        58.38
+      ],
+      "yaw": 0,
+      "room": "safe-med"
+    },
+    {
+      "id": "water-point",
+      "at": [
+        65.725,
+        0,
+        61
+      ],
+      "yaw": -90,
+      "room": "safe-med"
+    },
+    {
+      "id": "workbench",
+      "at": [
+        65.55,
+        0,
+        65.6
+      ],
+      "yaw": 180,
+      "room": "safe-med"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        54.588,
+        0,
+        66.8
+      ],
+      "yaw": 90,
+      "room": "safe-med",
+      "note": "the team's linked storage box"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        54.377,
+        0,
+        63.4
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        54.352,
+        0.08,
+        63.947
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        54.37,
+        0.08,
+        63.417
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        54.4,
+        0.08,
+        62.844
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "ration-pack",
+      "at": [
+        54.367,
+        0.59,
+        63.411
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        54.349,
+        0.98,
+        63.416
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        54.362,
+        0.98,
+        62.86
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "first-aid-kit",
+      "at": [
+        54.397,
+        1.36,
+        63.95
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "first-aid-kit",
+      "at": [
+        54.354,
+        1.36,
+        62.845
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        54.374,
+        1.75,
+        63.391
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        55.68,
+        0.46,
+        58.545
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        55.68,
+        1.16,
+        58.545
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        55.68,
+        1.86,
+        58.545
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        58.28,
+        0.46,
+        58.545
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        58.28,
+        1.16,
+        58.545
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        58.28,
+        1.86,
+        58.545
+      ],
+      "yaw": 90,
+      "room": "safe-med"
+    },
+    {
+      "id": "touch-panel",
+      "at": [
+        12.3,
+        1.35,
+        87.888
+      ],
+      "yaw": 180,
+      "room": "quarantine",
+      "note": "the intercom"
+    },
+    {
+      "id": "pass-box",
+      "at": [
+        7.4,
+        0.95,
+        87.825
+      ],
+      "yaw": 180,
+      "room": "quarantine"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        11,
+        0,
+        85.6
+      ],
+      "yaw": 180,
+      "room": "quarantine"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        11.4,
+        0.787,
+        85.85
+      ],
+      "yaw": 180,
+      "room": "quarantine"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        10.7,
+        0.787,
+        85.85
+      ],
+      "yaw": 165,
+      "room": "quarantine"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        10.3,
+        0.787,
+        85.5
+      ],
+      "yaw": 180,
+      "room": "quarantine"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        10.8,
+        0,
+        84.2
+      ],
+      "yaw": 15,
+      "room": "quarantine"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        17.4,
+        0,
+        79.6
+      ],
+      "yaw": -90,
+      "room": "quarantine"
+    },
+    {
+      "id": "isolator-tent",
+      "at": [
+        17.4,
+        0,
+        79.6
+      ],
+      "yaw": 0,
+      "room": "quarantine"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        15.8,
+        0,
+        78.7
+      ],
+      "yaw": 0,
+      "room": "quarantine"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        17.4,
+        0,
+        83.2
+      ],
+      "yaw": -90,
+      "room": "quarantine"
+    },
+    {
+      "id": "isolator-tent",
+      "at": [
+        17.4,
+        0,
+        83.2
+      ],
+      "yaw": 0,
+      "room": "quarantine"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        15.8,
+        0,
+        82.3
+      ],
+      "yaw": 0,
+      "room": "quarantine"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        14.6,
+        0,
+        86.6
+      ],
+      "yaw": 0,
+      "room": "quarantine",
+      "rot": [
+        86,
+        110,
+        0
+      ]
+    },
+    {
+      "id": "stepover-bench",
+      "at": [
+        9,
+        0,
+        79.2
+      ],
+      "yaw": 90,
+      "room": "quarantine"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        6.313,
+        0,
+        81.6
+      ],
+      "yaw": 90,
+      "room": "quarantine"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        6.313,
+        0,
+        82.3
+      ],
+      "yaw": 90,
+      "room": "quarantine"
+    },
+    {
+      "id": "glove-dispenser",
+      "at": [
+        6.174,
+        1.2,
+        80.4
+      ],
+      "yaw": 90,
+      "room": "quarantine"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        9.6,
+        0,
+        91.6
+      ],
+      "yaw": 180,
+      "room": "quarantine-cell"
+    },
+    {
+      "id": "isolator-tent",
+      "at": [
+        9.6,
+        0,
+        91.6
+      ],
+      "yaw": 90,
+      "room": "quarantine-cell"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        7.4,
+        0,
+        92.6
+      ],
+      "yaw": 0,
+      "room": "quarantine-cell",
+      "rot": [
+        80,
+        200,
+        0
+      ]
+    },
+    {
+      "id": "headwall",
+      "at": [
+        20.16,
+        1.2,
+        78.6
+      ],
+      "yaw": 90,
+      "room": "ward"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        21.22,
+        0,
+        78.6
+      ],
+      "yaw": 90,
+      "room": "ward"
+    },
+    {
+      "id": "bed-curtain",
+      "at": [
+        21.35,
+        0.3,
+        78.6
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "monitor-trolley",
+      "at": [
+        20.6,
+        0,
+        79.55
+      ],
+      "yaw": 90,
+      "room": "ward"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        20.55,
+        0,
+        77.75
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "headwall",
+      "at": [
+        20.16,
+        1.2,
+        82.6
+      ],
+      "yaw": 90,
+      "room": "ward"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        21.7,
+        0,
+        82.95
+      ],
+      "yaw": 118,
+      "room": "ward"
+    },
+    {
+      "id": "bed-curtain",
+      "at": [
+        21.35,
+        0.3,
+        82.6
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "ecg-monitor",
+      "at": [
+        20.6,
+        0,
+        83.55
+      ],
+      "yaw": 90,
+      "room": "ward"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        20.55,
+        0,
+        81.75
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "headwall",
+      "at": [
+        20.16,
+        1.2,
+        86.6
+      ],
+      "yaw": 90,
+      "room": "ward"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        21.22,
+        0,
+        86.6
+      ],
+      "yaw": 90,
+      "room": "ward"
+    },
+    {
+      "id": "monitor-trolley",
+      "at": [
+        20.6,
+        0,
+        87.55
+      ],
+      "yaw": 90,
+      "room": "ward"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        20.55,
+        0,
+        85.75
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "headwall",
+      "at": [
+        35.84,
+        1.2,
+        84
+      ],
+      "yaw": -90,
+      "room": "ward"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        34.78,
+        0,
+        84
+      ],
+      "yaw": -90,
+      "room": "ward"
+    },
+    {
+      "id": "bed-curtain",
+      "at": [
+        34.65,
+        0.3,
+        84
+      ],
+      "yaw": -180,
+      "room": "ward"
+    },
+    {
+      "id": "ecg-monitor",
+      "at": [
+        35.4,
+        0,
+        84.95
+      ],
+      "yaw": -90,
+      "room": "ward"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        35.45,
+        0,
+        83.15
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "headwall",
+      "at": [
+        35.84,
+        1.2,
+        87.6
+      ],
+      "yaw": -90,
+      "room": "ward"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        34.78,
+        0,
+        87.6
+      ],
+      "yaw": -90,
+      "room": "ward"
+    },
+    {
+      "id": "bed-curtain",
+      "at": [
+        34.65,
+        0.3,
+        87.6
+      ],
+      "yaw": -180,
+      "room": "ward"
+    },
+    {
+      "id": "monitor-trolley",
+      "at": [
+        35.4,
+        0,
+        88.55
+      ],
+      "yaw": -90,
+      "room": "ward"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        35.45,
+        0,
+        86.75
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "stretcher",
+      "at": [
+        28,
+        0,
+        82
+      ],
+      "yaw": 4,
+      "room": "ward"
+    },
+    {
+      "id": "medical-cart",
+      "at": [
+        30.2,
+        0,
+        86.4
+      ],
+      "yaw": 200,
+      "room": "ward",
+      "rot": [
+        0,
+        200,
+        88
+      ]
+    },
+    {
+      "id": "wheelchair",
+      "at": [
+        26,
+        0,
+        88.6
+      ],
+      "yaw": 40,
+      "room": "ward"
+    },
+    {
+      "id": "sharps-bin",
+      "at": [
+        24,
+        1.2,
+        76.205
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "glove-dispenser",
+      "at": [
+        25.2,
+        1.2,
+        76.174
+      ],
+      "yaw": 0,
+      "room": "ward"
+    },
+    {
+      "id": "laminar-canopy",
+      "at": [
+        41.2,
+        3.076,
+        81
+      ],
+      "yaw": 0,
+      "room": "operating"
+    },
+    {
+      "id": "operating-table",
+      "at": [
+        41.2,
+        0,
+        81
+      ],
+      "yaw": 0,
+      "room": "operating"
+    },
+    {
+      "id": "surgical-light",
+      "at": [
+        41.2,
+        1.886,
+        81
+      ],
+      "yaw": 30,
+      "room": "operating"
+    },
+    {
+      "id": "monitor-trolley",
+      "at": [
+        43.4,
+        0,
+        79.6
+      ],
+      "yaw": -60,
+      "room": "operating"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        39.4,
+        0,
+        79.8
+      ],
+      "yaw": 0,
+      "room": "operating"
+    },
+    {
+      "id": "scrub-sink",
+      "at": [
+        38.4,
+        0,
+        76.41
+      ],
+      "yaw": 0,
+      "room": "operating"
+    },
+    {
+      "id": "xray-viewer",
+      "at": [
+        45.792,
+        1.3,
+        81
+      ],
+      "yaw": -90,
+      "room": "operating"
+    },
+    {
+      "id": "medical-cart",
+      "at": [
+        42.6,
+        0,
+        83.4
+      ],
+      "yaw": 30,
+      "room": "operating",
+      "rot": [
+        0,
+        30,
+        -86
+      ]
+    },
+    {
+      "id": "scalpels",
+      "at": [
+        42,
+        0,
+        82.6
+      ],
+      "yaw": 40,
+      "room": "operating"
+    },
+    {
+      "id": "medical-scissors",
+      "at": [
+        41.6,
+        0,
+        83
+      ],
+      "yaw": 110,
+      "room": "operating"
+    },
+    {
+      "id": "syringe-medical",
+      "at": [
+        40.4,
+        0,
+        82.4
+      ],
+      "yaw": 20,
+      "room": "operating"
+    },
+    {
+      "id": "morgue-fridge",
+      "at": [
+        51,
+        0,
+        84.963
+      ],
+      "yaw": 180,
+      "room": "morgue"
+    },
+    {
+      "id": "morgue-table",
+      "at": [
+        48.8,
+        0,
+        80.4
+      ],
+      "yaw": 0,
+      "room": "morgue"
+    },
+    {
+      "id": "morgue-table",
+      "at": [
+        53.2,
+        0,
+        80.4
+      ],
+      "yaw": 0,
+      "room": "morgue"
+    },
+    {
+      "id": "stretcher",
+      "at": [
+        47.2,
+        0,
+        82.4
+      ],
+      "yaw": 0,
+      "room": "morgue"
+    },
+    {
+      "id": "body-bag",
+      "at": [
+        47.2,
+        0.86,
+        82.4
+      ],
+      "yaw": 90,
+      "room": "morgue"
+    },
+    {
+      "id": "body-bag",
+      "at": [
+        50.8,
+        0,
+        82.3
+      ],
+      "yaw": 6,
+      "room": "morgue"
+    },
+    {
+      "id": "lab-sink",
+      "at": [
+        47.6,
+        0,
+        76.46
+      ],
+      "yaw": 0,
+      "room": "morgue"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        57.4,
+        0,
+        78.56
+      ],
+      "yaw": 0,
+      "room": "cold-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        58.3,
+        0,
+        78.56
+      ],
+      "yaw": 0,
+      "room": "cold-storage"
+    },
+    {
+      "id": "body-bag",
+      "at": [
+        59.2,
+        0,
+        82.6
+      ],
+      "yaw": 80,
+      "room": "cold-storage"
+    },
+    {
+      "id": "body-bag",
+      "at": [
+        59.4,
+        0.22,
+        82.7
+      ],
+      "yaw": 95,
+      "room": "cold-storage"
+    }
+  ],
+  "fixtures": [
+    {
+      "kind": "emergency",
+      "at": [
+        5.88,
+        2.35,
+        52
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "med-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        0.12,
+        2.35,
+        64
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "med-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "exit",
+      "at": [
+        3,
+        2.45,
+        46.12
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "med-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        8,
+        2.35,
+        75.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "med-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        22,
+        2.35,
+        75.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "med-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        36,
+        2.35,
+        75.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "med-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        50,
+        2.35,
+        75.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "med-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        62,
+        2.35,
+        75.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "med-hall",
+      "bank": 0
+    },
+    {
+      "kind": "exit",
+      "at": [
+        3,
+        2.45,
+        70.12
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "med-hall",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        10,
+        3.2,
+        63.5
+      ],
+      "room": "pharmacy",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        14.5,
+        3.2,
+        63.5
+      ],
+      "room": "pharmacy",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        12,
+        3.2,
+        67.5
+      ],
+      "room": "pharmacy",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        8,
+        2.55,
+        69.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "pharmacy",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        21.5,
+        3.2,
+        63.5
+      ],
+      "room": "exam-rooms",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        25,
+        3.2,
+        63.5
+      ],
+      "room": "exam-rooms",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        28.5,
+        3.2,
+        63.5
+      ],
+      "room": "exam-rooms",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        25,
+        3.2,
+        67.6
+      ],
+      "room": "exam-rooms",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        21,
+        2.55,
+        69.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "exam-rooms",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36,
+        3.2,
+        64
+      ],
+      "room": "med-office",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.2,
+        64
+      ],
+      "room": "med-office",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        34,
+        2.55,
+        69.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "med-office",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        47,
+        3.2,
+        64
+      ],
+      "room": "staff-lounge",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        51,
+        3.2,
+        64
+      ],
+      "room": "staff-lounge",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        46,
+        2.55,
+        69.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "staff-lounge",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        57.5,
+        2.8,
+        62
+      ],
+      "yaw": 0,
+      "room": "safe-med",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        62.5,
+        2.8,
+        65
+      ],
+      "yaw": 0,
+      "room": "safe-med",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        9.5,
+        3.2,
+        79.5
+      ],
+      "room": "quarantine",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        16.5,
+        3.2,
+        79.5
+      ],
+      "room": "quarantine",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        9.5,
+        3.2,
+        84.5
+      ],
+      "room": "quarantine",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        16.5,
+        3.2,
+        84.5
+      ],
+      "room": "quarantine",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        18.4,
+        2.55,
+        76.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "quarantine",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        9,
+        3,
+        91
+      ],
+      "room": "quarantine-cell",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "dying"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        23,
+        3.2,
+        79.5
+      ],
+      "room": "ward",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        23,
+        3.2,
+        84.5
+      ],
+      "room": "ward",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        28,
+        3.2,
+        79.5
+      ],
+      "room": "ward",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        28,
+        3.2,
+        84.5
+      ],
+      "room": "ward",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        33,
+        3.2,
+        79.5
+      ],
+      "room": "ward",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        33,
+        3.2,
+        84.5
+      ],
+      "room": "ward",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        26,
+        2.55,
+        89.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "ward",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        38,
+        3.2,
+        78
+      ],
+      "room": "operating",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        44,
+        3.2,
+        78
+      ],
+      "room": "operating",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        38,
+        3.2,
+        84
+      ],
+      "room": "operating",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        44,
+        3.2,
+        84
+      ],
+      "room": "operating",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        44,
+        2.55,
+        85.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "operating",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        49,
+        3.2,
+        79.5
+      ],
+      "room": "morgue",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        53,
+        3.2,
+        79.5
+      ],
+      "room": "morgue",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        51,
+        3.2,
+        83
+      ],
+      "room": "morgue",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        48,
+        2.55,
+        76.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "morgue",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        59,
+        3,
+        81
+      ],
+      "room": "cold-storage",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "dead"
+    }
+  ],
+  "decals": [
+    {
+      "tex": "plate-med-hall",
+      "at": [
+        5.88,
+        1.6,
+        47.6
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "smear",
+      "at": [
+        3,
+        0.004,
+        55
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.9,
+        2.6
+      ],
+      "rot": 8
+    },
+    {
+      "tex": "plate-pharmacy",
+      "at": [
+        13.3,
+        1.6,
+        70.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-exam-rooms",
+      "at": [
+        26.3,
+        1.6,
+        70.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-med-office",
+      "at": [
+        39.3,
+        1.6,
+        70.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-staff-lounge",
+      "at": [
+        50.3,
+        1.6,
+        70.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-safe-med",
+      "at": [
+        61.4,
+        1.6,
+        70.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-quarantine",
+      "at": [
+        14.3,
+        1.6,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-ward",
+      "at": [
+        29.3,
+        1.6,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-morgue",
+      "at": [
+        52.3,
+        1.6,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-breach",
+      "at": [
+        11.8,
+        1.45,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.21,
+        0.297
+      ],
+      "opaque": true,
+      "rot": -4
+    },
+    {
+      "tex": "pressure-50",
+      "at": [
+        11.5,
+        1.85,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.15,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "smear",
+      "at": [
+        13,
+        0.004,
+        74.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1,
+        2.4
+      ],
+      "rot": 80
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        18.5,
+        0.004,
+        73.4
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 90
+    },
+    {
+      "tex": "smear",
+      "at": [
+        50.6,
+        0.004,
+        74.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.8,
+        1.6
+      ],
+      "rot": 15
+    },
+    {
+      "tex": "pressure-75",
+      "at": [
+        13,
+        1.6,
+        87.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.15,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "smear",
+      "at": [
+        13,
+        0.004,
+        83.5
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        2.2
+      ],
+      "rot": 30
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        11.5,
+        0.004,
+        80.5
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "smear",
+      "at": [
+        8,
+        0.004,
+        89.8
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1,
+        1.6
+      ],
+      "rot": 120
+    },
+    {
+      "tex": "smear",
+      "at": [
+        10.6,
+        0.004,
+        90.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.8,
+        1.2
+      ],
+      "rot": 40
+    },
+    {
+      "tex": "smear",
+      "at": [
+        24.4,
+        0.004,
+        83
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1,
+        2
+      ],
+      "rot": 60
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        28,
+        0.004,
+        79.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        1
+      ],
+      "rot": 20
+    },
+    {
+      "tex": "plate-operating",
+      "at": [
+        35.9,
+        1.6,
+        79.2
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "smear",
+      "at": [
+        41.2,
+        0.004,
+        82
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        2.2
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "plate-cold-storage",
+      "at": [
+        55.9,
+        1.6,
+        79.6
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-biohazard",
+      "at": [
+        55.9,
+        2.3,
+        81
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.35,
+        0.35
+      ],
+      "opaque": true
+    }
+  ],
+  "cast": [],
+  "shots": {
+    "corridor": {
+      "at": [
+        3,
+        1.65,
+        47
+      ],
+      "look": [
+        3,
+        1.2,
+        70
+      ],
+      "label": "The medical corridor"
+    },
+    "hall": {
+      "at": [
+        1.6,
+        1.65,
+        73
+      ],
+      "look": [
+        40,
+        1.2,
+        73
+      ],
+      "label": "The medical hall"
+    },
+    "pharmacy": {
+      "at": [
+        12,
+        1.65,
+        69.4
+      ],
+      "look": [
+        12,
+        1.1,
+        61
+      ],
+      "label": "The pharmacy"
+    },
+    "exam": {
+      "at": [
+        25,
+        1.65,
+        69.4
+      ],
+      "look": [
+        25,
+        1,
+        61
+      ],
+      "label": "The exam bays"
+    },
+    "cmo": {
+      "at": [
+        42.6,
+        1.65,
+        69.2
+      ],
+      "look": [
+        36,
+        1,
+        62
+      ],
+      "label": "The CMO's office"
+    },
+    "lounge": {
+      "at": [
+        53,
+        1.65,
+        69.3
+      ],
+      "look": [
+        46,
+        1,
+        62
+      ],
+      "label": "The staff lounge"
+    },
+    "safe": {
+      "at": [
+        60,
+        1.65,
+        69.3
+      ],
+      "look": [
+        58,
+        1,
+        59
+      ],
+      "label": "The medical safe room"
+    },
+    "quarantine": {
+      "at": [
+        13,
+        1.65,
+        77
+      ],
+      "look": [
+        11,
+        1.4,
+        88
+      ],
+      "label": "Isolation, the cell's window"
+    },
+    "isolators": {
+      "at": [
+        8,
+        1.65,
+        78
+      ],
+      "look": [
+        18,
+        1,
+        82
+      ],
+      "label": "Isolation, the isolator beds"
+    },
+    "ward": {
+      "at": [
+        28,
+        1.65,
+        77
+      ],
+      "look": [
+        28,
+        1,
+        89
+      ],
+      "label": "The ward"
+    },
+    "operating": {
+      "at": [
+        37,
+        1.65,
+        81
+      ],
+      "look": [
+        44,
+        1.2,
+        81
+      ],
+      "label": "The operating room"
+    },
+    "morgue": {
+      "at": [
+        51,
+        1.65,
+        76.6
+      ],
+      "look": [
+        51,
+        1,
+        85.5
+      ],
+      "label": "The morgue"
+    }
+  },
+  "tint": {
+    "carpet-tile": [
+      0.5,
+      0.52,
+      0.56
+    ]
+  },
+  "kit": {
+    "copies": []
+  },
+  "catcher": {
+    "at": [
+      33,
+      70
+    ],
+    "size": [
+      70,
+      50
+    ]
+  },
+  "shadowSpots": [],
+  "puddles": []
+}

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" width="560" height="560">
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="1" y2="0.2">
+      <stop offset="0" stop-color="#8a847c"/>
+      <stop offset="0.25" stop-color="#6a645d"/>
+      <stop offset="1" stop-color="#3e3a35"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" x2="1">
+      <stop offset="0" stop-color="#2c2925"/>
+      <stop offset="1" stop-color="#4a4540"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8e5df"/>
+      <stop offset="0.45" stop-color="#c3bfb7"/>
+      <stop offset="1" stop-color="#8f8a82"/>
+    </linearGradient>
+    <linearGradient id="key" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f1ea"/>
+      <stop offset="1" stop-color="#b9b4aa"/>
+    </linearGradient>
+    <linearGradient id="keyDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7a746c"/>
+      <stop offset="1" stop-color="#46423d"/>
+    </linearGradient>
+    <radialGradient id="power" cx="0.35" cy="0.3" r="0.75">
+      <stop offset="0" stop-color="#ffb0a0"/>
+      <stop offset="0.35" stop-color="#f03a26"/>
+      <stop offset="1" stop-color="#8a0c06"/>
+    </radialGradient>
+    <linearGradient id="ir" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b8343a"/>
+      <stop offset="0.5" stop-color="#5a0c14"/>
+      <stop offset="1" stop-color="#2a0408"/>
+    </linearGradient>
+    <linearGradient id="brushed" x1="0" y1="0" x2="5" y2="0" spreadMethod="repeat" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.10"/>
+      <stop offset="0.5" stop-color="#000" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.10"/>
+    </linearGradient>
+    <g id="k">
+      <rect x="0" y="2" width="30" height="20" rx="6" fill="#4a453f"/>
+      <rect x="0" y="0" width="30" height="20" rx="6" fill="url(#key)"/>
+      <rect x="4" y="2" width="16" height="4" rx="2" fill="#ffffff" opacity="0.7"/>
+    </g>
+  </defs>
+
+  <g transform="translate(206 70) rotate(28 75 200)">
+    <!-- chunky body and its side -->
+    <rect x="16" y="12" width="150" height="410" rx="30" fill="url(#side)"/>
+    <rect x="0" y="0" width="150" height="410" rx="30" fill="url(#shell)"/>
+    <rect x="1.5" y="1.5" width="147" height="407" rx="29" fill="none" stroke="#b2aca2" stroke-width="2.5" opacity="0.8"/>
+    <!-- the infrared window -->
+    <path d="M22 6 L128 6 Q140 8 142 22 L8 22 Q10 8 22 6 Z" fill="url(#ir)"/>
+    <path d="M30 10 L118 10" stroke="#ff9c9c" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+    <!-- the brushed faceplate -->
+    <rect x="16" y="38" width="118" height="350" rx="14" fill="url(#plate)"/>
+    <rect x="16" y="38" width="118" height="350" rx="14" fill="url(#brushed)"/>
+    <rect x="16" y="38" width="118" height="350" rx="14" fill="none" stroke="#3a3632" stroke-width="2" opacity="0.6"/>
+
+    <!-- the one red button -->
+    <circle cx="106" cy="72" r="16" fill="#5a0a06"/>
+    <circle cx="106" cy="70" r="15" fill="url(#power)"/>
+    <ellipse cx="101" cy="64" rx="6" ry="4" fill="#ffffff" opacity="0.75"/>
+    <!-- a little standby lamp -->
+    <circle cx="40" cy="70" r="5" fill="#2a2622"/>
+    <circle cx="40" cy="70" r="3" fill="#7a2018"/>
+
+    <!-- the number pad, rubbed blank -->
+    <use href="#k" x="26" y="104"/><use href="#k" x="60" y="104"/><use href="#k" x="94" y="104"/>
+    <use href="#k" x="26" y="134"/><use href="#k" x="60" y="134"/><use href="#k" x="94" y="134"/>
+    <use href="#k" x="26" y="164"/><use href="#k" x="60" y="164"/><use href="#k" x="94" y="164"/>
+    <use href="#k" x="26" y="194"/><use href="#k" x="60" y="194"/><use href="#k" x="94" y="194"/>
+    <!-- worn shiny where the thumb sat -->
+    <ellipse cx="75" cy="160" rx="40" ry="34" fill="#ffffff" opacity="0.12"/>
+
+    <!-- channel and volume rockers -->
+    <rect x="30" y="234" width="38" height="92" rx="19" fill="#2a2622"/>
+    <rect x="30" y="232" width="38" height="92" rx="19" fill="url(#keyDark)"/>
+    <path d="M49 244 L41 258 L57 258 Z M49 312 L41 298 L57 298 Z" fill="#9a948a" opacity="0.6"/>
+    <rect x="82" y="234" width="38" height="92" rx="19" fill="#2a2622"/>
+    <rect x="82" y="232" width="38" height="92" rx="19" fill="url(#keyDark)"/>
+    <path d="M101 244 L93 258 L109 258 Z M101 312 L93 298 L109 298 Z" fill="#9a948a" opacity="0.6"/>
+    <path d="M37 240 Q49 234 61 240" stroke="#bdb6aa" stroke-width="2" fill="none" opacity="0.7"/>
+    <path d="M89 240 Q101 234 113 240" stroke="#bdb6aa" stroke-width="2" fill="none" opacity="0.7"/>
+    <!-- mute and menu -->
+    <use href="#k" x="26" y="342"/><use href="#k" x="94" y="342"/>
+    <rect x="60" y="344" width="30" height="20" rx="10" fill="url(#keyDark)"/>
+
+    <!-- grip ridges at the foot -->
+    <path d="M40 396 L110 396 M44 401 L106 401" stroke="#2c2925" stroke-width="2" opacity="0.6"/>
+    <!-- the gloss down the shell -->
+    <path d="M8 60 L8 360" stroke="#d6d0c6" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,786 @@
+[
+ {
+  "pick": "Sonniss GDC 2024 - The Indoor Gun Acoustics 2 Library",
+  "vendor": "Pole Position Production",
+  "year": "2024",
+  "folder": "Pole Position - The Indoor Gun Acoustics 2 Library",
+  "score": 1.8,
+  "fills": "Indoor gunshots: Glock 17 in a small living room, Mossberg 12-gauge down an office corridor (heard from adjacent room), MP5 bursts in a large hall, AK5 in a large hall"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - The Indoor Gun Acoustics Library",
+  "vendor": "Pole Position",
+  "year": "2018",
+  "folder": "Pole Position - The Indoor Gun Acoustics Library",
+  "score": 1.8,
+  "fills": "Indoor gunshots: AK4 long corridor, AK47 in catacombs, suppressed PPK in a cafeteria / small stone room next door"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - The London Warehouse Firearms Library",
+  "vendor": "Audiobeast",
+  "year": "2016",
+  "folder": "Audiobeast - The London Warehouse Firearms Library",
+  "score": 1.8,
+  "fills": "Indoor gunshots in warehouse spaces: Colt M1911 .45 (large warehouse), Remington 870 12g pump (medium warehouse), H&K 416 (small room), Browning M2"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Franchi SPAS-12 Combat Shotgun",
+  "vendor": "Pole Position Production",
+  "year": "2024",
+  "folder": "Pole Position - Franchi SPAS-12 Combat Shotgun",
+  "score": 1.8,
+  "fills": "Shotgun firing (pump + semi-auto) and close pump-action handling"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - 12 Gauge Shotgun",
+  "vendor": "TS Sound",
+  "year": "2016",
+  "folder": "TS Sound - 12 Gauge Shotgun",
+  "score": 1.8,
+  "fills": "Shotgun shell load, fire + round eject, slug fire, quick pump"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - Various Gun Foley & Handling",
+  "vendor": "Pole Position Production",
+  "year": "2016",
+  "folder": "Pole Position Production - Various Gun Foley & Handling",
+  "score": 1.8,
+  "fills": "Gun handling/cocking/reload foley (G36C, Saiga-12, S&W M29, Steyr TMP)"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Cartridges & Casings Shell",
+  "vendor": "SculpTunes",
+  "year": "2020",
+  "folder": "SculpTunes – Cartridges & Casings Shell",
+  "score": 1.14,
+  "fills": "Shell casings dropping/bouncing/rolling on floors (6.35, 7.62x39, 9mm, carpet)"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - Silenced Gun Sounds",
+  "vendor": "Gamemaster Audio",
+  "year": "2018",
+  "folder": "Gamemaster Audio - Silenced Gun Sounds",
+  "score": 1.8,
+  "fills": "Suppressed pistol shots, silencer screw-on, shell bounce on wood"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Shotguns",
+  "vendor": "Wav Junction Sound Effects",
+  "year": "2020",
+  "folder": "Wav Junction Sound Effects - Shotguns",
+  "score": 1.8,
+  "fills": "Shotgun fire, pump action, safety switch"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - Soldier Footsteps",
+  "vendor": "Levan Nadashvili",
+  "year": "2016",
+  "folder": "Levan Nadashvili - Soldier Footsteps",
+  "score": 1.8,
+  "fills": "Booted footsteps on concrete (crouch) and metal (walk)"
+ },
+ {
+  "pick": "Sonniss GDC 2019 - Ultimate Footstep Collection",
+  "vendor": "Studio 23",
+  "year": "2019",
+  "folder": "Studio 23 - Ultimate Footstep Collection",
+  "score": 1.8,
+  "fills": "Footstep loops/singles incl. metal boots jogging, doormat scrapes"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - Footstep and Foley Sounds",
+  "vendor": "Gamemaster Audio",
+  "year": "2018",
+  "folder": "Gamemaster Audio - Footstep and Foley Sounds",
+  "score": 1.8,
+  "fills": "Soldier gear/equipment metal+cloth movement foley, bag handling, footsteps"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Foley T-Shirt",
+  "vendor": "InMotionAudio",
+  "year": "2026",
+  "folder": "InMotionAudio - Foley T-Shirt",
+  "score": 1.8,
+  "fills": "Cloth movement / pats (character foley)"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Velcro",
+  "vendor": "InMotionAudio",
+  "year": "2026",
+  "folder": "InMotionAudio - Velcro",
+  "score": 1.8,
+  "fills": "Velcro rips (gear, holsters, med-kit straps)"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Mask Foley",
+  "vendor": "InMotionAudio",
+  "year": "2024",
+  "folder": "InMotionAudio - Mask Foley",
+  "score": 1.8,
+  "fills": "PPE mask / face-shield movement and elastic foley"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Practical Doors",
+  "vendor": "344 Audio",
+  "year": "2020",
+  "folder": "344 Audio - Practical Doors",
+  "score": 1.8,
+  "fills": "Heavy doors: dungeon door open/close/locked, exterior metal door gate bolt latch, rattle, knocking on heavy door"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Resonant Rusty Door",
+  "vendor": "Alex Lane",
+  "year": "2020",
+  "folder": "Alex Lane - Resonant Rusty Door",
+  "score": 1.8,
+  "fills": "Resonant rusty metal door impacts, scrapes, groans"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - HHDoors - Household Doors and furnitures",
+  "vendor": "SculpTunes",
+  "year": "2020",
+  "folder": "SculpTunes - HHDoors - Household Doors and furnitures",
+  "score": 1.8,
+  "fills": "Armored metal+wood door, glass-and-metal door"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - USA Hotel",
+  "vendor": "InMotionAudio",
+  "year": "2026",
+  "folder": "InMotionAudio - USA Hotel",
+  "score": 1.8,
+  "fills": "Metal stairwell door, light switch clicks, toilet flush"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Metal Movements",
+  "vendor": "Justsoundeffects",
+  "year": "2021-2023",
+  "folder": "Justsoundeffects - Metal Movements",
+  "score": 1.8,
+  "fills": "Big metal gate pushbar squeak, big metal gate open/close, metal squeals/rattles"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Doors",
+  "vendor": "Justsoundeffects",
+  "year": "2021-2023",
+  "folder": "Justsoundeffects - Doors",
+  "score": 1.8,
+  "fills": "Elevator door open/close mechanism, door bells, knocks"
+ },
+ {
+  "pick": "Sonniss GDC 2019 - Doors",
+  "vendor": "3maze",
+  "year": "2019",
+  "folder": "3maze - Doors",
+  "score": 1.8,
+  "fills": "Big door close, door locks, fridge door"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - Doors, Locks and Drawers",
+  "vendor": "3maze",
+  "year": "2016",
+  "folder": "3maze -  Doors, Locks and Drawers",
+  "score": 1.79,
+  "fills": "Door open/close, squeaky closet door, drawers"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - The Creepy Door",
+  "vendor": "RZ Post",
+  "year": "2018",
+  "folder": "RZ Post - The Creepy Door",
+  "score": 1.8,
+  "fills": "Creepy metal door creaks, rattles, impacts"
+ },
+ {
+  "pick": "Sonniss GDC 2019 - HAUNTED DOORS",
+  "vendor": "PMSFX",
+  "year": "2019",
+  "folder": "PMSFX - HAUNTED DOORS",
+  "score": 1.8,
+  "fills": "Designed + source creaking doors, knob turns"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - HD Lock And Mechanism Sound Design Kit",
+  "vendor": "Epic Stock Media",
+  "year": "2026",
+  "folder": "Epic Stock Media - HD Lock And Mechanism Sound Design Kit",
+  "score": 1.8,
+  "fills": "Latch clicks, lock mechanisms, spring/tape mechanisms"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Industrial Lever Switch",
+  "vendor": "BluezoneCorp",
+  "year": "2024",
+  "folder": "BluezoneCorp - Industrial Lever Switch",
+  "score": 1.8,
+  "fills": "Industrial lever/breaker switches"
+ },
+ {
+  "pick": "Sonniss GDC 2017 - Hvac Elements",
+  "vendor": "Hzandbits",
+  "year": "2017",
+  "folder": "Hzandbits - Hvac Elements",
+  "score": 1.8,
+  "fills": "HVAC: cooling units, industrial pressure pump whine, ventilation exhaust drone, roomtone HVAC hum loop"
+ },
+ {
+  "pick": "Sonniss GDC 2019 - 100 Fans, HVAC, & Mechanical Drones",
+  "vendor": "Articulated Sounds",
+  "year": "2019",
+  "folder": "Articulated Sounds - 100 Fans, HVAC, & Mechanical Drones",
+  "score": 1.8,
+  "fills": "Fans/AC/HVAC drones and loops (grinding AC, computer fans, bubbling HVAC)"
+ },
+ {
+  "pick": "Sonniss GDC 2017 - Machine Hall",
+  "vendor": "Double Trouble Audio",
+  "year": "2017",
+  "folder": "Double Trouble Audio - Machine Hall",
+  "score": 1.8,
+  "fills": "Machine hall ambience, air compressors, big motors"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Industrial gas boiler room",
+  "vendor": "Ivo Vicic",
+  "year": "2021-2023",
+  "folder": "Ivo Vicic - Industrial gas boiler room",
+  "score": 1.8,
+  "fills": "Boiler room tone, boiler stop, pipes/installations"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Industrial hall",
+  "vendor": "Ivo Vicic",
+  "year": "2020",
+  "folder": "Ivo Vicic - Industrial hall",
+  "score": 1.8,
+  "fills": "Overhead crane, band saw, metal hits, cargo elevator room tone"
+ },
+ {
+  "pick": "Sonniss GDC 2019 - Dark Mesa Industrial Ambiences",
+  "vendor": "BlueZone",
+  "year": "2019",
+  "folder": "BlueZone - Dark Mesa Industrial Ambiences and SFX",
+  "score": 1.76,
+  "fills": "Industrial background ambiences incl. an 'underground lab' ambience, electric crackling, metal elements"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - Industrial Ambience",
+  "vendor": "Soundrangers",
+  "year": "2018",
+  "folder": "Soundrangers - Industrial Ambience",
+  "score": 1.8,
+  "fills": "Loops: parking garage, cryogenic laboratory, 'hallway of fear' sub air, space station"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Chamber of Shadows - Morgue Room Tones",
+  "vendor": "Jake Fielding",
+  "year": "2024",
+  "folder": "Jake Fielding - Chamber of Shadows - Morgue Room Tones",
+  "score": 1.8,
+  "fills": "Morgue freezer room tones, reception room tone"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Fridge Hums Vol.2",
+  "vendor": "Jake Fielding",
+  "year": "2026",
+  "folder": "Jake Fielding - Fridge Hums Vol.2",
+  "score": 1.8,
+  "fills": "Deep fridge hum/buzz, rhythmic electric fridge hum"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Industrial Ambiences - Ship Repair Factory",
+  "vendor": "Victor Ermakov",
+  "year": "2026",
+  "folder": "Victor Ermakov - Industrial Ambiences - Ship Repair Factory",
+  "score": 1.8,
+  "fills": "Busy factory hall with alarm, crane ride squeaks/motors"
+ },
+ {
+  "pick": "Sonniss GDC 2017 - Bunkers",
+  "vendor": "SoundHolder",
+  "year": "2017",
+  "folder": "SoundHolder -  Bunkers",
+  "score": 1.78,
+  "fills": "Bunker interior ambiences incl. water dripping and wind"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - Underground Atmospheres",
+  "vendor": "Olivier Girardot",
+  "year": "2018",
+  "folder": "Olivier Girardot - Underground Atmospheres",
+  "score": 1.8,
+  "fills": "Cavern loop, sewer cascade, artificial tunnel loop, underground wind loop"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Subway Station",
+  "vendor": "Pole Position Production",
+  "year": "2024",
+  "folder": "Pole Position - Subway Station",
+  "score": 1.8,
+  "fills": "Subway tunnel crowd, escalator ride, subway exterior"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - FRENCH SUBWAYS",
+  "vendor": "Chupapsound",
+  "year": "2016",
+  "folder": "Chupapsound - FRENCH SUBWAYS",
+  "score": 1.8,
+  "fills": "Underground metro dock, metro passing"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - High Voltage Electricity",
+  "vendor": "Hear and Now Sound",
+  "year": "2018",
+  "folder": "Hear and Now Sound - High Voltage Electricity - The Essential Collection",
+  "score": 1.44,
+  "fills": "Arc-weld sparks, damp electric shock, high-voltage arcs, water+electricity"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - Noise Elements Electrical & Interference",
+  "vendor": "Glitchedtones",
+  "year": "2018",
+  "folder": "Glitchedtones - Noise Elements Electrical & Interference",
+  "score": 1.8,
+  "fills": "Electrical interference crackles and drones"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Electric Arcs and Energy",
+  "vendor": "Sound Spark LLC",
+  "year": "2020",
+  "folder": "Sound Spark LLC - Electric Arcs and Energy",
+  "score": 1.8,
+  "fills": "Electric arc loops, reverberant shocks"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Arc",
+  "vendor": "InMotionAudio",
+  "year": "2026",
+  "folder": "InMotionAudio - Arc",
+  "score": 1.8,
+  "fills": "Arc designs, power-up, electrical buzz"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Defect - Hum, Noise And Glitches",
+  "vendor": "CB Sound Design",
+  "year": "2021-2023",
+  "folder": "CB Sound Design - Defect – Hum, Noise And Glitches",
+  "score": 1.79,
+  "fills": "Noise hum/buzz, electromagnetic, digital glitch"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Electric Guitar Pickup Interference",
+  "vendor": "Pole Position Production",
+  "year": "2024",
+  "folder": "Pole Position - Electric Guitar Pickup Interference",
+  "score": 1.8,
+  "fills": "Buzz/hum interference swells and sputters"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Zombie Specimens Vol. 2",
+  "vendor": "344 Audio",
+  "year": "2021-2023",
+  "folder": "344 Audio - Zombie Specimens Vol. 2",
+  "score": 1.8,
+  "fills": "Zombie 'test subject' vocalisations (multiple subjects)"
+ },
+ {
+  "pick": "Sonniss GDC 2019 - Zombie",
+  "vendor": "Glitchedtones",
+  "year": "2019",
+  "folder": "Glitchedtones - Zombie",
+  "score": 1.8,
+  "fills": "Zombie groans (pitched), subject B groan/hiss, 'zombie brat' groan"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - INFECTED ZONE",
+  "vendor": "MatiasMacSD",
+  "year": "2016",
+  "folder": "MatiasMacSD - INFECTED ZONE",
+  "score": 1.8,
+  "fills": "Zombie vocalisations, juicy bite/creak, blood drips, war-city ambience"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Humanoid Creatures Vol 4 - Monstrous and Undead Creature Vocalization Sound Sets",
+  "vendor": "Epic Stock Media",
+  "year": "2026",
+  "folder": "Epic Stock Media - Humanoid Creatures Vol 4 - Monstrous and Undead Creature Vocalization Sound Sets",
+  "score": 1.8,
+  "fills": "Undead/monstrous humanoid vocals, screeching breath construction kit, death stutters"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Vox Bestiae - Source Elements",
+  "vendor": "SoundBits",
+  "year": "2026",
+  "folder": "SoundBits - Vox Bestiae - Source Elements",
+  "score": 1.8,
+  "fills": "Creature source vocals: violent humanoid exhale, gurgling, insectoid tremble, pain"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Vox Hominis - Human Effort Voices",
+  "vendor": "SoundBits",
+  "year": "2026",
+  "folder": "SoundBits - Vox Hominis - Human Effort Voices",
+  "score": 1.8,
+  "fills": "Human panting, crying, laughing, whistling"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Human Male Breathe",
+  "vendor": "Articulated Sounds",
+  "year": "2020",
+  "folder": "Articulated Sounds - Human Male Breathe",
+  "score": 1.8,
+  "fills": "Male breathing: deep mouth inhales, yawns, panic-style breaths"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Screaming",
+  "vendor": "344 Audio",
+  "year": "2021-2023",
+  "folder": "344 Audio - Screaming",
+  "score": 1.8,
+  "fills": "Screams: female in pain/agony, male in shock, attacker, weeping"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - Screams & Shouts 2 - Monsters",
+  "vendor": "SoundBits",
+  "year": "2016",
+  "folder": "SoundBits -  Screams & Shouts 2 - Monsters",
+  "score": 1.79,
+  "fills": "Monster pain/death, roar/growl, struggle grunts"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - Screams & Shouts 2 - Humans",
+  "vendor": "SoundBits",
+  "year": "2016",
+  "folder": "SoundBits -  Screams & Shouts 2 - Humans",
+  "score": 1.79,
+  "fills": "Human screams, shouts of pain, grunts"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Dark Creature Sounds",
+  "vendor": "Audiomeals",
+  "year": "2020",
+  "folder": "Audiomeals - Dark Creature Sounds",
+  "score": 1.8,
+  "fills": "Corroded throat, creature snarls, talking mutant"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Flesh, Bones & Gore",
+  "vendor": "344 Audio",
+  "year": "2021-2023",
+  "folder": "344 Audio - Flesh, Bones & Gore",
+  "score": 1.8,
+  "fills": "Heavy body crunch, skin peel, zombie bite, beheading"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - Bones & Blood - Gore Elements",
+  "vendor": "Articulated Sounds",
+  "year": "2018",
+  "folder": "Articulated Sounds - Bones & Blood - Gore Elements",
+  "score": 1.8,
+  "fills": "Bone crush/break, dagger stab into flesh, flesh squeeze, slime wriggle"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Gore Mini Pack",
+  "vendor": "Justsoundeffects",
+  "year": "2024",
+  "folder": "Justsoundeffects - Gore Mini Pack",
+  "score": 1.8,
+  "fills": "Bone breaks (celery), flesh drops on floor, gore splatter"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - House of Horrors Complete Pack",
+  "vendor": "DsoundE",
+  "year": "2020",
+  "folder": "DsoundE - House of Horrors - Complete Pack",
+  "score": 1.79,
+  "fills": "Screwdriver stab into flesh, zombie biting neck/guts, ghost impacts"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - Gore",
+  "vendor": "SoundMorph",
+  "year": "2018",
+  "folder": "SoundMorph - Gore",
+  "score": 1.8,
+  "fills": "Blood splatter on concrete, disembowel, shovel impact gore"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Jump Scares",
+  "vendor": "344 Audio",
+  "year": "2021-2023",
+  "folder": "344 Audio - Jump Scares",
+  "score": 1.8,
+  "fills": "Mangled screams, musical stingers, slasher hits, radioactive distortion"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Horror Jumpscares",
+  "vendor": "Justsoundeffects",
+  "year": "2021-2023",
+  "folder": "Justsoundeffects - Horror Jumpscares",
+  "score": 1.8,
+  "fills": "Digital and string risers, horrifying scream stingers"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Horror Stingers From Hell",
+  "vendor": "Marek Klemczak",
+  "year": "2021-2023",
+  "folder": "Marek Klemczak - Horror Stingers From Hell",
+  "score": 1.8,
+  "fills": "Designed horror stingers"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Tonal Elements Obscurum - Dark Drones",
+  "vendor": "Systematic Sound",
+  "year": "2021-2023",
+  "folder": "Systematic Sound - Tonal Elements Obscurum – Dark Drones",
+  "score": 1.79,
+  "fills": "Dark drones and pulsating dark pads"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Tonal Elements Atrox - Horror & Tension Elements",
+  "vendor": "Systematic Sound",
+  "year": "2021-2023",
+  "folder": "Systematic Sound - Tonal Elements Atrox – Horror & Tension Elements",
+  "score": 1.79,
+  "fills": "Dark ambience drones and pads (high ring, screaming swarm)"
+ },
+ {
+  "pick": "Sonniss GDC 2023 - Complex Cinematic Tension Sounds",
+  "vendor": "Federico Soler Fernandez",
+  "year": "2021-2023",
+  "folder": "Federico Soler Fernandez - Complex Cinematic Tension Sounds",
+  "score": 1.8,
+  "fills": "Tension layers incl. bass and clock elements, full mix"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Effective Trailer Drones",
+  "vendor": "Federico Soler Fernandez",
+  "year": "2020",
+  "folder": "Federico Soler Fernandez - Effective Trailer Drones",
+  "score": 1.8,
+  "fills": "Pitched drones (named by key: A#, C#, E, A)"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Effective Trailer Booms Vol. 2",
+  "vendor": "Federico Soler",
+  "year": "2026",
+  "folder": "Federico Soler - Effective Trailer Booms Vol. 2",
+  "score": 1.8,
+  "fills": "Trailer booms / sub hits"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Effective Trailer Alarms Vol. 2",
+  "vendor": "Federico Soler",
+  "year": "2026",
+  "folder": "Federico Soler - Effective Trailer Alarms Vol. 2",
+  "score": 1.8,
+  "fills": "Tonal alarm swells in half/quarter/whole notes"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Cinematic Horn Braams",
+  "vendor": "Jake Fielding",
+  "year": "2026",
+  "folder": "Jake Fielding - Cinematic Horn Braams",
+  "score": 1.8,
+  "fills": "Dark cinematic braams"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Haunted Metal Vol.1 - Cinematic Hits & Impacts",
+  "vendor": "Jake Fielding",
+  "year": "2024",
+  "folder": "Jake Fielding - Haunted Metal Vol.1 - Cinematic Hits & Impacts",
+  "score": 1.8,
+  "fills": "Metallic hits/booms with sub"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Haunted Metal Vol.2 - Cinematic Creaks & Risers",
+  "vendor": "Jake Fielding",
+  "year": "2024",
+  "folder": "Jake Fielding - Haunted Metal Vol.2 - Cinematic Creaks & Risers",
+  "score": 1.8,
+  "fills": "Metallic risers and creaks"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Haunted Metal Vol.3 - Cinematic Tones & Textures",
+  "vendor": "Jake Fielding",
+  "year": "2024",
+  "folder": "Jake Fielding - Haunted Metal Vol.3 - Cinematic Tones & Textures",
+  "score": 1.8,
+  "fills": "Tense metallic tones, deep metallic rattles, sub hits"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Sinister Textures 1 / 2",
+  "vendor": "InMotionAudio",
+  "year": "2024",
+  "folder": "InMotionAudio - Sinister Textures 1",
+  "score": 1.52,
+  "fills": "Eerie boiler room, eerie subway designed textures"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Sinister Textures 5",
+  "vendor": "InMotionAudio",
+  "year": "2026",
+  "folder": "InMotionAudio - Sinister Textures 5",
+  "score": 1.8,
+  "fills": "Nail scratches on cladding, metal pipe on concrete"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - GEODRONE",
+  "vendor": "InMotionAudio",
+  "year": "2024",
+  "folder": "InMotionAudio - GEODRONE",
+  "score": 1.8,
+  "fills": "Geophone-recorded drones"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Dark Textures",
+  "vendor": "SmartSoundFX",
+  "year": "2020",
+  "folder": "SmartSoundFX - Dark Textures",
+  "score": 1.8,
+  "fills": "Drones (bowels, hell swarm) and pads (dangerous air)"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Metal Souls",
+  "vendor": "Sound Spark LLC",
+  "year": "2020",
+  "folder": "Sound Spark LLC - Metal Souls",
+  "score": 1.8,
+  "fills": "Metal drone ambiences ('groaning depths'), stingers, vocal textures"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - ANGST - Surrounding Horror",
+  "vendor": "SoundBits",
+  "year": "2020",
+  "folder": "SoundBits - ANGST - Surrounding Horror",
+  "score": 1.8,
+  "fills": "Designed horror soundscapes"
+ },
+ {
+  "pick": "Sonniss GDC 2019 - Industrial Drones and Ambiences",
+  "vendor": "Sound Spark LLC",
+  "year": "2019",
+  "folder": "Sound Spark LLC – Industrial Drones and Ambiences",
+  "score": 0.98,
+  "fills": "Industrial ambient drones and spaces"
+ },
+ {
+  "pick": "Sonniss GDC 2019 - Industrial Terror",
+  "vendor": "PMSFX",
+  "year": "2019",
+  "folder": "PMSFX - Industrial Terror",
+  "score": 1.8,
+  "fills": "Metal ringouts, industrial horror elements"
+ },
+ {
+  "pick": "Sonniss GDC 2017 - Subtext Drone Library Vol. 1",
+  "vendor": "Raconteur Sound",
+  "year": "2017",
+  "folder": "Raconteur Sound - Subtext Drone Library Vol. 1",
+  "score": 1.8,
+  "fills": "Dark eerie drones, pulsating metallic drones"
+ },
+ {
+  "pick": "Sonniss GDC 2016 - The Drone Collection",
+  "vendor": "Bottle Rocket Fx",
+  "year": "2016",
+  "folder": "Bottle Rocket Fx - The Drone Collection",
+  "score": 1.8,
+  "fills": "Dungeon rumble, horror swirling wind, sci-fi tonal rumble drones"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Strange Game Ambient Loops 3",
+  "vendor": "Epic Stock Media",
+  "year": "2026",
+  "folder": "Epic Stock Media - Strange Game Ambient Loops 3",
+  "score": 1.8,
+  "fills": "Ambient loops incl. factory heavy machinery tonal room tone, sci-fi reactor synth layer"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Sci-Fi Drones",
+  "vendor": "Cinematic Sound Design",
+  "year": "2026",
+  "folder": "Cinematic Sound Design - Sci-Fi Drones",
+  "score": 1.8,
+  "fills": "Dark industrial ambience, muted spaceship interior roomtone, glitched screechy tones"
+ },
+ {
+  "pick": "Sonniss GDC 2020 - Alarms Sound Fx Pack 1",
+  "vendor": "David Dumais Audio",
+  "year": "2020",
+  "folder": "David Dumais Audio - Alarms Sound Fx Pack 1",
+  "score": 1.8,
+  "fills": "Alarm loops (large/small, slow/fast)"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - Beeps and Buzzers",
+  "vendor": "Airborne Sound",
+  "year": "2018",
+  "folder": "Airborne Sound - Beeps and Buzzers",
+  "score": 1.8,
+  "fills": "Clean/cyber beeps and buzzers, loops"
+ },
+ {
+  "pick": "Sonniss GDC 2026 - Medical Thermometer",
+  "vendor": "InMotionAudio",
+  "year": "2026",
+  "folder": "InMotionAudio - Medical Thermometer",
+  "score": 1.8,
+  "fills": "Medical device beeps and button presses"
+ },
+ {
+  "pick": "Sonniss GDC 2017 - Unsettling Creaks and Squeaks (+ Extension I)",
+  "vendor": "SoundBits",
+  "year": "2017",
+  "folder": "SoundBits - Unsettling Creaks and Squeaks – Extension I",
+  "score": 1.79,
+  "fills": "Metal creaks, metal door squeak, basement door squeaks, blocked door creaks"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Torturing Metal",
+  "vendor": "Mechanical Wave",
+  "year": "2024",
+  "folder": "Mechanical Wave - Torturing Metal",
+  "score": 1.8,
+  "fills": "Metal debris falls, screeching metal rubs, impacts, reversed metal"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - The Metal Hit Sweeteners Library",
+  "vendor": "Pole Position Production",
+  "year": "2024",
+  "folder": "Pole Position - The Metal Hit Sweeteners Library",
+  "score": 1.8,
+  "fills": "Thick iron hammer hits and other metal impacts"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Water in Motion",
+  "vendor": "Justsoundeffects",
+  "year": "2024",
+  "folder": "Justsoundeffects - Water in Motion",
+  "score": 1.8,
+  "fills": "Dripping water on metal pot lid, underwater bubbles, soft water movement"
+ },
+ {
+  "pick": "Sonniss GDC 2017 - WATER",
+  "vendor": "West Wolf",
+  "year": "2017",
+  "folder": "West Wolf - WATER",
+  "score": 1.8,
+  "fills": "Cave ambience with water drops, rain on roof"
+ },
+ {
+  "pick": "Sonniss GDC 2024 - Glass",
+  "vendor": "Mechanical Wave",
+  "year": "2024",
+  "folder": "Mechanical Wave - Glass",
+  "score": 1.8,
+  "fills": "Glass break hits, bottle open, reversed glass, dark glass tone"
+ },
+ {
+  "pick": "Sonniss GDC 2018 - SUBWAY",
+  "vendor": "Borys Peter",
+  "year": "2018",
+  "folder": "Borys Peter – SUBWAY",
+  "score": 1.0,
+  "fills": "Long underground tunnel, platform train arrive/depart, train interior into tunnel"
+ }
+]

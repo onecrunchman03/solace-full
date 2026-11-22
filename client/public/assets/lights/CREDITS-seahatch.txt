@@ -1,0 +1,11 @@
+THE SEA HATCH — Lights Out's way on (Solace, Backrooms Level 6)
+
+Model: "Naval Ship Door/Hatch"
+by Digital Goblin, Sketchfab
+https://sketchfab.com/3d-models/naval-ship-doorhatch-514cf4b2872d484497425033eeec9c0a
+License: Creative Commons Attribution 4.0 (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Changed for Solace (scripts/assets/seahatch.mjs): only the shut copy of the two
+in the download is kept, scaled to 1.9m, turned to face the room, split into a
+frame and a hinged leaf, and painted ship-steel.

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solace</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #14110e;
+        color: #d8cfc2;
+        font-family: Inter, "Segoe UI", system-ui, sans-serif;
+        display: grid;
+        place-items: center;
+        user-select: none;
+      }
+      .box {
+        text-align: center;
+      }
+      .ring {
+        width: 84px;
+        height: 84px;
+        margin: 0 auto 18px;
+        animation: breathe 2.4s ease-in-out infinite;
+      }
+      @keyframes breathe {
+        0%, 100% { opacity: 0.75; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.04); }
+      }
+      .msg {
+        font-size: 0.95rem;
+        color: #a89c8c;
+      }
+      .err {
+        display: none;
+        margin-top: 14px;
+      }
+      .err p {
+        margin: 0 0 12px;
+        color: #c96f5e;
+        font-size: 0.9rem;
+      }
+      button {
+        padding: 9px 26px;
+        border: none;
+        border-radius: 10px;
+        background: #d98a4f;
+        color: #1d130a;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      button:hover {
+        filter: brightness(1.08);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <svg class="ring" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g" x1="0.35" y1="0" x2="0.45" y2="1">
+            <stop offset="0" stop-color="#f8b04c" />
+            <stop offset="0.55" stop-color="#f2907c" />
+            <stop offset="1" stop-color="#ec6f92" />
+          </linearGradient>
+        </defs>
+        <path d="M 53.1 18 A 22 22 0 1 0 55.7 32.8" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round" />
+        <path d="M 19 45 L 8 58" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round" />
+      </svg>
+      <div class="msg" id="msg">Connecting to Solace…</div>
+      <div class="err" id="err">
+        <p>Can't reach solace.zone — the server may be down, or you're offline.</p>
+        <button onclick="attempt()">Retry</button>
+      </div>
+    </div>
+    <script>
+      // The shell is a thin window: this loader confirms the server is
+      // reachable, then hands the whole webview to the live site. Every
+      // deploy on the server is therefore automatically what users run —
+      // the installed app never contains Solace itself.
+      const HOME = "https://solace.zone/";
+      let timer = null;
+
+      async function attempt() {
+        document.getElementById("err").style.display = "none";
+        document.getElementById("msg").textContent = "Connecting to Solace…";
+        try {
+          const ctl = new AbortController();
+          const t = setTimeout(() => ctl.abort(), 6000);
+          // no-cors: this is a REACHABILITY probe from the app's internal
+          // origin — a normal fetch would be blocked by CORS even when the
+          // server is fine. An opaque response resolving = server reachable.
+          await fetch(HOME + "health", { signal: ctl.signal, cache: "no-store", mode: "no-cors" });
+          clearTimeout(t);
+          window.location.replace(HOME);
+        } catch {
+          document.getElementById("msg").textContent = "";
+          document.getElementById("err").style.display = "block";
+          clearTimeout(timer);
+          timer = setTimeout(attempt, 8000); // keep retrying quietly
+        }
+      }
+      attempt();
+    </script>
+  </body>
+</html>

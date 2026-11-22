@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Solace Survivorz</title>
+<meta name="description" content="Six AI survivors sealed in a biolab full of the dead. Nobody controls them. Death is permanent. Live on YouTube around the clock." />
+<meta property="og:title" content="Solace Survivorz" />
+<meta property="og:description" content="Six AI survivors sealed in a biolab full of the dead. Nobody controls them. Death is permanent. Live around the clock." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0d0f10" />
+<link rel="icon" href="/favicon.svg" />
+<!--
+  SOLACE SURVIVORZ — the show's one public page (docs/survivorz/YOUTUBE.md, choice 4).
+  Served at /survivorz by Caddy's `{path}.html`. Static, no app code, no sign-in: the
+  YouTube channel's link lands here, and solace.zone itself is an invite-only login.
+  The credits block is written by scripts/survivorz/build-credits.mjs.
+  Keep it spoiler-free: no Claudia, no secrets, nothing about what the Truth is.
+-->
+<style>
+  :root {
+    --bg: #0d0f10;
+    --panel: #15181a;
+    --line: #262b2e;
+    --ink: #e6e6e6;
+    --soft: #9aa3a8;
+    --amber: #e8b04a;
+    --live: #ff3b30;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--amber); }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px 64px; }
+
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  .bar .home { color: var(--soft); text-decoration: none; }
+  .bar .home:hover { color: var(--ink); }
+  .bug .dot { color: var(--live); }
+
+  header.hero {
+    padding: 56px 0 44px;
+    border-bottom: 1px solid var(--line);
+    background:
+      repeating-linear-gradient(-45deg, rgba(232,176,74,0.06) 0 14px, transparent 14px 28px) top / 100% 6px no-repeat;
+  }
+  .kicker {
+    color: var(--amber);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.4rem, 9vw, 4.6rem);
+    line-height: 0.95;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .lede { font-size: 1.15rem; color: var(--ink); max-width: 36em; margin: 20px 0 28px; }
+  .watch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 22px;
+    background: var(--amber);
+    color: #111;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .watch:hover { background: #f3c46a; }
+  .watch .dot { color: #b3140c; }
+
+  section { padding: 40px 0 8px; }
+  h2 {
+    margin: 0 0 16px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  p { margin: 0 0 14px; }
+  .soft { color: var(--soft); }
+
+  ul.rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  ul.rules li { padding-left: 18px; position: relative; }
+  ul.rules li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 7px; height: 7px; background: var(--amber); }
+
+  .cast { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--amber); padding: 14px 16px; }
+  .card b { display: block; font-size: 1.05rem; margin-bottom: 4px; }
+  .card span { color: var(--soft); font-size: 0.95rem; }
+
+  .ways { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+  .way { border: 1px solid var(--line); padding: 16px; }
+  .way b { display: block; font-family: Georgia, "Times New Roman", serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 6px; }
+  .way span { color: var(--soft); }
+
+  .note { color: var(--soft); font-size: 0.9rem; }
+  ul.credits {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+    columns: 2 300px;
+    column-gap: 28px;
+    font-size: 0.85rem;
+    color: var(--soft);
+  }
+  ul.credits li { break-inside: avoid; padding: 2px 0; overflow-wrap: anywhere; }
+  ul.credits a { color: var(--ink); text-decoration: none; }
+  ul.credits a:hover { color: var(--amber); text-decoration: underline; }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+  footer a { color: var(--soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <a class="home" href="/">Solace</a>
+    <span class="bug"><span class="dot">●</span> Live</span>
+  </div>
+
+  <header class="hero">
+    <p class="kicker">Halcyon Site 9 · under Atlanta</p>
+    <h1>Solace<br />Survivorz</h1>
+    <p class="lede">Six AI survivors are sealed in an underground biolab full of the dead. Nobody controls them. Death is permanent. It's live around the clock for four weeks, or until nobody is left inside.</p>
+    <a class="watch" href="https://www.youtube.com/@SolaceSurvivorz/live" rel="noopener"><span class="dot">●</span> Watch live on YouTube</a>
+  </header>
+
+  <section>
+    <h2>The rules</h2>
+    <ul class="rules">
+      <li>Every survivor is an AI. They talk, plan, argue, sleep and decide for themselves.</li>
+      <li>Nobody steers them. Not us, and not chat.</li>
+      <li>The AI makes their choices: where to go, what to do, who to trust, and whether to turn on each other. When one decides something, the screen shows what and why. Code only moves their bodies, and makes them fight back or run when attacked.</li>
+      <li>There's no host. You see the camera, hear what they say, and hear the facility's own announcements.</li>
+      <li>Death is permanent. Someone new may be found later. Nobody comes back.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The survivors</h2>
+    <div class="cast">
+      <div class="card"><b>Rick</b><span>A cop whose last day before retirement was day one. He's held the group together since.</span></div>
+      <div class="card"><b>Johanna</b><span>Lost her husband at the start. She keeps going for the others.</span></div>
+      <div class="card"><b>Dale</b><span>A paramedic. Everybody's medic, nobody's friend.</span></div>
+      <div class="card"><b>Ben</b><span>Never made college ball and still carries the chip on his shoulder. He can build anything.</span></div>
+      <div class="card"><b>Sarah</b><span>Fresh out of college, and good at getting people to do things for her.</span></div>
+      <div class="card"><b>Rollo</b><span>A casino champion who crash-landed in an escape pod. He says he's seen this company's marks before. Nobody believes him.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The ways out</h2>
+    <div class="ways">
+      <div class="way"><b>The Truth</b><span>Find out what got loose here, and why.</span></div>
+      <div class="way"><b>The Cure</b><span>Finish a half-made serum somewhere in the deep labs.</span></div>
+      <div class="way"><b>Escape</b><span>Open the vault for 90 seconds and run.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The clock</h2>
+    <p>They live on New York time, with no schedule. They sleep when they decide to, and nights are the worst hours.</p>
+    <p>The stream starts a new part every 11 hours so YouTube keeps every replay. They're all on the channel.</p>
+  </section>
+
+  <section>
+    <h2>Before you watch</h2>
+    <p>The cast swears and makes crude jokes, and there's zombie violence. It's for adults only.</p>
+    <p>The survivors' words and voices are made by AI. They're fictional people.</p>
+    <p class="soft">Solace is a small, invite-only community, and this show is the one part of it anyone can watch.</p>
+  </section>
+
+  <section>
+    <h2>Credits</h2>
+    <!-- credits:start (written by scripts/survivorz/build-credits.mjs — don't edit by hand) -->
+    <p class="note">160 models, each licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>. Some were cut, resized or recoloured to fit the facility.</p>
+    <ul class="credits">
+      <li><a href="https://sketchfab.com/3d-models/c4311a0b918643af97904e10c7a34efc" rel="noopener">[CC0] Newspaper Stack - Ready to Unity HDRP</a> by <a href="https://sketchfab.com/karlwirbelwind" rel="noopener">karlwirbelwind</a></li>
+      <li><a href="https://sketchfab.com/3d-models/c63097df8d39491583a5d734ecd65f2e" rel="noopener">1967 Chevrolet Camaro SS 350</a> by adrianaflak09</li>
+      <li><a href="https://sketchfab.com/3d-models/1eadc947c0894aa0bbac0c6226a21bda" rel="noopener">30 rounds 5.56mm STANAG MAG</a> by <a href="https://sketchfab.com/gamgo" rel="noopener">GAMGO</a></li>
+      <li><a href="https://sketchfab.com/3d-models/5a3a64adb7484b6bb49e3c96d9932fa7" rel="noopener">3rd — CARDS (week 1: Toys &amp; Games)</a> by <a href="https://sketchfab.com/Kostroman" rel="noopener">Kostroman</a></li>
+      <li><a href="https://sketchfab.com/3d-models/aa-battery-d3e533bb1bd948f68bf0a7ead9a5e211" rel="noopener">AA Battery</a> by <a href="https://sketchfab.com/HusarL" rel="noopener">HusarL</a></li>
+      <li><a href="https://sketchfab.com/3d-models/1c56df74822a45b682899b0bc7dc2355" rel="noopener">Abandoned Computer Terminal (Game Prop)</a> by <a href="https://sketchfab.com/olegolegperepelica" rel="noopener">olegolegperepelica</a></li>
+      <li><a href="https://sketchfab.com/3d-models/926e2afa1d5c4bf6ab1ab1e7460ff62c" rel="noopener">Basic Laundry Basket</a> by <a href="https://sketchfab.com/cdcruz" rel="noopener">CDcruz</a></li>
+      <li><a href="https://sketchfab.com/3d-models/d18601d8f68c47289773e894ef637982" rel="noopener">Bathroom Stuff</a> by <a href="https://sketchfab.com/violetboom" rel="noopener">Violet-Boom &amp; NomnomKing</a></li>
+      <li><a href="https://sketchfab.com/3d-models/03b55bc42e8941b2bfda6251229bbf94" rel="noopener">BathroomAccessoriesPack</a> by <a href="https://sketchfab.com/torresgol10.rtd" rel="noopener">torresgol10.rtd</a></li>
+      <li><a href="https://sketchfab.com/3d-models/beer-bottle-c3de7f8b092e4092aef14d4ffc9fac7f" rel="noopener">Beer Bottle</a> by <a href="https://sketchfab.com/rodrigogelmi" rel="noopener">gelmi.com.br</a></li>
+      <li><a href="https://sketchfab.com/3d-models/65d0993e7b1741e9ab061d5f97504c31" rel="noopener">Blanket and Pillows - Low Poly</a> by <a href="https://sketchfab.com/antipovsoft" rel="noopener">Antipov Alexsander</a></li>
+      <li><a href="https://sketchfab.com/3d-models/ef074447ede84a299e0e99141c2524ab" rel="noopener">Blue Metal Shelving Unit</a> by <a href="https://sketchfab.com/jimbogies" rel="noopener">jimbogies</a></li>
+      <li><a href="https://sketchfab.com/3d-models/e8679e2dc90c4cf5a9bcec34231ee0b3" rel="noopener">Body Armor</a> by <a href="https://sketchfab.com/Electro_Javaboy" rel="noopener">Electro Javaboy</a></li>
+      <li><a href="https://sketchfab.com/3d-models/198d3bdc5384426b9695394a82bc3825" rel="noopener">Book Stack</a> by <a href="https://sketchfab.com/visthetique" rel="noopener">Visthétique</a></li>
+      <li><a href="https://sketchfab.com/3d-models/d0b76eada5bd495abcdfb2b20e6f7ee6" rel="noopener">Books and magazines</a> by <a href="https://sketchfab.com/naira001" rel="noopener">Naira</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3aa235f727a6456b8170e06a2138798c" rel="noopener">Bread Roll (Game Ready / 2K PBR)</a> by <a href="https://sketchfab.com/meerschaumdigital" rel="noopener">Meerschaum Digital</a></li>
+      <li><a href="https://sketchfab.com/3d-models/4bdcd4875e9140018e4349f0b16cd474" rel="noopener">Broken Wooden Planks</a> by <a href="https://sketchfab.com/Crazy00Cat" rel="noopener">Crazy0_0Cat</a></li>
+      <li><a href="https://sketchfab.com/3d-models/e6c51d2e77d945d1a0efbca530fb4b5b" rel="noopener">Brown Sneakers</a> by <a href="https://sketchfab.com/yanix" rel="noopener">yanix</a></li>
+      <li><a href="https://sketchfab.com/3d-models/8b2a538ab53a4dc3816c8ca78e43ce5e" rel="noopener">bunk bed</a> by Coconut</li>
+      <li><a href="https://sketchfab.com/3d-models/ac64f37d1ece47f99fe5b50fdba1b1cf" rel="noopener">CC0 - Coat Hanger</a> by <a href="https://sketchfab.com/plaggy" rel="noopener">plaggy</a></li>
+      <li><a href="https://sketchfab.com/3d-models/7965e92e55174bfbb3ad92eed25d863b" rel="noopener">CC0 - Plate</a> by <a href="https://sketchfab.com/plaggy" rel="noopener">plaggy</a></li>
+      <li><a href="https://sketchfab.com/3d-models/f3227068f3734aa8999df3a44b6a85dc" rel="noopener">CC0ffee Cups</a> by <a href="https://sketchfab.com/m3org" rel="noopener">m3org</a></li>
+      <li><a href="https://sketchfab.com/3d-models/centrifuge-735f00f8b1fd42938e090f70883d9c42" rel="noopener">Centrifuge</a> by max_imum</li>
+      <li><a href="https://sketchfab.com/3d-models/070e0d3816bb444e883533a7297b3da7" rel="noopener">Cereal Box &quot;Nutty Nuts&quot;</a> by <a href="https://sketchfab.com/pateodor" rel="noopener">pateodor</a></li>
+      <li><a href="https://sketchfab.com/3d-models/b8594f7dc7e8442dbaaae7a11da4a962" rel="noopener">Chemistry Glassware</a> by <a href="https://sketchfab.com/maxdragon" rel="noopener">maxdragonn</a></li>
+      <li><a href="https://sketchfab.com/3d-models/8706b77d20cf44169371de9e36fc6cda" rel="noopener">Clean Chef / Kitchen Knife</a> by <a href="https://sketchfab.com/JackofSpades261" rel="noopener">JackofSpades261</a></li>
+      <li><a href="https://sketchfab.com/3d-models/9ccda2fddba846e6ba97eb774b8a09c6" rel="noopener">Coffee maker</a> by Fredrik Johansen</li>
+      <li><a href="https://sketchfab.com/3d-models/5f5ccee1514c440887c072fae8e0d699" rel="noopener">Coffee Mug (School Project)</a> by <a href="https://sketchfab.com/FrenchBaguette" rel="noopener">Ole Gunnar Isager</a></li>
+      <li><a href="https://sketchfab.com/3d-models/2d02192c6be8434f9bb74de4e8a67ca4" rel="noopener">Cooler Box</a> by <a href="https://sketchfab.com/ponchoguy" rel="noopener">Guy in a Poncho</a></li>
+      <li><a href="https://sketchfab.com/3d-models/276afd80c5e64ca49862270fbfba3ce7" rel="noopener">Crowd Control Barrier</a> by <a href="https://sketchfab.com/B3MDESIGNER" rel="noopener">B3M DESIGNER</a></li>
+      <li><a href="https://sketchfab.com/3d-models/0dded6b36c464294a0ab966b18109f6d" rel="noopener">Desk Lamp Low Poly</a> by <a href="https://sketchfab.com/kozlovchik" rel="noopener">Kozlov Maksim</a></li>
+      <li><a href="https://sketchfab.com/3d-models/561abc2fc95941609fc7bc6f232895c2" rel="noopener">Desktop Computer</a> by <a href="https://sketchfab.com/tylerhalterman" rel="noopener">Tytan</a></li>
+      <li><a href="https://sketchfab.com/3d-models/c6921a40c1294f058abd56ef4b371cc5" rel="noopener">DIN-EN Flanged Manual Gate Valve</a> by <a href="https://sketchfab.com/3DCADengineer" rel="noopener">Freek de With</a></li>
+      <li><a href="https://sketchfab.com/3d-models/document-clipboard-with-pen-8650234a2e7949ca9fe9b4124e000d97" rel="noopener">Document Clipboard with Pen</a> by <a href="https://sketchfab.com/kuroderuta" rel="noopener">Kami Rapacz</a></li>
+      <li><a href="https://sketchfab.com/3d-models/document-file-folder-11390179bba7462484d344e2fe22c703" rel="noopener">Document File Folder</a> by <a href="https://sketchfab.com/kuroderuta" rel="noopener">Kami Rapacz</a></li>
+      <li><a href="https://sketchfab.com/3d-models/69c86384c1604727826f9a213886295b" rel="noopener">Door Glass And Upper Glass Window</a> by <a href="https://sketchfab.com/ILEDAS" rel="noopener">ILEDAS</a></li>
+      <li><a href="https://sketchfab.com/3d-models/23db3362debb4d98a56856416e1e9c58" rel="noopener">Door Of The Solitary Cell Of The Prison 14MB</a> by <a href="https://sketchfab.com/ahmagh2e" rel="noopener">Mehdi Shahsavan</a></li>
+      <li><a href="https://sketchfab.com/3d-models/duct-tape-cc5c8dfdcad44c6d83c0c197d5d24f77" rel="noopener">Duct Tape</a> by <a href="https://sketchfab.com/kuroderuta" rel="noopener">Kami Rapacz</a></li>
+      <li><a href="https://sketchfab.com/3d-models/47e72cd57f45414aa82e41342b299b5b" rel="noopener">ECG Monitor</a> by <a href="https://sketchfab.com/demagdev" rel="noopener">demagdev</a></li>
+      <li><a href="https://sketchfab.com/3d-models/5dd2ce8a5baf4efca7179ed821084a21" rel="noopener">Electrical Distribution Cabinet</a> by <a href="https://sketchfab.com/fdgasd7" rel="noopener">Arsen Ismailov</a></li>
+      <li><a href="https://sketchfab.com/3d-models/394e96223cbf40e08c0f0c2afda95199" rel="noopener">Electrical Panel - 14MB</a> by Mehdi Shahsavan</li>
+      <li><a href="https://sketchfab.com/3d-models/61a536cf4e1f4995a8128863f8994e3e" rel="noopener">Emergency Shower with Eye Wash</a> by <a href="https://sketchfab.com/cesar.seidel" rel="noopener">cesar.seidel</a></li>
+      <li><a href="https://sketchfab.com/3d-models/459c00d5a0524c67a4ad2fa5c6eacb15" rel="noopener">Exam Table</a> by <a href="https://sketchfab.com/orphic_oasis8" rel="noopener">orphic_oasis8</a></li>
+      <li><a href="https://sketchfab.com/3d-models/46b52e08b8b64b81ad9ff5fb752bcc06" rel="noopener">Exit Sign</a> by tboiston</li>
+      <li><a href="https://sketchfab.com/3d-models/c651f47533c8421f91954d0c9653278a" rel="noopener">Extension Cord Scan MEDPOLY</a> by <a href="https://sketchfab.com/evan4129" rel="noopener">EFX</a></li>
+      <li><a href="https://sketchfab.com/3d-models/a6de2f8f64da47c98c4d135d4a67d8ac" rel="noopener">Filthy bar towel</a> by <a href="https://sketchfab.com/trey_m" rel="noopener">Trey M.</a></li>
+      <li><a href="https://sketchfab.com/3d-models/fire-axe-b9d83055bb3b467c88496299c27ceae0" rel="noopener">Fire Axe</a> by <a href="https://sketchfab.com/denis_cliofas" rel="noopener">denis_cliofas</a></li>
+      <li><a href="https://sketchfab.com/3d-models/fireaxe-23cd18766328497286c925705a724b43" rel="noopener">Fireaxe</a> by <a href="https://sketchfab.com/milacetious" rel="noopener">Milacetious</a></li>
+      <li><a href="https://sketchfab.com/3d-models/flashlight-fc5a0e9799de4eda932f2714f63f8d0c" rel="noopener">Flashlight</a> by <a href="https://sketchfab.com/Hepatitis_Bee" rel="noopener">Brandon Baldwin</a></li>
+      <li><a href="https://sketchfab.com/3d-models/food-cans-3d669bd31c944260b2c2dae52c200c39" rel="noopener">Food Cans</a> by <a href="https://sketchfab.com/LiliumLetifer" rel="noopener">LiliumLetifer</a></li>
+      <li><a href="https://sketchfab.com/3d-models/6551259392dc4ee19c6064d9b51d936a" rel="noopener">Food Tray</a> by <a href="https://sketchfab.com/nathanielmoore" rel="noopener">nathanielmoore</a></li>
+      <li><a href="https://sketchfab.com/3d-models/f2991abcaaa44616ad5f72d29a3d47b3" rel="noopener">FREE Conical Flask | Laboratory | Low poly</a> by <a href="https://sketchfab.com/nakedsingularity" rel="noopener">Naked Singularity Studio</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3e3fb2880a184a418dfa62581d07e12d" rel="noopener">Frosted Sheets</a> by <a href="https://sketchfab.com/Blender3D" rel="noopener">Blender3D</a></li>
+      <li><a href="https://sketchfab.com/3d-models/2be81dcbd5824aa6a5c6f596ca7c9a63" rel="noopener">Game Ready Disinfectant Hand Sanitizer Bottle</a> by <a href="https://sketchfab.com/funfant" rel="noopener">FunFant</a></li>
+      <li><a href="https://sketchfab.com/3d-models/9846beef2c6b46caadc4a547a4dcd144" rel="noopener">Game Ready Fruit &amp; Vegetable Asset Pack</a> by <a href="https://sketchfab.com/meerschaumdigital" rel="noopener">Meerschaum Digital</a></li>
+      <li><a href="https://sketchfab.com/3d-models/1a3c6963496a43d1b67a5003cb7d7a21" rel="noopener">Gas Cylinder_10_MB</a> by <a href="https://sketchfab.com/ahmagh2e" rel="noopener">Mehdi Shahsavan</a></li>
+      <li><a href="https://sketchfab.com/3d-models/glass-bottle-beb69bc08a8f487ab8c5207fb155cbf2" rel="noopener">Glass Bottle</a> by <a href="https://sketchfab.com/topfrank2013" rel="noopener">Francesco Coldesina</a></li>
+      <li><a href="https://sketchfab.com/3d-models/granola-bar-da29d9dc70354e9f9d1686db357a9779" rel="noopener">Granola Bar</a> by <a href="https://sketchfab.com/andrewfrueh" rel="noopener">andrewfrueh</a></li>
+      <li><a href="https://sketchfab.com/3d-models/handcuffs-38050f7c0a534bcbacaa0b05d4fd6d34" rel="noopener">Handcuffs</a> by <a href="https://sketchfab.com/ButterBrain" rel="noopener">ButterBrain</a></li>
+      <li><a href="https://sketchfab.com/3d-models/74871b58382a418ab310e6d22b1e263f" rel="noopener">Handgun Ammo Box REMAKE</a> by <a href="https://sketchfab.com/jsandwich96" rel="noopener">jsandwich96</a></li>
+      <li><a href="https://sketchfab.com/3d-models/ce859ba7507148588262207255974aa4" rel="noopener">Hard Cases [assets lib]</a> by <a href="https://sketchfab.com/RPaciorek" rel="noopener">RPaciorek</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3eb6ef61041a4fb4b2391f7ef9b17a8a" rel="noopener">Hazmat Suit Pack- character B</a> by <a href="https://sketchfab.com/1az110" rel="noopener">zitongXU</a></li>
+      <li><a href="https://sketchfab.com/3d-models/hazmat-suit-worker-character-aebb820813d24ef3bb244521fd0dac7e" rel="noopener">Hazmat Suit Worker Character</a> by <a href="https://sketchfab.com/SKP_GAMES" rel="noopener">SKP_GAMES</a></li>
+      <li><a href="https://sketchfab.com/3d-models/c581e147fad94beb8f333b57c24024e8" rel="noopener">Hospital asset: IV drip and IV-pole</a> by <a href="https://sketchfab.com/c.m.a" rel="noopener">Cécile Amstad</a></li>
+      <li><a href="https://sketchfab.com/3d-models/id-card-model-5addf1256a404b7a82c380bb2d22f186" rel="noopener">ID Card Model</a> by <a href="https://sketchfab.com/Johana-PS" rel="noopener">Johana-PS</a></li>
+      <li><a href="https://sketchfab.com/3d-models/0b01a398fe1649aaacd6ebdf85bf5d6c" rel="noopener">Kitchen Appliances</a> by Nicolai Kilstrup</li>
+      <li><a href="https://sketchfab.com/3d-models/labmedicine-bottle-90d4bead93af4c69897d39688164d567" rel="noopener">Lab/medicine bottle</a> by Sousinho</li>
+      <li><a href="https://sketchfab.com/3d-models/3ebc5746b7784253bb0ebd151022757b" rel="noopener">Locker</a> by Zambur</li>
+      <li><a href="https://sketchfab.com/3d-models/lockpick-set-5708718ee0834e458d07c605be20d137" rel="noopener">Lockpick set</a> by <a href="https://sketchfab.com/LeionaChung" rel="noopener">Leiona Chung</a></li>
+      <li><a href="https://sketchfab.com/3d-models/8420090cc79a49d9a0b85f53c5074616" rel="noopener">Low Poly Poker Chips &amp; Cards</a> by <a href="https://sketchfab.com/designedbyjonathan" rel="noopener">Designed By Jonathan</a></li>
+      <li><a href="https://sketchfab.com/3d-models/6c7b3cfdbd464871948a006fbdc88ab3" rel="noopener">M16A1 Customizable</a> by <a href="https://sketchfab.com/davidfalke" rel="noopener">DavidFalke</a></li>
+      <li><a href="https://sketchfab.com/3d-models/medical-cart-2a0a574f9e374702af8c415fce296f45" rel="noopener">Medical Cart</a> by NicolasVB</li>
+      <li><a href="https://sketchfab.com/3d-models/6e27dde82d9c4af5b0b3fd03ce01ae58" rel="noopener">Medical Examination Bed - Game Ready Asset</a> by <a href="https://sketchfab.com/INGSOC1984" rel="noopener">INGSOC1984</a></li>
+      <li><a href="https://sketchfab.com/3d-models/medical-syringe-22e711221a094a48a6ffe826d3fd6185" rel="noopener">Medical Syringe</a> by <a href="https://sketchfab.com/AlexOlTroi" rel="noopener">Alexander Troianovskyi</a></li>
+      <li><a href="https://sketchfab.com/3d-models/1caaa90f0e6b48d08109e517ddd8aab0" rel="noopener">Medical X-ray Image Viewer - 200 Uploads!</a> by <a href="https://sketchfab.com/re1monsen" rel="noopener">re1monsen</a></li>
+      <li><a href="https://sketchfab.com/3d-models/c8d1a4bc680a4a398d2540f42d73b244" rel="noopener">Metal Detector (FBX) 1K 342KB</a> by <a href="https://sketchfab.com/combinators" rel="noopener">Combinators</a></li>
+      <li><a href="https://sketchfab.com/3d-models/f7bdf8f84c544c2d97b50e3f2c44aefd" rel="noopener">Metro Tunnel</a> by <a href="https://sketchfab.com/edauretir" rel="noopener">edauretir</a></li>
+      <li><a href="https://sketchfab.com/3d-models/d55f6fca7c3d45c883bbff770672970d" rel="noopener">MFP Office Printer</a> by <a href="https://sketchfab.com/nokillnando" rel="noopener">Red Fox / nokillnando</a></li>
+      <li><a href="https://sketchfab.com/3d-models/microscope-9562226299a045bab13c3d66f8593208" rel="noopener">Microscope</a> by Eugen Vahrushin</li>
+      <li><a href="https://sketchfab.com/3d-models/militarytactical-radio-backpack-8209d4ac220e4ae09cadd9be49a5119f" rel="noopener">Military/Tactical Radio &amp; Backpack</a> by <a href="https://sketchfab.com/neslihancakmak" rel="noopener">Neslihan Çakmak</a></li>
+      <li><a href="https://sketchfab.com/3d-models/molotov-cocktail-ed00b521c7cb48ec930e42d9adf5ff17" rel="noopener">Molotov Cocktail</a> by <a href="https://sketchfab.com/cjsavage56" rel="noopener">Shaggy6736</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3d582d8eabed42619ace30ab639c6e66" rel="noopener">morgue refrigerator-12MB</a> by <a href="https://sketchfab.com/ahmagh2e" rel="noopener">Mehdi Shahsavan</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3a1a86f8202240898ef6200b86bef9f1" rel="noopener">Morgue Table</a> by <a href="https://sketchfab.com/ksaucedo" rel="noopener">Kevin Saucedo</a></li>
+      <li><a href="https://sketchfab.com/3d-models/nail-90ac83c4440b4cd180626745f6f47657" rel="noopener">Nail</a> by <a href="https://sketchfab.com/mnardia1996mor" rel="noopener">mnardia1996mor</a></li>
+      <li><a href="https://sketchfab.com/3d-models/notebook-b081286782c944f7a3bb3d8b93a7daf8" rel="noopener">Notebook</a> by <a href="https://sketchfab.com/_SeF_" rel="noopener">_SeF_</a></li>
+      <li><a href="https://sketchfab.com/3d-models/fbf586b9d071436bb7eec690b89e8a43" rel="noopener">Noticeboard</a> by <a href="https://sketchfab.com/sousinho" rel="noopener">Sousinho</a></li>
+      <li><a href="https://sketchfab.com/3d-models/caf081828df84d7cbb07b4107991facc" rel="noopener">Oak Tree</a> by BBARTS</li>
+      <li><a href="https://sketchfab.com/3d-models/675f34f7304e4d92812a41e9750539aa" rel="noopener">Office Chair Modern</a> by thethieme</li>
+      <li><a href="https://sketchfab.com/3d-models/ead52c2f02a34e978d49ed26f7fc386c" rel="noopener">Office Furniture</a> by <a href="https://sketchfab.com/aleksandran2899" rel="noopener">AleksandraN2899</a></li>
+      <li><a href="https://sketchfab.com/3d-models/ecefa2359e574c69b0926ea253646332" rel="noopener">Office Phone</a> by <a href="https://sketchfab.com/DanTronMcTronDan" rel="noopener">DPMA</a></li>
+      <li><a href="https://sketchfab.com/3d-models/eb605bea59574e43a6abc4109798d36d" rel="noopener">Old Caffee Vending Machine</a> by gorzi</li>
+      <li><a href="https://sketchfab.com/3d-models/old-fire-axe-81952c47d9484aa09adb5bebc327f3d5" rel="noopener">Old Fire Axe</a> by <a href="https://sketchfab.com/Slayer4Demons" rel="noopener">Slayer4Demons</a></li>
+      <li><a href="https://sketchfab.com/3d-models/6b2862c241754f5d81690e8664e41091" rel="noopener">Old Fridge</a> by sergeilihandristov</li>
+      <li><a href="https://sketchfab.com/3d-models/old-hospital-bed-pbrgr-3b2ccb0cc5fc4dda8c929300ccd3d49c" rel="noopener">Old hospital bed (PBR|GR)</a> by tris.blend</li>
+      <li><a href="https://sketchfab.com/3d-models/9a092f5d0f3a4373a21fe30bafbe5488" rel="noopener">Old Medicine Cabinet</a> by James Penman</li>
+      <li><a href="https://sketchfab.com/3d-models/2250dde29597458a809ca96757afdc8c" rel="noopener">Old Nasa Style Computer Console</a> by <a href="https://sketchfab.com/SUrquh613" rel="noopener">SUrusso613</a></li>
+      <li><a href="https://sketchfab.com/3d-models/1c927d3999e643bcaba078f03b7b2ee7" rel="noopener">Old Suitcase // Game Ready</a> by <a href="https://sketchfab.com/Xlay3D" rel="noopener">Alex Murias</a></li>
+      <li><a href="https://sketchfab.com/3d-models/9fbc30ba31a546fe9370e6de2dcc0707" rel="noopener">Old Work Bench</a> by <a href="https://sketchfab.com/OliverTriplett" rel="noopener">Oliver Triplett</a></li>
+      <li><a href="https://sketchfab.com/3d-models/219198b5a6a34f87bdc417e2706f9482" rel="noopener">Pair of Scalpels</a> by <a href="https://sketchfab.com/sousinho" rel="noopener">Sousinho</a></li>
+      <li><a href="https://sketchfab.com/3d-models/paper-debris-457624d2526744d8890d50d811ef45d7" rel="noopener">Paper debris</a> by <a href="https://sketchfab.com/sousinho" rel="noopener">Sousinho</a></li>
+      <li><a href="https://sketchfab.com/3d-models/edcbd47ab8494b3ca2ce624eda26ec27" rel="noopener">Paperclip on sticky notes</a> by <a href="https://sketchfab.com/samtwisted" rel="noopener">SamIsTwisted</a></li>
+      <li><a href="https://sketchfab.com/3d-models/ad5de2de22af429cbcaf2a96e3520b80" rel="noopener">PBR Tactical Helmet</a> by <a href="https://sketchfab.com/simoncoenen" rel="noopener">Simon Coenen</a></li>
+      <li><a href="https://sketchfab.com/3d-models/7b427315315a42b0a73939fe453314a5" rel="noopener">Pile of Clothes</a> by <a href="https://sketchfab.com/lyricizt" rel="noopener">lyricizt</a></li>
+      <li><a href="https://sketchfab.com/3d-models/dda09a7e2e854b9288aa9ea25fc96110" rel="noopener">Pile Of Clothes | Lowpoly</a> by <a href="https://sketchfab.com/Fridqeir" rel="noopener">Frid.blend</a></li>
+      <li><a href="https://sketchfab.com/3d-models/pillow-287c3f62c2b04a3585e2efe26678b8a6" rel="noopener">Pillow</a> by <a href="https://sketchfab.com/stefevr" rel="noopener">Stefan E</a></li>
+      <li><a href="https://sketchfab.com/3d-models/pipe-bomb-game-ready-mobile-friendly-5874d4ccfb95445d9c69ae10adf35326" rel="noopener">Pipe Bomb [Game-Ready, Mobile Friendly]</a> by <a href="https://sketchfab.com/combine_soldier" rel="noopener">combine_soldier</a></li>
+      <li><a href="https://sketchfab.com/3d-models/0d69f592da05417889167c3ac4d73565" rel="noopener">Pipette model</a> by <a href="https://sketchfab.com/tompat2552" rel="noopener">tompat2552</a></li>
+      <li><a href="https://sketchfab.com/3d-models/19c8fe5702b544d0a1409d3dac1cf90e" rel="noopener">Plain Mug</a> by <a href="https://sketchfab.com/edwardlewis450" rel="noopener">LightSwitch</a></li>
+      <li><a href="https://sketchfab.com/3d-models/plastic-water-bottle-efa1c4c1f2a947659ded2e61e20eff31" rel="noopener">Plastic Water Bottle</a> by <a href="https://sketchfab.com/JeremyGrayson" rel="noopener">Jeremy E. Grayson</a></li>
+      <li><a href="https://sketchfab.com/3d-models/1901c26d4c3e4bc7b063a6311ebf06e3" rel="noopener">Police Sam Browne gun belt</a> by <a href="https://sketchfab.com/GordonQuick" rel="noopener">Eric.S</a></li>
+      <li><a href="https://sketchfab.com/3d-models/b70954caef624015a7ab415189c7088f" rel="noopener">Pool Table</a> by <a href="https://sketchfab.com/AlexisVLazcano" rel="noopener">AlexisVLazcano</a></li>
+      <li><a href="https://sketchfab.com/3d-models/portable-gas-camping-stove-4737490cbb4845c48ce6643ac3ddba86" rel="noopener">Portable Gas Camping Stove</a> by <a href="https://sketchfab.com/GameDevNick" rel="noopener">Coozy</a></li>
+      <li><a href="https://sketchfab.com/3d-models/d9146a68827e4b1c854991bb9872046e" rel="noopener">Poste_separador_queue_Barrier</a> by <a href="https://sketchfab.com/eventdesignws" rel="noopener">eventdesignws</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3681d714c3774fa0b0c4ed354b0ec642" rel="noopener">potted plant</a> by <a href="https://sketchfab.com/mikewee" rel="noopener">mikeW</a></li>
+      <li><a href="https://sketchfab.com/3d-models/f8148fab4dc44903b9644170edf0e58c" rel="noopener">Prison cell door</a> by <a href="https://sketchfab.com/Rivaldragon" rel="noopener">Rivaldragon</a></li>
+      <li><a href="https://sketchfab.com/3d-models/37cf08a56e7d41bb8f407db8e51a1976" rel="noopener">Prison Toilet</a> by <a href="https://sketchfab.com/Tishkok" rel="noopener">Tishkok</a></li>
+      <li><a href="https://sketchfab.com/3d-models/842a73cd7a6140c69e85025cc4a99468" rel="noopener">Random Machines</a> by <a href="https://sketchfab.com/thiezubu" rel="noopener">thiezubu</a></li>
+      <li><a href="https://sketchfab.com/3d-models/d23cfdf8128345d7b886ebb9affad2e8" rel="noopener">Reception Desk</a> by <a href="https://sketchfab.com/yvonne.debandi" rel="noopener">Yvonne DeBandi</a></li>
+      <li><a href="https://sketchfab.com/3d-models/bea0fc94bec448e8a778c2b5685cd5ed" rel="noopener">Retro Industrial Control Cabinet</a> by <a href="https://sketchfab.com/ashabbugaev12" rel="noopener">meipal</a></li>
+      <li><a href="https://sketchfab.com/3d-models/6e3d3ea43e6b4f4fbf959607e10f05ca" rel="noopener">Riot Shield</a> by <a href="https://sketchfab.com/FoxxAssets" rel="noopener">Foxx Assets</a></li>
+      <li><a href="https://sketchfab.com/3d-models/round-bottom-flasks-7433a11498464de78f7751578bbbe211" rel="noopener">Round Bottom Flasks</a> by cesar.seidel</li>
+      <li><a href="https://sketchfab.com/3d-models/ea06568a9e304ecc806cb7cb0552e269" rel="noopener">Rusted corrugated panels</a> by <a href="https://sketchfab.com/sousinho" rel="noopener">Sousinho</a></li>
+      <li><a href="https://sketchfab.com/3d-models/619484b78fbe449ea5c0cdb68e8f2bd6" rel="noopener">Rusty Filing Cabinet</a> by Amiel Goco</li>
+      <li><a href="https://sketchfab.com/3d-models/4ec589e8bed94cf1b2a44b767e858ccc" rel="noopener">Rusty Twin Spot Emergency Light</a> by Sousinho</li>
+      <li><a href="https://sketchfab.com/3d-models/85ab64003b3849f9b104ed7cf26eba05" rel="noopener">Rusty Valve Wheel – Resident Evil 2 Inspired</a> by <a href="https://sketchfab.com/Claudjr96" rel="noopener">Claudjr96</a></li>
+      <li><a href="https://sketchfab.com/3d-models/bd0b92c218054aaaa8ad020a36673c8f" rel="noopener">Safety notice board</a> by <a href="https://sketchfab.com/sousinho" rel="noopener">Sousinho</a></li>
+      <li><a href="https://sketchfab.com/3d-models/69a33a97aa884e98be90b1cf87715cc2" rel="noopener">SamMicroWm</a> by <a href="https://sketchfab.com/anybody" rel="noopener">anybody</a></li>
+      <li><a href="https://sketchfab.com/3d-models/02b85ff3fe884335b951e809fb7d2c44" rel="noopener">SCP-939 Containment Chamber</a> by <a href="https://sketchfab.com/Yanez-Designs" rel="noopener">Yanez Designs</a></li>
+      <li><a href="https://sketchfab.com/3d-models/set-of-wood-planks-1901d8f1e7354ea289860d29c6ba0046" rel="noopener">Set of wood Planks</a> by <a href="https://sketchfab.com/sousinho" rel="noopener">Sousinho</a></li>
+      <li><a href="https://sketchfab.com/3d-models/1807bebe90c64dbaaf60d6de50eb0a3d" rel="noopener">Shotgun Shells</a> by <a href="https://sketchfab.com/creationwasteland" rel="noopener">creationwasteland</a></li>
+      <li><a href="https://sketchfab.com/3d-models/76a43250dd694d2fa1e109124d75b6ad" rel="noopener">Silverware (Spoon, Fork, Knife)</a> by <a href="https://sketchfab.com/youssefdarwish01" rel="noopener">Fridge</a></li>
+      <li><a href="https://sketchfab.com/3d-models/4ec5347d314241b3af123a207a486e9e" rel="noopener">Simple centrifugal pump model</a> by <a href="https://sketchfab.com/person-x" rel="noopener">T-Art</a></li>
+      <li><a href="https://sketchfab.com/3d-models/simple-chocolate-bar-6e9c67e3adc345a4b12d0e4f825851a2" rel="noopener">Simple Chocolate Bar</a> by <a href="https://sketchfab.com/Blender3D" rel="noopener">Blender3D</a></li>
+      <li><a href="https://sketchfab.com/3d-models/b0fb9ddd343544a681ae108591bf0277" rel="noopener">Simple turnstile</a> by <a href="https://sketchfab.com/LUMENE" rel="noopener">ALEKSLUMENE</a></li>
+      <li><a href="https://sketchfab.com/3d-models/d67ba24047994963af90abcbf64db791" rel="noopener">Springfield handgun magazine 9 mm</a> by <a href="https://sketchfab.com/Y2JHBK" rel="noopener">Y2JHBK</a></li>
+      <li><a href="https://sketchfab.com/3d-models/650d03e7e33c4de09c577f573c8cca86" rel="noopener">Square shelves single</a> by <a href="https://sketchfab.com/sousinho" rel="noopener">Sousinho</a></li>
+      <li><a href="https://sketchfab.com/3d-models/01addf6c21304a26a9634cbf725230ef" rel="noopener">Stainless Steel Shelving Restaurant Equipment</a> by <a href="https://sketchfab.com/jimbogies" rel="noopener">jimbogies</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3ae95cb6b7f44807b62a218cf20442bb" rel="noopener">STAINLESS+STEEL+SINK+01032022</a> by <a href="https://sketchfab.com/mharadrian.mateo" rel="noopener">mharadrian.mateo</a></li>
+      <li><a href="https://sketchfab.com/3d-models/b723ae54fe054dd2b285b0feb5b6ae08" rel="noopener">Stand 2</a> by <a href="https://sketchfab.com/JakeBradley" rel="noopener">JakeBradley</a></li>
+      <li><a href="https://sketchfab.com/3d-models/8738f78ae4ec4630ac35a4783303ea95" rel="noopener">Stasis / Clone Chamber (with animations)</a> by <a href="https://sketchfab.com/TampaJoey" rel="noopener">TampaJoey</a></li>
+      <li><a href="https://sketchfab.com/3d-models/syringe-cdcc401bf48d42e3895965d52eb2f3d8" rel="noopener">Syringe</a> by <a href="https://sketchfab.com/bumstrum" rel="noopener">DJMaesen</a></li>
+      <li><a href="https://sketchfab.com/3d-models/fef926b200b34bb1bcdaeaa8b23bf00d" rel="noopener">Tactical Belt &quot;Falcon B1&quot;</a> by <a href="https://sketchfab.com/Mayess" rel="noopener">Mayess</a></li>
+      <li><a href="https://sketchfab.com/3d-models/tactical-flashlight-dfb9ec2ec4f846438eab24f32ec8c656" rel="noopener">Tactical Flashlight</a> by <a href="https://sketchfab.com/Blender3D" rel="noopener">Blender3D</a></li>
+      <li><a href="https://sketchfab.com/3d-models/ce05a5d98b54400184ab60262dbf7232" rel="noopener">Television (Wall-mounted)</a> by <a href="https://sketchfab.com/AleixoAlonso" rel="noopener">AleixoAlonso</a></li>
+      <li><a href="https://sketchfab.com/3d-models/test-tube-rack-f09bcbfe529e4314a1acbf7b7d1e867f" rel="noopener">Test Tube Rack</a> by <a href="https://sketchfab.com/hb0nd" rel="noopener">Harry Bond</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3d53fc8e352443e1ac9971ec780a8a88" rel="noopener">Towels I</a> by <a href="https://sketchfab.com/orphanrtg" rel="noopener">Оrрндп ЯТG</a></li>
+      <li><a href="https://sketchfab.com/3d-models/d4af744ae72d4eaa9dd9ddf8a8addfb0" rel="noopener">Tunnel</a> by <a href="https://sketchfab.com/helsingr" rel="noopener">Helsingr</a></li>
+      <li><a href="https://sketchfab.com/3d-models/6f5a66deecf348c1a6ebed0ce38b810d" rel="noopener">Unseen: Bathroom Sink</a> by <a href="https://sketchfab.com/JmCVoyager" rel="noopener">JmCVoyager</a></li>
+      <li><a href="https://sketchfab.com/3d-models/fbb869af3b1a4355be510cdabd0d3ddc" rel="noopener">Ventilation Shafts (High Poly)</a> by <a href="https://sketchfab.com/ansh_artis" rel="noopener">Ansh_Singla</a></li>
+      <li><a href="https://sketchfab.com/3d-models/vials-of-ectoplasm-4bd2043625024ff08e894e7b0b584c2d" rel="noopener">Vials of Ectoplasm</a> by <a href="https://sketchfab.com/bossdeff" rel="noopener">Michael V</a></li>
+      <li><a href="https://sketchfab.com/3d-models/3bd109dcaaab463b92e747ad6f95f46f" rel="noopener">Waiting Chair</a> by <a href="https://sketchfab.com/ranahacs" rel="noopener">Ranaha Creative Studio</a></li>
+      <li><a href="https://sketchfab.com/3d-models/walkie-talkie-5d57f97915a844f584157cb86a474eba" rel="noopener">Walkie Talkie</a> by <a href="https://sketchfab.com/barism09" rel="noopener">barism09</a></li>
+      <li><a href="https://sketchfab.com/3d-models/warning-signs-virus-laboratory-4759b716961d4e9d904088ddb5ff8360" rel="noopener">Warning Signs | Virus Laboratory</a> by Naked Singularity Studio</li>
+      <li><a href="https://sketchfab.com/3d-models/457cd4e59d634c4cafc67d32b8212032" rel="noopener">Water Dispenser</a> by Dmytro Nikonov</li>
+      <li><a href="https://sketchfab.com/3d-models/water-purifier-n72-3db4f1804ccd4093a47dd284756c49e1" rel="noopener">Water Purifier N72</a> by <a href="https://sketchfab.com/re1monsen" rel="noopener">re1monsen</a></li>
+      <li><a href="https://sketchfab.com/3d-models/35b76b90614d49a3aa92eeeb6afec60f" rel="noopener">White Towel</a> by <a href="https://sketchfab.com/anezka" rel="noopener">Anežka Hájková</a></li>
+      <li><a href="https://sketchfab.com/3d-models/d0b05bd140734a799666f0a29e1fe1bb" rel="noopener">Whiteboard</a> by tboiston</li>
+      <li><a href="https://sketchfab.com/3d-models/f2b37b2023434c9ba1ff1bb95bd1fd4d" rel="noopener">women black leather handbag standoil</a> by <a href="https://sketchfab.com/innsvx" rel="noopener">innsvx</a></li>
+      <li><a href="https://sketchfab.com/3d-models/2838fd388f7b484b8039a0ef977fc866" rel="noopener">Wooden Barricades</a> by <a href="https://sketchfab.com/ANRUVAL_3D_MODELS" rel="noopener">ANRUVAL_3D_MODELS</a></li>
+      <li><a href="https://sketchfab.com/3d-models/544d4c1621254fa28144c2f1e27287a7" rel="noopener">ZZ Plant in Ceramic Pot | Crafted by jerovdl</a> by <a href="https://sketchfab.com/Jerovdl" rel="noopener">Jerovdl</a></li>
+    </ul>
+    <!-- credits:end -->
+  </section>
+
+  <footer>
+    <span>Solace Survivorz is made by Solace.</span>
+    <a href="/legal/copyright.html">Copyright &amp; takedowns</a>
+    <a href="/legal/privacy.html">Privacy</a>
+  </footer>
+
+</div>
+</body>
+</html>

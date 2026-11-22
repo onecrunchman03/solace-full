@@ -1,0 +1,14 @@
+THE BLEEDER — the Electrical Station's creature (Solace, Backrooms Level 3)
+
+Model: "Dover Demon (The Rake) - v1"
+by W.Prigs ("Whispering Pines Rig and model uploader"), Sketchfab
+https://sketchfab.com/3d-models/dover-demon-the-rake-v1-5a64c259a5a8410da7e39eb9e2acff75
+License: Creative Commons Attribution 4.0 (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+The uploader credits it as the creature from the Roblox game "Whispering Pines".
+
+Changed for Solace: textures re-encoded to 1024px JPEG (scripts/shrink-glb.mjs);
+geometry, rig and animations unchanged.
+
+Sounds (idle, hunt, run, attack, scream, retreat): generated for Solace with
+ElevenLabs sound effects (scripts/gen-sounds.mjs bleeder).

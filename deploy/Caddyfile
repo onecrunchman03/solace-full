@@ -1,0 +1,128 @@
+# Solace — Caddy reverse proxy + static SPA host.
+#
+# Caddy is the public front door: it terminates HTTPS (auto Let's Encrypt cert),
+# serves the built Svelte client as static files, and reverse-proxies the API,
+# WebSocket, and on-disk assets to the Node backend listening on localhost:8443.
+#
+# 1. The domain is solace.zone (registered at GoDaddy). An A (and/or AAAA)
+#    DNS record must point at this server, and ports 80 + 443 must be
+#    reachable from the internet, or the certificate can't be issued.
+# 2. Install as /etc/caddy/Caddyfile, then: sudo systemctl reload caddy
+
+solace.zone {
+	encode gzip zstd
+
+	# The built client (produced by `cd client && npm run build`).
+	root * /opt/solace/client/dist
+
+	# API, realtime, and server-stored assets → the Node app on localhost.
+	# Caddy upgrades /ws to a WebSocket automatically — no extra directive needed.
+	# (The backend also binds 127.0.0.1 only, so it's never reachable directly.)
+	# /music/* is the casino jukebox's record library — served by the app with
+	# byte-range support, because arriving mid-song means seeking.
+	# EVERY /ws-* the app opens must be listed here, or that surface's
+	# websocket falls through to the file server and dies with a silent 404
+	# (the escape room shipped without /ws-escape and nobody could enter).
+	@backend path /api/* /ws /ws-game /ws-casino /ws-escape /ws-satellite /ws-survivorz /satvoice/* /emoji/* /avatars/* /pageicons/* /attachments/* /banners/* /sounds/* /music/* /health
+	handle @backend {
+		reverse_proxy 127.0.0.1:8443 {
+			# Overwrite X-Forwarded-For with the REAL client IP Caddy observed,
+			# discarding anything the client sent. The app's login-location
+			# security keys off this header, so it must not be client-forgeable.
+			header_up X-Forwarded-For {remote_host}
+		}
+	}
+
+	# Voice: the LiveKit SFU's signalling WebSocket (media itself flows over
+	# UDP 50000-50100, straight to the server — open those in ufw). Set
+	# LIVEKIT_URL=wss://solace.zone/livekit in /opt/solace/.env.
+	handle_path /livekit* {
+		reverse_proxy 127.0.0.1:7880
+	}
+
+	# Desktop shell downloads + its self-update manifest. Files are built on
+	# a Windows machine and uploaded here (see desktop/README.md).
+	handle_path /desktop/* {
+		root * /opt/solace/desktop-dist
+		file_server
+	}
+
+	# Everything else is the single-page app: serve the requested file if it
+	# exists, otherwise fall back to index.html so client-side routing works.
+	# `{path}.html` lets the legal pages answer at /legal/terms as well as
+	# /legal/terms.html (people type the short form off a printed notice).
+	handle {
+		try_files {path} {path}.html /index.html
+		file_server
+	}
+
+	# ---- Cache policy for the files Caddy serves itself ----------------------
+	# TWO tiers under /assets/ (found the hard way, July 2026): Vite's
+	# content-hashed bundles are immutable by construction — but the BACKROOMS
+	# GAME ASSETS (models, rigs, clips, textures in client/public/assets/**)
+	# keep STABLE names and do get replaced. The old blanket 1-year-immutable
+	# rule meant a swapped entity.glb could never reach a client that had the
+	# old one cached — a reinstall doesn't clear a webview cache, and immutable
+	# means it never even revalidates. Game assets get ONE DAY; a re-exported
+	# model reaches everyone by tomorrow (or same-day with a ?v= query bump in
+	# the client, which is the lever if a swap must land immediately).
+	#
+	# MATCHED BY SHAPE, NOT BY A LIST (Aug 2026). The list was per-folder, and
+	# it went stale the moment new folders shipped: /assets/pools/ (the shy guy
+	# + 2.8MB of ambience), /assets/stalker/ and /assets/doors/ were all falling
+	# through to the immutable year below — stable filenames pinned for twelve
+	# months, which is exactly the trap the paragraph above describes. Vite's
+	# bundles sit FLAT in /assets/ (index-<hash>.js); every game asset lives in
+	# a subfolder. So "has a subfolder" is the rule, and a new folder is covered
+	# the day it appears.
+	@gameassets path /assets/*/*
+	header @gameassets Cache-Control "public, max-age=86400"
+	# `?` = set only when nothing set it yet, so the game-asset tier above wins
+	# where both match and everything else keeps the immutable year.
+	@hashed path /assets/*
+	header @hashed ?Cache-Control "public, max-age=31536000, immutable"
+
+	# Game sounds keep stable names (wheel-womp.ogg) and DO get regenerated —
+	# one day means a retuned sound reaches everyone by tomorrow.
+	@sfx path /sfx/*
+	header @sfx Cache-Control "public, max-age=86400"
+
+	# The entry point + service worker must always revalidate (cheap 304s):
+	# the client's auto-update watcher hashes index.html's entry script to
+	# detect deploys, and a cached stale copy would pin users to dead chunks.
+	@entry path / /index.html /sw.js /manifest.webmanifest
+	header @entry Cache-Control "no-cache"
+
+	# Desktop installers + latest.json: rare downloads where staleness hurts
+	# (the shell's self-updater polls latest.json) — always revalidate.
+	@desktop path /desktop/*
+	header @desktop Cache-Control "no-cache"
+
+	# The legal documents (Terms, Guidelines, Privacy, Host Agreement,
+	# Copyright): stable names, edited in place when a version bumps — a
+	# cached stale Terms page would show people a version they didn't accept.
+	@legal path /legal/*
+	header @legal Cache-Control "no-cache"
+
+	# The Survivorz show page (the YouTube channel's link): its credits list is
+	# regenerated as props change, so it always revalidates like the legal pages.
+	@survivorzpage path /survivorz /survivorz.html
+	header @survivorzpage Cache-Control "no-cache"
+
+	header {
+		# HTTPS is enforced by Caddy; tell browsers to stay on it for a year.
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "no-referrer"
+		# Optional hardening: a Content-Security-Policy. TEST it first — load the
+		# app and confirm images, fonts, and the live feed (WebSocket) all still
+		# work — before you rely on it, then uncomment.
+		# Content-Security-Policy "default-src 'self'; img-src 'self' data:; connect-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'"
+	}
+
+	log {
+		output file /var/log/caddy/solace.log
+		format json
+	}
+}

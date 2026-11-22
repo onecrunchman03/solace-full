@@ -1,0 +1,10 @@
+LEVEL 4 — THE ABANDONED OFFICE (Solace Backrooms)
+
+keycard.glb — the security keycard, the level's way down
+Model: "Simple Keycard" by hyrsh, Sketchfab
+https://sketchfab.com/3d-models/simple-keycard-fd8d344f83394987aff12a30d91013fb
+License: Creative Commons Attribution 4.0 (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+Changed for Solace: textures re-encoded (scripts/shrink-glb.mjs).
+
+The Temp's model and its credit are in temp/.

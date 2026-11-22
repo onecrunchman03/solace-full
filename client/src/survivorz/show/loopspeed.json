@@ -1,0 +1,168 @@
+{
+ "ual1-walk-loop": {
+  "carla": 0.921,
+  "nathan": 1.039,
+  "manuel": 0.947,
+  "eric": 0.964,
+  "sophia": 0.843,
+  "rollo": 0.964,
+  "claudia": 0.979
+ },
+ "ual1-jog-fwd-loop": {
+  "carla": 5.301,
+  "nathan": 5.343,
+  "manuel": 5.464,
+  "eric": 6.048,
+  "sophia": 5.14,
+  "rollo": 6.048,
+  "claudia": 5.855
+ },
+ "mx-jogging": {
+  "carla": 1.735,
+  "nathan": 1.715,
+  "manuel": 1.687,
+  "eric": 1.776,
+  "sophia": 1.557,
+  "rollo": 1.776,
+  "claudia": 1.756
+ },
+ "mx-slow-run": {
+  "carla": 2.879,
+  "manuel": 2.781,
+  "eric": 2.878,
+  "rollo": 2.878,
+  "claudia": 2.969
+ },
+ "ual1-sprint-loop": {
+  "carla": 7.805,
+  "nathan": 7.734,
+  "manuel": 6.895,
+  "eric": 7.696,
+  "sophia": 6.859,
+  "rollo": 7.695,
+  "claudia": 9.167
+ },
+ "mx-male-injured-pack--injured-walk": {
+  "carla": 0.982,
+  "nathan": 1.06,
+  "manuel": 0.744,
+  "eric": 0.995,
+  "sophia": 0.716,
+  "rollo": 0.709,
+  "claudia": 1.09
+ },
+ "mx-male-injured-pack--injured-run": {
+  "carla": 2.395,
+  "nathan": 2.47,
+  "manuel": 1.764,
+  "eric": 2.426,
+  "sophia": 2.19,
+  "rollo": 1.681,
+  "claudia": 2.551
+ },
+ "ual1-crouch-fwd-loop": {
+  "carla": 0.534,
+  "nathan": 0.547,
+  "manuel": 0.607,
+  "eric": 0.59,
+  "sophia": 0.41,
+  "claudia": 0.599
+ },
+ "bd-flashlight-walk": {
+  "carla": 0.921,
+  "nathan": 0.935,
+  "manuel": 0.947,
+  "eric": 0.964,
+  "sophia": 0.866,
+  "rollo": 0.964,
+  "claudia": 0.979
+ },
+ "bd-flashlight-run": {
+  "carla": 5.301,
+  "nathan": 5.442,
+  "manuel": 5.464,
+  "eric": 6.047,
+  "sophia": 4.727,
+  "rollo": 6.047,
+  "claudia": 5.852
+ },
+ "gp-mx-pistol-handgun-locomotion-pack--pistol-walk": {
+  "carla": 2.595,
+  "nathan": 2.654,
+  "manuel": 2.602,
+  "eric": 2.653,
+  "sophia": 2.401,
+  "rollo": 2.656,
+  "claudia": 2.714
+ },
+ "gp-mx-pistol-handgun-locomotion-pack--pistol-run": {
+  "carla": 4.625,
+  "nathan": 4.427,
+  "manuel": 4.18,
+  "eric": 4.508,
+  "sophia": 4.244,
+  "rollo": 4.489,
+  "claudia": 5.191
+ },
+ "gr-mx-pro-rifle-pack--walk-forward": {
+  "carla": 1.863,
+  "nathan": 1.874,
+  "manuel": 1.599,
+  "eric": 1.865,
+  "sophia": 1.715,
+  "rollo": 1.867,
+  "claudia": 1.979
+ },
+ "gr-mx-pro-rifle-pack--run-forward": {
+  "carla": 4.651,
+  "nathan": 4.675,
+  "manuel": 4.399,
+  "eric": 4.667,
+  "sophia": 4.005,
+  "rollo": 4.553,
+  "claudia": 4.761
+ },
+ "gr-mx-pro-rifle-pack--sprint-forward": {
+  "carla": 6.356,
+  "nathan": 5.931,
+  "manuel": 6.055,
+  "eric": 5.902,
+  "sophia": 5.64,
+  "rollo": 6.114,
+  "claudia": 7.145
+ },
+ "gs-mx-pro-rifle-pack--walk-forward": {
+  "carla": 1.843,
+  "nathan": 1.874,
+  "manuel": 1.831,
+  "eric": 1.807,
+  "sophia": 1.715,
+  "rollo": 1.867,
+  "claudia": 1.979
+ },
+ "gs-mx-pro-rifle-pack--run-forward": {
+  "carla": 4.651,
+  "nathan": 4.747,
+  "manuel": 4.399,
+  "eric": 4.623,
+  "sophia": 4.305,
+  "rollo": 4.553,
+  "claudia": 4.761
+ },
+ "bd-flashlight-jog": {
+  "carla": 1.735,
+  "nathan": 1.715,
+  "manuel": 1.687,
+  "eric": 1.776,
+  "sophia": 1.557,
+  "rollo": 1.776,
+  "claudia": 1.739
+ },
+ "bd-flashlight-slow-run": {
+  "carla": 2.879,
+  "manuel": 2.781,
+  "eric": 2.878,
+  "rollo": 2.878,
+  "claudia": 2.956
+ }
+}

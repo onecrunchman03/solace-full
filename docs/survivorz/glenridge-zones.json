@@ -1,0 +1,52 @@
+{
+ "glen-ground": {
+  "shell": 99841,
+  "glass": 259,
+  "loose": 44294,
+  "furniture_pieces": 91,
+  "furniture_meshes": 33,
+  "furniture_drawn": 572843,
+  "furniture_stored": 197278,
+  "materials": 156,
+  "built_materials": [
+   "fireflame"
+  ],
+  "src_mb": 135.3
+ },
+ "glen-upper": {
+  "shell": 61710,
+  "glass": 84,
+  "loose": 6930,
+  "furniture_pieces": 38,
+  "furniture_meshes": 18,
+  "furniture_drawn": 210925,
+  "furniture_stored": 96677,
+  "materials": 72,
+  "built_materials": [],
+  "src_mb": 72.0
+ },
+ "glen-basement": {
+  "shell": 9140,
+  "glass": 0,
+  "loose": 14570,
+  "furniture_pieces": 18,
+  "furniture_meshes": 9,
+  "furniture_drawn": 135047,
+  "furniture_stored": 63047,
+  "materials": 46,
+  "built_materials": [],
+  "src_mb": 72.0
+ },
+ "glen-outside": {
+  "shell": 21104,
+  "glass": 0,
+  "loose": 168766,
+  "furniture_pieces": 528,
+  "furniture_meshes": 10,
+  "furniture_drawn": 4412579,
+  "furniture_stored": 29814,
+  "materials": 29,
+  "built_materials": [],
+  "src_mb": 78.6
+ }
+}

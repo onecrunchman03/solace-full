@@ -1,0 +1,14 @@
+Thalassophobia (Level 7) relics, found online by Claude, 2026-10-14.
+All from rawpixel.com's public-domain collection (CC0 1.0), via the Openverse API.
+The downloads are JPEGs with a baked transparency checkerboard; relic-art.mjs cuts it away.
+
+subway token relic.jpg        https://www.rawpixel.com/image/6713292  (Old coin png sticker illustration)
+message in a bottle relic.jpg https://www.rawpixel.com/image/6286660  (Glass bottle png sticker, green)
+ships bell relic.jpg          https://www.rawpixel.com/image/9779151  (Bell png illustration)
+divers watch relic.jpg        https://www.rawpixel.com/image/6283229  (Metal wrist watch png sticker)
+lifebuoy relic.jpg            https://www.rawpixel.com/image/6330018  (Lifesaver buoy png sticker, transparent)
+storm lantern relic.jpg       https://www.rawpixel.com/image/6870651  (Hurricane lantern png sticker camping)
+captains spyglass relic.jpg   https://www.rawpixel.com/image/6328914  (Captain's telescope png sticker)
+red scallop relic.jpg         https://www.rawpixel.com/image/6727679  (Seashell png sticker, transparent background)
+brass compass relic.jpg       https://www.rawpixel.com/image/6538061  (Pocket compass png sticker, object)
+claires bath duck relic.jpg   https://www.rawpixel.com/image/6288847  (Yellow duck png sticker, toy)

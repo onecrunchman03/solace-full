@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Survivorz Character Creator</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --bg: #14130f; --panel: #1d1c17; --line: #34322a; --ink: #ece6d6; --soft: #a39d8c; --accent: #d98a4f; --ok: #6fd1a0; --bad: #e0675a; --warn: #e3b54f; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, sans-serif; }
+  header { display: flex; align-items: center; gap: 16px; padding: 12px 20px; border-bottom: 1px solid var(--line); }
+  header h1 { margin: 0; font-size: 16px; letter-spacing: .08em; text-transform: uppercase; }
+  header .soft { color: var(--soft); }
+  main { display: grid; grid-template-columns: 230px 1fr 360px; min-height: calc(100vh - 50px); }
+  nav { border-right: 1px solid var(--line); padding: 12px; overflow-y: auto; }
+  nav h3 { margin: 14px 0 6px; font-size: 11px; letter-spacing: .1em; color: var(--soft); text-transform: uppercase; }
+  nav button.who { display: flex; justify-content: space-between; width: 100%; text-align: left; background: none; color: var(--ink); border: 1px solid transparent; border-radius: 6px; padding: 7px 9px; cursor: pointer; font: inherit; }
+  nav button.who:hover { background: var(--panel); }
+  nav button.who.on { border-color: var(--accent); background: var(--panel); }
+  nav button.who small { color: var(--soft); }
+  button { background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 7px 12px; cursor: pointer; font: inherit; }
+  button.primary { background: var(--accent); color: #1a1208; border-color: var(--accent); font-weight: 600; }
+  button:disabled { opacity: .5; cursor: default; }
+  .form { padding: 16px 22px 60px; overflow-y: auto; }
+  section { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px 14px; margin-bottom: 14px; background: var(--panel); }
+  section h2 { margin: 0 0 10px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px 14px; }
+  label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--soft); }
+  label.row { flex-direction: row; align-items: center; gap: 8px; color: var(--ink); font-size: 13px; }
+  input, select, textarea { background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 5px; padding: 6px 8px; font: inherit; }
+  input[type=number] { width: 100%; }
+  textarea { width: 100%; resize: vertical; }
+  textarea.sheet { min-height: 300px; font: 13px/1.5 ui-monospace, Consolas, monospace; }
+  .slider { display: grid; grid-template-columns: 112px 1fr 26px; align-items: center; gap: 8px; margin: 4px 0; font-size: 13px; }
+  .slider input { padding: 0; accent-color: var(--accent); }
+  input[type=checkbox] { accent-color: var(--accent); }
+  .slider b { text-align: right; font-variant-numeric: tabular-nums; }
+  .hint { font-size: 11px; color: var(--soft); grid-column: 2 / 4; margin: -2px 0 4px; }
+  .bad { color: var(--bad); } .ok { color: var(--ok); } .warn { color: var(--warn); }
+  .field-bad { border-color: var(--bad) !important; }
+  table.regard { border-collapse: collapse; width: 100%; font-size: 13px; }
+  table.regard td, table.regard th { padding: 4px 6px; border-bottom: 1px solid var(--line); text-align: left; }
+  table.regard input { width: 72px; }
+  aside { border-left: 1px solid var(--line); padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+  .problems li { margin: 2px 0; }
+  .line { background: var(--bg); border-left: 3px solid var(--ok); padding: 8px 10px; border-radius: 4px; font-style: italic; }
+  .count { font-size: 11px; color: var(--soft); text-align: right; }
+  pre.bible { white-space: pre-wrap; font-size: 12px; color: var(--soft); max-height: 360px; overflow-y: auto; margin: 6px 0 0; }
+  .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: var(--panel); border: 1px solid var(--accent); padding: 10px 16px; border-radius: 8px; max-width: 720px; }
+  ul { padding-left: 18px; margin: 6px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Survivorz · Character Creator</h1>
+  <span class="soft" id="where"></span>
+  <span style="flex:1"></span>
+  <button id="new">New character</button>
+  <button id="dup">Copy this one</button>
+  <button class="primary" id="save">Save</button>
+</header>
+<main>
+  <nav id="list"></nav>
+  <div class="form" id="form"></div>
+  <aside>
+    <section><h2>Checks</h2><div id="problems"></div></section>
+    <section>
+      <h2>Hear them</h2>
+      <label>What just happened<textarea id="situation" rows="3">Rick asks the group who wants to take first watch.</textarea></label>
+      <p style="margin:8px 0"><button id="hear">Ask the model for a line</button></p>
+      <div id="heard"></div>
+      <p class="soft" style="font-size:11px;margin:8px 0 0">The real model, the show's own checks. Uses the sheet and genes as they are in the form, saved or not.</p>
+    </section>
+    <section><h2>Their bible</h2><div id="bible" class="soft">—</div></section>
+    <section id="nextbox" hidden><h2>Still to do</h2><ul id="next"></ul></section>
+  </aside>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+let data = null, cur = null, regardIn = {}, isNew = false, checkTimer = 0;
+
+async function load(selectId) {
+  data = await (await fetch("/api/cast")).json();
+  $("where").textContent = `${data.cast.length} characters · ${data.bodies.length} baked bodies`;
+  if (!data.canHear) $("hear").disabled = true;
+  const id = selectId ?? cur?.id ?? data.cast[0]?.id;
+  pick(data.cast.find((c) => c.id === id) ?? data.cast[0], false);
+}
+
+function list() {
+  const groups = { cast: "On the cast", bench: "On the bench", draft: "Drafts" };
+  const nav = $("list"); nav.textContent = "";
+  for (const [st, title] of Object.entries(groups)) {
+    const people = data.cast.filter((c) => c.status === st);
+    if (!people.length && !(isNew && cur.status === st)) continue;
+    const h = document.createElement("h3"); h.textContent = title; nav.append(h);
+    for (const c of people) {
+      const b = document.createElement("button"); b.className = "who" + (cur && c.id === cur.id && !isNew ? " on" : "");
+      b.innerHTML = `<span></span><small></small>`;
+      b.firstChild.textContent = c.name; b.lastChild.textContent = c.body;
+      b.onclick = () => pick(c, false);
+      nav.append(b);
+    }
+  }
+}
+
+function pick(c, fresh) {
+  cur = structuredClone(c); isNew = fresh; regardIn = {};
+  for (const o of data.cast) if (o.id !== cur.id && cur.id in o.regard) regardIn[o.id] = o.regard[cur.id];
+  $("nextbox").hidden = true; $("heard").textContent = "";
+  list(); render(); runCheck(); loadBible();
+}
+
+async function loadBible() {
+  const el = $("bible");
+  if (!/^[a-z]{2,16}$/.test(cur.id)) { el.textContent = "—"; return; }
+  const j = await (await fetch(`/api/bible?id=${cur.id}`)).json();
+  if (!j.text) { el.textContent = `No bible yet (docs/survivorz/cast/${cur.id}.md).`; return; }
+  el.innerHTML = `<details><summary>docs/survivorz/cast/${cur.id}.md</summary><pre class="bible"></pre></details>`;
+  el.querySelector("pre").textContent = j.text;
+}
+
+// ---- the form ------------------------------------------------------------------------------------
+const set = (pathStr, v) => { const keys = pathStr.split("."); let o = cur; for (const k of keys.slice(0, -1)) o = o[k] ??= {}; o[keys.at(-1)] = v; changed(); };
+function changed() { clearTimeout(checkTimer); checkTimer = setTimeout(runCheck, 250); }
+
+function el(tag, attrs = {}, kids = []) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) { if (k.startsWith("on")) e[k] = v; else if (k === "text") e.textContent = v; else e.setAttribute(k, v); }
+  for (const kid of [].concat(kids)) if (kid != null) e.append(kid);
+  return e;
+}
+function text(label, key, opts = {}) {
+  const i = el("input", { value: key.split(".").reduce((o, k) => o?.[k], cur) ?? "", "data-field": key, ...(opts.ro ? { readonly: "" } : {}) });
+  i.oninput = () => set(key, i.value);
+  return el("label", {}, [label, i]);
+}
+function num(label, key, min, max) {
+  const i = el("input", { type: "number", min, max, value: key.split(".").reduce((o, k) => o?.[k], cur) ?? 0, "data-field": key });
+  i.oninput = () => set(key, i.value === "" ? undefined : Number(i.value));
+  return el("label", {}, [label, i]);
+}
+function choice(label, key, options, blank) {
+  const s = el("select", { "data-field": key });
+  if (blank) s.append(el("option", { value: "", text: blank }));
+  for (const o of options) { const [v, t] = Array.isArray(o) ? o : [o, o]; s.append(el("option", { value: v, text: t })); }
+  s.value = key.split(".").reduce((o, k) => o?.[k], cur) ?? "";
+  s.onchange = () => set(key, s.value || undefined);
+  return el("label", {}, [label, s]);
+}
+function slider(label, key, min, max, hint) {
+  const v = key.split(".").reduce((o, k) => o?.[k], cur) ?? min;
+  const r = el("input", { type: "range", min, max, value: v, "data-field": key });
+  const b = el("b", { text: v });
+  r.oninput = () => { b.textContent = r.value; set(key, Number(r.value)); };
+  const row = el("div", { class: "slider" }, [el("span", { text: label }), r, b]);
+  return hint ? [row, el("div", { class: "slider" }, [el("span"), el("span", { class: "hint", text: hint })])] : [row];
+}
+const pretty = (k) => k.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());
+
+function render() {
+  const f = $("form"); f.textContent = "";
+  const v = data.vocab;
+  const taken = Object.fromEntries(data.cast.filter((c) => c.id !== cur.id && c.status !== "draft").map((c) => [c.body, c.name]));
+  const bodyOpts = [...new Set([...data.bodies, cur.body].filter(Boolean))].map((b) => [b, taken[b] ? `${b} (${taken[b]})` : data.bodies.includes(b) ? b : `${b} (not baked)`]);
+
+  f.append(el("section", {}, [el("h2", { text: "Who they are" }), el("div", { class: "grid" }, [
+    text("Id (file name, never changes once seen)", "id", { ro: !isNew }),
+    choice("Status", "status", [["draft", "Draft (the show never sees it)"], ["bench", "Bench (ready, Josh brings them in)"], ["cast", "Cast (walks in on day one)"]]),
+    text("Full name", "name"), text("What the others call them", "short"),
+    text("Lower third (who they are, never looks)", "tag"),
+    choice("Body", "body", bodyOpts, "— pick a body —"),
+    num("Spawn order", "order", 0, 99), num("Cast strip order", "strip", 0, 99),
+  ])]));
+
+  // THE SKILLS (Nov 5 2026: skills and genes, nothing else — no body stats, no perks)
+  for (const g of v.skillGroups) f.append(el("section", {}, [el("h2", { text: `${g.label} (0–10, what they CAN do)` }),
+    ...v.skills.filter((k) => v.skillInfo[k].group === g.id).flatMap((k) => slider(v.skillInfo[k].label, `skills.${k}`, 0, 10, v.skillInfo[k].does))]));
+  f.append(el("section", {}, [el("h2", { text: "Genes (0–10, what they CHOOSE; drift ±2 with what happens)" }), ...v.genes.flatMap((k) => slider(pretty(k), `genes.${k}`, 0, 10, v.geneMeans[k]))]));
+  f.append(el("section", {}, [el("h2", { text: "Kit" }), el("div", { class: "grid" }, [
+    choice("Melee weapon", "kit.melee", v.melee), choice("Gun", "kit.gun", v.guns, "none"),
+    ...(cur.kit?.gun ? [num("Rounds in the gun", "kit.mag", 0, 30), num("Spare rounds", "kit.ammo", 0, 120)] : []),
+    num("Bandages", "kit.bandage", 0, 9), num("Med kits", "kit.medkit", 0, 9), num("Food", "kit.food", 0, 9), num("Water", "kit.water", 0, 9),
+  ])]));
+  // re-render when the gun changes (the rounds fields come and go)
+  f.querySelector('[data-field="kit.gun"]').addEventListener("change", (e) => { if (e.target.value) { cur.kit.mag ??= e.target.value === "rifle" ? 30 : 15; cur.kit.ammo ??= 0; } else { delete cur.kit.mag; delete cur.kit.ammo; } render(); changed(); });
+
+  const others = data.cast.filter((o) => o.id !== cur.id && o.status !== "draft");
+  const tbl = el("table", { class: "regard" }, [el("tr", {}, [el("th", { text: "" }), el("th", { text: `${cur.short || "They"} → them` }), el("th", { text: `them → ${cur.short || "them"}` })])]);
+  for (const o of others) {
+    const out = el("input", { type: "number", min: -100, max: 100, placeholder: "—", value: cur.regard?.[o.id] ?? "" });
+    out.oninput = () => { if (out.value === "") delete cur.regard[o.id]; else cur.regard[o.id] = Number(out.value); changed(); };
+    const inn = el("input", { type: "number", min: -100, max: 100, placeholder: "—", value: regardIn[o.id] ?? "" });
+    inn.oninput = () => { regardIn[o.id] = inn.value === "" ? null : Number(inn.value); };
+    tbl.append(el("tr", {}, [el("td", { text: o.name }), el("td", {}, out), el("td", {}, inn)]));
+  }
+  f.append(el("section", {}, [el("h2", { text: "Day one: what they think of each other (−100 to 100, blank = strangers)" }), tbl,
+    el("p", { class: "soft", style: "font-size:11px;margin:8px 0 0", text: "60+ would die for them · 35 like a lot · 15 like · −10 to 15 unsure · −35 don't trust · below can't stand. The right column is saved into the other characters' files." })]));
+
+  f.append(el("section", {}, [el("h2", { text: "Voice" }), el("div", { class: "grid" }, [
+    text("Clone reference on slopbot (survivor-<id>)", "voice.clone"), choice("Stock fallback voice", "voice.kokoro", v.kokoro),
+  ])]));
+
+  const sheet = el("textarea", { class: "sheet", "data-field": "sheet" }); sheet.value = cur.sheet ?? "";
+  const count = el("div", { class: "count" });
+  const upd = () => { count.textContent = `${sheet.value.length} / ${v.limits.sheetMax}`; count.className = "count" + (sheet.value.length > v.limits.sheetMax ? " bad" : ""); };
+  sheet.oninput = () => { upd(); set("sheet", sheet.value); }; upd();
+  f.append(el("section", {}, [el("h2", { text: "The sheet (who they are, as the model is told)" }),
+    el("p", { class: "soft", style: "font-size:12px;margin:0 0 8px", text: 'Starts "You are NAME." Who they are, how they talk, what they know, what they want and fear, who the others are to them. Never a secret of the facility: they find those out.' }),
+    sheet, count]));
+  const notes = el("textarea", { rows: 3 }); notes.value = cur.notes ?? ""; notes.oninput = () => set("notes", notes.value);
+  f.append(el("section", {}, [el("h2", { text: "Notes (for us, never the model)" }), notes]));
+}
+
+// ---- checks, save, hear --------------------------------------------------------------------------
+async function runCheck() {
+  const r = await (await fetch("/api/check", { method: "POST", body: JSON.stringify({ char: cur }) })).json();
+  document.querySelectorAll(".field-bad").forEach((e) => e.classList.remove("field-bad"));
+  for (const p of r.errors ?? []) document.querySelector(`[data-field="${p.field}"]`)?.classList.add("field-bad");
+  const box = $("problems"); box.textContent = "";
+  if (!r.errors?.length && !r.warnings?.length) { box.append(el("div", { class: "ok", text: "Ready to save." })); }
+  const ul = el("ul", { class: "problems" });
+  for (const p of r.errors ?? []) ul.append(el("li", { class: "bad", text: `${p.field}: ${p.error}` }));
+  for (const p of r.warnings ?? []) ul.append(el("li", { class: "warn", text: `${p.field}: ${p.error}` }));
+  if (ul.children.length) box.append(ul);
+  $("save").disabled = (r.errors ?? []).length > 0;
+}
+
+$("save").onclick = async () => {
+  const r = await (await fetch("/api/save", { method: "POST", body: JSON.stringify({ char: cur, regardIn }) })).json();
+  if (!r.ok) { toast(`${r.error}: ${(r.errors ?? []).map((p) => `${p.field} ${p.error}`).join("; ")}`); return; }
+  toast(`Saved ${r.saved.join(", ")}.`);
+  await load(cur.id);
+  const ul = $("next"); ul.textContent = ""; for (const n of r.next) ul.append(el("li", { text: n })); $("nextbox").hidden = false;
+};
+$("hear").onclick = async () => {
+  const out = $("heard"); out.textContent = "Asking…"; $("hear").disabled = true;
+  try {
+    const r = await (await fetch("/api/hear", { method: "POST", body: JSON.stringify({ char: cur, situation: $("situation").value }) })).json();
+    out.textContent = "";
+    if (r.error) out.append(el("div", { class: "bad", text: r.error }));
+    else if (r.line) out.append(el("div", { class: "line", text: `${cur.short}: ${r.line}` }), el("div", { class: "count", text: `${(r.ms / 1000).toFixed(1)} s` }));
+    else out.append(el("div", { class: "warn", text: r.note }));
+  } finally { $("hear").disabled = !data.canHear; }
+};
+$("new").onclick = () => {
+  const order = Math.max(...data.cast.map((c) => c.order)) + 1, strip = Math.max(...data.cast.map((c) => c.strip)) + 1;
+  const g = Object.fromEntries(data.vocab.genes.map((k) => [k, 5]));
+  const sk = Object.fromEntries(data.vocab.skills.map((k) => [k, data.vocab.skillInfo[k].base]));
+  pick({ id: "", status: "draft", order, strip, name: "", short: "", tag: "", body: "", genes: g, skills: sk,
+    kit: { melee: "fists", bandage: 1, medkit: 0, food: 1, water: 1 }, regard: {}, voice: { clone: "", kokoro: "af_heart" }, sheet: "You are " }, true);
+};
+$("dup").onclick = () => {
+  const c = structuredClone(cur);
+  Object.assign(c, { id: "", status: "draft", name: "", short: "", body: "", order: Math.max(...data.cast.map((x) => x.order)) + 1, strip: Math.max(...data.cast.map((x) => x.strip)) + 1, voice: { clone: "", kokoro: c.voice.kokoro } });
+  pick(c, true);
+};
+function toast(msg) { const t = el("div", { class: "toast", text: msg }); document.body.append(t); setTimeout(() => t.remove(), 4500); }
+load();
+</script>
+</body>
+</html>

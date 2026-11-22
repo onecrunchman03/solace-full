@@ -1,0 +1,35 @@
+{
+  "name": "solace",
+  "version": "1.0.0",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "description": "Self-hosted group chat + collectible emoji casino.",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "checks": "node scripts/checks/run-all.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.4.2",
+    "@gltf-transform/extensions": "^4.4.2",
+    "@gltf-transform/functions": "^4.4.2",
+    "@types/node": "^24.0.0",
+    "@types/web-push": "^3.6.4",
+    "@types/ws": "^8.5.13",
+    "esbuild": "^0.28.2",
+    "fbx2gltf": "^0.9.7-p1",
+    "meshoptimizer": "^1.2.0",
+    "playwright-core": "1.61.1",
+    "postject": "^1.0.0-alpha.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "chess.js": "^1.4.0",
+    "livekit-server-sdk": "^2.17.0",
+    "web-push": "^3.6.7",
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 560" width="512" height="560">
+  <defs>
+    <radialGradient id="halo" cx="256" cy="205" r="185" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity="0.75"/>
+      <stop offset="0.35" stop-color="#ffb84a" stop-opacity="0.38"/>
+      <stop offset="0.7" stop-color="#ff9a2a" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#ff8a20" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glass" cx="246" cy="186" r="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffbe8"/>
+      <stop offset="0.28" stop-color="#fff0b0"/>
+      <stop offset="0.62" stop-color="#ffd25e"/>
+      <stop offset="0.9" stop-color="#f4a63a"/>
+      <stop offset="1" stop-color="#d9832a"/>
+    </radialGradient>
+    <radialGradient id="core" cx="256" cy="198" r="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="0.5" stop-color="#fff6c8" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#fff0a0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brass" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#6e4e1c"/>
+      <stop offset="0.18" stop-color="#b8892e"/>
+      <stop offset="0.38" stop-color="#f5dc8e"/>
+      <stop offset="0.55" stop-color="#d6a84a"/>
+      <stop offset="0.82" stop-color="#8e6524"/>
+      <stop offset="1" stop-color="#5a3e14"/>
+    </linearGradient>
+    <linearGradient id="thread" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#2a1a06" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="insul" x1="0" x2="1">
+      <stop offset="0" stop-color="#2a2420"/>
+      <stop offset="0.4" stop-color="#6a5e54"/>
+      <stop offset="1" stop-color="#231e1a"/>
+    </linearGradient>
+    <clipPath id="bulbclip">
+      <path d="M206 318 C206 290 168 270 148 240 A118 118 0 1 1 364 240 C344 270 306 290 306 318 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- the warm halo -->
+  <circle cx="256" cy="205" r="185" fill="url(#halo)"/>
+
+  <!-- glass -->
+  <path d="M206 318 C206 290 168 270 148 240 A118 118 0 1 1 364 240 C344 270 306 290 306 318 Z" fill="url(#glass)"/>
+  <g clip-path="url(#bulbclip)">
+    <!-- the hot heart around the filament -->
+    <circle cx="256" cy="200" r="80" fill="url(#core)"/>
+    <!-- the rim darkens a touch where the glass curves away -->
+    <path d="M206 318 C206 290 168 270 148 240 A118 118 0 1 1 364 240 C344 270 306 290 306 318 Z" fill="none" stroke="#c46e1c" stroke-opacity="0.35" stroke-width="10"/>
+    <!-- inner glass stem -->
+    <path d="M236 318 L240 262 Q256 250 272 262 L276 318 Z" fill="#fff6d6" fill-opacity="0.55"/>
+  </g>
+  <!-- support wires -->
+  <path d="M246 266 L232 200" stroke="#b77b2e" stroke-width="2.6" fill="none"/>
+  <path d="M266 266 L280 200" stroke="#b77b2e" stroke-width="2.6" fill="none"/>
+  <path d="M256 258 L256 222" stroke="#c99248" stroke-width="2.2" fill="none"/>
+  <!-- the coiled filament, white-hot -->
+  <path d="M232 200 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0" stroke="#fff3c0" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M232 200 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0 q4 -10 8 0" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- glass highlights -->
+  <path d="M178 160 C186 118 214 92 250 86" stroke="#ffffff" stroke-opacity="0.85" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <ellipse cx="172" cy="196" rx="7" ry="16" fill="#ffffff" fill-opacity="0.6" transform="rotate(12 172 196)"/>
+  <path d="M332 150 C342 172 344 196 338 220" stroke="#fff8e0" stroke-opacity="0.35" stroke-width="7" fill="none" stroke-linecap="round"/>
+
+  <!-- brass screw base -->
+  <path d="M204 316 L308 316 L306 334 L206 334 Z" fill="url(#brass)"/>
+  <g>
+    <path d="M206 334 Q256 346 306 334 L304 352 Q256 364 208 352 Z" fill="url(#brass)"/>
+    <path d="M206 334 Q256 346 306 334 L304 352 Q256 364 208 352 Z" fill="url(#thread)"/>
+    <path d="M208 352 Q256 364 304 352 L302 370 Q256 382 210 370 Z" fill="url(#brass)"/>
+    <path d="M208 352 Q256 364 304 352 L302 370 Q256 382 210 370 Z" fill="url(#thread)"/>
+    <path d="M210 370 Q256 382 302 370 L300 388 Q256 400 212 388 Z" fill="url(#brass)"/>
+    <path d="M210 370 Q256 382 302 370 L300 388 Q256 400 212 388 Z" fill="url(#thread)"/>
+    <path d="M212 388 Q256 400 300 388 L294 404 Q256 416 218 404 Z" fill="url(#brass)"/>
+    <path d="M212 388 Q256 400 300 388 L294 404 Q256 416 218 404 Z" fill="url(#thread)"/>
+  </g>
+  <!-- the rim where brass meets glass -->
+  <path d="M204 316 Q256 324 308 316" stroke="#fff1bf" stroke-width="3" fill="none" stroke-opacity="0.8"/>
+  <!-- black glass insulator and the solder tip -->
+  <path d="M220 404 Q256 416 292 404 L278 428 Q256 436 234 428 Z" fill="url(#insul)"/>
+  <ellipse cx="256" cy="434" rx="16" ry="7" fill="url(#brass)"/>
+  <ellipse cx="252" cy="432" rx="5" ry="2" fill="#fff4c8" fill-opacity="0.8"/>
+  <!-- the stamp, faint -->
+  <text x="256" y="331" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="#5a3e14" fill-opacity="0.7">60W</text>
+</svg>

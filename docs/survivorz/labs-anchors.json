@@ -1,0 +1,1250 @@
+{
+ "about": "THE VAULT LOBBY's hand-off to the effects (EFFECTS.md section 5), written by scripts/survivorz/room-build.py: where its fixtures, vents, pipes, panels and puddles are, in world metres (x east, y up, z south). Each fixture's `at` is the light's own face (the panel's underside, the caged tube); `bank` is the order the power comes back in. The effects place beams, steam, drips and sparks from these; the room never wires effects in itself.",
+ "map": "halcyon-site-9-v2",
+ "fixtures": [
+  {
+   "id": "FIXTURE_e0",
+   "kind": "emergency",
+   "at": [
+    70.0,
+    2.89,
+    45.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "labs-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e1",
+   "kind": "emergency",
+   "at": [
+    86.0,
+    2.89,
+    45.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "labs-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e2",
+   "kind": "emergency",
+   "at": [
+    100.0,
+    2.89,
+    45.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "labs-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x3",
+   "kind": "exit",
+   "at": [
+    63.0,
+    2.54,
+    40.15
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "labs-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e4",
+   "kind": "emergency",
+   "at": [
+    74.6,
+    2.65,
+    39.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "break-room",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e5",
+   "kind": "emergency",
+   "at": [
+    92.4,
+    2.65,
+    39.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "glass-offices",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e6",
+   "kind": "emergency",
+   "at": [
+    110.0,
+    2.65,
+    39.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "conference",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e7",
+   "kind": "emergency",
+   "at": [
+    112.0,
+    2.65,
+    40.24
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "server-room",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p8",
+   "kind": "panel",
+   "at": [
+    105,
+    2.67,
+    49
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "airlock",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e9",
+   "kind": "emergency",
+   "at": [
+    103.0,
+    2.72,
+    46.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "airlock",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p10",
+   "kind": "panel",
+   "at": [
+    105,
+    2.67,
+    55
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "decon-shower",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e11",
+   "kind": "emergency",
+   "at": [
+    103.0,
+    2.72,
+    57.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "decon-shower",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p12",
+   "kind": "panel",
+   "at": [
+    112,
+    2.87,
+    55.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "suit-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p13",
+   "kind": "panel",
+   "at": [
+    112,
+    2.87,
+    60.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "suit-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e14",
+   "kind": "emergency",
+   "at": [
+    110.0,
+    2.87,
+    63.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "suit-room",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p15",
+   "kind": "panel",
+   "at": [
+    119.6,
+    2.87,
+    55.2
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p16",
+   "kind": "panel",
+   "at": [
+    119.6,
+    2.87,
+    59
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p17",
+   "kind": "panel",
+   "at": [
+    119.6,
+    2.87,
+    62.8
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p18",
+   "kind": "panel",
+   "at": [
+    123.2,
+    2.87,
+    55.2
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p19",
+   "kind": "panel",
+   "at": [
+    123.2,
+    2.87,
+    59
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p20",
+   "kind": "panel",
+   "at": [
+    123.2,
+    2.87,
+    62.8
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p21",
+   "kind": "panel",
+   "at": [
+    126.8,
+    2.87,
+    55.2
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p22",
+   "kind": "panel",
+   "at": [
+    126.8,
+    2.87,
+    59
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p23",
+   "kind": "panel",
+   "at": [
+    126.8,
+    2.87,
+    62.8
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e24",
+   "kind": "emergency",
+   "at": [
+    117.4,
+    2.82,
+    52.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "clean-lab-a",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e25",
+   "kind": "emergency",
+   "at": [
+    128.6,
+    2.82,
+    65.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "clean-lab-a",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p26",
+   "kind": "panel",
+   "at": [
+    133.6,
+    2.87,
+    55.2
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p27",
+   "kind": "panel",
+   "at": [
+    133.6,
+    2.87,
+    59
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p28",
+   "kind": "panel",
+   "at": [
+    133.6,
+    2.87,
+    62.8
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p29",
+   "kind": "panel",
+   "at": [
+    137.2,
+    2.87,
+    55.2
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p30",
+   "kind": "panel",
+   "at": [
+    137.2,
+    2.87,
+    59
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p31",
+   "kind": "panel",
+   "at": [
+    137.2,
+    2.87,
+    62.8
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p32",
+   "kind": "panel",
+   "at": [
+    140.8,
+    2.87,
+    55.2
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p33",
+   "kind": "panel",
+   "at": [
+    140.8,
+    2.87,
+    59
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p34",
+   "kind": "panel",
+   "at": [
+    140.8,
+    2.87,
+    62.8
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "clean-lab-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e35",
+   "kind": "emergency",
+   "at": [
+    131.4,
+    2.82,
+    65.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "clean-lab-b",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p36",
+   "kind": "panel",
+   "at": [
+    119.5,
+    2.87,
+    43.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "lab-storage",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p37",
+   "kind": "panel",
+   "at": [
+    119.5,
+    2.87,
+    48.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "lab-storage",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p38",
+   "kind": "panel",
+   "at": [
+    126.5,
+    2.87,
+    43.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "lab-storage",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p39",
+   "kind": "panel",
+   "at": [
+    126.5,
+    2.87,
+    48.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "lab-storage",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e40",
+   "kind": "emergency",
+   "at": [
+    121.6,
+    2.82,
+    51.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "lab-storage",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_m0",
+   "kind": "slot",
+   "at": [
+    84.0,
+    3.059,
+    41.4
+   ],
+   "size": [
+    46.1,
+    0.06
+   ],
+   "room": "labs-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m1",
+   "kind": "slot",
+   "at": [
+    84.0,
+    3.059,
+    43.0
+   ],
+   "size": [
+    46.1,
+    0.06
+   ],
+   "room": "labs-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m2",
+   "kind": "slot",
+   "at": [
+    84.0,
+    3.059,
+    44.6
+   ],
+   "size": [
+    46.1,
+    0.06
+   ],
+   "room": "labs-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m3",
+   "kind": "slot",
+   "at": [
+    68.8,
+    2.859,
+    36.0
+   ],
+   "size": [
+    0.06,
+    6.5
+   ],
+   "room": "break-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m4",
+   "kind": "slot",
+   "at": [
+    71.2,
+    2.859,
+    36.0
+   ],
+   "size": [
+    0.06,
+    6.5
+   ],
+   "room": "break-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m5",
+   "kind": "slot",
+   "at": [
+    73.6,
+    2.859,
+    36.0
+   ],
+   "size": [
+    0.06,
+    6.5
+   ],
+   "room": "break-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m6",
+   "kind": "slot",
+   "at": [
+    76.0,
+    2.859,
+    36.0
+   ],
+   "size": [
+    0.06,
+    6.5
+   ],
+   "room": "break-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m7",
+   "kind": "slot",
+   "at": [
+    78.4,
+    2.859,
+    36.0
+   ],
+   "size": [
+    0.06,
+    6.5
+   ],
+   "room": "break-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m8",
+   "kind": "slot",
+   "at": [
+    80.8,
+    2.859,
+    36.0
+   ],
+   "size": [
+    0.06,
+    6.5
+   ],
+   "room": "break-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m9",
+   "kind": "slot",
+   "at": [
+    83.2,
+    2.859,
+    36.0
+   ],
+   "size": [
+    0.06,
+    6.5
+   ],
+   "room": "break-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m10",
+   "kind": "slot",
+   "at": [
+    94.0,
+    2.859,
+    28.2
+   ],
+   "size": [
+    14.5,
+    0.06
+   ],
+   "room": "glass-offices",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m11",
+   "kind": "slot",
+   "at": [
+    94.0,
+    2.859,
+    30.6
+   ],
+   "size": [
+    14.5,
+    0.06
+   ],
+   "room": "glass-offices",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m12",
+   "kind": "slot",
+   "at": [
+    94.0,
+    2.859,
+    33.0
+   ],
+   "size": [
+    14.5,
+    0.06
+   ],
+   "room": "glass-offices",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m13",
+   "kind": "slot",
+   "at": [
+    94.0,
+    2.859,
+    35.4
+   ],
+   "size": [
+    14.5,
+    0.06
+   ],
+   "room": "glass-offices",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m14",
+   "kind": "slot",
+   "at": [
+    94.0,
+    2.859,
+    37.8
+   ],
+   "size": [
+    14.5,
+    0.06
+   ],
+   "room": "glass-offices",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m15",
+   "kind": "slot",
+   "at": [
+    103.2,
+    2.859,
+    35.0
+   ],
+   "size": [
+    0.06,
+    8.5
+   ],
+   "room": "conference",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m16",
+   "kind": "slot",
+   "at": [
+    105.6,
+    2.859,
+    35.0
+   ],
+   "size": [
+    0.06,
+    8.5
+   ],
+   "room": "conference",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m17",
+   "kind": "slot",
+   "at": [
+    108.0,
+    2.859,
+    35.0
+   ],
+   "size": [
+    0.06,
+    8.5
+   ],
+   "room": "conference",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m18",
+   "kind": "slot",
+   "at": [
+    110.4,
+    2.859,
+    35.0
+   ],
+   "size": [
+    0.06,
+    8.5
+   ],
+   "room": "conference",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m19",
+   "kind": "slot",
+   "at": [
+    112.8,
+    2.859,
+    35.0
+   ],
+   "size": [
+    0.06,
+    8.5
+   ],
+   "room": "conference",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m20",
+   "kind": "slot",
+   "at": [
+    110.2,
+    2.859,
+    46.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "server-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m21",
+   "kind": "slot",
+   "at": [
+    112.0,
+    2.859,
+    46.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "server-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m22",
+   "kind": "slot",
+   "at": [
+    113.8,
+    2.859,
+    46.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "server-room",
+   "bank": 0,
+   "circuit": "mains"
+  }
+ ],
+ "vents": [
+  {
+   "at": [
+    84.0,
+    3,
+    41.4
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "labs-corridor",
+   "size": [
+    46.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    84.0,
+    3,
+    43.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "labs-corridor",
+   "size": [
+    46.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    84.0,
+    3,
+    44.6
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "labs-corridor",
+   "size": [
+    46.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    68.8,
+    2.8,
+    36.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "break-room",
+   "size": [
+    0.06,
+    6.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    71.2,
+    2.8,
+    36.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "break-room",
+   "size": [
+    0.06,
+    6.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    73.6,
+    2.8,
+    36.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "break-room",
+   "size": [
+    0.06,
+    6.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    76.0,
+    2.8,
+    36.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "break-room",
+   "size": [
+    0.06,
+    6.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    78.4,
+    2.8,
+    36.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "break-room",
+   "size": [
+    0.06,
+    6.5
+   ],
+   "note": "a linear slot diffuser"
+  }
+ ],
+ "pipes": [],
+ "panels": [],
+ "puddles": [
+  {
+   "at": [
+    104.9,
+    0,
+    55
+   ],
+   "radius": 1.3,
+   "room": "decon-shower",
+   "under": "the last cycle"
+  }
+ ]
+}

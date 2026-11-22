@@ -1,0 +1,56 @@
+{
+ "file": "vegas/stanchion-brass-run.glb",
+ "id": "stanchion-brass-run",
+ "what": "three brass ball-top stanchions + two red velvet ropes (one mesh)",
+ "size": [
+  3.086,
+  1,
+  0.34
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 10000,
+ "drawCalls": 1,
+ "bytes": 1093116,
+ "materials": [
+  {
+   "name": "material_0",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base",
+    "normal",
+    "orm"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "Red Velvet Rope Barriers",
+  "author": "danlovesmothers",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/red-velvet-rope-barriers-809c332e18f54d4784a94456fa1cecc8"
+ },
+ "sourceScale": 1.611,
+ "objects": [
+  {
+   "name": "stanchion-brass-run_0",
+   "dim": [
+    3.086,
+    1,
+    0.34
+   ],
+   "loc": [
+    0,
+    0.5,
+    0
+   ],
+   "tris": 10000,
+   "mats": [
+    "material_0"
+   ]
+  }
+ ]
+}

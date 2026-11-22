@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" width="600" height="620">
+  <defs>
+    <radialGradient id="pink" cx="0.36" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#fff0f5"/>
+      <stop offset="0.35" stop-color="#ffcfe0"/>
+      <stop offset="0.8" stop-color="#f7a0c0"/>
+      <stop offset="1" stop-color="#d97aa0"/>
+    </radialGradient>
+    <linearGradient id="window" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eefaff"/>
+      <stop offset="0.5" stop-color="#cfe9f5"/>
+      <stop offset="1" stop-color="#a6cbe0"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8fff6"/>
+      <stop offset="0.35" stop-color="#b6f0dc"/>
+      <stop offset="0.8" stop-color="#7fd6ba"/>
+      <stop offset="1" stop-color="#5fb89c"/>
+    </linearGradient>
+    <linearGradient id="lilac" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1e6ff"/>
+      <stop offset="0.5" stop-color="#cdb2f2"/>
+      <stop offset="1" stop-color="#9f80d4"/>
+    </linearGradient>
+    <radialGradient id="bm" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#9eead0"/><stop offset="1" stop-color="#4fb894"/></radialGradient>
+    <radialGradient id="by" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#fff0a0"/><stop offset="1" stop-color="#e8c24e"/></radialGradient>
+    <radialGradient id="bl" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#d4bcff"/><stop offset="1" stop-color="#9474d0"/></radialGradient>
+    <radialGradient id="bp" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#ffc8a8"/><stop offset="1" stop-color="#ec9670"/></radialGradient>
+    <clipPath id="head"><circle cx="150" cy="256" r="100"/></clipPath>
+    <path id="heart" d="M0 4 C-6 -4 -14 2 -9 9 L0 17 L9 9 C14 2 6 -4 0 4 Z"/>
+    <path id="star" d="M0 -9 L2.6 -2.8 L9 -2.8 L3.8 1.2 L5.6 7.6 L0 3.8 L-5.6 7.6 L-3.8 1.2 L-9 -2.8 L-2.6 -2.8 Z"/>
+  </defs>
+
+  <g transform="translate(10 60) rotate(30 300 270)">
+    <!-- the handle, shaped for a small fist -->
+    <path d="M252 230 C300 222 330 236 360 236 C392 236 414 224 446 226 L446 286 C414 288 392 276 360 276 C330 276 300 290 252 282 Z" fill="url(#mint)"/>
+    <path d="M262 238 C300 232 330 244 360 244 C392 244 412 234 440 234" stroke="#ffffff" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.75"/>
+    <path d="M258 278 C300 286 330 270 360 270 C392 270 414 280 444 280" stroke="#3f9a7e" stroke-width="3" fill="none" opacity="0.45"/>
+    <!-- CLAIRE, in marker -->
+    <text x="354" y="267" text-anchor="middle" font-family="Segoe Print, Ink Free, Comic Sans MS" font-weight="bold" font-size="28" fill="#3d3584" stroke="#3d3584" stroke-width="0.8" transform="rotate(-2 354 262)" letter-spacing="1">CLAIRE</text>
+    <!-- a little heart drawn after it -->
+    <use href="#heart" x="426" y="250" fill="#ef6d97" transform="rotate(-8 426 256) translate(426 256) scale(0.55) translate(-426 -256)"/>
+
+    <!-- the end ball -->
+    <circle cx="470" cy="256" r="36" fill="url(#pink)"/>
+    <circle cx="460" cy="244" r="9" fill="#ffffff" opacity="0.8"/>
+    <circle cx="482" cy="270" r="3.4" fill="#ffffff" opacity="0.85"/>
+    <circle cx="474" cy="236" r="2.6" fill="#ffffff" opacity="0.85"/>
+    <ellipse cx="440" cy="256" rx="9" ry="31" fill="url(#lilac)"/>
+
+    <!-- the head: two pink halves and a clear window of beads -->
+    <circle cx="150" cy="256" r="100" fill="url(#pink)"/>
+    <g clip-path="url(#head)">
+      <path d="M126 150 Q112 256 126 362 L176 362 Q190 256 176 150 Z" fill="url(#window)" opacity="0.92"/>
+      <circle cx="150" cy="196" r="13" fill="url(#by)"/>
+      <circle cx="140" cy="226" r="12" fill="url(#bl)"/>
+      <circle cx="160" cy="250" r="13" fill="url(#bm)"/>
+      <circle cx="146" cy="278" r="12" fill="url(#bp)"/>
+      <circle cx="158" cy="306" r="11" fill="url(#by)"/>
+      <circle cx="143" cy="330" r="10" fill="url(#bl)"/>
+      <use href="#star" x="160" y="218" fill="#ffe680" transform="scale(1)"/>
+      <path d="M134 156 Q122 256 134 356" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.8"/>
+      <path d="M126 150 Q112 256 126 362" stroke="#e98ab0" stroke-width="5" fill="none"/>
+      <path d="M176 150 Q190 256 176 362" stroke="#e98ab0" stroke-width="5" fill="none"/>
+      <path d="M126 150 Q112 256 126 362" stroke="#fff4f8" stroke-width="1.6" fill="none"/>
+      <path d="M176 150 Q190 256 176 362" stroke="#fff4f8" stroke-width="1.6" fill="none"/>
+      <!-- the window's shine -->
+      <path d="M140 170 Q132 210 136 240" stroke="#ffffff" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
+    </g>
+    <!-- a sleepy little face on the near half -->
+    <path d="M70 246 Q78 238 86 246" stroke="#8a4a6e" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <path d="M98 246 Q106 238 114 246" stroke="#8a4a6e" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <path d="M84 266 Q92 274 100 266" stroke="#8a4a6e" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="70" cy="262" rx="9" ry="6" fill="#ff8fb3" opacity="0.6"/>
+    <ellipse cx="114" cy="262" rx="9" ry="6" fill="#ff8fb3" opacity="0.6"/>
+    <!-- hearts and stars on the far half -->
+    <use href="#heart" x="214" y="200" fill="#ffffff" opacity="0.9"/>
+    <use href="#star" x="222" y="296" fill="#fff1a0"/>
+    <use href="#heart" x="202" y="318" fill="#ffffff" opacity="0.85" transform="rotate(14 202 326)"/>
+    <circle cx="232" cy="250" r="5" fill="#ffffff" opacity="0.85"/>
+    <use href="#star" x="96" y="186" fill="#fff1a0"/>
+    <circle cx="80" cy="316" r="4.5" fill="#ffffff" opacity="0.85"/>
+    <!-- the big shine on the sphere -->
+    <ellipse cx="96" cy="200" rx="22" ry="12" fill="#ffffff" opacity="0.7" transform="rotate(-38 96 200)"/>
+
+    <!-- the collar and the bow -->
+    <ellipse cx="252" cy="256" rx="14" ry="40" fill="url(#lilac)"/>
+    <path d="M246 220 Q240 256 246 292" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M262 252 C246 214 226 210 228 236 C230 256 248 260 262 256 Z" fill="#ff9cc0"/>
+    <path d="M262 258 C282 222 304 222 300 246 C298 266 278 266 262 260 Z" fill="#ff9cc0"/>
+    <path d="M258 262 C250 286 242 300 236 312 L248 312 C256 300 262 284 264 264 Z" fill="#f57ea8"/>
+    <path d="M266 262 C274 284 284 296 292 306 L280 310 C272 298 266 284 262 264 Z" fill="#f57ea8"/>
+    <path d="M238 228 C242 226 248 232 252 242" stroke="#ffd6e6" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M276 234 C282 230 290 232 292 240" stroke="#ffd6e6" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="262" cy="257" rx="9" ry="10" fill="#f06a98"/>
+    <ellipse cx="259" cy="253" rx="3" ry="3" fill="#ffd6e6"/>
+  </g>
+</svg>

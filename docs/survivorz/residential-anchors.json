@@ -1,0 +1,974 @@
+{
+ "about": "THE VAULT LOBBY's hand-off to the effects (EFFECTS.md section 5), written by scripts/survivorz/room-build.py: where its fixtures, vents, pipes, panels and puddles are, in world metres (x east, y up, z south). Each fixture's `at` is the light's own face (the panel's underside, the caged tube); `bank` is the order the power comes back in. The effects place beams, steam, drips and sparks from these; the room never wires effects in itself.",
+ "map": "halcyon-site-9-v2",
+ "fixtures": [
+  {
+   "id": "FIXTURE_e0",
+   "kind": "emergency",
+   "at": [
+    12.0,
+    2.69,
+    45.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "res-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e1",
+   "kind": "emergency",
+   "at": [
+    35.0,
+    2.69,
+    45.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "res-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e2",
+   "kind": "emergency",
+   "at": [
+    25.4,
+    2.69,
+    40.24
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "res-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e3",
+   "kind": "emergency",
+   "at": [
+    50.0,
+    2.69,
+    40.24
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "res-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x4",
+   "kind": "exit",
+   "at": [
+    57.0,
+    2.64,
+    40.15
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "res-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x5",
+   "kind": "exit",
+   "at": [
+    8.0,
+    2.44,
+    40.15
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "res-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x7",
+   "kind": "exit",
+   "at": [
+    23.0,
+    2.71,
+    39.85
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "canteen",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p8",
+   "kind": "panel",
+   "at": [
+    37,
+    2.87,
+    33
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "style": "failing"
+  },
+  {
+   "id": "FIXTURE_p9",
+   "kind": "panel",
+   "at": [
+    37,
+    2.87,
+    37
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p10",
+   "kind": "panel",
+   "at": [
+    39.5,
+    2.87,
+    30.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c11",
+   "kind": "caged",
+   "at": [
+    35,
+    2.97,
+    22
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c12",
+   "kind": "caged",
+   "at": [
+    39,
+    2.97,
+    24.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "style": "failing"
+  },
+  {
+   "id": "FIXTURE_c13",
+   "kind": "caged",
+   "at": [
+    5.5,
+    2.77,
+    32.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "safe-res",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c14",
+   "kind": "caged",
+   "at": [
+    10.5,
+    2.77,
+    35.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "safe-res",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x15",
+   "kind": "exit",
+   "at": [
+    8.0,
+    2.44,
+    39.87
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "safe-res",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e16",
+   "kind": "emergency",
+   "at": [
+    13.6,
+    2.47,
+    46.24
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "bunks-a",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e17",
+   "kind": "emergency",
+   "at": [
+    12.0,
+    2.47,
+    57.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "bunks-a",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e19",
+   "kind": "emergency",
+   "at": [
+    25.6,
+    2.47,
+    46.24
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "bunks-b",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e20",
+   "kind": "emergency",
+   "at": [
+    24.0,
+    2.47,
+    57.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "bunks-b",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p21",
+   "kind": "panel",
+   "at": [
+    35,
+    2.87,
+    50
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "showers",
+   "bank": 0,
+   "style": "buzz"
+  },
+  {
+   "id": "FIXTURE_p22",
+   "kind": "panel",
+   "at": [
+    35,
+    2.87,
+    53.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "showers",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c24",
+   "kind": "caged",
+   "at": [
+    57,
+    2.77,
+    52
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "panic-room",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e25",
+   "kind": "emergency",
+   "at": [
+    54.42,
+    2.37,
+    52.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "panic-room",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_m0",
+   "kind": "slot",
+   "at": [
+    30.0,
+    2.859,
+    41.4
+   ],
+   "size": [
+    58.1,
+    0.06
+   ],
+   "room": "res-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m1",
+   "kind": "slot",
+   "at": [
+    30.0,
+    2.859,
+    43.0
+   ],
+   "size": [
+    58.1,
+    0.06
+   ],
+   "room": "res-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m2",
+   "kind": "slot",
+   "at": [
+    30.0,
+    2.859,
+    44.6
+   ],
+   "size": [
+    58.1,
+    0.06
+   ],
+   "room": "res-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m3",
+   "kind": "slot",
+   "at": [
+    15.8,
+    3.459,
+    33.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "canteen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m4",
+   "kind": "slot",
+   "at": [
+    18.2,
+    3.459,
+    33.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "canteen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m5",
+   "kind": "slot",
+   "at": [
+    20.6,
+    3.459,
+    33.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "canteen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_s6",
+   "kind": "slot",
+   "at": [
+    23.0,
+    3.459,
+    33.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "canteen",
+   "bank": 0,
+   "circuit": "battery",
+   "style": "failing"
+  },
+  {
+   "id": "FIXTURE_m7",
+   "kind": "slot",
+   "at": [
+    25.4,
+    3.459,
+    33.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "canteen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m8",
+   "kind": "slot",
+   "at": [
+    27.8,
+    3.459,
+    33.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "canteen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m9",
+   "kind": "slot",
+   "at": [
+    30.2,
+    3.459,
+    33.0
+   ],
+   "size": [
+    0.06,
+    12.5
+   ],
+   "room": "canteen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m10",
+   "kind": "slot",
+   "at": [
+    7.2,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m11",
+   "kind": "slot",
+   "at": [
+    9.6,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m12",
+   "kind": "slot",
+   "at": [
+    12.0,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m13",
+   "kind": "slot",
+   "at": [
+    14.4,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m14",
+   "kind": "slot",
+   "at": [
+    16.8,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m15",
+   "kind": "slot",
+   "at": [
+    19.2,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m16",
+   "kind": "slot",
+   "at": [
+    21.6,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_s18",
+   "kind": "slot",
+   "at": [
+    24.0,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-b",
+   "bank": 0,
+   "circuit": "battery",
+   "style": "dying"
+  },
+  {
+   "id": "FIXTURE_m18",
+   "kind": "slot",
+   "at": [
+    26.4,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m19",
+   "kind": "slot",
+   "at": [
+    28.8,
+    2.659,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "bunks-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m20",
+   "kind": "slot",
+   "at": [
+    42.2,
+    3.059,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "rec-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m21",
+   "kind": "slot",
+   "at": [
+    44.6,
+    3.059,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "rec-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_s23",
+   "kind": "slot",
+   "at": [
+    47.0,
+    3.059,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "rec-room",
+   "bank": 0,
+   "circuit": "battery",
+   "style": "buzz"
+  },
+  {
+   "id": "FIXTURE_m23",
+   "kind": "slot",
+   "at": [
+    49.4,
+    3.059,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "rec-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m24",
+   "kind": "slot",
+   "at": [
+    51.8,
+    3.059,
+    52.0
+   ],
+   "size": [
+    0.06,
+    10.5
+   ],
+   "room": "rec-room",
+   "bank": 0,
+   "circuit": "mains"
+  }
+ ],
+ "vents": [
+  {
+   "at": [
+    30.0,
+    2.8,
+    41.4
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "res-corridor",
+   "size": [
+    58.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    30.0,
+    2.8,
+    43.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "res-corridor",
+   "size": [
+    58.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    30.0,
+    2.8,
+    44.6
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "res-corridor",
+   "size": [
+    58.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    15.8,
+    3.4,
+    33.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "canteen",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    18.2,
+    3.4,
+    33.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "canteen",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    20.6,
+    3.4,
+    33.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "canteen",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    25.4,
+    3.4,
+    33.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "canteen",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    27.8,
+    3.4,
+    33.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "canteen",
+   "size": [
+    0.06,
+    12.5
+   ],
+   "note": "a linear slot diffuser"
+  }
+ ],
+ "pipes": [],
+ "panels": [],
+ "puddles": []
+}

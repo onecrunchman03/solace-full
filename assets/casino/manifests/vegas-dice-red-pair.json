@@ -1,0 +1,78 @@
+{
+ "file": "vegas/dice-red-pair.glb",
+ "id": "dice-red-pair",
+ "what": "two red casino dice, 19mm",
+ "size": [
+  0.051,
+  0.019,
+  0.026
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 3988,
+ "drawCalls": 2,
+ "bytes": 196448,
+ "materials": [
+  {
+   "name": "material",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.441,
+   "emissive": null,
+   "textures": []
+  },
+  {
+   "name": "Card_Back",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.392,
+   "emissive": null,
+   "textures": []
+  }
+ ],
+ "credit": {
+  "title": "Red Dice",
+  "author": "Yanez Designs",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/red-dice-995ac5d09d944d31ac587f0f90e36ca2"
+ },
+ "sourceScale": 0,
+ "objects": [
+  {
+   "name": "dice-red-pair_0",
+   "dim": [
+    0.051,
+    0.019,
+    0.026
+   ],
+   "loc": [
+    0,
+    0.009,
+    0
+   ],
+   "tris": 928,
+   "mats": [
+    "material"
+   ]
+  },
+  {
+   "name": "dice-red-pair_1",
+   "dim": [
+    0.05,
+    0.019,
+    0.024
+   ],
+   "loc": [
+    0,
+    0.009,
+    0
+   ],
+   "tris": 3060,
+   "mats": [
+    "Card_Back"
+   ]
+  }
+ ]
+}

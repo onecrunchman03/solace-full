@@ -1,0 +1,2702 @@
+{
+ "about": "THE VAULT LOBBY's hand-off to the effects (EFFECTS.md section 5), written by scripts/survivorz/room-build.py: where its fixtures, vents, pipes, panels and puddles are, in world metres (x east, y up, z south). Each fixture's `at` is the light's own face (the panel's underside, the caged tube); `bank` is the order the power comes back in. The effects place beams, steam, drips and sparks from these; the room never wires effects in itself.",
+ "map": "shelter-14-v1",
+ "fixtures": [
+  {
+   "id": "FIXTURE_c0",
+   "kind": "caged",
+   "at": [
+    40,
+    3.97,
+    62
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "tunnel",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c1",
+   "kind": "caged",
+   "at": [
+    40,
+    3.97,
+    70
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "tunnel",
+   "bank": 0,
+   "style": "dead",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c2",
+   "kind": "caged",
+   "at": [
+    36.5,
+    3.37,
+    54
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "vestibule",
+   "bank": 0,
+   "style": "buzz",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c3",
+   "kind": "caged",
+   "at": [
+    43.5,
+    3.37,
+    54
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "vestibule",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e4",
+   "kind": "emergency",
+   "at": [
+    40.0,
+    3.17,
+    51.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "vestibule",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p5",
+   "kind": "panel",
+   "at": [
+    40,
+    2.67,
+    43.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "decon",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p6",
+   "kind": "panel",
+   "at": [
+    40,
+    2.67,
+    48.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "decon",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c7",
+   "kind": "caged",
+   "at": [
+    43.425,
+    2.97,
+    45.05
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "equipment",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c8",
+   "kind": "caged",
+   "at": [
+    43.425,
+    2.97,
+    48.95
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "equipment",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c9",
+   "kind": "caged",
+   "at": [
+    47.075,
+    2.97,
+    45.05
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "equipment",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c10",
+   "kind": "caged",
+   "at": [
+    47.075,
+    2.97,
+    48.95
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "equipment",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p11",
+   "kind": "panel",
+   "at": [
+    28.086,
+    3.27,
+    23.08
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p12",
+   "kind": "panel",
+   "at": [
+    28.086,
+    3.27,
+    27.04
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p13",
+   "kind": "panel",
+   "at": [
+    28.086,
+    3.27,
+    31
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p14",
+   "kind": "panel",
+   "at": [
+    28.086,
+    3.27,
+    34.96
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p15",
+   "kind": "panel",
+   "at": [
+    28.086,
+    3.27,
+    38.92
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "style": "buzz",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p16",
+   "kind": "panel",
+   "at": [
+    32.057,
+    3.27,
+    23.08
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p17",
+   "kind": "panel",
+   "at": [
+    32.057,
+    3.27,
+    27.04
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p18",
+   "kind": "panel",
+   "at": [
+    32.057,
+    3.27,
+    31
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p19",
+   "kind": "panel",
+   "at": [
+    32.057,
+    3.27,
+    34.96
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p20",
+   "kind": "panel",
+   "at": [
+    32.057,
+    3.27,
+    38.92
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p21",
+   "kind": "panel",
+   "at": [
+    36.029,
+    3.27,
+    23.08
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p22",
+   "kind": "panel",
+   "at": [
+    36.029,
+    3.27,
+    27.04
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p23",
+   "kind": "panel",
+   "at": [
+    36.029,
+    3.27,
+    31
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p24",
+   "kind": "panel",
+   "at": [
+    36.029,
+    3.27,
+    34.96
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p25",
+   "kind": "panel",
+   "at": [
+    36.029,
+    3.27,
+    38.92
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p26",
+   "kind": "panel",
+   "at": [
+    40,
+    3.27,
+    23.08
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p27",
+   "kind": "panel",
+   "at": [
+    40,
+    3.27,
+    27.04
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p28",
+   "kind": "panel",
+   "at": [
+    40,
+    3.27,
+    31
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p29",
+   "kind": "panel",
+   "at": [
+    40,
+    3.27,
+    34.96
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p30",
+   "kind": "panel",
+   "at": [
+    40,
+    3.27,
+    38.92
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p31",
+   "kind": "panel",
+   "at": [
+    43.971,
+    3.27,
+    23.08
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p32",
+   "kind": "panel",
+   "at": [
+    43.971,
+    3.27,
+    27.04
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p33",
+   "kind": "panel",
+   "at": [
+    43.971,
+    3.27,
+    31
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p34",
+   "kind": "panel",
+   "at": [
+    43.971,
+    3.27,
+    34.96
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p35",
+   "kind": "panel",
+   "at": [
+    43.971,
+    3.27,
+    38.92
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p36",
+   "kind": "panel",
+   "at": [
+    47.943,
+    3.27,
+    23.08
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p37",
+   "kind": "panel",
+   "at": [
+    47.943,
+    3.27,
+    27.04
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p38",
+   "kind": "panel",
+   "at": [
+    47.943,
+    3.27,
+    31
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p39",
+   "kind": "panel",
+   "at": [
+    47.943,
+    3.27,
+    34.96
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p40",
+   "kind": "panel",
+   "at": [
+    47.943,
+    3.27,
+    38.92
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p41",
+   "kind": "panel",
+   "at": [
+    51.914,
+    3.27,
+    23.08
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p42",
+   "kind": "panel",
+   "at": [
+    51.914,
+    3.27,
+    27.04
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p43",
+   "kind": "panel",
+   "at": [
+    51.914,
+    3.27,
+    31
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p44",
+   "kind": "panel",
+   "at": [
+    51.914,
+    3.27,
+    34.96
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p45",
+   "kind": "panel",
+   "at": [
+    51.914,
+    3.27,
+    38.92
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "common",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e46",
+   "kind": "emergency",
+   "at": [
+    22.0,
+    2.89,
+    14.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "hall-n",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e47",
+   "kind": "emergency",
+   "at": [
+    40.0,
+    2.89,
+    14.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "hall-n",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e48",
+   "kind": "emergency",
+   "at": [
+    56.0,
+    2.89,
+    14.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "hall-n",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e49",
+   "kind": "emergency",
+   "at": [
+    14.22,
+    2.89,
+    26.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "hall-w",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e50",
+   "kind": "emergency",
+   "at": [
+    14.22,
+    2.89,
+    42.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "hall-w",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e51",
+   "kind": "emergency",
+   "at": [
+    65.78,
+    2.89,
+    16.0
+   ],
+   "face": [
+    -1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "hall-e",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e52",
+   "kind": "emergency",
+   "at": [
+    65.78,
+    2.89,
+    34.0
+   ],
+   "face": [
+    -1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "hall-e",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e53",
+   "kind": "emergency",
+   "at": [
+    65.78,
+    2.89,
+    48.0
+   ],
+   "face": [
+    -1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "hall-e",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p54",
+   "kind": "panel",
+   "at": [
+    4.067,
+    2.87,
+    20.075
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p55",
+   "kind": "panel",
+   "at": [
+    4.067,
+    2.87,
+    24.025
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p56",
+   "kind": "panel",
+   "at": [
+    4.067,
+    2.87,
+    27.975
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p57",
+   "kind": "panel",
+   "at": [
+    4.067,
+    2.87,
+    31.925
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p58",
+   "kind": "panel",
+   "at": [
+    8,
+    2.87,
+    20.075
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p59",
+   "kind": "panel",
+   "at": [
+    8,
+    2.87,
+    24.025
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p60",
+   "kind": "panel",
+   "at": [
+    8,
+    2.87,
+    27.975
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p61",
+   "kind": "panel",
+   "at": [
+    8,
+    2.87,
+    31.925
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p62",
+   "kind": "panel",
+   "at": [
+    11.933,
+    2.87,
+    20.075
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p63",
+   "kind": "panel",
+   "at": [
+    11.933,
+    2.87,
+    24.025
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p64",
+   "kind": "panel",
+   "at": [
+    11.933,
+    2.87,
+    27.975
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p65",
+   "kind": "panel",
+   "at": [
+    11.933,
+    2.87,
+    31.925
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "barracks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p66",
+   "kind": "panel",
+   "at": [
+    10,
+    2.87,
+    39
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "private-a",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p67",
+   "kind": "panel",
+   "at": [
+    10,
+    2.87,
+    45
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "private-b",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p68",
+   "kind": "panel",
+   "at": [
+    20.05,
+    2.87,
+    19.9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "laundry",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p69",
+   "kind": "panel",
+   "at": [
+    20.05,
+    2.87,
+    23.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "laundry",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p70",
+   "kind": "panel",
+   "at": [
+    20.05,
+    2.87,
+    27.1
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "laundry",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p71",
+   "kind": "panel",
+   "at": [
+    23.95,
+    2.87,
+    19.9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "laundry",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p72",
+   "kind": "panel",
+   "at": [
+    23.95,
+    2.87,
+    23.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "laundry",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p73",
+   "kind": "panel",
+   "at": [
+    23.95,
+    2.87,
+    27.1
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "laundry",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c74",
+   "kind": "caged",
+   "at": [
+    21,
+    2.97,
+    11
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "maint",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c75",
+   "kind": "caged",
+   "at": [
+    26.55,
+    2.97,
+    4.067
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "armory",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c76",
+   "kind": "caged",
+   "at": [
+    26.55,
+    2.97,
+    8
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "armory",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c77",
+   "kind": "caged",
+   "at": [
+    26.55,
+    2.97,
+    11.933
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "armory",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c78",
+   "kind": "caged",
+   "at": [
+    31.45,
+    2.97,
+    4.067
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "armory",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c79",
+   "kind": "caged",
+   "at": [
+    31.45,
+    2.97,
+    8
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "armory",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c80",
+   "kind": "caged",
+   "at": [
+    31.45,
+    2.97,
+    11.933
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "armory",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p81",
+   "kind": "panel",
+   "at": [
+    36.733,
+    2.87,
+    5.733
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p82",
+   "kind": "panel",
+   "at": [
+    36.733,
+    2.87,
+    9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p83",
+   "kind": "panel",
+   "at": [
+    36.733,
+    2.87,
+    12.267
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p84",
+   "kind": "panel",
+   "at": [
+    40,
+    2.87,
+    5.733
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p85",
+   "kind": "panel",
+   "at": [
+    40,
+    2.87,
+    9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p86",
+   "kind": "panel",
+   "at": [
+    40,
+    2.87,
+    12.267
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p87",
+   "kind": "panel",
+   "at": [
+    43.267,
+    2.87,
+    5.733
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p88",
+   "kind": "panel",
+   "at": [
+    43.267,
+    2.87,
+    9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p89",
+   "kind": "panel",
+   "at": [
+    43.267,
+    2.87,
+    12.267
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "security",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p90",
+   "kind": "panel",
+   "at": [
+    49.733,
+    2.87,
+    5.733
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p91",
+   "kind": "panel",
+   "at": [
+    49.733,
+    2.87,
+    9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p92",
+   "kind": "panel",
+   "at": [
+    49.733,
+    2.87,
+    12.267
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p93",
+   "kind": "panel",
+   "at": [
+    53,
+    2.87,
+    5.733
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p94",
+   "kind": "panel",
+   "at": [
+    53,
+    2.87,
+    9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "style": "buzz",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p95",
+   "kind": "panel",
+   "at": [
+    53,
+    2.87,
+    12.267
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p96",
+   "kind": "panel",
+   "at": [
+    56.267,
+    2.87,
+    5.733
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p97",
+   "kind": "panel",
+   "at": [
+    56.267,
+    2.87,
+    9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p98",
+   "kind": "panel",
+   "at": [
+    56.267,
+    2.87,
+    12.267
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "radio",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c99",
+   "kind": "caged",
+   "at": [
+    68.733,
+    4.27,
+    5.05
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c100",
+   "kind": "caged",
+   "at": [
+    68.733,
+    4.27,
+    10.95
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c101",
+   "kind": "caged",
+   "at": [
+    74,
+    4.27,
+    5.05
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c102",
+   "kind": "caged",
+   "at": [
+    74,
+    4.27,
+    10.95
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c103",
+   "kind": "caged",
+   "at": [
+    79.267,
+    4.27,
+    5.05
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c104",
+   "kind": "caged",
+   "at": [
+    79.267,
+    4.27,
+    10.95
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c105",
+   "kind": "caged",
+   "at": [
+    56.05,
+    2.97,
+    19.9
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c106",
+   "kind": "caged",
+   "at": [
+    56.05,
+    2.97,
+    23.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c107",
+   "kind": "caged",
+   "at": [
+    56.05,
+    2.97,
+    27.1
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c108",
+   "kind": "caged",
+   "at": [
+    59.95,
+    2.97,
+    19.9
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c109",
+   "kind": "caged",
+   "at": [
+    59.95,
+    2.97,
+    23.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c110",
+   "kind": "caged",
+   "at": [
+    59.95,
+    2.97,
+    27.1
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p111",
+   "kind": "panel",
+   "at": [
+    56.05,
+    2.87,
+    34.7
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "infirmary",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p112",
+   "kind": "panel",
+   "at": [
+    56.05,
+    2.87,
+    37.9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "infirmary",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p113",
+   "kind": "panel",
+   "at": [
+    56.05,
+    2.87,
+    41.1
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "infirmary",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p114",
+   "kind": "panel",
+   "at": [
+    56.05,
+    2.87,
+    44.3
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "infirmary",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p115",
+   "kind": "panel",
+   "at": [
+    59.95,
+    2.87,
+    34.7
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "infirmary",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p116",
+   "kind": "panel",
+   "at": [
+    59.95,
+    2.87,
+    37.9
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "infirmary",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p117",
+   "kind": "panel",
+   "at": [
+    59.95,
+    2.87,
+    41.1
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "infirmary",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p118",
+   "kind": "panel",
+   "at": [
+    59.95,
+    2.87,
+    44.3
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "infirmary",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p119",
+   "kind": "panel",
+   "at": [
+    58,
+    2.87,
+    49
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "qm",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p120",
+   "kind": "panel",
+   "at": [
+    67.825,
+    3.07,
+    18.067
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p121",
+   "kind": "panel",
+   "at": [
+    67.825,
+    3.07,
+    22
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p122",
+   "kind": "panel",
+   "at": [
+    67.825,
+    3.07,
+    25.933
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p123",
+   "kind": "panel",
+   "at": [
+    71.275,
+    3.07,
+    18.067
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p124",
+   "kind": "panel",
+   "at": [
+    71.275,
+    3.07,
+    22
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p125",
+   "kind": "panel",
+   "at": [
+    71.275,
+    3.07,
+    25.933
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p126",
+   "kind": "panel",
+   "at": [
+    74.725,
+    3.07,
+    18.067
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p127",
+   "kind": "panel",
+   "at": [
+    74.725,
+    3.07,
+    22
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p128",
+   "kind": "panel",
+   "at": [
+    74.725,
+    3.07,
+    25.933
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p129",
+   "kind": "panel",
+   "at": [
+    78.175,
+    3.07,
+    18.067
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p130",
+   "kind": "panel",
+   "at": [
+    78.175,
+    3.07,
+    22
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p131",
+   "kind": "panel",
+   "at": [
+    78.175,
+    3.07,
+    25.933
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "mess",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p132",
+   "kind": "panel",
+   "at": [
+    67.825,
+    2.87,
+    29.55
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p133",
+   "kind": "panel",
+   "at": [
+    67.825,
+    2.87,
+    32.45
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p134",
+   "kind": "panel",
+   "at": [
+    71.275,
+    2.87,
+    29.55
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p135",
+   "kind": "panel",
+   "at": [
+    71.275,
+    2.87,
+    32.45
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p136",
+   "kind": "panel",
+   "at": [
+    74.725,
+    2.87,
+    29.55
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p137",
+   "kind": "panel",
+   "at": [
+    74.725,
+    2.87,
+    32.45
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p138",
+   "kind": "panel",
+   "at": [
+    78.175,
+    2.87,
+    29.55
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p139",
+   "kind": "panel",
+   "at": [
+    78.175,
+    2.87,
+    32.45
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "kitchen",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c140",
+   "kind": "caged",
+   "at": [
+    68.075,
+    3.37,
+    38.4
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c141",
+   "kind": "caged",
+   "at": [
+    68.075,
+    3.37,
+    43
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c142",
+   "kind": "caged",
+   "at": [
+    68.075,
+    3.37,
+    47.6
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c143",
+   "kind": "caged",
+   "at": [
+    72.025,
+    3.37,
+    38.4
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c144",
+   "kind": "caged",
+   "at": [
+    72.025,
+    3.37,
+    43
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c145",
+   "kind": "caged",
+   "at": [
+    72.025,
+    3.37,
+    47.6
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c146",
+   "kind": "caged",
+   "at": [
+    75.975,
+    3.37,
+    38.4
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c147",
+   "kind": "caged",
+   "at": [
+    75.975,
+    3.37,
+    43
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c148",
+   "kind": "caged",
+   "at": [
+    75.975,
+    3.37,
+    47.6
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c149",
+   "kind": "caged",
+   "at": [
+    79.925,
+    3.37,
+    38.4
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c150",
+   "kind": "caged",
+   "at": [
+    79.925,
+    3.37,
+    43
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c151",
+   "kind": "caged",
+   "at": [
+    79.925,
+    3.37,
+    47.6
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "stores",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m0",
+   "kind": "slot",
+   "at": [
+    38.0,
+    3.059,
+    16.0
+   ],
+   "size": [
+    46.5,
+    0.06
+   ],
+   "room": "hall-n",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m1",
+   "kind": "slot",
+   "at": [
+    16.0,
+    3.059,
+    34.0
+   ],
+   "size": [
+    0.06,
+    30.5
+   ],
+   "room": "hall-w",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m2",
+   "kind": "slot",
+   "at": [
+    64.0,
+    3.059,
+    29.0
+   ],
+   "size": [
+    0.06,
+    44.5
+   ],
+   "room": "hall-e",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m3",
+   "kind": "slot",
+   "at": [
+    40.0,
+    3.059,
+    19.5
+   ],
+   "size": [
+    2.5,
+    0.06
+   ],
+   "room": "pass-n",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m4",
+   "kind": "slot",
+   "at": [
+    22.0,
+    3.059,
+    31.0
+   ],
+   "size": [
+    6.5,
+    0.06
+   ],
+   "room": "pass-w",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m5",
+   "kind": "slot",
+   "at": [
+    58.0,
+    3.059,
+    31.0
+   ],
+   "size": [
+    6.5,
+    0.06
+   ],
+   "room": "pass-e",
+   "bank": 0,
+   "circuit": "mains"
+  }
+ ],
+ "vents": [
+  {
+   "at": [
+    38.0,
+    3,
+    16.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "hall-n",
+   "size": [
+    46.5,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    16.0,
+    3,
+    34.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "hall-w",
+   "size": [
+    0.06,
+    30.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    64.0,
+    3,
+    29.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "hall-e",
+   "size": [
+    0.06,
+    44.5
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    40.0,
+    3,
+    19.5
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "pass-n",
+   "size": [
+    2.5,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    22.0,
+    3,
+    31.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "pass-w",
+   "size": [
+    6.5,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    58.0,
+    3,
+    31.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "pass-e",
+   "size": [
+    6.5,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  }
+ ],
+ "pipes": [],
+ "panels": [
+  {
+   "at": [
+    44.9,
+    1.0,
+    51.316
+   ],
+   "yaw": 0,
+   "room": "vestibule",
+   "kind": "utility-box"
+  }
+ ],
+ "puddles": []
+}

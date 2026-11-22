@@ -1,0 +1,78 @@
+{
+ "file": "vegas/neon-bar.glb",
+ "id": "neon-bar",
+ "what": "neon tube 'BAR' sign in a green rounded frame (colours made emissive)",
+ "size": [
+  1,
+  0.516,
+  0.019
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 14252,
+ "drawCalls": 2,
+ "bytes": 273516,
+ "materials": [
+  {
+   "name": "material",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": "factor",
+   "textures": []
+  },
+  {
+   "name": "AroundBar",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.6,
+   "emissive": "factor",
+   "textures": []
+  }
+ ],
+ "credit": {
+  "title": "Neon Bar Sign",
+  "author": "Jimmy Johansson",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/neon-bar-sign-52d50a3b04ae414cb11b16df0d779054"
+ },
+ "sourceScale": 0.293,
+ "objects": [
+  {
+   "name": "neon-bar_0",
+   "dim": [
+    0.809,
+    0.284,
+    0.019
+   ],
+   "loc": [
+    0.021,
+    0.264,
+    0
+   ],
+   "tris": 10848,
+   "mats": [
+    "material"
+   ]
+  },
+  {
+   "name": "neon-bar_1",
+   "dim": [
+    1,
+    0.516,
+    0.016
+   ],
+   "loc": [
+    0,
+    0.258,
+    0
+   ],
+   "tris": 3404,
+   "mats": [
+    "AroundBar"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2288 @@
+{
+  "version": 1,
+  "tiles": [
+    {
+      "id": "drain-chamber",
+      "name": "The Drain",
+      "kind": "drain",
+      "set": "intake",
+      "role": "start",
+      "type": "drainroom",
+      "note": "Where everyone arrives: the hatch overhead, a ladder down, tanks in the corners. Lit — the first safe room.",
+      "map": [
+        "..............",
+        "..............",
+        "..............",
+        "..............",
+        "..............",
+        "..............",
+        "..............",
+        "..............",
+        "..............",
+        "..............",
+        "..............",
+        ".............."
+      ],
+      "furn": [
+        "VV.M......M.VV",
+        "VV..........VV",
+        "M............M",
+        "...*......*...",
+        "..............",
+        "..............",
+        "......@.......",
+        "..............",
+        "...*......*...",
+        "M............M",
+        "VV..........VV",
+        "VV..........VV"
+      ],
+      "face": [[0,2,"W"],[13,2,"E"],[0,9,"W"],[13,9,"E"]],
+      "doors": [[5,0,"N",3],[6,11,"S",3],[13,5,"E",3],[0,5,"W",1]],
+      "props": [
+        {"p":"hazard-drum","x":2.5,"y":4.4},
+        {"p":"oil-drum","v":2,"x":3.35,"y":4.6,"r":30},
+        {"p":"wood-pallet","v":2,"x":10.5,"y":6.5,"r":90},
+        {"p":"wood-crate","x":10.5,"y":6.5,"r":90,"z":0.14},
+        {"p":"work-light-tripod","x":2.6,"y":7.6,"r":135},
+        {"p":"wet-floor-sign","x":7.5,"y":4.2,"r":180},
+        {"p":"jerry-can","x":11.3,"y":7.4,"r":200}
+      ]
+    },
+    {
+      "id": "valve-gallery",
+      "name": "The Valve Gallery",
+      "kind": "valvegallery",
+      "set": "vault",
+      "role": "goal",
+      "type": "vault",
+      "note": "The end of the level: two rows of valve stations, then a clear antechamber with the pressure door and the fuse panel in the end wall. Every lamp works.",
+      "map": [
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "...........",
+        "..........."
+      ],
+      "furn": [
+        "...F.E.....",
+        "...........",
+        ".....*.....",
+        "...........",
+        "...........",
+        "M.PP...PP.M",
+        "M.PP...PP.M",
+        "M.........M",
+        "M....*....M",
+        "M.PP...PP.M",
+        "M.PP...PP.M",
+        "M.........M",
+        "M.........M",
+        "M.PP...PP.M",
+        "M.PP...PP.M",
+        "M.........M",
+        "M....*....M",
+        "M.PP...PP.M",
+        "M.PP...PP.M",
+        "M.........M",
+        "M.........M",
+        ".....*.....",
+        "...........",
+        "..........."
+      ],
+      "doors": [[4,23,"S",3]]
+    },
+    {
+      "id": "gal-run-12",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "map": [
+        "............",
+        "............",
+        "............"
+      ],
+      "furn": [
+        "..M......M..",
+        "..*.....*...",
+        ".....~......"
+      ],
+      "doors": [[0,0,"W",3],[11,0,"E",3],[5,0,"N",1],[2,2,"S",2],[9,2,"S",1]]
+    },
+    {
+      "id": "gal-run-8",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "map": [
+        "........",
+        "........",
+        "........"
+      ],
+      "furn": [
+        "..M.....",
+        "...*....",
+        ".....~.."
+      ],
+      "doors": [[0,0,"W",3],[7,0,"E",3],[4,0,"N",1],[3,2,"S",2]]
+    },
+    {
+      "id": "gal-pipebay-16",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 1.2,
+      "note": "A gallery with its pipe manifolds racked along one wall.",
+      "map": [
+        "................",
+        "................",
+        "................",
+        "................"
+      ],
+      "furn": [
+        "MMMMMM..MMMMMM..",
+        "..*.......*.....",
+        "................",
+        ".....~.....~...."
+      ],
+      "doors": [[0,1,"W",3],[15,1,"E",3],[6,0,"N",2],[2,3,"S",1],[13,3,"S",1]]
+    },
+    {
+      "id": "gal-wide-12",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "note": "Wider bays either side of the run: pipe manifolds north, breakers south.",
+      "map": [
+        "............",
+        "............",
+        "............",
+        "............",
+        "............"
+      ],
+      "furn": [
+        "MMMM..MMMMMM",
+        "..*.....*...",
+        "............",
+        "............",
+        "BB.~....~.BB"
+      ],
+      "doors": [[0,1,"W",3],[11,1,"E",3],[4,0,"N",2],[5,4,"S",1]]
+    },
+    {
+      "id": "gal-bend",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "map": [
+        "...",
+        "...",
+        "..."
+      ],
+      "furn": [
+        "..M",
+        ".*.",
+        "..."
+      ],
+      "doors": [[0,0,"W",3],[0,2,"S",3]]
+    },
+    {
+      "id": "gal-tee",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "map": [
+        ".........",
+        ".........",
+        "........."
+      ],
+      "furn": [
+        "..M...M..",
+        "....*....",
+        "........."
+      ],
+      "doors": [[0,0,"W",3],[8,0,"E",3],[3,2,"S",3],[4,0,"N",1]]
+    },
+    {
+      "id": "gal-cross",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 0.6,
+      "map": [
+        "...",
+        "...",
+        "..."
+      ],
+      "furn": [
+        "...",
+        ".*.",
+        "..."
+      ],
+      "doors": [[0,0,"N",3],[0,2,"S",3],[0,0,"W",3],[2,0,"E",3]]
+    },
+    {
+      "id": "gal-junction",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 0.7,
+      "note": "Four galleries meet round four concrete piers.",
+      "map": [
+        "##...##",
+        "##...##",
+        ".......",
+        ".......",
+        ".......",
+        "##...##",
+        "##...##"
+      ],
+      "furn": [
+        ".......",
+        ".......",
+        ".......",
+        "...*...",
+        ".......",
+        ".......",
+        "......."
+      ],
+      "doors": [[2,0,"N",3],[2,6,"S",3],[0,2,"W",3],[6,2,"E",3]]
+    },
+    {
+      "id": "gal-stair",
+      "kind": "gallery",
+      "set": "any",
+      "role": "stair",
+      "type": "pipegallery",
+      "map": [
+        "..........",
+        "..........",
+        ".........."
+      ],
+      "height": [
+        "00abcdefff",
+        "00abcdefff",
+        "00abcdefff"
+      ],
+      "stair": [
+        "..<<<<<<..",
+        "..<<<<<<..",
+        "..<<<<<<.."
+      ],
+      "furn": [
+        "..........",
+        ".*......*.",
+        ".........."
+      ],
+      "doors": [[0,0,"W",3],[9,0,"E",3]]
+    },
+    {
+      "id": "gal-stair-long",
+      "kind": "gallery",
+      "set": "any",
+      "role": "stair",
+      "type": "pipegallery",
+      "map": [
+        "..............",
+        "..............",
+        ".............."
+      ],
+      "height": [
+        "0000abcdefffff",
+        "0000abcdefffff",
+        "0000abcdefffff"
+      ],
+      "stair": [
+        "....<<<<<<....",
+        "....<<<<<<....",
+        "....<<<<<<...."
+      ],
+      "furn": [
+        "..M.......M...",
+        "..*........*..",
+        "..~.......~..."
+      ],
+      "doors": [[0,0,"W",3],[13,0,"E",3],[3,0,"N",1],[11,2,"S",1]]
+    },
+    {
+      "id": "gal-end",
+      "kind": "gallery",
+      "set": "any",
+      "role": "cap",
+      "type": "pipegallery",
+      "map": [
+        "...",
+        "...",
+        "...",
+        "..."
+      ],
+      "furn": [
+        "MMM",
+        "~.~",
+        ".*.",
+        "..."
+      ],
+      "doors": [[0,3,"S",3]]
+    },
+    {
+      "id": "corr-run-10",
+      "kind": "corridor",
+      "set": ["intake","staff","plant"],
+      "role": "corridor",
+      "type": "corridor",
+      "max": 40,
+      "map": [
+        "..........",
+        ".........."
+      ],
+      "furn": [
+        "..*....*..",
+        ".........."
+      ],
+      "doors": [[0,0,"W",2],[9,0,"E",2],[2,0,"N",1],[6,0,"N",1],[3,1,"S",1],[8,1,"S",1]]
+    },
+    {
+      "id": "corr-run-6",
+      "kind": "corridor",
+      "set": ["intake","staff","plant"],
+      "role": "corridor",
+      "type": "corridor",
+      "max": 40,
+      "map": [
+        "......",
+        "......"
+      ],
+      "furn": [
+        "...*..",
+        "......"
+      ],
+      "doors": [[0,0,"W",2],[5,0,"E",2],[2,0,"N",1],[3,1,"S",1]]
+    },
+    {
+      "id": "corr-tee",
+      "kind": "corridor",
+      "set": ["intake","staff","plant"],
+      "role": "corridor",
+      "type": "corridor",
+      "max": 28,
+      "map": [
+        "......",
+        "......",
+        "  ..  ",
+        "  ..  "
+      ],
+      "furn": [
+        "......",
+        "...*..",
+        "      ",
+        "      "
+      ],
+      "doors": [[0,0,"W",2],[5,0,"E",2],[2,3,"S",2],[1,0,"N",1],[4,0,"N",1]]
+    },
+    {
+      "id": "corr-bend",
+      "kind": "corridor",
+      "set": ["intake","staff","plant"],
+      "role": "corridor",
+      "type": "corridor",
+      "max": 28,
+      "map": [
+        "..  ",
+        "..  ",
+        "....",
+        "...."
+      ],
+      "furn": [
+        "    ",
+        "    ",
+        ".*..",
+        "...."
+      ],
+      "doors": [[0,0,"N",2],[3,2,"E",2],[1,3,"S",1],[0,3,"W",1]]
+    },
+    {
+      "id": "staff-wing",
+      "kind": "corridor",
+      "set": ["intake","staff"],
+      "role": "corridor",
+      "type": "corridor",
+      "weight": 1.4,
+      "max": 3,
+      "note": "Offices and the foreman north, the crew's break room at the end; lockers, toilets and showers south. One corridor through it.",
+      "map": [
+        "ooooooooooobbbbb",
+        "ooooooooooobbbbb",
+        "ooooooooooobbbbb",
+        "ooooooooooobbbbb",
+        "ooooooooooobbbbb",
+        "cccccccccccccccc",
+        "cccccccccccccccc",
+        "sssssssooooooooo",
+        "sssssssooooooooo",
+        "sssssssooooooooo",
+        "sssssssooooooooo",
+        "sssssssooooooooo"
+      ],
+      "rooms": [
+        "AAAAABBBBBBCCCCC",
+        "AAAAABBBBBBCCCCC",
+        "AAAAABBBBBBCCCCC",
+        "AAAAABBBBBBCCCCC",
+        "AAAAABBBBBBCCCCC",
+        "1111111111111111",
+        "1111111111111111",
+        "DDDDDDEEEEFFFFFF",
+        "DDDDDDEEEEFFFFFF",
+        "DDDDDDEEEEFFFFFF",
+        "DDDDDDEEEEFFFFFF",
+        "DDDDDDEEEEFFFFFF"
+      ],
+      "furn": [
+        "SSSSSCC..CCUUUUU",
+        "S..........b...U",
+        "S.d...d.*..t.*.U",
+        "S.*........b....",
+        "................",
+        ".....*..........",
+        "...........*....",
+        "..........z.....",
+        "L.*.......z..*.z",
+        "L.bb...*.U.....z",
+        "L........U.....z",
+        "LLLLLLzzzz......"
+      ],
+      "roomKinds": {"1":"corridor","A":"office","B":"foreman","C":"breakroom","D":"lockers","E":"toilets","F":"showers"},
+      "inner": [[2,4,"S",1],[7,4,"S",1],[13,4,"S",1],[3,7,"N",1],[7,7,"N",1],[12,7,"N",1]],
+      "doors": [[0,5,"W",2],[15,5,"E",2],[8,0,"N",1],[13,11,"S",1]]
+    },
+    {
+      "id": "office-block",
+      "kind": "corridor",
+      "set": "staff",
+      "role": "corridor",
+      "type": "corridor",
+      "weight": 1.4,
+      "max": 3,
+      "note": "Records, offices and the supervisor either side of a corridor, with a control room and its switch room across from each other.",
+      "map": [
+        "ooooo..ooooo",
+        "ooooo..ooooo",
+        "ooooo..ooooo",
+        "ooooo..ooooo",
+        "ooooo..ooooo",
+        "kkkkk..sssss",
+        "kkkkk..sssss",
+        "kkkkk..sssss",
+        "kkkkk..sssss",
+        "kkkkk..sssss",
+        "kkkkk..sssss",
+        "ooooo..ooooo",
+        "ooooo..ooooo",
+        "ooooo..ooooo",
+        "ooooo..ooooo",
+        "ooooo..ooooo"
+      ],
+      "rooms": [
+        "AAAAA11BBBBB",
+        "AAAAA11BBBBB",
+        "AAAAA11BBBBB",
+        "AAAAA11BBBBB",
+        "AAAAA11BBBBB",
+        "CCCCC11DDDDD",
+        "CCCCC11DDDDD",
+        "CCCCC11DDDDD",
+        "CCCCC11DDDDD",
+        "CCCCC11DDDDD",
+        "CCCCC11DDDDD",
+        "EEEEE11FFFFF",
+        "EEEEE11FFFFF",
+        "EEEEE11FFFFF",
+        "EEEEE11FFFFF",
+        "EEEEE11FFFFF"
+      ],
+      "furn": [
+        "SSSSS..SSSSS",
+        ".......S...S",
+        "..d......=.S",
+        ".*.....S.=*S",
+        ".....*......",
+        "CCCCC..B.I.B",
+        ".......B...B",
+        ".dd....B....",
+        "..*......*.B",
+        ".....*.B.I.B",
+        ".B.B.......B",
+        "K.....*....C",
+        "K..........C",
+        "..d......d..",
+        "..*.......*.",
+        "........SSS."
+      ],
+      "roomKinds": {"1":"corridor","A":"office","B":"records","C":"control","D":"switchgear","E":"office","F":"supervisor"},
+      "inner": [[4,2,"E",1],[7,2,"W",1],[4,7,"E",1],[7,8,"W",1],[4,13,"E",1],[7,13,"W",1]],
+      "doors": [[5,0,"N",2],[5,15,"S",2],[11,7,"E",1],[0,8,"W",1]]
+    },
+    {
+      "id": "tun-run-8",
+      "kind": "tunnel",
+      "set": ["staff","plant","machinery"],
+      "role": "corridor",
+      "type": "tunnel",
+      "max": 28,
+      "map": [
+        "........"
+      ],
+      "furn": [
+        "..~..*.."
+      ],
+      "doors": [[0,0,"W",1],[7,0,"E",1],[5,0,"S",1]]
+    },
+    {
+      "id": "tun-run-12",
+      "kind": "tunnel",
+      "set": ["staff","plant","machinery"],
+      "role": "corridor",
+      "type": "tunnel",
+      "max": 28,
+      "map": [
+        "............"
+      ],
+      "furn": [
+        "...M..*.~..."
+      ],
+      "doors": [[0,0,"W",1],[11,0,"E",1],[6,0,"N",1],[9,0,"S",1]]
+    },
+    {
+      "id": "tun-bend",
+      "kind": "tunnel",
+      "set": ["staff","plant","machinery"],
+      "role": "corridor",
+      "type": "tunnel",
+      "max": 28,
+      "map": [
+        ".  ",
+        ".  ",
+        "..."
+      ],
+      "furn": [
+        "   ",
+        "   ",
+        "*.."
+      ],
+      "doors": [[0,0,"N",1],[2,2,"E",1]]
+    },
+    {
+      "id": "tun-tee",
+      "kind": "tunnel",
+      "set": ["staff","plant","machinery"],
+      "role": "corridor",
+      "type": "tunnel",
+      "max": 28,
+      "map": [
+        ".....",
+        "  .  "
+      ],
+      "furn": [
+        "..*..",
+        "     "
+      ],
+      "doors": [[0,0,"W",1],[4,0,"E",1],[2,1,"S",1]]
+    },
+    {
+      "id": "tun-cross",
+      "kind": "tunnel",
+      "set": ["staff","plant","machinery"],
+      "role": "corridor",
+      "type": "tunnel",
+      "weight": 0.6,
+      "max": 16,
+      "map": [
+        " . ",
+        "...",
+        " . "
+      ],
+      "furn": [
+        "   ",
+        ".*.",
+        "   "
+      ],
+      "doors": [[1,0,"N",1],[1,2,"S",1],[0,1,"W",1],[2,1,"E",1]]
+    },
+    {
+      "id": "tun-stair",
+      "kind": "tunnel",
+      "set": ["staff","plant","machinery"],
+      "role": "stair",
+      "type": "tunnel",
+      "max": 8,
+      "map": [
+        ".........."
+      ],
+      "height": [
+        "00abcdefff"
+      ],
+      "stair": [
+        "..<<<<<<.."
+      ],
+      "furn": [
+        "*........*"
+      ],
+      "doors": [[0,0,"W",1],[9,0,"E",1]]
+    },
+    {
+      "id": "lockers",
+      "kind": "lockers",
+      "set": ["intake","staff"],
+      "role": "room",
+      "type": "suite",
+      "weight": 1.5,
+      "min": 1,
+      "max": 8,
+      "map": [
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........"
+      ],
+      "furn": [
+        "LLLLLLLL",
+        "L......L",
+        "L.bbbb.L",
+        "L..*....",
+        "L......L",
+        "LL.LLLLL"
+      ],
+      "doors": [[2,5,"S",1],[7,3,"E",1]]
+    },
+    {
+      "id": "showers",
+      "kind": "showers",
+      "set": ["intake","staff"],
+      "role": "room",
+      "type": "suite",
+      "max": 6,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "zzzzzz",
+        "......",
+        "..b..U",
+        "..b..U",
+        ".*....",
+        "......"
+      ],
+      "doors": [[3,5,"S",1]]
+    },
+    {
+      "id": "mess-hall",
+      "kind": "breakroom",
+      "set": ["intake","staff"],
+      "role": "room",
+      "type": "breakroom",
+      "weight": 1.5,
+      "min": 1,
+      "max": 6,
+      "note": "The crew's mess: two long tables, the serving counter along the back. Lit — a safe room.",
+      "map": [
+        "..........",
+        "..........",
+        "..........",
+        "..........",
+        "..........",
+        "..........",
+        "..........",
+        ".........."
+      ],
+      "furn": [
+        "UUUUU..KKK",
+        "....*.....",
+        ".bbb..bbb.",
+        ".ttt..ttt.",
+        ".bbb..bbb.",
+        "..........",
+        "..*....*..",
+        "SS......SS"
+      ],
+      "doors": [[4,7,"S",2],[9,5,"E",1],[0,5,"W",1]]
+    },
+    {
+      "id": "breakroom",
+      "kind": "breakroom",
+      "set": "any",
+      "role": "room",
+      "type": "breakroom",
+      "weight": 1.2,
+      "max": 12,
+      "note": "A small break room: two tables, a counter and a cupboard. Lit — safe.",
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "UUU.KK",
+        "..b.b.",
+        "..t*t.",
+        "..b.b.",
+        "......"
+      ],
+      "doors": [[1,4,"S",1],[0,2,"W",1]]
+    },
+    {
+      "id": "tunnel-mess",
+      "kind": "breakroom",
+      "set": ["staff","plant","machinery"],
+      "role": "room",
+      "type": "breakroom",
+      "max": 10,
+      "note": "Where the tunnel crews eat: a table, a counter, shelves by the door. Lit — safe.",
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "UU.KKK",
+        "..b...",
+        "..t.*.",
+        "..b...",
+        "SS..SS"
+      ],
+      "doors": [[0,2,"W",1],[5,2,"E",1],[3,4,"S",1]]
+    },
+    {
+      "id": "toilets",
+      "kind": "toilets",
+      "set": ["intake","staff"],
+      "role": "room",
+      "type": "office",
+      "max": 8,
+      "map": [
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "furn": [
+        "zzzz.",
+        ".....",
+        "U.*..",
+        "U...."
+      ],
+      "doors": [[4,2,"E",1]]
+    },
+    {
+      "id": "office",
+      "kind": "office",
+      "set": ["staff","plant"],
+      "role": "room",
+      "type": "office",
+      "weight": 1.5,
+      "max": 20,
+      "map": [
+        ".....",
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "furn": [
+        "SSSKK",
+        ".....",
+        ".dd..",
+        "...*.",
+        "....."
+      ],
+      "doors": [[2,4,"S",1],[4,1,"E",1]]
+    },
+    {
+      "id": "records",
+      "kind": "records",
+      "set": "staff",
+      "role": "room",
+      "type": "office",
+      "max": 8,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "SSSSSS",
+        "S....S",
+        "S.==.S",
+        "S.==.S",
+        "S..*.S",
+        "SS.SSS"
+      ],
+      "doors": [[2,5,"S",1]]
+    },
+    {
+      "id": "control-room",
+      "kind": "control",
+      "set": ["staff","plant","machinery"],
+      "role": "room",
+      "type": "controlroom",
+      "weight": 1.3,
+      "min": 2,
+      "max": 10,
+      "note": "A wall of consoles, desks in front of it, breakers either side. Lit — safe.",
+      "map": [
+        "..........",
+        "..........",
+        "..........",
+        "..........",
+        "..........",
+        "..........",
+        ".........."
+      ],
+      "furn": [
+        "CCCCCCCCCC",
+        "..........",
+        ".dd....dd.",
+        "..........",
+        "..*....*..",
+        "B........B",
+        "BBK....KBB"
+      ],
+      "doors": [[4,6,"S",2],[0,3,"W",1],[9,3,"E",1]]
+    },
+    {
+      "id": "switch-room",
+      "kind": "switchgear",
+      "set": ["staff","plant"],
+      "role": "room",
+      "type": "suite",
+      "max": 10,
+      "map": [
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        "......."
+      ],
+      "furn": [
+        "BBBBBBB",
+        ".......",
+        ".I.I.I.",
+        ".......",
+        "..*....",
+        "BB.BBBB"
+      ],
+      "doors": [[2,5,"S",1]]
+    },
+    {
+      "id": "foreman",
+      "kind": "foreman",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "office",
+      "max": 8,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "CC.SSS",
+        "......",
+        ".dd..K",
+        "....*K",
+        "......"
+      ],
+      "doors": [[2,4,"S",1],[0,3,"W",1]]
+    },
+    {
+      "id": "pump-room",
+      "kind": "pumproom",
+      "set": "plant",
+      "role": "room",
+      "type": "suite",
+      "weight": 2,
+      "max": 16,
+      "map": [
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........"
+      ],
+      "furn": [
+        "MMMMMMMM",
+        "........",
+        ".PP..PP.",
+        ".PP..PP.",
+        ".......~",
+        "...*....",
+        "BB.....B"
+      ],
+      "doors": [[4,6,"S",1],[0,4,"W",1]]
+    },
+    {
+      "id": "transformer-room",
+      "kind": "transformer",
+      "set": "plant",
+      "role": "room",
+      "type": "suite",
+      "weight": 1.5,
+      "max": 12,
+      "map": [
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........"
+      ],
+      "furn": [
+        "BBBB.BBB",
+        "........",
+        ".RR..RR.",
+        ".RR..RR.",
+        "........",
+        "..*..*..",
+        "I......I"
+      ],
+      "doors": [[4,0,"N",1],[3,6,"S",2]]
+    },
+    {
+      "id": "compressor-room",
+      "kind": "compressor",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "suite",
+      "max": 12,
+      "map": [
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        "......."
+      ],
+      "furn": [
+        "MMM.MMM",
+        ".......",
+        ".OO.OO.",
+        "~.....~",
+        ".OO.OO.",
+        "...*..."
+      ],
+      "doors": [[3,0,"N",1],[3,5,"S",1]]
+    },
+    {
+      "id": "valve-room",
+      "kind": "valveroom",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "office",
+      "max": 12,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "MMMMMM",
+        "M....M",
+        "M.*..M",
+        ".....~",
+        "..MMMM"
+      ],
+      "doors": [[0,3,"W",1],[0,4,"S",1]]
+    },
+    {
+      "id": "sump",
+      "kind": "sump",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "office",
+      "max": 10,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "VV..VV",
+        "VV..VV",
+        "......",
+        "..*...",
+        "M....M",
+        "MM..MM"
+      ],
+      "doors": [[2,0,"N",1],[3,5,"S",1]]
+    },
+    {
+      "id": "generator-room",
+      "kind": "generator",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "suite",
+      "max": 12,
+      "map": [
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........"
+      ],
+      "furn": [
+        "BBB..BBB",
+        "........",
+        ".GG..GG.",
+        "........",
+        ".GG..GG.",
+        "~..*.~.."
+      ],
+      "doors": [[3,0,"N",2],[7,5,"E",1]]
+    },
+    {
+      "id": "tool-crib",
+      "kind": "toolcrib",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "office",
+      "max": 10,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "WWW.SS",
+        "......",
+        "xx..*.",
+        "......",
+        "S..q.S"
+      ],
+      "doors": [[3,0,"N",1],[5,2,"E",1]]
+    },
+    {
+      "id": "storage",
+      "kind": "storage",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "warehouse",
+      "max": 10,
+      "map": [
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        "......."
+      ],
+      "furn": [
+        "SSSSSSS",
+        ".......",
+        ".====..",
+        ".....*.",
+        ".====..",
+        "pp...xx"
+      ],
+      "doors": [[6,2,"E",1],[0,3,"W",1]]
+    },
+    {
+      "id": "pump-station",
+      "name": "Pump Station",
+      "kind": "enginehall",
+      "set": "plant",
+      "role": "hall",
+      "type": "catwalk",
+      "min": 1,
+      "max": 2,
+      "note": "A catwalk ring three metres over a pit of pumps, a stair down at each corner.",
+      "map": [
+        "......................",
+        "......................",
+        "...eeeeeeeeeeeeeeee...",
+        "...eeeeeeeeeeeeeeee...",
+        "..eeeeeeeeeeeeeeeeee..",
+        "..eeeeeeeeeeeeeeeeee..",
+        "..eeeeeeeeeeeeeeeeee..",
+        "..eeeeeeeeeeeeeeeeee..",
+        "..eeeeeeeeeeeeeeeeee..",
+        "..eeeeeeeeeeeeeeeeee..",
+        "..eeeeeeeeeeeeeeeeee..",
+        "...eeeeeeeeeeeeeeee...",
+        "...eeeeeeeeeeeeeeee...",
+        "......................",
+        "......................"
+      ],
+      "height": [
+        "0000000000000000000000",
+        "0000000000000000000000",
+        "000abcdeffffffedcba000",
+        "000abcdeffffffedcba000",
+        "00ffffffffffffffffff00",
+        "00ffffffffffffffffff00",
+        "00ffffffffffffffffff00",
+        "00ffffffffffffffffff00",
+        "00ffffffffffffffffff00",
+        "00ffffffffffffffffff00",
+        "00ffffffffffffffffff00",
+        "000abcdeffffffedcba000",
+        "000abcdeffffffedcba000",
+        "0000000000000000000000",
+        "0000000000000000000000"
+      ],
+      "stair": [
+        "......................",
+        "......................",
+        "...<<<<<<....>>>>>>...",
+        "...<<<<<<....>>>>>>...",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "...<<<<<<....>>>>>>...",
+        "...<<<<<<....>>>>>>...",
+        "......................",
+        "......................"
+      ],
+      "furn": [
+        ".....*..........*.....",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "....PP.PP.PP.PP.PP....",
+        "....PP.PP.PP.PP.PP....",
+        "..~..*.....*....*..~..",
+        "....PP.PP.PP.PP.PP....",
+        "....PP.PP.PP.PP.PP....",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        ".....*..........*....."
+      ],
+      "doors": [[0,6,"W",3],[21,6,"E",3],[10,0,"N",2],[10,14,"S",2]]
+    },
+    {
+      "id": "turbine-hall",
+      "name": "The Turbine Hall",
+      "kind": "enginehall",
+      "set": "machinery",
+      "role": "hall",
+      "type": "catwalk",
+      "min": 1,
+      "max": 1,
+      "note": "The biggest room in the level: galleries run the length of it as catwalks over four turbine sets.",
+      "map": [
+        "........................................",
+        "........................................",
+        "........................................",
+        "eeeeeee.eeeeeeeeeeeeeeeeeeeeeeee.eeeeeee",
+        "eeeeeee.eeeeeeeeeeeeeeeeeeeeeeee.eeeeeee",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "eeeeeee.eeeeeeeeeeeeeeeeeeeeeeee.eeeeeee",
+        "eeeeeee.eeeeeeeeeeeeeeeeeeeeeeee.eeeeeee",
+        "........................................",
+        "........................................",
+        "........................................"
+      ],
+      "height": [
+        "0000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000",
+        "fffffff0abcdeffffffffffffffedcba0fffffff",
+        "fffffff0abcdeffffffffffffffedcba0fffffff",
+        "ffffffffffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffffffffffff",
+        "ffffffffffffffffffffffffffffffffffffffff",
+        "fffffff0abcdeffffffffffffffedcba0fffffff",
+        "fffffff0abcdeffffffffffffffedcba0fffffff",
+        "0000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000",
+        "0000000000000000000000000000000000000000"
+      ],
+      "stair": [
+        "........................................",
+        "........................................",
+        "........................................",
+        "........<<<<<<............>>>>>>........",
+        "........<<<<<<............>>>>>>........",
+        "........................................",
+        "........................................",
+        "........................................",
+        "........................................",
+        "........................................",
+        "........................................",
+        "........................................",
+        "........................................",
+        "........<<<<<<............>>>>>>........",
+        "........<<<<<<............>>>>>>........",
+        "........................................",
+        "........................................",
+        "........................................"
+      ],
+      "furn": [
+        "........................................",
+        "....*.......*.......*.......*.......*...",
+        "........................................",
+        "....................~...................",
+        "........................................",
+        "........*........*........*........*....",
+        "........................................",
+        "....TTTTTT...TTTTTT...TTTTTT...TTTTTT...",
+        "....TTTTTT...TTTTTT...TTTTTT...TTTTTT...",
+        "....TTTTTT...TTTTTT...TTTTTT...TTTTTT...",
+        "~......................................~",
+        "......GG.......GG.......GG.......GG.....",
+        "........*........*........*........*....",
+        "........................................",
+        "....................~...................",
+        "........................................",
+        "....*.......*.......*.......*.......*...",
+        "........................................"
+      ],
+      "doors": [[0,0,"W",3],[39,0,"E",3],[0,15,"W",3],[39,15,"E",3],[19,0,"N",2],[20,17,"S",1]]
+    },
+    {
+      "id": "boiler-house",
+      "name": "The Boiler House",
+      "kind": "boilerhouse",
+      "set": "machinery",
+      "role": "hall",
+      "type": "boilerhouse",
+      "min": 1,
+      "max": 1,
+      "note": "Four boilers against the back wall with a service gap behind them, steam vents on the stokers' side, fuel stacked by the south wall.",
+      "map": [
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................",
+        "............................"
+      ],
+      "furn": [
+        "MMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+        "............................",
+        "..QQQQQ.QQQQQ.QQQQQ.QQQQQ...",
+        "..QQQQQ.QQQQQ.QQQQQ.QQQQQ...",
+        "..QQQQQ.QQQQQ.QQQQQ.QQQQQ...",
+        "....~.....~.....~.....~.....",
+        "............................",
+        "...*.....*.....*.....*......",
+        "............................",
+        "............................",
+        "............................",
+        "...*.....*..........*....*..",
+        "............................",
+        "oo.xx.pp..........I.Ixx.oo.."
+      ],
+      "doors": [[0,9,"W",3],[27,9,"E",3],[13,13,"S",2]]
+    },
+    {
+      "id": "stores",
+      "name": "Central Stores",
+      "kind": "warehouse",
+      "set": "machinery",
+      "role": "hall",
+      "type": "warehouse",
+      "min": 1,
+      "max": 1,
+      "note": "Racking in back-to-back rows with a cross aisle, the loading floor at the south end.",
+      "map": [
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "furn": [
+        "SSSSSSSSSSS..SSSSSSSSSSS",
+        "........................",
+        "....*.......*.......*...",
+        "..========...========...",
+        "..========...========...",
+        "........................",
+        "....*.......*.......*...",
+        "..========...========...",
+        "..========...========...",
+        "........................",
+        "....*.......*.......*...",
+        "..========...========...",
+        "..========...========...",
+        "........................",
+        "....*.......*.......*...",
+        "........................",
+        "..pp..xx..pp....xx..pp..",
+        "........................"
+      ],
+      "doors": [[0,15,"W",3],[23,15,"E",3],[11,0,"N",2]]
+    },
+    {
+      "id": "machine-shop",
+      "name": "The Machine Shop",
+      "kind": "machineshop",
+      "set": "machinery",
+      "role": "hall",
+      "type": "machineshop",
+      "min": 1,
+      "max": 1,
+      "note": "Lathes in two rows, presses by the south wall, workbenches and tool cabinets along the north.",
+      "map": [
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "...................."
+      ],
+      "furn": [
+        "WWWWWWKKKKKKWWWWWWBB",
+        "....................",
+        "....*.......*.......",
+        "...HH..HH..HH..HH...",
+        "....................",
+        ".........*..........",
+        "....................",
+        "...HH..HH..HH..HH...",
+        "....*..........*....",
+        "..YY........YY..xx..",
+        "..YY........YY..oo..",
+        "SSSS............SSSS"
+      ],
+      "doors": [[0,4,"W",3],[19,4,"E",3],[9,11,"S",2]]
+    },
+    {
+      "id": "plant-block",
+      "kind": "corridor",
+      "set": "plant",
+      "role": "corridor",
+      "type": "corridor",
+      "weight": 1.4,
+      "max": 3,
+      "note": "A pump room and its switch room one side of a corridor, the transformer room and the valve room the other.",
+      "map": [
+        "ssssss..ssssss",
+        "ssssss..ssssss",
+        "ssssss..ssssss",
+        "ssssss..ssssss",
+        "ssssss..ssssss",
+        "ssssss..ssssss",
+        "ssssss..oooooo",
+        "ssssss..oooooo",
+        "ssssss..oooooo",
+        "ssssss..oooooo",
+        "ssssss..oooooo",
+        "ssssss..oooooo"
+      ],
+      "rooms": [
+        "AAAAAA11BBBBBB",
+        "AAAAAA11BBBBBB",
+        "AAAAAA11BBBBBB",
+        "AAAAAA11BBBBBB",
+        "AAAAAA11BBBBBB",
+        "AAAAAA11BBBBBB",
+        "AAAAAA11CCCCCC",
+        "DDDDDD11CCCCCC",
+        "DDDDDD11CCCCCC",
+        "DDDDDD11CCCCCC",
+        "DDDDDD11CCCCCC",
+        "DDDDDD11CCCCCC"
+      ],
+      "furn": [
+        "MMMMMM..BBBBBB",
+        ".....~........",
+        ".PP.......RR..",
+        ".PP.*.....RR..",
+        "..............",
+        ".PP...*..*..I.",
+        ".PP.....MMMMMM",
+        "BBBBBB........",
+        "...I.....*...M",
+        "..I..........M",
+        "..*....*~....M",
+        "BBBBBB..MMMMMM"
+      ],
+      "roomKinds": {"1":"corridor","A":"pumproom","B":"transformer","C":"valveroom","D":"switchgear"},
+      "inner": [[5,3,"E",1],[8,2,"W",1],[8,8,"W",1],[5,9,"E",1]],
+      "doors": [[6,0,"N",2],[6,11,"S",2],[0,9,"W",1],[13,3,"E",1]]
+    },
+    {
+      "id": "workshop-block",
+      "kind": "corridor",
+      "set": "machinery",
+      "role": "corridor",
+      "type": "corridor",
+      "weight": 1.4,
+      "max": 3,
+      "note": "The tool crib, the foreman and a small store north of the corridor; the fitting shop and the chemical store south.",
+      "map": [
+        "oooooooooooaaaaa",
+        "oooooooooooaaaaa",
+        "oooooooooooaaaaa",
+        "oooooooooooaaaaa",
+        "oooooooooooaaaaa",
+        "................",
+        "................",
+        "mmmmmmmmoooooooo",
+        "mmmmmmmmoooooooo",
+        "mmmmmmmmoooooooo",
+        "mmmmmmmmoooooooo",
+        "mmmmmmmmoooooooo"
+      ],
+      "rooms": [
+        "AAAAAABBBBBCCCCC",
+        "AAAAAABBBBBCCCCC",
+        "AAAAAABBBBBCCCCC",
+        "AAAAAABBBBBCCCCC",
+        "AAAAAABBBBBCCCCC",
+        "1111111111111111",
+        "1111111111111111",
+        "DDDDDDDDEEEEEEEE",
+        "DDDDDDDDEEEEEEEE",
+        "DDDDDDDDEEEEEEEE",
+        "DDDDDDDDEEEEEEEE",
+        "DDDDDDDDEEEEEEEE"
+      ],
+      "furn": [
+        "WWWSSSCC.CCSSSSS",
+        "................",
+        "xx..*..d.d..===.",
+        "........*......*",
+        "q..........pp...",
+        ".....*..........",
+        "...........*....",
+        "WWWW.WWWSS...SSS",
+        "................",
+        ".HH..HH..oo..oo.",
+        "...*..........*.",
+        "KKKK.KKKoooxxooo"
+      ],
+      "roomKinds": {"1":"corridor","A":"toolcrib","B":"foreman","C":"storage","D":"machineshop","E":"chemstore"},
+      "inner": [[3,4,"S",1],[8,4,"S",1],[13,4,"S",1],[4,7,"N",1],[11,7,"N",1]],
+      "doors": [[0,5,"W",2],[15,5,"E",2],[8,0,"N",1],[4,11,"S",1]]
+    },
+    {
+      "id": "gal-offices",
+      "kind": "gallery",
+      "set": ["staff","plant"],
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 1.2,
+      "max": 4,
+      "note": "A gallery with its rooms built along it: an office and a switch room north, a tool crib and a valve room south.",
+      "map": [
+        "oooooossssss",
+        "oooooossssss",
+        "oooooossssss",
+        "oooooossssss",
+        "............",
+        "............",
+        "............",
+        "oooooooooooo",
+        "oooooooooooo",
+        "oooooooooooo",
+        "oooooooooooo"
+      ],
+      "rooms": [
+        "AAAAAABBBBBB",
+        "AAAAAABBBBBB",
+        "AAAAAABBBBBB",
+        "AAAAAABBBBBB",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "CCCCCCDDDDDD",
+        "CCCCCCDDDDDD",
+        "CCCCCCDDDDDD",
+        "CCCCCCDDDDDD"
+      ],
+      "furn": [
+        "SSS.KKBBBBBB",
+        "............",
+        ".d..*.I...I*",
+        "............",
+        "............",
+        "..*......*..",
+        "............",
+        "WWW.WWMM.MMM",
+        "............",
+        "x..*....*..M",
+        "SSSSSSMMMMMM"
+      ],
+      "roomKinds": {"1":"gallery","A":"office","B":"switchgear","C":"toolcrib","D":"valveroom"},
+      "inner": [[2,3,"S",1],[9,3,"S",1],[3,7,"N",1],[8,7,"N",1]],
+      "doors": [[0,4,"W",3],[11,4,"E",3]]
+    },
+    {
+      "id": "gal-crew",
+      "kind": "gallery",
+      "set": ["intake","staff"],
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 1.2,
+      "max": 3,
+      "note": "The crew's gallery: lockers and toilets north, the mess and the drying room south. The mess is lit.",
+      "map": [
+        "ssssssoooooo",
+        "ssssssoooooo",
+        "ssssssoooooo",
+        "ssssssoooooo",
+        "............",
+        "............",
+        "............",
+        "bbbbbbssssss",
+        "bbbbbbssssss",
+        "bbbbbbssssss",
+        "bbbbbbssssss"
+      ],
+      "rooms": [
+        "AAAAAABBBBBB",
+        "AAAAAABBBBBB",
+        "AAAAAABBBBBB",
+        "AAAAAABBBBBB",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "CCCCCCDDDDDD",
+        "CCCCCCDDDDDD",
+        "CCCCCCDDDDDD",
+        "CCCCCCDDDDDD"
+      ],
+      "furn": [
+        "LLLLLLzzzzz.",
+        "L...........",
+        "L*.bb.U..*..",
+        "L.....U.....",
+        "............",
+        "..*......*..",
+        "............",
+        "UUU.KKLL.LLL",
+        ".b..b.......",
+        ".t..t*.bbb*.",
+        ".b..b.LLLLLL"
+      ],
+      "roomKinds": {"1":"gallery","A":"lockers","B":"toilets","C":"breakroom","D":"drying"},
+      "inner": [[2,3,"S",1],[9,3,"S",1],[3,7,"N",1],[8,7,"N",1]],
+      "doors": [[0,4,"W",3],[11,4,"E",3]]
+    },
+    {
+      "id": "generator-hall",
+      "name": "Generator Hall",
+      "kind": "generator",
+      "set": "plant",
+      "role": "hall",
+      "type": "machineshop",
+      "max": 2,
+      "note": "Two rows of generators, the switchboard along the north wall, cabinets along the south.",
+      "map": [
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "...................."
+      ],
+      "furn": [
+        "BBBBBBBBB..BBBBBBBBB",
+        "....................",
+        "..GG..GG..GG..GG....",
+        ".....*.......*......",
+        "....................",
+        ".........*..........",
+        "....................",
+        ".....*.......*......",
+        "..GG..GG..GG..GG....",
+        "....................",
+        "..I...I...I...I.....",
+        "MMMMMMMMMMMMMMMMMMMM"
+      ],
+      "doors": [[0,4,"W",3],[19,4,"E",3],[9,0,"N",2]]
+    },
+    {
+      "id": "filter-hall",
+      "name": "Filter Hall",
+      "kind": "filter",
+      "set": "plant",
+      "role": "hall",
+      "type": "boilerhouse",
+      "max": 1,
+      "note": "Horizontal filter tanks in two rows either side of the walkway, steam on their faces.",
+      "map": [
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................",
+        "......................"
+      ],
+      "furn": [
+        "MMMMMMMMMMMMMMMMMMMMMM",
+        "......................",
+        "..NNNN..NNNN..NNNN....",
+        "..NNNN..NNNN..NNNN....",
+        "....~.....~.....~.....",
+        ".....*.....*.....*....",
+        "......................",
+        "....~.....~.....~.....",
+        "..NNNN..NNNN..NNNN....",
+        "..NNNN..NNNN..NNNN....",
+        ".....*.....*.....*....",
+        "BBBBBBBBBB..BBBBBBBBBB"
+      ],
+      "doors": [[0,5,"W",3],[21,5,"E",3],[10,11,"S",2]]
+    },
+    {
+      "id": "tank-farm",
+      "name": "Tank Farm",
+      "kind": "tankfarm",
+      "set": "machinery",
+      "role": "hall",
+      "type": "boilerhouse",
+      "max": 1,
+      "note": "Twelve vertical tanks on a grid, fuel stacked by the south wall.",
+      "map": [
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+        "...................."
+      ],
+      "furn": [
+        "MMMMMMMMM..MMMMMMMMM",
+        "....................",
+        "..VV..VV..VV..VV....",
+        "..VV..VV..VV..VV....",
+        "....*.......*.......",
+        "....................",
+        "..VV..VV..VV..VV....",
+        "..VV..VV..VV..VV....",
+        "........*.......*...",
+        "....................",
+        "..VV..VV..VV..VV....",
+        "..VV..VV..VV..VV....",
+        "....*.......*.......",
+        "....................",
+        "....................",
+        "oo..xx..oo....xx..oo"
+      ],
+      "doors": [[0,12,"W",3],[19,12,"E",3],[9,0,"N",2]]
+    },
+    {
+      "id": "transformer-yard",
+      "name": "Transformer Yard",
+      "kind": "transformer",
+      "set": "plant",
+      "role": "hall",
+      "type": "machineshop",
+      "max": 1,
+      "note": "Eight transformers on a grid, the breakers along the north wall, cabinets along the south.",
+      "map": [
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        ".................."
+      ],
+      "furn": [
+        "BBBBBBBB..BBBBBBBB",
+        "..................",
+        "..RR..RR..RR..RR..",
+        "..RR..RR..RR..RR..",
+        ".....*.....*......",
+        "..................",
+        "..................",
+        "..................",
+        "..RR..RR..RR..RR..",
+        "..RR..RR..RR..RR..",
+        ".....*.....*......",
+        "I.I.I.I.I.I.I.I.I."
+      ],
+      "doors": [[0,5,"W",3],[17,5,"E",3],[8,0,"N",2]]
+    },
+    {
+      "id": "first-aid",
+      "kind": "firstaid",
+      "set": ["intake","staff","plant"],
+      "role": "room",
+      "type": "office",
+      "max": 6,
+      "map": [
+        ".....",
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "furn": [
+        "KKUU.",
+        ".....",
+        "b.*..",
+        "b....",
+        "SSSSS"
+      ],
+      "doors": [[4,2,"E",1]]
+    },
+    {
+      "id": "radio-room",
+      "kind": "radio",
+      "set": ["staff","machinery"],
+      "role": "room",
+      "type": "office",
+      "max": 6,
+      "map": [
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "furn": [
+        "CCCCC",
+        ".....",
+        ".d*..",
+        "B...."
+      ],
+      "doors": [[2,3,"S",1]]
+    },
+    {
+      "id": "chem-store",
+      "kind": "chemstore",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "office",
+      "max": 8,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "SSSSSS",
+        "......",
+        "oo..oo",
+        "...*..",
+        "oo..oo"
+      ],
+      "doors": [[0,3,"W",1]]
+    },
+    {
+      "id": "battery-room",
+      "kind": "battery",
+      "set": "plant",
+      "role": "room",
+      "type": "suite",
+      "max": 6,
+      "map": [
+        ".......",
+        ".......",
+        ".......",
+        ".......",
+        "......."
+      ],
+      "furn": [
+        "I.I.I.I",
+        ".......",
+        ".=====.",
+        "...*...",
+        "BB.BBBB"
+      ],
+      "doors": [[2,4,"S",1]]
+    },
+    {
+      "id": "meter-room",
+      "kind": "meters",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "office",
+      "max": 8,
+      "map": [
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "furn": [
+        "BBBBB",
+        ".....",
+        "M.*.M",
+        "MM.MM"
+      ],
+      "doors": [[2,3,"S",1]]
+    },
+    {
+      "id": "cable-vault",
+      "kind": "cablevault",
+      "set": ["plant","machinery"],
+      "role": "room",
+      "type": "office",
+      "max": 6,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "MMMMMM",
+        "......",
+        "..q.q.",
+        "...*..",
+        "======"
+      ],
+      "doors": [[0,2,"W",1]]
+    },
+    {
+      "id": "lamp-room",
+      "kind": "lamproom",
+      "set": ["intake","staff"],
+      "role": "room",
+      "type": "office",
+      "max": 6,
+      "map": [
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "furn": [
+        "SSSSS",
+        ".....",
+        "U.*..",
+        "U...."
+      ],
+      "doors": [[4,2,"E",1]]
+    },
+    {
+      "id": "boiler-feed",
+      "kind": "boilerfeed",
+      "set": "machinery",
+      "role": "room",
+      "type": "suite",
+      "max": 6,
+      "map": [
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........"
+      ],
+      "furn": [
+        "MMMMMMMM",
+        "........",
+        ".NNNN.PP",
+        ".NNNN.PP",
+        "........",
+        "~..*.BB."
+      ],
+      "doors": [[7,5,"S",1]]
+    },
+    {
+      "id": "filter-room",
+      "kind": "filter",
+      "set": "plant",
+      "role": "room",
+      "type": "suite",
+      "max": 6,
+      "map": [
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........"
+      ],
+      "furn": [
+        "BBB..BBB",
+        "........",
+        ".NNNN...",
+        ".NNNN..~",
+        "........",
+        "..*.MMMM"
+      ],
+      "doors": [[3,0,"N",2]]
+    },
+    {
+      "id": "drying-room",
+      "kind": "drying",
+      "set": ["intake","staff"],
+      "role": "room",
+      "type": "suite",
+      "max": 6,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "LLLLLL",
+        "......",
+        ".bbbb.",
+        "..*...",
+        "LL.LLL"
+      ],
+      "doors": [[2,4,"S",1]]
+    },
+    {
+      "id": "kitchen",
+      "kind": "kitchen",
+      "set": ["intake","staff"],
+      "role": "room",
+      "type": "office",
+      "max": 4,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "UUUUUU",
+        "......",
+        ".tt...",
+        "....*.",
+        "KK.KKK"
+      ],
+      "doors": [[2,4,"S",1],[5,2,"E",1]]
+    },
+    {
+      "id": "dispatch",
+      "kind": "dispatch",
+      "set": ["staff","plant"],
+      "role": "room",
+      "type": "office",
+      "max": 6,
+      "map": [
+        "......",
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "CCSSSS",
+        "......",
+        ".dd.*.",
+        "B....."
+      ],
+      "doors": [[5,1,"E",1]]
+    },
+    {
+      "id": "pump-alcove",
+      "kind": "pumproom",
+      "set": "plant",
+      "role": "room",
+      "type": "suite",
+      "max": 10,
+      "map": [
+        ".....",
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "furn": [
+        "MMMMM",
+        ".....",
+        ".PP..",
+        ".PP*.",
+        "....."
+      ],
+      "doors": [[3,4,"S",1],[4,2,"E",1]]
+    },
+    {
+      "id": "storeroom",
+      "kind": "storage",
+      "set": "any",
+      "role": "room",
+      "type": "warehouse",
+      "max": 10,
+      "map": [
+        ".....",
+        ".....",
+        ".....",
+        ".....",
+        "....."
+      ],
+      "furn": [
+        "SSSSS",
+        ".....",
+        ".===.",
+        "..*..",
+        "x...x"
+      ],
+      "doors": [[0,3,"W",1]]
+    },
+    {
+      "id": "gal-link-1",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 0.05,
+      "note": "A plain length of gallery the generator uses to line two galleries up.",
+      "map": [
+        ".",
+        ".",
+        "."
+      ],
+      "doors": [[0,0,"W",3],[0,0,"E",3]]
+    },
+    {
+      "id": "gal-link-2",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 0.05,
+      "note": "A plain length of gallery the generator uses to line two galleries up.",
+      "map": [
+        "..",
+        "..",
+        ".."
+      ],
+      "doors": [[0,0,"W",3],[1,0,"E",3]]
+    },
+    {
+      "id": "gal-link-3",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 0.05,
+      "note": "A plain length of gallery the generator uses to line two galleries up.",
+      "map": [
+        "...",
+        "...",
+        "..."
+      ],
+      "doors": [[0,0,"W",3],[2,0,"E",3]]
+    },
+    {
+      "id": "gal-link-4",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 0.05,
+      "note": "A plain length of gallery the generator uses to line two galleries up.",
+      "map": [
+        "....",
+        "....",
+        "...."
+      ],
+      "furn": [
+        "....",
+        "..*.",
+        "...."
+      ],
+      "doors": [[0,0,"W",3],[3,0,"E",3]]
+    },
+    {
+      "id": "gal-link-6",
+      "kind": "gallery",
+      "set": "any",
+      "role": "gallery",
+      "type": "pipegallery",
+      "weight": 0.05,
+      "note": "A plain length of gallery the generator uses to line two galleries up.",
+      "map": [
+        "......",
+        "......",
+        "......"
+      ],
+      "furn": [
+        "......",
+        "...*..",
+        "......"
+      ],
+      "doors": [[0,0,"W",3],[5,0,"E",3]]
+    },
+    {
+      "id": "corr-link-1",
+      "kind": "corridor",
+      "set": ["intake","staff","plant","machinery"],
+      "role": "corridor",
+      "type": "corridor",
+      "weight": 0.05,
+      "note": "A plain length of corridor the generator uses to line two corridors up.",
+      "map": [
+        ".",
+        "."
+      ],
+      "doors": [[0,0,"W",2],[0,0,"E",2]]
+    },
+    {
+      "id": "corr-link-2",
+      "kind": "corridor",
+      "set": ["intake","staff","plant","machinery"],
+      "role": "corridor",
+      "type": "corridor",
+      "weight": 0.05,
+      "note": "A plain length of corridor the generator uses to line two corridors up.",
+      "map": [
+        "..",
+        ".."
+      ],
+      "doors": [[0,0,"W",2],[1,0,"E",2]]
+    },
+    {
+      "id": "corr-link-3",
+      "kind": "corridor",
+      "set": ["intake","staff","plant","machinery"],
+      "role": "corridor",
+      "type": "corridor",
+      "weight": 0.05,
+      "note": "A plain length of corridor the generator uses to line two corridors up.",
+      "map": [
+        "...",
+        "..."
+      ],
+      "doors": [[0,0,"W",2],[2,0,"E",2]]
+    },
+    {
+      "id": "corr-link-4",
+      "kind": "corridor",
+      "set": ["intake","staff","plant","machinery"],
+      "role": "corridor",
+      "type": "corridor",
+      "weight": 0.05,
+      "note": "A plain length of corridor the generator uses to line two corridors up.",
+      "map": [
+        "....",
+        "...."
+      ],
+      "doors": [[0,0,"W",2],[3,0,"E",2]]
+    }
+  ]
+}

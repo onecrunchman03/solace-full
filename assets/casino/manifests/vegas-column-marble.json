@@ -1,0 +1,56 @@
+{
+ "file": "vegas/column-marble.glb",
+ "id": "column-marble",
+ "what": "cream marble column, plinth + capital",
+ "size": [
+  0.814,
+  4.48,
+  0.814
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 952,
+ "drawCalls": 1,
+ "bytes": 933924,
+ "materials": [
+  {
+   "name": "Column",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base",
+    "normal",
+    "orm"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "Roman Marble Column",
+  "author": "Ergin ERYILDIR",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/roman-marble-column-c17dfe2926ce48a6bbaca77dcc3a0d12"
+ },
+ "sourceScale": 0.01,
+ "objects": [
+  {
+   "name": "column-marble_0",
+   "dim": [
+    0.814,
+    4.48,
+    0.814
+   ],
+   "loc": [
+    0,
+    2.24,
+    0
+   ],
+   "tris": 952,
+   "mats": [
+    "Column"
+   ]
+  }
+ ]
+}

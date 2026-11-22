@@ -1,0 +1,188 @@
+<!doctype html>
+<!--
+  SURVIVORZ: renders a finisher PAIR — the zombie's attack and the survivor's reaction, the
+  same clip name on two packed bodies — placed the way the pack places them, for the review
+  videos (anim-videos.cjs --pair) and for finding those placements by eye.
+  ?a=<zombie glb>&b=<survivor glb>&size=360
+  r.use(clip, {bx, bz, byaw, ayaw, dir})  places the survivor bx/bz metres from the zombie, turned
+  byaw degrees; the zombie is turned ayaw; dir [x,y,z] points the camera another way.
+  r.overlap(t)  how far each body sinks into the other's torso (the hug's check).
+-->
+<meta charset="utf-8" />
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>html,body{margin:0;background:#26282b}canvas{display:block}</style>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+  import { canon } from "./anim-law.js";
+  const q = new URLSearchParams(location.search);
+  const size = Number(q.get("size") || 360);
+  const r = (window.r = { ready: false, error: null });
+  try {
+    const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    renderer.setSize(size, size); renderer.setPixelRatio(1); renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    document.body.append(renderer.domElement);
+    const scene = new THREE.Scene(); scene.background = new THREE.Color(0x26282b);
+    scene.add(new THREE.HemisphereLight(0xdfe6ee, 0x3a3530, 1.6));
+    const key = new THREE.DirectionalLight(0xffffff, 2.2); key.castShadow = true; key.shadow.mapSize.set(1024, 1024);
+    Object.assign(key.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 0.5, far: 14 }); key.shadow.bias = -0.0005;
+    scene.add(key); scene.add(key.target);
+    const rim = new THREE.DirectionalLight(0x9fb6d8, 1.0); rim.position.set(-3, 3, -2); scene.add(rim);
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.MeshStandardMaterial({ color: 0x55585c, roughness: 0.95 }));
+    floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+    const grid = new THREE.GridHelper(40, 80, 0xb8bec6, 0x9298a0); grid.position.y = 0.002; scene.add(grid);
+    const camera = new THREE.PerspectiveCamera(34, 1, 0.05, 100);
+    const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+// (A BLENDED BODY IS DRAWN CUT OUT, the show's rule — client/src/survivorz/show/bodymat.ts: Mixamo's converter marks
+    // body skin BLEND, and a blended skin draws its own back half through its front. Drawn raw here, Chad's, David's
+    // and Lewis's curled fingers read as torn skin in every close-up while the show drew them whole, Nov 16 2026)
+    const cutOut = (m) => { for (const mat of [].concat(m.material ?? [])) if (mat.transparent) { mat.transparent = false; mat.alphaTest = Math.max(mat.alphaTest, 0.5); mat.depthWrite = true; mat.needsUpdate = true; } };
+    const load = async (u) => { const g = await loader.loadAsync(u); g.scene.traverse((o) => { if (o.isMesh) { o.frustumCulled = false; o.castShadow = true; cutOut(o); } if (/body_proxy/.test(o.name)) o.visible = false; }); const holder = new THREE.Group(); holder.add(g.scene); scene.add(holder); return { g, holder, mixer: new THREE.AnimationMixer(g.scene), clips: Object.fromEntries(g.animations.map((c) => [c.name, c])) }; };
+    const A = await load(q.get("a")), B = await load(q.get("b"));
+    // (&aextra=<glb>: more clips for A from a skeleton-only file — a creator body's zombie halves,
+    // scripts/survivorz/pack-pairclips.mjs — added the way the show adds them, by node name)
+    if (q.get("aextra")) for (const c of (await loader.loadAsync(q.get("aextra"))).animations) A.clips[c.name] = c;
+    const hipsOf = (s) => { let h = null; s.traverse((o) => { if (!h && o.isBone && /hip|pelvis|^root\.?x$/i.test(o.name)) h = o; }); return h; };
+    const bonesUnder = (s) => { const h = hipsOf(s); const l = []; (h ?? s).traverse((o) => { if (o.isBone) l.push(o); }); return l; };
+    const aBones = bonesUnder(A.g.scene), bBones = bonesUnder(B.g.scene);
+    let acts = [], dur = 0;
+    const dir = new THREE.Vector3(0.62, 0.42, 0.66).normalize();
+    r.clips = () => Object.keys(A.clips).filter((n) => B.clips[n] || /^fz-/.test(n)).map((n) => ({ name: n, dur: A.clips[n].duration, pair: !!B.clips[n] }));
+    r.durOf = (n) => A.clips[n]?.duration ?? 0;
+    let bHold = null;
+    r.use = (name, o = {}) => {
+      for (const a of acts) a.stop(); acts = [];
+      A.holder.rotation.y = THREE.MathUtils.degToRad(o.ayaw || 0); A.holder.position.y = o.ay || 0;   // a ceiling ambush hangs the zombie from above
+      B.holder.position.set(o.bx || 0, 0, o.bz || 0); B.holder.rotation.y = THREE.MathUtils.degToRad(o.byaw || 0);
+      // a DUO (the hug) plays a different clip on each body: o.aname on A, o.bname on B
+      const an = o.aname || name, bn = o.bname || name;
+      B.holder.visible = !!B.clips[bn];
+      // (o.bonce: B's half plays once and holds its last frame, as the show plays a shorter half — a bite's survivor
+      // half is 3.2 s against the zombie's 4.2 s, and looped its shove came round again into the zombie backing off)
+      // (held by CLAMPING the time handed to B, not by LoopOnce: a LoopOnce action that reached its end once — the
+      // framing below poses the whole clip — is paused for good, and every later pose read B's first frame. The bite
+      // sweeps of Nov 10 2026 measured the survivor standing still in its idle because of it)
+      bHold = o.bonce && B.clips[bn] ? B.clips[bn].duration - 1e-4 : null;
+      for (const [S, c] of [[A, A.clips[an]], [B, B.clips[bn]]]) if (c) { const a = S.mixer.clipAction(c); a.reset().play(); acts.push(a); }
+      dur = A.clips[an].duration;
+      // frame both bodies over the whole clip
+      const box = new THREE.Box3(), v = new THREE.Vector3();
+      for (let i = 0; i <= 12; i++) { r.pose((dur * i) / 12); for (const b of [...aBones, ...(B.holder.visible ? bBones : [])]) box.expandByPoint(b.getWorldPosition(v)); }
+      box.min.y = Math.min(box.min.y, 0); box.expandByScalar(0.25);
+      const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
+      const radius = Math.max(s.y * 0.55, Math.hypot(s.x, s.z) * 0.5, 0.8);
+      camera.position.copy(c).addScaledVector(o.dir ? new THREE.Vector3(...o.dir).normalize() : dir, radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2)) * 1.02 * (o.zoom ?? 1)); c.y += o.lift ?? 0; camera.lookAt(c);
+      // (o.look [x,y,z] + o.dist: a close-up on one spot — the bite's mouth — instead of both bodies whole)
+      if (o.look) { const L = new THREE.Vector3(...o.look); camera.position.copy(L).addScaledVector(o.dir ? new THREE.Vector3(...o.dir).normalize() : dir, o.dist ?? 0.8); camera.lookAt(L); }
+      key.position.set(c.x + 1.2, 6, c.z + 1.6); key.target.position.set(c.x, 0, c.z); key.target.updateMatrixWorld();
+      return dur;
+    };
+    // how far each body's skin goes INSIDE the other's torso at time t. The torso is the skin
+    // weighted to the hips/spine/neck/clavicles, read as a surface round its own centre line in
+    // height bands and angle slices; a vertex of the other body nearer the centre than that
+    // surface is inside it, by the difference. Arms, hands and the other torso are all checked.
+    // -> { aInB: {max, n, by: {bone: n}}, bInA: … } (metres; n = vertices more than 1 cm in)
+    const skin = (S) => { const l = []; S.g.scene.traverse((o) => { if (o.isSkinnedMesh) l.push(o); }); return l; };
+    const verts = (S) => {
+      const out = [], v = new THREE.Vector3();
+      for (const m of skin(S)) {
+        const pos = m.geometry.attributes.position, si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
+        for (let i = 0; i < pos.count; i += 3) {
+          m.getVertexPosition(i, v); v.applyMatrix4(m.matrixWorld);
+          let best = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; best = si.getComponent(i, k); } }
+          // (hair flagged: a zombie's hair is its own material — ZombieHair; its HairCap is the scalp and stays — and hair is
+          // neither a limb nor a body: a hand pushing a head back sinks into it, and long hair lies on a shoulder)
+          out.push({ p: v.clone(), bone: m.skeleton.bones[best]?.name ?? "?", hair: HAIR_MAT.test(m.material?.name ?? ""), mat: m.material?.name ?? "" });
+        }
+      }
+      return out;
+    };
+    const TORSO = /(^|_)(hip|pelvis|spine_0\d|neck|shoulder_[lr]|clavicle_[lr])$/;
+    const HAIR_MAT = /hair(?!cap)/i;
+    // (banded along the INTO body's own spine, hips to neck, not the world's up: a partner lying down
+    // banded by height made each band the whole lying body, and everything near it read as inside)
+    const inside = (from0, into0, S) => {
+      const ax = boneW(S, "neck").sub(boneW(S, "hip")).normalize(), ref = Math.abs(ax.y) < 0.9 ? new THREE.Vector3(0, 1, 0) : new THREE.Vector3(1, 0, 0);
+      const ux = new THREE.Vector3().crossVectors(ref, ax).normalize(), uz = new THREE.Vector3().crossVectors(ux, ax).normalize();
+      const fr = (l) => l.map((x) => ({ bone: x.bone, hair: x.hair, mat: x.mat, p: new THREE.Vector3(x.p.dot(ux), x.p.dot(ax), x.p.dot(uz)) }));
+      const from = fr(from0), into = fr(into0);
+      const t = into.filter((x) => TORSO.test(canon(x.bone)));
+      const y0 = Math.min(...t.map((x) => x.p.y)), y1 = Math.max(...t.map((x) => x.p.y)), NB = 24, NA = 32, band = (y) => Math.floor(((y - y0) / (y1 - y0 + 1e-6)) * NB);
+      const cen = Array.from({ length: NB }, () => ({ x: 0, z: 0, n: 0 })), R = Array.from({ length: NB }, () => new Float32Array(NA));
+      for (const x of t) { const c = cen[band(x.p.y)]; c.x += x.p.x; c.z += x.p.z; c.n++; }
+      for (const c of cen) if (c.n) { c.x /= c.n; c.z /= c.n; }
+      const ang = (dx, dz) => Math.floor(((Math.atan2(dz, dx) + Math.PI) / (2 * Math.PI)) * NA) % NA;
+      for (const x of t) { const b = band(x.p.y), c = cen[b], dx = x.p.x - c.x, dz = x.p.z - c.z, a = ang(dx, dz); R[b][a] = Math.max(R[b][a], Math.hypot(dx, dz)); }
+      // (and the depth of the SIXTH deepest vertex, d6: the law's own rule that a few vertices past the line are
+      // contact noise — a 16 cm "overlap" of two thigh vertices beside a 1 cm one a frame earlier was the measure)
+      let max = 0, n = 0, deepAt = null; const by = {}, deeps = [];
+      for (const x of from) {
+        if (x.hair || x.p.y < y0 || x.p.y > y1) continue;
+        const b = band(x.p.y), c = cen[b]; if (!c.n) continue;
+        const dx = x.p.x - c.x, dz = x.p.z - c.z, d = R[b][ang(dx, dz)] - Math.hypot(dx, dz);
+        if (R[b][ang(dx, dz)] === 0 || d <= 0) continue;
+        if (d > max) deepAt = [...x.p.toArray().map((q) => +q.toFixed(3)), x.mat, x.bone, +d.toFixed(3), +R[b][ang(dx, dz)].toFixed(3)];
+        max = Math.max(max, d); deeps.push(d);
+        if (d > 0.01) { n++; const k = x.bone.replace(/^.*?(hip|spine_0\d|neck|head|shoulder_[lr]|upperarm_[lr]|lowerarm_[lr]|hand_[lr]|[a-z]+_0\d_[lr])$/, "$1"); by[k] = (by[k] || 0) + 1; }
+      }
+      deeps.sort((a, b) => b - a);
+      return { max: +max.toFixed(3), d6: +(deeps[5] ?? 0).toFixed(3), n, by, deepAt };
+    };
+    // the legs as capsules (thigh, shin, foot): the closest any of A's come to any of B's, less
+    // their thickness (<0 = the legs pass through each other)
+    const LEG = [["upperleg", "lowerleg", 0.075], ["lowerleg", "foot", 0.055], ["foot", "ball", 0.045]];
+    const boneW = (S, n) => { let f = null; S.g.scene.traverse((o) => { if (!f && o.isBone && (o.name === n || o.name.endsWith("_" + n) || canon(o.name) === n)) f = o; }); return f?.getWorldPosition(new THREE.Vector3()); };
+    const segs = (S) => ["l", "r"].flatMap((s) => LEG.map(([a, b, rad]) => ({ a: boneW(S, `${a}_${s}`), b: boneW(S, `${b}_${s}`), rad, n: `${a}_${s}` }))).filter((x) => x.a && x.b);
+    const segDist = (p1, q1, p2, q2) => { let best = Infinity; for (let i = 0; i <= 12; i++) for (let j = 0; j <= 12; j++) best = Math.min(best, p1.clone().lerp(q1, i / 12).distanceTo(p2.clone().lerp(q2, j / 12))); return best; };
+    r.legs = (t) => { r.pose(t); let worst = { gap: Infinity }; for (const x of segs(A)) for (const y of segs(B)) { const g = segDist(x.a, x.b, y.a, y.b) - x.rad - y.rad; if (g < worst.gap) worst = { gap: +g.toFixed(3), a: x.n, b: y.n }; } return worst; };
+    // ... and the HEADS: how far one body's skin sinks into the other's head (its head skin binned by direction
+    // round its middle, the furthest point in a bin its radius there — anim-build.html headSurface). The torso
+    // check stops at the neck: a zombie biting a shoulder had its face in the survivor's jaw and read clean
+    // (Nov 11 2026)
+    const HEAD_BONE = /(^|_)(head|eye|jaw|brow|lid|nose|teeth|tongue)/i;
+    // (the bins turned with the head bone, 16 rings x 32 slices — as the bake's fit reads the head in that bone's own frame:
+    // binned in the world's axes, a nose fell in different bins and the two disagreed by 4 cm on the same pose)
+    const inHead = (from, into, S) => {
+      const pts = into.filter((x) => !x.hair && HEAD_BONE.test(canon(x.bone))).map((x) => x.p);
+      if (!pts.length) return { max: 0, d6: 0, n: 0, by: {} };
+      let hb = null; S.g.scene.traverse((o) => { if (!hb && o.isBone && canon(o.name) === "head") hb = o; });
+      const qi = hb ? hb.getWorldQuaternion(new THREE.Quaternion()).invert() : new THREE.Quaternion();
+      const c = pts.reduce((s, q) => s.add(q), new THREE.Vector3()).multiplyScalar(1 / pts.length), loc = (q) => q.clone().sub(c).applyQuaternion(qi);
+      const NL = 16, NO = 32, R = new Float32Array(NL * NO);
+      const bin = (dx, dy, dz, r) => Math.min(NL - 1, Math.floor((Math.acos(Math.max(-1, Math.min(1, dy / r))) / Math.PI) * NL)) * NO + Math.floor(((Math.atan2(dz, dx) + Math.PI) / (2 * Math.PI)) * NO) % NO;
+      for (const q0 of pts) { const q = loc(q0), dx = q.x, dy = q.y, dz = q.z, r = Math.hypot(dx, dy, dz); if (r > 1e-6) { const b = bin(dx, dy, dz, r); R[b] = Math.max(R[b], r); } }
+      // (an empty bin takes the AVERAGE of its filled neighbours, not the largest: by the largest, the nose's radius
+      // spread round a sparsely sampled skull and the head read as a ball 16 cm round)
+      for (let pass = 0; pass < 4; pass++) { const R0 = R.slice(); for (let l = 0; l < NL; l++) for (let o = 0; o < NO; o++) if (!R0[l * NO + o]) { const nb = [R0[l * NO + (o + 1) % NO], R0[l * NO + (o + NO - 1) % NO], l > 0 ? R0[(l - 1) * NO + o] : 0, l < NL - 1 ? R0[(l + 1) * NO + o] : 0].filter((x) => x > 0); if (nb.length) R[l * NO + o] = nb.reduce((a, b) => a + b, 0) / nb.length; } }
+      let max = 0, n = 0; const by = {}, deeps = [];
+      for (const x of from) {
+        if (x.hair) continue;
+        const q = loc(x.p), dx = q.x, dy = q.y, dz = q.z, r = Math.hypot(dx, dy, dz); if (r < 1e-6) continue;
+        const d = R[bin(dx, dy, dz, r)] - r; if (d <= 0) continue;
+        max = Math.max(max, d); deeps.push(d);
+        if (d > 0.01) { n++; const k = canon(x.bone); by[k] = (by[k] || 0) + 1; }
+      }
+      deeps.sort((a, b) => b - a);
+      return { max: +max.toFixed(3), d6: +(deeps[5] ?? 0).toFixed(3), n, by };
+    };
+    r.overlap = (t) => { r.pose(t); const a = verts(A), b = verts(B); return { aInB: inside(a, b, B), bInA: inside(b, a, A), aInBHead: inHead(a, b, B), bInAHead: inHead(b, a, A) }; };
+    // (a probe: the closest any of A's skin on bones matching aRx comes to any of B's on bones matching bRx at t — the
+    // zombie's jaw to the bitten forearm, say; Infinity when either body has no such bones)
+    r.near = (t, aRx, bRx) => { r.pose(t); const ra = new RegExp(aRx, "i"), rb = new RegExp(bRx, "i"); const a = verts(A).filter((x) => ra.test(canon(x.bone))), b = verts(B).filter((x) => rb.test(canon(x.bone))); let m = Infinity; for (const x of a) for (const y of b) m = Math.min(m, x.p.distanceTo(y.p)); return +m.toFixed(3); };
+    r.verts = (t, who, rx) => { r.pose(t); const re = new RegExp(rx, "i"); return verts(who === "a" ? A : B).filter((x) => re.test(canon(x.bone))).map((x) => [+x.p.x.toFixed(3), +x.p.y.toFixed(3), +x.p.z.toFixed(3)]); };
+    r.centroid = (t, who, rx, noHair) => { r.pose(t); const re = new RegExp(rx, "i"), v = verts(who === "a" ? A : B).filter((x) => re.test(canon(x.bone)) && !(noHair && x.hair)); if (!v.length) return null; const c = v.reduce((s2, x) => s2.add(x.p), new THREE.Vector3()).multiplyScalar(1 / v.length); return [...c.toArray().map((x) => +x.toFixed(3)), v.length]; };
+    // (a probe: where one bone of A or B is at t, in the pair's world)
+    r.bone = (who, n, t) => { r.pose(t); return boneW(who === "a" ? A : B, n)?.toArray().map((x) => +x.toFixed(3)); };
+    // (the two bodies themselves, for a check written outside this page: scripts/survivorz/review/pair-true.cjs)
+    r.bodies = { A, B };
+    r.pose = (t) => { A.mixer.setTime(t); B.mixer.setTime(bHold != null ? Math.min(t, bHold) : t); scene.updateMatrixWorld(true); };
+    r.frame = (t) => { r.pose(t); renderer.render(scene, camera); return renderer.domElement.toDataURL("image/jpeg", 0.86); };
+    r.ready = true;
+  } catch (e) { r.error = String(e && e.stack || e); r.ready = true; }
+</script>

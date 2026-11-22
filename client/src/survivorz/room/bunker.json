@@ -1,0 +1,6216 @@
+{
+  "about": "THE BUNKER, Civil Defence Shelter 14 (docs/survivorz/BUNKER.md). Written by scripts/survivorz/bunker/layout.mjs (edit that, not this); read by scripts/survivorz/room-build.py --set bunker and client/src/survivorz/room/lobby.ts.",
+  "greybox": "bunker-greybox.json",
+  "vaultDoor": true,
+  "vaultAt": [
+    40,
+    57,
+    180
+  ],
+  "rooms": [
+    "tunnel",
+    "vestibule",
+    "decon",
+    "equipment",
+    "common",
+    "hall-n",
+    "hall-w",
+    "hall-e",
+    "pass-n",
+    "pass-w",
+    "pass-e",
+    "barracks",
+    "private-a",
+    "private-b",
+    "laundry",
+    "maint",
+    "armory",
+    "security",
+    "radio",
+    "generator",
+    "workshop",
+    "infirmary",
+    "qm",
+    "mess",
+    "kitchen",
+    "stores"
+  ],
+  "roomRects": {
+    "tunnel": {
+      "x": 37,
+      "z": 57,
+      "w": 6,
+      "h": 20,
+      "zone": "entrance"
+    },
+    "vestibule": {
+      "x": 34,
+      "z": 51,
+      "w": 12,
+      "h": 6,
+      "zone": "entrance"
+    },
+    "decon": {
+      "x": 38.5,
+      "z": 41,
+      "w": 3,
+      "h": 10,
+      "zone": "entrance"
+    },
+    "equipment": {
+      "x": 41.5,
+      "z": 43,
+      "w": 7.5,
+      "h": 8,
+      "zone": "entrance"
+    },
+    "common": {
+      "x": 26,
+      "z": 21,
+      "w": 28,
+      "h": 20,
+      "zone": "commons"
+    },
+    "hall-n": {
+      "x": 14,
+      "z": 14,
+      "w": 48,
+      "h": 4,
+      "zone": "commons"
+    },
+    "hall-w": {
+      "x": 14,
+      "z": 18,
+      "w": 4,
+      "h": 32,
+      "zone": "commons"
+    },
+    "hall-e": {
+      "x": 62,
+      "z": 6,
+      "w": 4,
+      "h": 46,
+      "zone": "commons"
+    },
+    "pass-n": {
+      "x": 38,
+      "z": 18,
+      "w": 4,
+      "h": 3,
+      "zone": "commons"
+    },
+    "pass-w": {
+      "x": 18,
+      "z": 29,
+      "w": 8,
+      "h": 4,
+      "zone": "commons"
+    },
+    "pass-e": {
+      "x": 54,
+      "z": 29,
+      "w": 8,
+      "h": 4,
+      "zone": "commons"
+    },
+    "barracks": {
+      "x": 2,
+      "z": 18,
+      "w": 12,
+      "h": 16,
+      "zone": "dorms"
+    },
+    "private-a": {
+      "x": 6,
+      "z": 36,
+      "w": 8,
+      "h": 6,
+      "zone": "dorms"
+    },
+    "private-b": {
+      "x": 6,
+      "z": 42,
+      "w": 8,
+      "h": 6,
+      "zone": "dorms"
+    },
+    "laundry": {
+      "x": 18,
+      "z": 18,
+      "w": 8,
+      "h": 11,
+      "zone": "dorms"
+    },
+    "maint": {
+      "x": 18,
+      "z": 8,
+      "w": 6,
+      "h": 6,
+      "zone": "utility"
+    },
+    "armory": {
+      "x": 24,
+      "z": 2,
+      "w": 10,
+      "h": 12,
+      "zone": "command"
+    },
+    "security": {
+      "x": 35,
+      "z": 4,
+      "w": 10,
+      "h": 10,
+      "zone": "command"
+    },
+    "radio": {
+      "x": 48,
+      "z": 4,
+      "w": 10,
+      "h": 10,
+      "zone": "command"
+    },
+    "generator": {
+      "x": 66,
+      "z": 2,
+      "w": 16,
+      "h": 12,
+      "zone": "utility"
+    },
+    "workshop": {
+      "x": 54,
+      "z": 18,
+      "w": 8,
+      "h": 11,
+      "zone": "utility"
+    },
+    "infirmary": {
+      "x": 54,
+      "z": 33,
+      "w": 8,
+      "h": 13,
+      "zone": "commons"
+    },
+    "qm": {
+      "x": 54,
+      "z": 46,
+      "w": 8,
+      "h": 6,
+      "zone": "command"
+    },
+    "mess": {
+      "x": 66,
+      "z": 16,
+      "w": 14,
+      "h": 12,
+      "zone": "commons"
+    },
+    "kitchen": {
+      "x": 66,
+      "z": 28,
+      "w": 14,
+      "h": 6,
+      "zone": "commons"
+    },
+    "stores": {
+      "x": 66,
+      "z": 36,
+      "w": 16,
+      "h": 14,
+      "zone": "utility"
+    }
+  },
+  "styles": {
+    "tunnel": {
+      "floor": "tunnel-floor",
+      "ceiling": "tunnel-ceiling",
+      "bands": [
+        [
+          99,
+          "tunnel-wall"
+        ]
+      ]
+    },
+    "vestibule": {
+      "floor": "vault-floor",
+      "ceiling": "vault-ceiling",
+      "bands": [
+        [
+          1.2,
+          "steel-plate"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "decon": {
+      "floor": "rubber-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "decon-tiles"
+        ]
+      ]
+    },
+    "equipment": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.4,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "common": {
+      "floor": "polished-concrete",
+      "ceiling": "vault-ceiling",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "barracks": {
+      "floor": "painted-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "private-a": {
+      "floor": "vinyl-oak",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "private-b": {
+      "floor": "vinyl-oak",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "laundry": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.4,
+          "decon-tiles"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "maint": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.4,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "armory": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          1.2,
+          "steel-plate"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "security": {
+      "floor": "carpet-tile",
+      "ceiling": "office-ceiling",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          1.1,
+          "panel-dark"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "radio": {
+      "floor": "carpet-tile",
+      "ceiling": "office-ceiling",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          1.1,
+          "panel-dark"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "generator": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          1.4,
+          "steel-plate"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "workshop": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.4,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "infirmary": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "qm": {
+      "floor": "carpet-tile",
+      "ceiling": "office-ceiling",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "mess": {
+      "floor": "polished-concrete",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "kitchen": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.4,
+          "decon-tiles"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "stores": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.4,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "hall-n": {
+      "floor": "polished-concrete",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "hall-w": {
+      "floor": "polished-concrete",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "hall-e": {
+      "floor": "polished-concrete",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "pass-n": {
+      "floor": "polished-concrete",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "pass-w": {
+      "floor": "polished-concrete",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "pass-e": {
+      "floor": "polished-concrete",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    }
+  },
+  "skins": {
+    "hall-n": {
+      "room": "hall-n",
+      "ceilY": 3,
+      "slotAxis": "x",
+      "slotPitch": 1.6,
+      "slotInset": 0.6,
+      "slotWidth": 0.06,
+      "slotZ0": 16
+    },
+    "hall-w": {
+      "room": "hall-w",
+      "ceilY": 3,
+      "slotAxis": "z",
+      "slotPitch": 1.6,
+      "slotInset": 0.6,
+      "slotWidth": 0.06,
+      "slotX0": 16
+    },
+    "hall-e": {
+      "room": "hall-e",
+      "ceilY": 3,
+      "slotAxis": "z",
+      "slotPitch": 1.6,
+      "slotInset": 0.6,
+      "slotWidth": 0.06,
+      "slotX0": 64
+    },
+    "pass-n": {
+      "room": "pass-n",
+      "ceilY": 3,
+      "slotAxis": "x",
+      "slotPitch": 1.6,
+      "slotInset": 0.6,
+      "slotWidth": 0.06,
+      "slotZ0": 19.5
+    },
+    "pass-w": {
+      "room": "pass-w",
+      "ceilY": 3,
+      "slotAxis": "x",
+      "slotPitch": 1.6,
+      "slotInset": 0.6,
+      "slotWidth": 0.06,
+      "slotZ0": 31
+    },
+    "pass-e": {
+      "room": "pass-e",
+      "ceilY": 3,
+      "slotAxis": "x",
+      "slotPitch": 1.6,
+      "slotInset": 0.6,
+      "slotWidth": 0.06,
+      "slotZ0": 31
+    }
+  },
+  "arch": [
+    {
+      "what": "security window pane",
+      "glass": [
+        35.64,
+        1,
+        13.988,
+        39.16,
+        2.3,
+        14.012
+      ]
+    },
+    {
+      "what": "security window frame",
+      "key": "steel",
+      "box": [
+        35.6,
+        0.94,
+        13.89,
+        39.2,
+        1,
+        14.11
+      ]
+    },
+    {
+      "what": "security window frame",
+      "key": "steel",
+      "box": [
+        35.6,
+        2.3,
+        13.89,
+        39.2,
+        2.36,
+        14.11
+      ]
+    },
+    {
+      "what": "security window frame",
+      "key": "steel",
+      "box": [
+        35.56,
+        1,
+        13.89,
+        35.64,
+        2.3,
+        14.11
+      ]
+    },
+    {
+      "what": "security window frame",
+      "key": "steel",
+      "box": [
+        39.16,
+        1,
+        13.89,
+        39.24,
+        2.3,
+        14.11
+      ]
+    },
+    {
+      "what": "security window pane",
+      "glass": [
+        40.84,
+        1,
+        13.988,
+        44.36,
+        2.3,
+        14.012
+      ]
+    },
+    {
+      "what": "security window frame",
+      "key": "steel",
+      "box": [
+        40.8,
+        0.94,
+        13.89,
+        44.4,
+        1,
+        14.11
+      ]
+    },
+    {
+      "what": "security window frame",
+      "key": "steel",
+      "box": [
+        40.8,
+        2.3,
+        13.89,
+        44.4,
+        2.36,
+        14.11
+      ]
+    },
+    {
+      "what": "security window frame",
+      "key": "steel",
+      "box": [
+        40.76,
+        1,
+        13.89,
+        40.84,
+        2.3,
+        14.11
+      ]
+    },
+    {
+      "what": "security window frame",
+      "key": "steel",
+      "box": [
+        44.36,
+        1,
+        13.89,
+        44.44,
+        2.3,
+        14.11
+      ]
+    },
+    {
+      "what": "hatch sill",
+      "key": "stainless",
+      "box": [
+        71.2,
+        0.94,
+        27.85,
+        74.8,
+        1,
+        28.15
+      ]
+    },
+    {
+      "what": "hatch head",
+      "key": "steel",
+      "box": [
+        71.2,
+        2,
+        27.88,
+        74.8,
+        2.06,
+        28.12
+      ]
+    },
+    {
+      "what": "hatch jamb",
+      "key": "steel",
+      "box": [
+        71.17,
+        1,
+        27.88,
+        71.23,
+        2,
+        28.12
+      ]
+    },
+    {
+      "what": "hatch jamb",
+      "key": "steel",
+      "box": [
+        74.77,
+        1,
+        27.88,
+        74.83,
+        2,
+        28.12
+      ]
+    }
+  ],
+  "cutouts": [
+    {
+      "axis": "z",
+      "c": 14,
+      "a0": 35.6,
+      "a1": 39.2,
+      "y0": 1,
+      "y1": 2.3
+    },
+    {
+      "axis": "z",
+      "c": 14,
+      "a0": 40.8,
+      "a1": 44.4,
+      "y0": 1,
+      "y1": 2.3
+    },
+    {
+      "axis": "z",
+      "c": 28,
+      "a0": 71.2,
+      "a1": 74.8,
+      "y0": 1,
+      "y1": 2
+    }
+  ],
+  "props": [
+    {
+      "id": "paper-debris",
+      "at": [
+        38.6,
+        0,
+        66.3
+      ],
+      "yaw": 20,
+      "room": "tunnel"
+    },
+    {
+      "id": "rusted-can",
+      "at": [
+        41.9,
+        0,
+        63.1
+      ],
+      "yaw": 70,
+      "room": "tunnel"
+    },
+    {
+      "id": "planks",
+      "at": [
+        37.2,
+        0,
+        72.5
+      ],
+      "yaw": 90,
+      "room": "tunnel",
+      "rot": [
+        0,
+        0,
+        12
+      ]
+    },
+    {
+      "id": "valve-wheel",
+      "at": [
+        43.9,
+        1.15,
+        56.716
+      ],
+      "yaw": 180,
+      "room": "vestibule",
+      "note": "THE CRANK: turn it to swing the blast door shut"
+    },
+    {
+      "id": "warning-signs",
+      "at": [
+        36.2,
+        1.6,
+        56.898
+      ],
+      "yaw": 180,
+      "room": "vestibule"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        34.166,
+        0.4,
+        52.4
+      ],
+      "yaw": 90,
+      "room": "vestibule"
+    },
+    {
+      "id": "utility-box",
+      "at": [
+        44.9,
+        0,
+        51.316
+      ],
+      "yaw": 0,
+      "room": "vestibule"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        37.2,
+        0,
+        54.3
+      ],
+      "yaw": 30,
+      "room": "vestibule",
+      "rot": [
+        88,
+        0,
+        0
+      ],
+      "note": "knocked over in the breach"
+    },
+    {
+      "id": "wet-floor-sign",
+      "at": [
+        42.6,
+        0,
+        52.4
+      ],
+      "yaw": 120,
+      "room": "vestibule",
+      "rot": [
+        0,
+        0,
+        88
+      ],
+      "note": "knocked over in the breach"
+    },
+    {
+      "id": "floor-grate",
+      "at": [
+        40,
+        0,
+        46
+      ],
+      "yaw": 0,
+      "room": "decon"
+    },
+    {
+      "id": "floor-grate",
+      "at": [
+        40,
+        0,
+        44.6
+      ],
+      "yaw": 0,
+      "room": "decon"
+    },
+    {
+      "id": "soap-dispenser",
+      "at": [
+        38.66,
+        1.2,
+        47.8
+      ],
+      "yaw": 90,
+      "room": "decon"
+    },
+    {
+      "id": "glove-dispenser",
+      "at": [
+        41.326,
+        1.3,
+        44
+      ],
+      "yaw": -90,
+      "room": "decon"
+    },
+    {
+      "id": "suit-rail",
+      "at": [
+        46,
+        1.7,
+        43.19
+      ],
+      "yaw": 0,
+      "room": "equipment"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        45.2,
+        0,
+        43.29
+      ],
+      "yaw": 0,
+      "room": "equipment"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        46,
+        0,
+        43.29
+      ],
+      "yaw": 0,
+      "room": "equipment"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        46.8,
+        0,
+        43.29
+      ],
+      "yaw": 0,
+      "room": "equipment"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        48.615,
+        0,
+        46.2
+      ],
+      "yaw": -90,
+      "room": "equipment"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        46.4,
+        0,
+        50.623
+      ],
+      "yaw": 180,
+      "room": "equipment"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        43.4,
+        0,
+        50.728
+      ],
+      "yaw": 180,
+      "room": "equipment"
+    },
+    {
+      "id": "tool-chest",
+      "at": [
+        48.697,
+        0,
+        49.3
+      ],
+      "yaw": -90,
+      "room": "equipment"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        47.9,
+        0,
+        47.8
+      ],
+      "yaw": 25,
+      "room": "equipment"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        46,
+        0,
+        23.6
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        45.5,
+        0,
+        22.9
+      ],
+      "yaw": 5.26,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        46.5,
+        0,
+        22.9
+      ],
+      "yaw": -6.097,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        45.5,
+        0,
+        24.3
+      ],
+      "yaw": 186.238,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        46.5,
+        0,
+        24.3
+      ],
+      "yaw": 177.034,
+      "room": "common"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        50.6,
+        0,
+        23.6
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        50.1,
+        0,
+        22.9
+      ],
+      "yaw": -5.275,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        51.1,
+        0,
+        22.9
+      ],
+      "yaw": -7.536,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        50.1,
+        0,
+        24.3
+      ],
+      "yaw": 187.564,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        51.1,
+        0,
+        24.3
+      ],
+      "yaw": 177.715,
+      "room": "common"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        46,
+        0,
+        27
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        45.5,
+        0,
+        26.3
+      ],
+      "yaw": -7.262,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        46.5,
+        0,
+        26.3
+      ],
+      "yaw": 6.921,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        45.5,
+        0,
+        27.7
+      ],
+      "yaw": 185.625,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        46.5,
+        0,
+        27.7
+      ],
+      "yaw": 181.644,
+      "room": "common"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        50.6,
+        0,
+        27
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        50.1,
+        0,
+        26.3
+      ],
+      "yaw": 3.581,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        51.1,
+        0,
+        26.3
+      ],
+      "yaw": 3.71,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        50.1,
+        0,
+        27.7
+      ],
+      "yaw": 184.382,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        51.1,
+        0,
+        27.7
+      ],
+      "yaw": 177.406,
+      "room": "common"
+    },
+    {
+      "id": "coffee-mug",
+      "at": [
+        46.3,
+        0.78,
+        23.8
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "food-tray",
+      "at": [
+        50.4,
+        0.78,
+        27.1
+      ],
+      "yaw": 20,
+      "room": "common"
+    },
+    {
+      "id": "magazine-pile",
+      "at": [
+        45.6,
+        0.78,
+        27.2
+      ],
+      "yaw": 30,
+      "room": "common"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        46.2,
+        0,
+        36.4
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        45.7,
+        0,
+        35.7
+      ],
+      "yaw": 5.59,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        46.7,
+        0,
+        35.7
+      ],
+      "yaw": -2.639,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        45.7,
+        0,
+        37.1
+      ],
+      "yaw": 178.247,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        46.7,
+        0,
+        37.1
+      ],
+      "yaw": 181.396,
+      "room": "common"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        49.6,
+        0,
+        37.8
+      ],
+      "yaw": 16,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        48.926,
+        0,
+        37.265
+      ],
+      "yaw": 22.661,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        49.888,
+        0,
+        36.989
+      ],
+      "yaw": 23.791,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        49.312,
+        0,
+        38.611
+      ],
+      "yaw": 202.747,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        43.6,
+        0,
+        38.6
+      ],
+      "yaw": 60,
+      "room": "common",
+      "rot": [
+        88,
+        0,
+        0
+      ],
+      "note": "knocked over in the breach"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        41.2,
+        0,
+        36
+      ],
+      "yaw": -20,
+      "room": "common",
+      "rot": [
+        0,
+        0,
+        88
+      ],
+      "note": "knocked over in the breach"
+    },
+    {
+      "id": "water-dispenser",
+      "at": [
+        53.711,
+        0,
+        36.4
+      ],
+      "yaw": -90,
+      "room": "common"
+    },
+    {
+      "id": "vending-machine",
+      "at": [
+        53.594,
+        0,
+        38.4
+      ],
+      "yaw": -90,
+      "room": "common"
+    },
+    {
+      "id": "trash-can",
+      "at": [
+        52.4,
+        0,
+        40.625
+      ],
+      "yaw": 180,
+      "room": "common"
+    },
+    {
+      "id": "wall-tv",
+      "at": [
+        26.134,
+        1.5,
+        24.8
+      ],
+      "yaw": 90,
+      "room": "common"
+    },
+    {
+      "id": "lobby-sofa",
+      "at": [
+        31.6,
+        0,
+        24.8
+      ],
+      "yaw": -90,
+      "room": "common"
+    },
+    {
+      "id": "coffee-table",
+      "at": [
+        29.6,
+        0,
+        24.8
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "lobby-armchair",
+      "at": [
+        29.4,
+        0,
+        22.7
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "lobby-armchair",
+      "at": [
+        29.4,
+        0,
+        26.9
+      ],
+      "yaw": 180,
+      "room": "common"
+    },
+    {
+      "id": "cube-shelf",
+      "at": [
+        34.6,
+        0,
+        21.299
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "book-stack",
+      "at": [
+        29.4,
+        0.42,
+        24.6
+      ],
+      "yaw": 15,
+      "room": "common"
+    },
+    {
+      "id": "snake-plant",
+      "at": [
+        36.6,
+        0,
+        21.282
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "pool-table",
+      "at": [
+        31,
+        0,
+        37
+      ],
+      "yaw": 0,
+      "room": "common"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        35.4,
+        0,
+        36
+      ],
+      "yaw": 90,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        34.7,
+        0,
+        36.5
+      ],
+      "yaw": 84.364,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        36.1,
+        0,
+        36.5
+      ],
+      "yaw": 276.761,
+      "room": "common"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        36.1,
+        0,
+        35.5
+      ],
+      "yaw": 264.842,
+      "room": "common"
+    },
+    {
+      "id": "cards-scatter",
+      "at": [
+        35.4,
+        0.78,
+        36
+      ],
+      "yaw": 10,
+      "room": "common"
+    },
+    {
+      "id": "poker-set",
+      "at": [
+        35.2,
+        0.78,
+        36.4
+      ],
+      "yaw": 40,
+      "room": "common"
+    },
+    {
+      "id": "notice-board",
+      "at": [
+        26.7,
+        1.1,
+        37
+      ],
+      "yaw": 90,
+      "room": "common"
+    },
+    {
+      "id": "dead-plant",
+      "at": [
+        27.4,
+        0,
+        40.536
+      ],
+      "yaw": 180,
+      "room": "common"
+    },
+    {
+      "id": "wall-clock",
+      "at": [
+        33,
+        2.3,
+        40.877
+      ],
+      "yaw": 180,
+      "room": "common"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        33.4,
+        0.4,
+        14.166
+      ],
+      "yaw": 0,
+      "room": "hall-n"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        65.834,
+        0.4,
+        28
+      ],
+      "yaw": -90,
+      "room": "hall-e"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        2.545,
+        0,
+        20.6
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        0.46,
+        21.32
+      ],
+      "yaw": 172.172,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        2.545,
+        0.47,
+        20.45
+      ],
+      "yaw": 92.882,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        1.16,
+        21.32
+      ],
+      "yaw": 172.682,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        2.545,
+        1.17,
+        20.45
+      ],
+      "yaw": 95.598,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        1.86,
+        21.32
+      ],
+      "yaw": 185.645,
+      "room": "barracks"
+    },
+    {
+      "id": "sheets-rumpled",
+      "at": [
+        2.545,
+        1.87,
+        20.5
+      ],
+      "yaw": 93.359,
+      "room": "barracks"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        2.545,
+        0,
+        24.2
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        0.46,
+        24.92
+      ],
+      "yaw": 176.841,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        2.545,
+        0.47,
+        24.05
+      ],
+      "yaw": 89.541,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        1.16,
+        24.92
+      ],
+      "yaw": 178.336,
+      "room": "barracks"
+    },
+    {
+      "id": "sheets-rumpled",
+      "at": [
+        2.545,
+        1.17,
+        24.1
+      ],
+      "yaw": 81.643,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        1.86,
+        24.92
+      ],
+      "yaw": 182.352,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        2.545,
+        1.87,
+        24.05
+      ],
+      "yaw": 84.507,
+      "room": "barracks"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        2.545,
+        0,
+        27.8
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        0.46,
+        28.52
+      ],
+      "yaw": 184.988,
+      "room": "barracks"
+    },
+    {
+      "id": "sheets-rumpled",
+      "at": [
+        2.545,
+        0.47,
+        27.7
+      ],
+      "yaw": 96.719,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        1.16,
+        28.52
+      ],
+      "yaw": 186.007,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        2.545,
+        1.17,
+        27.65
+      ],
+      "yaw": 89.065,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        1.86,
+        28.52
+      ],
+      "yaw": 186.06,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        2.545,
+        1.87,
+        27.65
+      ],
+      "yaw": 87.652,
+      "room": "barracks"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        2.545,
+        0,
+        31.4
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        0.46,
+        32.12
+      ],
+      "yaw": 177.176,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        2.545,
+        0.47,
+        31.25
+      ],
+      "yaw": 94.785,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        1.16,
+        32.12
+      ],
+      "yaw": 173.183,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        2.545,
+        1.17,
+        31.25
+      ],
+      "yaw": 93.377,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        2.545,
+        1.86,
+        32.12
+      ],
+      "yaw": 180.437,
+      "room": "barracks"
+    },
+    {
+      "id": "sheets-rumpled",
+      "at": [
+        2.545,
+        1.87,
+        31.3
+      ],
+      "yaw": 92.033,
+      "room": "barracks"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        13.455,
+        0,
+        19.3
+      ],
+      "yaw": -90,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        13.455,
+        0.46,
+        18.58
+      ],
+      "yaw": -6.787,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        13.455,
+        0.47,
+        19.45
+      ],
+      "yaw": -93.385,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        13.455,
+        1.16,
+        18.58
+      ],
+      "yaw": 0.59,
+      "room": "barracks"
+    },
+    {
+      "id": "sheets-rumpled",
+      "at": [
+        13.455,
+        1.17,
+        19.4
+      ],
+      "yaw": -80.682,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        13.455,
+        1.86,
+        18.58
+      ],
+      "yaw": -3.178,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        13.455,
+        1.87,
+        19.45
+      ],
+      "yaw": -89.995,
+      "room": "barracks"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        13.455,
+        0,
+        22.6
+      ],
+      "yaw": -90,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        13.455,
+        0.46,
+        21.88
+      ],
+      "yaw": 1.801,
+      "room": "barracks"
+    },
+    {
+      "id": "sheets-rumpled",
+      "at": [
+        13.455,
+        0.47,
+        22.7
+      ],
+      "yaw": -78.981,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        13.455,
+        1.16,
+        21.88
+      ],
+      "yaw": -3.861,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        13.455,
+        1.17,
+        22.75
+      ],
+      "yaw": -94.009,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        13.455,
+        1.86,
+        21.88
+      ],
+      "yaw": 1.004,
+      "room": "barracks"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        13.455,
+        1.87,
+        22.75
+      ],
+      "yaw": -88.326,
+      "room": "barracks"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        8,
+        0,
+        18.385
+      ],
+      "yaw": 0,
+      "room": "barracks"
+    },
+    {
+      "id": "staff-lockers-open",
+      "at": [
+        13.435,
+        0,
+        31
+      ],
+      "yaw": -90,
+      "room": "barracks"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        8.4,
+        0,
+        26.6
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        8,
+        0,
+        27.3
+      ],
+      "yaw": 187.035,
+      "room": "barracks"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        8.8,
+        0,
+        25.9
+      ],
+      "yaw": 3.867,
+      "room": "barracks"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        7.9,
+        0,
+        25.9
+      ],
+      "yaw": -3.327,
+      "room": "barracks"
+    },
+    {
+      "id": "cards-scatter",
+      "at": [
+        8.4,
+        0.78,
+        26.4
+      ],
+      "yaw": 30,
+      "room": "barracks"
+    },
+    {
+      "id": "coffee-mug",
+      "at": [
+        8.6,
+        0.78,
+        27.2
+      ],
+      "yaw": 0,
+      "room": "barracks"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        4.4,
+        0,
+        20.6
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        4.4,
+        0,
+        24.2
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        4.4,
+        0,
+        27.8
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        4.4,
+        0,
+        31.4
+      ],
+      "yaw": 90,
+      "room": "barracks"
+    },
+    {
+      "id": "clothes-pile",
+      "at": [
+        6.4,
+        0,
+        22.8
+      ],
+      "yaw": 40,
+      "room": "barracks"
+    },
+    {
+      "id": "laundry-basket",
+      "at": [
+        10.6,
+        0,
+        30.4
+      ],
+      "yaw": 15,
+      "room": "barracks"
+    },
+    {
+      "id": "coat-stand",
+      "at": [
+        5,
+        0,
+        18.449
+      ],
+      "yaw": 0,
+      "room": "barracks"
+    },
+    {
+      "id": "backpack-small",
+      "at": [
+        6.2,
+        0,
+        29.6
+      ],
+      "yaw": 70,
+      "room": "barracks",
+      "note": "dressing (not a pickup)"
+    },
+    {
+      "id": "bed-frame",
+      "at": [
+        7.101,
+        0,
+        39
+      ],
+      "yaw": 90,
+      "room": "private-a"
+    },
+    {
+      "id": "pillow",
+      "at": [
+        6.351,
+        0.62,
+        39
+      ],
+      "yaw": 90,
+      "room": "private-a"
+    },
+    {
+      "id": "sheets-rumpled",
+      "at": [
+        7.201,
+        0.62,
+        39
+      ],
+      "yaw": 105,
+      "room": "private-a"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        11.8,
+        0,
+        36.385
+      ],
+      "yaw": 0,
+      "room": "private-a"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        12,
+        0,
+        41.412
+      ],
+      "yaw": 180,
+      "room": "private-a"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        12,
+        0.32,
+        40.9
+      ],
+      "yaw": 200,
+      "room": "private-a"
+    },
+    {
+      "id": "photo-frame-a",
+      "at": [
+        11.5,
+        0.32,
+        41
+      ],
+      "yaw": 170,
+      "room": "private-a"
+    },
+    {
+      "id": "clothes-folded",
+      "at": [
+        9.6,
+        0,
+        37
+      ],
+      "yaw": 10,
+      "room": "private-a"
+    },
+    {
+      "id": "bed-frame",
+      "at": [
+        7.101,
+        0,
+        45
+      ],
+      "yaw": 90,
+      "room": "private-b"
+    },
+    {
+      "id": "pillow",
+      "at": [
+        6.351,
+        0.62,
+        45
+      ],
+      "yaw": 90,
+      "room": "private-b"
+    },
+    {
+      "id": "sheets-rumpled",
+      "at": [
+        7.201,
+        0.62,
+        45
+      ],
+      "yaw": 105,
+      "room": "private-b"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        11.8,
+        0,
+        42.385
+      ],
+      "yaw": 0,
+      "room": "private-b"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        12,
+        0,
+        47.412
+      ],
+      "yaw": 180,
+      "room": "private-b"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        12,
+        0.32,
+        46.9
+      ],
+      "yaw": 200,
+      "room": "private-b"
+    },
+    {
+      "id": "book-stack",
+      "at": [
+        11.5,
+        0.32,
+        47
+      ],
+      "yaw": 170,
+      "room": "private-b"
+    },
+    {
+      "id": "clothes-folded",
+      "at": [
+        9.6,
+        0,
+        43
+      ],
+      "yaw": 10,
+      "room": "private-b"
+    },
+    {
+      "id": "sink-steel",
+      "at": [
+        22,
+        0,
+        18.402
+      ],
+      "yaw": 0,
+      "room": "laundry"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        25.623,
+        0,
+        21.6
+      ],
+      "yaw": -90,
+      "room": "laundry"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        25.623,
+        0,
+        25.4
+      ],
+      "yaw": -90,
+      "room": "laundry"
+    },
+    {
+      "id": "laundry-basket",
+      "at": [
+        21,
+        0,
+        24
+      ],
+      "yaw": 30,
+      "room": "laundry"
+    },
+    {
+      "id": "towels-pile",
+      "at": [
+        23,
+        0,
+        26.6
+      ],
+      "yaw": 0,
+      "room": "laundry"
+    },
+    {
+      "id": "trash-can",
+      "at": [
+        21,
+        0,
+        28.625
+      ],
+      "yaw": 180,
+      "room": "laundry"
+    },
+    {
+      "id": "tool-chest",
+      "at": [
+        20.2,
+        0,
+        8.303
+      ],
+      "yaw": 0,
+      "room": "maint"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        18.577,
+        0,
+        10.6
+      ],
+      "yaw": 90,
+      "room": "maint"
+    },
+    {
+      "id": "ladder",
+      "at": [
+        23.811,
+        0,
+        10.2
+      ],
+      "yaw": -90,
+      "room": "maint"
+    },
+    {
+      "id": "electrical-panel",
+      "at": [
+        22.6,
+        0.8,
+        8.319
+      ],
+      "yaw": 0,
+      "room": "maint"
+    },
+    {
+      "id": "wire-coil",
+      "at": [
+        21.4,
+        0,
+        12.4
+      ],
+      "yaw": 0,
+      "room": "maint"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        22.6,
+        0,
+        12.9
+      ],
+      "yaw": 40,
+      "room": "maint"
+    },
+    {
+      "id": "weapon-rack",
+      "at": [
+        26.6,
+        0,
+        2.32
+      ],
+      "yaw": 0,
+      "room": "armory"
+    },
+    {
+      "id": "weapon-rack",
+      "at": [
+        29,
+        0,
+        2.32
+      ],
+      "yaw": 0,
+      "room": "armory"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        31.8,
+        0,
+        2.385
+      ],
+      "yaw": 0,
+      "room": "armory"
+    },
+    {
+      "id": "device-lockers",
+      "at": [
+        24.288,
+        0,
+        6
+      ],
+      "yaw": 90,
+      "room": "armory"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        30.6,
+        0,
+        7.6
+      ],
+      "yaw": 90,
+      "room": "armory"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        30.6,
+        0,
+        9
+      ],
+      "yaw": 90,
+      "room": "armory"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        30.6,
+        0.32,
+        8.3
+      ],
+      "yaw": 92,
+      "room": "armory"
+    },
+    {
+      "id": "ammo-can",
+      "at": [
+        27,
+        0,
+        9.6
+      ],
+      "yaw": 9.292,
+      "room": "armory"
+    },
+    {
+      "id": "ammo-can",
+      "at": [
+        27.4,
+        0,
+        9.7
+      ],
+      "yaw": 14.771,
+      "room": "armory"
+    },
+    {
+      "id": "ammo-can",
+      "at": [
+        27.2,
+        0,
+        10.1
+      ],
+      "yaw": 17.804,
+      "room": "armory"
+    },
+    {
+      "id": "armor-vest",
+      "at": [
+        33.711,
+        0.9,
+        4.4
+      ],
+      "yaw": -90,
+      "room": "armory"
+    },
+    {
+      "id": "riot-shield",
+      "at": [
+        33.843,
+        0,
+        5.4
+      ],
+      "yaw": -90,
+      "room": "armory"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        40,
+        0,
+        9.4
+      ],
+      "yaw": 180,
+      "room": "security"
+    },
+    {
+      "id": "crt-monitor",
+      "at": [
+        40.5,
+        0.76,
+        9.25
+      ],
+      "yaw": 180,
+      "room": "security"
+    },
+    {
+      "id": "crt-monitor",
+      "at": [
+        39.5,
+        0.76,
+        9.25
+      ],
+      "yaw": 180,
+      "room": "security"
+    },
+    {
+      "id": "desk-phone",
+      "at": [
+        39.15,
+        0.76,
+        9.5
+      ],
+      "yaw": 200,
+      "room": "security"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        40.2,
+        0.76,
+        9.6
+      ],
+      "yaw": 188,
+      "room": "security"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        40,
+        0,
+        10.4
+      ],
+      "yaw": 180,
+      "room": "security"
+    },
+    {
+      "id": "video-wall",
+      "at": [
+        40,
+        1.1,
+        4.16
+      ],
+      "yaw": 0,
+      "room": "security",
+      "note": "the CCTV: decoration only, static"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        35.468,
+        0,
+        6.2
+      ],
+      "yaw": 90,
+      "room": "security"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        35.468,
+        0,
+        7
+      ],
+      "yaw": 90,
+      "room": "security"
+    },
+    {
+      "id": "whiteboard",
+      "at": [
+        44.856,
+        1,
+        7.4
+      ],
+      "yaw": -90,
+      "room": "security"
+    },
+    {
+      "id": "control-console",
+      "at": [
+        52.6,
+        0,
+        4.55
+      ],
+      "yaw": 0,
+      "room": "radio",
+      "note": "THE RADIO SET: the old desk with dials and a handset"
+    },
+    {
+      "id": "desk-phone",
+      "at": [
+        53.2,
+        1,
+        4.75
+      ],
+      "yaw": 10,
+      "room": "radio"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        55.8,
+        0,
+        4.638
+      ],
+      "yaw": 0,
+      "room": "radio",
+      "note": "the modern unit bolted on"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        52.6,
+        0,
+        7
+      ],
+      "yaw": 0,
+      "room": "radio"
+    },
+    {
+      "id": "radio-backpack",
+      "at": [
+        57.657,
+        0,
+        9
+      ],
+      "yaw": -90,
+      "room": "radio"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        48.468,
+        0,
+        9.6
+      ],
+      "yaw": 90,
+      "room": "radio"
+    },
+    {
+      "id": "frame-landscape",
+      "at": [
+        48.117,
+        1.5,
+        7
+      ],
+      "yaw": 90,
+      "room": "radio"
+    },
+    {
+      "id": "genset",
+      "at": [
+        74,
+        0,
+        7.6
+      ],
+      "yaw": 0,
+      "room": "generator"
+    },
+    {
+      "id": "day-tank",
+      "at": [
+        79.4,
+        0,
+        2.65
+      ],
+      "yaw": 0,
+      "room": "generator"
+    },
+    {
+      "id": "electrical-panel",
+      "at": [
+        81.681,
+        0.6,
+        10.4
+      ],
+      "yaw": -90,
+      "room": "generator"
+    },
+    {
+      "id": "breaker-cabinet",
+      "at": [
+        81.451,
+        0,
+        12.4
+      ],
+      "yaw": -90,
+      "room": "generator"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        70,
+        2.6,
+        2.45
+      ],
+      "yaw": 0,
+      "room": "generator"
+    },
+    {
+      "id": "barrel",
+      "at": [
+        68,
+        0,
+        12.4
+      ],
+      "yaw": 0,
+      "room": "generator"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        69,
+        0,
+        12.8
+      ],
+      "yaw": 30,
+      "room": "generator"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        66.166,
+        0.4,
+        12.8
+      ],
+      "yaw": 90,
+      "room": "generator"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        80,
+        0,
+        13.729
+      ],
+      "yaw": 180,
+      "room": "generator"
+    },
+    {
+      "id": "workbench",
+      "at": [
+        55.346,
+        0,
+        22
+      ],
+      "yaw": 90,
+      "room": "workshop"
+    },
+    {
+      "id": "workbench",
+      "at": [
+        55.346,
+        0,
+        25.4
+      ],
+      "yaw": 90,
+      "room": "workshop"
+    },
+    {
+      "id": "tool-chest",
+      "at": [
+        59,
+        0,
+        18.303
+      ],
+      "yaw": 0,
+      "room": "workshop"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        57.4,
+        0,
+        28.623
+      ],
+      "yaw": 180,
+      "room": "workshop"
+    },
+    {
+      "id": "power-box",
+      "at": [
+        56.4,
+        1.2,
+        18.3
+      ],
+      "yaw": 0,
+      "room": "workshop"
+    },
+    {
+      "id": "hand-truck",
+      "at": [
+        60.4,
+        0,
+        26.6
+      ],
+      "yaw": -30,
+      "room": "workshop"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        58.8,
+        0,
+        23
+      ],
+      "yaw": 15,
+      "room": "workshop"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        55.15,
+        0,
+        35.4
+      ],
+      "yaw": 90,
+      "room": "infirmary"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        55.15,
+        0,
+        39
+      ],
+      "yaw": 90,
+      "room": "infirmary"
+    },
+    {
+      "id": "hospital-bed",
+      "at": [
+        55.15,
+        0,
+        42.6
+      ],
+      "yaw": 90,
+      "room": "infirmary"
+    },
+    {
+      "id": "iv-stand",
+      "at": [
+        57,
+        0,
+        36.6
+      ],
+      "yaw": 0,
+      "room": "infirmary"
+    },
+    {
+      "id": "ecg-monitor",
+      "at": [
+        57.2,
+        0,
+        40.2
+      ],
+      "yaw": -90,
+      "room": "infirmary"
+    },
+    {
+      "id": "privacy-screen",
+      "at": [
+        57.4,
+        0,
+        44.4
+      ],
+      "yaw": 90,
+      "room": "infirmary"
+    },
+    {
+      "id": "medical-cart",
+      "at": [
+        59.6,
+        0,
+        33.348
+      ],
+      "yaw": 0,
+      "room": "infirmary"
+    },
+    {
+      "id": "medicine-cabinet",
+      "at": [
+        59,
+        1.3,
+        45.813
+      ],
+      "yaw": 180,
+      "room": "infirmary"
+    },
+    {
+      "id": "sink-basin",
+      "at": [
+        60.6,
+        0,
+        45.645
+      ],
+      "yaw": 180,
+      "room": "infirmary"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        54.574,
+        0,
+        49
+      ],
+      "yaw": 90,
+      "room": "qm"
+    },
+    {
+      "id": "clipboard-pen",
+      "at": [
+        54.674,
+        0.76,
+        48.8
+      ],
+      "yaw": 90,
+      "room": "qm"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        54.574,
+        0.76,
+        49.6
+      ],
+      "yaw": 120,
+      "room": "qm"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        56.4,
+        0,
+        49
+      ],
+      "yaw": 90,
+      "room": "qm"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        58.6,
+        0,
+        46.468
+      ],
+      "yaw": 0,
+      "room": "qm"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        59.2,
+        0,
+        46.468
+      ],
+      "yaw": 0,
+      "room": "qm"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        59.8,
+        0,
+        46.468
+      ],
+      "yaw": 0,
+      "room": "qm"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        58.6,
+        0,
+        51.423
+      ],
+      "yaw": 180,
+      "room": "qm"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        69.4,
+        0,
+        19.4
+      ],
+      "yaw": 90,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        68.7,
+        0,
+        19.9
+      ],
+      "yaw": 90.788,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        68.7,
+        0,
+        18.9
+      ],
+      "yaw": 84.968,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        70.1,
+        0,
+        19.9
+      ],
+      "yaw": 266.048,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        70.1,
+        0,
+        18.9
+      ],
+      "yaw": 275.666,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        69.4,
+        0,
+        23
+      ],
+      "yaw": 90,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        68.7,
+        0,
+        23.5
+      ],
+      "yaw": 94.062,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        68.7,
+        0,
+        22.5
+      ],
+      "yaw": 93.579,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        70.1,
+        0,
+        23.5
+      ],
+      "yaw": 264.603,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        70.1,
+        0,
+        22.5
+      ],
+      "yaw": 264.293,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        73.6,
+        0,
+        19.4
+      ],
+      "yaw": 90,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        72.9,
+        0,
+        19.9
+      ],
+      "yaw": 91.742,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        72.9,
+        0,
+        18.9
+      ],
+      "yaw": 91.888,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        74.3,
+        0,
+        19.9
+      ],
+      "yaw": 272.408,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        74.3,
+        0,
+        18.9
+      ],
+      "yaw": 275.423,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        73.6,
+        0,
+        23
+      ],
+      "yaw": 90,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        72.9,
+        0,
+        23.5
+      ],
+      "yaw": 86.556,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        72.9,
+        0,
+        22.5
+      ],
+      "yaw": 90.87,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        74.3,
+        0,
+        23.5
+      ],
+      "yaw": 267.093,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        74.3,
+        0,
+        22.5
+      ],
+      "yaw": 267.068,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        77.8,
+        0,
+        19.4
+      ],
+      "yaw": 90,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        77.1,
+        0,
+        19.9
+      ],
+      "yaw": 94.675,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        77.1,
+        0,
+        18.9
+      ],
+      "yaw": 93.467,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        78.5,
+        0,
+        19.9
+      ],
+      "yaw": 270.142,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        78.5,
+        0,
+        18.9
+      ],
+      "yaw": 266.365,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        77.8,
+        0,
+        23
+      ],
+      "yaw": 90,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        77.1,
+        0,
+        23.5
+      ],
+      "yaw": 87.818,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        77.1,
+        0,
+        22.5
+      ],
+      "yaw": 93.696,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        78.5,
+        0,
+        23.5
+      ],
+      "yaw": 273.024,
+      "room": "mess"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        78.5,
+        0,
+        22.5
+      ],
+      "yaw": 267.688,
+      "room": "mess"
+    },
+    {
+      "id": "servery",
+      "at": [
+        73,
+        0,
+        27.4
+      ],
+      "yaw": 180,
+      "room": "mess"
+    },
+    {
+      "id": "water-dispenser",
+      "at": [
+        79,
+        0,
+        16.289
+      ],
+      "yaw": 0,
+      "room": "mess"
+    },
+    {
+      "id": "trash-can",
+      "at": [
+        67.4,
+        0,
+        16.375
+      ],
+      "yaw": 0,
+      "room": "mess"
+    },
+    {
+      "id": "food-tray",
+      "at": [
+        73.4,
+        0.8,
+        23.2
+      ],
+      "yaw": 20,
+      "room": "mess"
+    },
+    {
+      "id": "kitchenette",
+      "at": [
+        71,
+        0,
+        33.585
+      ],
+      "yaw": 180,
+      "room": "kitchen"
+    },
+    {
+      "id": "kitchen-appliances",
+      "at": [
+        76.6,
+        0,
+        33.344
+      ],
+      "yaw": 180,
+      "room": "kitchen"
+    },
+    {
+      "id": "prep-table",
+      "at": [
+        76,
+        0,
+        30.4
+      ],
+      "yaw": 0,
+      "room": "kitchen"
+    },
+    {
+      "id": "fridge",
+      "at": [
+        79.549,
+        0,
+        32.4
+      ],
+      "yaw": -90,
+      "room": "kitchen"
+    },
+    {
+      "id": "steel-counter",
+      "at": [
+        68,
+        0,
+        28.465
+      ],
+      "yaw": 0,
+      "room": "kitchen"
+    },
+    {
+      "id": "food-cans",
+      "at": [
+        76.2,
+        0.9,
+        30.4
+      ],
+      "yaw": 15,
+      "room": "kitchen"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        70.4,
+        0,
+        39.6
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        72.4,
+        0,
+        39.6
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        76.4,
+        0,
+        39.6
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        78.4,
+        0,
+        39.6
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        70.4,
+        0,
+        43.4
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        72.4,
+        0,
+        43.4
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        76.4,
+        0,
+        43.4
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        78.4,
+        0,
+        43.4
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        70.4,
+        0,
+        47.2
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        72.4,
+        0,
+        47.2
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        76.4,
+        0,
+        47.2
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        78.4,
+        0,
+        47.2
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        81.623,
+        0,
+        38.4
+      ],
+      "yaw": -90,
+      "room": "stores"
+    },
+    {
+      "id": "water-point",
+      "at": [
+        81.725,
+        0,
+        46.4
+      ],
+      "yaw": -90,
+      "room": "stores"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        68,
+        0,
+        37.4
+      ],
+      "yaw": 5.892,
+      "room": "stores"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        68.6,
+        0,
+        37.6
+      ],
+      "yaw": -9.245,
+      "room": "stores"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        68.2,
+        0,
+        49
+      ],
+      "yaw": 23.846,
+      "room": "stores"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        80.2,
+        0,
+        49
+      ],
+      "yaw": 0,
+      "room": "stores"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        81,
+        0,
+        41.8
+      ],
+      "yaw": 60,
+      "room": "stores"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        74.4,
+        0,
+        49
+      ],
+      "yaw": 10,
+      "room": "stores"
+    }
+  ],
+  "fixtures": [
+    {
+      "kind": "caged",
+      "at": [
+        40,
+        4,
+        62
+      ],
+      "yaw": 0,
+      "room": "tunnel",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        40,
+        4,
+        70
+      ],
+      "yaw": 0,
+      "room": "tunnel",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "dead"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        36.5,
+        3.4,
+        54
+      ],
+      "yaw": 0,
+      "room": "vestibule",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "buzz"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        43.5,
+        3.4,
+        54
+      ],
+      "yaw": 0,
+      "room": "vestibule",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        40,
+        2.9,
+        51.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "vestibule",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3,
+        43.5
+      ],
+      "room": "decon",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3,
+        48.5
+      ],
+      "room": "decon",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        43.425,
+        3,
+        45.05
+      ],
+      "yaw": 0,
+      "room": "equipment",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        43.425,
+        3,
+        48.95
+      ],
+      "yaw": 0,
+      "room": "equipment",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        47.075,
+        3,
+        45.05
+      ],
+      "yaw": 0,
+      "room": "equipment",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        47.075,
+        3,
+        48.95
+      ],
+      "yaw": 0,
+      "room": "equipment",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        28.086,
+        3.6,
+        23.08
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        28.086,
+        3.6,
+        27.04
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        28.086,
+        3.6,
+        31
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        28.086,
+        3.6,
+        34.96
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        28.086,
+        3.6,
+        38.92
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "buzz"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        32.057,
+        3.6,
+        23.08
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        32.057,
+        3.6,
+        27.04
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        32.057,
+        3.6,
+        31
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        32.057,
+        3.6,
+        34.96
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        32.057,
+        3.6,
+        38.92
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36.029,
+        3.6,
+        23.08
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36.029,
+        3.6,
+        27.04
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36.029,
+        3.6,
+        31
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36.029,
+        3.6,
+        34.96
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36.029,
+        3.6,
+        38.92
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.6,
+        23.08
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.6,
+        27.04
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.6,
+        31
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.6,
+        34.96
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.6,
+        38.92
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        43.971,
+        3.6,
+        23.08
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        43.971,
+        3.6,
+        27.04
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        43.971,
+        3.6,
+        31
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        43.971,
+        3.6,
+        34.96
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        43.971,
+        3.6,
+        38.92
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        47.943,
+        3.6,
+        23.08
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        47.943,
+        3.6,
+        27.04
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        47.943,
+        3.6,
+        31
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        47.943,
+        3.6,
+        34.96
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        47.943,
+        3.6,
+        38.92
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        51.914,
+        3.6,
+        23.08
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        51.914,
+        3.6,
+        27.04
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        51.914,
+        3.6,
+        31
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        51.914,
+        3.6,
+        34.96
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        51.914,
+        3.6,
+        38.92
+      ],
+      "room": "common",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        22,
+        2.62,
+        14.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "hall-n",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        40,
+        2.62,
+        14.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "hall-n",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        56,
+        2.62,
+        14.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "hall-n",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        14.1,
+        2.62,
+        26
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "hall-w",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        14.1,
+        2.62,
+        42
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "hall-w",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        65.9,
+        2.62,
+        16
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "hall-e",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        65.9,
+        2.62,
+        34
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "hall-e",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        65.9,
+        2.62,
+        48
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "hall-e",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        4.067,
+        3.2,
+        20.075
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        4.067,
+        3.2,
+        24.025
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        4.067,
+        3.2,
+        27.975
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        4.067,
+        3.2,
+        31.925
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        8,
+        3.2,
+        20.075
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        8,
+        3.2,
+        24.025
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        8,
+        3.2,
+        27.975
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        8,
+        3.2,
+        31.925
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        11.933,
+        3.2,
+        20.075
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        11.933,
+        3.2,
+        24.025
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        11.933,
+        3.2,
+        27.975
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        11.933,
+        3.2,
+        31.925
+      ],
+      "room": "barracks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        10,
+        3.2,
+        39
+      ],
+      "room": "private-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        10,
+        3.2,
+        45
+      ],
+      "room": "private-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        20.05,
+        3.2,
+        19.9
+      ],
+      "room": "laundry",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        20.05,
+        3.2,
+        23.5
+      ],
+      "room": "laundry",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        20.05,
+        3.2,
+        27.1
+      ],
+      "room": "laundry",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        23.95,
+        3.2,
+        19.9
+      ],
+      "room": "laundry",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        23.95,
+        3.2,
+        23.5
+      ],
+      "room": "laundry",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        23.95,
+        3.2,
+        27.1
+      ],
+      "room": "laundry",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        21,
+        3,
+        11
+      ],
+      "yaw": 0,
+      "room": "maint",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        26.55,
+        3,
+        4.067
+      ],
+      "yaw": 0,
+      "room": "armory",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        26.55,
+        3,
+        8
+      ],
+      "yaw": 0,
+      "room": "armory",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        26.55,
+        3,
+        11.933
+      ],
+      "yaw": 0,
+      "room": "armory",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        31.45,
+        3,
+        4.067
+      ],
+      "yaw": 0,
+      "room": "armory",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        31.45,
+        3,
+        8
+      ],
+      "yaw": 0,
+      "room": "armory",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        31.45,
+        3,
+        11.933
+      ],
+      "yaw": 0,
+      "room": "armory",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36.733,
+        3.2,
+        5.733
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36.733,
+        3.2,
+        9
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        36.733,
+        3.2,
+        12.267
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.2,
+        5.733
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.2,
+        9
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        40,
+        3.2,
+        12.267
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        43.267,
+        3.2,
+        5.733
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        43.267,
+        3.2,
+        9
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        43.267,
+        3.2,
+        12.267
+      ],
+      "room": "security",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        49.733,
+        3.2,
+        5.733
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        49.733,
+        3.2,
+        9
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        49.733,
+        3.2,
+        12.267
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        53,
+        3.2,
+        5.733
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        53,
+        3.2,
+        9
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "buzz"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        53,
+        3.2,
+        12.267
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        56.267,
+        3.2,
+        5.733
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        56.267,
+        3.2,
+        9
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        56.267,
+        3.2,
+        12.267
+      ],
+      "room": "radio",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        68.733,
+        4.3,
+        5.05
+      ],
+      "yaw": 0,
+      "room": "generator",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        68.733,
+        4.3,
+        10.95
+      ],
+      "yaw": 0,
+      "room": "generator",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        74,
+        4.3,
+        5.05
+      ],
+      "yaw": 0,
+      "room": "generator",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        74,
+        4.3,
+        10.95
+      ],
+      "yaw": 0,
+      "room": "generator",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        79.267,
+        4.3,
+        5.05
+      ],
+      "yaw": 0,
+      "room": "generator",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        79.267,
+        4.3,
+        10.95
+      ],
+      "yaw": 0,
+      "room": "generator",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        56.05,
+        3,
+        19.9
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        56.05,
+        3,
+        23.5
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        56.05,
+        3,
+        27.1
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        59.95,
+        3,
+        19.9
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        59.95,
+        3,
+        23.5
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        59.95,
+        3,
+        27.1
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        56.05,
+        3.2,
+        34.7
+      ],
+      "room": "infirmary",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        56.05,
+        3.2,
+        37.9
+      ],
+      "room": "infirmary",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        56.05,
+        3.2,
+        41.1
+      ],
+      "room": "infirmary",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        56.05,
+        3.2,
+        44.3
+      ],
+      "room": "infirmary",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        59.95,
+        3.2,
+        34.7
+      ],
+      "room": "infirmary",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        59.95,
+        3.2,
+        37.9
+      ],
+      "room": "infirmary",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        59.95,
+        3.2,
+        41.1
+      ],
+      "room": "infirmary",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        59.95,
+        3.2,
+        44.3
+      ],
+      "room": "infirmary",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        58,
+        3.2,
+        49
+      ],
+      "room": "qm",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        67.825,
+        3.4,
+        18.067
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        67.825,
+        3.4,
+        22
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        67.825,
+        3.4,
+        25.933
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        71.275,
+        3.4,
+        18.067
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        71.275,
+        3.4,
+        22
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        71.275,
+        3.4,
+        25.933
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74.725,
+        3.4,
+        18.067
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74.725,
+        3.4,
+        22
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74.725,
+        3.4,
+        25.933
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        78.175,
+        3.4,
+        18.067
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        78.175,
+        3.4,
+        22
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        78.175,
+        3.4,
+        25.933
+      ],
+      "room": "mess",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        67.825,
+        3.2,
+        29.55
+      ],
+      "room": "kitchen",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        67.825,
+        3.2,
+        32.45
+      ],
+      "room": "kitchen",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        71.275,
+        3.2,
+        29.55
+      ],
+      "room": "kitchen",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        71.275,
+        3.2,
+        32.45
+      ],
+      "room": "kitchen",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74.725,
+        3.2,
+        29.55
+      ],
+      "room": "kitchen",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74.725,
+        3.2,
+        32.45
+      ],
+      "room": "kitchen",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        78.175,
+        3.2,
+        29.55
+      ],
+      "room": "kitchen",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        78.175,
+        3.2,
+        32.45
+      ],
+      "room": "kitchen",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        68.075,
+        3.4,
+        38.4
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        68.075,
+        3.4,
+        43
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        68.075,
+        3.4,
+        47.6
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        72.025,
+        3.4,
+        38.4
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        72.025,
+        3.4,
+        43
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        72.025,
+        3.4,
+        47.6
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        75.975,
+        3.4,
+        38.4
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        75.975,
+        3.4,
+        43
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        75.975,
+        3.4,
+        47.6
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        79.925,
+        3.4,
+        38.4
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        79.925,
+        3.4,
+        43
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        79.925,
+        3.4,
+        47.6
+      ],
+      "yaw": 0,
+      "room": "stores",
+      "bank": 0,
+      "circuit": "mains"
+    }
+  ],
+  "decals": [
+    {
+      "tex": "grime-floor",
+      "at": [
+        40,
+        0.004,
+        64
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        4.5,
+        6
+      ],
+      "rot": 0,
+      "room": "tunnel"
+    },
+    {
+      "tex": "prints-boots",
+      "at": [
+        40.2,
+        0.004,
+        60
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        3.2
+      ],
+      "rot": 3,
+      "room": "tunnel"
+    },
+    {
+      "tex": "smear",
+      "at": [
+        40.4,
+        0.004,
+        53.8
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        2.4,
+        1.6
+      ],
+      "rot": 10,
+      "room": "vestibule"
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        39.6,
+        0.004,
+        52.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1,
+        2.6
+      ],
+      "rot": -8,
+      "room": "vestibule"
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        40,
+        0.004,
+        55
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        6,
+        3
+      ],
+      "rot": 0,
+      "room": "vestibule"
+    },
+    {
+      "tex": "leak-a",
+      "at": [
+        35.4,
+        2.2,
+        51.11
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        1,
+        1.6
+      ]
+    },
+    {
+      "tex": "bunker-shelter-14",
+      "at": [
+        40,
+        2.65,
+        51.112
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        3,
+        0.5
+      ],
+      "paint": true
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        40.1,
+        0.004,
+        46.5
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.8,
+        3.4
+      ],
+      "rot": 4,
+      "room": "decon"
+    },
+    {
+      "tex": "smear",
+      "at": [
+        39.8,
+        0.004,
+        49.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        1
+      ],
+      "rot": 40,
+      "room": "decon"
+    },
+    {
+      "tex": "sign-decon",
+      "at": [
+        38.61,
+        1.5,
+        49.6
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.45,
+        0.6
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "bunker-decon",
+      "at": [
+        41.388,
+        2.4,
+        42.6
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        1.6,
+        0.36
+      ],
+      "paint": true
+    },
+    {
+      "tex": "smear",
+      "at": [
+        40.6,
+        0.004,
+        38.8
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        2,
+        1.4
+      ],
+      "rot": -20,
+      "room": "common"
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        40.2,
+        0.004,
+        37.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        3.2
+      ],
+      "rot": 12,
+      "room": "common"
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        40,
+        0.004,
+        37
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        9,
+        6
+      ],
+      "rot": 0,
+      "room": "common"
+    },
+    {
+      "tex": "bunker-common",
+      "at": [
+        40,
+        2.95,
+        21.112
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        2.6,
+        0.45
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-arrow-armory",
+      "at": [
+        29,
+        1.9,
+        17.888
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        1.4,
+        0.3
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-arrow-radio",
+      "at": [
+        53,
+        1.9,
+        17.888
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        1.4,
+        0.3
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-arrow-dorms",
+      "at": [
+        17.888,
+        1.9,
+        21
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        1.4,
+        0.3
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-arrow-stores",
+      "at": [
+        62.112,
+        1.9,
+        41
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        1.4,
+        0.3
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-barracks",
+      "at": [
+        13.888,
+        2.4,
+        26
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        2,
+        0.4
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-armory",
+      "at": [
+        33.888,
+        2.3,
+        11
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        2,
+        0.4
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-security",
+      "at": [
+        40,
+        2.65,
+        13.888
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        2.4,
+        0.36
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-radio",
+      "at": [
+        53,
+        2.65,
+        13.888
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        2.4,
+        0.36
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-generator",
+      "at": [
+        74,
+        3.6,
+        13.888
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        3,
+        0.5
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-workshop",
+      "at": [
+        61.888,
+        2.3,
+        21.4
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        2,
+        0.36
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-infirmary",
+      "at": [
+        61.888,
+        2.4,
+        44.2
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        2,
+        0.36
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-mess",
+      "at": [
+        73,
+        2.95,
+        16.112
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        2.4,
+        0.4
+      ],
+      "paint": true
+    },
+    {
+      "tex": "bunker-stores",
+      "at": [
+        81.888,
+        2.6,
+        43
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        2.2,
+        0.4
+      ],
+      "paint": true
+    }
+  ],
+  "cast": [],
+  "shots": {
+    "tunnel": {
+      "at": [
+        40,
+        1.65,
+        74
+      ],
+      "look": [
+        40,
+        1.6,
+        55
+      ],
+      "label": "Up the tunnel at the blast door"
+    },
+    "vestibule": {
+      "at": [
+        35.4,
+        1.65,
+        52.2
+      ],
+      "look": [
+        43.6,
+        1.2,
+        56.4
+      ],
+      "label": "The vestibule: the door and its crank"
+    },
+    "decon": {
+      "at": [
+        40,
+        1.65,
+        50.4
+      ],
+      "look": [
+        40,
+        1.5,
+        41
+      ],
+      "label": "Up the decon corridor"
+    },
+    "common": {
+      "at": [
+        52.5,
+        1.65,
+        39.5
+      ],
+      "look": [
+        32,
+        1.2,
+        22
+      ],
+      "label": "The common room"
+    },
+    "hall-n": {
+      "at": [
+        15,
+        1.65,
+        16
+      ],
+      "look": [
+        62,
+        1.5,
+        16
+      ],
+      "label": "The north hall"
+    },
+    "security": {
+      "at": [
+        44.2,
+        1.65,
+        12.8
+      ],
+      "look": [
+        37,
+        1,
+        5
+      ],
+      "label": "The security office"
+    },
+    "radio": {
+      "at": [
+        57,
+        1.65,
+        12.8
+      ],
+      "look": [
+        51,
+        1,
+        5
+      ],
+      "label": "The radio room"
+    },
+    "armory": {
+      "at": [
+        33,
+        1.65,
+        12.8
+      ],
+      "look": [
+        26,
+        1,
+        4
+      ],
+      "label": "The armory"
+    },
+    "barracks": {
+      "at": [
+        13,
+        1.65,
+        33
+      ],
+      "look": [
+        4,
+        1,
+        19
+      ],
+      "label": "The barracks"
+    },
+    "mess": {
+      "at": [
+        79.4,
+        1.65,
+        17
+      ],
+      "look": [
+        68,
+        1,
+        26
+      ],
+      "label": "The mess hall"
+    },
+    "stores": {
+      "at": [
+        81,
+        1.65,
+        49
+      ],
+      "look": [
+        67,
+        1,
+        37
+      ],
+      "label": "The stores"
+    },
+    "generator": {
+      "at": [
+        80.5,
+        1.65,
+        13
+      ],
+      "look": [
+        70,
+        1.2,
+        4
+      ],
+      "label": "The generator room"
+    },
+    "infirmary": {
+      "at": [
+        61,
+        1.65,
+        34
+      ],
+      "look": [
+        55,
+        0.8,
+        45
+      ],
+      "label": "The infirmary"
+    }
+  },
+  "tint": {
+    "carpet-tile": [
+      0.5,
+      0.52,
+      0.56
+    ]
+  },
+  "kit": {
+    "copies": []
+  },
+  "catcher": {
+    "at": [
+      42,
+      39
+    ],
+    "size": [
+      84,
+      78
+    ]
+  },
+  "shadowSpots": [],
+  "puddles": []
+}

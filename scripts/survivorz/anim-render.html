@@ -1,0 +1,342 @@
+<!doctype html>
+<!--
+  SURVIVORZ: renders one packed body's clips to frames for the animation review videos
+  (scripts/survivorz/anim-videos.cjs drives it). A plain grey floor with a grid, so foot
+  sliding shows; a three-quarter camera fitted to the body; frames rendered on a fixed clock
+  (mixer.setTime), never in real time, so a slow machine makes the same video.
+  ?body=/assets/downloads/survivorz/game/eric.glb&size=360
+-->
+<meta charset="utf-8" />
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>html,body{margin:0;background:#26282b}canvas{display:block}</style>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+  import { PROPS, handFrame, handRigid, gunPropOf, gunPose, GUN_HOLDS, GUN_CAL, GUN_GRIP_R } from "./anim-recipes.js";
+  import { vertexIndex, clipMoment, torsoSurface, LAW, skinned } from "./anim-law.js";
+  import { handNow, palmSurface, handFindings, curls, gunField, gripCal, gunSeat, thumbAvoid } from "./anim-hands.js";
+  import { poseMeasures, motionMeasures, headRest, chestRest, SMOOTH_BONES } from "./anim-natural.js";
+  const q = new URLSearchParams(location.search);
+  const size = Number(q.get("size") || 360);
+  const r = (window.r = { ready: false, error: null });
+  try {
+    const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    renderer.setSize(size, size); renderer.setPixelRatio(1);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    // shadows on: without them a body lying down reads as floating, and "does it touch the
+    // floor?" is one of the things this review is for
+    renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    document.body.append(renderer.domElement);
+    const scene = new THREE.Scene(); scene.background = new THREE.Color(0x26282b);
+    scene.add(new THREE.HemisphereLight(0xdfe6ee, 0x3a3530, 1.6));
+    const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(1.2, 5, 1.6); key.castShadow = true;
+    key.shadow.mapSize.set(1024, 1024); Object.assign(key.shadow.camera, { left: -3, right: 3, top: 3, bottom: -3, near: 0.5, far: 12 }); key.shadow.bias = -0.0005;
+    scene.add(key); scene.add(key.target);
+    const rim = new THREE.DirectionalLight(0x9fb6d8, 1.0); rim.position.set(-3, 3, -2); scene.add(rim);
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.MeshStandardMaterial({ color: 0x55585c, roughness: 0.95 }));
+    floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+    // half-metre squares, light enough to see a foot slide across them
+    const grid = new THREE.GridHelper(40, 80, 0xb8bec6, 0x9298a0); grid.position.y = 0.002; scene.add(grid);
+    const camera = new THREE.PerspectiveCamera(32, 1, 0.05, 100);
+
+    const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+    const gltf = await loader.loadAsync(q.get("body"));
+    const body = gltf.scene; scene.add(body);
+    body.traverse((o) => { if (/body_proxy/.test(o.name)) o.visible = false; });   // (the person inside a suit: for the law only, anim-law.js)
+// (A BLENDED BODY IS DRAWN CUT OUT, the show's rule — client/src/survivorz/show/bodymat.ts: Mixamo's converter marks
+    // body skin BLEND, and a blended skin draws its own back half through its front. Drawn raw here, Chad's, David's
+    // and Lewis's curled fingers read as torn skin in every close-up while the show drew them whole, Nov 16 2026)
+    const cutOut = (m) => { for (const mat of [].concat(m.material ?? [])) if (mat.transparent) { mat.transparent = false; mat.alphaTest = Math.max(mat.alphaTest, 0.5); mat.depthWrite = true; mat.needsUpdate = true; } };
+    body.traverse((o) => { if (o.isMesh) { o.frustumCulled = false; o.castShadow = true; if (o.material) o.material.side = THREE.FrontSide; cutOut(o); } });
+    const mixer = new THREE.AnimationMixer(body);
+    const clips = Object.fromEntries(gltf.animations.map((c) => [c.name, c]));
+    let action = null;
+    // frame each clip from where its bones actually go over the whole clip (a kneel sits low,
+    // a CPR clip sits off to one side), always from the same three-quarter angle
+    // the body's own bones: the hips and everything under them (a root bone parked at the
+    // origin would read as "touching the floor" on every clip)
+    // the scans' hips are "hip"; the zombie pack's Auto-Rig Pro calls them "root.x" ("rootx" once sanitised)
+    let hipsBone = null; body.traverse((o) => { if (!hipsBone && o.isBone && /hip|pelvis|^root.?x$/i.test(o.name)) hipsBone = o; });
+    const bones = []; (hipsBone ?? body).traverse((o) => { if (o.isBone) bones.push(o); });
+    let dir = new THREE.Vector3(0.55, 0.3, 0.83).normalize();
+    let lastDur = 1, zoomK = 1, liftK = 0;
+    // another camera angle for a look at a detail (the review videos keep the standard one)
+    r.view = (d, zoom = 1, lift = 0) => { dir = new THREE.Vector3(...d).normalize(); zoomK = zoom; liftK = lift; frameClip(lastDur); };
+    function frameClip(dur) {
+      lastDur = dur;
+      const box = new THREE.Box3(), v = new THREE.Vector3();
+      for (let i = 0; i <= 12; i++) {
+        mixer.setTime((dur * i) / 12); body.updateMatrixWorld(true);
+        for (const b of bones) box.expandByPoint(b.getWorldPosition(v));
+      }
+      box.min.y = Math.min(box.min.y, 0); box.expandByScalar(0.18); box.max.y += 0.08;   // head and feet stick out past their bones
+      const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
+      const radius = Math.max(s.y * 0.55, Math.hypot(s.x, s.z) * 0.5, 0.6);
+      const d = radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2)) * 1.05 * zoomK;
+      c.y += liftK;
+      camera.position.copy(c).addScaledVector(dir, d); camera.lookAt(c);
+      key.position.set(c.x + 1.2, 5, c.z + 1.6); key.target.position.set(c.x, 0, c.z); key.target.updateMatrixWorld();
+    }
+    r.clips = () => gltf.animations.map((c) => ({ name: c.name, dur: c.duration }));
+    // the lowest any bone gets over a clip, and the lowest the feet/hands/head get: a body that
+    // never comes within ~15 cm of the floor is floating (Mixamo's lying clips are authored on
+    // an invisible bed)
+    // the SKIN's lowest point per moment (every 12th vertex, skinned): what the camera sees, so
+    // a body sinking through the floor or hovering over it shows up as a number
+    const skins = []; body.traverse((o) => { if (o.isSkinnedMesh) skins.push(o); });
+    function skinLow() {
+      const v = new THREE.Vector3(); let lo = 1e9;
+      for (const m of skins) { const n = m.geometry.attributes.position.count; for (let i = 0; i < n; i += 12) { m.getVertexPosition(i, v); v.applyMatrix4(m.matrixWorld); if (v.y < lo) lo = v.y; } }
+      return lo;
+    }
+    // the skin's lowest point and the hips' height at n moments over a clip
+    r.lowSeries = (name, n = 20) => {
+      const c = clips[name]; const a = mixer.clipAction(c); a.reset().play(); const out = [];
+      for (let i = 0; i <= n; i++) { const t = (c.duration * i) / n; mixer.setTime(t); body.updateMatrixWorld(true); out.push([+t.toFixed(2), +skinLow().toFixed(3), +W("hip").y.toFixed(3)]); }
+      a.stop(); return out;
+    };
+    // a bone's height at time t of a clip (a survivor's standing height: the head in the idle)
+    r.boneAt = (bn, t) => { mixer.setTime(t); body.updateMatrixWorld(true); return W(bn).toArray().map((v) => +v.toFixed(3)); };   // the clip in use (r.use), for probes
+    r.boneY = (name, bn, t) => { const c = clips[name]; const a = mixer.clipAction(c); a.reset().play(); mixer.setTime(t); body.updateMatrixWorld(true); const y = W(bn).y; a.stop(); return +y.toFixed(3); };
+    r.contact = (name) => {
+      const c = clips[name]; const a = mixer.clipAction(c); a.reset().play();
+      const lows = [];
+      for (let i = 0; i <= 24; i++) { mixer.setTime((c.duration * i) / 24); body.updateMatrixWorld(true); lows.push(skinLow()); }
+      a.stop();
+      return { min: +Math.min(...lows).toFixed(3), max: +Math.max(...lows).toFixed(3), start: +lows[0].toFixed(3), end: +lows[24].toFixed(3) };
+    };
+    // how far the skin is below the floor at each of the given times (metres, 0 when it isn't):
+    // anim-floor-fix.mjs raises the hips by this much, smoothed
+    r.below = (name, times, allow) => {
+      const c = clips[name]; const a = mixer.clipAction(c); a.reset().play();
+      const out = times.map((t) => { mixer.setTime(Math.min(t, c.duration - 1e-4)); body.updateMatrixWorld(true); return Math.max(0, -allow - skinLow()); });
+      a.stop(); return out;
+    };
+    r.lowest = (name) => {
+      const c = clips[name]; const a = mixer.clipAction(c); a.reset().play();
+      const v = new THREE.Vector3(); let low = 1e9, high = -1e9;
+      for (let i = 0; i <= 20; i++) {
+        mixer.setTime((c.duration * i) / 20); body.updateMatrixWorld(true);
+        let lo = 1e9; for (const b of bones) lo = Math.min(lo, b.getWorldPosition(v).y);
+        low = Math.min(low, lo); high = Math.max(high, lo);
+      }
+      // the hips track is in the hips' parent's units: what one of them is in metres
+      const unit = hipsBone ? hipsBone.parent.getWorldScale(new THREE.Vector3()).y : 1;
+      a.stop(); return { low: +low.toFixed(3), lowMax: +high.toFixed(3), unit, hips: hipsBone?.name };
+    };
+    // REVIEW PROPS: a move built around a prop is drawn with stand-ins (anim-recipes.js PROPS),
+    // or Josh judges an empty hand ("looks like he is just slapping his hand"). The props sit
+    // in the hand frame the bake fitted the hand to, so they are exactly where the game hangs
+    // them; a wall, a door or a keypad stands off the hips at the clip's first frame.
+    const boneW = (n) => { let f = null; body.traverse((o) => { if (!f && o.isBone && (o.name === n || o.name.endsWith("_" + n))) f = o; }); return f; };
+    const W = (n) => boneW(n).getWorldPosition(new THREE.Vector3());
+    const unitGeo = { cyl: new THREE.CylinderGeometry(1, 1, 1, 14), cone: new THREE.ConeGeometry(1, 1, 16), box: new THREE.BoxGeometry(1, 1, 1), sphere: new THREE.SphereGeometry(1, 12, 8) };
+    const pool = [];
+    let spec = null, home = null;
+    const Yv = new THREE.Vector3(0, 1, 0);
+    function meshAt(i, kind, p) {
+      let m = pool[i];
+      if (!m || m.userData.kind !== kind) {
+        if (m) scene.remove(m);
+        m = new THREE.Mesh(unitGeo[kind], new THREE.MeshStandardMaterial({ roughness: 0.7 })); m.castShadow = true; m.receiveShadow = true;
+        m.userData.kind = kind; pool[i] = m; scene.add(m);
+      }
+      m.material.color.setHex(p.color ?? 0x888888);
+      m.material.emissive.setHex(p.glow ? (p.color ?? 0xffffff) : 0); m.material.emissiveIntensity = p.glow ? 1.2 : 0;
+      m.material.transparent = p.opacity != null; m.material.opacity = p.opacity ?? 1; m.material.depthWrite = p.opacity == null;
+      m.castShadow = p.opacity == null && !p.glow;
+      m.visible = true; return m;
+    }
+    // a gun clip draws the REAL gun from the pack (scripts/survivorz/guns.mjs), riding the right
+    // fist exactly as the bake held it, the pump slid where the clip racks it
+    const guns = {}; let gunNow = null;
+    const gunLoader = new GLTFLoader();
+    async function gunModel(id) {
+      if (!guns[id]) { const g = await gunLoader.loadAsync(`/assets/downloads/survivorz/props/guns/${id}.glb`); g.scene.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } }); g.scene.matrixAutoUpdate = false; g.scene.visible = false; scene.add(g.scene); guns[id] = g.scene; }
+      return guns[id];
+    }
+    function placeGun(t) {
+      for (const g of Object.values(guns)) g.visible = false;
+      if (!gunNow) return;
+      const g = guns[gunNow.gun]; if (!g) return;
+      const G = gunPose(handRigid(W, "r", gripCals.r), GUN_HOLDS[gunNow.gun], calOf(gunNow.gun));
+      g.matrix.makeBasis(G.X, G.Y, G.Z).setPosition(G.o); g.matrixWorldNeedsUpdate = true;
+      const pump = g.getObjectByName("pump"); if (pump) pump.position.z = -gunNow.slide(t);
+      g.visible = true; g.updateMatrixWorld(true);
+    }
+    function placeProps(t) {
+      placeGun(t);
+      for (const m of pool) if (m) m.visible = false;
+      if (!spec) return;
+      const ctx = { t, hand: (side) => handRigid(W, side, gripCals[side]), home: (f = 0, u = 0, r = 0) => home.o.clone().addScaledVector(home.fwd, f).addScaledVector(Yv, u).addScaledVector(home.right, r), homeFrame: home, at: W, floor: -home.o.y };
+      spec.draw(ctx).forEach((p, i) => {
+        if (p.cyl || p.cone) {
+          const [a, b] = p.cyl ?? p.cone, m = meshAt(i, p.cyl ? "cyl" : "cone", p), d = b.clone().sub(a), len = Math.max(1e-4, d.length());
+          m.position.copy(a).addScaledVector(d, 0.5); m.scale.set(p.r, len, p.r);
+          m.quaternion.setFromUnitVectors(Yv, d.normalize());
+          // a cone's point is its +Y end, so base -> tip is already the right way round
+        } else if (p.box) {
+          const m = meshAt(i, "box", p), x = p.x.clone().normalize(), y = p.y.clone().addScaledVector(x, -p.y.dot(x)).normalize();
+          m.position.copy(p.box); m.scale.set(...p.size);
+          m.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, y, new THREE.Vector3().crossVectors(x, y)));
+        } else if (p.sphere) {
+          const m = meshAt(i, "sphere", p); m.position.copy(p.sphere); m.scale.setScalar(p.r);
+        }
+      });
+    }
+    // the seat the game parents a gun with (cal.json): the rifle seat, or a pistol's own
+    const calOf = (gun) => { const c = GUN_CAL[(q.get("body") || "").split("/").pop().replace(/\.glb$/, "")]; return gun === "pistol" ? c?.pistol : c; };
+    // (and its SEAT in this body's hand, measured as the bake measures it: anim-hands.js gunSeat)
+    async function useGun(name) {
+      gunNow = gunPropOf(name); if (!gunNow) return;
+      const g = await gunModel(gunNow.gun), hold = GUN_HOLDS[gunNow.gun], cal = calOf(gunNow.gun);
+      if (gripCals.r && hold && cal && !gripCals.r.seats?.[hold.name]) {
+        gunFields[gunNow.gun] ??= gunField(g);
+        const R0 = handRigid(W, "r", gripCals.r), G0 = gunPose(R0, hold, cal);
+        (gripCals.r.seats ??= {})[hold.name] = gunSeat({ root: g, field: gunFields[gunNow.gun].field }, R0, (o) => ({ ...G0, o }), hold, R0.hold(GUN_GRIP_R));
+      }
+    }
+    function useProps(name) {
+      spec = PROPS[name.replace(/^bd-/, "")] ?? null;
+      dir = new THREE.Vector3(...(spec?.view?.dir ?? [0.55, 0.3, 0.83])).normalize();
+      zoomK = spec?.view?.zoom ?? 1; liftK = spec?.view?.lift ?? 0;
+      if (!spec) { if (gunNow) { dir = new THREE.Vector3(0.75, 0.3, 0.6).normalize(); zoomK = 0.62; liftK = 0.18; } return placeProps(0); }
+      mixer.setTime(0); body.updateMatrixWorld(true);
+      const right = W("upperarm_r").sub(W("upperarm_l")); right.y = 0; right.normalize();
+      home = { o: W("hip"), right, left: right.clone().negate(), fwd: new THREE.Vector3().crossVectors(Yv, right).normalize() };
+    }
+    // THE ANIMATION LAW's measure (SURVIVORZ.md §10): scripts/survivorz/anim-law.js, the same
+    // code the bake clears arms with
+    let lawIndex = null, gunIndex = null;
+    function selfClip() { lawIndex ??= vertexIndex(body, 3, { law: true }); return clipMoment(lawIndex, (n) => W(n)); }
+    r.selfClip = (name, samples = 12) => {
+      const c = clips[name]; const a = mixer.clipAction(c); a.reset().play();
+      let worst = { depth: 0, n: 0, limb: null, t: 0 }, frames = 0;
+      for (let i = 0; i < samples; i++) {
+        const t = (c.duration * (i + 0.5)) / samples; mixer.setTime(t); body.updateMatrixWorld(true);
+        const w = selfClip(); if (w.depth > worst.depth) worst = { ...w, t: +t.toFixed(2) };
+        if (w.n > LAW.count) frames++;
+        worst.most = Math.max(worst.most ?? 0, w.n);
+      }
+      a.stop(); return { ...worst, frames, of: samples };
+    };
+    // where a gun's butt sits against the body at time t: the gap to the torso's surface (<0 = in
+    // it) and to the right shoulder joint — a shouldered gun's butt meets the shoulder pocket
+    r.gunCheck = (t) => {
+      if (!gunNow) return null;
+      mixer.setTime(t); body.updateMatrixWorld(true);
+      const hold = GUN_HOLDS[gunNow.gun], G = gunPose(handRigid(W, "r", gripCals.r), hold, calOf(gunNow.gun));
+      const butt = G.at(hold.butt);
+      // the gun's own index is the bake's (every 2nd vertex): every 3rd leaves the shoulder's grid
+      // slots empty, they fill from their neighbours, and the butt read 6 cm "inside" a chest it sat on
+      gunIndex ??= vertexIndex(body, 2);
+      const surf = torsoSurface(gunIndex, (n) => W(n));
+      const pr = { d: surf.inside(butt) };
+      // the deepest any point down the gun's length goes into the torso, past the butt plate (which
+      // is meant to touch: buttIn says how hard)
+      let gunIn = 0; for (let k = 2; k <= 12; k++) { const z = hold.butt[2] + (hold.muzzle[2] - hold.butt[2]) * k / 12; gunIn = Math.max(gunIn, surf.inside(G.at([0, (hold.butt[1] + hold.muzzle[1]) / 2, z]))); }
+      const right = W("upperarm_r").sub(W("upperarm_l")).setY(0).normalize(), fwd = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), right), hip = W("hip");
+      const rel = (p) => { const d = p.clone().sub(hip); return [d.dot(fwd), d.y, d.dot(right)].map((v) => +v.toFixed(3)); };
+      return { gunIn: +gunIn.toFixed(3), buttIn: pr.d ? +pr.d.toFixed(3) : null, toShoulder: +butt.distanceTo(W("upperarm_r")).toFixed(3),
+        shoulder: rel(W("upperarm_r")), rfist: rel(handRigid(W, "r").fist), lfist: rel(handFrame(W, "l").fist), butt: rel(butt), muzzle: rel(G.at(hold.muzzle)), support: rel(G.at(hold.support)), head: rel(W("head")) };
+    };
+    // THE LAW's natural half (anim-natural.js): every frame's joint measures and the motion's
+    // speed and jerk. The bind pose is read once, before any clip has played.
+    const restQ = {}; body.traverse((o) => { if (o.isBone) restQ[o.name] = o.quaternion.clone(); });
+    const boneN = (n) => boneW(n);
+    // the zombies' Auto-Rig Pro skeleton names the same joints its own way (three drops the dots)
+    const ZOMBIE = { shoulder: "shoulder", upperarm: "arm_stretch", lowerarm: "forearm_stretch", hand: "hand", upperleg: "thigh_stretch", lowerleg: "leg_stretch", foot: "foot", ball: "toes_01" };
+    const alias = (n) => {
+      const f = /^(thumb|index|middle|ring|pinky)_0([123])_([lr])$/.exec(n);
+      if (f) return `${f[1]}${f[2]}${f[3]}`;
+      const m = /^(.*)_([lr])$/.exec(n);
+      if (m && ZOMBIE[m[1]]) return ZOMBIE[m[1]] + m[2];
+      return { spine_01: "spine_01x", spine_02: "spine_02x", spine_03: "spine_03x", neck: "neckx", head: "headx" }[n] ?? n;
+    };
+    // (an exact name, or one ending in the joint's own: boneW alone matched "_hand_l" inside other names)
+    const boneCache = {}; const boneC = (n) => (n in boneCache ? boneCache[n] : (boneCache[n] = boneW(n) ?? boneW(alias(n)) ?? null));
+    restQ.__headRel = headRest(boneC); restQ.__chestW = chestRest(boneC);
+    // each hand's GRIP CHANNEL, measured from the skin at the bind pose as the bake measures it
+    // (anim-hands.js gripCal): a held prop is drawn where the hand holds it
+    const gripCals = {};
+    {
+      body.updateMatrixWorld(true);
+      const vi = vertexIndex(body, 1), at = (n) => { const b = boneW(n); return b ? b.getWorldPosition(new THREE.Vector3()) : null; };
+      for (const side of ["l", "r"]) { const hb = boneW("hand_" + side); try { gripCals[side] = hb ? gripCal(at, side, vi.filter((x) => x.bone === hb.name).map((x) => skinned(x)), handRigid(at, side)) : null; } catch { gripCals[side] = null; } }
+      if (gripCals.r) gripCals.r.avoid = thumbAvoid(at, "r", handRigid(at, "r"), gripCals.r.r);   // (as the bake measures it)
+    }
+    r.gripCals = () => gripCals;
+    r.natural = (name, fps = 30, loop = false) => {
+      const c = clips[name]; if (!c) return null;
+      const a = mixer.clipAction(c); a.reset().play();
+      const n = Math.max(2, Math.round(c.duration * fps)), frames = [], poses = [];
+      for (let i = 0; i < (loop ? n : n + 1); i++) {
+        mixer.setTime(Math.min(c.duration - 1e-4, i / fps)); body.updateMatrixWorld(true);
+        poses.push(poseMeasures(boneC, restQ));
+        frames.push(Object.fromEntries(SMOOTH_BONES.filter((b) => boneC(b)).map((b) => [b, boneC(b).quaternion.clone()])));
+      }
+      a.stop();
+      return { poses, motion: motionMeasures(frames, fps, loop) };
+    };
+    // THE HANDS (anim-hands.js): every frame, how each hand's fingers sit together and on what it
+    // holds — the gun (its voxel field, built once per gun) and the review props. r.use(name) first.
+    const gunFields = {}; let handVI = null;
+    r.hands = (name, fps = 30, loop = false) => {
+      const c = clips[name]; if (!c) return null;
+      handVI ??= vertexIndex(body, 2);
+      const vOf = { l: handVI.filter((x) => x.bone === boneC("hand_l")?.name), r: handVI.filter((x) => x.bone === boneC("hand_r")?.name) };
+      const at = (n) => { const b = boneC(n); return b ? b.getWorldPosition(new THREE.Vector3()) : null; };
+      if (gunNow && guns[gunNow.gun] && !gunFields[gunNow.gun]) gunFields[gunNow.gun] = gunField(guns[gunNow.gun]);
+      const n = Math.max(2, Math.round(c.duration * fps)), frames = [];
+      for (let i = 0; i < (loop ? n : n + 1); i++) {
+        const t = Math.min(c.duration - 1e-4, i / fps);
+        mixer.setTime(t); body.updateMatrixWorld(true); placeProps(t);
+        const shapes = [];
+        if (spec && home) shapes.push(...spec.draw({ t, hand: (side) => handRigid(W, side, gripCals[side]), home: (f = 0, u = 0, rr = 0) => home.o.clone().addScaledVector(home.fwd, f).addScaledVector(Yv, u).addScaledVector(home.right, rr), homeFrame: home, at: W, floor: -home.o.y }));
+        if (gunNow && gunFields[gunNow.gun]) shapes.push({ field: gunFields[gunNow.gun].field });
+        const fr = { t: +t.toFixed(3) };
+        for (const side of ["l", "r"]) {
+          const hand = handNow(at, side); if (!hand) continue;
+          const palm = palmSurface(hand, vOf[side].map((x) => skinned(x)));
+          fr[side] = { f: handFindings(hand, palm, shapes, gunNow ? side === "r" || gunNow.gun !== "pistol" : (spec?.holds ? spec.holds.includes(side) : true)).map((x) => [x.k, +x.v.toFixed(2)]), c: Object.fromEntries(Object.entries(curls(hand)).map(([k, v]) => [k, Math.round(v)])) };
+        }
+        frames.push(fr);
+      }
+      return { frames, gun: gunNow?.gun ?? null, props: !!spec };
+    };
+    // (a probe: the review props' shapes at t, and a bone's world position then)
+    r.shapesAt = (t) => { mixer.setTime(t); body.updateMatrixWorld(true); if (!spec || !home) return []; return spec.draw({ t, hand: (side) => handRigid(W, side, gripCals[side]), home: (f = 0, u = 0, rr = 0) => home.o.clone().addScaledVector(home.fwd, f).addScaledVector(Yv, u).addScaledVector(home.right, rr), homeFrame: home, at: W, floor: -home.o.y }); };
+    r.use = async (name) => {
+      await useGun(name);
+      if (action) action.stop();
+      action = mixer.clipAction(clips[name]); action.reset().play(); action.setLoop(THREE.LoopRepeat, Infinity);
+      useProps(name);   // after the clip is playing: its first frame is where the wall stands
+      frameClip(clips[name].duration);
+      return clips[name].duration;
+    };
+    // a CLOSE-UP for a look at the hands: the camera kept on a bone (or the midpoint of two), in
+    // the hips' own frame (dir: x the body's left, y up, z its front), a set distance off
+    let closeOn = null;
+    r.close = (bones, d, dist = 0.45) => { closeOn = bones ? { bones: [].concat(bones), d: new THREE.Vector3(...d).normalize(), dist } : null; };
+    const aimClose = () => {
+      if (!closeOn) return;
+      // (through the zombies' names too: their rig calls the hand "handr")
+      const Wz = (n) => boneC(n).getWorldPosition(new THREE.Vector3());
+      const c = closeOn.bones.map(Wz).reduce((a, b) => a.add(b)).multiplyScalar(1 / closeOn.bones.length);
+      // the body's front from its shoulders (the hips' own axes don't say which way is front)
+      const right = Wz("upperarm_r").sub(Wz("upperarm_l")).setY(0).normalize(), fwd = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), right), left = right.clone().negate();
+      const d = left.multiplyScalar(closeOn.d.x).addScaledVector(new THREE.Vector3(0, 1, 0), closeOn.d.y).addScaledVector(fwd, closeOn.d.z).normalize();
+      camera.position.copy(c).addScaledVector(d, closeOn.dist); camera.lookAt(c);
+    };
+    r.frame = (t) => { mixer.setTime(t); body.updateMatrixWorld(true); placeProps(t); aimClose(); renderer.render(scene, camera); return renderer.domElement.toDataURL("image/jpeg", 0.86); };
+    // a clip straight from the bake's out/<body>/<clip>.json, to look at before the body is packed again
+    r.addClip = (j) => { const c = THREE.AnimationClip.parse(j); clips[c.name] = c; return c.duration; };
+    r.__body = body; r.__W = W;   // for probes
+    r.ready = true;
+  } catch (e) { r.error = String(e && e.stack || e); r.ready = true; }
+</script>

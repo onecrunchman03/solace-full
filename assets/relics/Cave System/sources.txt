@@ -1,0 +1,14 @@
+The Cave System (Level 8) relics, found online by Claude, 2026-10-15.
+All from rawpixel.com's public-domain collection (CC0 1.0), via the Openverse API.
+The downloads are JPEGs with a baked transparency checkerboard; relic-art.mjs cuts it away.
+
+conductors whistle relic.jpg       https://www.rawpixel.com/image/6755518  (Whistle png sticker object illustration)
+yellow ticket relic.jpg            https://www.rawpixel.com/image/6289813  (Png yellow ticket hand sticker)
+fossil fish relic.jpg              https://www.rawpixel.com/image/6560469  (Fish fossil png sticker extinct)
+geologists hammer relic.jpg        https://www.rawpixel.com/image/6502056  (Hammer png sticker, tool vintage)
+candle stub relic.jpg              https://www.rawpixel.com/image/6549194  (Lit candle png sticker, vintage)
+surveyors watch relic.jpg          https://www.rawpixel.com/image/6489461  (Pocket watch png sticker, vintage)
+blue crystals relic.jpg            https://www.rawpixel.com/image/6538120  (Blue crystals png sticker, minerals)
+claires night light relic.jpg      https://www.rawpixel.com/image/7278351  (Sleeping moon png sticker, transparent)
+lump of ore relic.jpg              https://www.rawpixel.com/image/6503759  (Ore mineral png sticker, vintage)
+toy subway car relic.jpg           https://www.rawpixel.com/image/6791816  (Subway train png sticker, transparent)

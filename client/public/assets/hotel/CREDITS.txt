@@ -1,0 +1,12 @@
+LEVEL 5 — THE TERROR HOTEL (Solace Backrooms)
+
+deathmoth.glb — the Deathmoth, the hotel's creature
+Model: "Death moths [BACKROOMS]" by Fog, Sketchfab
+https://sketchfab.com/3d-models/death-moths-backrooms-b94c382e1f494cfbb925575392c70ea6
+License: Creative Commons Attribution 4.0 (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+Changed for Solace: turned to a flying pose, split into a body and two wings
+(so the wings can be flapped in code), the body's triangles reduced, rescaled
+to a 1m wingspan, textures re-encoded (scripts/assets/deathmoth.mjs).
+
+The hotel's furniture and fittings are in the prop kit: propkit/CREDITS.txt.

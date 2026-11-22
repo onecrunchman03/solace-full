@@ -1,0 +1,82 @@
+[
+  {
+    "id": "rick",
+    "status": "cast",
+    "strip": 0,
+    "name": "Rick Chimes",
+    "tag": "Police officer, a day from retiring",
+    "body": "eric",
+    "suited": false,
+    "vox": "m"
+  },
+  {
+    "id": "johanna",
+    "status": "cast",
+    "strip": 1,
+    "name": "Johanna Vianna",
+    "tag": "Lost her husband on day one",
+    "body": "carla",
+    "suited": false,
+    "vox": "f"
+  },
+  {
+    "id": "dale",
+    "status": "cast",
+    "strip": 2,
+    "name": "Dale Hutchins",
+    "tag": "Paramedic",
+    "body": "nathan",
+    "suited": false,
+    "vox": "m"
+  },
+  {
+    "id": "ben",
+    "status": "cast",
+    "strip": 3,
+    "name": "Ben Bennington",
+    "tag": "Football player",
+    "body": "manuel",
+    "suited": false,
+    "vox": "m"
+  },
+  {
+    "id": "sarah",
+    "status": "cast",
+    "strip": 4,
+    "name": "Sarah Lockner",
+    "tag": "Fresh out of college",
+    "body": "sophia",
+    "suited": false,
+    "vox": "f"
+  },
+  {
+    "id": "rollo",
+    "status": "cast",
+    "strip": 5,
+    "name": "Rollo",
+    "tag": "The casino's champion",
+    "body": "rollo",
+    "suited": true,
+    "vox": "m"
+  },
+  {
+    "id": "claudia",
+    "status": "bench",
+    "strip": 6,
+    "name": "Claudia Graham",
+    "tag": "Found hiding inside",
+    "body": "claudia",
+    "suited": false,
+    "vox": "f"
+  },
+  {
+    "id": "renner",
+    "status": "bench",
+    "strip": 36,
+    "name": "Cole Renner",
+    "tag": "Contractor left behind",
+    "body": "swat-soldier",
+    "suited": false,
+    "vox": "m"
+  }
+]

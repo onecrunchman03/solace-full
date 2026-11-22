@@ -1,0 +1,23 @@
+# Solace host security collector — writes data/security-snapshot.json for the
+# Admin Panel's Security screen. Runs as root because reading the SSH journal,
+# fail2ban state and socket table requires it; the APP stays sandboxed and
+# only reads the resulting file.
+#
+# Install: sudo cp deploy/solace-security.{service,timer} /etc/systemd/system/
+#          sudo systemctl daemon-reload
+#          sudo systemctl enable --now solace-security.timer
+
+[Unit]
+Description=Solace host security snapshot
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env bash /opt/solace/deploy/security-collector.sh
+# Read-only work with one written file. The collector is not a network
+# service, so it gets the strict treatment too.
+NoNewPrivileges=false
+ProtectHome=read-only
+PrivateTmp=true
+ReadWritePaths=/opt/solace/data
+TimeoutStartSec=60

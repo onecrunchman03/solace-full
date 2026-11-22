@@ -1,0 +1,5711 @@
+{
+  "about": "THE RESEARCH LABS (docs/survivorz/ASSETS.md step D, zone 3). Written by scripts/survivorz/layout-labs.mjs (edit that, not this); read by scripts/survivorz/room-build.py --set labs and client/src/survivorz/room/lobby.ts.",
+  "rooms": [
+    "labs-corridor",
+    "break-room",
+    "glass-offices",
+    "conference",
+    "server-room",
+    "airlock",
+    "decon-shower",
+    "suit-room",
+    "lab-storage",
+    "clean-lab-a",
+    "clean-lab-b"
+  ],
+  "roomRects": {
+    "labs-corridor": {
+      "x": 60,
+      "z": 40,
+      "w": 48,
+      "h": 6,
+      "zone": "labs"
+    },
+    "break-room": {
+      "x": 66,
+      "z": 32,
+      "w": 20,
+      "h": 8,
+      "zone": "labs"
+    },
+    "glass-offices": {
+      "x": 86,
+      "z": 26,
+      "w": 16,
+      "h": 14,
+      "zone": "labs"
+    },
+    "conference": {
+      "x": 102,
+      "z": 30,
+      "w": 12,
+      "h": 10,
+      "zone": "labs"
+    },
+    "server-room": {
+      "x": 108,
+      "z": 40,
+      "w": 8,
+      "h": 12,
+      "zone": "labs"
+    },
+    "airlock": {
+      "x": 102,
+      "z": 46,
+      "w": 6,
+      "h": 6,
+      "zone": "labs"
+    },
+    "decon-shower": {
+      "x": 102,
+      "z": 52,
+      "w": 6,
+      "h": 6,
+      "zone": "labs"
+    },
+    "suit-room": {
+      "x": 108,
+      "z": 52,
+      "w": 8,
+      "h": 12,
+      "zone": "labs"
+    },
+    "lab-storage": {
+      "x": 116,
+      "z": 40,
+      "w": 14,
+      "h": 12,
+      "zone": "labs"
+    },
+    "clean-lab-a": {
+      "x": 116,
+      "z": 52,
+      "w": 14,
+      "h": 14,
+      "zone": "labs"
+    },
+    "clean-lab-b": {
+      "x": 130,
+      "z": 52,
+      "w": 14,
+      "h": 14,
+      "zone": "labs"
+    }
+  },
+  "styles": {
+    "labs-corridor": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "break-room": {
+      "floor": "vinyl-oak",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "glass-offices": {
+      "floor": "carpet-tile",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "conference": {
+      "floor": "carpet-tile",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "server-room": {
+      "floor": "raised-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "airlock": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "stainless"
+        ]
+      ]
+    },
+    "decon-shower": {
+      "floor": "steel-plate",
+      "ceiling": "stainless",
+      "bands": [
+        [
+          99,
+          "stainless"
+        ]
+      ]
+    },
+    "suit-room": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "clean-lab-a": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "clean-lab-b": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "lab-storage": {
+      "floor": "kitchen-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    }
+  },
+  "skins": {
+    "labs-corridor": {
+      "room": "labs-corridor",
+      "ceilY": 3,
+      "slotAxis": "x",
+      "slotPitch": 1.6,
+      "slotZ0": 43,
+      "slotInset": 0.8,
+      "slotWidth": 0.06
+    },
+    "break-room": {
+      "room": "break-room",
+      "ceilY": 2.8,
+      "slotPitch": 2.4,
+      "slotX0": 76,
+      "slotInset": 0.6,
+      "slotWidth": 0.06
+    },
+    "glass-offices": {
+      "room": "glass-offices",
+      "ceilY": 2.8,
+      "slotAxis": "x",
+      "slotPitch": 2.4,
+      "slotZ0": 33,
+      "slotInset": 0.6,
+      "slotWidth": 0.06
+    },
+    "conference": {
+      "room": "conference",
+      "ceilY": 2.8,
+      "slotPitch": 2.4,
+      "slotX0": 108,
+      "slotInset": 0.6,
+      "slotWidth": 0.06
+    },
+    "server-room": {
+      "room": "server-room",
+      "ceilY": 2.8,
+      "slotAxis": "z",
+      "slotPitch": 1.8,
+      "slotX0": 112,
+      "slotInset": 0.6,
+      "slotWidth": 0.06
+    }
+  },
+  "arch": [
+    {
+      "what": "office front west pane",
+      "glass": [
+        86.32,
+        0,
+        39.994,
+        87.48,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front west pane",
+      "glass": [
+        87.52,
+        0,
+        39.994,
+        88.68,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front west pane",
+      "glass": [
+        88.72,
+        0,
+        39.994,
+        89.88,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front west pane",
+      "glass": [
+        89.92,
+        0,
+        39.994,
+        91.08,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front west pane",
+      "glass": [
+        91.12,
+        0,
+        39.994,
+        92.28,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front west pane",
+      "glass": [
+        92.32,
+        0,
+        39.994,
+        93.48,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front west pane",
+      "glass": [
+        93.52,
+        0,
+        39.994,
+        93.53,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front west mullion",
+      "key": "steel",
+      "box": [
+        86.275,
+        0,
+        39.95,
+        86.325,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front west mullion",
+      "key": "steel",
+      "box": [
+        87.475,
+        0,
+        39.95,
+        87.525,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front west mullion",
+      "key": "steel",
+      "box": [
+        88.675,
+        0,
+        39.95,
+        88.725,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front west mullion",
+      "key": "steel",
+      "box": [
+        89.875,
+        0,
+        39.95,
+        89.925,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front west mullion",
+      "key": "steel",
+      "box": [
+        91.075,
+        0,
+        39.95,
+        91.125,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front west mullion",
+      "key": "steel",
+      "box": [
+        92.275,
+        0,
+        39.95,
+        92.325,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front west mullion",
+      "key": "steel",
+      "box": [
+        93.475,
+        0,
+        39.95,
+        93.525,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front west channel",
+      "key": "steel",
+      "box": [
+        86.3,
+        -0.001,
+        39.94,
+        93.55,
+        0.04,
+        40.06
+      ]
+    },
+    {
+      "what": "office front west channel",
+      "key": "steel",
+      "box": [
+        86.3,
+        2.66,
+        39.94,
+        93.55,
+        2.7,
+        40.06
+      ]
+    },
+    {
+      "what": "office front east pane",
+      "glass": [
+        94.47,
+        0,
+        39.994,
+        95.63,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front east pane",
+      "glass": [
+        95.67,
+        0,
+        39.994,
+        96.83,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front east pane",
+      "glass": [
+        96.87,
+        0,
+        39.994,
+        98.03,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front east pane",
+      "glass": [
+        98.07,
+        0,
+        39.994,
+        99.23,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front east pane",
+      "glass": [
+        99.27,
+        0,
+        39.994,
+        100.43,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front east pane",
+      "glass": [
+        100.47,
+        0,
+        39.994,
+        101.63,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front east pane",
+      "glass": [
+        101.67,
+        0,
+        39.994,
+        101.68,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office front east mullion",
+      "key": "steel",
+      "box": [
+        94.425,
+        0,
+        39.95,
+        94.475,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front east mullion",
+      "key": "steel",
+      "box": [
+        95.625,
+        0,
+        39.95,
+        95.675,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front east mullion",
+      "key": "steel",
+      "box": [
+        96.825,
+        0,
+        39.95,
+        96.875,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front east mullion",
+      "key": "steel",
+      "box": [
+        98.025,
+        0,
+        39.95,
+        98.075,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front east mullion",
+      "key": "steel",
+      "box": [
+        99.225,
+        0,
+        39.95,
+        99.275,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front east mullion",
+      "key": "steel",
+      "box": [
+        100.425,
+        0,
+        39.95,
+        100.475,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front east mullion",
+      "key": "steel",
+      "box": [
+        101.625,
+        0,
+        39.95,
+        101.675,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office front east channel",
+      "key": "steel",
+      "box": [
+        94.45,
+        -0.001,
+        39.94,
+        101.7,
+        0.04,
+        40.06
+      ]
+    },
+    {
+      "what": "office front east channel",
+      "key": "steel",
+      "box": [
+        94.45,
+        2.66,
+        39.94,
+        101.7,
+        2.7,
+        40.06
+      ]
+    },
+    {
+      "what": "office door transom pane",
+      "glass": [
+        93.57,
+        2.1,
+        39.994,
+        94.43,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "office door transom mullion",
+      "key": "steel",
+      "box": [
+        93.525,
+        2.1,
+        39.95,
+        93.575,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "office door transom channel",
+      "key": "steel",
+      "box": [
+        93.55,
+        2.099,
+        39.94,
+        94.45,
+        2.14,
+        40.06
+      ]
+    },
+    {
+      "what": "office door transom channel",
+      "key": "steel",
+      "box": [
+        93.55,
+        2.66,
+        39.94,
+        94.45,
+        2.7,
+        40.06
+      ]
+    },
+    {
+      "what": "conference front pane",
+      "glass": [
+        102.32,
+        0,
+        39.994,
+        103.48,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "conference front pane",
+      "glass": [
+        103.52,
+        0,
+        39.994,
+        104.53,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "conference front mullion",
+      "key": "steel",
+      "box": [
+        102.275,
+        0,
+        39.95,
+        102.325,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "conference front mullion",
+      "key": "steel",
+      "box": [
+        103.475,
+        0,
+        39.95,
+        103.525,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "conference front channel",
+      "key": "steel",
+      "box": [
+        102.3,
+        -0.001,
+        39.94,
+        104.55,
+        0.04,
+        40.06
+      ]
+    },
+    {
+      "what": "conference front channel",
+      "key": "steel",
+      "box": [
+        102.3,
+        2.66,
+        39.94,
+        104.55,
+        2.7,
+        40.06
+      ]
+    },
+    {
+      "what": "conference front pane",
+      "glass": [
+        105.47,
+        0,
+        39.994,
+        106.63,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "conference front pane",
+      "glass": [
+        106.67,
+        0,
+        39.994,
+        107.68,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "conference front mullion",
+      "key": "steel",
+      "box": [
+        105.425,
+        0,
+        39.95,
+        105.475,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "conference front mullion",
+      "key": "steel",
+      "box": [
+        106.625,
+        0,
+        39.95,
+        106.675,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "conference front channel",
+      "key": "steel",
+      "box": [
+        105.45,
+        -0.001,
+        39.94,
+        107.7,
+        0.04,
+        40.06
+      ]
+    },
+    {
+      "what": "conference front channel",
+      "key": "steel",
+      "box": [
+        105.45,
+        2.66,
+        39.94,
+        107.7,
+        2.7,
+        40.06
+      ]
+    },
+    {
+      "what": "conference door transom pane",
+      "glass": [
+        104.57,
+        2.1,
+        39.994,
+        105.43,
+        2.7,
+        40.006
+      ]
+    },
+    {
+      "what": "conference door transom mullion",
+      "key": "steel",
+      "box": [
+        104.525,
+        2.1,
+        39.95,
+        104.575,
+        2.7,
+        40.05
+      ]
+    },
+    {
+      "what": "conference door transom channel",
+      "key": "steel",
+      "box": [
+        104.55,
+        2.099,
+        39.94,
+        105.45,
+        2.14,
+        40.06
+      ]
+    },
+    {
+      "what": "conference door transom channel",
+      "key": "steel",
+      "box": [
+        104.55,
+        2.66,
+        39.94,
+        105.45,
+        2.7,
+        40.06
+      ]
+    },
+    {
+      "what": "south bump rail",
+      "key": "steel",
+      "box": [
+        60.25,
+        0.92,
+        45.83,
+        104.25,
+        1.04,
+        45.88
+      ],
+      "skip": [
+        "+z"
+      ]
+    },
+    {
+      "what": "south bump rail",
+      "key": "steel",
+      "box": [
+        105.75,
+        0.92,
+        45.83,
+        107.75,
+        1.04,
+        45.88
+      ],
+      "skip": [
+        "+z"
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        86.14,
+        0,
+        30.394,
+        87.3,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        87.34,
+        0,
+        30.394,
+        88.5,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        88.54,
+        0,
+        30.394,
+        89.7,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        89.74,
+        0,
+        30.394,
+        90.9,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        90.94,
+        0,
+        30.394,
+        91.58,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        86.095,
+        0,
+        30.35,
+        86.145,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        87.295,
+        0,
+        30.35,
+        87.345,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        88.495,
+        0,
+        30.35,
+        88.545,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        89.695,
+        0,
+        30.35,
+        89.745,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        90.895,
+        0,
+        30.35,
+        90.945,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front channel",
+      "key": "steel",
+      "box": [
+        86.12,
+        -0.001,
+        30.34,
+        91.6,
+        0.04,
+        30.46
+      ]
+    },
+    {
+      "what": "private office front channel",
+      "key": "steel",
+      "box": [
+        86.12,
+        2.76,
+        30.34,
+        91.6,
+        2.8,
+        30.46
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        92.57,
+        0,
+        30.394,
+        93.73,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        93.77,
+        0,
+        30.394,
+        93.88,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        92.525,
+        0,
+        30.35,
+        92.575,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        93.725,
+        0,
+        30.35,
+        93.775,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front channel",
+      "key": "steel",
+      "box": [
+        92.55,
+        -0.001,
+        30.34,
+        93.9,
+        0.04,
+        30.46
+      ]
+    },
+    {
+      "what": "private office front channel",
+      "key": "steel",
+      "box": [
+        92.55,
+        2.76,
+        30.34,
+        93.9,
+        2.8,
+        30.46
+      ]
+    },
+    {
+      "what": "private office door transom pane",
+      "glass": [
+        91.62,
+        2.1,
+        30.394,
+        92.53,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office door transom mullion",
+      "key": "steel",
+      "box": [
+        91.575,
+        2.1,
+        30.35,
+        91.625,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office door transom channel",
+      "key": "steel",
+      "box": [
+        91.6,
+        2.099,
+        30.34,
+        92.55,
+        2.14,
+        30.46
+      ]
+    },
+    {
+      "what": "private office door transom channel",
+      "key": "steel",
+      "box": [
+        91.6,
+        2.76,
+        30.34,
+        92.55,
+        2.8,
+        30.46
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        94.12,
+        0,
+        30.394,
+        95.28,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        95.32,
+        0,
+        30.394,
+        96.48,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        96.52,
+        0,
+        30.394,
+        97.68,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        97.72,
+        0,
+        30.394,
+        98.88,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        98.92,
+        0,
+        30.394,
+        99.58,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        94.075,
+        0,
+        30.35,
+        94.125,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        95.275,
+        0,
+        30.35,
+        95.325,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        96.475,
+        0,
+        30.35,
+        96.525,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        97.675,
+        0,
+        30.35,
+        97.725,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        98.875,
+        0,
+        30.35,
+        98.925,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front channel",
+      "key": "steel",
+      "box": [
+        94.1,
+        -0.001,
+        30.34,
+        99.6,
+        0.04,
+        30.46
+      ]
+    },
+    {
+      "what": "private office front channel",
+      "key": "steel",
+      "box": [
+        94.1,
+        2.76,
+        30.34,
+        99.6,
+        2.8,
+        30.46
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        100.57,
+        0,
+        30.394,
+        101.73,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front pane",
+      "glass": [
+        101.77,
+        0,
+        30.394,
+        101.86,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        100.525,
+        0,
+        30.35,
+        100.575,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front mullion",
+      "key": "steel",
+      "box": [
+        101.725,
+        0,
+        30.35,
+        101.775,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office front channel",
+      "key": "steel",
+      "box": [
+        100.55,
+        -0.001,
+        30.34,
+        101.88,
+        0.04,
+        30.46
+      ]
+    },
+    {
+      "what": "private office front channel",
+      "key": "steel",
+      "box": [
+        100.55,
+        2.76,
+        30.34,
+        101.88,
+        2.8,
+        30.46
+      ]
+    },
+    {
+      "what": "private office door transom pane",
+      "glass": [
+        99.62,
+        2.1,
+        30.394,
+        100.53,
+        2.8,
+        30.406
+      ]
+    },
+    {
+      "what": "private office door transom mullion",
+      "key": "steel",
+      "box": [
+        99.575,
+        2.1,
+        30.35,
+        99.625,
+        2.8,
+        30.45
+      ]
+    },
+    {
+      "what": "private office door transom channel",
+      "key": "steel",
+      "box": [
+        99.6,
+        2.099,
+        30.34,
+        100.55,
+        2.14,
+        30.46
+      ]
+    },
+    {
+      "what": "private office door transom channel",
+      "key": "steel",
+      "box": [
+        99.6,
+        2.76,
+        30.34,
+        100.55,
+        2.8,
+        30.46
+      ]
+    },
+    {
+      "what": "private office partition pane",
+      "glass": [
+        93.994,
+        0,
+        26.14,
+        94.006,
+        2.8,
+        27.3
+      ]
+    },
+    {
+      "what": "private office partition pane",
+      "glass": [
+        93.994,
+        0,
+        27.34,
+        94.006,
+        2.8,
+        28.5
+      ]
+    },
+    {
+      "what": "private office partition pane",
+      "glass": [
+        93.994,
+        0,
+        28.54,
+        94.006,
+        2.8,
+        29.7
+      ]
+    },
+    {
+      "what": "private office partition pane",
+      "glass": [
+        93.994,
+        0,
+        29.74,
+        94.006,
+        2.8,
+        30.38
+      ]
+    },
+    {
+      "what": "private office partition mullion",
+      "key": "steel",
+      "box": [
+        93.95,
+        0,
+        26.095,
+        94.05,
+        2.8,
+        26.145
+      ]
+    },
+    {
+      "what": "private office partition mullion",
+      "key": "steel",
+      "box": [
+        93.95,
+        0,
+        27.295,
+        94.05,
+        2.8,
+        27.345
+      ]
+    },
+    {
+      "what": "private office partition mullion",
+      "key": "steel",
+      "box": [
+        93.95,
+        0,
+        28.495,
+        94.05,
+        2.8,
+        28.545
+      ]
+    },
+    {
+      "what": "private office partition mullion",
+      "key": "steel",
+      "box": [
+        93.95,
+        0,
+        29.695,
+        94.05,
+        2.8,
+        29.745
+      ]
+    },
+    {
+      "what": "private office partition channel",
+      "key": "steel",
+      "box": [
+        93.94,
+        -0.001,
+        26.12,
+        94.06,
+        0.04,
+        30.4
+      ]
+    },
+    {
+      "what": "private office partition channel",
+      "key": "steel",
+      "box": [
+        93.94,
+        2.76,
+        26.12,
+        94.06,
+        2.8,
+        30.4
+      ]
+    }
+  ],
+  "cutouts": [
+    {
+      "axis": "z",
+      "c": 40,
+      "a0": 86.3,
+      "a1": 101.7,
+      "y0": 0,
+      "y1": 2.7
+    },
+    {
+      "axis": "z",
+      "c": 40,
+      "a0": 102.3,
+      "a1": 107.7,
+      "y0": 0,
+      "y1": 2.7
+    }
+  ],
+  "props": [
+    {
+      "id": "water-dispenser",
+      "at": [
+        66,
+        0,
+        45.691
+      ],
+      "yaw": 180,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        80.4,
+        0.6,
+        45.814
+      ],
+      "yaw": 180,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        96.4,
+        0.6,
+        45.814
+      ],
+      "yaw": 180,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        102.6,
+        0,
+        45.668
+      ],
+      "yaw": 180,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "glove-dispenser",
+      "at": [
+        107,
+        1.2,
+        45.806
+      ],
+      "yaw": 180,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        88.2,
+        0,
+        43.6
+      ],
+      "yaw": 37,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        82.5,
+        0,
+        42.8
+      ],
+      "yaw": 150,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        74.4,
+        0,
+        44.9
+      ],
+      "yaw": 0,
+      "room": "labs-corridor",
+      "rot": [
+        90,
+        30,
+        0
+      ]
+    },
+    {
+      "id": "id-card",
+      "at": [
+        97.1,
+        0,
+        42.4
+      ],
+      "yaw": 64,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "kitchenette",
+      "at": [
+        71,
+        0,
+        32.435
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "fridge",
+      "at": [
+        73.6,
+        0,
+        32.471
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "vending-machine",
+      "at": [
+        74.6,
+        0,
+        32.475
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "coffee-maker",
+      "at": [
+        72.2,
+        0.9,
+        32.315
+      ],
+      "yaw": 90,
+      "room": "break-room"
+    },
+    {
+      "id": "microwave",
+      "at": [
+        71.35,
+        0.9,
+        32.385
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "mug-white",
+      "at": [
+        72,
+        0.9,
+        32.555
+      ],
+      "yaw": 40,
+      "room": "break-room"
+    },
+    {
+      "id": "mug-white",
+      "at": [
+        72.45,
+        0.9,
+        32.535
+      ],
+      "yaw": 160,
+      "room": "break-room"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        69.6,
+        0.9,
+        32.535
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        71.5,
+        0,
+        36.2
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        72.029,
+        0,
+        35.382
+      ],
+      "yaw": -13.639,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        70.904,
+        0,
+        36.923
+      ],
+      "yaw": 191.237,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        72.028,
+        0,
+        36.904
+      ],
+      "yaw": 163.781,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        76,
+        0,
+        36.2
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        75.466,
+        0,
+        35.402
+      ],
+      "yaw": -7.593,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        76.581,
+        0,
+        35.339
+      ],
+      "yaw": -15.574,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        75.442,
+        0,
+        36.831
+      ],
+      "yaw": 163.304,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        76.606,
+        0,
+        37.028
+      ],
+      "yaw": 193.056,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        80.5,
+        0,
+        35
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        79.999,
+        0,
+        34.355
+      ],
+      "yaw": -9.002,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        81.01,
+        0,
+        34.279
+      ],
+      "yaw": 16.844,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        79.936,
+        0,
+        35.636
+      ],
+      "yaw": 180.273,
+      "room": "break-room"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        81.015,
+        0,
+        35.687
+      ],
+      "yaw": 168.852,
+      "room": "break-room"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        71.2,
+        0.75,
+        36
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        76.4,
+        0.75,
+        36.4
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "mug-white",
+      "at": [
+        80.2,
+        0.75,
+        35.1
+      ],
+      "yaw": 70,
+      "room": "break-room"
+    },
+    {
+      "id": "plate",
+      "at": [
+        71.9,
+        0.762,
+        36.35
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "cutlery",
+      "at": [
+        72.1,
+        0.762,
+        36.3
+      ],
+      "yaw": 30,
+      "room": "break-room"
+    },
+    {
+      "id": "lobby-sofa",
+      "at": [
+        85.48,
+        0,
+        36.4
+      ],
+      "yaw": -90,
+      "room": "break-room"
+    },
+    {
+      "id": "coffee-table",
+      "at": [
+        84.43,
+        0,
+        36.4
+      ],
+      "yaw": 0,
+      "room": "break-room"
+    },
+    {
+      "id": "magazine-pile",
+      "at": [
+        84.43,
+        0.39,
+        36.2
+      ],
+      "yaw": 20,
+      "room": "break-room"
+    },
+    {
+      "id": "notice-board",
+      "at": [
+        66.72,
+        1.1,
+        35.5
+      ],
+      "yaw": 90,
+      "room": "break-room"
+    },
+    {
+      "id": "snake-plant",
+      "at": [
+        84.6,
+        0,
+        39.699
+      ],
+      "yaw": 180,
+      "room": "break-room"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        90,
+        0,
+        28.3
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        90.3,
+        0.787,
+        28.55
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        89.65,
+        0.787,
+        28.55
+      ],
+      "yaw": 160,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        90.3,
+        0,
+        27.15
+      ],
+      "yaw": 11.202,
+      "room": "glass-offices"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        87.4,
+        0,
+        26.488
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "whiteboard",
+      "at": [
+        86.163,
+        0.9,
+        28.2
+      ],
+      "yaw": 90,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        98,
+        0,
+        28.3
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        98.3,
+        0.787,
+        28.55
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        97.65,
+        0.787,
+        28.55
+      ],
+      "yaw": 160,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        98.3,
+        0,
+        27.15
+      ],
+      "yaw": 12.079,
+      "room": "glass-offices"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        95.4,
+        0,
+        26.488
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "whiteboard",
+      "at": [
+        94.143,
+        0.9,
+        28.2
+      ],
+      "yaw": 90,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        89.4,
+        0,
+        33.52
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        89.8,
+        0.787,
+        33.77
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        89.15,
+        0.787,
+        33.77
+      ],
+      "yaw": 165,
+      "room": "glass-offices"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        88.8,
+        0.787,
+        33.42
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        89.3,
+        0.787,
+        33.37
+      ],
+      "yaw": 189.087,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        89.676,
+        0,
+        32.267
+      ],
+      "yaw": 330.946,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        93.9,
+        0,
+        33.52
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        94.3,
+        0.787,
+        33.77
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        93.65,
+        0.787,
+        33.77
+      ],
+      "yaw": 165,
+      "room": "glass-offices"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        93.05,
+        0.787,
+        33.72
+      ],
+      "yaw": 380,
+      "room": "glass-offices"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        93.3,
+        0.787,
+        33.42
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        93.8,
+        0.787,
+        33.37
+      ],
+      "yaw": 207.644,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        94.196,
+        0,
+        32.139
+      ],
+      "yaw": 376.742,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        98.4,
+        0,
+        33.52
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        98.8,
+        0.787,
+        33.77
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        98.15,
+        0.787,
+        33.77
+      ],
+      "yaw": 165,
+      "room": "glass-offices"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        97.8,
+        0.787,
+        33.42
+      ],
+      "yaw": 180,
+      "room": "glass-offices"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        98.3,
+        0.787,
+        33.37
+      ],
+      "yaw": 169.58,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        98.31,
+        0,
+        31.959
+      ],
+      "yaw": 375.494,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        89.4,
+        0,
+        34.48
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        89,
+        0.787,
+        34.23
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        89.65,
+        0.787,
+        34.23
+      ],
+      "yaw": -15,
+      "room": "glass-offices"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        90.25,
+        0.787,
+        34.28
+      ],
+      "yaw": 200,
+      "room": "glass-offices"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        90,
+        0.787,
+        34.58
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        89.628,
+        0,
+        35.9
+      ],
+      "yaw": 157.709,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        93.9,
+        0,
+        34.48
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        93.5,
+        0.787,
+        34.23
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        94.15,
+        0.787,
+        34.23
+      ],
+      "yaw": -15,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        93.7,
+        0,
+        36.008
+      ],
+      "yaw": 180,
+      "room": "glass-offices",
+      "rot": [
+        90,
+        180,
+        0
+      ]
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        98.4,
+        0,
+        34.48
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        98,
+        0.787,
+        34.23
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        98.65,
+        0.787,
+        34.23
+      ],
+      "yaw": -15,
+      "room": "glass-offices"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        99.25,
+        0.787,
+        34.28
+      ],
+      "yaw": 200,
+      "room": "glass-offices"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        99,
+        0.787,
+        34.58
+      ],
+      "yaw": 0,
+      "room": "glass-offices"
+    },
+    {
+      "id": "sticky-notes",
+      "at": [
+        97.65,
+        0.787,
+        34.58
+      ],
+      "yaw": 9.04,
+      "room": "glass-offices"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        98.659,
+        0,
+        36.01
+      ],
+      "yaw": 210.758,
+      "room": "glass-offices"
+    },
+    {
+      "id": "keycard-b",
+      "at": [
+        94.4,
+        0.79,
+        34.85
+      ],
+      "yaw": 37,
+      "room": "glass-offices",
+      "note": "keycard 2 (facility-map card-2)"
+    },
+    {
+      "id": "office-copier",
+      "at": [
+        86.413,
+        0,
+        37
+      ],
+      "yaw": 90,
+      "room": "glass-offices"
+    },
+    {
+      "id": "snake-plant",
+      "at": [
+        101.698,
+        0,
+        38.8
+      ],
+      "yaw": -90,
+      "room": "glass-offices"
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        92,
+        0,
+        37.5
+      ],
+      "yaw": 10,
+      "room": "glass-offices"
+    },
+    {
+      "id": "binder",
+      "at": [
+        97,
+        0,
+        37.8
+      ],
+      "yaw": 120,
+      "room": "glass-offices"
+    },
+    {
+      "id": "conference-table",
+      "at": [
+        108.2,
+        0,
+        35
+      ],
+      "yaw": 0,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        106.309,
+        0,
+        34.078
+      ],
+      "yaw": -8.167,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        107.15,
+        0,
+        33.716
+      ],
+      "yaw": 17.622,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        108.051,
+        0,
+        33.783
+      ],
+      "yaw": 30.87,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        109.188,
+        0,
+        33.959
+      ],
+      "yaw": 10.626,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        110.021,
+        0,
+        33.809
+      ],
+      "yaw": 13.814,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        106.268,
+        0,
+        36.174
+      ],
+      "yaw": 204.804,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        107.42,
+        0,
+        36.291
+      ],
+      "yaw": 154.73,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        108.296,
+        0,
+        36.177
+      ],
+      "yaw": 210.068,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        109.216,
+        0,
+        35.875
+      ],
+      "yaw": 162.298,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        109.955,
+        0,
+        36.2
+      ],
+      "yaw": 160.49,
+      "room": "conference"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        105.3,
+        0,
+        35
+      ],
+      "yaw": 75.381,
+      "room": "conference"
+    },
+    {
+      "id": "whiteboard",
+      "at": [
+        113.837,
+        0.9,
+        35
+      ],
+      "yaw": -90,
+      "room": "conference",
+      "note": "the conference whiteboard (facility-map log conference-whiteboard)"
+    },
+    {
+      "id": "wall-tv",
+      "at": [
+        108.2,
+        1.4,
+        30.154
+      ],
+      "yaw": 0,
+      "room": "conference"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        107,
+        0.752,
+        34.7
+      ],
+      "yaw": 0,
+      "room": "conference"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        109.5,
+        0.752,
+        35.3
+      ],
+      "yaw": 0,
+      "room": "conference"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        106.4,
+        0.752,
+        35.4
+      ],
+      "yaw": 0,
+      "room": "conference"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        108.8,
+        0.752,
+        34.6
+      ],
+      "yaw": 15,
+      "room": "conference"
+    },
+    {
+      "id": "laptop",
+      "at": [
+        110.3,
+        0.752,
+        34.7
+      ],
+      "yaw": 180,
+      "room": "conference"
+    },
+    {
+      "id": "snake-plant",
+      "at": [
+        112.8,
+        0,
+        30.302
+      ],
+      "yaw": 0,
+      "room": "conference"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        44.1
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        44.1
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        44.71
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        44.71
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        45.32
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        45.32
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        45.93
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        45.93
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        46.54
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        46.54
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        47.15
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        47.15
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        47.76
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        47.76
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        48.37
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        48.37
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        110.6,
+        0,
+        48.98
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        113.4,
+        0,
+        48.98
+      ],
+      "yaw": -90,
+      "room": "server-room"
+    },
+    {
+      "id": "crac-unit",
+      "at": [
+        112,
+        0,
+        51.43
+      ],
+      "yaw": 180,
+      "room": "server-room"
+    },
+    {
+      "id": "ups-cabinet",
+      "at": [
+        113.9,
+        0,
+        40.625
+      ],
+      "yaw": 0,
+      "room": "server-room"
+    },
+    {
+      "id": "ups-cabinet",
+      "at": [
+        114.6,
+        0,
+        40.625
+      ],
+      "yaw": 0,
+      "room": "server-room"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        110.6,
+        2.35,
+        45.5
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        110.6,
+        2.35,
+        48.5
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        113.4,
+        2.35,
+        45.5
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        113.4,
+        2.35,
+        48.5
+      ],
+      "yaw": 90,
+      "room": "server-room"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        110.6,
+        0,
+        40.593
+      ],
+      "yaw": 0,
+      "room": "server-room"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        110.3,
+        0.787,
+        40.393
+      ],
+      "yaw": 0,
+      "room": "server-room"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        110.95,
+        0.787,
+        40.393
+      ],
+      "yaw": -15,
+      "room": "server-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        110.7,
+        0,
+        42.4
+      ],
+      "yaw": 160,
+      "room": "server-room"
+    },
+    {
+      "id": "touch-panel",
+      "at": [
+        106.3,
+        1.3,
+        46.112
+      ],
+      "yaw": 0,
+      "room": "airlock"
+    },
+    {
+      "id": "bio-reader",
+      "at": [
+        106,
+        1.25,
+        46.145
+      ],
+      "yaw": 0,
+      "room": "airlock"
+    },
+    {
+      "id": "touch-panel",
+      "at": [
+        106.3,
+        1.3,
+        51.888
+      ],
+      "yaw": 180,
+      "room": "airlock"
+    },
+    {
+      "id": "bio-reader",
+      "at": [
+        106,
+        1.25,
+        51.855
+      ],
+      "yaw": 180,
+      "room": "airlock"
+    },
+    {
+      "id": "glove-dispenser",
+      "at": [
+        102.174,
+        1.2,
+        49
+      ],
+      "yaw": 90,
+      "room": "airlock"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        107.688,
+        0,
+        50.6
+      ],
+      "yaw": -90,
+      "room": "airlock"
+    },
+    {
+      "id": "decon-shower-rig",
+      "at": [
+        104.9,
+        0,
+        55
+      ],
+      "yaw": 0,
+      "room": "decon-shower"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        110.6,
+        0,
+        52.385
+      ],
+      "yaw": 0,
+      "room": "suit-room"
+    },
+    {
+      "id": "staff-lockers-open",
+      "at": [
+        112.4,
+        0,
+        52.565
+      ],
+      "yaw": 0,
+      "room": "suit-room"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        114.2,
+        0,
+        52.385
+      ],
+      "yaw": 0,
+      "room": "suit-room"
+    },
+    {
+      "id": "suit-rail",
+      "at": [
+        112,
+        0,
+        63.81
+      ],
+      "yaw": 180,
+      "room": "suit-room"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        112.96,
+        0.22,
+        63.51
+      ],
+      "yaw": 178.749,
+      "room": "suit-room"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        112.48,
+        0.22,
+        63.51
+      ],
+      "yaw": 181.815,
+      "room": "suit-room"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        111.52,
+        0.22,
+        63.51
+      ],
+      "yaw": 184.463,
+      "room": "suit-room"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        111.04,
+        0.22,
+        63.51
+      ],
+      "yaw": 185.971,
+      "room": "suit-room"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        110,
+        2.2,
+        58
+      ],
+      "yaw": -47.383,
+      "room": "suit-room"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        112,
+        2.2,
+        58
+      ],
+      "yaw": 66.264,
+      "room": "suit-room"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        114,
+        2.2,
+        58
+      ],
+      "yaw": 75.162,
+      "room": "suit-room"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        112,
+        2.2,
+        56
+      ],
+      "yaw": 7.466,
+      "room": "suit-room"
+    },
+    {
+      "id": "stepover-bench",
+      "at": [
+        112,
+        0,
+        59.6
+      ],
+      "yaw": 0,
+      "room": "suit-room"
+    },
+    {
+      "id": "glove-dispenser",
+      "at": [
+        108.174,
+        1.2,
+        58.8
+      ],
+      "yaw": 90,
+      "room": "suit-room"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        108.313,
+        0,
+        61.6
+      ],
+      "yaw": 90,
+      "room": "suit-room"
+    },
+    {
+      "id": "lab-bench-island",
+      "at": [
+        124.4,
+        0,
+        57.25
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-bench-island",
+      "at": [
+        124.4,
+        0,
+        60.85
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "kit-analyser",
+      "at": [
+        123.4,
+        0.9,
+        56.85
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "kit-tube-rack",
+      "at": [
+        124.6,
+        0.9,
+        56.8
+      ],
+      "yaw": 10,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "micropipette",
+      "at": [
+        124.85,
+        0.9,
+        56.75
+      ],
+      "yaw": 80,
+      "room": "clean-lab-a",
+      "rot": [
+        0,
+        80,
+        90
+      ]
+    },
+    {
+      "id": "conical-flasks",
+      "at": [
+        125.6,
+        0.9,
+        56.8
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "microscope-industrial",
+      "at": [
+        123.3,
+        0.9,
+        57.67
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "centrifuge",
+      "at": [
+        124.8,
+        0.9,
+        57.65
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "beaker",
+      "at": [
+        125.7,
+        0.9,
+        57.7
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "test-tubes",
+      "at": [
+        125.35,
+        0.9,
+        57.75
+      ],
+      "yaw": 30,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "kit-plate-reader",
+      "at": [
+        123.3,
+        0.9,
+        60.4
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "kit-meter",
+      "at": [
+        124.4,
+        0.9,
+        60.35
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "kit-balance",
+      "at": [
+        125.5,
+        0.9,
+        60.35
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "kit-mini-centrifuge",
+      "at": [
+        123.8,
+        0.9,
+        61.3
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "kit-tube-rack-b",
+      "at": [
+        124.9,
+        0.9,
+        61.3
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "erlenmeyer",
+      "at": [
+        125.6,
+        0.9,
+        61.35
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "graduated-cylinder",
+      "at": [
+        125.8,
+        0.9,
+        61.25
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        123.2,
+        1.32,
+        57.15
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        123.8,
+        1.32,
+        57.35
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        124.7,
+        1.67,
+        57.15
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        125.4,
+        1.32,
+        57.37
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        125.2,
+        1.67,
+        57.33
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        123.2,
+        1.32,
+        60.75
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        123.8,
+        1.32,
+        60.95
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        124.7,
+        1.67,
+        60.75
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        125.4,
+        1.32,
+        60.97
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        125.2,
+        1.67,
+        60.93
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        123.1,
+        0,
+        56.3
+      ],
+      "yaw": 29.044,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        124.4,
+        0,
+        56.25
+      ],
+      "yaw": -0.391,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        125.6,
+        0,
+        58.2
+      ],
+      "yaw": 157.306,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        123.1,
+        0,
+        59.9
+      ],
+      "yaw": 0.402,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        124.4,
+        0,
+        59.85
+      ],
+      "yaw": 27.541,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        125.6,
+        0,
+        61.8
+      ],
+      "yaw": 160.458,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        121.8,
+        0,
+        59.1
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a",
+      "rot": [
+        90,
+        30,
+        0
+      ]
+    },
+    {
+      "id": "biosafety-cabinet",
+      "at": [
+        119.1,
+        0,
+        52.553
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "biosafety-cabinet",
+      "at": [
+        127.4,
+        0,
+        52.553
+      ],
+      "yaw": 0,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "fume-hood",
+      "at": [
+        129.45,
+        0,
+        54.6
+      ],
+      "yaw": -90,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        128.8,
+        0,
+        65.44
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        127.85,
+        0,
+        65.44
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "fridge",
+      "at": [
+        126.9,
+        0,
+        65.549
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "incubator-stack",
+      "at": [
+        125.8,
+        0,
+        65.515
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "eyewash-shower",
+      "at": [
+        117.6,
+        0,
+        65.384
+      ],
+      "yaw": 180,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "lab-sink",
+      "at": [
+        116.46,
+        0,
+        54.4
+      ],
+      "yaw": 90,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "autoclave",
+      "at": [
+        116.581,
+        0,
+        63.4
+      ],
+      "yaw": 90,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        116.313,
+        0,
+        61
+      ],
+      "yaw": 90,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        120.6,
+        2.2,
+        59.05
+      ],
+      "yaw": 19.784,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        124.4,
+        2.2,
+        59.05
+      ],
+      "yaw": 25.284,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        128.2,
+        2.2,
+        59.05
+      ],
+      "yaw": 24.676,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        122.6,
+        0,
+        58.6
+      ],
+      "yaw": 70,
+      "room": "clean-lab-a"
+    },
+    {
+      "id": "test-tubes",
+      "at": [
+        126,
+        0,
+        59.3
+      ],
+      "yaw": 110,
+      "room": "clean-lab-a",
+      "rot": [
+        0,
+        110,
+        90
+      ]
+    },
+    {
+      "id": "lab-bench-wall",
+      "at": [
+        134.6,
+        0,
+        52.46
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "lab-bench-wall",
+      "at": [
+        137.65,
+        0,
+        52.46
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-liquid-handler",
+      "at": [
+        134,
+        0.9,
+        52.46
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-tube-rack",
+      "at": [
+        135.35,
+        0.9,
+        52.51
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "beaker",
+      "at": [
+        135.8,
+        0.9,
+        52.31
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-sequencer",
+      "at": [
+        136.85,
+        0.9,
+        52.46
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-monitor",
+      "at": [
+        138.2,
+        0.9,
+        52.61
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-tablet",
+      "at": [
+        138.75,
+        0.9,
+        52.46
+      ],
+      "yaw": 15,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "lab-bench-wall",
+      "at": [
+        143.54,
+        0,
+        55.8
+      ],
+      "yaw": -90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-analyser",
+      "at": [
+        143.54,
+        0.9,
+        55.2
+      ],
+      "yaw": -90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "conical-flasks",
+      "at": [
+        143.54,
+        0.9,
+        56.6
+      ],
+      "yaw": -90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "cryo-em",
+      "at": [
+        143.05,
+        0,
+        62.4
+      ],
+      "yaw": -90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        139.2,
+        0,
+        62.4
+      ],
+      "yaw": -90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        139.45,
+        0.787,
+        61.95
+      ],
+      "yaw": -90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        139.45,
+        0.787,
+        62.6
+      ],
+      "yaw": -105,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-tablet",
+      "at": [
+        139.1,
+        0.787,
+        63.1
+      ],
+      "yaw": -70,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        138.1,
+        0,
+        62.6
+      ],
+      "yaw": 101.482,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-floor-unit",
+      "at": [
+        143.645,
+        0,
+        59.4
+      ],
+      "yaw": -90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-floor-unit",
+      "at": [
+        143.645,
+        0,
+        58.6
+      ],
+      "yaw": -90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "lab-bench-island",
+      "at": [
+        136,
+        0,
+        60.4
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "microscope-industrial",
+      "at": [
+        135,
+        0.9,
+        59.95
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-vortex",
+      "at": [
+        135.8,
+        0.9,
+        59.95
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "test-tubes",
+      "at": [
+        136.4,
+        0.9,
+        59.9
+      ],
+      "yaw": 0,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "kit-tube-rack-b",
+      "at": [
+        137.1,
+        0.9,
+        60.85
+      ],
+      "yaw": 180,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "centrifuge",
+      "at": [
+        135.6,
+        0.9,
+        60.85
+      ],
+      "yaw": 180,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        134.8,
+        0,
+        59.4
+      ],
+      "yaw": -13.332,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        136.6,
+        0,
+        61.4
+      ],
+      "yaw": 201.638,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "biosafety-cabinet",
+      "at": [
+        130.552,
+        0,
+        63.6
+      ],
+      "yaw": 90,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        136,
+        0,
+        65.44
+      ],
+      "yaw": 180,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        136.95,
+        0,
+        65.44
+      ],
+      "yaw": 180,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        137.9,
+        0,
+        65.44
+      ],
+      "yaw": 180,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        139.4,
+        0,
+        65.63
+      ],
+      "yaw": 180,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        134.2,
+        2.2,
+        58.6
+      ],
+      "yaw": -32.982,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        138,
+        2.2,
+        58.6
+      ],
+      "yaw": 55.096,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        117,
+        0,
+        40.56
+      ],
+      "yaw": 0,
+      "room": "lab-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        117.95,
+        0,
+        40.56
+      ],
+      "yaw": 0,
+      "room": "lab-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        118.9,
+        0,
+        40.56
+      ],
+      "yaw": 0,
+      "room": "lab-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        119.85,
+        0,
+        40.56
+      ],
+      "yaw": 0,
+      "room": "lab-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        120.8,
+        0,
+        40.56
+      ],
+      "yaw": 0,
+      "room": "lab-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        121.75,
+        0,
+        40.56
+      ],
+      "yaw": 0,
+      "room": "lab-storage"
+    },
+    {
+      "id": "chemical-cabinet",
+      "at": [
+        129.66,
+        0,
+        42.6
+      ],
+      "yaw": -90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "chemical-cabinet",
+      "at": [
+        129.66,
+        0,
+        43.8
+      ],
+      "yaw": -90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        129.63,
+        0,
+        46
+      ],
+      "yaw": -90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        129.63,
+        0,
+        46.8
+      ],
+      "yaw": -90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        129.63,
+        0,
+        47.6
+      ],
+      "yaw": -90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        116.291,
+        0,
+        41
+      ],
+      "yaw": 90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        116.291,
+        0,
+        41.5
+      ],
+      "yaw": 90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        116.291,
+        0,
+        42
+      ],
+      "yaw": 90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        116.291,
+        0,
+        42.5
+      ],
+      "yaw": 90,
+      "room": "lab-storage"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        118.6,
+        0,
+        51.623
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        119.161,
+        0.08,
+        51.593
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        118.729,
+        0.08,
+        51.618
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        119.149,
+        0.59,
+        51.639
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        118.749,
+        0.59,
+        51.597
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        118.308,
+        0.59,
+        51.623
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        119.153,
+        0.98,
+        51.616
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        118.292,
+        0.98,
+        51.642
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        119.168,
+        1.36,
+        51.643
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        118.304,
+        1.36,
+        51.646
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        118.726,
+        1.75,
+        51.617
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        118.318,
+        1.75,
+        51.619
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        127.6,
+        0,
+        51.623
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        128.145,
+        0.08,
+        51.609
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        127.711,
+        0.08,
+        51.638
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        127.301,
+        0.08,
+        51.61
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        128.141,
+        0.59,
+        51.65
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        127.735,
+        0.59,
+        51.609
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        127.329,
+        0.59,
+        51.615
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        128.167,
+        0.98,
+        51.628
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        127.726,
+        0.98,
+        51.621
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        128.169,
+        1.36,
+        51.609
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        127.301,
+        1.36,
+        51.605
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        128.153,
+        1.75,
+        51.643
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        127.726,
+        1.75,
+        51.621
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        127.301,
+        1.75,
+        51.635
+      ],
+      "yaw": 180,
+      "room": "lab-storage"
+    },
+    {
+      "id": "hand-truck",
+      "at": [
+        124,
+        0,
+        46.2
+      ],
+      "yaw": 30,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        124.3,
+        0,
+        46.9
+      ],
+      "yaw": 12,
+      "room": "lab-storage"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        124.25,
+        0.34,
+        46.85
+      ],
+      "yaw": 40,
+      "room": "lab-storage"
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        91.5,
+        0,
+        30.6
+      ],
+      "yaw": 20,
+      "room": "glass-offices"
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        96,
+        0,
+        30.9
+      ],
+      "yaw": 140,
+      "room": "glass-offices"
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        92.8,
+        0,
+        37.6
+      ],
+      "yaw": 75,
+      "room": "glass-offices"
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        100.4,
+        0,
+        37.2
+      ],
+      "yaw": 200,
+      "room": "glass-offices"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        94.6,
+        0,
+        30.2
+      ],
+      "yaw": 35,
+      "room": "glass-offices",
+      "rot": [
+        90,
+        35,
+        0
+      ]
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        90.9,
+        0,
+        36.7
+      ],
+      "yaw": 300,
+      "room": "glass-offices",
+      "rot": [
+        90,
+        300,
+        0
+      ]
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        95.9,
+        0,
+        31.4
+      ],
+      "yaw": 0,
+      "room": "glass-offices",
+      "rot": [
+        84,
+        120,
+        0
+      ]
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        108.6,
+        0,
+        33
+      ],
+      "yaw": 0,
+      "room": "conference",
+      "rot": [
+        90,
+        40,
+        0
+      ]
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        104.2,
+        0,
+        37.4
+      ],
+      "yaw": 60,
+      "room": "conference"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        121,
+        0,
+        63.6
+      ],
+      "yaw": 20,
+      "room": "clean-lab-a",
+      "rot": [
+        90,
+        20,
+        0
+      ]
+    },
+    {
+      "id": "kit-tube-rack",
+      "at": [
+        127.6,
+        0,
+        63.2
+      ],
+      "yaw": 70,
+      "room": "clean-lab-a",
+      "rot": [
+        0,
+        70,
+        90
+      ]
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        133.4,
+        0,
+        58.2
+      ],
+      "yaw": 110,
+      "room": "clean-lab-b"
+    },
+    {
+      "id": "paper-debris",
+      "at": [
+        104,
+        0,
+        43.4
+      ],
+      "yaw": 20,
+      "room": "labs-corridor"
+    },
+    {
+      "id": "id-card",
+      "at": [
+        99.2,
+        0,
+        42.7
+      ],
+      "yaw": 64,
+      "room": "labs-corridor",
+      "rot": [
+        90,
+        64,
+        0
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "kind": "emergency",
+      "at": [
+        70,
+        2.62,
+        45.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "labs-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        86,
+        2.62,
+        45.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "labs-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        100,
+        2.62,
+        45.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "labs-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "exit",
+      "at": [
+        63,
+        2.45,
+        40.12
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "labs-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        74.6,
+        2.38,
+        39.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "break-room",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        92.4,
+        2.38,
+        39.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "glass-offices",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        110,
+        2.38,
+        39.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "conference",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        112,
+        2.38,
+        40.12
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "server-room",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        105,
+        3,
+        49
+      ],
+      "room": "airlock",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        103,
+        2.45,
+        46.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "airlock",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        105,
+        3,
+        55
+      ],
+      "room": "decon-shower",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        103,
+        2.45,
+        57.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "decon-shower",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        112,
+        3.2,
+        55.5
+      ],
+      "room": "suit-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        112,
+        3.2,
+        60.5
+      ],
+      "room": "suit-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        110,
+        2.6,
+        63.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "suit-room",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        119.6,
+        3.2,
+        55.2
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        119.6,
+        3.2,
+        59
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        119.6,
+        3.2,
+        62.8
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        123.2,
+        3.2,
+        55.2
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        123.2,
+        3.2,
+        59
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        123.2,
+        3.2,
+        62.8
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        126.8,
+        3.2,
+        55.2
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        126.8,
+        3.2,
+        59
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        126.8,
+        3.2,
+        62.8
+      ],
+      "room": "clean-lab-a",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        117.4,
+        2.55,
+        52.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "clean-lab-a",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        128.6,
+        2.55,
+        65.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "clean-lab-a",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        133.6,
+        3.2,
+        55.2
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        133.6,
+        3.2,
+        59
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        133.6,
+        3.2,
+        62.8
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        137.2,
+        3.2,
+        55.2
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        137.2,
+        3.2,
+        59
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        137.2,
+        3.2,
+        62.8
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        140.8,
+        3.2,
+        55.2
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        140.8,
+        3.2,
+        59
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        140.8,
+        3.2,
+        62.8
+      ],
+      "room": "clean-lab-b",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        131.4,
+        2.55,
+        65.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "clean-lab-b",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        119.5,
+        3.2,
+        43.5
+      ],
+      "room": "lab-storage",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        119.5,
+        3.2,
+        48.5
+      ],
+      "room": "lab-storage",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        126.5,
+        3.2,
+        43.5
+      ],
+      "room": "lab-storage",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        126.5,
+        3.2,
+        48.5
+      ],
+      "room": "lab-storage",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        121.6,
+        2.55,
+        51.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "lab-storage",
+      "bank": 0
+    }
+  ],
+  "decals": [
+    {
+      "tex": "plate-labs-corridor",
+      "at": [
+        61.6,
+        1.6,
+        40.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-break-room",
+      "at": [
+        77.2,
+        1.6,
+        40.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-server-room",
+      "at": [
+        107.88,
+        1.6,
+        44.4
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-airlock",
+      "at": [
+        106.6,
+        1.6,
+        45.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "pressure-25",
+      "at": [
+        103.6,
+        1.5,
+        45.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.15,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-biohazard",
+      "at": [
+        105,
+        2.75,
+        45.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.4
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-server-room",
+      "at": [
+        108.12,
+        1.6,
+        41.6
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-decon-shower",
+      "at": [
+        106.6,
+        1.6,
+        51.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "pressure-50",
+      "at": [
+        103.6,
+        1.5,
+        51.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.15,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-suit-room",
+      "at": [
+        107.9,
+        1.6,
+        56.6
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "pressure-75",
+      "at": [
+        107.9,
+        1.5,
+        53.6
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.15,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-clean-lab-a",
+      "at": [
+        115.9,
+        1.6,
+        59.6
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-biohazard",
+      "at": [
+        115.9,
+        2.5,
+        58
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.4,
+        0.4
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-lab-storage",
+      "at": [
+        124.2,
+        1.6,
+        52.1
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-clean-lab-b",
+      "at": [
+        129.9,
+        1.6,
+        57.4
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-authorized",
+      "at": [
+        129.9,
+        1.7,
+        45.2
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.4,
+        0.3
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        103,
+        0.004,
+        43.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 180
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        96,
+        0.004,
+        42.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 180
+    }
+  ],
+  "cast": [],
+  "shots": {
+    "corridor": {
+      "at": [
+        61.5,
+        1.65,
+        43
+      ],
+      "look": [
+        100,
+        1.4,
+        43
+      ],
+      "label": "The labs corridor"
+    },
+    "offices": {
+      "at": [
+        91,
+        1.65,
+        44.6
+      ],
+      "look": [
+        96,
+        1.2,
+        33
+      ],
+      "label": "Into the glass offices"
+    },
+    "desks": {
+      "at": [
+        100.6,
+        1.65,
+        38.8
+      ],
+      "look": [
+        90,
+        1,
+        33
+      ],
+      "label": "The offices' desks"
+    },
+    "break": {
+      "at": [
+        83.6,
+        1.65,
+        38.8
+      ],
+      "look": [
+        70,
+        1.1,
+        33.5
+      ],
+      "label": "The break room"
+    },
+    "conference": {
+      "at": [
+        103.2,
+        1.65,
+        38.8
+      ],
+      "look": [
+        112,
+        1,
+        33
+      ],
+      "label": "The conference room"
+    },
+    "server": {
+      "at": [
+        112,
+        1.65,
+        42
+      ],
+      "look": [
+        112,
+        1,
+        51.5
+      ],
+      "label": "The server room"
+    },
+    "airlock": {
+      "at": [
+        105,
+        1.65,
+        46.6
+      ],
+      "look": [
+        105,
+        1.3,
+        57.5
+      ],
+      "label": "The airlock"
+    },
+    "suits": {
+      "at": [
+        109,
+        1.65,
+        54.6
+      ],
+      "look": [
+        113,
+        1,
+        62.5
+      ],
+      "label": "The suit room"
+    },
+    "lab-a": {
+      "at": [
+        117,
+        1.65,
+        54
+      ],
+      "look": [
+        127,
+        0.9,
+        61.5
+      ],
+      "label": "Clean Lab A"
+    },
+    "lab-b": {
+      "at": [
+        131,
+        1.65,
+        64.6
+      ],
+      "look": [
+        140,
+        1,
+        55
+      ],
+      "label": "Clean Lab B"
+    },
+    "storage": {
+      "at": [
+        123,
+        1.65,
+        50.6
+      ],
+      "look": [
+        121,
+        1,
+        41
+      ],
+      "label": "Lab storage"
+    }
+  },
+  "tint": {
+    "carpet-tile": [
+      0.5,
+      0.52,
+      0.56
+    ]
+  },
+  "kit": {
+    "copies": []
+  },
+  "catcher": {
+    "at": [
+      102,
+      46
+    ],
+    "size": [
+      86,
+      42
+    ]
+  },
+  "shadowSpots": [],
+  "puddles": [
+    {
+      "at": [
+        104.9,
+        0,
+        55
+      ],
+      "radius": 1.3,
+      "room": "decon-shower",
+      "under": "the last cycle"
+    }
+  ]
+}

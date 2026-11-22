@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- CONTACT SHEET of extracted props, for naming them.
+     node scripts/serve-root.mjs, then /scripts/props/sheet.html?p=0 (40 per page).
+     Each tile: the thumbnail, its index + key, and its size in metres. -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body { margin: 0; background: #151311; color: #e8e0d0; font: 11px/1.25 system-ui; }
+      .g { display: grid; grid-template-columns: repeat(6, 190px); gap: 4px; padding: 4px; }
+      .t { background: #221f1b; }
+      .t img { width: 190px; height: 150px; object-fit: cover; display: block; }
+      .t div { padding: 2px 4px; word-break: break-all; }
+      b { color: #e0a13c; }
+    </style>
+  </head>
+  <body>
+    <div class="g" id="g"></div>
+    <script type="module">
+      const p = Number(new URLSearchParams(location.search).get("p") ?? 0);
+      const inv = await (await fetch("/assets/_propcache/inventory.json")).json();
+      const g = document.getElementById("g");
+      inv.slice(p * 30, p * 30 + 30).forEach((e, k) => {
+        const d = document.createElement("div");
+        d.className = "t";
+        d.innerHTML = `<img src="/assets/_propcache/thumbs/${e.key}.png"><div><b>${p * 30 + k}</b> ${e.key.split("__").slice(1).join("/")} <br>${e.size.map((v) => v.toFixed(2)).join("×")}m · ${e.tris}t</div>`;
+        g.appendChild(d);
+      });
+      window.done = true;
+    </script>
+  </body>
+</html>

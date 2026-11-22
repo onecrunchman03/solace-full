@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "SolaceBackrooms",
+  "version": "0.2.0",
+  "identifier": "zone.solace.backrooms",
+  "build": {
+    "frontendDist": "../dist",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "SolaceBackrooms",
+        "width": 1280,
+        "height": 760,
+        "minWidth": 960,
+        "minHeight": 600,
+        "center": true,
+        "backgroundColor": "#060504"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico"],
+    "windows": {
+      "signCommand": "powershell -NoProfile -ExecutionPolicy Bypass -File sign.ps1 %1",
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    }
+  }
+}

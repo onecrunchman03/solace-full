@@ -1,0 +1,774 @@
+{
+ "about": "THE VAULT LOBBY's hand-off to the effects (EFFECTS.md section 5), written by scripts/survivorz/room-build.py: where its fixtures, vents, pipes, panels and puddles are, in world metres (x east, y up, z south). Each fixture's `at` is the light's own face (the panel's underside, the caged tube); `bank` is the order the power comes back in. The effects place beams, steam, drips and sparks from these; the room never wires effects in itself.",
+ "map": "halcyon-site-9-v2",
+ "fixtures": [
+  {
+   "id": "FIXTURE_e0",
+   "kind": "emergency",
+   "at": [
+    70.0,
+    2.89,
+    75.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "sec-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e1",
+   "kind": "emergency",
+   "at": [
+    84.0,
+    2.89,
+    75.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "sec-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e2",
+   "kind": "emergency",
+   "at": [
+    98.0,
+    2.89,
+    75.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "sec-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x3",
+   "kind": "exit",
+   "at": [
+    66.15,
+    2.54,
+    73.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "sec-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p4",
+   "kind": "panel",
+   "at": [
+    69.5,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "control-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p5",
+   "kind": "panel",
+   "at": [
+    73,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "control-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p6",
+   "kind": "panel",
+   "at": [
+    76.5,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "control-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p7",
+   "kind": "panel",
+   "at": [
+    69.5,
+    2.87,
+    84
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "control-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p8",
+   "kind": "panel",
+   "at": [
+    73,
+    2.87,
+    84
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "control-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p9",
+   "kind": "panel",
+   "at": [
+    76.5,
+    2.87,
+    84
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "control-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e10",
+   "kind": "emergency",
+   "at": [
+    68.0,
+    3.02,
+    87.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "control-room",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e11",
+   "kind": "emergency",
+   "at": [
+    78.0,
+    3.02,
+    87.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "control-room",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p12",
+   "kind": "panel",
+   "at": [
+    83,
+    2.87,
+    79
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "armoury",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p13",
+   "kind": "panel",
+   "at": [
+    87,
+    2.87,
+    79
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "armoury",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p14",
+   "kind": "panel",
+   "at": [
+    83,
+    2.87,
+    83
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "armoury",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p15",
+   "kind": "panel",
+   "at": [
+    87,
+    2.87,
+    83
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "armoury",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e16",
+   "kind": "emergency",
+   "at": [
+    82.0,
+    3.02,
+    76.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "armoury",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p17",
+   "kind": "panel",
+   "at": [
+    93,
+    2.87,
+    80
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "camera-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p18",
+   "kind": "panel",
+   "at": [
+    97,
+    2.87,
+    80
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "camera-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p19",
+   "kind": "panel",
+   "at": [
+    95,
+    2.87,
+    83.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "camera-room",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e20",
+   "kind": "emergency",
+   "at": [
+    92.0,
+    3.02,
+    76.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "camera-room",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p21",
+   "kind": "panel",
+   "at": [
+    103,
+    2.87,
+    79
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "holding",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p22",
+   "kind": "panel",
+   "at": [
+    108,
+    2.87,
+    79
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "holding",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p23",
+   "kind": "panel",
+   "at": [
+    105.5,
+    2.87,
+    84.2
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "holding",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e24",
+   "kind": "emergency",
+   "at": [
+    110.0,
+    3.02,
+    76.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "holding",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p25",
+   "kind": "panel",
+   "at": [
+    115,
+    2.67,
+    81
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "holding-cell",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p26",
+   "kind": "panel",
+   "at": [
+    69,
+    2.87,
+    63.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "sec-lockers",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p27",
+   "kind": "panel",
+   "at": [
+    74,
+    2.87,
+    63.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "sec-lockers",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p28",
+   "kind": "panel",
+   "at": [
+    71.5,
+    2.87,
+    67.2
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "sec-lockers",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e29",
+   "kind": "emergency",
+   "at": [
+    68.0,
+    3.02,
+    69.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "sec-lockers",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p30",
+   "kind": "panel",
+   "at": [
+    83.5,
+    2.87,
+    65.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "interview",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p31",
+   "kind": "panel",
+   "at": [
+    83.5,
+    2.87,
+    68
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "interview",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p32",
+   "kind": "panel",
+   "at": [
+    80.5,
+    2.87,
+    61.6
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "interview",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e33",
+   "kind": "emergency",
+   "at": [
+    86.5,
+    3.02,
+    69.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "interview",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p34",
+   "kind": "panel",
+   "at": [
+    91.5,
+    2.87,
+    64
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "sec-office",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p35",
+   "kind": "panel",
+   "at": [
+    96.5,
+    2.87,
+    64
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "sec-office",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p36",
+   "kind": "panel",
+   "at": [
+    94,
+    2.87,
+    67.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "sec-office",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e37",
+   "kind": "emergency",
+   "at": [
+    98.5,
+    3.02,
+    60.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "sec-office",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_m0",
+   "kind": "slot",
+   "at": [
+    86.0,
+    3.059,
+    71.4
+   ],
+   "size": [
+    38.1,
+    0.06
+   ],
+   "room": "sec-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m1",
+   "kind": "slot",
+   "at": [
+    86.0,
+    3.059,
+    73.0
+   ],
+   "size": [
+    38.1,
+    0.06
+   ],
+   "room": "sec-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m2",
+   "kind": "slot",
+   "at": [
+    86.0,
+    3.059,
+    74.6
+   ],
+   "size": [
+    38.1,
+    0.06
+   ],
+   "room": "sec-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  }
+ ],
+ "vents": [
+  {
+   "at": [
+    86.0,
+    3,
+    71.4
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "sec-corridor",
+   "size": [
+    38.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    86.0,
+    3,
+    73.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "sec-corridor",
+   "size": [
+    38.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    86.0,
+    3,
+    74.6
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "sec-corridor",
+   "size": [
+    38.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  }
+ ],
+ "pipes": [],
+ "panels": [],
+ "puddles": []
+}

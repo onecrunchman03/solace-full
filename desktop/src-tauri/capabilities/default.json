@@ -1,0 +1,19 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "The main window. The live site (a remote origin) may invoke the stream pop-out command, read/set launch-on-startup, set the taskbar badge, set the display mode (fullscreen / borderless / windowed), post a native notification, and open an http(s) link in the real browser; pop-out windows themselves get no IPC. NB `allow-open-external` is OUR command, whose Rust side refuses every scheme but http and https — the opener plugin's own open_url permission is deliberately NOT granted, because that one would take any scheme the OS has a handler for.",
+  "windows": ["main"],
+  "remote": {
+    "urls": ["https://solace.zone"]
+  },
+  "permissions": [
+    "core:default",
+    "allow-open-popout",
+    "allow-get-autostart",
+    "allow-set-autostart",
+    "allow-set-badge",
+    "allow-set-display-mode",
+    "allow-notify",
+    "allow-open-external"
+  ]
+}

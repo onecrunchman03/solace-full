@@ -1,0 +1,5667 @@
+[
+ {
+  "seed": 1,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 427000,
+  "sealedBy": "johanna",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 3,
+  "alive": [
+   "ben"
+  ],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 196400
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 260100
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 335500
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 394400
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 1251200
+   }
+  ],
+  "kills": 25,
+  "arrived": 8,
+  "downs": 6,
+  "revives": 1,
+  "bites": 12,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 3,
+   "guard:no route": 11,
+   "clear:stuck": 4,
+   "rest:stuck": 641
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 3395,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 2,
+  "ending": "wiped",
+  "endedAt": 342000,
+  "sealed": 180000,
+  "sealedBy": "ben",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 18,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 79500
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 121700
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 170200
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 184800
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 299100
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 341600
+   }
+  ],
+  "kills": 5,
+  "arrived": 3,
+  "downs": 6,
+  "revives": 0,
+  "bites": 15,
+  "shots": 0,
+  "jobFails": {
+   "guard:no route": 18,
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 347,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 3,
+  "ending": "wiped",
+  "endedAt": 902000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 22,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 112500
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 145300
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 576100
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 649800
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 685800
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 901300
+   }
+  ],
+  "kills": 15,
+  "arrived": 17,
+  "downs": 6,
+  "revives": 0,
+  "bites": 11,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 1135,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 4,
+  "ending": "wiped",
+  "endedAt": 654000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 16600,
+  "codeBy": "sarah",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 16,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 109800
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 124000
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 278800
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 589500
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 636000
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 653600
+   }
+  ],
+  "kills": 14,
+  "arrived": 12,
+  "downs": 6,
+  "revives": 0,
+  "bites": 14,
+  "shots": 0,
+  "jobFails": {
+   "guard:no route": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 412,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 5,
+  "ending": "wiped",
+  "endedAt": 346000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 20,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 138200
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 150000
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 167400
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 241600
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 332900
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 345100
+   }
+  ],
+  "kills": 5,
+  "arrived": 6,
+  "downs": 7,
+  "revives": 1,
+  "bites": 10,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 373,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 6,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 185000,
+  "sealedBy": "rollo",
+  "code": 2872500,
+  "codeBy": "johanna",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 2918000,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 862000,
+  "armory": 24700,
+  "inside": 1,
+  "alive": [
+   "johanna",
+   "ben",
+   "sarah"
+  ],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 114100
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 362200
+   },
+   {
+    "who": "dale",
+    "cause": "turned",
+    "t": 2502200
+   }
+  ],
+  "kills": 23,
+  "arrived": 3,
+  "downs": 2,
+  "revives": 0,
+  "bites": 4,
+  "shots": 111,
+  "jobFails": {
+   "loot:no route all the way": 6,
+   "guard:no route": 25,
+   "rest:stuck": 306,
+   "clear:no route all the way": 14
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 2006,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 7,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 110000,
+  "sealedBy": "johanna",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 2494000,
+  "armory": 42900,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "sarah"
+  ],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 279900
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 356300
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 385000
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 406900
+   }
+  ],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 5,
+  "revives": 1,
+  "bites": 5,
+  "shots": 96,
+  "jobFails": {
+   "loot:no route all the way": 7,
+   "guard:no route": 27,
+   "regroup:sounds bad": 4,
+   "clear:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 1151,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 8,
+  "ending": "rescued",
+  "endedAt": 1122000,
+  "sealed": 253000,
+  "sealedBy": "ben",
+  "code": 129800,
+  "codeBy": "sarah",
+  "part": 929000,
+  "partBy": "ben",
+  "radioOpen": 146200,
+  "fixed": 1104000,
+  "fixedBy": "ben",
+  "called": 1121400,
+  "calledBy": "johanna",
+  "clear": 744000,
+  "armory": 38700,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 204800
+   }
+  ],
+  "kills": 24,
+  "arrived": 4,
+  "downs": 3,
+  "revives": 2,
+  "bites": 4,
+  "shots": 106,
+  "jobFails": {
+   "guard:no route": 18,
+   "loot:no route all the way": 8,
+   "loot:sounds bad": 1,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 518,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 9,
+  "ending": "rescued",
+  "endedAt": 2239000,
+  "sealed": 60000,
+  "sealedBy": "sarah",
+  "code": 6700,
+  "codeBy": "johanna",
+  "part": 283300,
+  "partBy": "sarah",
+  "radioOpen": 229900,
+  "fixed": 2223000,
+  "fixedBy": "sarah",
+  "called": 2238100,
+  "calledBy": "sarah",
+  "clear": 821000,
+  "armory": 58300,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 20,
+  "arrived": 1,
+  "downs": 1,
+  "revives": 1,
+  "bites": 2,
+  "shots": 90,
+  "jobFails": {
+   "guard:no route": 4,
+   "loot:no route all the way": 19,
+   "regroup:sounds bad": 2,
+   "clear:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 934,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 10,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 95200,
+  "codeBy": "dale",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 106900,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 36800,
+  "inside": 7,
+  "alive": [
+   "johanna",
+   "ben",
+   "rick",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 559200
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 1009200
+   }
+  ],
+  "kills": 79,
+  "arrived": 67,
+  "downs": 2,
+  "revives": 0,
+  "bites": 4,
+  "shots": 16,
+  "jobFails": {
+   "loot:no route all the way": 7,
+   "guard:no route": 15,
+   "regroup:sounds bad": 3,
+   "loot:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 1823,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 11,
+  "ending": "rescued",
+  "endedAt": 3344000,
+  "sealed": 110000,
+  "sealedBy": "rick",
+  "code": 11900,
+  "codeBy": "rollo",
+  "part": 2891300,
+  "partBy": "rick",
+  "radioOpen": 198300,
+  "fixed": 3328000,
+  "fixedBy": "rick",
+  "called": 3343100,
+  "calledBy": "rick",
+  "clear": 292000,
+  "armory": 86400,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "turned",
+    "t": 2744600
+   }
+  ],
+  "kills": 22,
+  "arrived": 1,
+  "downs": 1,
+  "revives": 1,
+  "bites": 3,
+  "shots": 106,
+  "jobFails": {
+   "guard:no route": 6,
+   "regroup:sounds bad": 1,
+   "clear:stuck": 203,
+   "repair:stuck": 46,
+   "loot:no route all the way": 9,
+   "loot:stuck": 23,
+   "guard:stuck": 12
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 2002,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 12,
+  "ending": "rescued",
+  "endedAt": 1088000,
+  "sealed": 161000,
+  "sealedBy": "rick",
+  "code": 118900,
+  "codeBy": "dale",
+  "part": 889500,
+  "partBy": "dale",
+  "radioOpen": 153900,
+  "fixed": 1072000,
+  "fixedBy": "dale",
+  "called": 1087100,
+  "calledBy": "dale",
+  "clear": 712000,
+  "armory": 110700,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 22,
+  "arrived": 3,
+  "downs": 1,
+  "revives": 1,
+  "bites": 2,
+  "shots": 24,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "regroup:sounds bad": 2,
+   "clear:no route all the way": 1,
+   "guard:no route": 12,
+   "loot:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 509,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 13,
+  "ending": "wiped",
+  "endedAt": 555000,
+  "sealed": 128000,
+  "sealedBy": "johanna",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 15,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 120300
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 237700
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 241500
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 339500
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 544800
+   },
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 554800
+   }
+  ],
+  "kills": 6,
+  "arrived": 2,
+  "downs": 6,
+  "revives": 0,
+  "bites": 13,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "guard:no route": 12,
+   "regroup:sounds bad": 4,
+   "clear:no route all the way": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 527,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 14,
+  "ending": "wiped",
+  "endedAt": 1054000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 18,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 181900
+   },
+   {
+    "who": "rick",
+    "cause": "bled out",
+    "t": 204500
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 212800
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 255700
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 997600
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 1053700
+   }
+  ],
+  "kills": 19,
+  "arrived": 19,
+  "downs": 6,
+  "revives": 0,
+  "bites": 13,
+  "shots": 0,
+  "jobFails": {
+   "guard:no route": 10
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 589,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 15,
+  "ending": "rescued",
+  "endedAt": 2726000,
+  "sealed": 244000,
+  "sealedBy": "ben",
+  "code": 2459700,
+  "codeBy": "dale",
+  "part": 2549200,
+  "partBy": "dale",
+  "radioOpen": 2505900,
+  "fixed": 2710000,
+  "fixedBy": "dale",
+  "called": 2725100,
+  "calledBy": "dale",
+  "clear": 456000,
+  "armory": 57500,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 24,
+  "arrived": 4,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 31,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "guard:no route": 12,
+   "clear:no route all the way": 14,
+   "rest:stuck": 328
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 2330,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 16,
+  "ending": "wiped",
+  "endedAt": 293000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 11600,
+  "codeBy": "johanna",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 19,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 145100
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 159300
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 200200
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 228900
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 273000
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 293000
+   }
+  ],
+  "kills": 5,
+  "arrived": 5,
+  "downs": 6,
+  "revives": 0,
+  "bites": 12,
+  "shots": 0,
+  "jobFails": {},
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 305,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 17,
+  "ending": "wiped",
+  "endedAt": 394000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 150900,
+  "codeBy": "ben",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 75400,
+  "inside": 14,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 120300
+   },
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 206000
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 276800
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 296200
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 346800
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 393400
+   }
+  ],
+  "kills": 11,
+  "arrived": 7,
+  "downs": 6,
+  "revives": 0,
+  "bites": 9,
+  "shots": 90,
+  "jobFails": {
+   "regroup:sounds bad": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 396,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 18,
+  "ending": "wiped",
+  "endedAt": 1465000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 23,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 129100
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 437800
+   },
+   {
+    "who": "rollo",
+    "cause": "bled out",
+    "t": 614800
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 796300
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 1288800
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 1464400
+   }
+  ],
+  "kills": 24,
+  "arrived": 27,
+  "downs": 6,
+  "revives": 0,
+  "bites": 9,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "clear:no route all the way": 1,
+   "regroup:sounds bad": 7
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 1179,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 19,
+  "ending": "wiped",
+  "endedAt": 505000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 41200,
+  "inside": 12,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 185900
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 198500
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 210200
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 338600
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 434400
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 504900
+   }
+  ],
+  "kills": 15,
+  "arrived": 9,
+  "downs": 7,
+  "revives": 1,
+  "bites": 12,
+  "shots": 18,
+  "jobFails": {},
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 405,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 20,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 221000,
+  "sealedBy": "johanna",
+  "code": 1088600,
+  "codeBy": "rick",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 1123800,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 770000,
+  "armory": 23700,
+  "inside": 0,
+  "alive": [
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "johanna",
+    "cause": "bled out",
+    "t": 345400
+   }
+  ],
+  "kills": 23,
+  "arrived": 4,
+  "downs": 2,
+  "revives": 1,
+  "bites": 0,
+  "shots": 65,
+  "jobFails": {
+   "loot:no route all the way": 14,
+   "guard:no route": 14,
+   "clear:no route all the way": 4,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 1086,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 21,
+  "ending": "rescued",
+  "endedAt": 1063000,
+  "sealed": 77000,
+  "sealedBy": "rick",
+  "code": 768900,
+  "codeBy": "dale",
+  "part": 886900,
+  "partBy": "dale",
+  "radioOpen": 814300,
+  "fixed": 1047000,
+  "fixedBy": "dale",
+  "called": 1062100,
+  "calledBy": "dale",
+  "clear": 608000,
+  "armory": 102100,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 20,
+  "arrived": 1,
+  "downs": 1,
+  "revives": 1,
+  "bites": 4,
+  "shots": 50,
+  "jobFails": {
+   "loot:sounds bad": 3,
+   "guard:no route": 11,
+   "loot:no route all the way": 1,
+   "regroup:sounds bad": 3,
+   "clear:no route all the way": 5
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 521,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 22,
+  "ending": "wiped",
+  "endedAt": 1061000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 30900,
+  "inside": 25,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 151100
+   },
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 190100
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 249400
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 326700
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 335700
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 1060300
+   }
+  ],
+  "kills": 11,
+  "arrived": 20,
+  "downs": 6,
+  "revives": 0,
+  "bites": 18,
+  "shots": 14,
+  "jobFails": {
+   "loot:no route all the way": 19,
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 4,
+  "wallMs": 743,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 23,
+  "ending": "rescued",
+  "endedAt": 1374000,
+  "sealed": 640000,
+  "sealedBy": "rick",
+  "code": 581000,
+  "codeBy": "sarah",
+  "part": 1211600,
+  "partBy": "rick",
+  "radioOpen": 616000,
+  "fixed": 1358000,
+  "fixedBy": "rick",
+  "called": 1373100,
+  "calledBy": "rick",
+  "clear": 640000,
+  "armory": 93900,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 31,
+  "arrived": 11,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 99,
+  "jobFails": {
+   "loot:sounds bad": 2,
+   "guard:no route": 54,
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 4,
+  "wallMs": 948,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 24,
+  "ending": "wiped",
+  "endedAt": 3011000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 10600,
+  "codeBy": "ben",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 336200,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 43,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 95300
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 526100
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 572900
+   },
+   {
+    "who": "johanna",
+    "cause": "bled out",
+    "t": 860800
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 1154200
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 3010600
+   }
+  ],
+  "kills": 24,
+  "arrived": 57,
+  "downs": 6,
+  "revives": 0,
+  "bites": 5,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 3111,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 25,
+  "ending": "rescued",
+  "endedAt": 982000,
+  "sealed": 125000,
+  "sealedBy": "ben",
+  "code": 696900,
+  "codeBy": "rollo",
+  "part": 783100,
+  "partBy": "dale",
+  "radioOpen": 732000,
+  "fixed": 966000,
+  "fixedBy": "dale",
+  "called": 981100,
+  "calledBy": "dale",
+  "clear": 579000,
+  "armory": 36100,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 34,
+  "jobFails": {
+   "regroup:sounds bad": 5,
+   "guard:no route": 16,
+   "loot:sounds bad": 1,
+   "loot:no route all the way": 55,
+   "regroup:no route all the way": 5,
+   "clear:no route all the way": 87
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 816,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 26,
+  "ending": "rescued",
+  "endedAt": 860000,
+  "sealed": 87000,
+  "sealedBy": "dale",
+  "code": 546800,
+  "codeBy": "dale",
+  "part": 660600,
+  "partBy": "dale",
+  "radioOpen": 581900,
+  "fixed": 844000,
+  "fixedBy": "dale",
+  "called": 859100,
+  "calledBy": "dale",
+  "clear": 466000,
+  "armory": 36600,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 21,
+  "arrived": 1,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 48,
+  "jobFails": {
+   "guard:no route": 24,
+   "regroup:sounds bad": 4,
+   "loot:no route all the way": 3,
+   "clear:no route all the way": 4
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 624,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 27,
+  "ending": "rescued",
+  "endedAt": 1104000,
+  "sealed": 163000,
+  "sealedBy": "dale",
+  "code": 694300,
+  "codeBy": "rollo",
+  "part": 906500,
+  "partBy": "dale",
+  "radioOpen": 743100,
+  "fixed": 1088000,
+  "fixedBy": "dale",
+  "called": 1103100,
+  "calledBy": "dale",
+  "clear": 569000,
+  "armory": 560700,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 22,
+  "arrived": 3,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1,
+   "guard:no route": 20,
+   "clear:no route all the way": 7,
+   "loot:no route all the way": 15
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 714,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 28,
+  "ending": "rescued",
+  "endedAt": 1039000,
+  "sealed": 701000,
+  "sealedBy": "sarah",
+  "code": 204200,
+  "codeBy": "rollo",
+  "part": 308600,
+  "partBy": "rick",
+  "radioOpen": 215800,
+  "fixed": 458000,
+  "fixedBy": "rick",
+  "called": 473100,
+  "calledBy": "rick",
+  "clear": 1039000,
+  "armory": 96200,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 33,
+  "arrived": 13,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 76,
+  "jobFails": {
+   "loot:no route all the way": 14,
+   "guard:no route": 43,
+   "clear:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 829,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 29,
+  "ending": "wiped",
+  "endedAt": 2146000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 122200,
+  "codeBy": "johanna",
+  "part": 423400,
+  "partBy": "rick",
+  "radioOpen": 242900,
+  "fixed": 593000,
+  "fixedBy": "rick",
+  "called": 608100,
+  "calledBy": "rick",
+  "clear": 0,
+  "armory": 52000,
+  "inside": 25,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 250300
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 825000
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 827400
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 1304100
+   },
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 1513800
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 2145100
+   }
+  ],
+  "kills": 32,
+  "arrived": 39,
+  "downs": 6,
+  "revives": 0,
+  "bites": 11,
+  "shots": 135,
+  "jobFails": {
+   "loot:no route all the way": 7,
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 1714,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 30,
+  "ending": "wiped",
+  "endedAt": 1045000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 18,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 128500
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 303500
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 314700
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 456600
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 527300
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 1044800
+   }
+  ],
+  "kills": 16,
+  "arrived": 19,
+  "downs": 6,
+  "revives": 0,
+  "bites": 17,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 528,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 31,
+  "ending": "rescued",
+  "endedAt": 648000,
+  "sealed": 493000,
+  "sealedBy": "rick",
+  "code": 165400,
+  "codeBy": "johanna",
+  "part": 268300,
+  "partBy": "johanna",
+  "radioOpen": 222900,
+  "fixed": 415000,
+  "fixedBy": "johanna",
+  "called": 430100,
+  "calledBy": "johanna",
+  "clear": 648000,
+  "armory": 198200,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 29,
+  "arrived": 9,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 31,
+  "jobFails": {
+   "guard:no route": 33,
+   "regroup:sounds bad": 3,
+   "loot:no route all the way": 7,
+   "clear:stuck": 2,
+   "rest:stuck": 22
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 721,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 32,
+  "ending": "rescued",
+  "endedAt": 757000,
+  "sealed": 757000,
+  "sealedBy": "dale",
+  "code": 16300,
+  "codeBy": "rollo",
+  "part": 490800,
+  "partBy": "dale",
+  "radioOpen": 326700,
+  "fixed": 651000,
+  "fixedBy": "dale",
+  "called": 666100,
+  "calledBy": "dale",
+  "clear": 757000,
+  "armory": 54400,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah"
+  ],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "bled out",
+    "t": 292800
+   }
+  ],
+  "kills": 34,
+  "arrived": 14,
+  "downs": 2,
+  "revives": 1,
+  "bites": 3,
+  "shots": 127,
+  "jobFails": {
+   "loot:no route all the way": 1,
+   "regroup:sounds bad": 3,
+   "clear:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 611,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 33,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 253700,
+  "codeBy": "rollo",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 265200,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 910600,
+  "inside": 1,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah"
+  ],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 583000
+   }
+  ],
+  "kills": 86,
+  "arrived": 68,
+  "downs": 1,
+  "revives": 0,
+  "bites": 0,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 2,
+   "guard:no route": 23,
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 1713,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 34,
+  "ending": "wiped",
+  "endedAt": 987000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 12,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 177600
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 192800
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 357400
+   },
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 531800
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 863800
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 986600
+   }
+  ],
+  "kills": 26,
+  "arrived": 18,
+  "downs": 6,
+  "revives": 0,
+  "bites": 12,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 5,
+   "loot:sounds bad": 1,
+   "guard:no route": 19
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 610,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 35,
+  "ending": "rescued",
+  "endedAt": 1594000,
+  "sealed": 467000,
+  "sealedBy": "rick",
+  "code": 467800,
+  "codeBy": "rollo",
+  "part": 1169300,
+  "partBy": "dale",
+  "radioOpen": 538600,
+  "fixed": 1330000,
+  "fixedBy": "dale",
+  "called": 1345100,
+  "calledBy": "dale",
+  "clear": 1594000,
+  "armory": 154600,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 28,
+  "arrived": 8,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 42,
+  "jobFails": {
+   "regroup:sounds bad": 3,
+   "guard:no route": 17,
+   "loot:no route all the way": 9,
+   "clear:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 850,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 36,
+  "ending": "wiped",
+  "endedAt": 624000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 15,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 138400
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 219300
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 312700
+   },
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 320000
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 358000
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 623700
+   }
+  ],
+  "kills": 15,
+  "arrived": 11,
+  "downs": 6,
+  "revives": 0,
+  "bites": 13,
+  "shots": 0,
+  "jobFails": {
+   "guard:no route": 7,
+   "loot:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 488,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 37,
+  "ending": "rescued",
+  "endedAt": 1023000,
+  "sealed": 532000,
+  "sealedBy": "dale",
+  "code": 24000,
+  "codeBy": "rollo",
+  "part": 241500,
+  "partBy": "ben",
+  "radioOpen": 139500,
+  "fixed": 445000,
+  "fixedBy": "ben",
+  "called": 460100,
+  "calledBy": "ben",
+  "clear": 1023000,
+  "armory": 52500,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 29,
+  "arrived": 9,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 69,
+  "jobFails": {
+   "guard:no route": 3,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 4,
+  "wallMs": 590,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 38,
+  "ending": "rescued",
+  "endedAt": 2083000,
+  "sealed": 1416000,
+  "sealedBy": "dale",
+  "code": 22500,
+  "codeBy": "johanna",
+  "part": 1085200,
+  "partBy": "dale",
+  "radioOpen": 1027500,
+  "fixed": 1267000,
+  "fixedBy": "dale",
+  "called": 1282100,
+  "calledBy": "dale",
+  "clear": 2083000,
+  "armory": 62500,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 1258100
+   }
+  ],
+  "kills": 46,
+  "arrived": 26,
+  "downs": 2,
+  "revives": 1,
+  "bites": 2,
+  "shots": 180,
+  "jobFails": {
+   "loot:no route all the way": 2,
+   "regroup:sounds bad": 3,
+   "guard:no route": 7
+  },
+  "knowLeaks": 0,
+  "reachOver": 6,
+  "wallMs": 1160,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 39,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 10400,
+  "codeBy": "johanna",
+  "part": 327600,
+  "partBy": "rollo",
+  "radioOpen": 210500,
+  "fixed": 459000,
+  "fixedBy": "rollo",
+  "called": 474100,
+  "calledBy": "rollo",
+  "clear": 0,
+  "armory": 81500,
+  "inside": 31,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick"
+  ],
+  "deaths": [
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 1998300
+   },
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 2011100
+   }
+  ],
+  "kills": 52,
+  "arrived": 68,
+  "downs": 3,
+  "revives": 1,
+  "bites": 3,
+  "shots": 180,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "guard:no route": 13,
+   "loot:no route all the way": 3,
+   "regroup:sounds bad": 3,
+   "clear:stuck": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 2337,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 40,
+  "ending": "rescued",
+  "endedAt": 2824000,
+  "sealed": 211000,
+  "sealedBy": "ben",
+  "code": 2303500,
+  "codeBy": "rollo",
+  "part": 2680900,
+  "partBy": "rollo",
+  "radioOpen": 2315300,
+  "fixed": 2808000,
+  "fixedBy": "rollo",
+  "called": 2823100,
+  "calledBy": "rollo",
+  "clear": 618000,
+  "armory": 1299300,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 191600
+   }
+  ],
+  "kills": 23,
+  "arrived": 3,
+  "downs": 1,
+  "revives": 0,
+  "bites": 3,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 4,
+   "regroup:sounds bad": 2,
+   "clear:no route all the way": 23,
+   "guard:no route": 5,
+   "loot:no route all the way": 28,
+   "call:no route all the way": 4
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 1257,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 41,
+  "ending": "wiped",
+  "endedAt": 261000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 45700,
+  "inside": 15,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 165500
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 167700
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 178900
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 222800
+   },
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 249000
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 260700
+   }
+  ],
+  "kills": 9,
+  "arrived": 4,
+  "downs": 6,
+  "revives": 0,
+  "bites": 9,
+  "shots": 45,
+  "jobFails": {},
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 316,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 42,
+  "ending": "wiped",
+  "endedAt": 2433000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 114400,
+  "codeBy": "johanna",
+  "part": 593700,
+  "partBy": "johanna",
+  "radioOpen": 185000,
+  "fixed": 740000,
+  "fixedBy": "johanna",
+  "called": 755100,
+  "calledBy": "johanna",
+  "clear": 0,
+  "armory": 121200,
+  "inside": 30,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 605300
+   },
+   {
+    "who": "johanna",
+    "cause": "bled out",
+    "t": 893200
+   },
+   {
+    "who": "dale",
+    "cause": "bled out",
+    "t": 1350700
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 1409200
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 2351600
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 2432900
+   }
+  ],
+  "kills": 32,
+  "arrived": 45,
+  "downs": 7,
+  "revives": 1,
+  "bites": 4,
+  "shots": 105,
+  "jobFails": {
+   "regroup:sounds bad": 8,
+   "loot:no route all the way": 10,
+   "loot:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 5,
+  "wallMs": 1846,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 43,
+  "ending": "rescued",
+  "endedAt": 1866000,
+  "sealed": 127000,
+  "sealedBy": "dale",
+  "code": 912000,
+  "codeBy": "rollo",
+  "part": 1723500,
+  "partBy": "rollo",
+  "radioOpen": 995000,
+  "fixed": 1850000,
+  "fixedBy": "rollo",
+  "called": 1865100,
+  "calledBy": "rollo",
+  "clear": 580000,
+  "armory": 61800,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 72,
+  "jobFails": {
+   "guard:no route": 22,
+   "regroup:sounds bad": 1,
+   "clear:no route all the way": 5
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 896,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 44,
+  "ending": "wiped",
+  "endedAt": 1081000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 18,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 180400
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 206100
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 578100
+   },
+   {
+    "who": "rick",
+    "cause": "bled out",
+    "t": 583700
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 679500
+   },
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 1080400
+   }
+  ],
+  "kills": 20,
+  "arrived": 20,
+  "downs": 7,
+  "revives": 1,
+  "bites": 7,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 3,
+   "guard:no route": 16,
+   "regroup:sounds bad": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 728,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 45,
+  "ending": "wiped",
+  "endedAt": 2267000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 314900,
+  "codeBy": "rollo",
+  "part": 532500,
+  "partBy": "rollo",
+  "radioOpen": 363600,
+  "fixed": 760000,
+  "fixedBy": "rollo",
+  "called": 778200,
+  "calledBy": "rollo",
+  "clear": 0,
+  "armory": 0,
+  "inside": 18,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 1537900
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 1617800
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 1842800
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 1854000
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 2095600
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 2266700
+   }
+  ],
+  "kills": 42,
+  "arrived": 43,
+  "downs": 6,
+  "revives": 0,
+  "bites": 9,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 4,
+   "guard:no route": 21,
+   "regroup:sounds bad": 5,
+   "clear:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 2071,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 46,
+  "ending": "rescued",
+  "endedAt": 948000,
+  "sealed": 119000,
+  "sealedBy": "dale",
+  "code": 14600,
+  "codeBy": "ben",
+  "part": 452700,
+  "partBy": "sarah",
+  "radioOpen": 115000,
+  "fixed": 932000,
+  "fixedBy": "sarah",
+  "called": 947100,
+  "calledBy": "sarah",
+  "clear": 221000,
+  "armory": 717300,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "regroup:sounds bad": 1,
+   "clear:no route all the way": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 679,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 47,
+  "ending": "wiped",
+  "endedAt": 640000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 17,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 175700
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 180300
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 371000
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 373700
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 474600
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 639100
+   }
+  ],
+  "kills": 11,
+  "arrived": 11,
+  "downs": 6,
+  "revives": 0,
+  "bites": 12,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 2,
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 909,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 48,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 130000,
+  "sealedBy": "dale",
+  "code": 749600,
+  "codeBy": "johanna",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 829000,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 536000,
+  "armory": 54500,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "turned",
+    "t": 2508200
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 2557500
+   }
+  ],
+  "kills": 22,
+  "arrived": 2,
+  "downs": 2,
+  "revives": 1,
+  "bites": 2,
+  "shots": 105,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "regroup:sounds bad": 4,
+   "loot:no route all the way": 17,
+   "guard:no route": 38,
+   "clear:no route all the way": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 4,
+  "wallMs": 1830,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 49,
+  "ending": "rescued",
+  "endedAt": 1618000,
+  "sealed": 164000,
+  "sealedBy": "rollo",
+  "code": 868500,
+  "codeBy": "rick",
+  "part": 1453500,
+  "partBy": "rollo",
+  "radioOpen": 903900,
+  "fixed": 1602000,
+  "fixedBy": "rollo",
+  "called": 1617100,
+  "calledBy": "rollo",
+  "clear": 690000,
+  "armory": 234700,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 23,
+  "arrived": 3,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 31,
+  "jobFails": {
+   "guard:no route": 32,
+   "loot:no route all the way": 5,
+   "rest:stuck": 278,
+   "clear:no route all the way": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 2294,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 50,
+  "ending": "wiped",
+  "endedAt": 1366000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 293100,
+  "codeBy": "ben",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 25900,
+  "inside": 18,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 1095700
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 1102400
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 1121800
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 1214500
+   },
+   {
+    "who": "johanna",
+    "cause": "bled out",
+    "t": 1317700
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 1365600
+   }
+  ],
+  "kills": 24,
+  "arrived": 26,
+  "downs": 6,
+  "revives": 0,
+  "bites": 7,
+  "shots": 180,
+  "jobFails": {
+   "loot:no route all the way": 7,
+   "regroup:sounds bad": 4
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 2550,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 51,
+  "ending": "rescued",
+  "endedAt": 2968000,
+  "sealed": 78000,
+  "sealedBy": "dale",
+  "code": 259100,
+  "codeBy": "johanna",
+  "part": 2792400,
+  "partBy": "dale",
+  "radioOpen": 310900,
+  "fixed": 2952000,
+  "fixedBy": "dale",
+  "called": 2967100,
+  "calledBy": "dale",
+  "clear": 705000,
+  "armory": 154900,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 159100
+   }
+  ],
+  "kills": 20,
+  "arrived": 1,
+  "downs": 2,
+  "revives": 1,
+  "bites": 3,
+  "shots": 90,
+  "jobFails": {
+   "guard:no route": 44,
+   "loot:no route all the way": 6
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 1350,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 52,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 113000,
+  "sealedBy": "johanna",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 535000,
+  "armory": 1206600,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "ben",
+   "sarah"
+  ],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "turned",
+    "t": 2578300
+   },
+   {
+    "who": "rollo",
+    "cause": "turned",
+    "t": 2621200
+   },
+   {
+    "who": "dale",
+    "cause": "turned",
+    "t": 2763200
+   }
+  ],
+  "kills": 24,
+  "arrived": 2,
+  "downs": 0,
+  "revives": 0,
+  "bites": 3,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "guard:no route": 6,
+   "clear:no route all the way": 9
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 1491,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 53,
+  "ending": "rescued",
+  "endedAt": 950000,
+  "sealed": 229000,
+  "sealedBy": "sarah",
+  "code": 75100,
+  "codeBy": "ben",
+  "part": 770100,
+  "partBy": "dale",
+  "radioOpen": 89300,
+  "fixed": 934000,
+  "fixedBy": "dale",
+  "called": 949100,
+  "calledBy": "dale",
+  "clear": 581000,
+  "armory": 21000,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 23,
+  "arrived": 4,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 30,
+  "jobFails": {
+   "loot:no route all the way": 36,
+   "regroup:no route all the way": 1,
+   "regroup:sounds bad": 1,
+   "guard:no route": 17
+  },
+  "knowLeaks": 0,
+  "reachOver": 4,
+  "wallMs": 678,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 54,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 741000,
+  "sealedBy": "rick",
+  "code": 3521600,
+  "codeBy": "rollo",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 3566600,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 1567000,
+  "armory": 1607800,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 905800
+   },
+   {
+    "who": "rick",
+    "cause": "bled out",
+    "t": 941600
+   }
+  ],
+  "kills": 33,
+  "arrived": 14,
+  "downs": 3,
+  "revives": 1,
+  "bites": 2,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 3,
+   "guard:no route": 16,
+   "clear:no route all the way": 17,
+   "regroup:sounds bad": 1,
+   "loot:no route all the way": 7
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 1832,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 55,
+  "ending": "wiped",
+  "endedAt": 388000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 14,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 236500
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 305500
+   },
+   {
+    "who": "rick",
+    "cause": "bled out",
+    "t": 345300
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 356200
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 382500
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 387800
+   }
+  ],
+  "kills": 13,
+  "arrived": 7,
+  "downs": 7,
+  "revives": 1,
+  "bites": 8,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 2,
+   "loot:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 692,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 56,
+  "ending": "rescued",
+  "endedAt": 1265000,
+  "sealed": 1265000,
+  "sealedBy": "johanna",
+  "code": 345400,
+  "codeBy": "dale",
+  "part": 597000,
+  "partBy": "dale",
+  "radioOpen": 482700,
+  "fixed": 758000,
+  "fixedBy": "dale",
+  "called": 773100,
+  "calledBy": "dale",
+  "clear": 1265000,
+  "armory": 142000,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "sarah"
+  ],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 120200
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 508700
+   }
+  ],
+  "kills": 43,
+  "arrived": 23,
+  "downs": 2,
+  "revives": 0,
+  "bites": 5,
+  "shots": 195,
+  "jobFails": {
+   "clear:no route all the way": 1,
+   "loot:sounds bad": 1,
+   "regroup:sounds bad": 5,
+   "loot:no route all the way": 7,
+   "crank:stuck": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 878,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 57,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 271000,
+  "sealedBy": "ben",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 543000,
+  "armory": 0,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "ben",
+   "rick",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 234900
+   },
+   {
+    "who": "dale",
+    "cause": "turned",
+    "t": 2644600
+   }
+  ],
+  "kills": 25,
+  "arrived": 5,
+  "downs": 2,
+  "revives": 1,
+  "bites": 4,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 3,
+   "guard:no route": 3,
+   "clear:no route all the way": 11
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 1413,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 58,
+  "ending": "wiped",
+  "endedAt": 697000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 55000,
+  "inside": 14,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 133300
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 384300
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 567100
+   },
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 591100
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 695300
+   },
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 696100
+   }
+  ],
+  "kills": 19,
+  "arrived": 13,
+  "downs": 8,
+  "revives": 2,
+  "bites": 10,
+  "shots": 105,
+  "jobFails": {
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 1390,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 59,
+  "ending": "rescued",
+  "endedAt": 914000,
+  "sealed": 123000,
+  "sealedBy": "dale",
+  "code": 11400,
+  "codeBy": "sarah",
+  "part": 750900,
+  "partBy": "johanna",
+  "radioOpen": 46900,
+  "fixed": 898000,
+  "fixedBy": "johanna",
+  "called": 913100,
+  "calledBy": "johanna",
+  "clear": 480000,
+  "armory": 663100,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1,
+   "guard:no route": 17,
+   "loot:sounds bad": 1,
+   "clear:no route all the way": 4,
+   "loot:no route all the way": 24
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 489,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 60,
+  "ending": "rescued",
+  "endedAt": 1092000,
+  "sealed": 178000,
+  "sealedBy": "rick",
+  "code": 815000,
+  "codeBy": "dale",
+  "part": 912200,
+  "partBy": "dale",
+  "radioOpen": 827700,
+  "fixed": 1076000,
+  "fixedBy": "dale",
+  "called": 1091100,
+  "calledBy": "dale",
+  "clear": 666000,
+  "armory": 63500,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 22,
+  "arrived": 3,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 53,
+  "jobFails": {
+   "guard:no route": 8,
+   "loot:no route all the way": 1,
+   "clear:no route all the way": 7,
+   "call:no route all the way": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 463,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 61,
+  "ending": "rescued",
+  "endedAt": 1051000,
+  "sealed": 133000,
+  "sealedBy": "dale",
+  "code": 727400,
+  "codeBy": "dale",
+  "part": 874400,
+  "partBy": "dale",
+  "radioOpen": 739100,
+  "fixed": 1035000,
+  "fixedBy": "dale",
+  "called": 1050100,
+  "calledBy": "dale",
+  "clear": 469000,
+  "armory": 252300,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 1,
+  "revives": 1,
+  "bites": 1,
+  "shots": 12,
+  "jobFails": {
+   "guard:no route": 30,
+   "clear:no route all the way": 7,
+   "loot:no route all the way": 7,
+   "call:no route all the way": 4
+  },
+  "knowLeaks": 0,
+  "reachOver": 4,
+  "wallMs": 511,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 62,
+  "ending": "rescued",
+  "endedAt": 2263000,
+  "sealed": 127000,
+  "sealedBy": "ben",
+  "code": 815400,
+  "codeBy": "rollo",
+  "part": 2081200,
+  "partBy": "dale",
+  "radioOpen": 850000,
+  "fixed": 2247000,
+  "fixedBy": "dale",
+  "called": 2262100,
+  "calledBy": "dale",
+  "clear": 440000,
+  "armory": 49100,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 22,
+  "arrived": 2,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 0,
+  "jobFails": {
+   "loot:no route all the way": 13,
+   "guard:no route": 63,
+   "clear:no route all the way": 6
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 823,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 63,
+  "ending": "wiped",
+  "endedAt": 286000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 25200,
+  "codeBy": "johanna",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 15,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 170700
+   },
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 173400
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 210500
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 226000
+   },
+   {
+    "who": "sarah",
+    "cause": "bled out",
+    "t": 243800
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 285700
+   }
+  ],
+  "kills": 10,
+  "arrived": 5,
+  "downs": 6,
+  "revives": 0,
+  "bites": 9,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 298,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 64,
+  "ending": "rescued",
+  "endedAt": 1880000,
+  "sealed": 687000,
+  "sealedBy": "rick",
+  "code": 184700,
+  "codeBy": "dale",
+  "part": 1631800,
+  "partBy": "rick",
+  "radioOpen": 222800,
+  "fixed": 1864000,
+  "fixedBy": "rick",
+  "called": 1879100,
+  "calledBy": "rick",
+  "clear": 804000,
+  "armory": 87000,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 32,
+  "arrived": 12,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 78,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "loot:no route all the way": 15,
+   "regroup:sounds bad": 3,
+   "guard:no route": 12
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 757,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 65,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 58000,
+  "sealedBy": "ben",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 547000,
+  "armory": 1687800,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 86900
+   }
+  ],
+  "kills": 20,
+  "arrived": 1,
+  "downs": 1,
+  "revives": 0,
+  "bites": 3,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 3,
+   "clear:no route all the way": 18
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 1192,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 66,
+  "ending": "rescued",
+  "endedAt": 2164000,
+  "sealed": 122000,
+  "sealedBy": "dale",
+  "code": 729200,
+  "codeBy": "dale",
+  "part": 1963100,
+  "partBy": "dale",
+  "radioOpen": 775000,
+  "fixed": 2148000,
+  "fixedBy": "dale",
+  "called": 2163100,
+  "calledBy": "dale",
+  "clear": 700000,
+  "armory": 26800,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 22,
+  "arrived": 2,
+  "downs": 1,
+  "revives": 1,
+  "bites": 1,
+  "shots": 18,
+  "jobFails": {
+   "loot:no route all the way": 18,
+   "loot:sounds bad": 1,
+   "guard:no route": 22,
+   "clear:no route all the way": 8,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 841,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 67,
+  "ending": "wiped",
+  "endedAt": 3555000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 2653300,
+  "inside": 16,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "turned",
+    "t": 2538800
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 2806000
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 2953600
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 3037700
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 3222800
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 3555000
+   }
+  ],
+  "kills": 68,
+  "arrived": 66,
+  "downs": 6,
+  "revives": 1,
+  "bites": 7,
+  "shots": 24,
+  "jobFails": {
+   "loot:sounds bad": 3,
+   "guard:no route": 7,
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 6,
+  "wallMs": 2117,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 68,
+  "ending": "rescued",
+  "endedAt": 994000,
+  "sealed": 112000,
+  "sealedBy": "dale",
+  "code": 32700,
+  "codeBy": "sarah",
+  "part": 828900,
+  "partBy": "rollo",
+  "radioOpen": 84400,
+  "fixed": 978000,
+  "fixedBy": "rollo",
+  "called": 993100,
+  "calledBy": "rollo",
+  "clear": 379000,
+  "armory": 36900,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 70,
+  "jobFails": {
+   "guard:no route": 8
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 375,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 69,
+  "ending": "wiped",
+  "endedAt": 3507000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 9900,
+  "codeBy": "johanna",
+  "part": 379800,
+  "partBy": "sarah",
+  "radioOpen": 248400,
+  "fixed": 529000,
+  "fixedBy": "sarah",
+  "called": 544100,
+  "calledBy": "sarah",
+  "clear": 0,
+  "armory": 319900,
+  "inside": 29,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 205200
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 369100
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 3004400
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 3177600
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 3182800
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 3506700
+   }
+  ],
+  "kills": 54,
+  "arrived": 67,
+  "downs": 6,
+  "revives": 0,
+  "bites": 8,
+  "shots": 195,
+  "jobFails": {
+   "regroup:sounds bad": 3,
+   "loot:no route all the way": 7
+  },
+  "knowLeaks": 0,
+  "reachOver": 9,
+  "wallMs": 2591,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 70,
+  "ending": "wiped",
+  "endedAt": 790000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 28,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 110300
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 134300
+   },
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 234300
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 317200
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 430000
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 789700
+   }
+  ],
+  "kills": 6,
+  "arrived": 14,
+  "downs": 6,
+  "revives": 0,
+  "bites": 11,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 712,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 71,
+  "ending": "rescued",
+  "endedAt": 988000,
+  "sealed": 176000,
+  "sealedBy": "rick",
+  "code": 26000,
+  "codeBy": "rollo",
+  "part": 809800,
+  "partBy": "dale",
+  "radioOpen": 60900,
+  "fixed": 972000,
+  "fixedBy": "dale",
+  "called": 987100,
+  "calledBy": "dale",
+  "clear": 595000,
+  "armory": 44600,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 22,
+  "arrived": 3,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 14,
+  "jobFails": {
+   "regroup:sounds bad": 2,
+   "guard:no route": 20
+  },
+  "knowLeaks": 0,
+  "reachOver": 5,
+  "wallMs": 420,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 72,
+  "ending": "rescued",
+  "endedAt": 3151000,
+  "sealed": 211000,
+  "sealedBy": "rick",
+  "code": 983600,
+  "codeBy": "rick",
+  "part": 2941000,
+  "partBy": "rick",
+  "radioOpen": 1268500,
+  "fixed": 3135000,
+  "fixedBy": "rick",
+  "called": 3150100,
+  "calledBy": "rick",
+  "clear": 768000,
+  "armory": 71700,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah"
+  ],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "turned",
+    "t": 2609100
+   }
+  ],
+  "kills": 24,
+  "arrived": 3,
+  "downs": 1,
+  "revives": 1,
+  "bites": 2,
+  "shots": 56,
+  "jobFails": {
+   "clear:no route all the way": 7
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 1132,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 73,
+  "ending": "wiped",
+  "endedAt": 607000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 27,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 81800
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 139200
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 156800
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 203100
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 278700
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 606300
+   }
+  ],
+  "kills": 3,
+  "arrived": 11,
+  "downs": 6,
+  "revives": 0,
+  "bites": 15,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 470,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 74,
+  "ending": "wiped",
+  "endedAt": 270000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 19,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 129300
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 141400
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 154200
+   },
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 158100
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 248800
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 269800
+   }
+  ],
+  "kills": 5,
+  "arrived": 4,
+  "downs": 6,
+  "revives": 0,
+  "bites": 16,
+  "shots": 0,
+  "jobFails": {
+   "guard:no route": 13,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 268,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 75,
+  "ending": "rescued",
+  "endedAt": 1119000,
+  "sealed": 114000,
+  "sealedBy": "dale",
+  "code": 823800,
+  "codeBy": "dale",
+  "part": 942900,
+  "partBy": "dale",
+  "radioOpen": 873800,
+  "fixed": 1103000,
+  "fixedBy": "dale",
+  "called": 1118100,
+  "calledBy": "dale",
+  "clear": 230000,
+  "armory": 27400,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 172500
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 190700
+   }
+  ],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 3,
+  "revives": 1,
+  "bites": 5,
+  "shots": 69,
+  "jobFails": {
+   "loot:no route all the way": 11,
+   "guard:no route": 26,
+   "clear:no route all the way": 6
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 368,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 76,
+  "ending": "wiped",
+  "endedAt": 1825000,
+  "sealed": 1282000,
+  "sealedBy": "sarah",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 12,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 248500
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 825600
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 1063000
+   },
+   {
+    "who": "rollo",
+    "cause": "bled out",
+    "t": 1105500
+   },
+   {
+    "who": "rick",
+    "cause": "bled out",
+    "t": 1794600
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 1824200
+   }
+  ],
+  "kills": 31,
+  "arrived": 23,
+  "downs": 7,
+  "revives": 1,
+  "bites": 11,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 2,
+   "guard:no route": 2,
+   "regroup:sounds bad": 2
+  },
+  "knowLeaks": 0,
+  "reachOver": 7,
+  "wallMs": 783,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 77,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 60400,
+  "inside": 31,
+  "alive": [
+   "dale"
+  ],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 2063400
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 2440300
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 2444500
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 2731400
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 3057600
+   }
+  ],
+  "kills": 53,
+  "arrived": 67,
+  "downs": 6,
+  "revives": 1,
+  "bites": 8,
+  "shots": 195,
+  "jobFails": {
+   "guard:no route": 24,
+   "loot:no route all the way": 7,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 2119,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 78,
+  "ending": "wiped",
+  "endedAt": 1013000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 24,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "bled out",
+    "t": 265400
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 388900
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 395000
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 477800
+   },
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 998700
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 1012100
+   }
+  ],
+  "kills": 13,
+  "arrived": 19,
+  "downs": 7,
+  "revives": 1,
+  "bites": 10,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 691,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 79,
+  "ending": "wiped",
+  "endedAt": 328000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 10400,
+  "codeBy": "rollo",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 142400,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 21,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 86400
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 164800
+   },
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 257900
+   },
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 261200
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 304700
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 327400
+   }
+  ],
+  "kills": 4,
+  "arrived": 6,
+  "downs": 7,
+  "revives": 1,
+  "bites": 8,
+  "shots": 0,
+  "jobFails": {},
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 412,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 80,
+  "ending": "wiped",
+  "endedAt": 701000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 25300,
+  "inside": 23,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 136600
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 259600
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 259600
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 267600
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 410900
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 700100
+   }
+  ],
+  "kills": 9,
+  "arrived": 13,
+  "downs": 6,
+  "revives": 0,
+  "bites": 11,
+  "shots": 0,
+  "jobFails": {
+   "loot:no route all the way": 7,
+   "regroup:sounds bad": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 513,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 81,
+  "ending": "rescued",
+  "endedAt": 2080000,
+  "sealed": 287000,
+  "sealedBy": "dale",
+  "code": 176600,
+  "codeBy": "rollo",
+  "part": 1935500,
+  "partBy": "rollo",
+  "radioOpen": 515100,
+  "fixed": 2064000,
+  "fixedBy": "rollo",
+  "called": 2079100,
+  "calledBy": "rollo",
+  "clear": 760000,
+  "armory": 49800,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bled out",
+    "t": 352100
+   }
+  ],
+  "kills": 25,
+  "arrived": 5,
+  "downs": 2,
+  "revives": 1,
+  "bites": 1,
+  "shots": 90,
+  "jobFails": {
+   "loot:no route all the way": 7,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 698,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 82,
+  "ending": "wiped",
+  "endedAt": 1093000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 14,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 127600
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 322300
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 555200
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 753800
+   },
+   {
+    "who": "dale",
+    "cause": "bled out",
+    "t": 853100
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 1093000
+   }
+  ],
+  "kills": 23,
+  "arrived": 20,
+  "downs": 7,
+  "revives": 1,
+  "bites": 11,
+  "shots": 0,
+  "jobFails": {
+   "guard:no route": 2,
+   "regroup:sounds bad": 3,
+   "loot:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 774,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 83,
+  "ending": "wiped",
+  "endedAt": 288000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 19,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 152700
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 155700
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 159800
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 197800
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 212900
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 287800
+   }
+  ],
+  "kills": 6,
+  "arrived": 5,
+  "downs": 6,
+  "revives": 0,
+  "bites": 9,
+  "shots": 0,
+  "jobFails": {
+   "loot:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 304,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 84,
+  "ending": "wiped",
+  "endedAt": 435000,
+  "sealed": 160000,
+  "sealedBy": "rollo",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 10,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 198500
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 205100
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 275100
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 289400
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 420500
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 434500
+   }
+  ],
+  "kills": 12,
+  "arrived": 2,
+  "downs": 6,
+  "revives": 0,
+  "bites": 14,
+  "shots": 0,
+  "jobFails": {
+   "guard:no route": 11,
+   "regroup:sounds bad": 2,
+   "clear:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 458,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 85,
+  "ending": "rescued",
+  "endedAt": 849000,
+  "sealed": 849000,
+  "sealedBy": "rick",
+  "code": 16600,
+  "codeBy": "sarah",
+  "part": 241400,
+  "partBy": "ben",
+  "radioOpen": 61900,
+  "fixed": 421000,
+  "fixedBy": "ben",
+  "called": 436100,
+  "calledBy": "ben",
+  "clear": 849000,
+  "armory": 56600,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 35,
+  "arrived": 16,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 150,
+  "jobFails": {
+   "guard:no route": 2,
+   "regroup:sounds bad": 2,
+   "loot:no route all the way": 7,
+   "loot:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 745,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 86,
+  "ending": "timeout",
+  "endedAt": 3600000,
+  "sealed": 3319000,
+  "sealedBy": "ben",
+  "code": 3466300,
+  "codeBy": "sarah",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 3481300,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 2,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 79,
+  "arrived": 62,
+  "downs": 1,
+  "revives": 1,
+  "bites": 1,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 2122,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 87,
+  "ending": "rescued",
+  "endedAt": 1231000,
+  "sealed": 1231000,
+  "sealedBy": "dale",
+  "code": 73200,
+  "codeBy": "dale",
+  "part": 319200,
+  "partBy": "johanna",
+  "radioOpen": 175800,
+  "fixed": 488000,
+  "fixedBy": "johanna",
+  "called": 503100,
+  "calledBy": "johanna",
+  "clear": 1231000,
+  "armory": 47000,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 43,
+  "arrived": 23,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 88,
+  "jobFails": {
+   "loot:no route all the way": 7,
+   "regroup:sounds bad": 1,
+   "guard:no route": 31,
+   "rest:stuck": 4
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 635,
+  "partSpot": "part-stores",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 88,
+  "ending": "rescued",
+  "endedAt": 2137000,
+  "sealed": 667000,
+  "sealedBy": "johanna",
+  "code": 34500,
+  "codeBy": "rollo",
+  "part": 241000,
+  "partBy": "rick",
+  "radioOpen": 69600,
+  "fixed": 388000,
+  "fixedBy": "rick",
+  "called": 403100,
+  "calledBy": "rick",
+  "clear": 2137000,
+  "armory": 107700,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "rick",
+   "sarah"
+  ],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 332000
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 382400
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 387000
+   }
+  ],
+  "kills": 32,
+  "arrived": 12,
+  "downs": 4,
+  "revives": 1,
+  "bites": 5,
+  "shots": 188,
+  "jobFails": {
+   "guard:no route": 1,
+   "clear:stuck": 117,
+   "regroup:stuck": 3,
+   "regroup:sounds bad": 4
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 1113,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 89,
+  "ending": "wiped",
+  "endedAt": 2835000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 32600,
+  "codeBy": "sarah",
+  "part": 449700,
+  "partBy": "sarah",
+  "radioOpen": 305800,
+  "fixed": 861000,
+  "fixedBy": "sarah",
+  "called": 876100,
+  "calledBy": "sarah",
+  "clear": 0,
+  "armory": 20900,
+  "inside": 30,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 1718500
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 1886400
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 1965000
+   },
+   {
+    "who": "rollo",
+    "cause": "wounds",
+    "t": 1981700
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 2108300
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 2834300
+   }
+  ],
+  "kills": 42,
+  "arrived": 53,
+  "downs": 7,
+  "revives": 1,
+  "bites": 9,
+  "shots": 135,
+  "jobFails": {
+   "guard:no route": 13,
+   "regroup:sounds bad": 3,
+   "clear:no route all the way": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 1694,
+  "partSpot": "part-stores",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 90,
+  "ending": "wiped",
+  "endedAt": 785000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 27900,
+  "codeBy": "sarah",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 152100,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 38400,
+  "inside": 20,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 150000
+   },
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 164300
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 267900
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 543000
+   },
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 778200
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 784900
+   }
+  ],
+  "kills": 14,
+  "arrived": 14,
+  "downs": 7,
+  "revives": 1,
+  "bites": 14,
+  "shots": 96,
+  "jobFails": {
+   "loot:no route all the way": 7,
+   "regroup:sounds bad": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 7,
+  "wallMs": 647,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 91,
+  "ending": "rescued",
+  "endedAt": 1379000,
+  "sealed": 71000,
+  "sealedBy": "dale",
+  "code": 16800,
+  "codeBy": "ben",
+  "part": 802200,
+  "partBy": "rollo",
+  "radioOpen": 396400,
+  "fixed": 929000,
+  "fixedBy": "rollo",
+  "called": 944100,
+  "calledBy": "rollo",
+  "clear": 1379000,
+  "armory": 117400,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "rollo"
+  ],
+  "deaths": [
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 171500
+   }
+  ],
+  "kills": 20,
+  "arrived": 1,
+  "downs": 2,
+  "revives": 1,
+  "bites": 7,
+  "shots": 14,
+  "jobFails": {
+   "regroup:sounds bad": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 564,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 92,
+  "ending": "wiped",
+  "endedAt": 2981000,
+  "sealed": 155000,
+  "sealedBy": "sarah",
+  "code": 33600,
+  "codeBy": "rollo",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 598800,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 10,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 231300
+   },
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 340500
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 411200
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 426400
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 704000
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 2980600
+   }
+  ],
+  "kills": 13,
+  "arrived": 3,
+  "downs": 7,
+  "revives": 1,
+  "bites": 14,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1,
+   "guard:no route": 17,
+   "clear:stuck": 3,
+   "regroup:stuck": 1,
+   "rest:stuck": 342,
+   "repair:stuck": 67
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 2225,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-private-b"
+ },
+ {
+  "seed": 93,
+  "ending": "wiped",
+  "endedAt": 339000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 35100,
+  "inside": 21,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 89300
+   },
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 140700
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 151400
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 181700
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 322200
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 338500
+   }
+  ],
+  "kills": 5,
+  "arrived": 6,
+  "downs": 6,
+  "revives": 0,
+  "bites": 14,
+  "shots": 0,
+  "jobFails": {
+   "loot:no route all the way": 8,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 313,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 94,
+  "ending": "wiped",
+  "endedAt": 1000000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 0,
+  "codeBy": "",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 38700,
+  "inside": 20,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "dale",
+    "cause": "bitten",
+    "t": 149400
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 193000
+   },
+   {
+    "who": "ben",
+    "cause": "bled out",
+    "t": 256200
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 307000
+   },
+   {
+    "who": "rick",
+    "cause": "bled out",
+    "t": 414800
+   },
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 999800
+   }
+  ],
+  "kills": 18,
+  "arrived": 19,
+  "downs": 6,
+  "revives": 0,
+  "bites": 8,
+  "shots": 105,
+  "jobFails": {
+   "clear:no route all the way": 1,
+   "loot:no route all the way": 8,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 3,
+  "wallMs": 464,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 95,
+  "ending": "wiped",
+  "endedAt": 2220000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 95700,
+  "codeBy": "ben",
+  "part": 139100,
+  "partBy": "ben",
+  "radioOpen": 107600,
+  "fixed": 314000,
+  "fixedBy": "ben",
+  "called": 329100,
+  "calledBy": "ben",
+  "clear": 0,
+  "armory": 28300,
+  "inside": 25,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "johanna",
+    "cause": "wounds",
+    "t": 98500
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 1207700
+   },
+   {
+    "who": "ben",
+    "cause": "wounds",
+    "t": 1237100
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 1522900
+   },
+   {
+    "who": "rick",
+    "cause": "bitten",
+    "t": 1815800
+   },
+   {
+    "who": "sarah",
+    "cause": "bitten",
+    "t": 2219600
+   }
+  ],
+  "kills": 31,
+  "arrived": 41,
+  "downs": 6,
+  "revives": 0,
+  "bites": 9,
+  "shots": 30,
+  "jobFails": {
+   "loot:no route all the way": 28,
+   "guard:no route": 18,
+   "regroup:sounds bad": 3
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 1263,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-security"
+ },
+ {
+  "seed": 96,
+  "ending": "wiped",
+  "endedAt": 385000,
+  "sealed": 0,
+  "sealedBy": "",
+  "code": 9700,
+  "codeBy": "sarah",
+  "part": 0,
+  "partBy": "",
+  "radioOpen": 0,
+  "fixed": 0,
+  "fixedBy": "",
+  "called": 0,
+  "calledBy": "",
+  "clear": 0,
+  "armory": 0,
+  "inside": 21,
+  "alive": [],
+  "deaths": [
+   {
+    "who": "ben",
+    "cause": "bitten",
+    "t": 79500
+   },
+   {
+    "who": "rick",
+    "cause": "wounds",
+    "t": 237500
+   },
+   {
+    "who": "dale",
+    "cause": "wounds",
+    "t": 284700
+   },
+   {
+    "who": "sarah",
+    "cause": "wounds",
+    "t": 324200
+   },
+   {
+    "who": "rollo",
+    "cause": "bitten",
+    "t": 372500
+   },
+   {
+    "who": "johanna",
+    "cause": "bitten",
+    "t": 384300
+   }
+  ],
+  "kills": 5,
+  "arrived": 7,
+  "downs": 6,
+  "revives": 0,
+  "bites": 13,
+  "shots": 0,
+  "jobFails": {
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 469,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 97,
+  "ending": "rescued",
+  "endedAt": 1024000,
+  "sealed": 901000,
+  "sealedBy": "rick",
+  "code": 98100,
+  "codeBy": "dale",
+  "part": 236100,
+  "partBy": "sarah",
+  "radioOpen": 133600,
+  "fixed": 423000,
+  "fixedBy": "sarah",
+  "called": 438100,
+  "calledBy": "sarah",
+  "clear": 1024000,
+  "armory": 198300,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 37,
+  "arrived": 17,
+  "downs": 2,
+  "revives": 2,
+  "bites": 3,
+  "shots": 28,
+  "jobFails": {
+   "guard:no route": 27,
+   "loot:no route all the way": 7
+  },
+  "knowLeaks": 0,
+  "reachOver": 0,
+  "wallMs": 432,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 98,
+  "ending": "rescued",
+  "endedAt": 926000,
+  "sealed": 273000,
+  "sealedBy": "dale",
+  "code": 699000,
+  "codeBy": "rollo",
+  "part": 780100,
+  "partBy": "rollo",
+  "radioOpen": 733800,
+  "fixed": 910000,
+  "fixedBy": "rollo",
+  "called": 925100,
+  "calledBy": "rollo",
+  "clear": 476000,
+  "armory": 208000,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 24,
+  "arrived": 5,
+  "downs": 0,
+  "revives": 0,
+  "bites": 0,
+  "shots": 33,
+  "jobFails": {
+   "regroup:sounds bad": 3,
+   "loot:sounds bad": 1,
+   "guard:no route": 11,
+   "clear:no route all the way": 4,
+   "call:no route all the way": 6
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 609,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 99,
+  "ending": "rescued",
+  "endedAt": 1162000,
+  "sealed": 152000,
+  "sealedBy": "rick",
+  "code": 735600,
+  "codeBy": "dale",
+  "part": 982300,
+  "partBy": "rick",
+  "radioOpen": 790200,
+  "fixed": 1146000,
+  "fixedBy": "rick",
+  "called": 1161100,
+  "calledBy": "rick",
+  "clear": 490000,
+  "armory": 35500,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 22,
+  "arrived": 2,
+  "downs": 1,
+  "revives": 1,
+  "bites": 1,
+  "shots": 70,
+  "jobFails": {
+   "guard:no route": 27,
+   "loot:no route all the way": 7,
+   "clear:no route all the way": 4,
+   "clear:stuck": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 1,
+  "wallMs": 545,
+  "partSpot": "part-workshop",
+  "noteSpot": "note-qm"
+ },
+ {
+  "seed": 100,
+  "ending": "rescued",
+  "endedAt": 1019000,
+  "sealed": 115000,
+  "sealedBy": "rick",
+  "code": 699800,
+  "codeBy": "dale",
+  "part": 820900,
+  "partBy": "dale",
+  "radioOpen": 735500,
+  "fixed": 1003000,
+  "fixedBy": "dale",
+  "called": 1018100,
+  "calledBy": "dale",
+  "clear": 480000,
+  "armory": 66100,
+  "inside": 0,
+  "alive": [
+   "johanna",
+   "dale",
+   "ben",
+   "rick",
+   "sarah",
+   "rollo"
+  ],
+  "deaths": [],
+  "kills": 21,
+  "arrived": 2,
+  "downs": 1,
+  "revives": 1,
+  "bites": 0,
+  "shots": 60,
+  "jobFails": {
+   "loot:sounds bad": 1,
+   "guard:no route": 11,
+   "loot:no route all the way": 3,
+   "clear:no route all the way": 9,
+   "regroup:sounds bad": 1
+  },
+  "knowLeaks": 0,
+  "reachOver": 2,
+  "wallMs": 433,
+  "partSpot": "part-stores",
+  "noteSpot": "note-qm"
+ }
+]

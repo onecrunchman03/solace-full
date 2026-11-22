@@ -1,0 +1,54 @@
+{
+ "file": "vegas/neon-casino.glb",
+ "id": "neon-casino",
+ "what": "flat pixel-style neon 'CASINO' panel (emissive texture), faces +Z after the yaw",
+ "size": [
+  2,
+  1.509,
+  0.038
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 468,
+ "drawCalls": 1,
+ "bytes": 35544,
+ "materials": [
+  {
+   "name": "Content-Material",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "a neon sign \"casino\"",
+  "author": "alina_dreiman",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/a-neon-sign-casino-2043019fd0ec4834a489b3d9d549980f"
+ },
+ "sourceScale": 0.038,
+ "objects": [
+  {
+   "name": "neon-casino_0",
+   "dim": [
+    2,
+    1.509,
+    0.038
+   ],
+   "loc": [
+    0,
+    0.755,
+    0
+   ],
+   "tris": 468,
+   "mats": [
+    "Content-Material"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 520" width="530" height="520">
+  <defs>
+    <linearGradient id="brassV" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#5e3f12"/>
+      <stop offset="0.16" stop-color="#a87a28"/>
+      <stop offset="0.36" stop-color="#f6dc8c"/>
+      <stop offset="0.5" stop-color="#e2b453"/>
+      <stop offset="0.78" stop-color="#94672a"/>
+      <stop offset="1" stop-color="#4e3410"/>
+    </linearGradient>
+    <linearGradient id="brassH" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8e29a"/>
+      <stop offset="0.3" stop-color="#e0b04e"/>
+      <stop offset="0.7" stop-color="#9a6c26"/>
+      <stop offset="1" stop-color="#5a3c12"/>
+    </linearGradient>
+    <linearGradient id="nozzle" x1="0" x2="0" y1="0" y2="1" gradientTransform="rotate(-22 0.5 0.5)">
+      <stop offset="0" stop-color="#5e3f12"/>
+      <stop offset="0.25" stop-color="#f6dc8c"/>
+      <stop offset="0.45" stop-color="#deae4c"/>
+      <stop offset="1" stop-color="#5a3c12"/>
+    </linearGradient>
+    <linearGradient id="arm" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4d888"/>
+      <stop offset="0.45" stop-color="#c9952f"/>
+      <stop offset="1" stop-color="#6e4a16"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" x2="1">
+      <stop offset="0" stop-color="#5f646b"/>
+      <stop offset="0.4" stop-color="#e2e6ea"/>
+      <stop offset="1" stop-color="#6a7078"/>
+    </linearGradient>
+    <linearGradient id="threads" x1="0" x2="0" y1="418" y2="428" spreadMethod="repeat" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a1a06" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#2a1a06" stop-opacity="0"/>
+      <stop offset="0.7" stop-color="#fff2c0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#2a1a06" stop-opacity="0.55"/>
+    </linearGradient>
+    <radialGradient id="drop" cx="0.35" cy="0.3" r="0.7">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.4" stop-color="#d8eeff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#5f9ccc" stop-opacity="0.7"/>
+    </radialGradient>
+  </defs>
+
+  <!-- threaded inlet -->
+  <rect x="228" y="430" width="56" height="62" fill="url(#brassV)"/>
+  <rect x="228" y="430" width="56" height="62" fill="url(#threads)"/>
+  <ellipse cx="256" cy="492" rx="28" ry="7" fill="#5a3c12"/>
+  <ellipse cx="256" cy="492" rx="18" ry="4" fill="#2a1a06"/>
+  <!-- hex collar -->
+  <path d="M204 404 L308 404 L308 434 Q256 444 204 434 Z" fill="url(#brassV)"/>
+  <path d="M204 404 Q256 394 308 404 Q256 414 204 404 Z" fill="#f6dc8c"/>
+  <path d="M236 408 L236 440 M276 408 L276 440" stroke="#5e3f12" stroke-width="2" opacity="0.6"/>
+  <!-- the bearing tube that turns -->
+  <rect x="238" y="314" width="36" height="92" fill="url(#brassV)"/>
+  <rect x="232" y="352" width="48" height="12" rx="3" fill="url(#brassV)"/>
+  <path d="M234 353 Q256 348 278 353" stroke="#fff1bd" stroke-width="2" fill="none"/>
+
+  <!-- spindle and its spring -->
+  <rect x="251" y="178" width="10" height="130" fill="url(#steel)"/>
+  <g fill="none" stroke-linecap="round">
+    <path id="coil" d="M240 232 C240 226 272 226 272 232 M240 243 C240 237 272 237 272 243 M240 254 C240 248 272 248 272 254 M240 265 C240 259 272 259 272 265 M240 276 C240 270 272 270 272 276 M240 287 C240 281 272 281 272 287" stroke="#4e5359" stroke-width="5"/>
+    <path d="M240 232 C240 226 272 226 272 232 M240 243 C240 237 272 237 272 243 M240 254 C240 248 272 248 272 254 M240 265 C240 259 272 259 272 265 M240 276 C240 270 272 270 272 276 M240 287 C240 281 272 281 272 287" stroke="#c8cdd3" stroke-width="2.4"/>
+  </g>
+
+  <!-- the body the nozzle leaves from -->
+  <path d="M222 294 L292 294 L294 320 Q258 328 220 320 Z" fill="url(#brassV)"/>
+  <path d="M222 294 Q258 286 292 294 Q258 302 222 294 Z" fill="#f2d07a"/>
+
+  <!-- the nozzle, angled up and out -->
+  <path d="M254 290 L418 224 L430 254 L266 320 Z" fill="#4a300c"/>
+  <path d="M256 292 L418 227 L428 251 L266 316 Z" fill="url(#nozzle)"/>
+  <path d="M414 216 L436 207 L452 247 L430 256 Z" fill="#4a300c"/>
+  <path d="M416 218 L435 210 L449 245 L431 253 Z" fill="url(#nozzle)"/>
+  <ellipse cx="443" cy="228" rx="8" ry="19" transform="rotate(-22 443 228)" fill="#c99a3e"/>
+  <ellipse cx="444" cy="228" rx="5" ry="12" transform="rotate(-22 444 228)" fill="#3a260a"/>
+  <ellipse cx="445" cy="228" rx="2.6" ry="6" transform="rotate(-22 445 228)" fill="#100800"/>
+  <path d="M262 298 L416 236" stroke="#fff4c8" stroke-width="3.2" opacity="0.9" stroke-linecap="round"/>
+  <path d="M420 222 L436 215" stroke="#fff4c8" stroke-width="2.6" opacity="0.9" stroke-linecap="round"/>
+
+  <!-- the swinging arm: a counterweight behind, the spoon dropped into the jet -->
+  <path d="M172 192 L256 194 L440 197 L458 210" fill="none" stroke="#3e2808" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M172 192 L256 194 L440 197 L458 210" fill="none" stroke="url(#arm)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M174 188.5 L256 190.5 L440 193.5 L455 204" fill="none" stroke="#fff5cc" stroke-width="2.6" stroke-linecap="round" opacity="0.85"/>
+  <ellipse cx="160" cy="192" rx="26" ry="21" fill="#3e2808"/>
+  <ellipse cx="160" cy="191" rx="23" ry="18" fill="url(#arm)"/>
+  <ellipse cx="153" cy="184" rx="9" ry="5" fill="#fff0bc" opacity="0.8"/>
+  <!-- the spoon: a cupped paddle hanging square in front of the nozzle -->
+  <path d="M456 204 C474 210 478 236 470 252 L458 252 C464 236 462 218 452 210 Z" fill="#3e2808"/>
+  <path d="M457 207 C471 213 474 235 467 249 L460 249 C465 235 463 219 455 211 Z" fill="url(#arm)"/>
+  <path d="M462 212 C468 220 469 232 466 242" stroke="#fff3c4" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- the top nut -->
+  <rect x="242" y="166" width="28" height="16" rx="2" fill="url(#brassV)"/>
+  <path d="M242 166 Q256 160 270 166" stroke="#fff2c2" stroke-width="2" fill="none"/>
+  <circle cx="256" cy="196" r="10" fill="url(#brassV)"/>
+  <circle cx="253" cy="193" r="3" fill="#fff4c8"/>
+
+  <!-- a flick of water off the spoon as it ticks -->
+  <g fill="url(#drop)">
+    <circle cx="492" cy="212" r="4"/><circle cx="506" cy="232" r="3"/><circle cx="488" cy="244" r="3.4"/>
+    <circle cx="500" cy="196" r="2.6"/><circle cx="514" cy="214" r="2.2"/><circle cx="498" cy="258" r="2.4"/>
+  </g>
+  <!-- always slightly damp -->
+  <path d="M233 316 L233 400" stroke="#3a2808" stroke-width="5" opacity="0.18"/>
+  <ellipse cx="246.8" cy="377.6" rx="5" ry="4.5" fill="#3a2406" opacity="0.35"/>
+  <ellipse cx="246" cy="376" rx="4.5" ry="5" fill="url(#drop)"/>
+  <ellipse cx="290.8" cy="307.6" rx="4.5" ry="4.05" fill="#3a2406" opacity="0.35"/>
+  <ellipse cx="290" cy="306" rx="4.05" ry="4.5" fill="url(#drop)"/>
+  <ellipse cx="340.8" cy="283.6" rx="5" ry="4.5" fill="#3a2406" opacity="0.35"/>
+  <ellipse cx="340" cy="282" rx="4.5" ry="5" fill="url(#drop)"/>
+  <ellipse cx="390.8" cy="263.6" rx="4" ry="3.6" fill="#3a2406" opacity="0.35"/>
+  <ellipse cx="390" cy="262" rx="3.6" ry="4" fill="url(#drop)"/>
+  <ellipse cx="212.8" cy="191.6" rx="4" ry="3.6" fill="#3a2406" opacity="0.35"/>
+  <ellipse cx="212" cy="190" rx="3.6" ry="4" fill="url(#drop)"/>
+  <ellipse cx="300.8" cy="417.6" rx="5.5" ry="4.95" fill="#3a2406" opacity="0.35"/>
+  <ellipse cx="300" cy="416" rx="4.95" ry="5.5" fill="url(#drop)"/>
+  <path d="M465 256 C461 266 461 272 465 274 C469 272 469 266 465 256 Z" fill="url(#drop)"/>
+  <path d="M256 497 C251 507 251 513 256 516 C261 513 261 507 256 497 Z" fill="url(#drop)"/>
+  <circle cx="244.5" cy="374.5" r="1.5" fill="#fff"/>
+  <circle cx="298.5" cy="414.5" r="1.6" fill="#fff"/>
+  <circle cx="338.5" cy="280.5" r="1.4" fill="#fff"/>
+</svg>

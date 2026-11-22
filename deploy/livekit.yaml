@@ -1,0 +1,27 @@
+# LiveKit server config for the R220 (voice SFU behind Caddy).
+#
+# Caddy terminates TLS and proxies wss://<host>/livekit to port 7880; media
+# flows over UDP 50000-50100 (open these in ufw alongside 443/udp for TURN-less
+# WebRTC). Replace the API key/secret with fresh ones:
+#   livekit-server generate-keys
+# and mirror them into /opt/solace/.env (LIVEKIT_API_KEY / LIVEKIT_API_SECRET,
+# with LIVEKIT_URL=wss://<your-host>/livekit).
+
+port: 7880
+bind_addresses:
+  - 127.0.0.1
+
+rtc:
+  port_range_start: 50000
+  port_range_end: 50100
+  # The server is behind NAT-less colo/home routing; advertise the public IP.
+  # If the R220 sits behind a router, set use_external_ip: true instead.
+  use_external_ip: true
+
+keys:
+  # REPLACE ME — run `livekit-server generate-keys`, then put the pair on ONE
+  # line as  <key-id>: <secret>  (do NOT paste the two-line command output).
+  devkey: secret
+
+logging:
+  level: info

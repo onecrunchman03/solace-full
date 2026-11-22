@@ -1,0 +1,2766 @@
+{
+  "about": "THE DEEP LAB AND THE TUNNELS (docs/survivorz/ASSETS.md step D, zone 8). Written by scripts/survivorz/layout-deep.mjs (edit that, not this); read by scripts/survivorz/room-build.py --set deep and client/src/survivorz/room/lobby.ts.",
+  "rooms": [
+    "freight-lift",
+    "deep-corridor",
+    "deep-lab",
+    "deep-office",
+    "tunnel-junction",
+    "service-tunnel",
+    "far-tunnels"
+  ],
+  "roomRects": {
+    "freight-lift": {
+      "x": 70,
+      "z": 76,
+      "w": 8,
+      "h": 8,
+      "zone": "deep"
+    },
+    "deep-corridor": {
+      "x": 52,
+      "z": 84,
+      "w": 40,
+      "h": 6,
+      "zone": "deep"
+    },
+    "deep-lab": {
+      "x": 60,
+      "z": 90,
+      "w": 24,
+      "h": 16,
+      "zone": "deep"
+    },
+    "deep-office": {
+      "x": 84,
+      "z": 90,
+      "w": 10,
+      "h": 10,
+      "zone": "deep"
+    },
+    "tunnel-junction": {
+      "x": 38,
+      "z": 52,
+      "w": 14,
+      "h": 12,
+      "zone": "deep"
+    },
+    "service-tunnel": {
+      "x": 44,
+      "z": 64,
+      "w": 8,
+      "h": 26,
+      "zone": "deep"
+    },
+    "far-tunnels": {
+      "x": 0,
+      "z": 54,
+      "w": 38,
+      "h": 8,
+      "zone": "deep"
+    }
+  },
+  "styles": {
+    "freight-lift": {
+      "floor": "steel-plate",
+      "ceiling": "slab",
+      "bands": [
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "deep-corridor": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.2,
+          "wainscot"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "deep-lab": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "deep-office": {
+      "floor": "marble-dark",
+      "ceiling": "plaster",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "walnut"
+        ]
+      ]
+    },
+    "tunnel-junction": {
+      "floor": "tunnel-floor",
+      "ceiling": "tunnel-ceiling",
+      "bands": [
+        [
+          99,
+          "tunnel-wall"
+        ]
+      ]
+    },
+    "service-tunnel": {
+      "floor": "tunnel-floor",
+      "ceiling": "tunnel-ceiling",
+      "bands": [
+        [
+          1,
+          "vault-floor"
+        ],
+        [
+          99,
+          "tunnel-wall"
+        ]
+      ]
+    },
+    "far-tunnels": {
+      "floor": "tunnel-floor",
+      "ceiling": "brick-old",
+      "bands": [
+        [
+          99,
+          "brick-old"
+        ]
+      ]
+    }
+  },
+  "skins": {},
+  "arch": [
+    {
+      "what": "wayfinding stripe",
+      "key": "panel-accent",
+      "box": [
+        52.12,
+        -14.85,
+        89.888,
+        71.2,
+        -14.75,
+        89.9
+      ]
+    },
+    {
+      "what": "director's window pane",
+      "glass": [
+        83.988,
+        -15.1,
+        96.04,
+        84.012,
+        -13.3,
+        99.66
+      ]
+    },
+    {
+      "what": "director's window frame",
+      "key": "steel",
+      "box": [
+        83.89,
+        -15.16,
+        96,
+        84.11,
+        -15.1,
+        99.7
+      ]
+    },
+    {
+      "what": "director's window frame",
+      "key": "steel",
+      "box": [
+        83.89,
+        -13.3,
+        96,
+        84.11,
+        -13.24,
+        99.7
+      ]
+    },
+    {
+      "what": "director's window frame",
+      "key": "steel",
+      "box": [
+        83.89,
+        -15.1,
+        95.96,
+        84.11,
+        -13.3,
+        96.04
+      ]
+    },
+    {
+      "what": "director's window frame",
+      "key": "steel",
+      "box": [
+        83.89,
+        -15.1,
+        99.66,
+        84.11,
+        -13.3,
+        99.74
+      ]
+    },
+    {
+      "what": "ladder post",
+      "key": "steel",
+      "box": [
+        46.3,
+        -16,
+        54.3,
+        46.4,
+        -11,
+        54.4
+      ]
+    },
+    {
+      "what": "ladder post",
+      "key": "steel",
+      "box": [
+        47.6,
+        -16,
+        54.3,
+        47.7,
+        -11,
+        54.4
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        1.7,
+        -11.35,
+        54.1,
+        2.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        1.7,
+        -16,
+        54.1,
+        2.3,
+        -11.35,
+        54.4
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        1.7,
+        -16,
+        61.6,
+        2.3,
+        -11.35,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        5.7,
+        -11.35,
+        54.1,
+        6.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        5.7,
+        -16,
+        54.1,
+        6.3,
+        -11.35,
+        54.4
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        5.7,
+        -16,
+        61.6,
+        6.3,
+        -11.35,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        9.7,
+        -11.35,
+        54.1,
+        10.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        9.7,
+        -16,
+        54.1,
+        10.3,
+        -11.35,
+        54.4
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        9.7,
+        -16,
+        61.6,
+        10.3,
+        -11.35,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        13.7,
+        -11.35,
+        54.1,
+        14.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        13.7,
+        -16,
+        54.1,
+        14.3,
+        -11.35,
+        54.4
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        13.7,
+        -16,
+        61.6,
+        14.3,
+        -11.35,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        17.7,
+        -11.35,
+        54.1,
+        18.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        17.7,
+        -16,
+        61.6,
+        18.3,
+        -11.35,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        21.7,
+        -11.35,
+        54.1,
+        22.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        21.7,
+        -16,
+        61.6,
+        22.3,
+        -11.35,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        25.7,
+        -11.35,
+        54.1,
+        26.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        25.7,
+        -16,
+        54.1,
+        26.3,
+        -11.35,
+        54.4
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        25.7,
+        -16,
+        61.6,
+        26.3,
+        -11.35,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        29.7,
+        -11.35,
+        54.1,
+        30.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        29.7,
+        -16,
+        54.1,
+        30.3,
+        -11.35,
+        54.4
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        29.7,
+        -16,
+        61.6,
+        30.3,
+        -11.35,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel rib",
+      "key": "brick-old",
+      "box": [
+        33.7,
+        -11.35,
+        54.1,
+        34.3,
+        -11,
+        61.9
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        33.7,
+        -16,
+        54.1,
+        34.3,
+        -11.35,
+        54.4
+      ]
+    },
+    {
+      "what": "tunnel pier",
+      "key": "brick-old",
+      "box": [
+        33.7,
+        -16,
+        61.6,
+        34.3,
+        -11.35,
+        61.9
+      ]
+    }
+  ],
+  "cutouts": [
+    {
+      "axis": "x",
+      "c": 84,
+      "a0": 96,
+      "a1": 99.7,
+      "y0": -15.1,
+      "y1": -13.3
+    }
+  ],
+  "props": [
+    {
+      "id": "freight-car",
+      "at": [
+        74,
+        -8,
+        80
+      ],
+      "yaw": 180,
+      "room": "freight-lift",
+      "note": "the lift car, parked at B1"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        55,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        55,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        58,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        58,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        61,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        61,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        64,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        64,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        67,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        67,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        70,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        70,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        73,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        73,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        76,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        76,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        79,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        79,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        82,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        82,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        85,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        85,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        88,
+        -13.55,
+        84.26
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        88,
+        -13.55,
+        89.74
+      ],
+      "yaw": 0,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "eyewash-shower",
+      "at": [
+        70.2,
+        -16,
+        89.35
+      ],
+      "yaw": 180,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        74.2,
+        -16,
+        89.6
+      ],
+      "yaw": 180,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        66,
+        -16,
+        89.6
+      ],
+      "yaw": 180,
+      "room": "deep-corridor",
+      "rot": [
+        0,
+        180,
+        0
+      ]
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        69,
+        -14,
+        89.2
+      ],
+      "yaw": 0,
+      "room": "deep-corridor",
+      "rot": [
+        70,
+        20,
+        0
+      ]
+    },
+    {
+      "id": "wet-floor-sign",
+      "at": [
+        60,
+        -16,
+        86
+      ],
+      "yaw": 40,
+      "room": "deep-corridor"
+    },
+    {
+      "id": "lab-bench-island",
+      "at": [
+        72,
+        -16,
+        99
+      ],
+      "yaw": 0,
+      "room": "deep-lab",
+      "note": "the lazarus-bench"
+    },
+    {
+      "id": "chemistry-set",
+      "at": [
+        71.2,
+        -15.1,
+        99.35
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "kit-sequencer",
+      "at": [
+        72.9,
+        -15.1,
+        99.35
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        72.9,
+        -15.1,
+        98.65
+      ],
+      "yaw": 180,
+      "room": "deep-lab",
+      "note": "the deep-terminal"
+    },
+    {
+      "id": "microscope-lab",
+      "at": [
+        70.8,
+        -15.1,
+        98.7
+      ],
+      "yaw": 180,
+      "room": "deep-lab"
+    },
+    {
+      "id": "binder",
+      "at": [
+        71.8,
+        -15.1,
+        98.6
+      ],
+      "yaw": 165,
+      "room": "deep-lab",
+      "note": "the final-file, open where it was being read"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        72.15,
+        -15.1,
+        98.55
+      ],
+      "yaw": 200,
+      "room": "deep-lab"
+    },
+    {
+      "id": "kit-tube-rack",
+      "at": [
+        72,
+        -15.1,
+        99.3
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "micropipette",
+      "at": [
+        72.35,
+        -15.1,
+        99.25
+      ],
+      "yaw": 70,
+      "room": "deep-lab",
+      "rot": [
+        90,
+        70,
+        0
+      ]
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        71,
+        -16,
+        100.4
+      ],
+      "yaw": -31.414,
+      "room": "deep-lab"
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        73,
+        -16,
+        100.4
+      ],
+      "yaw": -28.878,
+      "room": "deep-lab"
+    },
+    {
+      "id": "biosafety-cabinet",
+      "at": [
+        60.553,
+        -16,
+        93
+      ],
+      "yaw": 90,
+      "room": "deep-lab"
+    },
+    {
+      "id": "biosafety-cabinet",
+      "at": [
+        60.553,
+        -16,
+        96
+      ],
+      "yaw": 90,
+      "room": "deep-lab"
+    },
+    {
+      "id": "fume-hood",
+      "at": [
+        60.55,
+        -16,
+        100
+      ],
+      "yaw": 90,
+      "room": "deep-lab"
+    },
+    {
+      "id": "incubator-stack",
+      "at": [
+        60.485,
+        -16,
+        102.4
+      ],
+      "yaw": 90,
+      "room": "deep-lab"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        60.37,
+        -16,
+        104.4
+      ],
+      "yaw": 90,
+      "room": "deep-lab"
+    },
+    {
+      "id": "lab-bench-wall",
+      "at": [
+        64,
+        -16,
+        105.54
+      ],
+      "yaw": 180,
+      "room": "deep-lab"
+    },
+    {
+      "id": "lab-bench-wall",
+      "at": [
+        68,
+        -16,
+        105.54
+      ],
+      "yaw": 180,
+      "room": "deep-lab"
+    },
+    {
+      "id": "lab-bench-wall",
+      "at": [
+        76,
+        -16,
+        105.54
+      ],
+      "yaw": 180,
+      "room": "deep-lab"
+    },
+    {
+      "id": "lab-sink",
+      "at": [
+        80.6,
+        -16,
+        105.54
+      ],
+      "yaw": 180,
+      "room": "deep-lab"
+    },
+    {
+      "id": "cryo-em",
+      "at": [
+        83.1,
+        -16,
+        103.4
+      ],
+      "yaw": -90,
+      "room": "deep-lab"
+    },
+    {
+      "id": "centrifuge",
+      "at": [
+        76,
+        -15.1,
+        105.54
+      ],
+      "yaw": 180,
+      "room": "deep-lab"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        63.2,
+        -16,
+        90.377
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        64,
+        -16,
+        90.377
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        64.8,
+        -16,
+        90.377
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        68,
+        -12,
+        97
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        72,
+        -12,
+        101.5
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        76,
+        -12,
+        97
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        66,
+        -12,
+        102.5
+      ],
+      "yaw": 0,
+      "room": "deep-lab"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        75.2,
+        -16,
+        97.4
+      ],
+      "yaw": 0,
+      "room": "deep-lab",
+      "rot": [
+        86,
+        150,
+        0
+      ]
+    },
+    {
+      "id": "lab-stool",
+      "at": [
+        69.6,
+        -16,
+        103.2
+      ],
+      "yaw": 0,
+      "room": "deep-lab",
+      "rot": [
+        88,
+        40,
+        0
+      ]
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        91.6,
+        -16,
+        96
+      ],
+      "yaw": 90,
+      "room": "deep-office"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        91.35,
+        -15.213,
+        96.35
+      ],
+      "yaw": 90,
+      "room": "deep-office",
+      "note": "the director-terminal"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        91.4,
+        -15.213,
+        95.2
+      ],
+      "yaw": 60,
+      "room": "deep-office"
+    },
+    {
+      "id": "glass-bottle",
+      "at": [
+        91.7,
+        -15.213,
+        96.85
+      ],
+      "yaw": 90,
+      "room": "deep-office"
+    },
+    {
+      "id": "coffee-mug",
+      "at": [
+        91.75,
+        -15.213,
+        95.6
+      ],
+      "yaw": 150,
+      "room": "deep-office"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        91.8,
+        -15.213,
+        95.9
+      ],
+      "yaw": 105,
+      "room": "deep-office"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        92.75,
+        -16,
+        96.1
+      ],
+      "yaw": -90,
+      "room": "deep-office"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        93.532,
+        -16,
+        98.6
+      ],
+      "yaw": -90,
+      "room": "deep-office"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        93.53,
+        -16,
+        99
+      ],
+      "yaw": -90,
+      "room": "deep-office",
+      "note": "a drawer pulled out"
+    },
+    {
+      "id": "lobby-sofa",
+      "at": [
+        88.6,
+        -16,
+        90.55
+      ],
+      "yaw": 0,
+      "room": "deep-office"
+    },
+    {
+      "id": "coffee-table",
+      "at": [
+        88.6,
+        -16,
+        92.3
+      ],
+      "yaw": 90,
+      "room": "deep-office"
+    },
+    {
+      "id": "lobby-armchair",
+      "at": [
+        86.4,
+        -16,
+        93.4
+      ],
+      "yaw": 120,
+      "room": "deep-office"
+    },
+    {
+      "id": "frame-landscape",
+      "at": [
+        91.8,
+        -14.5,
+        90.116
+      ],
+      "yaw": 0,
+      "room": "deep-office"
+    },
+    {
+      "id": "snake-plant",
+      "at": [
+        93.719,
+        -16,
+        91
+      ],
+      "yaw": -90,
+      "room": "deep-office"
+    },
+    {
+      "id": "cube-shelf",
+      "at": [
+        87.6,
+        -16,
+        99.701
+      ],
+      "yaw": 180,
+      "room": "deep-office"
+    },
+    {
+      "id": "briefcase",
+      "at": [
+        90.2,
+        -16,
+        98.8
+      ],
+      "yaw": 30,
+      "room": "deep-office",
+      "rot": [
+        0,
+        30,
+        0
+      ],
+      "note": "open"
+    },
+    {
+      "id": "cage-ladder",
+      "at": [
+        47,
+        -16,
+        54.7
+      ],
+      "yaw": 0,
+      "room": "tunnel-junction",
+      "note": "up to the maintenance grate (pipes-tunnels)"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        42,
+        -16,
+        52.33
+      ],
+      "yaw": 0,
+      "room": "tunnel-junction"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.6,
+        -16,
+        52.33
+      ],
+      "yaw": 0,
+      "room": "tunnel-junction"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        39,
+        -16,
+        55
+      ],
+      "yaw": 90,
+      "room": "tunnel-junction"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        39,
+        -16,
+        61
+      ],
+      "yaw": 90,
+      "room": "tunnel-junction"
+    },
+    {
+      "id": "bulkhead-door",
+      "at": [
+        51.762,
+        -16,
+        58
+      ],
+      "yaw": -90,
+      "room": "tunnel-junction"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -16,
+        66.2
+      ],
+      "yaw": 90,
+      "room": "service-tunnel"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -16,
+        70.3
+      ],
+      "yaw": 90,
+      "room": "service-tunnel"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -16,
+        74.4
+      ],
+      "yaw": 90,
+      "room": "service-tunnel"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -16,
+        78.5
+      ],
+      "yaw": 90,
+      "room": "service-tunnel"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -16,
+        82.6
+      ],
+      "yaw": 90,
+      "room": "service-tunnel"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -16,
+        86.7
+      ],
+      "yaw": 90,
+      "room": "service-tunnel"
+    },
+    {
+      "id": "valve-wheel",
+      "at": [
+        44.284,
+        -14.8,
+        77
+      ],
+      "yaw": 90,
+      "room": "service-tunnel"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        51.3,
+        -16,
+        81
+      ],
+      "yaw": 40,
+      "room": "service-tunnel",
+      "rot": [
+        90,
+        40,
+        0
+      ]
+    },
+    {
+      "id": "rusted-can",
+      "at": [
+        50.8,
+        -16,
+        72.4
+      ],
+      "yaw": 0,
+      "room": "service-tunnel"
+    },
+    {
+      "id": "storefront",
+      "at": [
+        20,
+        -16,
+        54.515
+      ],
+      "yaw": 0,
+      "room": "far-tunnels",
+      "note": "a 1920s shopfront, buried under the viaducts (D16)"
+    },
+    {
+      "id": "hand-truck",
+      "at": [
+        30.5,
+        -16,
+        60.6
+      ],
+      "yaw": 200,
+      "room": "far-tunnels"
+    },
+    {
+      "id": "barrel",
+      "at": [
+        6.8,
+        -16,
+        55.4
+      ],
+      "yaw": 0,
+      "room": "far-tunnels"
+    },
+    {
+      "id": "planks",
+      "at": [
+        9.5,
+        -16,
+        59.5
+      ],
+      "yaw": 90,
+      "room": "far-tunnels",
+      "rot": [
+        0,
+        90,
+        80
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "kind": "caged",
+      "at": [
+        74,
+        -5.26,
+        80
+      ],
+      "yaw": 0,
+      "room": "freight-lift",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        74,
+        -8.5,
+        81.5
+      ],
+      "yaw": 0,
+      "room": "freight-lift",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        77.9,
+        -13.4,
+        82
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "freight-lift",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        55,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        59,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        63,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        67,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        71,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        75,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        79,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        83,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        87,
+        -13,
+        87
+      ],
+      "room": "deep-corridor",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        58,
+        -13.6,
+        89.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "deep-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        72,
+        -13.6,
+        89.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "deep-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        86,
+        -13.6,
+        89.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "deep-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "exit",
+      "at": [
+        52.1,
+        -13.55,
+        87
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "deep-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        64,
+        -11,
+        94
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        64,
+        -11,
+        98.5
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        64,
+        -11,
+        103
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        69,
+        -11,
+        94
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        69,
+        -11,
+        98.5
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        69,
+        -11,
+        103
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74.5,
+        -11,
+        94
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74.5,
+        -11,
+        98.5
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74.5,
+        -11,
+        103
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        80,
+        -11,
+        94
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        80,
+        -11,
+        98.5
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        80,
+        -11,
+        103
+      ],
+      "room": "deep-lab",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        61,
+        -12.4,
+        90.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "deep-lab",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        83.9,
+        -12.4,
+        102
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "deep-lab",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        87,
+        -12.8,
+        93
+      ],
+      "room": "deep-office",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        91,
+        -12.8,
+        97
+      ],
+      "room": "deep-office",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        93.9,
+        -13.6,
+        92
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "deep-office",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        42,
+        -11.2,
+        58
+      ],
+      "yaw": 0,
+      "room": "tunnel-junction",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        48.5,
+        -11.2,
+        60.5
+      ],
+      "yaw": 0,
+      "room": "tunnel-junction",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        49,
+        -11.2,
+        53.4
+      ],
+      "yaw": 0,
+      "room": "tunnel-junction",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "dead"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        51.9,
+        -13,
+        61
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "tunnel-junction",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        48.5,
+        -12.2,
+        67
+      ],
+      "yaw": 0,
+      "room": "service-tunnel",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        48.5,
+        -12.2,
+        73
+      ],
+      "yaw": 0,
+      "room": "service-tunnel",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        48.5,
+        -12.2,
+        79
+      ],
+      "yaw": 0,
+      "room": "service-tunnel",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "dead"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        48.5,
+        -12.2,
+        85
+      ],
+      "yaw": 0,
+      "room": "service-tunnel",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        51.9,
+        -13.4,
+        70
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "service-tunnel",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        32,
+        -11.2,
+        58
+      ],
+      "yaw": 0,
+      "room": "far-tunnels",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        22,
+        -11.2,
+        58
+      ],
+      "yaw": 0,
+      "room": "far-tunnels",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        12,
+        -11.2,
+        58
+      ],
+      "yaw": 0,
+      "room": "far-tunnels",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "dead"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        4,
+        -11.2,
+        58
+      ],
+      "yaw": 0,
+      "room": "far-tunnels",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        37.9,
+        -13,
+        56
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "far-tunnels",
+      "bank": 0
+    }
+  ],
+  "decals": [
+    {
+      "tex": "paint-lift-capacity",
+      "at": [
+        70.11,
+        -13.6,
+        80
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        2.4,
+        0.8
+      ],
+      "paint": true
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        74,
+        -15.997,
+        83.7
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        3,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        3,
+        1
+      ]
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        72,
+        -15.997,
+        86.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        39,
+        0.1
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        72,
+        -15.997,
+        87.4
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        39,
+        0.1
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "dirt-band",
+      "at": [
+        62,
+        -15.997,
+        89.4
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        20,
+        0.12
+      ],
+      "paint": true,
+      "repeat": [
+        10,
+        1
+      ]
+    },
+    {
+      "tex": "plate-deep-corridor",
+      "at": [
+        75,
+        -14.4,
+        84.1
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-deep-lab",
+      "at": [
+        73,
+        -14.4,
+        89.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        64,
+        -15.996,
+        87
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 180
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        56,
+        -15.996,
+        88
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        0.8
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        70,
+        -15.996,
+        97
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.8,
+        0.8
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "plate-deep-office",
+      "at": [
+        83.9,
+        -14.4,
+        93.9
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "paint-tunnel-t1",
+      "at": [
+        38.1,
+        -13.1,
+        60.4
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        1.6,
+        0.6
+      ],
+      "paint": true
+    },
+    {
+      "tex": "paint-tunnel-s1",
+      "at": [
+        49.8,
+        -13.1,
+        63.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        1.6,
+        0.6
+      ],
+      "paint": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        46,
+        -15.996,
+        58
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        2,
+        1.6
+      ],
+      "rot": 30
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        47,
+        -15.996,
+        55.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        1.2
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "paint-tunnel-t2",
+      "at": [
+        51.9,
+        -13.4,
+        66.5
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        1.6,
+        0.6
+      ],
+      "paint": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        48,
+        -15.996,
+        70
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        2.4,
+        1.6
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        46.5,
+        -15.996,
+        82
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.8,
+        2.6
+      ],
+      "rot": 90
+    },
+    {
+      "tex": "plan-tunnels",
+      "at": [
+        24,
+        -14.5,
+        61.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        1.1,
+        0.71
+      ],
+      "opaque": true,
+      "rot": -2
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        10,
+        -15.996,
+        58
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        3,
+        2.4
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        24,
+        -15.996,
+        57
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        2,
+        1.6
+      ],
+      "rot": 40
+    }
+  ],
+  "cast": [],
+  "shots": {
+    "lift": {
+      "at": [
+        75.2,
+        -6.35,
+        81.8
+      ],
+      "look": [
+        73.4,
+        -7,
+        76.5
+      ],
+      "label": "The freight lift's car, its gate half drawn"
+    },
+    "corridor": {
+      "at": [
+        53,
+        -14.35,
+        87
+      ],
+      "look": [
+        91,
+        -14.8,
+        87
+      ],
+      "label": "The deep corridor"
+    },
+    "lab": {
+      "at": [
+        72,
+        -14.2,
+        91
+      ],
+      "look": [
+        72,
+        -15,
+        100
+      ],
+      "label": "The Research Suite"
+    },
+    "bench": {
+      "at": [
+        74.2,
+        -14.35,
+        101.6
+      ],
+      "look": [
+        71.6,
+        -15.1,
+        98.6
+      ],
+      "label": "The key bench"
+    },
+    "labwall": {
+      "at": [
+        80,
+        -14.2,
+        104
+      ],
+      "look": [
+        62,
+        -14.8,
+        95
+      ],
+      "label": "The suite, the cabinets"
+    },
+    "office": {
+      "at": [
+        85,
+        -14.35,
+        99
+      ],
+      "look": [
+        92,
+        -15,
+        93
+      ],
+      "label": "The director's office"
+    },
+    "window": {
+      "at": [
+        92.5,
+        -14.35,
+        98
+      ],
+      "look": [
+        76,
+        -14.8,
+        98
+      ],
+      "label": "The director's window"
+    },
+    "junction": {
+      "at": [
+        40,
+        -14.35,
+        63
+      ],
+      "look": [
+        47,
+        -13.4,
+        54.5
+      ],
+      "label": "The tunnel junction"
+    },
+    "service": {
+      "at": [
+        48,
+        -14.35,
+        65
+      ],
+      "look": [
+        48,
+        -14.8,
+        89
+      ],
+      "label": "The service tunnel"
+    },
+    "far": {
+      "at": [
+        37,
+        -14.35,
+        58
+      ],
+      "look": [
+        0,
+        -14.8,
+        58
+      ],
+      "label": "The far tunnels"
+    },
+    "storefront": {
+      "at": [
+        23,
+        -14.35,
+        60.5
+      ],
+      "look": [
+        19.5,
+        -14.4,
+        54.5
+      ],
+      "label": "The buried shopfront"
+    }
+  },
+  "tint": {
+    "marble-dark": [
+      0.32,
+      0.3,
+      0.29
+    ]
+  },
+  "kit": {
+    "copies": []
+  },
+  "catcher": {
+    "at": [
+      47,
+      79
+    ],
+    "size": [
+      96,
+      56
+    ]
+  },
+  "shadowSpots": [],
+  "puddles": [
+    {
+      "at": [
+        45,
+        -16,
+        59.5
+      ],
+      "radius": 1.2,
+      "room": "tunnel-junction",
+      "under": "the grate's drip"
+    },
+    {
+      "at": [
+        47,
+        -16,
+        75
+      ],
+      "radius": 1,
+      "room": "service-tunnel"
+    },
+    {
+      "at": [
+        46.2,
+        -16,
+        86.5
+      ],
+      "radius": 0.8,
+      "room": "service-tunnel"
+    },
+    {
+      "at": [
+        5,
+        -16,
+        58
+      ],
+      "radius": 2.2,
+      "room": "far-tunnels",
+      "under": "the low end, flooded"
+    },
+    {
+      "at": [
+        14,
+        -16,
+        59
+      ],
+      "radius": 1.2,
+      "room": "far-tunnels"
+    }
+  ]
+}

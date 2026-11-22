@@ -1,0 +1,86 @@
+# Desktop shell builds — macOS ONLY. macOS apps can only be built on macOS,
+# so GitHub's mac runners do it for us. Trigger by pushing a tag like
+# `shell-v0.2.1` (or the Run-workflow button on GitHub → Actions).
+#
+# WINDOWS IS NOT BUILT HERE, AND CANNOT BE: tauri.conf.json's signCommand runs
+# sign.ps1, which Authenticode-signs with the CN=Solace cert that lives ONLY in
+# the dev box's CurrentUser store (and hard-fails without it, on purpose — a
+# silently unsigned release defeats the point). A windows-latest leg therefore
+# failed every run from 0.3.3 on, painting the whole workflow red while the mac
+# leg was quietly green. Windows builds stay local (`npm run build`).
+#
+# Needs two repository secrets (Settings → Secrets and variables → Actions):
+#   TAURI_SIGNING_PRIVATE_KEY          — contents of ~/.tauri/solace-updater.key
+#   TAURI_SIGNING_PRIVATE_KEY_PASSWORD — contents of ~/.tauri/solace-updater.pass
+# (The self-updater refuses unsigned artifacts; without these the build fails.)
+#
+# Artifacts land on the workflow run page; download them and run
+# desktop/publish.ps1 to stage installers + the multi-platform latest.json
+# for upload to /opt/solace/desktop-dist/.
+
+name: desktop
+on:
+  workflow_dispatch:
+  push:
+    tags: ["shell-v*"]
+
+# The release step publishes artifacts onto the tag's GitHub Release.
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            # Universal binary: one .dmg / .app works on Apple Silicon AND Intel.
+            args: --target universal-apple-darwin --bundles app,dmg
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Add macOS universal targets
+        if: matrix.os == 'macos-latest'
+        run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
+
+      - name: Install Tauri CLI
+        working-directory: desktop
+        run: npm ci
+
+      - name: Build shell
+        working-directory: desktop
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: npx tauri build ${{ matrix.args }}
+
+      - name: Collect artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: shell-${{ matrix.os }}
+          path: |
+            desktop/src-tauri/target/**/release/bundle/dmg/*.dmg
+            desktop/src-tauri/target/**/release/bundle/macos/*.app.tar.gz
+            desktop/src-tauri/target/**/release/bundle/macos/*.app.tar.gz.sig
+          if-no-files-found: error
+
+      # Tag builds ALSO attach to a GitHub Release: the Actions-artifacts API
+      # needs a token with Actions scope, but Releases ride the plain contents
+      # scope — the deploy PAT can fetch these, so the publish loop
+      # (download → publish.ps1 → scp) is fully scriptable from the dev box.
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/shell-v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            desktop/src-tauri/target/**/release/bundle/dmg/*.dmg
+            desktop/src-tauri/target/**/release/bundle/macos/*.app.tar.gz
+            desktop/src-tauri/target/**/release/bundle/macos/*.app.tar.gz.sig

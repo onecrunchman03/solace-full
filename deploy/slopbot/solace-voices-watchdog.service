@@ -1,0 +1,7 @@
+# Runs solace-voices-watchdog.sh (see its header); fired by the timer.
+[Unit]
+Description=Solace voices watchdog
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/solace-voices-watchdog

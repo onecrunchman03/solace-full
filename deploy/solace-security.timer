@@ -1,0 +1,17 @@
+# Refresh the host security snapshot every 10 minutes.
+#
+# The app treats a snapshot older than 30 minutes as STALE and says so in red,
+# so this interval and that threshold are a pair — widen one and widen the
+# other, or a healthy server starts reporting itself broken.
+
+[Unit]
+Description=Refresh the Solace host security snapshot
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=10min
+AccuracySec=1min
+Unit=solace-security.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,28 @@
+{
+  "name": "solace-backrooms",
+  "private": true,
+  "version": "0.2.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "description": "SolaceBackrooms — the co-op Level 0 explorer. Logs into your Solace account; the Solace server is the world authority.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "@tauri-apps/cli": "^2.11.4",
+    "@tsconfig/svelte": "^5.0.8",
+    "@types/three": "^0.185.1",
+    "svelte": "^5.56.4",
+    "svelte-check": "^4.7.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1"
+  },
+  "dependencies": {
+    "livekit-client": "^2.21.0",
+    "three": "^0.185.1"
+  }
+}

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" width="520" height="520">
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#2f66c8"/>
+      <stop offset="0.6" stop-color="#1b4596"/>
+      <stop offset="1" stop-color="#132f6a"/>
+    </linearGradient>
+    <linearGradient id="vinyl" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d9dde4"/>
+    </linearGradient>
+    <linearGradient id="back" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bdb8ae"/>
+      <stop offset="0.55" stop-color="#f1efe9"/>
+      <stop offset="1" stop-color="#d6d2c8"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.35"/>
+      <stop offset="0.35" stop-color="#fff" stop-opacity="0.06"/>
+      <stop offset="0.36" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="iris" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0d1a33"/>
+      <stop offset="0.45" stop-color="#1d3f80"/>
+      <stop offset="1" stop-color="#0d1f45"/>
+    </radialGradient>
+    <clipPath id="peeled">
+      <path d="M28 0 H372 Q400 0 400 28 V312 L312 400 H28 Q0 400 0 372 V28 Q0 0 28 0 Z"/>
+    </clipPath>
+  </defs>
+
+  <g transform="translate(60 66) rotate(-6 200 200)">
+    <g clip-path="url(#peeled)">
+      <!-- white vinyl border and the blue field -->
+      <rect width="400" height="400" rx="28" fill="url(#vinyl)"/>
+      <rect x="16" y="16" width="368" height="368" rx="18" fill="url(#field)"/>
+      <rect x="24" y="24" width="352" height="352" rx="13" fill="none" stroke="#f4d23a" stroke-width="3"/>
+
+      <text x="200" y="82" text-anchor="middle" font-family="Impact, Arial Black" font-size="46" letter-spacing="1.5" fill="#ffffff">NEIGHBORHOOD</text>
+      <text x="200" y="356" text-anchor="middle" font-family="Impact, Arial Black" font-size="76" letter-spacing="4" fill="#f4d23a">WATCH</text>
+
+      <!-- the house -->
+      <path d="M200 102 L304 182 L282 182 L282 280 L118 280 L118 182 L96 182 Z" fill="#ffffff"/>
+      <path d="M200 124 L268 176 L268 266 L132 266 L132 176 Z" fill="#1b4596"/>
+      <rect x="250" y="112" width="18" height="34" fill="#ffffff"/>
+
+      <!-- the eye, scratched out from behind -->
+      <path d="M134 220 C164 182 236 182 266 220 C236 258 164 258 134 220 Z" fill="#ffffff"/>
+      <circle cx="200" cy="220" r="30" fill="url(#iris)"/>
+      <circle cx="200" cy="220" r="12" fill="#050a14"/>
+      <!-- gouges: the ink scraped off down to the pale backing -->
+      <g fill="#ebe8e1">
+        <path d="M158 192 L168 188 L246 246 L236 252 Z"/>
+        <path d="M176 186 L184 185 L250 236 L244 242 Z"/>
+        <path d="M240 190 L250 194 L162 254 L154 248 Z"/>
+        <path d="M222 186 L230 190 L170 248 L164 244 Z"/>
+        <path d="M198 184 L206 186 L196 258 L188 256 Z"/>
+        <path d="M178 208 L218 200 L228 214 L220 234 L196 240 L176 228 Z"/>
+      </g>
+      <g fill="none" stroke="#8f99ac" stroke-width="1.5" stroke-linecap="round">
+        <path d="M160 192 L242 250"/>
+        <path d="M246 194 L158 252"/>
+        <path d="M226 188 L166 246"/>
+        <path d="M201 185 L192 257"/>
+        <path d="M178 208 L218 200 L228 214"/>
+      </g>
+      <!-- flecks of the iris still clinging -->
+      <path d="M186 216 L193 221 L188 226 Z" fill="#1d3f80"/>
+      <path d="M212 210 L219 212 L214 217 Z" fill="#0d1f45"/>
+      <path d="M204 228 L211 231 L206 235 Z" fill="#1d3f80"/>
+      <path d="M172 222 L178 226 L172 230 Z" fill="#0d1f45"/>
+      <rect width="400" height="400" fill="url(#gloss)"/>
+    </g>
+    <!-- the corner, peeling: the back of the vinyl shows -->
+    <path d="M312 400 L400 312 C380 318 356 320 330 316 C322 342 318 372 312 400 Z" fill="#000" opacity="0.28" transform="translate(4 6)"/>
+    <path d="M312 400 L400 312 C378 314 352 314 324 306 C316 336 316 368 312 400 Z" fill="url(#back)"/>
+    <path d="M312 400 L400 312" stroke="#ffffff" stroke-width="2.5"/>
+    <path d="M324 306 C316 336 316 368 312 400" stroke="#a49e92" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>

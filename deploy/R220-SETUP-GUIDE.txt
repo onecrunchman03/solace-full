@@ -1,0 +1,437 @@
+================================================================================
+  SOLACE — GETTING IT RUNNING ON THE R220, START TO FINISH
+  (written for Josh's exact setup: Windows dev PC, Dell R220 w/ Ubuntu 24.04,
+   solace.zone registered at GoDaddy)
+================================================================================
+
+  HOW TO READ THIS FILE
+  - Lines starting with ">" are commands. Type them where the section says:
+      [PC]   = your Windows machine (PowerShell, unless it says Git Bash)
+      [R220] = an SSH session or keyboard on the Ubuntu server
+  - Do the parts IN ORDER. Each part ends with a CHECK — don't move on
+    until the check passes.
+  - Wherever you see  <something-in-angle-brackets>  you substitute your
+    own value. Everything else is literal.
+
+  THE SHAPE OF WHAT YOU'RE BUILDING
+  - Caddy (a web server) faces the internet on ports 80/443. It serves the
+    built web client and auto-manages the HTTPS certificate for solace.zone.
+  - The Solace Node backend runs behind it on localhost:8443, never exposed.
+  - systemd keeps the backend alive; a nightly timer backs up the database.
+  - Registration is INVITE-ONLY: you mint codes in the app and hand them out.
+
+
+================================================================================
+  PART 0 — WHAT YOU NEED ON HAND (5 min)
+================================================================================
+
+  [ ] The R220 powered on, Ubuntu 24.04 installed, connected to your router.
+  [ ] A way to reach it: either a keyboard+monitor on it, or SSH already
+      enabled. To check SSH from your PC:   > ssh <your-ubuntu-user>@<r220-lan-ip>
+      (find the LAN IP on the server with:  ip addr   — look for 192.168.x.x)
+  [ ] Login access to your ROUTER's admin page (for port forwarding).
+  [ ] Login access to your GODADDY account (for DNS).
+  [ ] A GitHub account (free) — the server will pull the code from a private
+      repo, and future updates become a one-liner.
+  [ ] Decide your ADMIN PASSWORD now. 12+ chars with upper/lower/number/symbol.
+      Write it down. It gets baked in on the very first boot and editing it
+      later is a pain.
+
+
+================================================================================
+  PART 1 — PUT THE CODE ON GITHUB (one time, ~10 min)   [PC]
+================================================================================
+
+  Your repo currently exists ONLY on this PC. Create a PRIVATE GitHub repo so
+  the server can clone it.
+
+  1. In a browser: github.com -> New repository
+       Name: solace     Visibility: PRIVATE     (no README, no .gitignore)
+
+  2. Connect and push (PowerShell, in C:\Users\you\code\solace):
+
+     > cd C:\Users\you\code\solace
+     > git remote add origin https://github.com/<your-github-username>/solace.git
+     > git push -u origin master
+
+     (If it asks you to log in, a browser window handles it.)
+
+  CHECK: refresh the GitHub page — you should see the code, and the latest
+  commit should mention "Deploy prep".
+
+  NOTE: the emoji artwork (~57 MB) and your database are NOT in git — that's
+  intentional. The emoji get copied by hand in Part 5.
+
+
+================================================================================
+  PART 2 — DNS AT GODADDY (~5 min, then propagation wait)
+================================================================================
+
+  1. Find your home's PUBLIC IP:  on your PC, browse to  https://ifconfig.me
+     (or google "what is my ip"). Write it down.
+
+  2. GoDaddy -> My Products -> solace.zone -> DNS -> Manage DNS:
+       - Edit (or add) the record:
+           Type: A      Name: @      Value: <your-public-IP>     TTL: 600
+       - Delete any "Parked" A record or "Forwarding" that GoDaddy pre-set.
+       - (Optional) Type: CNAME   Name: www   Value: solace.zone
+
+  CHECK (from your PC, may take 5–30 min to go live):
+     > nslookup solace.zone
+     ...should answer with your public IP.
+
+  HEADS-UP: home IPs can change. If your ISP changes yours someday, the site
+  drops until you update this A record. (If that ever annoys you, we can set
+  up a dynamic-DNS updater later.)
+
+
+================================================================================
+  PART 3 — ROUTER PORT FORWARDING (~10 min)
+================================================================================
+
+  1. Give the R220 a FIXED LAN address so the forwarding never breaks:
+     in your router's admin page find "DHCP reservation" / "static lease"
+     and pin the R220's MAC to its current IP (e.g. 192.168.1.50).
+
+  2. Port forwarding rules (router admin -> Port Forwarding / NAT):
+       - TCP 80   -> <r220-lan-ip> port 80     (Let's Encrypt validation)
+       - TCP 443  -> <r220-lan-ip> port 443    (the site itself)
+     Leave everything else closed for now. (Voice adds UDP later, Part 10.)
+
+  CHECK: nothing to test yet — the check happens when the certificate
+  issues in Part 7.
+
+
+================================================================================
+  PART 4 — INSTALL SOFTWARE ON THE SERVER (~10 min)   [R220]
+================================================================================
+
+  SSH in (or sit at the machine). You need a user with sudo.
+
+  # Node.js 24 + tools
+  > curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+  > sudo apt install -y nodejs git sqlite3
+
+  # Caddy (the official repo)
+  > sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
+  > curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+  > curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+  > sudo apt update && sudo apt install -y caddy
+
+  CHECK:
+  > node --version        (expect v24.x)
+  > caddy version         (prints a version)
+
+
+================================================================================
+  PART 5 — GET THE CODE + EMOJI ONTO THE SERVER (~15 min)
+================================================================================
+
+  --- 5a. Clone and build ---   [R220]
+
+  > sudo useradd --system --home /opt/solace --shell /usr/sbin/nologin solace
+  > sudo mkdir -p /opt/solace && sudo chown solace:solace /opt/solace
+
+  # Private repo: easiest auth is a GitHub "personal access token".
+  # GitHub -> Settings -> Developer settings -> Personal access tokens ->
+  # Fine-grained -> generate one with Read access to the solace repo.
+  # Use it as the password when git asks (username = your GitHub username).
+  > sudo -u solace git clone https://github.com/<your-github-username>/solace.git /opt/solace
+
+  > cd /opt/solace
+  > sudo -u solace npm ci
+  > sudo -u solace npm run build
+  > cd client
+  > sudo -u solace npm ci
+  > sudo -u solace npm run build
+  > cd /opt/solace
+
+  # Let Caddy (which runs as its own user) read the built site — without
+  # this the browser gets HTTP 403. The .env and database stay private.
+  > sudo chmod o+X /opt/solace /opt/solace/client
+  > sudo chmod -R o+rX /opt/solace/client/dist
+
+  CHECK:
+  > ls dist/index.js client/dist/index.html
+  ...both files exist.
+  > sudo -u caddy head -c 20 /opt/solace/client/dist/index.html
+  ...prints the start of the file (no "Permission denied").
+
+  --- 5b. Copy the emoji artwork from your PC ---   [PC, PowerShell]
+
+  # Make a tarball of the emoji folder (tar ships with Windows 10/11):
+  > cd C:\Users\you\code\solace
+  > tar -czf emoji.tar.gz emoji
+
+  # Send it over (scp ships with Windows too):
+  > scp emoji.tar.gz <your-ubuntu-user>@<r220-lan-ip>:/tmp/
+
+  --- then unpack on the server ---   [R220]
+
+  > sudo tar -xzf /tmp/emoji.tar.gz -C /opt/solace
+  > sudo chown -R solace:solace /opt/solace/emoji
+  > rm /tmp/emoji.tar.gz
+
+  CHECK:
+  > ls /opt/solace/emoji
+  ...shows: common  legendary  mythic  rare  special
+
+
+================================================================================
+  PART 6 — CONFIGURE + FIRST BOOT (~10 min)   [R220]
+================================================================================
+
+  !!! ADMIN_PASSWORD only takes effect on the VERY FIRST boot (that's when
+  !!! the admin account is created in the empty database). Set it in this
+  !!! step, before starting the service, or you'll be stuck with the default.
+
+  > sudo -u solace cp /opt/solace/deploy/.env.production.example /opt/solace/.env
+  > sudo -u solace nano /opt/solace/.env
+        - change ADMIN_PASSWORD to the passphrase you chose in Part 0
+        - leave ALLOW_REGISTRATION=true and REQUIRE_INVITE=true (invite-only)
+        - leave the LIVEKIT lines commented out for now (voice comes later)
+        - Ctrl+O, Enter to save; Ctrl+X to exit
+  > sudo chmod 600 /opt/solace/.env && sudo chown solace:solace /opt/solace/.env
+
+  # Create the data directory (the service's sandbox needs it to pre-exist;
+  # the tmpfiles rule keeps it guaranteed on every future boot):
+  > sudo mkdir -p /opt/solace/data
+  > sudo chown solace:solace /opt/solace/data
+  > sudo cp /opt/solace/deploy/solace-tmpfiles.conf /etc/tmpfiles.d/solace.conf
+
+  # Install + start the service:
+  > sudo cp /opt/solace/deploy/solace.service /etc/systemd/system/solace.service
+  > sudo systemctl daemon-reload
+  > sudo systemctl enable --now solace
+
+  CHECK:
+  > sudo systemctl status solace --no-pager     (green "active (running)")
+  > curl -s http://127.0.0.1:8443/health         (prints {"status":"ok",...})
+  If not: > journalctl -u solace -n 50 --no-pager   and read the error.
+
+
+================================================================================
+  PART 7 — CADDY IN FRONT = THE SITE GOES LIVE (~5 min)   [R220]
+================================================================================
+
+  > sudo cp /opt/solace/deploy/Caddyfile /etc/caddy/Caddyfile
+  > sudo mkdir -p /var/log/caddy && sudo chown caddy:caddy /var/log/caddy
+  > sudo systemctl reload caddy
+
+  # Watch the certificate get issued (needs Parts 2+3 done and propagated):
+  > journalctl -u caddy -f
+  ...look for "certificate obtained successfully" for solace.zone. Ctrl+C.
+
+  CHECK — the big one. On your PC (or better, your PHONE ON MOBILE DATA so
+  you're testing from truly outside your network):
+      browse to  https://solace.zone
+  You should get the Solace login screen with a padlock. Log in:
+      username: admin      password: <the one from Part 6>
+
+  (If your phone works but your PC inside the house doesn't, that's "NAT
+  hairpin" — some routers can't loop back. Test from outside; it's fine.)
+
+
+================================================================================
+  PART 8 — FIREWALL (~3 min)   [R220]
+================================================================================
+
+  !!! Run the SSH line FIRST or you will lock yourself out of the server.
+
+  > sudo ufw allow OpenSSH
+  > sudo ufw allow 80/tcp
+  > sudo ufw allow 443/tcp
+  > sudo ufw enable          (answer y)
+
+  CHECK:
+  > sudo ufw status verbose      (shows the three rules, "Status: active")
+  ...and https://solace.zone still loads.
+
+
+================================================================================
+  PART 9 — NIGHTLY BACKUPS (~5 min)   [R220]
+================================================================================
+
+  > sudo chmod +x /opt/solace/deploy/backup.sh
+  > sudo mkdir -p /var/backups/solace && sudo chown solace:solace /var/backups/solace
+  > sudo cp /opt/solace/deploy/solace-backup.service /etc/systemd/system/
+  > sudo cp /opt/solace/deploy/solace-backup.timer   /etc/systemd/system/
+  > sudo systemctl daemon-reload
+  > sudo systemctl enable --now solace-backup.timer
+
+  # Run one right now to prove it:
+  > sudo systemctl start solace-backup.service
+
+  CHECK:
+  > ls -lh /var/backups/solace        (a solace-<date>.tar.gz appears)
+  > systemctl list-timers solace-backup.timer    (shows the next run)
+
+  Also do ONCE — archive the emoji art (it's excluded from nightly backups
+  because it never changes):
+  > sudo tar -czf /var/backups/solace/emoji-assets.tar.gz -C /opt/solace emoji
+
+  For real safety, occasionally copy /var/backups/solace/ to another machine.
+
+
+================================================================================
+  PART 10 — VOICE CHANNELS (OPTIONAL — skip and come back anytime)  [R220]
+================================================================================
+
+  Without this, everything works except voice (the voice UI just hides).
+
+  # 1. Install the LiveKit server:
+  > curl -sL https://github.com/livekit/livekit/releases/download/v1.13.3/livekit_1.13.3_linux_amd64.tar.gz | sudo tar xz -C /usr/local/bin livekit-server
+
+  # 2. Generate REAL credentials (never use the dev ones):
+  > livekit-server generate-keys
+  ...prints an API Key and API Secret. Copy both.
+
+  # 3. Config + service:
+  > sudo cp /opt/solace/deploy/livekit.yaml /etc/livekit.yaml
+  > sudo nano /etc/livekit.yaml
+
+    !!! FORMAT TRAP: do NOT paste the generate-keys output as-is.
+    !!! LiveKit wants ONE line under "keys:":  <key-id>: <secret>
+    !!! Replace the whole keys: block so it reads exactly like:
+    !!!
+    !!!   keys:
+    !!!     APIabcdef123456: wxyz...the-long-secret...
+    !!!
+    !!! (key, colon, SPACE, secret — two-space indent, placeholder
+    !!!  "devkey: secret" line deleted.)
+
+  > sudo cp /opt/solace/deploy/livekit.service /etc/systemd/system/
+  > sudo systemctl enable --now livekit
+  > journalctl -u livekit -n 3 --no-pager -o cat
+    ...must show "starting LiveKit server" with no error stack.
+
+  # 4. Tell Solace about it:
+  > sudo -u solace nano /opt/solace/.env      <- uncomment + fill:
+        LIVEKIT_URL=wss://solace.zone/livekit
+        LIVEKIT_API_KEY=<key from step 2>
+        LIVEKIT_API_SECRET=<secret from step 2>
+  > sudo systemctl restart solace
+
+  # 5. Open the media ports — firewall AND router:
+  > sudo ufw allow 50000:50100/udp
+  > sudo ufw allow 7881/tcp
+  ...and in your ROUTER add:  UDP 50000-50100 -> <r220-lan-ip>
+                              TCP 7881       -> <r220-lan-ip>
+  (7881 is LiveKit's TCP fallback: friends on networks that block UDP —
+   campus wifi, hotels, some carriers — still get audio through it.)
+
+  CHECK: two people join a voice channel from two different networks
+  (e.g. you + a friend, or PC + phone-on-mobile-data) and can hear each
+  other.
+
+
+================================================================================
+  PART 11 — OPENING NIGHT
+================================================================================
+
+  1. Log in at https://solace.zone as admin.
+  2. Settings (gear, bottom-left) -> Admin -> Invites -> mint a code.
+     Single-use codes are safest; make one per friend.
+  3. Send each friend:  the link, their code, and "pick a 12+ character
+     password with upper/lower/number/symbol, and a RECOVERY SECRET (a
+     memorable phrase) — write the secret down, it can't be recovered and
+     it's what verifies new logins + resets a forgotten password."
+  4. IMPORTANT — before anyone spins the Wheel for keeps: remember death is
+     PERMANENT for non-admin accounts. Your admin account is immune; your
+     friends are not. That's the game. Make sure they know. :)
+
+  5. HARDEN THE BOX. Once things are running, work through
+     deploy/HARDENING.md — SSH keys only, fail2ban, automatic security
+     updates, and the spoof-proof-IP Caddy change (needed for the new
+     login-location security). 15 minutes, well worth it on a public box.
+     (You'll also be prompted to set YOUR OWN recovery secret the first
+     time you log in after this update — it gates the app until you do.)
+
+  6. TURN ON THE SECURITY WATCH. Hardening is a thing you do once; this is
+     what tells you it's still true. Two pieces:
+
+     a) fail2ban, from config in the repo (not typed by hand):
+        > sudo apt install -y fail2ban
+        > sudo cp /opt/solace/deploy/fail2ban/jail.local /etc/fail2ban/jail.local
+        > sudo cp /opt/solace/deploy/fail2ban/filter.d/solace-login.conf /etc/fail2ban/filter.d/
+        > sudo fail2ban-client -t                  (validate first)
+        > sudo systemctl restart fail2ban          (NOT enable --now: apt has
+                                                    already started it, so
+                                                    --now changes nothing and
+                                                    your config never loads)
+        CHECK: > sudo fail2ban-client get sshd bantime      -> 3600
+        (3600 only comes from our file, so it proves the config was read.)
+
+        !!! NEVER test the allowlist with "fail2ban-client set sshd banip".
+        !!! That command IGNORES ignoreip -- it's an operator override, not a
+        !!! dry run -- and it will happily ban whatever you give it, on every
+        !!! port. To undo: sudo fail2ban-client unban --all
+
+     b) The host security collector, which feeds Admin Panel -> Security:
+        > sudo cp /opt/solace/deploy/solace-security.service /etc/systemd/system/
+        > sudo cp /opt/solace/deploy/solace-security.timer   /etc/systemd/system/
+        > sudo systemctl daemon-reload
+        > sudo systemctl enable --now solace-security.timer
+        > sudo systemctl start solace-security.service      (run one now)
+        CHECK: Admin Panel -> Security -> "The machine" shows a green
+        collector row, not "Not installed".
+
+     After that, Sterling DMs you about anything red, so you don't have to
+     remember to look. Details: deploy/README.md section 10.
+
+
+================================================================================
+  LATER: UPDATING THE SERVER TO NEW CODE
+================================================================================
+
+  On your PC:                                       [PC]
+  > cd C:\Users\you\code\solace
+  > git push
+
+  On the server:                                    [R220]
+  > cd /opt/solace
+  > sudo -u solace git pull
+  > sudo -u solace npm ci && sudo -u solace npm run build
+  > cd client && sudo -u solace npm ci && sudo -u solace npm run build && cd ..
+  > sudo chmod -R o+rX /opt/solace/client/dist     (the build recreates dist)
+  > sudo systemctl restart solace
+
+  Database migrations run themselves on boot. Tell people to hard-refresh
+  (Ctrl+Shift+R). Note: a restart refunds any in-progress blackjack bets and
+  chess stakes automatically — nobody can lose anything to a deploy.
+
+
+================================================================================
+  WHEN SOMETHING'S WRONG — QUICK DIAGNOSIS
+================================================================================
+
+  Site unreachable entirely     -> DNS or ports. "nslookup solace.zone" from
+                                   your PC; re-check router forwards.
+  Browser shows a Caddy error / -> backend is down:
+  502                              > journalctl -u solace -e
+  App loads, emoji are broken   -> /opt/solace/emoji missing or wrong owner
+                                   (re-do Part 5b).
+  Certificate errors            -> > journalctl -u caddy -e  (usually DNS not
+                                   propagated yet, or port 80 not forwarded)
+  Changed .env, nothing hap-    -> > sudo systemctl restart solace
+  pened                            (.env is read only at boot)
+  Forgot the admin password     -> it cannot be re-set via .env after first
+                                   boot — ask Claude to walk you through
+                                   rehashing the DB row.
+  Can't SSH in / can't reach    -> fail2ban may have banned you. From the
+  the box from one machine,        physical console:
+  but the SITE still works         > sudo fail2ban-client status sshd
+                                   > sudo fail2ban-client unban --all
+                                   Bans expire on their own after an hour.
+  "Not installed" under Admin   -> the collector timer isn't running:
+  Panel -> Security -> machine     > systemctl status solace-security.timer
+  It says STALE instead         -> the timer stopped; same command. Anything
+                                   older than 30 min is not to be trusted.
+
+  Stuck? Copy the output of:
+  > journalctl -u solace -n 50 --no-pager
+  ...and paste it to Claude.
+
+================================================================================
+  END — enjoy the casino. The house always wins, and you ARE the house.
+================================================================================

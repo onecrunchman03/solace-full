@@ -1,0 +1,17 @@
+# Deploy artifacts run on Linux — force LF line endings regardless of the
+# platform they're checked out on (a CRLF shebang breaks bash on the server).
+deploy/backup.sh               text eol=lf
+deploy/weekly-report.sh        text eol=lf
+deploy/security-collector.sh   text eol=lf
+deploy/satellite-install.sh    text eol=lf
+deploy/solace-deploy.sh        text eol=lf
+deploy/setup-auto-deploy.sh    text eol=lf
+deploy/*.service               text eol=lf
+deploy/*.timer                 text eol=lf
+deploy/Caddyfile               text eol=lf
+deploy/.env.production.example text eol=lf
+deploy/fail2ban/*            text eol=lf
+deploy/fail2ban/filter.d/*   text eol=lf
+deploy/slopbot/*.sh          text eol=lf
+deploy/slopbot/*.service     text eol=lf
+deploy/slopbot/*.timer text eol=lf

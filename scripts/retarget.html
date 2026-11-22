@@ -1,0 +1,205 @@
+<!doctype html>
+<!--
+  THE RETARGET BENCH (Oct 2026) — puts a Mixamo clip downloaded on Mixamo's
+  OWN skeleton ("mixamorig:*" bones) onto the hazmat rig ("DEF-*" bones).
+
+  Clips bind by bone name with no retargeting in the game (loadEmoteClip takes
+  fbx.animations[0] as is), so a clip on the wrong skeleton plays and moves
+  nothing. This page converts one: each hazmat bone takes its partner's
+  rotation AS A CHANGE FROM ITS OWN REST POSE, in world space — the two rigs'
+  rest poses differ (a Rigify T-ish pose against Mixamo's T-pose), so copying
+  world rotations outright would twist every limb by the difference. The hips
+  carry the source's root motion scaled by the two rigs' heights.
+
+  Served by scripts/serve-root.mjs (repo root). Driven by
+  scripts/retarget-gestures.cjs, which saves each result as JSON next to the
+  emotes and screenshots both bodies side by side.
+
+    /scripts/retarget.html?src=<url of a mixamo fbx>&t=<seconds>
+-->
+<meta charset="utf-8" />
+<title>Solace — retarget bench</title>
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #14120c; color: #e8dcae; font: 12px ui-monospace, monospace; }
+  #hud { position: fixed; left: 8px; top: 8px; white-space: pre; background: rgba(0,0,0,.55); padding: 6px 9px; }
+  canvas { display: block; }
+</style>
+<div id="hud">loading…</div>
+<script type="module">
+  import * as THREE from "three";
+  import { FBXLoader } from "three/addons/loaders/FBXLoader.js";
+
+  const P = new URLSearchParams(location.search);
+  const hud = document.getElementById("hud");
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x14120c);
+  const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.05, 100);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  renderer.setSize(innerWidth, innerHeight);
+  document.body.appendChild(renderer.domElement);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x30302a, 2.2));
+  const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(3, 6, 4); scene.add(key);
+  scene.add(new THREE.GridHelper(8, 16, 0x4a4128, 0x2a2620));
+
+  // mixamorig name (without prefix) → hazmat DEF bone
+  const MAP = {
+    Hips: "DEF-spine", Spine: "DEF-spine.001", Spine1: "DEF-spine.002", Spine2: "DEF-spine.003",
+    Neck: "DEF-spine.004", Head: "DEF-spine.006",
+    LeftShoulder: "DEF-shoulder.L", LeftArm: "DEF-upper_arm.L", LeftForeArm: "DEF-forearm.L", LeftHand: "DEF-hand.L",
+    RightShoulder: "DEF-shoulder.R", RightArm: "DEF-upper_arm.R", RightForeArm: "DEF-forearm.R", RightHand: "DEF-hand.R",
+    LeftUpLeg: "DEF-thigh.L", LeftLeg: "DEF-shin.L", LeftFoot: "DEF-foot.L", LeftToeBase: "DEF-toe.L",
+    RightUpLeg: "DEF-thigh.R", RightLeg: "DEF-shin.R", RightFoot: "DEF-foot.R", RightToeBase: "DEF-toe.R",
+  };
+
+  const load = (url) => new Promise((ok, bad) => new FBXLoader().load(url, ok, undefined, bad));
+  const bonesOf = (root) => { const m = new Map(); root.traverse((o) => { if (o.isBone) m.set(o.name.replace(/^mixamorig\d*:?/, ""), o); }); return m; };
+  const heightOf = (root) => { root.updateMatrixWorld(true); const b = new THREE.Box3(); root.traverse((o) => { if (o.isBone) b.expandByPoint(o.getWorldPosition(new THREE.Vector3())); }); return b; };
+
+  const bench = { ready: false, THREE, FBXLoader };
+  window.bench = bench;
+
+  const target = await load("/client/public/assets/hazmat/hazmat.fbx");
+  const src = await load(P.get("src"));
+  const clip = src.animations[0];
+  const sBones = bonesOf(src);
+  // three sanitizes node names (PropertyBinding strips "." and ":"), so
+  // "DEF-spine.001" loads as "DEF-spine001": look up the hazmat bones that way
+  const tBones = new Map(); target.traverse((o) => { if (o.isBone) tBones.set(o.name, o); });
+  for (const t of Object.values(MAP)) if (!tBones.has(t) && tBones.has(t.replaceAll(".", ""))) tBones.set(t, tBones.get(t.replaceAll(".", "")));
+
+  const tBox = heightOf(target), sBox = heightOf(src);
+  // Side by side: the source on its own skeleton (left) and the hazmat (right),
+  // both normalised to 1.8m and stood on the grid.
+  const fit = (root, box, x) => {
+    const s = 1.8 / (box.max.y - box.min.y); root.scale.multiplyScalar(s);
+    root.position.set(x, -box.min.y * s, 0); scene.add(root);
+  };
+  // the mixamo download has no skin: draw its bones
+  const helper = new THREE.SkeletonHelper(src); scene.add(helper);
+  fit(src, sBox, -0.75); fit(target, tBox, 0.75);
+  target.updateMatrixWorld(true); src.updateMatrixWorld(true);
+
+  // THE TWO RESTS DON'T MATCH: Mixamo rests in a T-pose, the hazmat in an
+  // A-pose (arms ~45° down). A change measured from the T-pose and laid onto
+  // the A-pose would leave every arm 45° low. So first stand the hazmat in the
+  // source's T-pose: parent first, turn each bone so it POINTS where its
+  // partner points at rest (bone → its child), then measure.
+  const CHAIN = [
+    ["Hips", "Spine"], ["Spine", "Spine1"], ["Spine1", "Spine2"], ["Spine2", "Neck"], ["Neck", "Head"],
+    ["LeftShoulder", "LeftArm"], ["LeftArm", "LeftForeArm"], ["LeftForeArm", "LeftHand"],
+    ["RightShoulder", "RightArm"], ["RightArm", "RightForeArm"], ["RightForeArm", "RightHand"],
+    ["LeftUpLeg", "LeftLeg"], ["LeftLeg", "LeftFoot"], ["LeftFoot", "LeftToeBase"],
+    ["RightUpLeg", "RightLeg"], ["RightLeg", "RightFoot"], ["RightFoot", "RightToeBase"],
+  ];
+  if (!P.get("noalign")) {
+    const wp = (o) => o.getWorldPosition(new THREE.Vector3());
+    for (const [a, b] of CHAIN) {
+      const ta = tBones.get(MAP[a]), tb = tBones.get(MAP[b]), sa = sBones.get(a), sb = sBones.get(b);
+      if (!ta || !tb || !sa || !sb || a === "Hips") continue;
+      const dirT = wp(tb).sub(wp(ta)).normalize(), dirS = wp(sb).sub(wp(sa)).normalize();
+      const turn = new THREE.Quaternion().setFromUnitVectors(dirT, dirS);
+      const w = ta.getWorldQuaternion(new THREE.Quaternion()).premultiply(turn);
+      const pw0 = ta.parent.getWorldQuaternion(new THREE.Quaternion()).invert();
+      ta.quaternion.copy(pw0.multiply(w));
+      ta.updateMatrixWorld(true);
+    }
+  }
+
+  // Rest pose of both, in world space (the source's rest = its bind pose: the
+  // FBX loads posed at rest before any mixer touches it).
+  target.updateMatrixWorld(true); src.updateMatrixWorld(true);
+  const restT = new Map(), restS = new Map();
+  for (const [s, t] of Object.entries(MAP)) {
+    const sb = sBones.get(s), tb = tBones.get(t);
+    if (!sb || !tb) continue;
+    restS.set(s, sb.getWorldQuaternion(new THREE.Quaternion()));
+    restT.set(t, tb.getWorldQuaternion(new THREE.Quaternion()));
+  }
+  const hipScale = 1; // both bodies are fitted to 1.8m on screen, so world travel already matches
+  const hipRestS = sBones.get("Hips").getWorldPosition(new THREE.Vector3());
+  const hipT = tBones.get("DEF-spine");
+  const hipRestLocal = hipT.position.clone();
+  const hipParentInv = new THREE.Matrix4().copy(hipT.parent.matrixWorld).invert();
+  const hipRestWorld = hipT.getWorldPosition(new THREE.Vector3());
+
+  const mixer = new THREE.AnimationMixer(src);
+  const act = mixer.clipAction(clip); act.play();
+
+  // Ordered parent-first so a parent's world rotation is final before a child reads it.
+  const order = Object.entries(MAP).filter(([s, t]) => restS.has(s) && restT.has(t));
+  const restLocal = new Map(); for (const [, t] of order) restLocal.set(t, tBones.get(t).quaternion.clone());
+
+  const q = new THREE.Quaternion(), pw = new THREE.Quaternion(), d = new THREE.Quaternion();
+  // A SEATED gesture sits where the game's own sitting-idle sits (seat=1):
+  // the Mixamo chair is not the casino's stool, so shift the whole clip's hips
+  // by the difference at its first frame. Measured on the target itself.
+  const seatShift = new THREE.Vector3();
+  function poseAt(time) {
+    act.time = time; mixer.update(0); src.updateMatrixWorld(true);
+    for (const [s, t] of order) {
+      const sb = sBones.get(s), tb = tBones.get(t);
+      sb.getWorldQuaternion(q);
+      d.copy(q).multiply(restS.get(s).clone().invert());          // source change from rest, world
+      const want = d.multiply(restT.get(t));                        // applied to target rest, world
+      tb.parent.getWorldQuaternion(pw);
+      tb.quaternion.copy(pw.invert().multiply(want));
+      tb.updateMatrixWorld(true);
+    }
+    // hips: the source's root travel from rest, scaled, in world → target local
+    const now = sBones.get("Hips").getWorldPosition(new THREE.Vector3());
+    const delta = now.sub(hipRestS).multiplyScalar(hipScale);
+    const world = hipRestWorld.clone().add(delta).add(seatShift);
+    hipT.position.copy(world.applyMatrix4(hipParentInv));
+    target.updateMatrixWorld(true);
+  }
+
+  if (P.get("seat")) {
+    const rig = hipT.parent, keep = rig.position.clone();
+    const sit = (await load("/client/public/assets/hazmat/anim/sitting-idle.fbx")).animations[0];
+    const m2 = new THREE.AnimationMixer(target); const a2 = m2.clipAction(sit); a2.play(); m2.update(0.5);
+    target.updateMatrixWorld(true);
+    const want = hipT.getWorldPosition(new THREE.Vector3());
+    a2.stop(); m2.uncacheRoot(target); rig.position.copy(keep); target.updateMatrixWorld(true);
+    poseAt(0);
+    seatShift.copy(want.sub(hipT.getWorldPosition(new THREE.Vector3())));
+  }
+
+  /** The converted clip, sampled at 30fps, as AnimationClip JSON. Tracks only
+   *  for the mapped bones (quaternion) + the hip's position. */
+  bench.bake = (fps = 30, until = clip.duration) => {
+    const dur = Math.min(clip.duration, until);
+    const n = Math.max(2, Math.round(dur * fps) + 1);
+    const times = new Float32Array(n);
+    const quats = new Map(order.map(([, t]) => [t, new Float32Array(n * 4)]));
+    const hips = new Float32Array(n * 3);
+    for (let i = 0; i < n; i++) {
+      const t = Math.min(dur, i / fps);
+      times[i] = t; poseAt(t);
+      for (const [, name] of order) tBones.get(name).quaternion.toArray(quats.get(name), i * 4);
+      hipT.position.toArray(hips, i * 3);
+    }
+    const tracks = [...quats].map(([name, v]) => new THREE.QuaternionKeyframeTrack(`${tBones.get(name).name}.quaternion`, times, v));
+    tracks.push(new THREE.VectorKeyframeTrack(`${hipT.name}.position`, times, hips));
+    const out = new THREE.AnimationClip(P.get("name") ?? "gesture", dur, tracks);
+    out.optimize();
+    const j = THREE.AnimationClip.toJSON(out);
+    // 4 decimals is far under a visible error on a quaternion, and halves the file
+    for (const t of j.tracks) { t.times = t.times.map((v) => +v.toFixed(3)); t.values = t.values.map((v) => +v.toFixed(4)); }
+    return j;
+  };
+  bench.info = () => ({
+    dur: +clip.duration.toFixed(2), srcBones: sBones.size, mapped: order.length,
+    missing: Object.entries(MAP).filter(([s, t]) => !sBones.has(s) || !tBones.has(t)).map(([s, t]) => `${s}→${t}`),
+    hipScale: +hipScale.toFixed(4), sNames: [...sBones.keys()].slice(0, 12), tNames: [...new Set([...tBones.values()].map((b) => b.name))].slice(0, 30), tH: +(tBox.max.y - tBox.min.y).toFixed(2), sH: +(sBox.max.y - sBox.min.y).toFixed(2),
+  });
+
+  camera.position.set(0, 1.25, 4.6); camera.lookAt(0, 0.95, 0);
+  bench.show = (time) => { poseAt(time); renderer.render(scene, camera); hud.textContent = `${P.get("src").split("/").pop()}  t=${time.toFixed(2)}/${clip.duration.toFixed(2)}`; };
+  if (P.get("rest")) renderer.render(scene, camera); else bench.show(Number(P.get("t") ?? 0));
+  bench.ready = true;
+</script>

@@ -1,0 +1,9 @@
+// Solace: reboot automatically, but ONLY when an update needs it
+// (/var/run/reboot-required — a new kernel or libc), and only at 09:00 UTC:
+// 5 AM Eastern in summer, 4 AM in winter — both inside the house's closed
+// hours (open 08:00–02:00 ET, src/househours.ts), so nobody is mid-game.
+// The nightly unattended-upgrades run (~06:30 UTC) installs, then schedules
+// the reboot for this time. Installed to /etc/apt/apt.conf.d/52solace-reboot.
+Unattended-Upgrade::Automatic-Reboot "true";
+Unattended-Upgrade::Automatic-Reboot-WithUsers "true";
+Unattended-Upgrade::Automatic-Reboot-Time "09:00";

@@ -1,0 +1,59 @@
+{
+  "id": "david",
+  "status": "draft",
+  "order": 28,
+  "strip": 28,
+  "name": "David Price",
+  "short": "David",
+  "tag": "Personal trainer, ran here",
+  "body": "david",
+  "genes": {
+    "selfPreservation": 5,
+    "caution": 3,
+    "generosity": 7,
+    "loyalty": 6,
+    "trust": 7,
+    "sociability": 9,
+    "curiosity": 6,
+    "assertiveness": 6,
+    "temper": 3,
+    "honesty": 8,
+    "courage": 6,
+    "optimism": 7,
+    "humour": 6,
+    "composure": 6,
+    "ruthlessness": 3
+  },
+  "skills": {
+    "melee": 6,
+    "firearms": 1,
+    "agility": 9,
+    "escape": 9,
+    "strength": 7,
+    "endurance": 10,
+    "toughness": 10,
+    "stealth": 0,
+    "firstAid": 0,
+    "science": 2,
+    "electronics": 1,
+    "mechanics": 0,
+    "lockpicking": 0,
+    "scavenging": 0,
+    "leadership": 5,
+    "quickLearner": 5
+  },
+  "kit": {
+    "melee": "hammer",
+    "bandage": 0,
+    "medkit": 0,
+    "food": 1,
+    "water": 1
+  },
+  "regard": {},
+  "voice": {
+    "clone": "survivor-david",
+    "kokoro": "am_liam"
+  },
+  "sheet": "You are DAVID PRICE. Twenty-seven, a personal trainer at a downtown gym, a marathoner. When the city went you didn't have a car, so you ran, eleven miles in a day with the dead behind you, and that's how you found the shelter, three days ago, on your own.\nYou're upbeat. Relentlessly. Hydration, breathing, \"one more rep\", a fist bump for everything; it gets on people's nerves and you know it and you can't help it, because the alternative is stopping, and stopping is when you think about your little sister, who didn't answer.\nYou know bodies, endurance, running, lifting, sprains and cramps, how to keep people moving. Not guns, not medicine past the basics, not machines or science. Outside what you know, you say so with a grin.\nYou're the fastest person here and you'll volunteer to be the one who runs. You hate being still and you hate being alone.",
+  "notes": "DRAFT (Nov 3 2026), written by Claude from Josh's model \"david.fbx\" for the bunker show. Everything here is new: the backstory, stats, genes and perks are guesses to tune. Strangers on day one (no regard), melee and a little food and water only, per the bunker rules. Voice: survivor-david (ElevenLabs design, Nov 4; takes -b and -c in the library to swap). Needs: the body baked, then bench."
+}

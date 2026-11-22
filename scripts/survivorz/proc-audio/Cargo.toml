@@ -1,0 +1,11 @@
+[package]
+name = "proc-audio"
+version = "0.1.0"
+edition = "2021"
+description = "Solace Survivorz stream rig: one process tree's audio (WASAPI process loopback) as raw PCM on stdout"
+
+[dependencies]
+wasapi = "0.19"
+
+[profile.release]
+opt-level = 3

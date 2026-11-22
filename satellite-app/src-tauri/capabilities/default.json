@@ -1,0 +1,17 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "The control panel window: plain fetch to the local daemon, the app commands the Settings card uses (autostart toggle, open-data-folder, updates), and the OS folder picker for the storage/backup locations.",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "allow-get-autostart",
+    "allow-set-autostart",
+    "allow-open-data-dir",
+    "allow-check-update",
+    "allow-install-update",
+    "dialog:allow-open"
+  ]
+}

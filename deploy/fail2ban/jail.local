@@ -1,0 +1,71 @@
+# Solace fail2ban configuration.
+#
+# Install:
+#   sudo apt install -y fail2ban
+#   sudo cp deploy/fail2ban/jail.local /etc/fail2ban/jail.local
+#   sudo cp deploy/fail2ban/filter.d/solace-login.conf /etc/fail2ban/filter.d/
+#   sudo fail2ban-client -t                  # validate BEFORE restarting
+#   sudo systemctl restart fail2ban          # NOT `enable --now` -- see below
+#   sudo fail2ban-client get sshd bantime    # 3600 proves this file was read
+#
+# TRAP 1: apt STARTS fail2ban during install, so `systemctl enable --now` is a
+# no-op on an already-running unit and the daemon keeps its pre-copy config.
+# It looks installed, `-t` passes, and none of the settings here apply. Always
+# `restart`, and verify with a value only this file sets.
+#
+# TRAP 2: `fail2ban-client set <jail> banip <ip>` IGNORES ignoreip. It is an
+# explicit operator override, not a simulation of the automatic path, so it is
+# useless as a test of the allowlist below and WILL ban whatever you hand it.
+# (Asked to prove the LAN was immune, it cheerfully banned the operator's own
+# workstation and took SSH with it -- the ufw action bans all ports, not 22.)
+# To exercise the real path use `fail2ban-regex` against the filter, or just
+# read `fail2ban-client get <jail> ignoreip`.
+#
+# Admin Panel > Security reports whether this is running, so a jail that
+# silently dies shows up there rather than being discovered later.
+
+[DEFAULT]
+# NEVER ban the LAN. SSH to this box is LAN-only (the router forwards 80/443
+# only), so the one thing a misconfigured jail could plausibly achieve is
+# locking the operator out of his own server. It can't reach these.
+ignoreip = 127.0.0.1/8 ::1 192.168.0.0/16 10.0.0.0/8 172.16.0.0/12
+
+bantime  = 1h
+findtime = 10m
+maxretry = 5
+# ufw is the firewall on this box, so bans go in as ufw rules rather than
+# raw iptables chains that `ufw status` wouldn't show.
+banaction = ufw
+
+[sshd]
+enabled  = true
+backend  = auto
+logpath  = /var/log/auth.log
+maxretry = 5
+
+# ---------------------------------------------------------------------------
+# THE APPLICATION JAIL — deliberately OFF. Read before enabling.
+#
+# This bans an address that hammers /api/login with 401s and 429s. It is a
+# real defence: it drops an attacker at the firewall instead of letting them
+# keep spending the server's scrypt CPU inside the app's rate limiter.
+#
+# It is off because the failure mode is user-facing in a way the sshd jail's
+# isn't. A ban here removes someone from the WHOLE SITE -- chat, voice, the
+# lot -- and several friends behind one household NAT share one address. The
+# app already caps 20 login attempts per address per 15 minutes and locks the
+# ACCOUNT with escalating backoff after 5 failures, so the marginal gain is
+# earlier packet-dropping, not a hole being closed.
+#
+# maxretry is set at 40 in 10 minutes: no human types 40 wrong passwords in
+# ten minutes, but a script does it in seconds. If you turn this on, watch
+# `fail2ban-client status solace-login` for a week and make sure the only
+# addresses in it are ones you're happy to have gone.
+[solace-login]
+enabled  = false
+port     = http,https
+filter   = solace-login
+logpath  = /var/log/caddy/solace.log
+maxretry = 40
+findtime = 10m
+bantime  = 1h

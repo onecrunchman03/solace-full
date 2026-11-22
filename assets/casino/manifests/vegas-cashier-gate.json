@@ -1,0 +1,250 @@
+{
+ "file": "vegas/cashier-gate.glb",
+ "id": "cashier-gate",
+ "what": "wrought-iron + wood double gate with bronze trim (the cage's side door)",
+ "size": [
+  2.002,
+  2.3,
+  0.104
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 15674,
+ "drawCalls": 8,
+ "bytes": 713472,
+ "materials": [
+  {
+   "name": "Gate2Iron",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Gate2Wood",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.663,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Gate2Bronze",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.078,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Gate1Iron",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Gate1Wood",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.663,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Gate1Bronze",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.078,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "DoorIron",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "BronzeDoor",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.078,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "Teller Cubical Gate (goes with teller cubical)",
+  "author": "abdillaamy",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/teller-cubical-gate-goes-with-teller-cubical-da0862fd3dc246269c591c745610c686"
+ },
+ "sourceScale": 0.046,
+ "objects": [
+  {
+   "name": "cashier-gate_0",
+   "dim": [
+    0.662,
+    1.228,
+    0.026
+   ],
+   "loc": [
+    0.67,
+    1.686,
+    0.003
+   ],
+   "tris": 1742,
+   "mats": [
+    "Gate2Iron"
+   ]
+  },
+  {
+   "name": "cashier-gate_1",
+   "dim": [
+    0.666,
+    1.078,
+    0.049
+   ],
+   "loc": [
+    0.668,
+    0.539,
+    0.003
+   ],
+   "tris": 854,
+   "mats": [
+    "Gate2Wood"
+   ]
+  },
+  {
+   "name": "cashier-gate_2",
+   "dim": [
+    0.025,
+    1.629,
+    0.025
+   ],
+   "loc": [
+    0.329,
+    1.027,
+    0.003
+   ],
+   "tris": 180,
+   "mats": [
+    "Gate2Bronze"
+   ]
+  },
+  {
+   "name": "cashier-gate_3",
+   "dim": [
+    0.657,
+    1.224,
+    0.026
+   ],
+   "loc": [
+    -0.67,
+    1.686,
+    0.001
+   ],
+   "tris": 1368,
+   "mats": [
+    "Gate1Iron"
+   ]
+  },
+  {
+   "name": "cashier-gate_4",
+   "dim": [
+    0.664,
+    1.076,
+    0.049
+   ],
+   "loc": [
+    -0.669,
+    0.541,
+    0.001
+   ],
+   "tris": 2028,
+   "mats": [
+    "Gate1Wood"
+   ]
+  },
+  {
+   "name": "cashier-gate_5",
+   "dim": [
+    0.012,
+    0.16,
+    0.025
+   ],
+   "loc": [
+    -0.341,
+    0.857,
+    0.001
+   ],
+   "tris": 62,
+   "mats": [
+    "Gate1Bronze"
+   ]
+  },
+  {
+   "name": "cashier-gate_6",
+   "dim": [
+    0.639,
+    2.031,
+    0.045
+   ],
+   "loc": [
+    -0.028,
+    1.051,
+    0.002
+   ],
+   "tris": 7650,
+   "mats": [
+    "DoorIron"
+   ]
+  },
+  {
+   "name": "cashier-gate_7",
+   "dim": [
+    0.663,
+    1.558,
+    0.104
+   ],
+   "loc": [
+    -0.005,
+    1.043,
+    0
+   ],
+   "tris": 1790,
+   "mats": [
+    "BronzeDoor"
+   ]
+  }
+ ]
+}

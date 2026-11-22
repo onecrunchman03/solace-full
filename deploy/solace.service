@@ -1,0 +1,41 @@
+# Solace backend (Node) — systemd unit.
+# Install: sudo cp deploy/solace.service /etc/systemd/system/solace.service
+#          sudo systemctl daemon-reload && sudo systemctl enable --now solace
+# Logs:    journalctl -u solace -f
+#
+# The app loads /opt/solace/.env itself (src/env.ts) from its WorkingDirectory,
+# so secrets live there (chmod 600), NOT in this unit file.
+
+[Unit]
+Description=Solace chat server
+Documentation=https://github.com/onecrunchman03/solace
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=solace
+Group=solace
+WorkingDirectory=/opt/solace
+# NOTE: /opt/solace/data must exist BEFORE this unit starts — ReadWritePaths
+# on a missing path fails with status=226/NAMESPACE, and ExecStartPre can't
+# create it (the sandbox applies to ExecStartPre too). It's created by the
+# tmpfiles.d entry (deploy/solace-tmpfiles.conf → /etc/tmpfiles.d/) or by
+# hand: mkdir -p /opt/solace/data && chown solace:solace /opt/solace/data
+# `which node` — adjust if Node isn't at /usr/bin/node (e.g. an nvm install).
+ExecStart=/usr/bin/node dist/index.js
+Restart=on-failure
+RestartSec=3
+
+# --- Hardening -----------------------------------------------------------
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+# The only path the app writes to: the SQLite DB (+ -wal/-shm) and uploads.
+ReadWritePaths=/opt/solace/data
+
+[Install]
+WantedBy=multi-user.target

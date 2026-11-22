@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Merged into the Mac app's Info.plist by Tauri (shell 0.3.7). macOS refuses
+  the microphone and camera to an app that never says what it wants them for:
+  without these two lines the webview's getUserMedia is denied before anyone
+  is asked, the device lists stay empty, and a Bluetooth headset never shows
+  up in Settings (Josh, Oct 2026). These are the sentences macOS shows in its
+  permission prompt.
+-->
+<plist version="1.0">
+<dict>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Solace uses your microphone for voice chat.</string>
+  <key>NSCameraUsageDescription</key>
+  <string>Solace uses your camera when you turn on video in a voice room.</string>
+</dict>
+</plist>

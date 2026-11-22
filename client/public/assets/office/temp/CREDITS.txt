@@ -1,0 +1,11 @@
+THE TEMP — the Abandoned Office's creature (Solace, Backrooms Level 4)
+
+Model: "Peeling Wood Mannequin"
+by Angelo-Salzillo, Sketchfab
+https://sketchfab.com/3d-models/peeling-wood-mannequin-e39ee21828ff4779b4c93ea600f30577
+License: Creative Commons Attribution 4.0 (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Changed for Solace: textures re-encoded to 1024px JPEG (scripts/shrink-glb.mjs);
+geometry, rig and animation unchanged. The game freezes the one clip at chosen
+moments to make the Temp's poses.

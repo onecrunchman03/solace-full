@@ -1,0 +1,208 @@
+{
+ "file": "vegas/chips-dice-set.glb",
+ "id": "chips-dice-set",
+ "what": "loose low-poly chips (6 colours) + two chip stacks + dice, laid in a row",
+ "size": [
+  0.043,
+  0.022,
+  0.301
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 12280,
+ "drawCalls": 7,
+ "bytes": 562920,
+ "materials": [
+  {
+   "name": "white",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": []
+  },
+  {
+   "name": "green",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": []
+  },
+  {
+   "name": "orange",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": []
+  },
+  {
+   "name": "material",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": []
+  },
+  {
+   "name": "blue",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": []
+  },
+  {
+   "name": "gray_black",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": []
+  },
+  {
+   "name": "orange_dark",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": []
+  }
+ ],
+ "credit": {
+  "title": "simple low poly casino chips and dices",
+  "author": "lupas",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/simple-low-poly-casino-chips-and-dices-f7ac7a2de860408596d989c213ea8ce6"
+ },
+ "sourceScale": 0.995,
+ "objects": [
+  {
+   "name": "chips-dice-set_0",
+   "dim": [
+    0.043,
+    0.022,
+    0.273
+   ],
+   "loc": [
+    0,
+    0.011,
+    -0.014
+   ],
+   "tris": 3874,
+   "mats": [
+    "white"
+   ]
+  },
+  {
+   "name": "chips-dice-set_1",
+   "dim": [
+    0.04,
+    0.007,
+    0.186
+   ],
+   "loc": [
+    0.001,
+    0.004,
+    0.03
+   ],
+   "tris": 764,
+   "mats": [
+    "green"
+   ]
+  },
+  {
+   "name": "chips-dice-set_2",
+   "dim": [
+    0.04,
+    0.007,
+    0.13
+   ],
+   "loc": [
+    0.001,
+    0.004,
+    0.029
+   ],
+   "tris": 892,
+   "mats": [
+    "orange"
+   ]
+  },
+  {
+   "name": "chips-dice-set_3",
+   "dim": [
+    0.041,
+    0.022,
+    0.245
+   ],
+   "loc": [
+    0.001,
+    0.011,
+    -0.028
+   ],
+   "tris": 2414,
+   "mats": [
+    "material"
+   ]
+  },
+  {
+   "name": "chips-dice-set_4",
+   "dim": [
+    0.042,
+    0.022,
+    0.301
+   ],
+   "loc": [
+    0,
+    0.011,
+    0
+   ],
+   "tris": 1916,
+   "mats": [
+    "blue"
+   ]
+  },
+  {
+   "name": "chips-dice-set_5",
+   "dim": [
+    0.04,
+    0.007,
+    0.158
+   ],
+   "loc": [
+    0.001,
+    0.004,
+    0.072
+   ],
+   "tris": 2396,
+   "mats": [
+    "gray_black"
+   ]
+  },
+  {
+   "name": "chips-dice-set_6",
+   "dim": [
+    0.038,
+    0.001,
+    0.011
+   ],
+   "loc": [
+    0.001,
+    0.001,
+    0.029
+   ],
+   "tris": 24,
+   "mats": [
+    "orange_dark"
+   ]
+  }
+ ]
+}

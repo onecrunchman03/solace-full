@@ -1,0 +1,54 @@
+{
+ "file": "vegas/chip-stack.glb",
+ "id": "chip-stack",
+ "what": "one tall mixed-colour chip stack (photo-textured)",
+ "size": [
+  0.04,
+  0.032,
+  0.041
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 5154,
+ "drawCalls": 1,
+ "bytes": 196556,
+ "materials": [
+  {
+   "name": "3DModel",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "Poker Chips",
+  "author": "Casing",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/poker-chips-cfff531b48e24073bc5f5c917b0d3519"
+ },
+ "sourceScale": 0.048,
+ "objects": [
+  {
+   "name": "chip-stack_0",
+   "dim": [
+    0.04,
+    0.032,
+    0.041
+   ],
+   "loc": [
+    0,
+    0.016,
+    0
+   ],
+   "tris": 5154,
+   "mats": [
+    "3DModel"
+   ]
+  }
+ ]
+}

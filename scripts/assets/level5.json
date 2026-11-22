@@ -1,0 +1,264 @@
+{
+  "level": "Level 5 — The Terror Hotel",
+  "note": "PROPOSED 2026-10-13, NOT YET APPROVED — nothing fetched. CC-BY or CC0 only (no NC/ND/Standard). Sizes are Sketchfab's glb archive sizes from the search API; total ~141 MB. Pipes, valve wheels, duct pipes, plain armchairs, a black sofa, table/floor lamps, dressers, a 90s wardrobe, a double bed and a potted plant are already in the prop kit, so these are the 1930s-hotel versions and the boiler room's missing machines. node scripts/assets/fetch.mjs scripts/assets/level5.json --dry",
+  "assets": [
+    {
+      "source": "sketchfab",
+      "uid": "29392dd175444772881f62436af56397",
+      "name": "Lustre Luxe",
+      "author": "Apophisie",
+      "license": "CC-BY",
+      "faces": 57211,
+      "glbMB": 2.7,
+      "use": "the crystal chandelier — gold frame hung with crystal; the lobby and the ballroom"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "2dec4b96bb7b4e4595c69ca001c58afa",
+      "name": "Art Deco Chandelier",
+      "author": "Rixx",
+      "license": "CC-BY",
+      "faces": 8508,
+      "glbMB": 9.5,
+      "use": "a lighter 1920s art deco chandelier, game-ready — corridors, the bar, smaller rooms"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "40517cb6d42a4316a655141f9f6d5757",
+      "name": "Art Deco Prop House Interior Sconce",
+      "author": "Rafasilart",
+      "license": "CC-BY",
+      "faces": 30008,
+      "glbMB": 0.9,
+      "use": "the corridor wall sconce (1930s electric, has an emission map) — the long numbered corridors"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "593098a9230d4438a40688957784237d",
+      "name": "Wall candle",
+      "author": "Valo Niskanen",
+      "license": "CC-BY",
+      "faces": 2996,
+      "glbMB": 3.6,
+      "use": "candle-style wall sconce — the older wing, the stairwells, rooms where the power is gone"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "385733562f074903ba593ff29359fd4d",
+      "name": "Art Deco Bar",
+      "author": "Rixx",
+      "license": "CC-BY",
+      "faces": 15814,
+      "glbMB": 19.3,
+      "use": "THE RECEPTION DESK — a 1920s art deco counter; taps and shelves are separate meshes, so the taps come off and the back shelf becomes the key pigeonholes"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "77f2ea17b4c84fe1a8d2aec02caa9de3",
+      "name": "Table Bell",
+      "author": "gla_bot",
+      "license": "CC-BY",
+      "faces": 4758,
+      "glbMB": 1.9,
+      "use": "the front-desk service bell"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "a54b2ac109d146fb80cfc37c9da26cfb",
+      "name": "Luxurious royal sofa with pillows, two seats",
+      "author": "klava88",
+      "license": "CC-BY",
+      "faces": 39988,
+      "glbMB": 2.9,
+      "use": "red velvet sofa with carved gilt wood — the lobby lounge and the suites"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "3dff6a5ff7d94a86b083a72f14ab078d",
+      "name": "chesterfield sofa",
+      "author": "praveensalo",
+      "license": "CC-BY",
+      "faces": 17056,
+      "glbMB": 7.5,
+      "use": "buttoned leather Chesterfield — the smoking room, the manager's office"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "045a190f982b40f28b62eb7f503f3948",
+      "name": "Classic Victorian Wooden Armchair – Red Velvet",
+      "author": "khalandarthameem97",
+      "license": "CC-BY",
+      "faces": 40000,
+      "glbMB": 3.5,
+      "use": "mahogany armchair in red velvet — matches the hotel's red; lobby, suites, ballroom edge"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "12e059dd5bf74029a916147e3331e72d",
+      "name": "Victorian side table",
+      "author": "Abdullah Mohammed",
+      "license": "CC-BY",
+      "faces": 17470,
+      "glbMB": 8.9,
+      "use": "the small side table beside sofas and armchairs; Substance-textured, game-ready"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "994e7d5249904af28f93b713d54a385d",
+      "name": "Old Lamp Art-deco",
+      "author": "Léonard Doye (leoskateman)",
+      "license": "CC-BY",
+      "faces": 4278,
+      "glbMB": 7.0,
+      "use": "art deco table lamp — bedside tables, the front desk, side tables"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "92f75abd656049608248cf76a8c88136",
+      "name": "[FREE] Dyspis Lutescens - Potted Palm",
+      "author": "AllQuad",
+      "license": "CC-BY",
+      "faces": 35202,
+      "glbMB": 5.0,
+      "use": "the potted lobby palm (areca) — lobby corners, the ballroom, the ends of corridors"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "926dac2bce56437ea5d433b2c6604fc9",
+      "name": "Hotel Bed Art Deco 20s",
+      "author": "Aida Pozo Magraso",
+      "license": "CC-BY",
+      "faces": 4176,
+      "glbMB": 3.6,
+      "use": "THE HOTEL BED — made for exactly this; every guest room"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "d9892e64d3194bc3843be84ecf589b1c",
+      "name": "Antique Wardrobe",
+      "author": "Darren McNerney 3D",
+      "license": "CC-BY",
+      "faces": 9224,
+      "glbMB": 13.5,
+      "use": "the guest-room wardrobe (a hiding place)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "b11f7fc61a3b48e784aed7c8afa8115c",
+      "name": "Victorian Dressing Table",
+      "author": "Jamie McFarlane",
+      "license": "CC-BY",
+      "faces": 3968,
+      "glbMB": 2.1,
+      "use": "the vanity with its mirror — guest rooms and suites"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "165ad70b97694c57b8f0fe90e583ff91",
+      "name": "Ornate Picture Frame",
+      "author": "WENGA",
+      "license": "CC-BY",
+      "faces": 1740,
+      "glbMB": 7.2,
+      "use": "the gilt frame for the oil portraits — one model, many canvases (public-domain portraits swapped in as textures)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "80cee44ddba640d4bf77ccc2c99d2e7e",
+      "name": "Japanese mahjong tiles",
+      "author": "shosha (purplated3D)",
+      "license": "CC-BY",
+      "faces": 6068,
+      "glbMB": 0.7,
+      "use": "the mahjong tiles — 37 separate tiles, laid on a kit square table (café / wooden poker table)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "a0d118ec8fa84e9ab556a10529ef7bbb",
+      "name": "Mahjong",
+      "author": "tsutomu.saito",
+      "license": "CC-BY",
+      "faces": 17000,
+      "glbMB": 1.2,
+      "use": "a second mahjong set (contents to confirm on the bench) — kept only if it brings a table or racks"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "2fb449392d834f61929a76fe935c759c",
+      "name": "Gold_hotel_luggage_trolley_fallout_miami",
+      "author": "enxoh — a re-upload of Damian Tkaczyk (iDamian)'s model; CREDIT iDamian",
+      "license": "CC-BY",
+      "faces": 4160,
+      "glbMB": 2.3,
+      "use": "the brass bellhop luggage cart. Same mesh as iDamian's original d89f1bba5e62451d9d11eaf599a6542b (41 MB, 4K textures) — swap to the original if the small textures look poor"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "e3cc45a7ea754154ba29cbb71114d898",
+      "name": "Babcock_Wilcox_Boiler",
+      "author": "Mark Rose (merose)",
+      "license": "CC-BY",
+      "faces": 15368,
+      "glbMB": 13.0,
+      "use": "THE BOILER — a brick-set water-tube boiler built as a game boiler room's centrepiece"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "74ba60b7bddb440ab182dea15b33c722",
+      "name": "Cast Iron Furnace",
+      "author": "IvanBro42 (Ivan Kapustin)",
+      "license": "CC-BY",
+      "faces": 2711,
+      "glbMB": 12.4,
+      "use": "the cast-iron firebox furnace — the Boiler Room's furnaces (game-ready, low poly)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "5ad84f8545964e04ab5dd94042731a5e",
+      "name": "Spring Loaded safety valve",
+      "author": "ravindra.mohan09",
+      "license": "CC-BY",
+      "faces": 8184,
+      "glbMB": 0.2,
+      "use": "a boiler safety valve to dress the boiler and the kit's pipe runs (the kit already has pipes and a valve wheel)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "7d4d8077bc524dbeb11a28ca09badf57",
+      "name": "Vintage Cast Iron Radiator 3D Model",
+      "author": "Ati (azripxd)",
+      "license": "CC-BY",
+      "faces": 10000,
+      "glbMB": 5.4,
+      "use": "cast-iron radiator under guest-room windows and along corridors — the boiler's heat reaching the rooms"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "b94c382e1f494cfbb925575392c70ea6",
+      "name": "Death moths [BACKROOMS]",
+      "author": "Fog (fog_)",
+      "license": "CC-BY",
+      "faces": 11392,
+      "glbMB": 0.6,
+      "use": "THE DEATHMOTH — made as the Backrooms' own Death Moth; one model, instanced into a swarm (no animation: wings flapped in code)"
+    },
+    {
+      "source": "polyhaven",
+      "id": "quatrefoil_jacquard_fabric",
+      "type": "texture",
+      "res": "1k",
+      "author": "colormass, Rico Cilliers",
+      "license": "CC0",
+      "use": "THE WALLPAPER — burgundy quatrefoil damask, tinted toward mahogany-red; gold picked out in-game"
+    },
+    {
+      "source": "polyhaven",
+      "id": "floral_jacquard",
+      "type": "texture",
+      "res": "1k",
+      "author": "colormass, Rico Cilliers",
+      "license": "CC0",
+      "use": "alternative wallpaper — a dark floral jacquard, tinted red; or the suites' upholstery"
+    }
+  ]
+}

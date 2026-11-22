@@ -1,0 +1,54 @@
+{
+ "file": "vegas/slot-bulb-classic.glb",
+ "id": "slot-bulb-classic",
+ "what": "red classic slot with a chasing-bulb arched topper, side lever (one material, lights are painted)",
+ "size": [
+  1.048,
+  1.85,
+  0.879
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 10000,
+ "drawCalls": 1,
+ "bytes": 1274260,
+ "materials": [
+  {
+   "name": "Material.001",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.821,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "Casion slot-machine",
+  "author": "kritamb",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/casion-slot-machine-49fc3271878e4e148fed325439b53a1a"
+ },
+ "sourceScale": 0.928,
+ "objects": [
+  {
+   "name": "slot-bulb-classic_0",
+   "dim": [
+    1.048,
+    1.85,
+    0.879
+   ],
+   "loc": [
+    0,
+    0.925,
+    0
+   ],
+   "tris": 10000,
+   "mats": [
+    "Material.001"
+   ]
+  }
+ ]
+}

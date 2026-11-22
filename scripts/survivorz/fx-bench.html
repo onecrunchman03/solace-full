@@ -1,0 +1,1087 @@
+<!doctype html>
+<!--
+  SURVIVORZ EFFECTS BENCH (docs/survivorz/EFFECTS.md §4). One scenario at a time,
+  rendered on a FIXED clock (fx.update(1/fps) per frame, never real time), so a
+  slow machine makes the same video; scripts/survivorz/fx-bench.mjs drives it.
+
+  A plain grey room: a floor and two walls with a half-metre grid (so scale and
+  where a mark lands are readable), a survivor standing for scale, dim facility
+  light so a flame or a flash actually lights the room. The engine is the SHIPPED
+  one (client/src/survivorz/fx), bundled by fx-bench.mjs — never a copy.
+
+  ?scenario=fire&w=960&h=540
+-->
+<meta charset="utf-8" />
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/",
+      "three/examples/jsm/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>html,body{margin:0;background:#141517}canvas{display:block}</style>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+  import { KTX2Loader } from "three/addons/loaders/KTX2Loader.js";
+  import * as SkeletonUtils from "three/addons/utils/SkeletonUtils.js";
+  import { FxSystem, effects, bulletHoleAtlas, findBone, findMouth, handAtMouth, barricade, playDoorEvent, slab, slabGeometry, woodLook, ShowFx, FxLedger, PROP_ANCHORS, tapOf, anchorOf, partsOf, panesOf } from "/assets/downloads/survivorz/fx/bench/fx.js";
+
+  const q = new URLSearchParams(location.search);
+  const W = Number(q.get("w") || 960), H = Number(q.get("h") || 540);
+  const r = (window.r = { ready: false, error: null });
+  try {
+    const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    renderer.setSize(W, H); renderer.setPixelRatio(1);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+    document.body.append(renderer.domElement);
+    const scene = new THREE.Scene(); scene.background = new THREE.Color(0x141517);
+    // dim and cool, like a facility corridor on emergency light: an effect's own light must read
+    const hemi = new THREE.HemisphereLight(0x8fa0b4, 0x2a2724, 1.25); scene.add(hemi);
+    const key = new THREE.DirectionalLight(0xdfe8f2, 1.1); key.position.set(3, 6, 4); scene.add(key);
+    // a torch, off unless a scenario wants one (always in the scene, so the light count never changes)
+    const lamp = new THREE.PointLight(0xffe6c8, 0, 9, 2); scene.add(lamp);
+
+    const gridTex = (() => {
+      const c = document.createElement("canvas"); c.width = c.height = 256;
+      const g = c.getContext("2d"); g.fillStyle = "#6a6d71"; g.fillRect(0, 0, 256, 256);
+      g.strokeStyle = "#7d8186"; g.lineWidth = 3; g.strokeRect(0, 0, 256, 256);
+      const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 8; return t;
+    })();
+    const surf = (w, h) => { const t = gridTex.clone(); t.needsUpdate = true; t.repeat.set(w * 2, h * 2); return new THREE.MeshStandardMaterial({ map: t, roughness: 0.92 }); };
+    // the room: 10 m deep, 8 wide, 4 high; tessellated so a decal projects cleanly
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(8, 10, 16, 20), surf(8, 10));
+    floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, -2); scene.add(floor);
+    const back = new THREE.Mesh(new THREE.PlaneGeometry(8, 4, 16, 8), surf(8, 4));
+    back.position.set(0, 2, -7); scene.add(back);
+    const side = new THREE.Mesh(new THREE.PlaneGeometry(10, 4, 20, 8), surf(10, 4));
+    side.rotation.y = Math.PI / 2; side.position.set(-4, 2, -2); scene.add(side);
+    // (named, as the world names its surfaces: a mark on one is written down by its name)
+    floor.userData.fxId = "bench-floor"; back.userData.fxId = "bench-back"; side.userData.fxId = "bench-side";
+    // F4: a facility corner — six ceiling panels in three banks, a lockdown beacon, a leaking
+    // pipe, a puddle, a specimen tank. Hidden unless a scene wants it; its LIGHTS are always in
+    // the scene at intensity 0, so the light count never changes (the hall's rule)
+    const f4 = new THREE.Group(); f4.visible = false; scene.add(f4);
+    const panelLights = [], panelMats = [];
+    for (let i = 0; i < 6; i++) {
+      const x = -2.4 + (i % 3) * 2.2, z = i < 3 ? -2.6 : -5.4;
+      const mat = new THREE.MeshStandardMaterial({ color: 0x222222, emissive: 0xfff3dc, emissiveIntensity: 0, roughness: 0.5 });
+      const panel = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.05, 0.35), mat);
+      panel.position.set(x, 3.97, z); f4.add(panel);
+      const l = new THREE.PointLight(0xfff1d6, 0, 7, 2); l.position.set(x, 3.75, z); scene.add(l);
+      panelLights.push(l); panelMats.push(mat);
+    }
+    const beaconMat = new THREE.MeshStandardMaterial({ color: 0x400000, emissive: 0xff2010, emissiveIntensity: 0 });
+    const beacon = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.11, 0.18, 16), beaconMat);
+    beacon.position.set(-3.85, 3.3, -4.2); f4.add(beacon);
+    const beaconLight = new THREE.PointLight(0xff2010, 0, 12, 2); beaconLight.position.set(-3.6, 3.3, -4.2); scene.add(beaconLight);
+    const pipe = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 9, 16), new THREE.MeshStandardMaterial({ color: 0x5c615f, metalness: 0.4, roughness: 0.5 }));
+    pipe.rotation.x = Math.PI / 2; pipe.position.set(-3.85, 2.4, -2.5); f4.add(pipe);
+    const puddle = new THREE.Mesh(new THREE.CircleGeometry(0.75, 48), new THREE.MeshStandardMaterial({ color: 0x4a5258, roughness: 0.28, metalness: 0.0 }));
+    puddle.rotation.x = -Math.PI / 2; puddle.position.set(0.4, 0.004, -4.4); f4.add(puddle);
+    const tank = new THREE.Group(); tank.position.set(1.6, 0, -5.2); f4.add(tank);
+    tank.add(new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 2.2, 32, 1, true).translate(0, 1.1, 0), new THREE.MeshStandardMaterial({ color: 0xc8e0dc, roughness: 0.05, transparent: true, opacity: 0.18, side: THREE.DoubleSide, forceSinglePass: true, depthWrite: false })));
+    tank.add(new THREE.Mesh(new THREE.CylinderGeometry(0.52, 0.52, 2, 32).translate(0, 1, 0), new THREE.MeshStandardMaterial({ color: 0x0c2a1c, emissive: 0x1d6a46, emissiveIntensity: 0.6, roughness: 0.2, transparent: true, opacity: 0.55, forceSinglePass: true, depthWrite: false })));
+    tank.add(new THREE.Mesh(new THREE.CylinderGeometry(0.6, 0.62, 0.15, 32).translate(0, 0.075, 0), new THREE.MeshStandardMaterial({ color: 0x3a3f3e, metalness: 0.5, roughness: 0.4 })));
+    // a broken panel on the wall with its wiring hanging out
+    const wirePanel = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.5, 0.4), new THREE.MeshStandardMaterial({ color: 0x484c4a, roughness: 0.6 }));
+    wirePanel.position.set(-3.97, 3.1, -4); f4.add(wirePanel);
+    for (const [dz, len, tilt] of [[-0.06, 0.32, 0.25], [0.04, 0.22, -0.2], [0.1, 0.28, 0.1]]) {
+      const w = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, len, 6).translate(0, -len / 2, 0), new THREE.MeshStandardMaterial({ color: [0xb02020, 0x202020, 0xd0b020][Math.round(dz * 10 + 1) % 3], roughness: 0.6 }));
+      w.position.set(-3.93, 3.0, -4 + dz); w.rotation.z = tilt; f4.add(w);
+    }
+    const tankLight = new THREE.PointLight(0x58e0a0, 0, 5, 2); tankLight.position.set(1.6, 1.2, -5.2); scene.add(tankLight);
+    // two emergency units (battery twin-heads) high on the walls: dark until the power goes
+    const emerMats = [], emerLights = [];
+    for (const [x, z, ry] of [[-3.92, -1.6, Math.PI / 2], [1.4, -6.92, 0]]) {
+      const unit = new THREE.Group(); unit.position.set(x, 3.05, z); unit.rotation.y = ry; f4.add(unit);
+      unit.add(new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.12, 0.08), new THREE.MeshStandardMaterial({ color: 0xd8d6cf, roughness: 0.6 })));
+      const m = new THREE.MeshStandardMaterial({ color: 0x333333, emissive: 0xfff0d8, emissiveIntensity: 0, roughness: 0.4 });
+      for (const sx of [-0.11, 0.11]) { const h = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.05, 0.07, 16).rotateX(Math.PI / 2), m); h.position.set(sx, -0.07, 0.07); unit.add(h); }
+      const l = new THREE.PointLight(0xfff0d8, 0, 8, 2); l.position.set(x + (ry ? 0.25 : 0), 2.9, z + (ry ? 0 : 0.25)); scene.add(l);
+      emerMats.push(m); emerLights.push(l);
+    }
+    // two flashlights' own lights (the world's, handed to the effects to drive)
+    const torchLights = [0, 1].map(() => { const l = new THREE.SpotLight(0xfff4e2, 0, 14, 0.42, 0.45, 1.6); scene.add(l, l.target); return l; });
+    const f4Lights = [...panelLights, beaconLight, tankLight, ...emerLights, ...torchLights];
+    // a safe room's sink: a white basin on a stand, a tap over it (hidden unless a scene wants it)
+    const sink = new THREE.Group(); sink.visible = false; scene.add(sink);
+    {
+      const porcelain = new THREE.MeshStandardMaterial({ color: 0xd8d6d0, roughness: 0.25 }), steel = new THREE.MeshStandardMaterial({ color: 0x9aa2a6, metalness: 0.7, roughness: 0.3 });
+      const at = (m, x, y, z) => { m.position.set(x, y, z); sink.add(m); return m; };
+      at(new THREE.Mesh(new THREE.BoxGeometry(0.56, 0.04, 0.42), porcelain), 0, 0.8, 0);
+      for (const [w, d, x, z] of [[0.56, 0.03, 0, 0.195], [0.56, 0.03, 0, -0.195], [0.03, 0.42, 0.265, 0], [0.03, 0.42, -0.265, 0]]) at(new THREE.Mesh(new THREE.BoxGeometry(w, 0.16, d), porcelain), x, 0.9, z);
+      at(new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.012, 0.3), new THREE.MeshStandardMaterial({ color: 0x5c6e78, roughness: 0.05, metalness: 0.1 })), 0, 0.83, 0.02);
+      at(new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.22, 12), steel), 0, 1.06, -0.17);
+      const spout = at(new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.011, 0.14, 12), steel), 0, 1.16, -0.11); spout.rotation.x = Math.PI / 2;
+      at(new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.78, 12), porcelain), 0, 0.39, -0.08);
+    }
+    // a molotov: a green bottle with a rag in its neck (hidden unless a scene wants it)
+    const bottle = new THREE.Group(); bottle.visible = false; scene.add(bottle);
+    bottle.add(new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.038, 0.2, 16).translate(0, 0.1, 0), new THREE.MeshStandardMaterial({ color: 0x2f5a2a, roughness: 0.15, metalness: 0.1, transparent: true, opacity: 0.8, forceSinglePass: true })));
+    bottle.add(new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.03, 0.08, 12).translate(0, 0.24, 0), new THREE.MeshStandardMaterial({ color: 0x2f5a2a, roughness: 0.15, transparent: true, opacity: 0.8, forceSinglePass: true })));
+    bottle.add(new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.016, 0.07, 8).translate(0, 0.3, 0), new THREE.MeshStandardMaterial({ color: 0xc9b89a, roughness: 0.9 })));
+    // a fixture's "fully on" before the effects take it over
+    const lightUp = (idx) => { for (const i of idx) { panelLights[i].intensity = 7; panelMats[i].emissiveIntensity = 2.2; } };
+    const fixturesUp = (idx, opts = {}) => {
+      lightUp(idx);
+      for (const i of idx) {
+        const beam = fx.beams.add({ pos: panelLights[i].position.clone().setY(3.93), dir: P(0, -1, 0), length: 3.9, angle: 0.5, color: 0xfff1d6, intensity: 0.8, floorY: 0 });
+        fx.fixtures.add({ id: `panel-${i}`, zone: "lobby", bank: i % 3, light: panelLights[i], emissive: [panelMats[i]], beam, style: (opts.styles ?? {})[i] ?? "buzz" });
+        if (opts.dust !== false) fx.emit(effects.beamDust({ beam, count: 22 }), 900 + i);
+      }
+    };
+    // a ceiling, only for the scenes that need one (smoke spreading under it, dust shaken off it)
+    const ceiling = new THREE.Mesh(new THREE.PlaneGeometry(8, 10), surf(8, 10));
+    ceiling.rotation.x = Math.PI / 2; ceiling.position.set(0, 4, -2); ceiling.visible = false; scene.add(ceiling);
+
+    // a survivor for scale (first frame of the idle; nothing animates on the bench)
+    try {
+      const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+      const gltf = await loader.loadAsync("/assets/downloads/survivorz/game/eric.glb");
+      const body = (window.__body = gltf.scene); body.position.set(1.6, 0, -4.2); body.rotation.y = -0.5;
+      const idle = gltf.animations.find((a) => /idle/i.test(a.name)) ?? gltf.animations[0];
+      if (idle) { const m = new THREE.AnimationMixer(body); m.clipAction(idle).play(); m.setTime(0.5); }
+      body.traverse((o) => { if (o.isMesh) o.frustumCulled = false; });
+      scene.add(body);
+    } catch (e) { console.warn("no reference body", e); }
+
+    // F1: the three guns on a stand, and a row of things to shoot
+    const guns = {};
+    {
+      const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+      for (const id of ["pistol", "hk416", "shotgun"]) {
+        const g = (await loader.loadAsync(`/assets/downloads/survivorz/props/guns/${id}.glb`)).scene;
+        g.visible = false; scene.add(g); guns[id] = g;
+      }
+    }
+    const metal = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.9, 0.03, 8, 8, 1), new THREE.MeshStandardMaterial({ color: 0x5a6670, metalness: 0.5, roughness: 0.45 }));
+    metal.position.set(-0.95, 1.1, -6.2); scene.add(metal);
+    const wood = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.9, 0.04, 8, 8, 1), new THREE.MeshStandardMaterial({ color: 0x8a6440, roughness: 0.8 }));
+    wood.position.set(-0.1, 1.1, -6.2); scene.add(wood);
+    const glass = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.9, 0.01, 8, 8, 1), new THREE.MeshStandardMaterial({ color: 0xbfd8e0, roughness: 0.05, transparent: true, opacity: 0.25 }));
+    glass.position.set(0.75, 1.1, -6.2); scene.add(glass);
+    const targets = [metal, wood, glass];
+    for (const t of targets) t.visible = false;
+
+    const camera = new THREE.PerspectiveCamera(40, W / H, 0.05, 80);
+    const tl = new THREE.TextureLoader();
+    // ?png=1 skips the compressed sheets, to compare memory and look against the PNGs
+    const gltfLoader = new GLTFLoader(); gltfLoader.setMeshoptDecoder(MeshoptDecoder);
+    const ktx = q.get("png") ? null : new KTX2Loader().setTranscoderPath("/client/node_modules/three/examples/jsm/libs/basis/").detectSupport(renderer);
+    const fx = new FxSystem({
+      scene, camera, renderer,
+      load: {
+        texture: (p, space) => tl.loadAsync(`/assets/downloads/survivorz/fx/${p}`).then((t) => { t.colorSpace = space === "srgb" ? THREE.SRGBColorSpace : THREE.NoColorSpace; return t; }),
+        json: (p) => fetch(`/assets/downloads/survivorz/fx/${p}`).then((x) => x.json()),
+        model: (p) => gltfLoader.loadAsync(`/assets/downloads/survivorz/fx/${p}`).then((g) => g.scene),
+        ...(ktx ? { compressed: (p) => ktx.loadAsync(`/assets/downloads/survivorz/fx/${p}`) } : {}),
+      },
+    });
+    await fx.load();
+    await fx.loadBlood();
+    await fx.loadScorch();
+    const kit = await fx.loadBreaking();
+    await fx.loadHoles();
+    fx.surfaces.push(floor, back, side, metal, wood, glass);
+    // F6: a partition across the room with a doorway in it (0.9 x 2.1, the facility's
+    // ordinary door), and three leaves for it: painted wood, steel, and a glass door.
+    // The door faces +z (from room a, behind it, into room b, the camera's side); the blows
+    // come from behind, so the debris comes toward the camera. Hidden unless a scene wants it.
+    const f6 = new THREE.Group(); f6.visible = false; scene.add(f6);
+    const DOOR = { at: new THREE.Vector3(0, 1.05, -4.6), normal: new THREE.Vector3(0, 0, 1), size: [0.9, 2.1] };
+    const wallMat = surf(8, 4);
+    const wallPart = (w, h, x, y) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.2, Math.ceil(w * 2), Math.ceil(h * 2), 1), wallMat); m.position.set(x, y, -4.6); f6.add(m); return m; };
+    const walls = [wallPart(3.5, 4, -2.25, 2), wallPart(3.5, 4, 2.25, 2), wallPart(1, 1.85, 0, 3.075)];
+    const frameMat = new THREE.MeshStandardMaterial({ color: 0x4c4f52, roughness: 0.55, metalness: 0.3 });
+    for (const x of [-0.475, 0.475]) { const j = new THREE.Mesh(new THREE.BoxGeometry(0.05, 2.15, 0.24), frameMat); j.position.set(x, 1.075, -4.6); f6.add(j); }
+    { const l = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.05, 0.24), frameMat); l.position.set(0, 2.125, -4.6); f6.add(l); }
+    const rect = [[-0.45, -1.05], [0.45, -1.05], [0.45, 1.05], [-0.45, 1.05]];
+    const woodLeaf = new THREE.Mesh(slabGeometry(slab(rect, 0.044, woodLook(kit, "painted", "y", [0.9, 0.88, 0.85]))), kit.wood);
+    woodLeaf.position.copy(DOOR.at); f6.add(woodLeaf);
+    const steelLeaf = new THREE.Mesh(new THREE.BoxGeometry(0.9, 2.1, 0.05), new THREE.MeshStandardMaterial({ color: 0x7c868c, metalness: 0.25, roughness: 0.5 }));
+    steelLeaf.position.copy(DOOR.at); f6.add(steelLeaf);
+    // the glass door: a thin steel frame round a pane
+    const glassLeaf = new THREE.Group(); glassLeaf.position.copy(DOOR.at); f6.add(glassLeaf);
+    for (const [w, h, x, y] of [[0.06, 2.1, -0.42, 0], [0.06, 2.1, 0.42, 0], [0.9, 0.06, 0, 1.02], [0.9, 0.12, 0, -0.99]]) {
+      const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.05), frameMat); b.position.set(x, y, 0); glassLeaf.add(b);
+    }
+    const pane = new THREE.Mesh(new THREE.BoxGeometry(0.78, 1.92, 0.008, 4, 8, 1), new THREE.MeshStandardMaterial({ color: 0xcfe2e4, roughness: 0.04, metalness: 0.1, transparent: true, opacity: 0.3, forceSinglePass: true, depthWrite: false }));
+    pane.position.set(0, -0.03, 0); glassLeaf.add(pane);
+    let planks = [], plankGroup = null;
+    const doorSet = (leaf, nPlanks = 0, reinforced = false) => {
+      f6.visible = true;
+      for (const l of [woodLeaf, steelLeaf, glassLeaf]) l.visible = l === leaf;
+      pane.visible = true;
+      if (plankGroup) { f6.remove(plankGroup); plankGroup = null; }
+      planks = [];
+      if (nPlanks) {
+        plankGroup = barricade(kit, { ...DOOR, side: 1, reinforced }, nPlanks, 4242);
+        f6.add(plankGroup); planks = [...plankGroup.children];
+      }
+    };
+    // F7: THE WORST MOMENT, in a blockout of the facility's busiest real room: Reception in the
+    // Vault Lobby, 30 x 12 m at its own place on the map (x 40-70, z 20-32), 4 m high, with
+    // its three real doorways from SITE_9: the doorway north to the Vault Chamber (55, z 20),
+    // the doorway east to the Security Desk (x 70, 26), and the wooden door south to
+    // Decontamination (55, z 32), barricaded. Six ceiling panels in three banks. The real set
+    // replaces all of this when it lands (F7 proper).
+    const f7 = new THREE.Group(); f7.visible = false; scene.add(f7);
+    const recMat = surf(30, 12);
+    const recBox = (w, h, d, x, y, z) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d, Math.max(1, Math.ceil(w)), Math.max(1, Math.ceil(h)), Math.max(1, Math.ceil(d))), recMat); m.position.set(x, y, z); f7.add(m); return m; };
+    const recFloor = new THREE.Mesh(new THREE.PlaneGeometry(30, 12, 30, 12), recMat); recFloor.rotation.x = -Math.PI / 2; recFloor.position.set(55, 0, 26); f7.add(recFloor);
+    const recCeil = new THREE.Mesh(new THREE.PlaneGeometry(30, 12), recMat); recCeil.rotation.x = Math.PI / 2; recCeil.position.set(55, 4, 26); f7.add(recCeil);
+    const recWalls = [
+      // north (z 20): the Vault Chamber doorway, 1.6 x 2.4 at x 55
+      recBox(14.2, 4, 0.2, 47.1, 2, 20), recBox(14.2, 4, 0.2, 62.9, 2, 20), recBox(1.6, 1.6, 0.2, 55, 3.2, 20),
+      // south (z 32): the Decontamination door, 0.9 x 2.1 at x 55
+      recBox(14.55, 4, 0.2, 47.275, 2, 32), recBox(14.55, 4, 0.2, 62.725, 2, 32), recBox(0.9, 1.9, 0.2, 55, 3.05, 32),
+      // east (x 70): the Security Desk doorway, 1.6 x 2.4 at z 26
+      recBox(0.2, 4, 5.2, 70, 2, 22.6), recBox(0.2, 4, 5.2, 70, 2, 29.4), recBox(0.2, 1.6, 1.6, 70, 3.2, 26),
+      // west (x 40): solid
+      recBox(0.2, 4, 12, 40, 2, 26),
+    ];
+    const recLeaf = new THREE.Mesh(slabGeometry(slab(rect, 0.044, woodLook(kit, "painted", "y", [0.9, 0.88, 0.85]))), kit.wood);
+    recLeaf.position.set(55, 1.05, 32); f7.add(recLeaf);
+    const recLights = [], recMats = [];
+    for (let i = 0; i < 6; i++) {
+      const x = 46 + (i % 3) * 9, z = i < 3 ? 23.5 : 28.5;
+      const mat = new THREE.MeshStandardMaterial({ color: 0x222222, emissive: 0xfff3dc, emissiveIntensity: 0, roughness: 0.5 });
+      const panel = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.05, 0.35), mat); panel.position.set(x, 3.97, z); f7.add(panel);
+      const l = new THREE.PointLight(0xfff1d6, 0, 10, 2); l.position.set(x, 3.75, z); scene.add(l);
+      recLights.push(l); recMats.push(mat);
+    }
+    const recPipe = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 12, 16), new THREE.MeshStandardMaterial({ color: 0x5c615f, metalness: 0.4, roughness: 0.5 }));
+    recPipe.rotation.x = Math.PI / 2; recPipe.position.set(40.4, 3.4, 26); f7.add(recPipe);
+    // one blow from behind the door, as the server sends it
+    let doorSeed = 7000;
+    const blow = (event, material, extra = {}) => playDoorEvent(fx, { event, seed: doorSeed++, at: DOOR.at.toArray(), normal: DOOR.normal.toArray(), size: DOOR.size, material, side: -1, ...extra },
+      { leaf: material === "glass" ? glassLeaf : material === "metal" ? steelLeaf : woodLeaf, pane: material === "glass" ? pane : undefined, planks, planksLeft: extra.planksLeft, floorY: 0 });
+    fx.setAmbient(new THREE.Color(0.5, 0.54, 0.6));
+    if (ktx) gltfLoader.setKTX2Loader(ktx);
+    // the asset bot's real props in place of the stand-ins (their anchors: fx/anchors.ts)
+    for (const [id, group] of [["sink-steel", sink], ["molotov", bottle]]) {
+      const g = await gltfLoader.loadAsync(`/assets/downloads/survivorz/props/${id}.glb`);
+      group.clear(); group.add(g.scene);
+    }
+    // the lab's double glass doors (the leaves shut, each turning on its hinge), loaded once and
+    // cloned fresh for each run: a broken window is for keeps
+    const labDoorSrc = (await gltfLoader.loadAsync("/assets/downloads/survivorz/props/lab-door-double.glb")).scene;
+    let labDoor = null;
+    // F5: survivors to dress, loaded once and cloned fresh for each scene (a wound is for keeps)
+    const survivorSrc = {};
+    for (const n of ["eric", "sophia"]) survivorSrc[n] = await gltfLoader.loadAsync(`/assets/downloads/survivorz/game/${n}.glb`);
+    let cast = [];
+    const freshSurvivor = async (name, at, yaw, clip) => {
+      const src = survivorSrc[name];
+      const o = SkeletonUtils.clone(src.scene);
+      o.position.copy(at); o.rotation.y = yaw;
+      // (the person inside a suit is never drawn: SURVIVORZ.md, "THE PERSON INSIDE")
+      o.traverse((x) => { if (x.isMesh) x.frustumCulled = false; if (/body_proxy/.test(x.name)) x.visible = false; });
+      scene.add(o);
+      const mixer = new THREE.AnimationMixer(o);
+      const a = src.animations.find((x) => x.name === (clip ?? "ual1-idle-loop")) ?? src.animations.find((x) => /idle/i.test(x.name));
+      if (a) mixer.clipAction(a).play();
+      mixer.update(0.5);
+      o.updateMatrixWorld(true);
+      const look = await fx.body(o, name);
+      const one = { o, mixer, look, bone: (b) => findBone(o, b) };
+      cast.push(one);
+      return one;
+    };
+    // a world point on the body over a bone, on the side facing the camera
+    const onBody = (one, bone, toward, push = 0.12) => {
+      const p = new THREE.Vector3();
+      one.bone(bone).getWorldPosition(p);
+      return p.add(toward.clone().sub(p).setY(0).normalize().multiplyScalar(push));
+    };
+    // a zombie to cut up: loaded once, cloned fresh for every run (a cut is for keeps)
+    const zombieSrc = await gltfLoader.loadAsync("/assets/downloads/survivorz/game/zombie-m01.glb");
+    let zombie = null, zmixer = null, cutter = null;
+    const freshZombie = async (clip, at, yaw) => {
+      if (zombie) scene.remove(zombie);
+      zombie = SkeletonUtils.clone(zombieSrc.scene);
+      zombie.position.copy(at); zombie.rotation.y = yaw;
+      zombie.traverse((o) => { if (o.isMesh) o.frustumCulled = false; });
+      scene.add(zombie);
+      zmixer = new THREE.AnimationMixer(zombie);
+      const a = zombieSrc.animations.find((x) => x.name === clip);
+      if (a) zmixer.clipAction(a).play();
+      zmixer.update(0.5);
+      cutter = window.__cutter = await fx.cuttable(zombie);
+      return cutter;
+    };
+    // more zombies for the look scenes: each its own cuttable copy (so each wears its look)
+    const zsrc = {};
+    let extras = [];
+    const extraZombie = async (file, at, yaw, clip = "mx-zombie-idle", phase = 0.5) => {
+      zsrc[file] ??= await gltfLoader.loadAsync(`/assets/downloads/survivorz/game/${file}.glb`);
+      const src = zsrc[file];
+      const z = SkeletonUtils.clone(src.scene);
+      z.position.copy(at); z.rotation.y = yaw;
+      z.traverse((o) => { if (o.isMesh) o.frustumCulled = false; });
+      scene.add(z);
+      const mixer = new THREE.AnimationMixer(z);
+      const a = src.animations.find((x) => x.name === clip) ?? src.animations[0];
+      if (a) mixer.clipAction(a).play();
+      mixer.update(phase);
+      z.updateMatrixWorld(true);
+      const cut = await fx.cuttable(z);
+      const bone = (name) => { let b = null; z.traverse((o) => { if (!b && o.isBone && o.name.toLowerCase().replace(/[^a-z0-9]/g, "").startsWith(name)) b = o; }); return b; };
+      const one = { z, mixer, cut, bone };
+      extras.push(one);
+      return one;
+    };
+    // a point on a zombie's front over a bone, toward the camera
+    const onZombie = (one, bone, toward, push = 0.14, dy = 0) => {
+      const p = new THREE.Vector3();
+      one.bone(bone).getWorldPosition(p);
+      p.y += dy;
+      return p.add(toward.clone().sub(p).setY(0).normalize().multiplyScalar(push));
+    };
+    await fx.warm();
+
+    const P = (x, y, z) => new THREE.Vector3(x, y, z);
+    // a gun on its stand at chest height, aimed down the room at the back wall
+    const aim = (id, pos, yaw, pitch = 0) => {
+      const g = guns[id]; g.visible = true; g.position.copy(pos); g.rotation.set(pitch, Math.PI + yaw, 0, "YXZ"); g.updateMatrixWorld(true);
+      return g;
+    };
+    // fire: the flash where the gun is, and the round's strike where its line meets a surface
+    let shotSeed = 1000;
+    const fire = (id, recipe = effects.gunShot) => {
+      const g = guns[id];
+      const m = g.matrixWorld.clone();
+      fx.play(recipe, { gun: id, matrix: m, floorY: 0 }, shotSeed++);
+      if (recipe !== effects.gunShot) return;
+      const from = new THREE.Vector3(0, 0.1, 0.7).applyMatrix4(m);
+      const dir = new THREE.Vector3(0, 0, 1).transformDirection(m);
+      const h = fx.hit(from, dir, 30);
+      if (h) {
+        const surface = h.mesh === metal ? "metal" : h.mesh === wood ? "wood" : h.mesh === glass ? "glass" : "concrete";
+        fx.play(effects.bulletImpact, { surface, pos: h.point, normal: h.normal, dir, floorY: 0 }, shotSeed++);
+      }
+    };
+    const kick = (id, yaw, pitch) => { const g = guns[id]; g.rotation.set(pitch, Math.PI + yaw, 0, "YXZ"); g.updateMatrixWorld(true); };
+    // each scenario: where the camera looks from and at, how long, and what happens when
+    const SCENARIOS = {
+      sparks: { cam: [P(-0.6, 1.5, -4.2), P(-0.2, 1.1, -7)], dur: 3, at: [
+        [0.2, () => fx.play(effects.sparks, { pos: P(-0.5, 1.4, -6.98), normal: P(0, 0, 1), floorY: 0 }, 11)],
+        [1.0, () => fx.play(effects.sparks, { pos: P(0.3, 0.9, -6.98), normal: P(0, 0, 1), floorY: 0 }, 12)],
+        [1.8, () => fx.play(effects.sparks, { pos: P(-0.1, 1.8, -6.98), normal: P(0.3, -0.2, 1).normalize(), floorY: 0 }, 13)],
+      ] },
+      smoke: { cam: [P(0.4, 1.4, -2.6), P(0, 1.2, -5)], dur: 4, at: [
+        [0.2, () => fx.play(effects.smokePuff, { pos: P(-0.4, 1.2, -5), dir: P(1, 0.1, 0) }, 21)],
+        [1.2, () => fx.play(effects.smokePuff, { pos: P(0.5, 1.0, -5.3), dir: P(-0.3, 0.2, 1), size: 0.7 }, 22)],
+      ] },
+      fire: { cam: [P(0.2, 1.6, -1.2), P(-0.4, 0.6, -4.6)], dur: 8, at: [
+        [0.1, () => fx.emit(effects.fire({ pos: P(-0.4, 0.02, -4.6), radius: 0.55, duration: 7.5 }), 31)],
+      ] },
+      explosion: { cam: [P(0.5, 1.7, 1.5), P(-0.3, 0.9, -4.5)], dur: 4, shake: true, at: [
+        [0.3, () => fx.play(effects.explosion, { pos: P(-0.3, 0, -4.5), floorY: 0, size: 3.2 }, 41)],
+      ] },
+      // F5: three survivors at three points in the month: day one, a week or two in, and a
+      // month without a wash, the last of them sweating
+      grime: { cam: [P(0, 1.2, -2.35), P(0, 1.0, -4.6)], dur: 3, poster: 2.5, noBody: true, dim: 1.6,
+        setup: async () => {
+          const s = [await freshSurvivor("eric", P(-0.85, 0, -4.6), 0.15), await freshSurvivor("eric", P(0, 0, -4.6), 0), await freshSurvivor("eric", P(0.85, 0, -4.6), -0.15)];
+          s[0].look.set({ grime: 0, sweat: 0 }); s[1].look.set({ grime: 0.45, sweat: 0.15 }); s[2].look.set({ grime: 1, sweat: 0.7 });
+        }, at: [] },
+      // wounds landing on a survivor: a round through the shoulder, a bite on the forearm, a
+      // cut on the upper arm, a graze on the thigh; the blood fresh, then bleeding more
+      wounds: { cam: [P(0.15, 1.35, -3.2), P(0, 1.05, -4.6)], dur: 6, poster: 5.5, noBody: true, dim: 0.9, lamp: [P(0.6, 2.2, -3.2), 4],
+        setup: async () => { const e = await freshSurvivor("eric", P(0, 0, -4.6), 0); e.look.set({ grime: 0.25 }); }, at: [
+          [0.4, () => cast[0].look.wound("bullet", onBody(cast[0], "upperarm_r", P(0, 1.35, -3.2), 0.06), 601)],
+          [1.2, () => cast[0].look.wound("bite", onBody(cast[0], "lowerarm_l", P(0, 1.35, -3.2), 0.05), 602)],
+          [2.0, () => cast[0].look.wound("cut", onBody(cast[0], "upperarm_l", P(0, 1.35, -3.2), 0.06), 603)],
+          [2.8, () => cast[0].look.wound("graze", onBody(cast[0], "upperleg_r", P(0, 1.35, -3.2), 0.09), 604)],
+          [3.4, () => cast[0].look.wound("bruise", onBody(cast[0], "head", P(0, 1.35, -3.2), 0.1), 605)],
+          [4.0, () => cast[0].look.bleed(0.35)], [4.6, () => cast[0].look.bleed(0.35)],
+        ] },
+      // an infection taking hold after a bite on the forearm: pallor, then the veins
+      // darkening out from the bite and the fever's sheen
+      infection: { cam: [P(0.3, 1.58, -3.2), P(0.12, 1.36, -4.6)], dur: 8, poster: 7.7, noBody: true, dim: 1.1, lamp: [P(-0.4, 2.0, -3.4), 4],
+        setup: async () => {
+          const e = await freshSurvivor("eric", P(0, 0, -4.6), 0.2);
+          e.look.set({ grime: 0.2 });
+          e.look.wound("bite", onBody(e, "hand_l", P(0.3, 1.45, -3.35), 0.03), 611);
+          sc.tick = (t) => e.look.set({ infection: Math.min(1, Math.max(0, (t - 0.5) / 6.5)) });
+        }, at: [] },
+      // the freezer: two of them breathing, one at rest and one just after a run
+      breath: { cam: [P(0.3, 1.6, -2.6), P(0, 1.5, -4.6)], dur: 8, poster: 4.0, noBody: true, dim: 0.35, lamp: [P(0, 2.6, -3.2), 3],
+        setup: async () => {
+          const a = await freshSurvivor("eric", P(-0.5, 0, -4.7), 0.5), b = await freshSurvivor("sophia", P(0.55, 0, -4.6), -0.5);
+          fx.emit(effects.breath({ head: a.bone("head"), facing: a.o, cold: 1, effort: 0 }), 621);
+          fx.emit(effects.breath({ head: b.bone("head"), facing: b.o, cold: 1, effort: 1 }), 622);
+        }, at: [] },
+      // F4: the light under the fixtures, dust drifting in it, a flashlight sweeping the room
+      beams: { cam: [P(1.8, 1.6, -0.6), P(-0.6, 1.4, -5)], dur: 8, poster: 4, noBody: true, ceiling: true, f4: true, dim: 0.18,
+        setup: () => {
+          fixturesUp([0, 1, 2, 3, 4, 5], { styles: { 4: "failing" } });
+          const torch = fx.beams.add({ pos: P(1.2, 1.4, -1), dir: P(-0.3, -0.1, -1), length: 5.5, angle: 0.2, color: 0xdfeaff, intensity: 1.6, floorY: 0, fit: true });
+          fx.emit(effects.beamDust({ beam: torch, count: 30 }), 950);
+          sc.tick = (t) => torch.set({ dir: P(-0.25 + Math.sin(t * 0.7) * 0.45, -0.1 + Math.sin(t * 0.43) * 0.06, -1) });
+        }, at: [] },
+      // the power coming back, bank by bank, one tube that won't settle
+      power: { cam: [P(1.5, 1.5, 0.4), P(-0.6, 2.4, -5)], dur: 6, poster: 2.2, noBody: true, ceiling: true, f4: true, dim: 0.12,
+        setup: () => { fixturesUp([0, 1, 2, 3, 4, 5], { styles: { 5: "failing" }, dust: false }); fx.fixtures.setPower("lobby", false, -10, 1); },
+        at: [[0.8, () => fx.fixtures.setPower("lobby", true, fx.now, 77)]] },
+      // a lockdown: the red beacon turning on the wall, the room going red with every sweep
+      lockdown: { cam: [P(1.6, 1.6, -0.8), P(-2.2, 2.2, -4.6)], dur: 6, poster: 2.6, noBody: false, ceiling: true, f4: true, dim: 0.1,
+        setup: () => {
+          beaconLight.intensity = 9; beaconMat.emissiveIntensity = 3;
+          const beam = fx.beams.add({ pos: P(-3.8, 3.3, -4.2), dir: P(1, -0.08, 0), length: 6, angle: 0.16, color: 0xff2414, intensity: 3.2, floorY: 0 });
+          fx.fixtures.add({ id: "beacon", light: beaconLight, emissive: [beaconMat], beam, beacon: { axis: P(0, 1, 0), rpm: 45 } });
+        },
+        at: [[0.4, () => fx.fixtures.setLockdown(true, fx.now)]] },
+      // a cracked pipe weeping steam, and a split one that surges
+      steam: { cam: [P(-1.4, 2.1, -0.4), P(-3.6, 2.2, -3.4)], dur: 8, poster: 4.3, noBody: true, ceiling: true, f4: true, dim: 0.5,
+        setup: () => {
+          fixturesUp([0, 3], { dust: false });
+          fx.emit(effects.steam({ pos: P(-3.78, 2.4, -1.4), dir: P(1, 0.25, 0.3), force: 0.45 }), 960);
+          fx.emit(effects.steam({ pos: P(-3.78, 2.4, -3.6), dir: P(1, -0.1, -0.2), force: 1.2, bursts: true }), 961);
+        }, at: [] },
+      // drips from the ceiling into a puddle, and one onto the dry floor beside it
+      drips: { cam: [P(1.3, 1.0, -2.6), P(0.4, 0.1, -4.4)], dur: 6, poster: 3.1, noBody: true, ceiling: true, f4: true, dim: 0.6, lamp: [P(-0.4, 1.2, -6), 5],
+        setup: () => {
+          fx.emit(effects.drips({ from: P(0.3, 3.95, -4.3), floorY: 0.004, rate: 1.4, puddle: true }), 970);
+          fx.emit(effects.drips({ from: P(0.65, 3.95, -4.6), floorY: 0.004, rate: 0.9, puddle: true }), 971);
+          fx.emit(effects.drips({ from: P(-0.8, 3.95, -3.9), floorY: 0, rate: 0.7 }), 972);
+        }, at: [] },
+      // a broken panel's wiring, crackling
+      wire: { cam: [P(-1.6, 2.2, -1.9), P(-3.6, 2.3, -4)], dur: 6, poster: 2.1, noBody: true, ceiling: true, f4: true, dim: 0.25,
+        setup: () => { lightUp([0]); fx.emit(effects.sparkingWire({ pos: P(-3.88, 2.72, -4), dir: P(1, -1, 0), floorY: 0, rate: 1.5 }), 980); }, at: [] },
+      // fog lying down the length of a tunnel, under two working fixtures
+      fog: { cam: [P(0.5, 1.4, 1.5), P(-0.3, 0.6, -6)], dur: 8, poster: 6, noBody: false, ceiling: true, f4: true, dim: 0.25,
+        setup: () => { fixturesUp([1, 4], { dust: false }); fx.emit(effects.fog({ min: P(-4, 0, -7), max: P(4, 2, 1.5), density: 0.7 }), 990); }, at: [] },
+      // a specimen tank, bubbling, and stirring now and then
+      tank: { cam: [P(0.3, 1.4, -2.6), P(1.6, 1.1, -5.2)], dur: 8, poster: 3.3, noBody: true, ceiling: true, f4: true, dim: 0.2,
+        setup: () => { tankLight.intensity = 3; fx.emit(effects.tankBubbles({ base: P(1.6, 0.16, -5.2), radius: 0.48, height: 1.82, rate: 7 }), 995); }, at: [] },
+      // F3: a molotov breaking on the floor, burning, the smoke climbing to the ceiling
+      molotov: { cam: [P(1.9, 1.7, -1.2), P(-0.4, 0.9, -4.9)], dur: 12, poster: 2.2, noBody: true, ceiling: true, at: [
+        [0.3, () => fx.emit(effects.molotov({ pos: P(-0.5, 0.03, -4.4), dir: P(-0.35, 0, -1), floorY: 0, ceilingY: 4, radius: 1.3, burn: 9 }), 501)],
+      ] },
+      // a zombie standing in it catches fire and chars
+      burning: { cam: [P(1.7, 1.55, -1.9), P(0, 0.9, -4.6)], dur: 10, poster: 3, noBody: true, ceiling: true, zombie: ["mx-zombie-idle", P(0, 0, -4.6), 0.35], at: [
+        [0.3, () => fx.emit(effects.molotov({ pos: P(0.3, 0.03, -4.2), dir: P(-0.4, 0, -1), floorY: 0, ceilingY: 4, radius: 1.1, burn: 8 }), 511)],
+        [0.9, () => fx.emit(effects.catchFire({ target: zombie, secs: 8, char: cutter.meshes.flatMap((m) => [].concat(m.material)) }), 512)],
+      ] },
+      // the pipe bomb, under a ceiling
+      pipebomb: { cam: [P(2.4, 1.8, 1.4), P(-0.2, 0.9, -4.5)], dur: 6, poster: 0.55, noBody: true, shake: true, ceiling: true, at: [
+        [0.3, () => fx.play(effects.pipeBomb, { pos: P(-0.2, 0.05, -4.5), floorY: 0, ceilingY: 4, radius: 3 }, 521)],
+      ] },
+      // a survivor's blood on the left, a zombie's on the right: head-on, then glancing
+      blood: { cam: [P(-0.2, 1.45, -3.3), P(-0.1, 1.05, -6.6)], dur: 4, poster: 3.8, noBody: true, at: [
+        [0.2, () => fx.play(effects.bloodHit, { pos: P(-1.3, 1.35, -6.0), dir: P(0.05, 0.02, -1), floorY: 0, amount: 0.7 }, 51)],
+        [0.8, () => fx.play(effects.bloodHit, { pos: P(-1.0, 1.0, -6.3), dir: P(-0.55, 0.05, -1), floorY: 0, amount: 1 }, 52)],
+        [1.4, () => fx.play(effects.bloodHit, { pos: P(1.0, 1.35, -6.0), dir: P(-0.05, 0.02, -1), floorY: 0, amount: 0.7, kind: "zombie" }, 53)],
+        [2.0, () => fx.play(effects.bloodHit, { pos: P(1.3, 1.0, -6.3), dir: P(0.55, 0.05, -1), floorY: 0, amount: 1, kind: "zombie" }, 54)],
+      ] },
+      // a pool spreading under where a body fell, and the drag mark leading to it; seen against
+      // the light, so the wet shine reads
+      pool: { cam: [P(0.4, 1.35, -7.6), P(-0.3, 0, -4.4)], dur: 9, poster: 8.8, noBody: true, lamp: [P(-0.6, 0.9, -2.9), 6], at: [
+        [0.1, () => fx.play(effects.bloodTrail, { from: P(-2.4, 0, -1.6), to: P(-0.55, 0, -4.4), width: 0.5 }, 61)],
+        [0.3, () => fx.play(effects.bloodPool, { pos: P(-0.2, 0, -4.7), size: 1.5, grow: 7 }, 62)],
+        [0.5, () => fx.play(effects.bloodPool, { pos: P(1.5, 0, -5.4), size: 1.1, grow: 7, kind: "zombie" }, 63)],
+      ] },
+      // somebody walks out of it, the prints fading, and steadies themselves on the wall
+      prints: { cam: [P(-0.6, 1.7, -2.4), P(-3.1, 0.55, -4.7)], dur: 5, poster: 4.8, noBody: true, at: [
+        [0.05, () => fx.play(effects.bloodPool, { pos: P(-0.6, 0, -3.7), size: 1, grow: 0 }, 70)],
+        ...Array.from({ length: 8 }, (_, i) => [0.3 + i * 0.4, () => {
+          const a = P(-0.9 - i * 0.36, 0, -4.0 - i * 0.12), side = P(-0.12, 0, 0.36).normalize().multiplyScalar(i % 2 ? -0.1 : 0.1);
+          fx.play(effects.bloodyFootprint, { pos: a.add(side), dir: P(-1, 0, -0.33), foot: i % 2 ? "r" : "l", strength: 1 - i * 0.11 }, 71 + i);
+        }]),
+        [3.6, () => fx.play(effects.bloodyHandprint, { pos: P(-4, 1.25, -5.1), normal: P(1, 0, 0) }, 81)],
+        [3.9, () => fx.play(effects.bloodyHandprint, { pos: P(-4, 1.1, -4.6), normal: P(1, 0, 0) }, 82)],
+        [4.2, () => fx.play(effects.bloodyHandprint, { pos: P(-4, 1.0, -5.9), normal: P(1, 0, 0), smear: true }, 83)],
+      ] },
+      // an artery: beats getting weaker, then dripping; and a wound dripping as somebody walks
+      spurt: { cam: [P(1.6, 1.4, -2.6), P(0, 0.7, -5)], dur: 6, poster: 1.2, noBody: true, at: [
+        [0.2, () => fx.emit(effects.bloodSpurt({ from: () => ({ pos: P(-0.4, 1.1, -5.1), dir: P(0.55, 0.45, 0.2).normalize() }), secs: 3.5, floorY: 0 }), 91)],
+        [0.4, () => { const t0 = fx.now; fx.emit(effects.woundDrips({ from: () => P(1.4 - (fx.now - t0) * 0.6, 0.95, -4.4), secs: 4.5, rate: 4, floorY: 0, kind: "zombie" }), 92); }],
+      ] },
+      // the same marks, wet and then dry: the clock skips on a couple of minutes at a time
+      dry: { cam: [P(0.4, 1.35, -7.6), P(-0.3, 0.3, -4.6)], dur: 5, poster: 4.8, noBody: true, lamp: [P(-0.6, 0.9, -2.9), 6], at: [
+        [0.1, () => fx.play(effects.bloodPool, { pos: P(-0.3, 0, -4.7), size: 1.4, grow: 0 }, 101)],
+        [0.15, () => fx.play(effects.bloodHit, { pos: P(-1.6, 1.2, -5.0), dir: P(-1, 0.05, 0.1), floorY: 0, amount: 1 }, 102)],
+        [1.5, () => { fx.now += 100; }], [2.5, () => { fx.now += 100; }], [3.5, () => { fx.now += 120; }],
+      ] },
+    };
+    // the guns: the camera stands off the shooter's right, so the flash and the brass both read
+    Object.assign(SCENARIOS, {
+      pistol: { cam: [P(0.56, 1.32, -3.95), P(0.08, 1.16, -3.3)], dur: 4, poster: 0.3, noBody: true, setup: () => aim("pistol", P(0, 1.2, -3.2), 0.05), at: [
+        [0.3, () => fire("pistol")], [0.85, () => { kick("pistol", 0.02, 0.01); fire("pistol"); }], [1.35, () => { kick("pistol", 0.07, -0.01); fire("pistol"); }], [1.8, () => { kick("pistol", 0.04, 0.02); fire("pistol"); }],
+      ] },
+      rifle: { cam: [P(0.95, 1.42, -4.29), P(0.12, 1.2, -3.1)], dur: 4.5, poster: 0.3, noBody: true, setup: () => aim("hk416", P(0, 1.25, -2.9), 0.04), at: [
+        ...[0, 1, 2, 3, 4, 5].map((i) => [0.3 + i * 0.1, () => { kick("hk416", 0.04 + Math.sin(i * 2.1) * 0.012, 0.004 * i); fire("hk416"); }]),
+        ...[0, 1, 2, 3, 4, 5, 6].map((i) => [1.9 + i * 0.1, () => { kick("hk416", -0.02 + Math.sin(i * 1.7) * 0.012, 0.004 * i); fire("hk416"); }]),
+      ] },
+      shotgun: { cam: [P(0.97, 1.43, -4.42), P(0.12, 1.2, -3.2)], dur: 4.5, poster: 0.34, noBody: true, setup: () => aim("shotgun", P(0, 1.25, -2.95), 0.03), at: [
+        [0.3, () => fire("shotgun")], [0.95, () => fire("shotgun", effects.ejectCasing)],
+        [2.0, () => { kick("shotgun", -0.03, 0.01); fire("shotgun"); }], [2.65, () => fire("shotgun", effects.ejectCasing)],
+      ] },
+      // the brass, close: down at floor level where the cases land, a long burst then a pump gun
+      brass: { cam: [P(2.5, 0.3, -3.25), P(1.85, 0.04, -2.5)], dur: 5, poster: 2.1, noBody: true, setup: () => { aim("hk416", P(0, 1.25, -2.9), 0.04); }, at: [
+        ...Array.from({ length: 10 }, (_, i) => [0.2 + i * 0.1, () => { kick("hk416", 0.04 + Math.sin(i * 2.1) * 0.012, 0.004 * i); fire("hk416"); }]),
+        [2.2, () => { guns.hk416.visible = false; aim("shotgun", P(0.6, 1.25, -2.95), 0.03); fire("shotgun", effects.ejectCasing); }],
+        [2.9, () => fire("shotgun", effects.ejectCasing)],
+      ] },
+      // a zombie taken apart a piece at a time, the head last
+      dismember: { cam: [P(1.65, 1.45, -2.1), P(-0.1, 0.9, -4.6)], dur: 6, poster: 2.75, noBody: true, zombie: ["mx-zombie-idle", P(0, 0, -4.6), 0.35], at: [
+        [0.4, () => cutter.sever({ site: "forearm.l", dir: P(-1, 0.2, 0.3), force: 0.5, floorY: 0 }, 301)],
+        [1.2, () => cutter.sever({ site: "upperarm.r", dir: P(1, 0.3, 0.2), force: 0.7, floorY: 0 }, 302)],
+        [2.0, () => cutter.sever({ site: "shin.l", dir: P(-0.4, 0.1, 1), force: 0.6, floorY: 0 }, 303)],
+        [2.7, () => cutter.sever({ site: "neck", dir: P(0.3, 0.5, -1), force: 0.9, floorY: 0 }, 304)],
+      ] },
+      // a head that comes apart (a close shotgun, the pipe bomb)
+      headshot: { cam: [P(1.35, 1.6, -2.6), P(0, 1.3, -4.6)], dur: 4, poster: 0.5, noBody: true, zombie: ["mx-zombie-idle", P(0, 0, -4.6), 0.35], at: [
+        [0.4, () => cutter.burstHead({ dir: P(-0.2, 0.15, -1), floorY: 0 }, 401)],
+      ] },
+      // a round into each kind of surface, twice: concrete, metal, wood, glass, and a body
+      hits: { cam: [P(-0.5, 1.4, -4.0), P(-0.5, 1.1, -6.6)], dur: 4.5, poster: 0.7, setup: () => { for (const t of targets) t.visible = true; }, at: [
+        ...[[-1.75, 1.3, "concrete", back], [-0.95, 1.25, "metal", metal], [-0.1, 1.3, "wood", wood], [0.75, 1.2, "glass", glass]].flatMap(([x, y, surface, mesh], i) => [0, 1].map((k) => [0.3 + i * 0.35 + k * 1.6, () => {
+          const target = P(x + (k ? 0.12 : -0.1), y + (k ? -0.15 : 0.1), mesh.position.z + (mesh === back ? 0 : 0.03));
+          const from = P(x * 0.2, 1.4, -2.5);
+          const dir = target.clone().sub(from).normalize();
+          const h = fx.hit(from, dir, 10);
+          if (h) fx.play(effects.bulletImpact, { surface, pos: h.point, normal: h.normal, dir, floorY: 0 }, 2000 + i * 10 + k);
+        }])),
+      ] },
+    });
+    // F6: things breaking
+    Object.assign(SCENARIOS, {
+      // a wooden door taking blows from behind: it jolts in its frame, dust sheds off the lintel
+      battered: { cam: [P(0.9, 1.45, -0.9), P(0, 1.15, -4.6)], dur: 6, poster: 1.4, noBody: true, f6: true, setup: () => doorSet(woodLeaf), at: [
+        ...[0.4, 1.3, 1.9, 3.0, 3.5, 4.6].map((tt) => [tt, () => blow("door.hit", "wood")]),
+      ] },
+      // the same door barricaded: the planks take the blows and give way one at a time,
+      // one snapping, one tearing off at one end and hanging, one ripped away
+      barricade: { cam: [P(1.1, 1.35, -1.25), P(0, 1.0, -4.6)], dur: 11, poster: 4.3, noBody: true, f6: true, setup: () => doorSet(woodLeaf, 3), at: [
+        [0.4, () => blow("door.hit", "wood")], [1.4, () => blow("door.hit", "wood")],
+        [2.4, () => { fx.play(effects.plankBreak, { plank: planks[2], push: P(0, 0, 1), floorY: 0, mode: "snap" }, 7101); planks.length = 2; blow("door.hit", "wood"); }],
+        [4.0, () => blow("door.hit", "wood")],
+        [5.0, () => { fx.play(effects.plankBreak, { plank: planks[1], push: P(0, 0, 1), floorY: 0, mode: "tear" }, 7102); planks.length = 1; blow("door.hit", "wood"); }],
+        [7.6, () => blow("door.hit", "wood")],
+        [8.6, () => { fx.play(effects.plankBreak, { plank: planks[0], push: P(0, 0, 1), floorY: 0, mode: "rip" }, 7103); planks.length = 0; blow("door.hit", "wood"); }],
+      ] },
+      // a REINFORCED barricade: the same three planks, iron-strapped at each end and bolted
+      // through; it takes the blows, and in the end a strapped plank still tears away
+      reinforced: { cam: [P(1.1, 1.35, -1.25), P(0, 1.0, -4.6)], dur: 7, poster: 1.6, noBody: true, f6: true, setup: () => doorSet(woodLeaf, 3, true), at: [
+        [0.4, () => blow("door.hit", "wood")], [1.4, () => blow("door.hit", "wood")], [2.4, () => blow("door.hit", "wood")], [3.4, () => blow("door.hit", "wood")],
+        [4.6, () => { fx.play(effects.plankBreak, { plank: planks[2], push: P(0, 0, 1), floorY: 0, mode: "tear" }, 7111); planks.length = 2; blow("door.hit", "wood"); }],
+      ] },
+      // the door giving in: a blow or two, then it bursts (it had little left)
+      burst: { cam: [P(1.5, 1.5, -1.2), P(0, 0.9, -4.4)], dur: 6, poster: 1.75, noBody: true, f6: true, setup: () => doorSet(woodLeaf), at: [
+        [0.4, () => blow("door.hit", "wood")], [1.1, () => blow("door.hit", "wood")],
+        [1.6, () => blow("door.broken", "wood", { lastHp: 45 })],
+      ] },
+      // the same door blown in by a blow far bigger than it had left
+      blown: { cam: [P(1.6, 1.5, -0.6), P(0, 0.8, -4.0)], dur: 5, poster: 0.55, noBody: true, f6: true, setup: () => doorSet(woodLeaf), at: [
+        [0.4, () => blow("door.broken", "wood", { lastHp: 140 })],
+      ] },
+      // a steel door: it barely moves, booms, and the frame drops grit and rust
+      steel: { cam: [P(0.9, 1.45, -0.9), P(0, 1.15, -4.6)], dur: 5, poster: 1.2, noBody: true, f6: true, setup: () => doorSet(steelLeaf), at: [
+        ...[0.4, 1.1, 2.0, 2.6, 3.6].map((tt) => [tt, () => blow("door.banged", "metal")]),
+      ] },
+      // a glass door: each blow cracks it more, then it goes; teeth stay in the frame
+      glass: { cam: [P(1.2, 1.5, -1.6), P(0, 1.0, -4.6)], dur: 8, poster: 2.6, noBody: true, f6: true, lamp: [P(0.6, 2.4, -2.6), 6], setup: () => doorSet(glassLeaf), at: [
+        [0.4, () => blow("door.hit", "glass")], [1.1, () => blow("door.hit", "glass")], [1.7, () => blow("door.hit", "glass")],
+        [2.3, () => blow("door.broken", "glass", { lastHp: 60 })],
+      ] },
+    });
+    // F7: everything at once — a firefight with a fire burning (EFFECTS.md §2's worst moment)
+    {
+      let show = null, z1 = null;
+      const zevent = (event, extra = {}) => show.event({ event, seed: doorSeed++, t: Math.round(fx.now * 1000), door: "reception-decon", at: [55, 1.05, 32], normal: [0, 0, 1], size: [0.9, 2.1], material: "wood", side: 1, ...extra }, extra.now ?? {});
+      const shoot = (id, from, to, seed) => {
+        const g = guns[id];
+        const dir = to.clone().sub(from).normalize();
+        g.visible = false; g.position.copy(from);
+        g.rotation.set(-Math.asin(dir.y), Math.atan2(dir.x, dir.z), 0, "YXZ"); g.updateMatrixWorld(true);
+        fx.play(effects.gunShot, { gun: id, matrix: g.matrixWorld.clone(), floorY: 0 }, seed);
+        const h = fx.hit(new THREE.Vector3(0, 0.1, 0.7).applyMatrix4(g.matrixWorld), dir, 30);
+        if (h) fx.play(effects.bulletImpact, { surface: h.mesh === recLeaf ? "wood" : "concrete", pos: h.point, normal: h.normal, dir, floorY: 0 }, seed + 1);
+      };
+      let sseed = 9000;
+      SCENARIOS.worst = { cam: [P(52.2, 2.25, 21.2), P(56.5, 0.95, 31)], dur: 14, poster: 6.4, noBody: true, f7: true, zombie: ["mx-zombie-idle", P(56.3, 0, 30.4), Math.PI],
+        setup: async () => {
+          f7.visible = true; recLeaf.visible = true;
+          for (const l of recLights) l.intensity = 7;
+          for (const m of recMats) m.emissiveIntensity = 2.2;
+          show = new ShowFx(fx, Math.round(fx.now * 1000));
+          show.registerDoor("reception-decon", { leaf: recLeaf, parent: f7, at: [55, 1.05, 32], normal: [0, 0, 1], size: [0.9, 2.1], material: "wood", holdSide: -1, floorY: 0 }, { planks: 3 });
+          for (let i = 0; i < 6; i++) {
+            const beam = fx.beams.add({ pos: recLights[i].position.clone().setY(3.93), dir: P(0, -1, 0), length: 3.9, angle: 0.5, color: 0xfff1d6, intensity: 0.7, floorY: 0 });
+            fx.fixtures.add({ id: `rec-${i}`, zone: "lobby", bank: i % 3, light: recLights[i], emissive: [recMats[i]], beam, style: i === 4 ? "failing" : "buzz" });
+            fx.emit(effects.beamDust({ beam, count: 22 }), 1900 + i);
+          }
+          fx.emit(effects.steam({ pos: P(40.5, 3.35, 27.5), dir: P(1, -0.3, 0.2), force: 1, bursts: true }), 1950);
+          // the six, in a ragged line across the room, a month in
+          const names = ["carla", "claudia", "eric", "manuel", "nathan", "sophia"];
+          for (const [i, n] of names.entries()) {
+            survivorSrc[n] ??= await gltfLoader.loadAsync(`/assets/downloads/survivorz/game/${n}.glb`);
+            const one = await freshSurvivor(n, P(51 + i * 1.7, 0, 25.6 + (i % 2) * 0.8), (i - 2.5) * 0.08);
+            one.look.set({ grime: 0.55, sweat: 0.6, infection: i === 3 ? 0.5 : 0 });
+            one.look.wound(i % 2 ? "cut" : "bullet", onBody(one, "spine_02", P(56, 1.2, 31)), 6000 + i);
+          }
+        },
+        at: [
+          // the zombies at the barricade: blows, a plank going each time
+          [0, () => { zombie.visible = false; }], [3.12, () => { zombie.visible = true; }],
+          [0.3, () => zevent("door.hit", { now: { planks: 3 } })], [1.0, () => zevent("door.hit", { now: { planks: 2 } })],
+          [1.7, () => zevent("door.hit", { now: { planks: 1 } })], [2.4, () => zevent("door.hit", { now: { planks: 0 } })],
+          [3.1, () => zevent("door.broken", { lastHp: 70, now: { broken: true } })],
+          // the firefight: a rifle, the shotgun, a pistol, into the doorway and the zombie in it
+          ...Array.from({ length: 12 }, (_, i) => [3.4 + i * 0.11, () => shoot("hk416", P(52.6, 1.4, 26.4), P(55.6 + Math.sin(i * 1.7) * 0.5, 1.1 + Math.cos(i) * 0.3, 32), sseed += 2)]),
+          [3.6, () => shoot("shotgun", P(58.4, 1.35, 26.8), P(56, 1.2, 31.6), sseed += 2)], [4.5, () => shoot("shotgun", P(58.4, 1.35, 26.8), P(56.6, 1.0, 31.6), sseed += 2)],
+          ...Array.from({ length: 5 }, (_, i) => [3.9 + i * 0.4, () => shoot("pistol", P(55.3, 1.35, 26.3), P(56.3 + i * 0.1, 1.3, 30.6), sseed += 2)]),
+          ...Array.from({ length: 6 }, (_, i) => [3.5 + i * 0.3, () => fx.play(effects.bloodHit, { pos: P(56.3 + (i % 2) * 0.1, 1.2 + (i % 3) * 0.15, 30.3), dir: P(0, 0.05, 1), floorY: 0, amount: 0.8, kind: "zombie" }, 6100 + i)]),
+          [4.2, () => cutter.sever({ site: "forearm.l", dir: P(0.6, 0.2, 1), force: 0.6, floorY: 0 }, 6201)],
+          // the molotov thrown into the doorway, the zombie catching
+          [5.2, () => fx.emit(effects.molotov({ pos: P(55.6, 0.03, 30.6), dir: P(0, 0, 1), floorY: 0, ceilingY: 4, radius: 1.4, burn: 9 }), 6301)],
+          [5.8, () => fx.emit(effects.catchFire({ target: zombie, secs: 8, char: cutter.meshes.flatMap((m) => [].concat(m.material)) }), 6302)],
+          [6.0, () => fx.play(effects.bloodPool, { pos: P(56.8, 0, 29.6), size: 1.3, grow: 6, kind: "zombie" }, 6401)],
+          // a pipe bomb into the security doorway, and the lights going with it
+          [6.4, () => fx.play(effects.pipeBomb, { pos: P(60, 0.05, 30.4), floorY: 0, ceilingY: 4, radius: 3 }, 6501)],
+          [6.9, () => show.event({ event: "zone.powered", seed: 6601, t: Math.round(fx.now * 1000), zone: "lobby", on: false })],
+          [9.5, () => show.event({ event: "zone.powered", seed: 6602, t: Math.round(fx.now * 1000), zone: "lobby", on: true })],
+          [7.5, () => cutter.sever({ site: "neck", dir: P(0.3, 0.5, 1), force: 0.9, floorY: 0 }, 6701)],
+        ] };
+    }
+    // the holes up close: each surface shot three times, then the camera slides past them in turn
+    {
+      const spots = [[-1.75, 1.3, -7], [-0.95, 1.25, -6.2], [-0.1, 1.3, -6.2], [0.75, 1.2, -6.2]];
+      const meshes = [back, metal, wood, glass], kinds = ["concrete", "metal", "wood", "glass"];
+      SCENARIOS.holesclose = { cam: [P(-1.75, 1.3, -6.35), P(-1.75, 1.3, -7)], dur: 8, poster: 1.5, noBody: true, lamp: [P(-0.4, 2.2, -5.2), 3],
+        setup: () => { for (const x of targets) x.visible = true; SCENARIOS.holesclose.tick = slide; },
+      };
+      const slide = (tt) => {
+          const k = Math.min(2.999, Math.max(0, (tt - 0.6) / 2.1)), i = Math.floor(k), f = k - i;
+          const e = f < 0.75 ? 0 : (f - 0.75) / 0.25, s = e * e * (3 - 2 * e);
+          const [x0, y0, z0] = spots[i], [x1, y1, z1] = spots[i + 1];
+          const tx = x0 + (x1 - x0) * s, ty = y0 + (y1 - y0) * s, tz = z0 + (z1 - z0) * s;
+          SCENARIOS.holesclose.cam[1].set(tx, ty, tz);
+          camBase.set(tx + 0.12, ty + 0.06, tz + 0.62);
+      };
+      SCENARIOS.holesclose.at = spots.flatMap(([x, y, z], i) => [[-0.12, 0.1], [0.11, -0.08], [0.0, 0.16]].map(([dx, dy], k) => [0.05 + i * 0.05 + k * 0.01, () => {
+          const target = P(x + dx, y + dy, z + (meshes[i] === back ? 0 : 0.03));
+          const from = P(x * 0.2, 1.4, -2.5), dir = target.clone().sub(from).normalize();
+          const h = fx.hit(from, dir, 10);
+          if (h) fx.play(effects.bulletImpact, { surface: kinds[i], pos: h.point, normal: h.normal, dir, floorY: 0, mark: true }, 3000 + i * 10 + k);
+        }]));
+    }
+    // blood running down a wall: heavy hits close to it, a survivor's on the left and a
+    // zombie's (thicker, slower) on the right; long enough to watch the runs crawl
+    SCENARIOS.runs = { cam: [P(-0.1, 1.32, -5.2), P(-0.1, 1.22, -7)], dur: 14, poster: 12, noBody: true, lamp: [P(-0.3, 1.9, -5.6), 4], at: [
+      [0.2, () => fx.play(effects.bloodHit, { pos: P(-0.75, 1.45, -6.75), dir: P(0.05, 0.05, -1), floorY: 0, amount: 1 }, 131)],
+      [0.6, () => fx.play(effects.bloodHit, { pos: P(-0.35, 1.3, -6.7), dir: P(-0.1, 0.02, -1), floorY: 0, amount: 0.9 }, 132)],
+      [1.0, () => fx.play(effects.bloodHit, { pos: P(0.55, 1.5, -6.75), dir: P(0, 0.05, -1), floorY: 0, amount: 1, kind: "zombie" }, 133)],
+    ] };
+    // the zombies' look: three copies of one face, each its own (§9's repeated faces), and an
+    // experiment in the G-Strain's dark deep purple; then the wounds landing
+    {
+      const cam = P(0.1, 1.45, -2.2);
+      let row = [];
+      SCENARIOS.zombies = { cam: [cam, P(0.1, 1.15, -5)], dur: 9, poster: 8.5, noBody: true, lamp: [P(0.2, 2.4, -3.0), 5],
+        setup: async () => {
+          row = [];
+          const at = [P(-1.35, 0, -5.1), P(-0.45, 0, -5.2), P(0.45, 0, -5.1), P(1.4, 0, -5.2)];
+          for (const [i, x] of at.entries()) {
+            const exp = i === 3;
+            const one = await extraZombie(exp ? "zombie-m05" : "zombie-m01", x, (i - 1.5) * -0.12, "mx-zombie-idle", 0.5 + i * 0.37);
+            const { scale } = one.cut.look.variety(4100 + i * 17, exp ? "experiment" : "outside");
+            one.z.scale.setScalar(scale);
+            row.push(one);
+          }
+        },
+        at: [
+          [1.6, () => row[0].cut.look.wound("bullet", onZombie(row[0], "spine02", cam, 0.16, 0.05), 4201)],
+          [2.0, () => row[0].cut.look.wound("bullet", onZombie(row[0], "spine03", cam, 0.16, 0.02), 4202)],
+          [2.4, () => fx.play(effects.bloodHit, { pos: onZombie(row[0], "spine02", cam, 0.16, 0.05), dir: P(0, 0, -1), floorY: 0, amount: 0.5, kind: "zombie" }, 4203)],
+          [3.4, () => row[1].cut.look.wound("slash", onZombie(row[1], "spine02", cam, 0.16, 0.08), 4211, P(1, -0.55, 0))],
+          [4.4, () => row[2].cut.look.wound("blunt", onZombie(row[2], "headx", cam, 0.11, 0.03), 4221)],
+          [5.4, () => { const h = row[1].bone("headx").getWorldPosition(new THREE.Vector3()); row[1].cut.look.feed(4231, h.add(P(0, -0.05, 0.11).applyQuaternion(row[1].z.quaternion))); }],
+          [6.4, () => row[3].cut.look.wound("bullet", onZombie(row[3], "spine02", cam, 0.16, 0.04), 4241)],
+          [6.8, () => fx.play(effects.bloodHit, { pos: onZombie(row[3], "spine02", cam, 0.16, 0.04), dir: P(0, 0, -1), floorY: 0, amount: 0.5, kind: "zombie" }, 4242)],
+        ] };
+    }
+    // the turn: a bitten survivor, the fever at its worst, turning — the last colour going, the
+    // eyes clouding — and then, one of the dead, cut like any of them (on the survivors' rig)
+    {
+      let who = null, turnCut = null;
+      SCENARIOS.turn = { cam: [P(0.15, 1.6, -3.55), P(0, 1.42, -4.6)], dur: 10, poster: 6.5, noBody: true, lamp: [P(0.4, 2.2, -3.6), 4],
+        setup: async () => {
+          turnCut = null;
+          who = await freshSurvivor("eric", P(0, 0, -4.6), 0);
+          who.look.set({ grime: 0.45, sweat: 0.4, infection: 0.85 });
+          who.look.wound("bite", onBody(who, "lowerarm_l", P(0.4, 1.2, -3.4), 0.04), 701);
+          SCENARIOS.turn.tick = (tt) => who.look.set({ turned: Math.min(1, Math.max(0, (tt - 1) / 4.5)) });
+          // made cuttable up front (the recorder doesn't wait on an event's promise), still
+          // bleeding red until the turn is through
+          turnCut = await fx.cuttable(who.o);
+          turnCut.kind = "survivor";
+        },
+        at: [
+          [6.4, () => { turnCut.kind = "zombie"; }],
+          [7.2, () => turnCut?.sever({ site: "forearm.l", dir: P(-0.6, 0.2, 0.6), force: 0.5, floorY: 0 }, 702)],
+        ] };
+    }
+    // melee blood: a zombie's scratch on a survivor, a blade and a blunt blow on a zombie (each
+    // followed by the weapon's cast-off: one across the wall, one onto a low ceiling), a stomp
+    {
+      let eric = null, zed = null;
+      const cam = P(0.1, 1.55, -3.4);
+      SCENARIOS.melee = { cam: [cam, P(0.1, 1.05, -6.6)], dur: 9, poster: 8.5, noBody: true, ceiling: true, lamp: [P(0.2, 2.5, -4.4), 6],
+        setup: async () => {
+          ceiling.position.y = 2.9; ceiling.updateMatrixWorld();
+          eric = await freshSurvivor("eric", P(-1.05, 0, -6.0), 0.35);
+          zed = await extraZombie("zombie-m01", P(0.35, 0, -6.2), -0.15, "mx-zombie-idle", 0.8);
+          zed.cut.look.variety(5301, "outside");
+        },
+        at: [
+          [0.4, () => { const at = onBody(eric, "lowerarm_l", cam, 0.06); eric.look.wound("scratch", at, 5401); fx.play(effects.meleeHit, { pos: at, dir: P(0.3, 0, -1), swing: P(1, -0.35, 0.1), weapon: "claw", amount: 0.6, floorY: 0 }, 5402); }],
+          [1.6, () => { const at = onZombie(zed, "neckx", cam, 0.09, -0.02); zed.cut.look.wound("slash", at, 5411, P(1, -0.5, 0)); fx.play(effects.meleeHit, { pos: at, dir: P(0, 0, -1), swing: P(1, -0.5, -0.2), weapon: "sharp", amount: 0.85, floorY: 0, kind: "zombie" }, 5412); }],
+          [2.0, () => fx.play(effects.castOff, { from: P(0.95, 1.55, -5.9), along: P(-0.55, 0.45, -1), arc: 0.6, amount: 0.8, floorY: 0, kind: "zombie" }, 5413)],
+          [3.6, () => { const at = onZombie(zed, "headx", cam, 0.1, 0.04); zed.cut.look.wound("blunt", at, 5421); fx.play(effects.meleeHit, { pos: at, dir: P(0.1, -0.3, -1), swing: P(0, -1, -0.35), weapon: "blunt", amount: 0.9, floorY: 0, kind: "zombie" }, 5422); }],
+          [4.0, () => fx.play(effects.castOff, { from: P(0.45, 1.75, -5.9), along: P(0.35, 0.9, -1), arc: 0.5, amount: 0.9, floorY: 0, kind: "zombie" }, 5423)],
+          [5.6, () => fx.play(effects.meleeHit, { pos: P(1.15, 0.04, -6.2), dir: P(0, -1, 0), weapon: "stomp", amount: 0.9, floorY: 0, kind: "zombie" }, 5431)],
+        ] };
+    }
+    // fire that spreads: a molotov whose fuel runs off along the floor, a front racing across it
+    // into the open doorway, and the doorway filling with fire jamb to jamb; then a patch catching
+    // off the first fire the other way, and everything burning down to its scorch
+    SCENARIOS.firedoor = { cam: [P(1.4, 1.75, 0.3), P(0.3, 0.9, -4.3)], dur: 15, poster: 4.6, noBody: true, f6: true, dim: 0.55,
+      setup: () => doorSet(null),
+      at: [
+        [0.3, () => fx.emit(effects.molotov({ pos: P(1.3, 0.05, -2.9), dir: P(-0.3, 0, -1), floorY: 0, ceilingY: 4, radius: 1.1, burn: 9 }), 6101)],
+        [2.4, () => fx.emit(effects.fireSpread({ from: P(1.0, 0, -3.5), to: P(0, 0, -4.45), speed: 2.4, width: 0.35, burn: 9, patch: false, floorY: 0, ceilingY: 4 }), 6102)],
+        [3.0, () => fx.emit(effects.doorwayFire({ pos: P(0, 0, -4.6), along: P(1, 0, 0), normal: P(0, 0, 1), width: 0.9, height: 2.1, burn: 9, floorY: 0, ceilingY: 4 }), 6103)],
+        [4.2, () => fx.emit(effects.fireSpread({ from: P(1.9, 0, -2.7), to: P(2.9, 0, -1.7), speed: 2.0, width: 0.3, burn: 7, radius: 0.6, floorY: 0, ceilingY: 4 }), 6104)],
+      ] };
+    // the director's tools in one room: a power dip, a pipe bursting, something falling, then
+    // the power going (the emergency lights take over) and coming back bank by bank
+    SCENARIOS.director = { cam: [P(1.7, 1.75, 0.3), P(-1.3, 1.7, -4.6)], dur: 15, poster: 9.5, noBody: true, ceiling: true, f4: true, dim: 0.12,
+      setup: () => {
+        fixturesUp([0, 1, 2, 3, 4, 5], { styles: { 4: "failing" }, dust: false });
+        emerLights.forEach((l, i) => { l.intensity = 4; emerMats[i].emissiveIntensity = 2.5; fx.fixtures.add({ id: `emergency-${i}`, zone: "lobby", light: l, emissive: [emerMats[i]], emergency: true }); });
+      },
+      at: [
+        [0.8, () => fx.fixtures.setDip("lobby", fx.now, 1.8, 801)],
+        [3.4, () => fx.emit(effects.pipeBurst({ pos: P(-3.78, 2.4, -3.1), dir: P(1, 0.1, 0.25), floorY: 0, secs: 12 }), 802)],
+        [6.0, () => fx.play(effects.somethingFell, { pos: P(-0.9, 0, -5.3), from: 4, size: 0.9, floorY: 0 }, 803)],
+        [8.2, () => fx.fixtures.setPower("lobby", false, fx.now, 804)],
+        [12.0, () => fx.fixtures.setPower("lobby", true, fx.now, 805)],
+      ] };
+    // the last stage of infection: a cough bringing up blood (bd-cough's coughs land at 0.8,
+    // 1.33, 2.1 s and, looped, 4.5 and 5.0 s here: the mixer starts half a second in). Only
+    // some coughs bring it up; the spray in profile, the drops on the floor, the lips
+    {
+      let ill = null, mouthLocal = null;
+      const coughNow = (seed, amount) => {
+        const head = ill.bone("head");
+        const m = head.localToWorld(mouthLocal.clone()), h = head.getWorldPosition(new THREE.Vector3());
+        const hand = handAtMouth(ill.o, m);
+        fx.play(effects.coughBlood, { pos: m, dir: m.clone().sub(h), amount, hand, floorY: 0 }, seed);
+        ill.look.coughedBlood(seed, amount, hand ? hand.clone().lerp(m, 0.25) : undefined);
+      };
+      SCENARIOS.cough = { cam: [P(1.5, 1.4, -3.3), P(-0.1, 1.0, -5.6)], dur: 7, poster: 5.6, noBody: true, lamp: [P(0.6, 2.4, -4.2), 5],
+        setup: async () => {
+          ill = await freshSurvivor("eric", P(0.2, 0, -5.6), -0.9, "bd-cough");
+          ill.look.set({ grime: 0.4, sweat: 0.6, infection: 0.95 });
+          mouthLocal = findMouth(ill.o, ill.bone("head"));
+        },
+        at: [
+          [0.8, () => coughNow(6201, 0.5)],
+          [2.1, () => coughNow(6202, 0.3)],
+          [5.0, () => coughNow(6203, 0.85)],
+        ] };
+    }
+    // flashlights in the dark: one at the far end of the room sweeping across it (its lens
+    // flares as it passes the camera), and one whose battery runs down to nothing
+    {
+      const aim = (l, pos, dir) => { l.position.copy(pos); l.target.position.copy(pos).add(dir); l.target.updateMatrixWorld(); };
+      SCENARIOS.torches = { cam: [P(1.4, 1.6, 0.6), P(-1.2, 1.3, -6)], dur: 11, poster: 3.1, noBody: true, ceiling: true, f4: true, dim: 0.03,
+        setup: () => {
+          const far = P(-2.6, 1.35, -6.3), near = P(1.6, 1.25, -3.4);
+          const farDir = () => { const a = -0.55 + Math.sin(t * 0.55) * 1.05; return P(Math.sin(a) * 0.55 + 0.75, -0.08, Math.cos(a)).normalize(); };
+          const nearDir = P(-0.8, -0.55, -0.4).normalize();
+          for (const l of torchLights) l.intensity = 30;
+          fx.torches.add({ id: "far", light: torchLights[0], charge: 1, lens: () => { const d = farDir(); aim(torchLights[0], far, d); return { pos: far, dir: d }; } });
+          fx.torches.add({ id: "near", light: torchLights[1], charge: 0.5, lens: () => { aim(torchLights[1], near, nearDir); return { pos: near, dir: nearDir }; } });
+        },
+        at: [
+          [2.5, () => fx.torches.set("near", { charge: 0.2 })],
+          [5.5, () => fx.torches.set("near", { charge: 0.07 })],
+          [9.0, () => fx.torches.set("near", { charge: 0 })],
+        ] };
+    }
+    // a molotov lit and held, then thrown: the rag burning in the hand, lighting the dark;
+    // the flames streaming back in flight; the fire taking over where it breaks
+    {
+      const hold = P(0.35, 1.25, -4.4), land = P(-1.05, 0.05, -6.3);
+      const T0 = 2.6, FLY = 0.85;
+      let broke = false;
+      const where = () => {
+        if (t < T0) return hold.clone().add(P(Math.sin(t * 2.3) * 0.01, Math.sin(t * 3.1) * 0.008, 0));
+        const u = Math.min(1, (t - T0) / FLY);
+        return hold.clone().lerp(land, u).add(P(0, 4 * 0.65 * u * (1 - u), 0));
+      };
+      SCENARIOS.litmolotov = { cam: [P(1.3, 1.5, -2.2), P(-0.5, 1.0, -5.6)], dur: 7.5, poster: 2.0, noBody: true, ceiling: true, f4: true, dim: 0.04,
+        setup: () => {
+          broke = false;
+          bottle.visible = true;
+          fx.emit(effects.litRag({ from: () => (broke ? null : anchorOf(bottle, PROP_ANCHORS.molotov.rag)) }), 7101);
+          SCENARIOS.litmolotov.tick = () => {
+            if (broke) return;
+            const at = where();
+            bottle.position.copy(at);
+            bottle.rotation.set(t < T0 ? 0.15 : (t - T0) * 9, 0, t < T0 ? -0.25 : 0);
+            bottle.updateMatrixWorld();
+          };
+        },
+        at: [[T0 + FLY, () => {
+          broke = true; bottle.visible = false;
+          fx.emit(effects.molotov({ pos: land, dir: land.clone().sub(hold).setY(0).normalize(), floorY: 0, ceilingY: 4, radius: 1.1, burn: 6 }), 7102);
+        }]] };
+    }
+    // the sink: the tap opened, full on, turned down, then off
+    {
+      let flow = 0;
+      SCENARIOS.sink = { cam: [P(0.75, 1.5, -4.3), P(0.25, 0.68, -5.3)], dur: 8, poster: 2.5, noBody: true, lamp: [P(0.5, 2.2, -4.6), 5],
+        setup: () => {
+          // the steel sink turned to face the camera (its taps are at its back, +z), its right
+          // tap at (0.25, -5.3)
+          sink.visible = true; sink.position.set(0.77, 0, -5.377); sink.rotation.y = Math.PI; sink.updateMatrixWorld(true);
+          flow = 0;
+          fx.emit(effects.tapRunning({ ...tapOf(sink, PROP_ANCHORS["sink-steel"].taps[1]), flow: () => flow }), 7201);
+        },
+        at: [[0.6, () => { flow = 1; }], [4.0, () => { flow = 0.25; }], [6.2, () => { flow = 0; }]] };
+    }
+    // bandages and burns on a survivor: a cut on the forearm dressed, blood seeping through
+    // the dressing; a burn through the sleeve of the other arm, and one on the back of a hand
+    {
+      let pat = null, slot = -1;
+      const cam = P(0.25, 1.35, -3.55);
+      SCENARIOS.patches = { cam: [cam, P(0, 1.15, -4.6)], dur: 8, poster: 7.5, noBody: true, lamp: [P(0.4, 2.2, -3.6), 5],
+        setup: async () => {
+          pat = await freshSurvivor("eric", P(0, 0, -4.6), 0);
+          pat.look.set({ grime: 0.35, sweat: 0.2 });
+          slot = -1;
+          SCENARIOS.patches.tick = (tt) => { if (slot >= 0) pat.look.seep(slot, Math.min(0.85, Math.max(0, (tt - 2.2) / 4)), 1 - Math.max(0, (tt - 6.5) / 1.5)); };
+        },
+        at: [
+          [0.3, () => pat.look.wound("cut", onBody(pat, "lowerarm_l", cam, 0.05), 7301)],
+          [1.2, () => { slot = pat.look.bandage(onBody(pat, "lowerarm_l", cam, 0.05), 0.11, "lowerarm_l"); }],
+          [2.6, () => { const a = pat.bone("upperarm_r").getWorldPosition(new THREE.Vector3()), b = pat.bone("lowerarm_r").getWorldPosition(new THREE.Vector3()); const m = a.lerp(b, 0.55); pat.look.burn(m.add(cam.clone().sub(m).setY(0).normalize().multiplyScalar(0.06)), 0.14, "upperarm_r"); }],
+          [3.6, () => pat.look.burn(onBody(pat, "hand_r", cam, 0.04), 0.09, "hand_r")],
+        ] };
+    }
+    // a body dragged across the floor: the smear laid behind it the way it went, thinning out
+    // (the body itself isn't drawn here)
+    {
+      const path = [P(1.4, 0, -3.6), P(0.6, 0, -4.4), P(-0.4, 0, -4.9), P(-1.5, 0, -5.9)];
+      const along = (u) => { const k = Math.min(path.length - 1.001, u * (path.length - 1)); const i = Math.floor(k); return path[i].clone().lerp(path[i + 1], k - i); };
+      SCENARIOS.drag = { cam: [P(1.9, 1.9, -1.8), P(0, 0, -4.8)], dur: 8, poster: 7.5, noBody: true, lamp: [P(0.2, 2.6, -4.3), 6],
+        setup: () => {
+          fx.play(effects.bloodPool, { pos: path[0], size: 0.9, grow: 0.5 }, 7401);
+          fx.emit(effects.dragSmear({ from: () => (t < 1.2 ? path[0].clone() : t > 6.4 ? null : along((t - 1.2) / 5)), width: 0.42, amount: 1 }), 7402);
+        },
+        at: [] };
+    }
+    // A RESTART (Josh: limbs, blood and wounds persist the show, a renderer restart included):
+    // a zombie loses both arms, a survivor is cut, bitten and bandaged; at 5 s the renderer is
+    // wiped (the black frames) and everything comes back from what was written down — the
+    // limbs where they lay, the blood on the floor, the zombie's stumps and look, the
+    // survivor's wounds and dressing — quietly, nothing thrown again
+    {
+      let pat = null, slot = -1, rows = [], restartAt = Infinity;
+      const cam = P(1.9, 1.5, -1.9);
+      const zAt = P(-0.3, 0, -4.6), sAt = P(1.15, 0, -4.9);
+      const ledgerFor = () => {
+        const led = new FxLedger(fx, { origin: () => P(0, 0, 0), model: async () => { const z = SkeletonUtils.clone(zombieSrc.scene); z.updateMatrixWorld(true); return z; } });
+        led.onRow = (row) => rows.push(row);
+        window.__ledger = led;
+        return led;
+      };
+      const restart = async () => {
+        const zState = JSON.parse(JSON.stringify(cutter.state));
+        const ops = JSON.parse(JSON.stringify(pat.look.ops));
+        const kept = JSON.parse(JSON.stringify(rows));
+        const now = t;
+        window.__ledger?.detach();
+        // the renderer goes: everything it held, gone
+        fx.clear();
+        scene.remove(pat.o); fx.dropBody(pat.look); cast = cast.filter((c) => c !== pat);
+        // and comes back: the same zombie and survivor from the world, then their state
+        await freshZombie("mx-zombie-idle", zAt, 0.35);
+        cutter.ref = { id: "z-17", model: "zombie-m01" };
+        cutter.restore(zState);
+        pat = await freshSurvivor("eric", sAt, -0.45);
+        pat.look.time = () => t;
+        pat.look.replay(ops, now);
+        rows = [];
+        const res = await ledgerFor().restore(kept);
+        window.__restored = res;
+      };
+      SCENARIOS.restart = { cam: [cam, P(0.4, 0.6, -4.7)], dur: 10, poster: 9.5, noBody: true, lamp: [P(0.6, 2.4, -3.6), 5],
+        zombie: ["mx-zombie-idle", zAt, 0.35],
+        setup: async () => {
+          rows = []; slot = -1; restartAt = Infinity;
+          pat = await freshSurvivor("eric", sAt, -0.45);
+          pat.look.time = () => t;
+          pat.look.set({ grime: 0.4, sweat: 0.3 });
+          ledgerFor();
+          SCENARIOS.restart.tick = (tt) => {
+            scene.visible = !(tt >= restartAt && tt < restartAt + 0.3);
+            if (slot >= 0 && tt < restartAt) pat.look.seep(slot, Math.min(0.7, Math.max(0, (tt - 1.6) / 3)), 1);
+          };
+        },
+        at: [
+          [0.1, () => { cutter.ref = { id: "z-17", model: "zombie-m01" }; }],
+          [0.5, () => cutter.sever({ site: "forearm.l", dir: P(-1, 0.2, 0.6), force: 0.5, floorY: 0 }, 7601)],
+          [0.8, () => pat.look.wound("cut", onBody(pat, "lowerarm_l", cam, 0.05), 7602)],
+          [1.3, () => cutter.sever({ site: "upperarm.r", dir: P(1, 0.3, 0.5), force: 0.6, floorY: 0 }, 7603)],
+          [1.5, () => { slot = pat.look.bandage(onBody(pat, "lowerarm_l", cam, 0.05), 0.11, "lowerarm_l"); }],
+          [2.2, () => pat.look.wound("bite", onBody(pat, "upperarm_r", cam, 0.06), 7604)],
+          [5.0, () => { restartAt = 5.0; scene.visible = false; SCENARIOS.restart.pending = restart(); }],
+        ] };
+    }
+    // ROLLO in his hazmat suit: grime, a round in the chest, a zombie's claws down an arm, a
+    // burn through the sleeve, then the turn — which shows nothing, the suit and mask hiding
+    // him (no milky eyes painted on the mask)
+    {
+      let ro = null;
+      const cam = P(0.35, 1.45, -2.9);
+      SCENARIOS.rollo = { cam: [cam, P(0, 1.1, -4.6)], dur: 6.5, poster: 6.3, noBody: true, lamp: [P(0.5, 2.3, -3.2), 5],
+        setup: async () => {
+          survivorSrc.rollo ??= await gltfLoader.loadAsync("/assets/downloads/survivorz/game/rollo.glb");
+          ro = await freshSurvivor("rollo", P(0, 0, -4.6), 0);
+          SCENARIOS.rollo.cam = [cam, P(0, 1.1, -4.6)];
+          SCENARIOS.rollo.tick = (tt) => { if (tt > 3.6) ro.look.set({ infection: Math.min(1, (tt - 3.6) / 0.8), turned: Math.min(1, Math.max(0, (tt - 4.2) / 1.2)) }); };
+        },
+        at: [
+          [0.4, () => ro.look.set({ grime: 0.55 })],
+          [1.0, () => ro.look.wound("bullet", onBody(ro, "spine_01", cam, 0.2), 7701)],
+          [1.8, () => ro.look.wound("scratch", onBody(ro, "lowerarm_l", cam, 0.08), 7702)],
+          [2.6, () => ro.look.burn(onBody(ro, "upperarm_l", cam, 0.08), 0.12, "upperarm_l")],
+          // in close on the visor, then the turn coming over his face
+          [3.0, () => { const h = ro.bone("head").getWorldPosition(P(0, 0, 0)); camBase.copy(P(h.x + 0.12, h.y + 0.02, h.z + 0.62)); sc.cam = [camBase.clone(), h.clone().add(P(0, -0.02, 0.05))]; }],
+        ] };
+
+    }
+    // the lab's double doors: blows on a window crack it, then it breaks — only that window, its
+    // own size, in its own plane; the doors and the other window stay
+    {
+      let seed = 7801;
+      const at = P(0, 1.25, -4.6);
+      const hit = (event, extra = {}) => playDoorEvent(fx, { event, seed: seed++, at: at.toArray(), normal: [0, 0, 1], size: [2.4, 2.5], material: "glass", side: -1, ...extra },
+        { leaf: labDoor.getObjectByName("Double_door_left_NakedSingularity"), panes: panesOf(labDoor, PROP_ANCHORS["lab-door-double"]), floorY: 0 });
+      SCENARIOS.labdoor = { cam: [P(0.5, 1.6, -2.2), P(0, 1.3, -4.6)], dur: 6, poster: 3.4, noBody: true, lamp: [P(-0.4, 2.4, -3.4), 6],
+        setup: () => {
+          if (labDoor) scene.remove(labDoor);
+          labDoor = labDoorSrc.clone(true);
+          labDoor.position.set(0, 0, -4.6);
+          scene.add(labDoor);
+          labDoor.updateMatrixWorld(true);
+          seed = 7801;
+          SCENARIOS.labdoor.surfaces = [];
+          labDoor.traverse((o) => { if (o.isMesh) SCENARIOS.labdoor.surfaces.push(o); });
+        },
+        at: [
+          [0.5, () => hit("door.hit")],
+          [1.3, () => hit("door.hit")],
+          [2.1, () => hit("door.broken", { lastHp: 50 })],
+        ] };
+    }
+    let sc = null, t = 0, fired = 0;
+    const camBase = new THREE.Vector3();
+    r.scenarios = () => Object.fromEntries(Object.entries(SCENARIOS).map(([k, s]) => [k, s.dur]));
+    r.posters = () => Object.fromEntries(Object.entries(SCENARIOS).filter(([, s]) => s.poster != null).map(([k, s]) => [k, s.poster]));
+    r.use = async (name) => {
+      sc = SCENARIOS[name]; if (!sc) throw new Error(`no scenario ${name}`);
+      window.__ledger?.detach(); window.__ledger = null; scene.visible = true; sc.pending = null;
+      sc.at.sort((a, b) => a[0] - b[0]);
+      fx.clear(); t = 0; fired = 0; shotSeed = 1000;
+      for (const c of cast) { scene.remove(c.o); fx.dropBody(c.look); }
+      cast = [];
+      for (const e of extras) scene.remove(e.z);
+      extras = [];
+      for (const g of Object.values(guns)) g.visible = false;
+      bottle.visible = false;
+      sink.visible = false;
+      for (const x of targets) x.visible = false;
+      if (window.__body) window.__body.visible = !sc.noBody;
+      ceiling.visible = !!sc.ceiling; ceiling.position.y = 4;
+      f4.visible = !!sc.f4;
+      f6.visible = false; pane.visible = true;
+      f7.visible = false; recLeaf.visible = true;
+      for (const l of recLights) l.intensity = 0;
+      // the facility's lights are back to dark between scenes (fx.clear handed them back "on")
+      for (const l of f4Lights) l.intensity = 0;
+      for (const m of [...panelMats, beaconMat, ...emerMats]) m.emissiveIntensity = 0;
+      hemi.intensity = 1.25 * (sc.dim ?? 1); key.intensity = 1.1 * (sc.dim ?? 1);
+      sc.tick = undefined;
+      if (sc.lamp) { lamp.position.copy(sc.lamp[0]); lamp.intensity = sc.lamp[1]; } else lamp.intensity = 0;
+      await sc.setup?.();
+      if (zombie && !sc.zombie) { scene.remove(zombie); zombie = null; zmixer = null; cutter = null; }
+      if (sc.zombie) await freshZombie(...sc.zombie);
+      // only what's standing takes a round or a mark
+      if (labDoor && name !== "labdoor") { scene.remove(labDoor); labDoor = null; }
+      fx.surfaces.length = 0; fx.surfaces.push(floor, back, side, ...targets.filter((x) => x.visible), ...(sc.surfaces ?? []));
+      if (sc.ceiling) fx.surfaces.push(ceiling);
+      if (sc.f6) fx.surfaces.push(...walls, pane);
+      if (sc.f7) fx.surfaces.push(recFloor, recCeil, ...recWalls, recLeaf);
+      camera.position.copy(sc.cam[0]); camera.lookAt(sc.cam[1]); camBase.copy(sc.cam[0]);
+      camera.updateMatrixWorld();
+    };
+    // one frame of the fixed clock: fire what's due, advance, shake, render
+    r.step = (dt) => {
+      // (a scene's async moment — a restart — finishes before the clock moves on)
+      if (sc.pending) return sc.pending.then(() => { sc.pending = null; return r.step(dt); });
+      while (fired < sc.at.length && sc.at[fired][0] <= t) sc.at[fired++][1]();
+      sc.tick?.(t);
+      zmixer?.update(dt);
+      for (const c of cast) c.mixer.update(dt);
+      for (const e of extras) e.mixer.update(dt);
+      fx.update(dt); t += dt;
+      camera.position.copy(camBase);
+      if (sc.shake) camera.position.add(fx.shakeOffset(camBase));
+      camera.lookAt(sc.cam[1]); camera.updateMatrixWorld();
+      renderer.render(scene, camera);
+      return fx.stats();
+    };
+    r.frame = () => renderer.domElement.toDataURL("image/png");
+    // a close look for checking (the scenario's camera, moved for this page only)
+    r.look = (from, to) => { camBase.copy(from); sc.cam = [from.clone(), to.clone()]; };
+    // GPU time of one frame with and without the effects (EXT_disjoint_timer_query_webgl2),
+    // averaged over n renders of the frame as it stands; null where the GPU has no timer
+    const gl = renderer.getContext();
+    const tq = gl.getExtension("EXT_disjoint_timer_query_webgl2");
+    const timeRender = async (n) => {
+      if (!tq) return null;
+      const qs = [];
+      for (let i = 0; i < n; i++) { const qq = gl.createQuery(); gl.beginQuery(tq.TIME_ELAPSED_EXT, qq); renderer.render(scene, camera); gl.endQuery(tq.TIME_ELAPSED_EXT); qs.push(qq); }
+      let total = 0, got = 0;
+      for (const qq of qs) {
+        for (let tries = 0; tries < 200 && !gl.getQueryParameter(qq, gl.QUERY_RESULT_AVAILABLE); tries++) await new Promise((res) => setTimeout(res, 5));
+        if (gl.getParameter(tq.GPU_DISJOINT_EXT)) continue;
+        total += gl.getQueryParameter(qq, gl.QUERY_RESULT); got++;
+      }
+      return got ? total / got / 1e6 : null;
+    };
+    r.cost = async (n = 20) => {
+      const on = await timeRender(n);
+      fx.root.visible = false;
+      const off = await timeRender(n);
+      fx.root.visible = true;
+      renderer.info.reset();
+      renderer.render(scene, camera);
+      return { gpuMsWith: on, gpuMsWithout: off, fxMs: on != null && off != null ? on - off : null, calls: renderer.info.render.calls, stats: fx.stats(), gpu: (() => { const d = gl.getExtension("WEBGL_debug_renderer_info"); return d ? gl.getParameter(d.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER); })() };
+    };
+    r.fx = fx; r.THREE = THREE; r.guns = guns; r.freshSurvivor = freshSurvivor; r.findMouth = findMouth; r.survivorSrc = survivorSrc; r.gltfLoader = gltfLoader; r.extras = () => extras; r.cast = () => cast;
+    r.ready = true;
+  } catch (e) {
+    r.error = String(e?.stack ?? e);
+  }
+</script>

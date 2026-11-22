@@ -1,0 +1,1 @@
+Credits for every model in this folder are in CREDITS.md at the root of the repository.

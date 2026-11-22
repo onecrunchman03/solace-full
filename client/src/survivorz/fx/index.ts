@@ -1,0 +1,24 @@
+// SURVIVORZ EFFECTS — the public face of the engine (docs/survivorz/EFFECTS.md).
+export { FxSystem, BUDGET, type FxLoader, type FxOptions, type Effect, type Emitter, type EffectContext, type SurfaceHit } from "./system";
+export { ParticleLayer, type Spawn, type FrameMode, type SheetInfo } from "./particles";
+export { DecalSet, type DecalAtlas, type DecalSpec } from "./decals";
+export { LightPool, POOL, type LightKind } from "./lights";
+export { SPRITE } from "./sprites";
+export { mulberry32, inCone, range, pick, type Rng } from "./rng";
+export * as effects from "./recipes";
+export { GUN_FX, gunPoint, gunDir, type GunId, type CasingKind, type GunFx } from "./guns";
+export { CasingPool, type CasingSpawn } from "./casings";
+export { bulletHoleAtlas, HOLE, loadHoleKit, holeCell, type HoleKit } from "./holes";
+export { RigidPool, supportPoints, type RigidSpawn } from "./rigid";
+export { Cuttable, SITES, loadGoreKit, type Site, type SeverP, type GoreKit, type CutState } from "./gore";
+export { loadScorchKit, type ScorchKit } from "./fire";
+export { BeamPool, type BeamSpec, type BeamHandle } from "./beams";
+export { BodyLook, loadSkinMask, findBone, findMouth, handAtMouth, type BodyState, type WoundKind, type BodyOp, type SkinMask } from "./body";
+export { Fixtures, flicker, strike, cut, BANK_GAP, type FixtureSpec, type FlickerStyle } from "./fixtures";
+export { BLOOD, loadBloodKit, spinAlong, type BloodKind, type BloodKit } from "./blood";
+export { Debris, DebrisPool, barricade, rattle, settleRattles, playDoorEvent, slab, slabGeometry, voronoi, jag, woodLook, loadBreakKit, type BreakKit, type DoorFxP, type DoorEvent, type DoorParts, type PieceSpec, type BarricadeP } from "./breaking";
+export { ShowFx, idSeed, type ShowEvent, type ShowDoor, type DoorNow } from "./show";
+export { ZombieLook, ZWOUNDS, skinOf, type ZWoundKind, type ZLookUniforms } from "./zlook";
+export { Torches, battery, type TorchSpec } from "./torches";
+export { FxLedger, type LedgerRow, type MarkRow, type GoneRow, type WreckRow, type GibRow, type LimbRow, type LedgerOptions } from "./ledger";
+export { PROP_ANCHORS, tapOf, anchorOf, partsOf, panesOf, type PropAnchors, type TapAnchor } from "./anchors";

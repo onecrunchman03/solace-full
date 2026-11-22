@@ -1,0 +1,2054 @@
+{
+ "file": "props.glb",
+ "objects": [
+  {
+   "name": "Ashtray",
+   "dim": [
+    0.09,
+    0.02,
+    0.09
+   ],
+   "loc": [
+    -0.244,
+    3.68,
+    1.424
+   ],
+   "tris": 92,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Black Jack Table",
+   "dim": [
+    1.281,
+    1.157,
+    2.805
+   ],
+   "loc": [
+    -0.705,
+    2.863,
+    0.348
+   ],
+   "tris": 344,
+   "mats": [
+    "Atlas 1 Texture",
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Black Token",
+   "dim": [
+    0.005,
+    0.059,
+    0.059
+   ],
+   "loc": [
+    -0.286,
+    2.984,
+    1.76
+   ],
+   "tris": 60,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Blue Token",
+   "dim": [
+    0.005,
+    0.059,
+    0.059
+   ],
+   "loc": [
+    -0.286,
+    2.828,
+    1.76
+   ],
+   "tris": 60,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Box Cigarrate Head",
+   "dim": [
+    0.034,
+    0.03,
+    0.075
+   ],
+   "loc": [
+    1.7,
+    3.549,
+    -0.095
+   ],
+   "tris": 28,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Box Cigarrate Head.001",
+   "dim": [
+    0.034,
+    0.03,
+    0.075
+   ],
+   "loc": [
+    1.491,
+    3.47,
+    0.0
+   ],
+   "tris": 28,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Briefcase (Empty)",
+   "dim": [
+    0.458,
+    0.062,
+    0.504
+   ],
+   "loc": [
+    -0.348,
+    5.413,
+    1.452
+   ],
+   "tris": 200,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Briefcase (full)",
+   "dim": [
+    0.458,
+    0.062,
+    0.504
+   ],
+   "loc": [
+    -0.335,
+    6.152,
+    1.452
+   ],
+   "tris": 210,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Briefcase Head",
+   "dim": [
+    0.049,
+    0.392,
+    0.504
+   ],
+   "loc": [
+    36.598,
+    1.213,
+    -0.0
+   ],
+   "tris": 48,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Briefcase Head.001",
+   "dim": [
+    0.049,
+    0.392,
+    0.504
+   ],
+   "loc": [
+    37.815,
+    1.211,
+    -0.0
+   ],
+   "tris": 48,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Button 1",
+   "dim": [
+    0.089,
+    0.098,
+    0.177
+   ],
+   "loc": [
+    -17.94,
+    -15.637,
+    43.295
+   ],
+   "tris": 10,
+   "mats": [
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Button 2",
+   "dim": [
+    0.089,
+    0.098,
+    0.177
+   ],
+   "loc": [
+    -17.94,
+    -15.637,
+    21.728
+   ],
+   "tris": 10,
+   "mats": [
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Carpet 1",
+   "dim": [
+    4.0,
+    0.018,
+    3.074
+   ],
+   "loc": [
+    -4.117,
+    7.606,
+    0.0
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Carpet 2",
+   "dim": [
+    4.0,
+    0.018,
+    3.074
+   ],
+   "loc": [
+    -4.117,
+    4.033,
+    0.0
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Carpet 3",
+   "dim": [
+    3.762,
+    0.018,
+    3.762
+   ],
+   "loc": [
+    -4.025,
+    -8.485,
+    0.0
+   ],
+   "tris": 44,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Carpet 4",
+   "dim": [
+    3.762,
+    0.018,
+    3.762
+   ],
+   "loc": [
+    -4.036,
+    -4.386,
+    0.0
+   ],
+   "tris": 44,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Casino Machine",
+   "dim": [
+    1.083,
+    2.7,
+    1.296
+   ],
+   "loc": [
+    -0.27,
+    7.388,
+    1.235
+   ],
+   "tris": 218,
+   "mats": [
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Casino Roulette",
+   "dim": [
+    0.648,
+    0.206,
+    0.648
+   ],
+   "loc": [
+    -0.22,
+    1.472,
+    1.543
+   ],
+   "tris": 380,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Casino Roulette 2",
+   "dim": [
+    1.231,
+    0.391,
+    1.231
+   ],
+   "loc": [
+    62.841,
+    66.95,
+    203.534
+   ],
+   "tris": 380,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Casino Signal",
+   "dim": [
+    0.094,
+    3.356,
+    0.582
+   ],
+   "loc": [
+    0.045,
+    -3.105,
+    3.94
+   ],
+   "tris": 412,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Chair 1",
+   "dim": [
+    0.527,
+    0.836,
+    0.615
+   ],
+   "loc": [
+    -4.981,
+    -0.483,
+    0.379
+   ],
+   "tris": 300,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Chair 3",
+   "dim": [
+    0.679,
+    0.812,
+    0.679
+   ],
+   "loc": [
+    -4.979,
+    1.398,
+    0.446
+   ],
+   "tris": 136,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Chair 4",
+   "dim": [
+    0.715,
+    1.138,
+    0.679
+   ],
+   "loc": [
+    -4.94,
+    0.459,
+    0.501
+   ],
+   "tris": 276,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Champagne",
+   "dim": [
+    0.095,
+    0.291,
+    0.093
+   ],
+   "loc": [
+    -0.171,
+    2.281,
+    1.487
+   ],
+   "tris": 108,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Cigarette ",
+   "dim": [
+    0.013,
+    0.012,
+    0.096
+   ],
+   "loc": [
+    -0.243,
+    3.43,
+    1.547
+   ],
+   "tris": 26,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Cigarette butt",
+   "dim": [
+    0.013,
+    0.012,
+    0.034
+   ],
+   "loc": [
+    -0.243,
+    3.447,
+    1.607
+   ],
+   "tris": 26,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Cigarette On",
+   "dim": [
+    0.013,
+    0.012,
+    0.096
+   ],
+   "loc": [
+    -0.243,
+    3.43,
+    1.578
+   ],
+   "tris": 26,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Cigarrate Box (Empty)",
+   "dim": [
+    0.03,
+    0.107,
+    0.075
+   ],
+   "loc": [
+    -0.24,
+    3.303,
+    1.435
+   ],
+   "tris": 28,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Cigarrate Box (Full)",
+   "dim": [
+    0.03,
+    0.121,
+    0.075
+   ],
+   "loc": [
+    -0.242,
+    3.427,
+    1.434
+   ],
+   "tris": 132,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Clair 2",
+   "dim": [
+    0.569,
+    1.332,
+    0.615
+   ],
+   "loc": [
+    -4.948,
+    -1.323,
+    0.478
+   ],
+   "tris": 354,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 10",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.355,
+    1.884
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 2",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.633,
+    2.009
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 3",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.54,
+    2.009
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 4",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.446,
+    2.009
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 5",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.355,
+    2.009
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 6",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.725,
+    1.884
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 7",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.633,
+    1.884
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 8",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.54,
+    1.884
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card 9",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.446,
+    1.884
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card A",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.175,
+    1.884
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card J",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.268,
+    2.009
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card K",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.175,
+    2.009
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Club Card Q",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.268,
+    1.884
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Combination Dial",
+   "dim": [
+    0.046,
+    0.136,
+    0.136
+   ],
+   "loc": [
+    -11.955,
+    27.058,
+    -27.239
+   ],
+   "tris": 38,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Crystal",
+   "dim": [
+    0.147,
+    0.655,
+    1.174
+   ],
+   "loc": [
+    -3.337,
+    31.495,
+    -1.111
+   ],
+   "tris": 20,
+   "mats": [
+    "Atlas 2 Texture",
+    "Transparent"
+   ]
+  },
+  {
+   "name": "Diamond Card 10",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.152,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card 2",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.429,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card 3",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.336,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card 4",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.242,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card 5",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.152,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card 6",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.521,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card 7",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.429,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card 8",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.336,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card 9",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.242,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card A",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.971,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card J",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.064,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card K",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.971,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Diamond Card Q",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.064,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Dice 1",
+   "dim": [
+    0.022,
+    0.022,
+    0.022
+   ],
+   "loc": [
+    -0.276,
+    2.815,
+    1.659
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Dice 2",
+   "dim": [
+    0.022,
+    0.022,
+    0.022
+   ],
+   "loc": [
+    -0.276,
+    2.868,
+    1.659
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Dice Shaker",
+   "dim": [
+    0.079,
+    0.079,
+    0.079
+   ],
+   "loc": [
+    -0.273,
+    2.84,
+    1.556
+   ],
+   "tris": 92,
+   "mats": [
+    "Atlas 1 Texture",
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Exit Signal",
+   "dim": [
+    0.101,
+    2.073,
+    1.564
+   ],
+   "loc": [
+    0.07,
+    -6.139,
+    4.158
+   ],
+   "tris": 176,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Fortune Roulette",
+   "dim": [
+    1.2,
+    4.433,
+    1.815
+   ],
+   "loc": [
+    -0.481,
+    -10.132,
+    2.686
+   ],
+   "tris": 374,
+   "mats": [
+    "Atlas 1 Texture",
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Glass 1",
+   "dim": [
+    0.094,
+    0.148,
+    0.094
+   ],
+   "loc": [
+    -0.115,
+    2.153,
+    1.44
+   ],
+   "tris": 130,
+   "mats": [
+    "Atlas 1 Texture",
+    "Transparent"
+   ]
+  },
+  {
+   "name": "Glass 2",
+   "dim": [
+    0.06,
+    0.057,
+    0.06
+   ],
+   "loc": [
+    -0.185,
+    2.021,
+    1.395
+   ],
+   "tris": 82,
+   "mats": [
+    "Atlas 1 Texture",
+    "Transparent"
+   ]
+  },
+  {
+   "name": "Green Token",
+   "dim": [
+    0.005,
+    0.059,
+    0.059
+   ],
+   "loc": [
+    -0.286,
+    2.751,
+    1.76
+   ],
+   "tris": 60,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 10",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.152,
+    1.891
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 2",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.429,
+    2.016
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 3",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.336,
+    2.016
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 4",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.242,
+    2.016
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 5",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.152,
+    2.016
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 6",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.521,
+    1.891
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 7",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.429,
+    1.891
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 8",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.336,
+    1.891
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card 9",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.242,
+    1.891
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card A",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.971,
+    1.891
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card J",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.064,
+    2.016
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card K",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.971,
+    2.016
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Heart Card Q",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.064,
+    1.891
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Joker Card",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    3.521,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Lamp",
+   "dim": [
+    1.307,
+    1.688,
+    1.307
+   ],
+   "loc": [
+    0.0,
+    -0.072,
+    3.812
+   ],
+   "tris": 200,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Lever",
+   "dim": [
+    0.286,
+    0.597,
+    0.133
+   ],
+   "loc": [
+    10.411,
+    -5.191,
+    63.665
+   ],
+   "tris": 70,
+   "mats": [
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Lighter 1",
+   "dim": [
+    0.019,
+    0.072,
+    0.049
+   ],
+   "loc": [
+    -0.244,
+    3.698,
+    1.591
+   ],
+   "tris": 20,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Lighter 2",
+   "dim": [
+    0.019,
+    0.061,
+    0.049
+   ],
+   "loc": [
+    -0.244,
+    3.575,
+    1.59
+   ],
+   "tris": 71,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Lighter head",
+   "dim": [
+    0.019,
+    0.049,
+    0.027
+   ],
+   "loc": [
+    -0.0,
+    -0.104,
+    -2.758
+   ],
+   "tris": 28,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Money",
+   "dim": [
+    0.001,
+    0.057,
+    0.126
+   ],
+   "loc": [
+    -0.171,
+    4.803,
+    1.65
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Money Roll",
+   "dim": [
+    0.067,
+    0.058,
+    0.067
+   ],
+   "loc": [
+    -0.187,
+    4.8,
+    1.734
+   ],
+   "tris": 44,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Poker Table",
+   "dim": [
+    2.8,
+    1.109,
+    2.8
+   ],
+   "loc": [
+    0.161,
+    -0.085,
+    0.393
+   ],
+   "tris": 276,
+   "mats": [
+    "Atlas 1 Texture",
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Poses glass",
+   "dim": [
+    0.101,
+    0.007,
+    0.076
+   ],
+   "loc": [
+    -0.0,
+    -3.634,
+    -0.0
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture",
+    "Transparent"
+   ]
+  },
+  {
+   "name": "Red Token",
+   "dim": [
+    0.005,
+    0.059,
+    0.059
+   ],
+   "loc": [
+    -0.286,
+    2.905,
+    1.76
+   ],
+   "tris": 60,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Roulette",
+   "dim": [
+    0.349,
+    3.454,
+    3.454
+   ],
+   "loc": [
+    6.213,
+    -31.798,
+    0.0
+   ],
+   "tris": 236,
+   "mats": [
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Roulette table",
+   "dim": [
+    2.925,
+    1.177,
+    6.29
+   ],
+   "loc": [
+    0.235,
+    -5.361,
+    0.65
+   ],
+   "tris": 1000,
+   "mats": [
+    "Atlas 1 Texture",
+    "Atlas 2 Texture"
+   ]
+  },
+  {
+   "name": "Safe",
+   "dim": [
+    0.817,
+    1.087,
+    0.8
+   ],
+   "loc": [
+    -0.312,
+    5.793,
+    0.543
+   ],
+   "tris": 96,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Safe Door",
+   "dim": [
+    0.107,
+    0.94,
+    0.689
+   ],
+   "loc": [
+    -9.641,
+    -0.019,
+    8.274
+   ],
+   "tris": 128,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Simple Box Cigarrate",
+   "dim": [
+    0.03,
+    0.128,
+    0.075
+   ],
+   "loc": [
+    -0.24,
+    3.547,
+    1.439
+   ],
+   "tris": 20,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Simple Briefcase ",
+   "dim": [
+    0.458,
+    0.098,
+    0.504
+   ],
+   "loc": [
+    -0.354,
+    4.788,
+    1.455
+   ],
+   "tris": 180,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Simple Safe",
+   "dim": [
+    0.914,
+    1.087,
+    0.8
+   ],
+   "loc": [
+    -0.427,
+    4.86,
+    0.582
+   ],
+   "tris": 436,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 10",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.355,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 2",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.633,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 3",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.54,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 4",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.446,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 5",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.355,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 6",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.725,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 7",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.633,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 8",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.54,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card 9",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.446,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card A",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.175,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card J",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.268,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card K",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.175,
+    2.322
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Spade Card Q",
+   "dim": [
+    0.001,
+    0.114,
+    0.076
+   ],
+   "loc": [
+    -0.283,
+    2.268,
+    2.197
+   ],
+   "tris": 12,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Stanchion 1",
+   "dim": [
+    0.515,
+    1.365,
+    0.515
+   ],
+   "loc": [
+    -3.652,
+    1.28,
+    0.644
+   ],
+   "tris": 144,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Stanchion 2",
+   "dim": [
+    0.515,
+    1.365,
+    2.157
+   ],
+   "loc": [
+    -3.652,
+    -0.352,
+    0.808
+   ],
+   "tris": 448,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Stanchion 3",
+   "dim": [
+    0.515,
+    1.365,
+    3.795
+   ],
+   "loc": [
+    -2.52,
+    -0.043,
+    0.838
+   ],
+   "tris": 752,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Support ",
+   "dim": [
+    0.09,
+    2.225,
+    0.292
+   ],
+   "loc": [
+    -0.0,
+    -0.009,
+    -51.133
+   ],
+   "tris": 136,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Tokens Plate",
+   "dim": [
+    0.293,
+    0.014,
+    0.736
+   ],
+   "loc": [
+    55.251,
+    79.728,
+    -0.678
+   ],
+   "tris": 20,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "TV Score",
+   "dim": [
+    0.845,
+    1.523,
+    1.001
+   ],
+   "loc": [
+    0.0,
+    2.762,
+    3.554
+   ],
+   "tris": 104,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Valve",
+   "dim": [
+    0.107,
+    0.329,
+    0.329
+   ],
+   "loc": [
+    -16.903,
+    -2.176,
+    -27.239
+   ],
+   "tris": 206,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Vip Signal",
+   "dim": [
+    0.097,
+    2.214,
+    1.111
+   ],
+   "loc": [
+    0.072,
+    -4.492,
+    4.183
+   ],
+   "tris": 94,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Vip Token",
+   "dim": [
+    0.005,
+    0.059,
+    0.059
+   ],
+   "loc": [
+    -0.286,
+    2.678,
+    1.76
+   ],
+   "tris": 60,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  },
+  {
+   "name": "Whisky",
+   "dim": [
+    0.078,
+    0.242,
+    0.078
+   ],
+   "loc": [
+    -0.189,
+    2.412,
+    1.493
+   ],
+   "tris": 52,
+   "mats": [
+    "Atlas 1 Texture"
+   ]
+  }
+ ]
+}

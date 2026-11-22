@@ -1,0 +1,17 @@
+[package]
+name = "solace-backrooms"
+version = "0.2.0"
+description = "SolaceBackrooms - the co-op Level 0 explorer"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

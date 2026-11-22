@@ -1,0 +1,12 @@
+# Runs the Solace backup daily at 03:30 (server local time). `Persistent=true`
+# means a missed run (server was off) fires once at the next boot.
+
+[Unit]
+Description=Daily Solace backup
+
+[Timer]
+OnCalendar=*-*-* 03:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

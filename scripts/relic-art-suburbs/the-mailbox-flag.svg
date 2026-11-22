@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 540" width="512" height="540">
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff6b55"/>
+      <stop offset="0.35" stop-color="#e5301f"/>
+      <stop offset="0.8" stop-color="#b01a10"/>
+      <stop offset="1" stop-color="#7e0f08"/>
+    </linearGradient>
+    <linearGradient id="redArm" x1="0" x2="1">
+      <stop offset="0" stop-color="#ff7a62"/>
+      <stop offset="0.45" stop-color="#d82a1a"/>
+      <stop offset="1" stop-color="#86120a"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2f4f6"/>
+      <stop offset="0.5" stop-color="#a9b0b8"/>
+      <stop offset="1" stop-color="#666c74"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.3" stop-color="#fff" stop-opacity="0.08"/>
+      <stop offset="0.31" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="rotate(9 250 300)">
+    <!-- thickness: the sheet metal's edge -->
+    <path d="M232 100 Q226 100 226 108 L226 196 L230 444 L256 444 L254 202 L392 202 Q400 202 400 194 L400 108 Q400 100 392 100 Z" fill="#5e0c06" transform="translate(4 5)"/>
+    <!-- the arm -->
+    <path d="M228 190 L254 190 L256 444 L230 444 Z" fill="url(#redArm)"/>
+    <path d="M234 196 L236 440" stroke="#ffb3a2" stroke-width="3" opacity="0.7"/>
+    <path d="M250 196 L252 440" stroke="#5e0c06" stroke-width="2" opacity="0.5"/>
+
+    <!-- the flag, pressed with a raised rim -->
+    <path d="M234 98 L392 98 Q402 98 402 108 L402 192 Q402 202 392 202 L234 202 Q224 202 224 192 L224 108 Q224 98 234 98 Z" fill="url(#red)"/>
+    <rect x="240" y="114" width="146" height="72" rx="6" fill="none" stroke="#ff9a86" stroke-width="3" opacity="0.8"/>
+    <rect x="243" y="117" width="146" height="72" rx="6" fill="none" stroke="#6e0e08" stroke-width="2.5" opacity="0.55"/>
+    <path d="M234 98 L392 98 Q402 98 402 108 L402 192 Q402 202 392 202 L234 202 Q224 202 224 192 L224 108 Q224 98 234 98 Z" fill="url(#sheen)"/>
+
+    <!-- paint chipped back to the steel -->
+    <path d="M384 103 L396 104 L398 116 L392 113 L388 108 Z" fill="url(#steel)" stroke="#5e0c06" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M227 160 L232 156 L236 163 L231 169 L227 167 Z" fill="url(#steel)" stroke="#5e0c06" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M304 197 L311 194 L316 199 L309 201 Z" fill="url(#steel)" stroke="#5e0c06" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M240 322 L246 320 L248 328 L243 331 Z" fill="url(#steel)" stroke="#5e0c06" stroke-width="1.6" stroke-linejoin="round"/>
+    <!-- a little weather -->
+    <circle cx="356" cy="178" r="5" fill="#8a3a14" opacity="0.7"/>
+    <circle cx="362" cy="184" r="3" fill="#a5521e" opacity="0.6"/>
+    <circle cx="244" cy="400" r="4" fill="#8a3a14" opacity="0.6"/>
+    <circle cx="270" cy="128" r="2.6" fill="#ffffff" opacity="0.7"/>
+
+    <!-- the pivot boss, snapped off -->
+    <path d="M216 452 A26 26 0 0 1 266 446 L262 458 L256 454 L252 466 L244 460 L240 474 L232 466 L226 474 L222 462 Z" fill="url(#redArm)"/>
+    <path d="M262 458 L256 454 L252 466 L244 460 L240 474 L232 466 L226 474 L222 462" fill="none" stroke="url(#steel)" stroke-width="4" stroke-linejoin="miter"/>
+    <circle cx="241" cy="450" r="9" fill="#2a0806"/>
+    <circle cx="241" cy="450" r="9" fill="none" stroke="#c9ced4" stroke-width="2.4"/>
+    <path d="M222 440 A22 22 0 0 1 248 428" stroke="#ffb3a2" stroke-width="3" fill="none" opacity="0.8" stroke-linecap="round"/>
+  </g>
+</svg>

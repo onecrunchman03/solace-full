@@ -1,0 +1,56 @@
+{
+ "file": "vegas/stanchion-sign-stand.glb",
+ "id": "stanchion-sign-stand",
+ "what": "gold post with a framed sign card (retexture the card)",
+ "size": [
+  0.365,
+  1.308,
+  0.254
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 648,
+ "drawCalls": 1,
+ "bytes": 575880,
+ "materials": [
+  {
+   "name": "mGrandEntrance",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base",
+    "normal",
+    "orm"
+   ]
+  }
+ ],
+ "credit": {
+  "title": "Grand entrance, a pole with a sign. Gold, velour",
+  "author": "Rylae Shylna",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/grand-entrance-a-pole-with-a-sign-gold-velour-7bb310edac154c5b9ee9c3d6e41f13e2"
+ },
+ "sourceScale": 1,
+ "objects": [
+  {
+   "name": "stanchion-sign-stand_0",
+   "dim": [
+    0.365,
+    1.308,
+    0.254
+   ],
+   "loc": [
+    0,
+    0.654,
+    0
+   ],
+   "tris": 648,
+   "mats": [
+    "mGrandEntrance"
+   ]
+  }
+ ]
+}

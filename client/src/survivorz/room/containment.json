@@ -1,0 +1,3304 @@
+{
+  "about": "SPECIMEN CONTAINMENT (docs/survivorz/ASSETS.md step D, zone 7). Written by scripts/survivorz/layout-containment.mjs (edit that, not this); read by scripts/survivorz/room-build.py --set containment and client/src/survivorz/room/lobby.ts.",
+  "rooms": [
+    "containment-stairs",
+    "observation",
+    "specimen-cells",
+    "sample-storage",
+    "cryo-hall",
+    "cryo-pod"
+  ],
+  "roomRects": {
+    "containment-stairs": {
+      "x": 100,
+      "z": 60,
+      "w": 6,
+      "h": 10,
+      "zone": "containment"
+    },
+    "observation": {
+      "x": 84,
+      "z": 60,
+      "w": 16,
+      "h": 10,
+      "zone": "containment"
+    },
+    "specimen-cells": {
+      "x": 84,
+      "z": 70,
+      "w": 16,
+      "h": 12,
+      "zone": "containment"
+    },
+    "sample-storage": {
+      "x": 84,
+      "z": 82,
+      "w": 12,
+      "h": 8,
+      "zone": "containment"
+    },
+    "cryo-hall": {
+      "x": 66,
+      "z": 58,
+      "w": 18,
+      "h": 18,
+      "zone": "containment"
+    },
+    "cryo-pod": {
+      "x": 60,
+      "z": 64,
+      "w": 6,
+      "h": 6,
+      "zone": "containment"
+    }
+  },
+  "styles": {
+    "containment-stairs": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "observation": {
+      "floor": "carpet-tile",
+      "ceiling": "office-ceiling",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          1.1,
+          "panel-dark"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "specimen-cells": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          1.2,
+          "stainless"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "sample-storage": {
+      "floor": "lab-floor",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "cryo-hall": {
+      "floor": "diamond-plate",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.6,
+          "steel-plate"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "cryo-pod": {
+      "floor": "steel-plate",
+      "ceiling": "slab",
+      "bands": [
+        [
+          99,
+          "steel-plate"
+        ]
+      ]
+    }
+  },
+  "skins": {},
+  "arch": [
+    {
+      "what": "containment stair landing",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -0.3,
+        68.4,
+        106,
+        0,
+        70
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -0.5,
+        68.055,
+        103,
+        -0.2,
+        68.4
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -0.7,
+        67.71,
+        103,
+        -0.4,
+        68.055
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -0.9,
+        67.365,
+        103,
+        -0.6,
+        67.71
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -1.1,
+        67.02,
+        103,
+        -0.8,
+        67.365
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -1.3,
+        66.675,
+        103,
+        -1,
+        67.02
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -1.5,
+        66.33,
+        103,
+        -1.2,
+        66.675
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -1.7,
+        65.985,
+        103,
+        -1.4,
+        66.33
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -1.9,
+        65.64,
+        103,
+        -1.6,
+        65.985
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -2.1,
+        65.295,
+        103,
+        -1.8,
+        65.64
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -2.3,
+        64.95,
+        103,
+        -2,
+        65.295
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -2.5,
+        64.605,
+        103,
+        -2.2,
+        64.95
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -2.7,
+        64.26,
+        103,
+        -2.4,
+        64.605
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -2.9,
+        63.915,
+        103,
+        -2.6,
+        64.26
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -3.1,
+        63.57,
+        103,
+        -2.8,
+        63.915
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -3.3,
+        63.225,
+        103,
+        -3,
+        63.57
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -3.5,
+        62.88,
+        103,
+        -3.2,
+        63.225
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -3.7,
+        62.535,
+        103,
+        -3.4,
+        62.88
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -3.9,
+        62.19,
+        103,
+        -3.6,
+        62.535
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -4.1,
+        61.845,
+        103,
+        -3.8,
+        62.19
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -4.3,
+        61.5,
+        103,
+        -4,
+        61.845
+      ]
+    },
+    {
+      "what": "containment stair landing",
+      "key": "steel-plate",
+      "box": [
+        100,
+        -4.3,
+        60,
+        106,
+        -4,
+        61.5
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -4.5,
+        61.5,
+        106,
+        -4.2,
+        61.845
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -4.7,
+        61.845,
+        106,
+        -4.4,
+        62.19
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -4.9,
+        62.19,
+        106,
+        -4.6,
+        62.535
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -5.1,
+        62.535,
+        106,
+        -4.8,
+        62.88
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -5.3,
+        62.88,
+        106,
+        -5,
+        63.225
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -5.5,
+        63.225,
+        106,
+        -5.2,
+        63.57
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -5.7,
+        63.57,
+        106,
+        -5.4,
+        63.915
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -5.9,
+        63.915,
+        106,
+        -5.6,
+        64.26
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -6.1,
+        64.26,
+        106,
+        -5.8,
+        64.605
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -6.3,
+        64.605,
+        106,
+        -6,
+        64.95
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -6.5,
+        64.95,
+        106,
+        -6.2,
+        65.295
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -6.7,
+        65.295,
+        106,
+        -6.4,
+        65.64
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -6.9,
+        65.64,
+        106,
+        -6.6,
+        65.985
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -7.1,
+        65.985,
+        106,
+        -6.8,
+        66.33
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -7.3,
+        66.33,
+        106,
+        -7,
+        66.675
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -7.5,
+        66.675,
+        106,
+        -7.2,
+        67.02
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -7.7,
+        67.02,
+        106,
+        -7.4,
+        67.365
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -7.9,
+        67.365,
+        106,
+        -7.6,
+        67.71
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -8.1,
+        67.71,
+        106,
+        -7.8,
+        68.055
+      ]
+    },
+    {
+      "what": "containment stair stairs",
+      "key": "steel-plate",
+      "box": [
+        103,
+        -8.3,
+        68.055,
+        106,
+        -8,
+        68.4
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "steel-plate",
+      "box": [
+        103,
+        0,
+        68.35,
+        106,
+        1,
+        68.45
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        61.5,
+        103.05,
+        -2.8,
+        61.845
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        61.845,
+        103.05,
+        -2.6,
+        62.19
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        62.19,
+        103.05,
+        -2.4,
+        62.535
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        62.535,
+        103.05,
+        -2.2,
+        62.88
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        62.88,
+        103.05,
+        -2,
+        63.225
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        63.225,
+        103.05,
+        -1.8,
+        63.57
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        63.57,
+        103.05,
+        -1.6,
+        63.915
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        63.915,
+        103.05,
+        -1.4,
+        64.26
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        64.26,
+        103.05,
+        -1.2,
+        64.605
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        64.605,
+        103.05,
+        -1,
+        64.95
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        64.95,
+        103.05,
+        -0.8,
+        65.295
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        65.295,
+        103.05,
+        -0.6,
+        65.64
+      ]
+    },
+    {
+      "what": "containment stair wall",
+      "key": "painted-wall",
+      "box": [
+        102.95,
+        -8,
+        65.64,
+        103.05,
+        -0.4,
+        65.985
+      ]
+    },
+    {
+      "what": "observation window west pane",
+      "glass": [
+        84.34,
+        -7.05,
+        69.988,
+        90.56,
+        -5.3,
+        70.012
+      ]
+    },
+    {
+      "what": "observation window west frame",
+      "key": "steel",
+      "box": [
+        84.3,
+        -7.109999999999999,
+        69.89,
+        90.6,
+        -7.05,
+        70.11
+      ]
+    },
+    {
+      "what": "observation window west frame",
+      "key": "steel",
+      "box": [
+        84.3,
+        -5.3,
+        69.89,
+        90.6,
+        -5.24,
+        70.11
+      ]
+    },
+    {
+      "what": "observation window west frame",
+      "key": "steel",
+      "box": [
+        84.26,
+        -7.05,
+        69.89,
+        84.34,
+        -5.3,
+        70.11
+      ]
+    },
+    {
+      "what": "observation window west frame",
+      "key": "steel",
+      "box": [
+        90.56,
+        -7.05,
+        69.89,
+        90.64,
+        -5.3,
+        70.11
+      ]
+    },
+    {
+      "what": "observation window east pane",
+      "glass": [
+        93.44,
+        -7.05,
+        69.988,
+        99.66,
+        -5.3,
+        70.012
+      ]
+    },
+    {
+      "what": "observation window east frame",
+      "key": "steel",
+      "box": [
+        93.4,
+        -7.109999999999999,
+        69.89,
+        99.7,
+        -7.05,
+        70.11
+      ]
+    },
+    {
+      "what": "observation window east frame",
+      "key": "steel",
+      "box": [
+        93.4,
+        -5.3,
+        69.89,
+        99.7,
+        -5.24,
+        70.11
+      ]
+    },
+    {
+      "what": "observation window east frame",
+      "key": "steel",
+      "box": [
+        93.36,
+        -7.05,
+        69.89,
+        93.44,
+        -5.3,
+        70.11
+      ]
+    },
+    {
+      "what": "observation window east frame",
+      "key": "steel",
+      "box": [
+        99.66,
+        -7.05,
+        69.89,
+        99.74,
+        -5.3,
+        70.11
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "lab-wall",
+      "box": [
+        87.1,
+        -8,
+        77,
+        87.2,
+        -3.5,
+        81.9
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "lab-wall",
+      "box": [
+        89.35,
+        -8,
+        77,
+        89.45,
+        -3.5,
+        81.9
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "lab-wall",
+      "box": [
+        90.55,
+        -8,
+        77,
+        90.65,
+        -3.5,
+        81.9
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "lab-wall",
+      "box": [
+        93.55,
+        -8,
+        77,
+        93.65,
+        -3.5,
+        81.9
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "lab-wall",
+      "box": [
+        96.55,
+        -8,
+        77,
+        96.65,
+        -3.5,
+        81.9
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "lab-wall",
+      "box": [
+        99.55,
+        -8,
+        77,
+        99.65,
+        -3.5,
+        81.9
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "lab-wall",
+      "box": [
+        99.6,
+        -8,
+        76.87,
+        99.9,
+        -3.5,
+        81.9
+      ]
+    },
+    {
+      "what": "store alcove front",
+      "key": "lab-wall",
+      "box": [
+        87.15,
+        -5.4,
+        76.87,
+        89.4,
+        -3.5,
+        77.13
+      ]
+    }
+  ],
+  "cutouts": [
+    {
+      "axis": "z",
+      "c": 70,
+      "a0": 84.3,
+      "a1": 90.6,
+      "y0": -7.05,
+      "y1": -5.3
+    },
+    {
+      "axis": "z",
+      "c": 70,
+      "a0": 93.4,
+      "a1": 99.7,
+      "y0": -7.05,
+      "y1": -5.3
+    }
+  ],
+  "props": [
+    {
+      "id": "control-console",
+      "at": [
+        87.4,
+        -8,
+        69.35
+      ],
+      "yaw": 180,
+      "room": "observation"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        86.388,
+        -8,
+        68.236
+      ],
+      "yaw": -6.122,
+      "room": "observation"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        88.366,
+        -8,
+        68.386
+      ],
+      "yaw": 10.338,
+      "room": "observation"
+    },
+    {
+      "id": "control-console",
+      "at": [
+        96.6,
+        -8,
+        69.35
+      ],
+      "yaw": 180,
+      "room": "observation"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        95.803,
+        -8,
+        68.244
+      ],
+      "yaw": -8.063,
+      "room": "observation"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        97.414,
+        -8,
+        68.378
+      ],
+      "yaw": -9.344,
+      "room": "observation"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        92,
+        -8,
+        60.574
+      ],
+      "yaw": 0,
+      "room": "observation"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        91.7,
+        -7.213,
+        60.324
+      ],
+      "yaw": 0,
+      "room": "observation",
+      "note": "the observation-terminal"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        92.35,
+        -7.213,
+        60.324
+      ],
+      "yaw": -15,
+      "room": "observation"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        92.6,
+        -7.213,
+        60.724
+      ],
+      "yaw": 20,
+      "room": "observation"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        91.3,
+        -7.213,
+        60.674
+      ],
+      "yaw": 0,
+      "room": "observation"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        92,
+        -8,
+        61.9
+      ],
+      "yaw": 170.804,
+      "room": "observation"
+    },
+    {
+      "id": "coat-stand",
+      "at": [
+        84.449,
+        -8,
+        61
+      ],
+      "yaw": 90,
+      "room": "observation"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        85,
+        -8,
+        60.468
+      ],
+      "yaw": 0,
+      "room": "observation"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        85.4,
+        -8,
+        60.468
+      ],
+      "yaw": 0,
+      "room": "observation"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        98.6,
+        -8,
+        60.468
+      ],
+      "yaw": 0,
+      "room": "observation"
+    },
+    {
+      "id": "whiteboard",
+      "at": [
+        95.6,
+        -7.1,
+        60.144
+      ],
+      "yaw": 0,
+      "room": "observation"
+    },
+    {
+      "id": "clipboard-pen",
+      "at": [
+        89.6,
+        -8,
+        66.4
+      ],
+      "yaw": 40,
+      "room": "observation"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        94.2,
+        -8,
+        64.8
+      ],
+      "yaw": 120,
+      "room": "observation"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        90.3,
+        -8,
+        67.6
+      ],
+      "yaw": 0,
+      "room": "observation",
+      "rot": [
+        90,
+        30,
+        0
+      ]
+    },
+    {
+      "id": "cell-front",
+      "at": [
+        85.6,
+        -8,
+        77
+      ],
+      "yaw": 180,
+      "room": "specimen-cells",
+      "note": "specimen cell 1, sealed"
+    },
+    {
+      "id": "restraint-bed",
+      "at": [
+        86.2,
+        -8,
+        80.7
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "security-camera",
+      "at": [
+        84.4,
+        -4.4,
+        81.7
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "cell-front",
+      "at": [
+        92.1,
+        -8,
+        77
+      ],
+      "yaw": 180,
+      "room": "specimen-cells",
+      "note": "specimen cell 2, sealed"
+    },
+    {
+      "id": "restraint-bed",
+      "at": [
+        92.7,
+        -8,
+        80.7
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "security-camera",
+      "at": [
+        90.9,
+        -4.4,
+        81.7
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "cell-front",
+      "at": [
+        95.1,
+        -8,
+        77
+      ],
+      "yaw": 180,
+      "room": "specimen-cells",
+      "note": "specimen cell 3, sealed"
+    },
+    {
+      "id": "restraint-bed",
+      "at": [
+        95.7,
+        -8,
+        80.7
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "security-camera",
+      "at": [
+        93.9,
+        -4.4,
+        81.7
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "cell-front",
+      "at": [
+        98.1,
+        -8,
+        77
+      ],
+      "yaw": 180,
+      "room": "specimen-cells",
+      "note": "specimen cell 4, sealed"
+    },
+    {
+      "id": "restraint-bed",
+      "at": [
+        98.7,
+        -8,
+        80.7
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "security-camera",
+      "at": [
+        96.9,
+        -4.4,
+        81.7
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        88.3,
+        -8,
+        81.6
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "biohazard-bin",
+      "at": [
+        88,
+        -8,
+        78.4
+      ],
+      "yaw": 0,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "glove-dispenser",
+      "at": [
+        88.3,
+        -6.7,
+        81.82
+      ],
+      "yaw": 180,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        84.6,
+        -8,
+        74.2
+      ],
+      "yaw": 90,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "hazmat-suit-hung",
+      "at": [
+        84.6,
+        -8,
+        72.6
+      ],
+      "yaw": 90,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        86.5,
+        -4.5,
+        74.8
+      ],
+      "yaw": 0,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        91,
+        -4.5,
+        74.8
+      ],
+      "yaw": 0,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "air-hose",
+      "at": [
+        96.5,
+        -4.5,
+        74.8
+      ],
+      "yaw": 0,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "sharps-bin",
+      "at": [
+        99.3,
+        -8,
+        71.2
+      ],
+      "yaw": -90,
+      "room": "specimen-cells"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        85.05,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        85.97,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        86.89,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        87.81,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        88.73,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        89.65,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        90.57,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        91.49,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        92.41,
+        -8,
+        89.44
+      ],
+      "yaw": 180,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        84.56,
+        -8,
+        84
+      ],
+      "yaw": 90,
+      "room": "sample-storage"
+    },
+    {
+      "id": "freezer-80",
+      "at": [
+        84.56,
+        -8,
+        85
+      ],
+      "yaw": 90,
+      "room": "sample-storage"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        95.63,
+        -8,
+        87
+      ],
+      "yaw": -90,
+      "room": "sample-storage"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        95.63,
+        -8,
+        88.2
+      ],
+      "yaw": -90,
+      "room": "sample-storage"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        95.623,
+        -8,
+        85
+      ],
+      "yaw": -90,
+      "room": "sample-storage"
+    },
+    {
+      "id": "cold-case",
+      "at": [
+        95.623,
+        -7.02,
+        84.946
+      ],
+      "yaw": -90,
+      "room": "sample-storage"
+    },
+    {
+      "id": "cold-case",
+      "at": [
+        91,
+        -8,
+        86.5
+      ],
+      "yaw": 30,
+      "room": "sample-storage"
+    },
+    {
+      "id": "test-tubes",
+      "at": [
+        91.4,
+        -8,
+        86.9
+      ],
+      "yaw": 70,
+      "room": "sample-storage"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        68.4,
+        -8,
+        59
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 1"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        70.6,
+        -8,
+        59
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 2"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        72.8,
+        -8,
+        59
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 3"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        75,
+        -8,
+        59
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 4"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        77.2,
+        -8,
+        59
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 5"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        79.4,
+        -8,
+        59
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 6"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        70,
+        -8,
+        66.3
+      ],
+      "yaw": 180,
+      "room": "cryo-hall",
+      "note": "dewar 8"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        72.2,
+        -8,
+        66.3
+      ],
+      "yaw": 180,
+      "room": "cryo-hall",
+      "note": "dewar 9"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        78,
+        -8,
+        66.3
+      ],
+      "yaw": 180,
+      "room": "cryo-hall",
+      "note": "dewar 10"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        80.2,
+        -8,
+        66.3
+      ],
+      "yaw": 180,
+      "room": "cryo-hall",
+      "note": "dewar 11"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        70,
+        -8,
+        69.6
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 12"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        72.2,
+        -8,
+        69.6
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 13"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        78,
+        -8,
+        69.6
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 14"
+    },
+    {
+      "id": "cryo-dewar",
+      "at": [
+        80.2,
+        -8,
+        69.6
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "dewar 15"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        83.67,
+        -8,
+        60.6
+      ],
+      "yaw": -90,
+      "room": "cryo-hall"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        83.67,
+        -8,
+        70.6
+      ],
+      "yaw": -90,
+      "room": "cryo-hall"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        83.63,
+        -8,
+        73.6
+      ],
+      "yaw": -90,
+      "room": "cryo-hall"
+    },
+    {
+      "id": "ln2-dewar",
+      "at": [
+        83.63,
+        -8,
+        74.6
+      ],
+      "yaw": -90,
+      "room": "cryo-hall"
+    },
+    {
+      "id": "control-console",
+      "at": [
+        75.1,
+        -8,
+        67.9
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "note": "the cryo-terminal"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        75.1,
+        -8,
+        69.2
+      ],
+      "yaw": 180,
+      "room": "cryo-hall",
+      "rot": [
+        86,
+        200,
+        0
+      ]
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        75,
+        -2.8,
+        62
+      ],
+      "yaw": 90,
+      "room": "cryo-hall"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        75,
+        -2.8,
+        66
+      ],
+      "yaw": 90,
+      "room": "cryo-hall"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        75,
+        -2.8,
+        70
+      ],
+      "yaw": 90,
+      "room": "cryo-hall"
+    },
+    {
+      "id": "ladder",
+      "at": [
+        68.4,
+        -8,
+        60.3
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "rot": [
+        -14,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ladder",
+      "at": [
+        80.2,
+        -8,
+        70.8
+      ],
+      "yaw": 180,
+      "room": "cryo-hall",
+      "rot": [
+        -14,
+        180,
+        0
+      ]
+    },
+    {
+      "id": "stasis-chamber",
+      "at": [
+        62.6,
+        -8,
+        67
+      ],
+      "yaw": 90,
+      "room": "cryo-pod",
+      "note": "Cryo Pod 7"
+    }
+  ],
+  "fixtures": [
+    {
+      "kind": "caged",
+      "at": [
+        103,
+        2.8,
+        65
+      ],
+      "yaw": 0,
+      "room": "containment-stairs",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        103,
+        -4.5,
+        60.75
+      ],
+      "yaw": 0,
+      "room": "containment-stairs",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        105.9,
+        -5.6,
+        62
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "containment-stairs",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        100.1,
+        2.3,
+        68
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "containment-stairs",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        87,
+        -3.5,
+        63.5
+      ],
+      "room": "observation",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        97,
+        -3.5,
+        63.5
+      ],
+      "room": "observation",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        92,
+        -3.5,
+        62.5
+      ],
+      "room": "observation",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        92,
+        -4.4,
+        60.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "observation",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        85.6,
+        -3.5,
+        79.6
+      ],
+      "room": "specimen-cells",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        92.1,
+        -3.5,
+        79.6
+      ],
+      "room": "specimen-cells",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        95.1,
+        -3.5,
+        79.6
+      ],
+      "room": "specimen-cells",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        98.1,
+        -3.5,
+        79.6
+      ],
+      "room": "specimen-cells",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        86,
+        -3.5,
+        73.5
+      ],
+      "room": "specimen-cells",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        90,
+        -3.5,
+        73.5
+      ],
+      "room": "specimen-cells",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        94,
+        -3.5,
+        73.5
+      ],
+      "room": "specimen-cells",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        98,
+        -3.5,
+        73.5
+      ],
+      "room": "specimen-cells",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        84.1,
+        -4.6,
+        73.5
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "specimen-cells",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        99.9,
+        -4.6,
+        73.5
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "specimen-cells",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        87,
+        -4.8,
+        85
+      ],
+      "room": "sample-storage",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        93,
+        -4.8,
+        85
+      ],
+      "room": "sample-storage",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        90,
+        -4.8,
+        88
+      ],
+      "room": "sample-storage",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        95.9,
+        -5.4,
+        84
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "sample-storage",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        69.5,
+        -2.2,
+        61.5
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        69.5,
+        -2.2,
+        67
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        69.5,
+        -2.2,
+        72.5
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        74.5,
+        -2.2,
+        61.5
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        74.5,
+        -2.2,
+        67
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        74.5,
+        -2.2,
+        72.5
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        79.5,
+        -2.2,
+        61.5
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        79.5,
+        -2.2,
+        67
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        79.5,
+        -2.2,
+        72.5
+      ],
+      "yaw": 0,
+      "room": "cryo-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        66.1,
+        -4.6,
+        61
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "cryo-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        83.9,
+        -4.6,
+        71
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "cryo-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        74,
+        -4.6,
+        75.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "cryo-hall",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        63,
+        -5,
+        67
+      ],
+      "room": "cryo-pod",
+      "bank": 0,
+      "circuit": "battery",
+      "style": "failing"
+    }
+  ],
+  "decals": [
+    {
+      "tex": "plate-containment-stairs",
+      "at": [
+        104.4,
+        1.6,
+        69.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-observation",
+      "at": [
+        100.1,
+        -6.4,
+        66.4
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-lockdown",
+      "at": [
+        94,
+        -6.45,
+        69.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.42,
+        0.29
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "pressure-75",
+      "at": [
+        89.9,
+        -6,
+        69.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.15,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-specimen-cells",
+      "at": [
+        94,
+        -5.9,
+        69.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-cryo-hall",
+      "at": [
+        84.1,
+        -6.4,
+        66.4
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "cell-1",
+      "at": [
+        84.81,
+        -5.5,
+        76.872
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        85.6,
+        -7.996,
+        79.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.6,
+        0.6
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "cell-2",
+      "at": [
+        91.31,
+        -5.5,
+        76.872
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        92.1,
+        -7.996,
+        79.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.6,
+        0.6
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "cell-3",
+      "at": [
+        94.31,
+        -5.5,
+        76.872
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        95.1,
+        -7.996,
+        79.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.6,
+        0.6
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "cell-4",
+      "at": [
+        97.31,
+        -5.5,
+        76.872
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        98.1,
+        -7.996,
+        79.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.6,
+        0.6
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "smear",
+      "at": [
+        92.9,
+        -6.7,
+        77.03
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.5,
+        0.8
+      ],
+      "rot": 15
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        92,
+        -7.997,
+        76.4
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        15.6,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        15,
+        1
+      ]
+    },
+    {
+      "tex": "plate-sample-storage",
+      "at": [
+        89.3,
+        -6.4,
+        81.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        91,
+        -7.996,
+        73.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 270
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        88,
+        -7.996,
+        88.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        0.9
+      ],
+      "rot": 40
+    },
+    {
+      "tex": "dewar-1",
+      "at": [
+        68.4,
+        -7.15,
+        59.811
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-2",
+      "at": [
+        70.6,
+        -7.15,
+        59.811
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-3",
+      "at": [
+        72.8,
+        -7.15,
+        59.811
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-4",
+      "at": [
+        75,
+        -7.15,
+        59.811
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-5",
+      "at": [
+        77.2,
+        -7.15,
+        59.811
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-6",
+      "at": [
+        79.4,
+        -7.15,
+        59.811
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-8",
+      "at": [
+        70,
+        -7.15,
+        65.489
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-9",
+      "at": [
+        72.2,
+        -7.15,
+        65.489
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-10",
+      "at": [
+        78,
+        -7.15,
+        65.489
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-11",
+      "at": [
+        80.2,
+        -7.15,
+        65.489
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-12",
+      "at": [
+        70,
+        -7.15,
+        70.411
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-13",
+      "at": [
+        72.2,
+        -7.15,
+        70.411
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-14",
+      "at": [
+        78,
+        -7.15,
+        70.411
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "dewar-15",
+      "at": [
+        80.2,
+        -7.15,
+        70.411
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.4,
+        0.2
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-cryo-pod",
+      "at": [
+        66.1,
+        -6.4,
+        68.3
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-lockdown",
+      "at": [
+        66.1,
+        -6.5,
+        65.6
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.42,
+        0.29
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        74,
+        -7.997,
+        74.9
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        3,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        3,
+        1
+      ]
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        74.95,
+        -7.997,
+        66
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.1,
+        15
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        73.05,
+        -7.997,
+        66
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.1,
+        15
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        74,
+        -7.997,
+        61.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        13,
+        0.1
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        74,
+        -7.997,
+        63.4
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        13,
+        0.1
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        71,
+        -7.996,
+        63.5
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 20
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        75,
+        -7.996,
+        73
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 90
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        63.4,
+        -7.996,
+        67
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.6,
+        1.6
+      ],
+      "rot": 0
+    }
+  ],
+  "cast": [],
+  "shots": {
+    "stairs": {
+      "at": [
+        104.6,
+        -6.35,
+        69.5
+      ],
+      "look": [
+        101.5,
+        -4.4,
+        61.5
+      ],
+      "label": "The containment stairs, up to the half landing"
+    },
+    "observation": {
+      "at": [
+        98.5,
+        -6.35,
+        60.8
+      ],
+      "look": [
+        88,
+        -6.6,
+        70
+      ],
+      "label": "The observation deck"
+    },
+    "glass": {
+      "at": [
+        92,
+        -6.35,
+        68.2
+      ],
+      "look": [
+        92,
+        -6.7,
+        80
+      ],
+      "label": "Through the glass"
+    },
+    "cells": {
+      "at": [
+        84.6,
+        -6.35,
+        71.2
+      ],
+      "look": [
+        96,
+        -6.8,
+        78
+      ],
+      "label": "The specimen cells"
+    },
+    "cell": {
+      "at": [
+        94.2,
+        -6.35,
+        73.4
+      ],
+      "look": [
+        95.4,
+        -7.3,
+        81.5
+      ],
+      "label": "Cell 3"
+    },
+    "storage": {
+      "at": [
+        90,
+        -6.35,
+        82.6
+      ],
+      "look": [
+        90,
+        -7.1,
+        89.5
+      ],
+      "label": "Sample storage"
+    },
+    "cryo": {
+      "at": [
+        83,
+        -6.2,
+        65
+      ],
+      "look": [
+        68,
+        -6.8,
+        66
+      ],
+      "label": "The cryo hall"
+    },
+    "dewars": {
+      "at": [
+        74,
+        -6.35,
+        75
+      ],
+      "look": [
+        72,
+        -6.8,
+        59
+      ],
+      "label": "The dewars"
+    },
+    "pod": {
+      "at": [
+        65.5,
+        -6.35,
+        69.4
+      ],
+      "look": [
+        61.5,
+        -7,
+        66
+      ],
+      "label": "Cryo Pod 7"
+    }
+  },
+  "tint": {
+    "carpet-tile": [
+      0.5,
+      0.52,
+      0.56
+    ]
+  },
+  "kit": {
+    "copies": []
+  },
+  "catcher": {
+    "at": [
+      84,
+      72
+    ],
+    "size": [
+      52,
+      36
+    ]
+  },
+  "shadowSpots": [],
+  "puddles": []
+}

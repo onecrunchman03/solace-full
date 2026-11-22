@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" width="560" height="420">
+  <defs>
+    <!-- coir: short stiff fibres, dark between, pale on the tips -->
+    <filter id="coir" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7 1.1" numOctaves="3" seed="4" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.22  0 0 0 0 0.12  0 0 0 0 0.04  2.2 0 0 0 -0.95" result="dark"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.3 0.5" numOctaves="2" seed="9" result="m"/>
+      <feColorMatrix in="m" type="matrix" values="0 0 0 0 0.96  0 0 0 0 0.84  0 0 0 0 0.6  0 2.4 0 0 -1.25" result="light"/>
+      <feMerge result="fib"><feMergeNode in="dark"/><feMergeNode in="light"/></feMerge>
+      <feComposite in="fib" in2="SourceGraphic" operator="in" result="tex"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="tex"/></feMerge>
+    </filter>
+    <radialGradient id="wear" cx="200" cy="128" r="120" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 128) scale(1.15 0.75) translate(-200 -128)">
+      <stop offset="0" stop-color="#ead0a0" stop-opacity="0.85"/>
+      <stop offset="0.55" stop-color="#e0bf88" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#d9b47a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="fadeMask" cx="200" cy="128" r="110" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 128) scale(1.2 0.7) translate(-200 -128)">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="0.35" stop-color="#333"/>
+      <stop offset="0.8" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff"/>
+    </radialGradient>
+    <mask id="worn" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="256">
+      <rect width="400" height="256" fill="url(#fadeMask)"/>
+    </mask>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff2d6" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#fff2d6" stop-opacity="0"/>
+      <stop offset="1" stop-color="#2a1606" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(150 70) rotate(-7) skewX(-24) scale(1 0.72)">
+    <!-- the mat's thickness -->
+    <rect x="0" y="22" width="400" height="256" rx="10" fill="#5e3a18"/>
+    <rect x="0" y="12" width="400" height="256" rx="10" fill="#7e5226"/>
+    <!-- the face -->
+    <rect x="0" y="0" width="400" height="256" rx="10" fill="#c48d4c" filter="url(#coir)"/>
+    <!-- a darker woven border -->
+    <rect x="16" y="16" width="368" height="224" rx="6" fill="none" stroke="#7a4a1e" stroke-width="12" filter="url(#coir)"/>
+    <!-- worn thin in the middle by feet going in -->
+    <rect x="0" y="0" width="400" height="256" rx="10" fill="url(#wear)"/>
+    <!-- WELCOME, rubbed away where the wear is -->
+    <g mask="url(#worn)">
+      <text x="200" y="150" text-anchor="middle" font-family="Arial Black, Arial" font-weight="900" font-size="60" letter-spacing="3" fill="#4a2810" filter="url(#coir)">WELCOME</text>
+    </g>
+    <rect x="0" y="0" width="400" height="256" rx="10" fill="url(#light)"/>
+    <rect x="0" y="0" width="400" height="256" rx="10" fill="none" stroke="#e6bf86" stroke-width="2.5" stroke-opacity="0.7"/>
+  </g>
+</svg>

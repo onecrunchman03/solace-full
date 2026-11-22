@@ -1,0 +1,5443 @@
+{
+ "id": "glenridge",
+ "name": "Glenridge Hall",
+ "note": "Written by scripts/survivorz/glenridge/build.py. Metres; x east, y up, z south. A room is a rect turned by its block: `corners` are its four floor corners.",
+ "levels": {
+  "-1": -3.0,
+  "0": 0.0,
+  "1": 3.4
+ },
+ "rooms": [
+  {
+   "id": "great-hall",
+   "name": "Great Hall",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": -0.36,
+   "height": 10.0,
+   "corners": [
+    [
+     -6.85,
+     -0.36,
+     -3.0
+    ],
+    [
+     6.85,
+     -0.36,
+     -3.0
+    ],
+    [
+     6.85,
+     -0.36,
+     -12.1
+    ],
+    [
+     -6.85,
+     -0.36,
+     -12.1
+    ]
+   ],
+   "centre": [
+    0.0,
+    -0.36,
+    -7.55
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "inglenook",
+   "name": "Inglenook",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": -0.36,
+   "height": 3.2,
+   "corners": [
+    [
+     -2.3,
+     -0.36,
+     -12.1
+    ],
+    [
+     2.3,
+     -0.36,
+     -12.1
+    ],
+    [
+     2.3,
+     -0.36,
+     -14.3
+    ],
+    [
+     -2.3,
+     -0.36,
+     -14.3
+    ]
+   ],
+   "centre": [
+    0.0,
+    -0.36,
+    -13.2
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "gallery-w",
+   "name": "Long Gallery (west end)",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -15.5,
+     0.0,
+     -0.0
+    ],
+    [
+     -7.75,
+     0.0,
+     -0.0
+    ],
+    [
+     -7.75,
+     0.0,
+     -3.0
+    ],
+    [
+     -15.5,
+     0.0,
+     -3.0
+    ]
+   ],
+   "centre": [
+    -11.625,
+    0.0,
+    -1.5
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "gallery",
+   "name": "Long Gallery",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -7.75,
+     0.0,
+     -0.0
+    ],
+    [
+     10.5,
+     0.0,
+     -0.0
+    ],
+    [
+     10.5,
+     0.0,
+     -3.0
+    ],
+    [
+     -7.75,
+     0.0,
+     -3.0
+    ]
+   ],
+   "centre": [
+    1.375,
+    0.0,
+    -1.5
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "gallery-e",
+   "name": "Long Gallery (east end)",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     10.5,
+     0.0,
+     -0.0
+    ],
+    [
+     18.25,
+     0.0,
+     -0.0
+    ],
+    [
+     18.25,
+     0.0,
+     -3.0
+    ],
+    [
+     10.5,
+     0.0,
+     -3.0
+    ]
+   ],
+   "centre": [
+    14.375,
+    0.0,
+    -1.5
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "vestibule",
+   "name": "Entrance Vestibule",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 2.6,
+   "corners": [
+    [
+     -2.0,
+     0.0,
+     3.6
+    ],
+    [
+     2.4,
+     0.0,
+     3.6
+    ],
+    [
+     2.4,
+     0.0,
+     -0.0
+    ],
+    [
+     -2.0,
+     0.0,
+     -0.0
+    ]
+   ],
+   "centre": [
+    0.2,
+    0.0,
+    1.8
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "stair-hall",
+   "name": "Stair Hall",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 3.4,
+   "corners": [
+    [
+     -7.7,
+     0.0,
+     4.4
+    ],
+    [
+     -2.0,
+     0.0,
+     4.4
+    ],
+    [
+     -2.0,
+     0.0,
+     -0.0
+    ],
+    [
+     -7.7,
+     0.0,
+     -0.0
+    ]
+   ],
+   "centre": [
+    -4.85,
+    0.0,
+    2.2
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "ladies",
+   "name": "Ladies' Room",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 2.6,
+   "corners": [
+    [
+     2.4,
+     0.0,
+     2.6
+    ],
+    [
+     4.2,
+     0.0,
+     2.6
+    ],
+    [
+     4.2,
+     0.0,
+     -0.0
+    ],
+    [
+     2.4,
+     0.0,
+     -0.0
+    ]
+   ],
+   "centre": [
+    3.3,
+    0.0,
+    1.3
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "gents",
+   "name": "Gentlemen's Room",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 2.6,
+   "corners": [
+    [
+     4.2,
+     0.0,
+     2.6
+    ],
+    [
+     6.0,
+     0.0,
+     2.6
+    ],
+    [
+     6.0,
+     0.0,
+     -0.0
+    ],
+    [
+     4.2,
+     0.0,
+     -0.0
+    ]
+   ],
+   "centre": [
+    5.1,
+    0.0,
+    1.3
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "garden-entry",
+   "name": "Garden Entry",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 2.6,
+   "corners": [
+    [
+     6.0,
+     0.0,
+     2.6
+    ],
+    [
+     9.4,
+     0.0,
+     2.6
+    ],
+    [
+     9.4,
+     0.0,
+     -0.0
+    ],
+    [
+     6.0,
+     0.0,
+     -0.0
+    ]
+   ],
+   "centre": [
+    7.7,
+    0.0,
+    1.3
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "library",
+   "name": "Library",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 3.2,
+   "corners": [
+    [
+     -15.5,
+     0.0,
+     -3.0
+    ],
+    [
+     -6.85,
+     0.0,
+     -3.0
+    ],
+    [
+     -6.85,
+     0.0,
+     -9.2
+    ],
+    [
+     -15.5,
+     0.0,
+     -9.2
+    ]
+   ],
+   "centre": [
+    -11.175,
+    0.0,
+    -6.1
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "library-porch",
+   "name": "Library Porch",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 2.9,
+   "corners": [
+    [
+     -15.5,
+     0.0,
+     -9.2
+    ],
+    [
+     -6.85,
+     0.0,
+     -9.2
+    ],
+    [
+     -6.85,
+     0.0,
+     -12.1
+    ],
+    [
+     -15.5,
+     0.0,
+     -12.1
+    ]
+   ],
+   "centre": [
+    -11.175,
+    0.0,
+    -10.65
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "dining-room",
+   "name": "Dining Room",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 3.1,
+   "corners": [
+    [
+     6.85,
+     0.0,
+     -3.0
+    ],
+    [
+     13.4,
+     0.0,
+     -3.0
+    ],
+    [
+     13.4,
+     0.0,
+     -12.1
+    ],
+    [
+     6.85,
+     0.0,
+     -12.1
+    ]
+   ],
+   "centre": [
+    10.125,
+    0.0,
+    -7.55
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "dining-porch",
+   "name": "Dining Porch",
+   "level": 0,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 0.0,
+   "height": 2.8,
+   "corners": [
+    [
+     6.85,
+     0.0,
+     -12.1
+    ],
+    [
+     13.4,
+     0.0,
+     -12.1
+    ],
+    [
+     13.4,
+     0.0,
+     -14.9
+    ],
+    [
+     6.85,
+     0.0,
+     -14.9
+    ]
+   ],
+   "centre": [
+    10.125,
+    0.0,
+    -13.5
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "upper-gallery-w",
+   "name": "Upper Gallery (west end)",
+   "level": 1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -15.5,
+     3.4,
+     -0.0
+    ],
+    [
+     -7.75,
+     3.4,
+     -0.0
+    ],
+    [
+     -7.75,
+     3.4,
+     -3.0
+    ],
+    [
+     -15.5,
+     3.4,
+     -3.0
+    ]
+   ],
+   "centre": [
+    -11.625,
+    3.4,
+    -1.5
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "upper-gallery",
+   "name": "Upper Gallery",
+   "level": 1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -7.75,
+     3.4,
+     -0.0
+    ],
+    [
+     10.5,
+     3.4,
+     -0.0
+    ],
+    [
+     10.5,
+     3.4,
+     -3.0
+    ],
+    [
+     -7.75,
+     3.4,
+     -3.0
+    ]
+   ],
+   "centre": [
+    1.375,
+    3.4,
+    -1.5
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "upper-gallery-e",
+   "name": "Upper Gallery (east end)",
+   "level": 1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     10.5,
+     3.4,
+     -0.0
+    ],
+    [
+     18.25,
+     3.4,
+     -0.0
+    ],
+    [
+     18.25,
+     3.4,
+     -3.0
+    ],
+    [
+     10.5,
+     3.4,
+     -3.0
+    ]
+   ],
+   "centre": [
+    14.375,
+    3.4,
+    -1.5
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "stair-landing",
+   "name": "Stair Landing",
+   "level": 1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -7.7,
+     3.4,
+     4.4
+    ],
+    [
+     -2.0,
+     3.4,
+     4.4
+    ],
+    [
+     -2.0,
+     3.4,
+     -0.0
+    ],
+    [
+     -7.7,
+     3.4,
+     -0.0
+    ]
+   ],
+   "centre": [
+    -4.85,
+    3.4,
+    2.2
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "mr-glenn-bedroom",
+   "name": "Mr. Glenn's Bedroom",
+   "level": 1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -15.5,
+     3.4,
+     -3.0
+    ],
+    [
+     -10.6,
+     3.4,
+     -3.0
+    ],
+    [
+     -10.6,
+     3.4,
+     -12.1
+    ],
+    [
+     -15.5,
+     3.4,
+     -12.1
+    ]
+   ],
+   "centre": [
+    -13.05,
+    3.4,
+    -7.55
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "hall-balcony",
+   "name": "Hall Balcony",
+   "level": 1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -10.6,
+     3.4,
+     -3.0
+    ],
+    [
+     -6.85,
+     3.4,
+     -3.0
+    ],
+    [
+     -6.85,
+     3.4,
+     -9.2
+    ],
+    [
+     -10.6,
+     3.4,
+     -9.2
+    ]
+   ],
+   "centre": [
+    -8.725,
+    3.4,
+    -6.1
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "mr-glenn-bath",
+   "name": "Mr. Glenn's Bath",
+   "level": 1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -10.6,
+     3.4,
+     -9.2
+    ],
+    [
+     -6.85,
+     3.4,
+     -9.2
+    ],
+    [
+     -6.85,
+     3.4,
+     -12.1
+    ],
+    [
+     -10.6,
+     3.4,
+     -12.1
+    ]
+   ],
+   "centre": [
+    -8.725,
+    3.4,
+    -10.65
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "boys-bedroom-a",
+   "name": "Boys' Bedroom (east)",
+   "level": 1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     6.85,
+     3.4,
+     -3.0
+    ],
+    [
+     13.4,
+     3.4,
+     -3.0
+    ],
+    [
+     13.4,
+     3.4,
+     -12.1
+    ],
+    [
+     6.85,
+     3.4,
+     -12.1
+    ]
+   ],
+   "centre": [
+    10.125,
+    3.4,
+    -7.55
+   ],
+   "surface": "carpet"
+  },
+  {
+   "id": "w-corridor",
+   "name": "West Corridor",
+   "level": 0,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -17.056,
+     0.0,
+     -1.444
+    ],
+    [
+     -25.258,
+     0.0,
+     6.758
+    ],
+    [
+     -24.127,
+     0.0,
+     7.889
+    ],
+    [
+     -15.924,
+     0.0,
+     -0.313
+    ]
+   ],
+   "centre": [
+    -20.591,
+    0.0,
+    3.223
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "panelled-bedroom",
+   "name": "Panelled Bedroom",
+   "level": 0,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -15.924,
+     0.0,
+     -0.313
+    ],
+    [
+     -19.318,
+     0.0,
+     3.081
+    ],
+    [
+     -15.076,
+     0.0,
+     7.324
+    ],
+    [
+     -11.682,
+     0.0,
+     3.93
+    ]
+   ],
+   "centre": [
+    -15.5,
+    0.0,
+    3.505
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "panelled-bath",
+   "name": "Bath",
+   "level": 0,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -19.318,
+     0.0,
+     3.081
+    ],
+    [
+     -20.733,
+     0.0,
+     4.495
+    ],
+    [
+     -16.49,
+     0.0,
+     8.738
+    ],
+    [
+     -15.076,
+     0.0,
+     7.324
+    ]
+   ],
+   "centre": [
+    -17.904,
+    0.0,
+    5.91
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "suite-bath",
+   "name": "Suite Bath",
+   "level": 0,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -20.733,
+     0.0,
+     4.495
+    ],
+    [
+     -22.147,
+     0.0,
+     5.91
+    ],
+    [
+     -17.904,
+     0.0,
+     10.152
+    ],
+    [
+     -16.49,
+     0.0,
+     8.738
+    ]
+   ],
+   "centre": [
+    -19.318,
+    0.0,
+    7.324
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "boudoir",
+   "name": "Boudoir",
+   "level": 0,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -22.147,
+     0.0,
+     5.91
+    ],
+    [
+     -24.127,
+     0.0,
+     7.889
+    ],
+    [
+     -19.884,
+     0.0,
+     12.132
+    ],
+    [
+     -17.904,
+     0.0,
+     10.152
+    ]
+   ],
+   "centre": [
+    -21.015,
+    0.0,
+    9.021
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "guest-suite",
+   "name": "Guest Suite",
+   "level": 0,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -25.258,
+     0.0,
+     6.758
+    ],
+    [
+     -28.935,
+     0.0,
+     10.435
+    ],
+    [
+     -23.561,
+     0.0,
+     15.809
+    ],
+    [
+     -19.884,
+     0.0,
+     12.132
+    ]
+   ],
+   "centre": [
+    -24.41,
+    0.0,
+    11.284
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "west-porch",
+   "name": "West Porch",
+   "level": 0,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     -28.935,
+     0.0,
+     10.435
+    ],
+    [
+     -31.056,
+     0.0,
+     12.556
+    ],
+    [
+     -25.682,
+     0.0,
+     17.93
+    ],
+    [
+     -23.561,
+     0.0,
+     15.809
+    ]
+   ],
+   "centre": [
+    -27.309,
+    0.0,
+    14.183
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "w-upper-corridor",
+   "name": "Upper West Corridor",
+   "level": 1,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -17.056,
+     3.4,
+     -1.444
+    ],
+    [
+     -24.692,
+     3.4,
+     6.192
+    ],
+    [
+     -23.561,
+     3.4,
+     7.324
+    ],
+    [
+     -15.924,
+     3.4,
+     -0.313
+    ]
+   ],
+   "centre": [
+    -20.308,
+    3.4,
+    2.94
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "mrs-glenn-bedroom",
+   "name": "Mrs. Glenn's Bedroom",
+   "level": 1,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -15.924,
+     3.4,
+     -0.313
+    ],
+    [
+     -19.743,
+     3.4,
+     3.505
+    ],
+    [
+     -15.5,
+     3.4,
+     7.748
+    ],
+    [
+     -11.682,
+     3.4,
+     3.93
+    ]
+   ],
+   "centre": [
+    -15.712,
+    3.4,
+    3.718
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "mrs-glenn-bath",
+   "name": "Mrs. Glenn's Bath",
+   "level": 1,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -19.743,
+     3.4,
+     3.505
+    ],
+    [
+     -21.581,
+     3.4,
+     5.344
+    ],
+    [
+     -17.338,
+     3.4,
+     9.586
+    ],
+    [
+     -15.5,
+     3.4,
+     7.748
+    ]
+   ],
+   "centre": [
+    -18.541,
+    3.4,
+    6.546
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "mrs-glenn-closets",
+   "name": "Dressing Room",
+   "level": 1,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -21.581,
+     3.4,
+     5.344
+    ],
+    [
+     -23.561,
+     3.4,
+     7.324
+    ],
+    [
+     -19.318,
+     3.4,
+     11.566
+    ],
+    [
+     -17.338,
+     3.4,
+     9.586
+    ]
+   ],
+   "centre": [
+    -20.45,
+    3.4,
+    8.455
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "mrs-glenn-sitting",
+   "name": "Mrs. Glenn's Sitting Room",
+   "level": 1,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -22.43,
+     3.4,
+     8.455
+    ],
+    [
+     -26.672,
+     3.4,
+     12.698
+    ],
+    [
+     -23.561,
+     3.4,
+     15.809
+    ],
+    [
+     -19.318,
+     3.4,
+     11.566
+    ]
+   ],
+   "centre": [
+    -22.995,
+    3.4,
+    12.132
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "secretary-office",
+   "name": "Secretary's Office",
+   "level": 1,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -24.692,
+     3.4,
+     6.192
+    ],
+    [
+     -28.935,
+     3.4,
+     10.435
+    ],
+    [
+     -26.672,
+     3.4,
+     12.698
+    ],
+    [
+     -22.43,
+     3.4,
+     8.455
+    ]
+   ],
+   "centre": [
+    -25.682,
+    3.4,
+    9.445
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "sleeping-porch-w",
+   "name": "Sleeping Porch",
+   "level": 1,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     -28.935,
+     3.4,
+     10.435
+    ],
+    [
+     -31.056,
+     3.4,
+     12.556
+    ],
+    [
+     -25.682,
+     3.4,
+     17.93
+    ],
+    [
+     -23.561,
+     3.4,
+     15.809
+    ]
+   ],
+   "centre": [
+    -27.309,
+    3.4,
+    14.183
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "butlers-pantry",
+   "name": "Butler's Pantry",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     14.432,
+     0.0,
+     3.93
+    ],
+    [
+     16.907,
+     0.0,
+     6.405
+    ],
+    [
+     22.281,
+     0.0,
+     1.031
+    ],
+    [
+     19.806,
+     0.0,
+     -1.444
+    ]
+   ],
+   "centre": [
+    18.356,
+    0.0,
+    2.48
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "kitchen",
+   "name": "Kitchen",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     16.907,
+     0.0,
+     6.405
+    ],
+    [
+     21.432,
+     0.0,
+     10.93
+    ],
+    [
+     26.806,
+     0.0,
+     5.556
+    ],
+    [
+     22.281,
+     0.0,
+     1.031
+    ]
+   ],
+   "centre": [
+    21.856,
+    0.0,
+    5.98
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "e-corridor",
+   "name": "Service Corridor",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     21.432,
+     0.0,
+     10.93
+    ],
+    [
+     28.079,
+     0.0,
+     17.577
+    ],
+    [
+     29.069,
+     0.0,
+     16.587
+    ],
+    [
+     22.422,
+     0.0,
+     9.94
+    ]
+   ],
+   "centre": [
+    25.25,
+    0.0,
+    13.758
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "service-stair",
+   "name": "Service Stair",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     22.422,
+     0.0,
+     9.94
+    ],
+    [
+     24.26,
+     0.0,
+     11.779
+    ],
+    [
+     27.089,
+     0.0,
+     8.95
+    ],
+    [
+     25.25,
+     0.0,
+     7.112
+    ]
+   ],
+   "centre": [
+    24.755,
+    0.0,
+    9.445
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "vault",
+   "name": "The Vault",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     25.25,
+     0.0,
+     7.112
+    ],
+    [
+     27.089,
+     0.0,
+     8.95
+    ],
+    [
+     28.644,
+     0.0,
+     7.394
+    ],
+    [
+     26.806,
+     0.0,
+     5.556
+    ]
+   ],
+   "centre": [
+    26.947,
+    0.0,
+    7.253
+   ],
+   "surface": "concrete"
+  },
+  {
+   "id": "larder",
+   "name": "Larder",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     24.26,
+     0.0,
+     11.779
+    ],
+    [
+     25.957,
+     0.0,
+     13.476
+    ],
+    [
+     30.342,
+     0.0,
+     9.092
+    ],
+    [
+     28.644,
+     0.0,
+     7.394
+    ]
+   ],
+   "centre": [
+    27.301,
+    0.0,
+    10.435
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "servants-sitting",
+   "name": "Servants' Sitting Room",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "corners": [
+    [
+     25.957,
+     0.0,
+     13.476
+    ],
+    [
+     29.069,
+     0.0,
+     16.587
+    ],
+    [
+     33.453,
+     0.0,
+     12.203
+    ],
+    [
+     30.342,
+     0.0,
+     9.092
+    ]
+   ],
+   "centre": [
+    29.705,
+    0.0,
+    12.839
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "e-upper-corridor",
+   "name": "Upper East Corridor",
+   "level": 1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     14.432,
+     3.4,
+     3.93
+    ],
+    [
+     24.968,
+     3.4,
+     14.466
+    ],
+    [
+     26.099,
+     3.4,
+     13.334
+    ],
+    [
+     15.563,
+     3.4,
+     2.798
+    ]
+   ],
+   "centre": [
+    20.265,
+    3.4,
+    8.632
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "boys-bath-a",
+   "name": "Boys' Bath (east)",
+   "level": 1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     15.563,
+     3.4,
+     2.798
+    ],
+    [
+     18.038,
+     3.4,
+     5.273
+    ],
+    [
+     22.281,
+     3.4,
+     1.031
+    ],
+    [
+     19.806,
+     3.4,
+     -1.444
+    ]
+   ],
+   "centre": [
+    18.922,
+    3.4,
+    1.914
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "boys-bedroom-b",
+   "name": "Boys' Bedroom (kitchen side)",
+   "level": 1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     18.038,
+     3.4,
+     5.273
+    ],
+    [
+     22.563,
+     3.4,
+     9.799
+    ],
+    [
+     26.806,
+     3.4,
+     5.556
+    ],
+    [
+     22.281,
+     3.4,
+     1.031
+    ]
+   ],
+   "centre": [
+    22.422,
+    3.4,
+    5.415
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "service-stair-up",
+   "name": "Service Stair (upper)",
+   "level": 1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     22.563,
+     3.4,
+     9.799
+    ],
+    [
+     24.402,
+     3.4,
+     11.637
+    ],
+    [
+     27.089,
+     3.4,
+     8.95
+    ],
+    [
+     25.25,
+     3.4,
+     7.112
+    ]
+   ],
+   "centre": [
+    24.826,
+    3.4,
+    9.374
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "boys-bath-b",
+   "name": "Boys' Bath (kitchen side)",
+   "level": 1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     25.25,
+     3.4,
+     7.112
+    ],
+    [
+     27.089,
+     3.4,
+     8.95
+    ],
+    [
+     28.644,
+     3.4,
+     7.394
+    ],
+    [
+     26.806,
+     3.4,
+     5.556
+    ]
+   ],
+   "centre": [
+    26.947,
+    3.4,
+    7.253
+   ],
+   "surface": "vinyl"
+  },
+  {
+   "id": "nursery",
+   "name": "Nursery",
+   "level": 1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     24.402,
+     3.4,
+     11.637
+    ],
+    [
+     26.099,
+     3.4,
+     13.334
+    ],
+    [
+     30.342,
+     3.4,
+     9.092
+    ],
+    [
+     28.644,
+     3.4,
+     7.394
+    ]
+   ],
+   "centre": [
+    27.372,
+    3.4,
+    10.364
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "sleeping-porch-e",
+   "name": "Boys' Sleeping Porch",
+   "level": 1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "corners": [
+    [
+     24.968,
+     3.4,
+     14.466
+    ],
+    [
+     28.079,
+     3.4,
+     17.577
+    ],
+    [
+     33.453,
+     3.4,
+     12.203
+    ],
+    [
+     30.342,
+     3.4,
+     9.092
+    ]
+   ],
+   "centre": [
+    29.21,
+    3.4,
+    13.334
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "coal-store",
+   "name": "Coal Store",
+   "level": -1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     14.432,
+     -3.0,
+     3.93
+    ],
+    [
+     16.907,
+     -3.0,
+     6.405
+    ],
+    [
+     22.281,
+     -3.0,
+     1.031
+    ],
+    [
+     19.806,
+     -3.0,
+     -1.444
+    ]
+   ],
+   "centre": [
+    18.356,
+    -3.0,
+    2.48
+   ],
+   "surface": "concrete"
+  },
+  {
+   "id": "furnace-room",
+   "name": "Furnace Room",
+   "level": -1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     16.907,
+     -3.0,
+     6.405
+    ],
+    [
+     21.432,
+     -3.0,
+     10.93
+    ],
+    [
+     26.806,
+     -3.0,
+     5.556
+    ],
+    [
+     22.281,
+     -3.0,
+     1.031
+    ]
+   ],
+   "centre": [
+    21.856,
+    -3.0,
+    5.98
+   ],
+   "surface": "concrete"
+  },
+  {
+   "id": "basement-stair",
+   "name": "Basement Stair",
+   "level": -1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     21.432,
+     -3.0,
+     10.93
+    ],
+    [
+     23.27,
+     -3.0,
+     12.768
+    ],
+    [
+     27.089,
+     -3.0,
+     8.95
+    ],
+    [
+     25.25,
+     -3.0,
+     7.112
+    ]
+   ],
+   "centre": [
+    24.26,
+    -3.0,
+    9.94
+   ],
+   "surface": "concrete"
+  },
+  {
+   "id": "cellar-cell",
+   "name": "The Cell",
+   "level": -1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     25.25,
+     -3.0,
+     7.112
+    ],
+    [
+     27.089,
+     -3.0,
+     8.95
+    ],
+    [
+     28.644,
+     -3.0,
+     7.394
+    ],
+    [
+     26.806,
+     -3.0,
+     5.556
+    ]
+   ],
+   "centre": [
+    26.947,
+    -3.0,
+    7.253
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "laundry",
+   "name": "Laundry",
+   "level": -1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     23.27,
+     -3.0,
+     12.768
+    ],
+    [
+     28.079,
+     -3.0,
+     17.577
+    ],
+    [
+     30.766,
+     -3.0,
+     14.89
+    ],
+    [
+     25.957,
+     -3.0,
+     10.081
+    ]
+   ],
+   "centre": [
+    27.018,
+    -3.0,
+    13.829
+   ],
+   "surface": "concrete"
+  },
+  {
+   "id": "servant-bedroom-1",
+   "name": "Servant's Bedroom (first)",
+   "level": -1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     25.957,
+     -3.0,
+     10.081
+    ],
+    [
+     28.362,
+     -3.0,
+     12.486
+    ],
+    [
+     31.049,
+     -3.0,
+     9.799
+    ],
+    [
+     28.644,
+     -3.0,
+     7.394
+    ]
+   ],
+   "centre": [
+    28.503,
+    -3.0,
+    9.94
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "servant-bedroom-2",
+   "name": "Servant's Bedroom (second)",
+   "level": -1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     28.362,
+     -3.0,
+     12.486
+    ],
+    [
+     30.766,
+     -3.0,
+     14.89
+    ],
+    [
+     33.453,
+     -3.0,
+     12.203
+    ],
+    [
+     31.049,
+     -3.0,
+     9.799
+    ]
+   ],
+   "centre": [
+    30.907,
+    -3.0,
+    12.344
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "arcade",
+   "name": "Vaulted Arcade",
+   "level": 0,
+   "block": "S",
+   "turn": 180.0,
+   "floor": 0.0,
+   "height": 3.4,
+   "corners": [
+    [
+     -15.5,
+     0.0,
+     -12.1
+    ],
+    [
+     -26.1,
+     0.0,
+     -12.1
+    ],
+    [
+     -26.1,
+     0.0,
+     -9.2
+    ],
+    [
+     -15.5,
+     0.0,
+     -9.2
+    ]
+   ],
+   "centre": [
+    -20.8,
+    0.0,
+    -10.65
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "solarium",
+   "name": "Solarium",
+   "level": 0,
+   "block": "S",
+   "turn": 180.0,
+   "floor": 0.0,
+   "height": 3.3,
+   "corners": [
+    [
+     -15.5,
+     0.0,
+     -9.2
+    ],
+    [
+     -25.0,
+     0.0,
+     -9.2
+    ],
+    [
+     -25.0,
+     0.0,
+     -3.0
+    ],
+    [
+     -15.5,
+     0.0,
+     -3.0
+    ]
+   ],
+   "centre": [
+    -20.25,
+    0.0,
+    -6.1
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "hearth-stair",
+   "name": "The Stair Under the Hearth",
+   "level": -1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     -2.3,
+     -3.0,
+     -12.1
+    ],
+    [
+     2.3,
+     -3.0,
+     -12.1
+    ],
+    [
+     2.3,
+     -3.0,
+     -14.3
+    ],
+    [
+     -2.3,
+     -3.0,
+     -14.3
+    ]
+   ],
+   "centre": [
+    0.0,
+    -3.0,
+    -13.2
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "hidden-study",
+   "name": "The Study Under the Hall",
+   "level": -1,
+   "block": "C",
+   "turn": 0.0,
+   "floor": -3.0,
+   "height": 2.5,
+   "corners": [
+    [
+     -5.0,
+     -3.0,
+     -5.2
+    ],
+    [
+     5.0,
+     -3.0,
+     -5.2
+    ],
+    [
+     5.0,
+     -3.0,
+     -12.1
+    ],
+    [
+     -5.0,
+     -3.0,
+     -12.1
+    ]
+   ],
+   "centre": [
+    0.0,
+    -3.0,
+    -8.65
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "breakfast-room",
+   "name": "Breakfast Room",
+   "level": 0,
+   "block": "C",
+   "turn": 0,
+   "floor": 0.0,
+   "height": 2.75,
+   "octagon": {
+    "centre": [
+     15.9,
+     0.0,
+     -5.4
+    ],
+    "across": 4.8
+   },
+   "centre": [
+    15.9,
+    0.0,
+    -5.4
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "west-hinge-0",
+   "name": "Long Gallery (west bend)",
+   "level": 0,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "polygon": [
+    [
+     -15.5,
+     0.0,
+     -3.0
+    ],
+    [
+     -17.056,
+     0.0,
+     -1.444
+    ],
+    [
+     -11.682,
+     0.0,
+     3.93
+    ],
+    [
+     -7.75,
+     0.0,
+     -0.002
+    ],
+    [
+     -15.5,
+     0.0,
+     -0.002
+    ]
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "west-hinge-1",
+   "name": "Upper Gallery (west bend)",
+   "level": 1,
+   "block": "W",
+   "turn": 225.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "polygon": [
+    [
+     -15.5,
+     3.4,
+     -3.0
+    ],
+    [
+     -17.056,
+     3.4,
+     -1.444
+    ],
+    [
+     -11.682,
+     3.4,
+     3.93
+    ],
+    [
+     -7.75,
+     3.4,
+     -0.002
+    ],
+    [
+     -15.5,
+     3.4,
+     -0.002
+    ]
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "east-hinge-0",
+   "name": "Long Gallery (east bend)",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 3.0,
+   "polygon": [
+    [
+     18.25,
+     0.0,
+     -3.0
+    ],
+    [
+     19.806,
+     0.0,
+     -1.444
+    ],
+    [
+     14.432,
+     0.0,
+     3.93
+    ],
+    [
+     10.5,
+     0.0,
+     -0.002
+    ],
+    [
+     18.25,
+     0.0,
+     -0.002
+    ]
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "east-hinge-1",
+   "name": "Upper Gallery (east bend)",
+   "level": 1,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 3.4,
+   "height": 2.6,
+   "polygon": [
+    [
+     18.25,
+     3.4,
+     -3.0
+    ],
+    [
+     19.806,
+     3.4,
+     -1.444
+    ],
+    [
+     14.432,
+     3.4,
+     3.93
+    ],
+    [
+     10.5,
+     3.4,
+     -0.002
+    ],
+    [
+     18.25,
+     3.4,
+     -0.002
+    ]
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "gate",
+   "name": "The Gate",
+   "level": 0,
+   "block": "Y",
+   "turn": 0,
+   "floor": -0.5,
+   "height": 0,
+   "outdoor": true,
+   "polygon": [
+    [
+     0.0,
+     -0.5,
+     76.0
+    ],
+    [
+     13.0,
+     -0.5,
+     76.0
+    ],
+    [
+     12.0,
+     -0.5,
+     62.0
+    ],
+    [
+     -1.0,
+     -0.5,
+     62.0
+    ]
+   ],
+   "centre": [
+    6.0,
+    -0.5,
+    69.0
+   ],
+   "surface": "gravel"
+  },
+  {
+   "id": "drive",
+   "name": "The Drive",
+   "level": 0,
+   "block": "Y",
+   "turn": 0,
+   "floor": -0.5,
+   "height": 0,
+   "outdoor": true,
+   "polygon": [
+    [
+     -1.0,
+     -0.5,
+     62.0
+    ],
+    [
+     12.0,
+     -0.5,
+     62.0
+    ],
+    [
+     7.0,
+     -0.5,
+     36.0
+    ],
+    [
+     -7.0,
+     -0.5,
+     36.0
+    ]
+   ],
+   "centre": [
+    2.75,
+    -0.5,
+    49.0
+   ],
+   "surface": "gravel"
+  },
+  {
+   "id": "forecourt",
+   "name": "The Forecourt",
+   "level": 0,
+   "block": "Y",
+   "turn": 0,
+   "floor": -0.5,
+   "height": 0,
+   "outdoor": true,
+   "polygon": [
+    [
+     -12.8,
+     -0.5,
+     -0.3
+    ],
+    [
+     -29.5,
+     -0.5,
+     16.4
+    ],
+    [
+     -30.0,
+     -0.5,
+     36.0
+    ],
+    [
+     27.0,
+     -0.5,
+     36.0
+    ],
+    [
+     29.0,
+     -0.5,
+     13.0
+    ],
+    [
+     15.5,
+     -0.5,
+     -0.3
+    ]
+   ],
+   "centre": [
+    -0.133,
+    -0.5,
+    16.8
+   ],
+   "surface": "gravel"
+  },
+  {
+   "id": "west-lawn",
+   "name": "The West Lawn",
+   "level": 0,
+   "block": "Y",
+   "turn": 0,
+   "floor": -0.5,
+   "height": 0,
+   "outdoor": true,
+   "polygon": [
+    [
+     -13.0,
+     -0.5,
+     -1.5
+    ],
+    [
+     -29.5,
+     -0.5,
+     16.4
+    ],
+    [
+     -30.0,
+     -0.5,
+     36.0
+    ],
+    [
+     -42.0,
+     -0.5,
+     36.0
+    ],
+    [
+     -42.0,
+     -0.5,
+     9.0
+    ],
+    [
+     -30.0,
+     -0.5,
+     7.0
+    ],
+    [
+     -30.0,
+     -0.5,
+     -3.0
+    ]
+   ],
+   "centre": [
+    -30.929,
+    -0.5,
+    14.271
+   ],
+   "surface": "carpet"
+  },
+  {
+   "id": "terrace",
+   "name": "The Terrace",
+   "level": 0,
+   "block": "Y",
+   "turn": 0,
+   "floor": -0.5,
+   "height": 0,
+   "outdoor": true,
+   "polygon": [
+    [
+     -30.0,
+     -0.5,
+     -3.0
+    ],
+    [
+     -30.0,
+     -0.5,
+     -20.0
+    ],
+    [
+     16.0,
+     -0.5,
+     -20.0
+    ],
+    [
+     16.0,
+     -0.5,
+     -3.0
+    ]
+   ],
+   "centre": [
+    -7.0,
+    -0.5,
+    -11.5
+   ],
+   "surface": "stone"
+  },
+  {
+   "id": "east-lawn",
+   "name": "The East Lawn",
+   "level": 0,
+   "block": "Y",
+   "turn": 0,
+   "floor": -0.5,
+   "height": 0,
+   "outdoor": true,
+   "polygon": [
+    [
+     16.0,
+     -0.5,
+     -3.0
+    ],
+    [
+     16.0,
+     -0.5,
+     -20.0
+    ],
+    [
+     44.0,
+     -0.5,
+     -20.0
+    ],
+    [
+     44.0,
+     -0.5,
+     36.0
+    ],
+    [
+     27.0,
+     -0.5,
+     36.0
+    ],
+    [
+     29.0,
+     -0.5,
+     13.0
+    ],
+    [
+     15.5,
+     -0.5,
+     -0.3
+    ]
+   ],
+   "centre": [
+    27.357,
+    -0.5,
+    5.957
+   ],
+   "surface": "carpet"
+  },
+  {
+   "id": "garage-road",
+   "name": "The Garage Road",
+   "level": 0,
+   "block": "Y",
+   "turn": 0,
+   "floor": -0.5,
+   "height": 0,
+   "outdoor": true,
+   "polygon": [
+    [
+     4.0,
+     -0.5,
+     70.0
+    ],
+    [
+     9.5,
+     -0.5,
+     70.0
+    ],
+    [
+     -14.6,
+     -0.5,
+     95.5
+    ],
+    [
+     -13.0,
+     -0.5,
+     89.3
+    ]
+   ],
+   "centre": [
+    -3.525,
+    -0.5,
+    81.2
+   ],
+   "surface": "gravel"
+  },
+  {
+   "id": "garage-court",
+   "name": "The Garage Court",
+   "level": 0,
+   "block": "Y",
+   "turn": 24.0,
+   "floor": -0.5,
+   "height": 0,
+   "outdoor": true,
+   "polygon": [
+    [
+     -29.743,
+     -0.5,
+     108.233
+    ],
+    [
+     -7.818,
+     -0.5,
+     98.471
+    ],
+    [
+     -13.024,
+     -0.5,
+     86.778
+    ],
+    [
+     -34.949,
+     -0.5,
+     96.539
+    ]
+   ],
+   "centre": [
+    -21.424,
+    -0.5,
+    97.414
+   ],
+   "surface": "gravel"
+  },
+  {
+   "id": "garage",
+   "name": "The Garage",
+   "level": 0,
+   "block": "Y",
+   "turn": 24.0,
+   "floor": -0.44,
+   "height": 3.3,
+   "polygon": [
+    [
+     -33.122,
+     -0.44,
+     95.726
+    ],
+    [
+     -18.505,
+     -0.44,
+     89.218
+    ],
+    [
+     -21.352,
+     -0.44,
+     82.823
+    ],
+    [
+     -35.969,
+     -0.44,
+     89.331
+    ]
+   ],
+   "centre": [
+    -27.237,
+    -0.44,
+    89.275
+   ],
+   "surface": "concrete"
+  },
+  {
+   "id": "stefans-bedroom",
+   "name": "Stefan's Bedroom",
+   "level": 1,
+   "block": "S",
+   "turn": 180.0,
+   "floor": 3.6,
+   "height": 2.4,
+   "corners": [
+    [
+     -15.5,
+     3.6,
+     -10.6
+    ],
+    [
+     -25.0,
+     3.6,
+     -10.6
+    ],
+    [
+     -25.0,
+     3.6,
+     -4.5
+    ],
+    [
+     -15.5,
+     3.6,
+     -4.5
+    ]
+   ],
+   "centre": [
+    -20.25,
+    3.6,
+    -7.55
+   ],
+   "surface": "wood"
+  },
+  {
+   "id": "scullery",
+   "name": "Scullery",
+   "level": 0,
+   "block": "E",
+   "turn": -45.0,
+   "floor": 0.0,
+   "height": 2.6,
+   "corners": [
+    [
+     28.857,
+     0.0,
+     16.799
+    ],
+    [
+     31.049,
+     0.0,
+     18.991
+    ],
+    [
+     34.867,
+     0.0,
+     15.173
+    ],
+    [
+     32.675,
+     0.0,
+     12.981
+    ]
+   ],
+   "centre": [
+    31.862,
+    0.0,
+    15.986
+   ],
+   "surface": "vinyl"
+  }
+ ],
+ "ways": [
+  {
+   "kind": "tudor",
+   "a": "great-hall",
+   "b": "inglenook",
+   "at": [
+    0.0,
+    -0.36,
+    -12.1
+   ],
+   "width": 4.2,
+   "height": 3.0,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "tudor",
+   "a": "great-hall",
+   "b": "dining-room",
+   "at": [
+    6.85,
+    0.0,
+    -7.55
+   ],
+   "width": 3.0,
+   "height": 3.0,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "gallery-w",
+   "b": "library",
+   "at": [
+    -11.2,
+    0.0,
+    -3.0
+   ],
+   "width": 1.1,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "tudor",
+   "a": "gallery",
+   "b": "great-hall",
+   "at": [
+    0.0,
+    0.0,
+    -3.0
+   ],
+   "width": 2.4,
+   "height": 2.9,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "tudor",
+   "a": "gallery",
+   "b": "great-hall",
+   "at": [
+    -4.7,
+    0.0,
+    -3.0
+   ],
+   "width": 1.6,
+   "height": 2.7,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "tudor",
+   "a": "gallery",
+   "b": "great-hall",
+   "at": [
+    4.7,
+    0.0,
+    -3.0
+   ],
+   "width": 1.6,
+   "height": 2.7,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "gallery",
+   "b": "dining-room",
+   "at": [
+    10.1,
+    0.0,
+    -3.0
+   ],
+   "width": 1.2,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "gallery-e",
+   "b": "breakfast-room",
+   "at": [
+    15.9,
+    0.0,
+    -3.0
+   ],
+   "width": 1.0,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "archdoor",
+   "a": "vestibule",
+   "b": "forecourt",
+   "at": [
+    0.2,
+    0.0,
+    3.6
+   ],
+   "width": 1.5,
+   "height": 2.7,
+   "turn": 0.0,
+   "id": "front-door"
+  },
+  {
+   "kind": "tudor",
+   "a": "vestibule",
+   "b": "gallery",
+   "at": [
+    0.2,
+    0.0,
+    -0.0
+   ],
+   "width": 1.8,
+   "height": 2.4,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "open",
+   "a": "stair-hall",
+   "b": "gallery",
+   "at": [
+    -4.85,
+    0.0,
+    -0.0
+   ],
+   "width": 4.4,
+   "height": 2.7,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "ladies",
+   "b": "gallery",
+   "at": [
+    3.3,
+    0.0,
+    -0.0
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "gents",
+   "b": "gallery",
+   "at": [
+    5.1,
+    0.0,
+    -0.0
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "archdoor",
+   "a": "garden-entry",
+   "b": "forecourt",
+   "at": [
+    7.7,
+    0.0,
+    2.6
+   ],
+   "width": 1.2,
+   "height": 2.5,
+   "turn": 0.0,
+   "id": "garden-door"
+  },
+  {
+   "kind": "door",
+   "a": "garden-entry",
+   "b": "gallery",
+   "at": [
+    7.7,
+    0.0,
+    -0.0
+   ],
+   "width": 1.0,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "french",
+   "a": "library",
+   "b": "library-porch",
+   "at": [
+    -13.6,
+    0.0,
+    -9.2
+   ],
+   "width": 1.5,
+   "height": 2.4,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "french",
+   "a": "library",
+   "b": "library-porch",
+   "at": [
+    -11.2,
+    0.0,
+    -9.2
+   ],
+   "width": 1.5,
+   "height": 2.4,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "french",
+   "a": "library",
+   "b": "library-porch",
+   "at": [
+    -8.8,
+    0.0,
+    -9.2
+   ],
+   "width": 1.5,
+   "height": 2.4,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "library",
+   "b": "solarium",
+   "at": [
+    -15.5,
+    0.0,
+    -3.75
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "library",
+   "b": "solarium",
+   "at": [
+    -15.5,
+    0.0,
+    -8.45
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "tudor",
+   "a": "library",
+   "b": "great-hall",
+   "at": [
+    -6.85,
+    0.0,
+    -7.55
+   ],
+   "width": 3.0,
+   "height": 3.0,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "window",
+   "a": "library-porch",
+   "b": "terrace",
+   "at": [
+    -11.2,
+    0.0,
+    -12.1
+   ],
+   "width": 2.4,
+   "height": 1.9,
+   "turn": 0.0,
+   "id": "library-window",
+   "sill": 0.6
+  },
+  {
+   "kind": "french",
+   "a": "dining-room",
+   "b": "dining-porch",
+   "at": [
+    8.5,
+    0.0,
+    -12.1
+   ],
+   "width": 1.1,
+   "height": 2.3,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "french",
+   "a": "dining-room",
+   "b": "dining-porch",
+   "at": [
+    11.75,
+    0.0,
+    -12.1
+   ],
+   "width": 1.1,
+   "height": 2.3,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "window",
+   "a": "dining-room",
+   "b": "terrace",
+   "at": [
+    13.4,
+    0.0,
+    -9.9
+   ],
+   "width": 3.4,
+   "height": 1.9,
+   "turn": 90.0,
+   "id": "dining-window",
+   "sill": 0.7
+  },
+  {
+   "kind": "door",
+   "a": "dining-room",
+   "b": "breakfast-room",
+   "at": [
+    13.4,
+    0.0,
+    -5.4
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "open",
+   "a": "dining-porch",
+   "b": "terrace",
+   "at": [
+    6.85,
+    0.0,
+    -13.5
+   ],
+   "width": 2.0,
+   "height": 2.3,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "upper-gallery-w",
+   "b": "mr-glenn-bedroom",
+   "at": [
+    -13.0,
+    3.4,
+    -3.0
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "upper-gallery-w",
+   "b": "hall-balcony",
+   "at": [
+    -8.7,
+    3.4,
+    -3.0
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "upper-gallery",
+   "b": "boys-bedroom-a",
+   "at": [
+    10.1,
+    3.4,
+    -3.0
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "overlook",
+   "a": "upper-gallery",
+   "b": "great-hall",
+   "at": [
+    0.0,
+    3.4,
+    -3.0
+   ],
+   "width": 13.7,
+   "height": 2.5,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "open",
+   "a": "stair-landing",
+   "b": "upper-gallery",
+   "at": [
+    -4.85,
+    3.4,
+    -0.0
+   ],
+   "width": 4.4,
+   "height": 2.4,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "mr-glenn-bedroom",
+   "b": "stefans-bedroom",
+   "at": [
+    -15.5,
+    3.4,
+    -7.0
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "mr-glenn-bedroom",
+   "b": "hall-balcony",
+   "at": [
+    -10.6,
+    3.4,
+    -6.0
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "mr-glenn-bedroom",
+   "b": "mr-glenn-bath",
+   "at": [
+    -10.6,
+    3.4,
+    -10.6
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "overlook",
+   "a": "hall-balcony",
+   "b": "great-hall",
+   "at": [
+    -6.85,
+    3.4,
+    -7.55
+   ],
+   "width": 3.2,
+   "height": 2.3,
+   "turn": 90.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "hidden-study",
+   "b": "hearth-stair",
+   "at": [
+    1.8,
+    -3.0,
+    -12.1
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 0.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "w-corridor",
+   "b": "panelled-bedroom",
+   "at": [
+    -16.631,
+    0.0,
+    0.394
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 225.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "w-corridor",
+   "b": "boudoir",
+   "at": [
+    -22.712,
+    0.0,
+    6.475
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 225.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "w-corridor",
+   "b": "guest-suite",
+   "at": [
+    -24.692,
+    0.0,
+    7.324
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "panelled-bedroom",
+   "b": "panelled-bath",
+   "at": [
+    -15.924,
+    0.0,
+    6.475
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "suite-bath",
+   "b": "boudoir",
+   "at": [
+    -20.167,
+    0.0,
+    7.889
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "open",
+   "a": "boudoir",
+   "b": "guest-suite",
+   "at": [
+    -22.005,
+    0.0,
+    10.011
+   ],
+   "width": 2.4,
+   "height": 2.3,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "window",
+   "a": "guest-suite",
+   "b": "forecourt",
+   "at": [
+    -21.723,
+    0.0,
+    13.971
+   ],
+   "width": 2.4,
+   "height": 1.5,
+   "turn": 225.0,
+   "id": "guest-window",
+   "sill": 0.9
+  },
+  {
+   "kind": "french",
+   "a": "guest-suite",
+   "b": "west-porch",
+   "at": [
+    -27.945,
+    0.0,
+    11.425
+   ],
+   "width": 1.4,
+   "height": 2.4,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "french",
+   "a": "guest-suite",
+   "b": "west-porch",
+   "at": [
+    -24.551,
+    0.0,
+    14.819
+   ],
+   "width": 1.4,
+   "height": 2.4,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "arch",
+   "a": "west-porch",
+   "b": "west-lawn",
+   "at": [
+    -29.996,
+    0.0,
+    11.496
+   ],
+   "width": 2.0,
+   "height": 2.6,
+   "turn": 225.0,
+   "id": null
+  },
+  {
+   "kind": "arch",
+   "a": "west-porch",
+   "b": "forecourt",
+   "at": [
+    -24.622,
+    0.0,
+    16.87
+   ],
+   "width": 2.0,
+   "height": 2.6,
+   "turn": 225.0,
+   "id": null
+  },
+  {
+   "kind": "arch",
+   "a": "west-porch",
+   "b": "west-lawn",
+   "at": [
+    -29.925,
+    0.0,
+    13.688
+   ],
+   "width": 2.0,
+   "height": 2.6,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "arch",
+   "a": "west-porch",
+   "b": "outside",
+   "at": [
+    -28.369,
+    0.0,
+    15.243
+   ],
+   "width": 2.0,
+   "height": 2.6,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "arch",
+   "a": "west-porch",
+   "b": "forecourt",
+   "at": [
+    -26.814,
+    0.0,
+    16.799
+   ],
+   "width": 2.0,
+   "height": 2.6,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "w-upper-corridor",
+   "b": "mrs-glenn-bedroom",
+   "at": [
+    -16.631,
+    3.4,
+    0.394
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 225.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "w-upper-corridor",
+   "b": "mrs-glenn-closets",
+   "at": [
+    -22.147,
+    3.4,
+    5.91
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 225.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "w-upper-corridor",
+   "b": "secretary-office",
+   "at": [
+    -24.127,
+    3.4,
+    6.758
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "mrs-glenn-bedroom",
+   "b": "mrs-glenn-bath",
+   "at": [
+    -17.833,
+    3.4,
+    5.415
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "mrs-glenn-closets",
+   "b": "mrs-glenn-sitting",
+   "at": [
+    -20.945,
+    3.4,
+    9.94
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "french",
+   "a": "mrs-glenn-sitting",
+   "b": "sleeping-porch-w",
+   "at": [
+    -25.117,
+    3.4,
+    14.253
+   ],
+   "width": 1.4,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "secretary-office",
+   "b": "mrs-glenn-sitting",
+   "at": [
+    -22.995,
+    3.4,
+    9.021
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 225.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "butlers-pantry",
+   "b": "east-hinge-0",
+   "at": [
+    17.119,
+    0.0,
+    1.243
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "butlers-pantry",
+   "b": "kitchen",
+   "at": [
+    19.594,
+    0.0,
+    3.718
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "window",
+   "a": "kitchen",
+   "b": "forecourt",
+   "at": [
+    19.169,
+    0.0,
+    8.667
+   ],
+   "width": 2.2,
+   "height": 1.3,
+   "turn": 315.0,
+   "id": "kitchen-window",
+   "sill": 1.2
+  },
+  {
+   "kind": "door",
+   "a": "kitchen",
+   "b": "e-corridor",
+   "at": [
+    21.927,
+    0.0,
+    10.435
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "kitchen",
+   "b": "vault",
+   "at": [
+    26.028,
+    0.0,
+    6.334
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": "vault-door"
+  },
+  {
+   "kind": "open",
+   "a": "e-corridor",
+   "b": "service-stair",
+   "at": [
+    23.341,
+    0.0,
+    10.859
+   ],
+   "width": 1.6,
+   "height": 2.3,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "e-corridor",
+   "b": "larder",
+   "at": [
+    25.109,
+    0.0,
+    12.627
+   ],
+   "width": 0.85,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "e-corridor",
+   "b": "servants-sitting",
+   "at": [
+    26.665,
+    0.0,
+    14.183
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "servants-sitting",
+   "b": "scullery",
+   "at": [
+    31.19,
+    0.0,
+    14.466
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": "service-door"
+  },
+  {
+   "kind": "door",
+   "a": "e-upper-corridor",
+   "b": "boys-bath-a",
+   "at": [
+    16.8,
+    3.4,
+    4.036
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "e-upper-corridor",
+   "b": "boys-bedroom-b",
+   "at": [
+    18.745,
+    3.4,
+    5.98
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "open",
+   "a": "e-upper-corridor",
+   "b": "service-stair-up",
+   "at": [
+    23.907,
+    3.4,
+    11.142
+   ],
+   "width": 1.2,
+   "height": 2.2,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "e-upper-corridor",
+   "b": "nursery",
+   "at": [
+    25.25,
+    3.4,
+    12.486
+   ],
+   "width": 0.85,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "e-upper-corridor",
+   "b": "sleeping-porch-e",
+   "at": [
+    25.533,
+    3.4,
+    13.9
+   ],
+   "width": 0.95,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "boys-bath-b",
+   "b": "nursery",
+   "at": [
+    27.867,
+    3.4,
+    8.172
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "coal-store",
+   "b": "furnace-room",
+   "at": [
+    19.594,
+    -3.0,
+    3.718
+   ],
+   "width": 1.0,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "furnace-room",
+   "b": "basement-stair",
+   "at": [
+    23.412,
+    -3.0,
+    8.95
+   ],
+   "width": 1.0,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "open",
+   "a": "basement-stair",
+   "b": "cellar-cell",
+   "at": [
+    26.17,
+    -3.0,
+    8.031
+   ],
+   "width": 0.9,
+   "height": 2.2,
+   "turn": 315.0,
+   "id": "cell-gate"
+  },
+  {
+   "kind": "door",
+   "a": "basement-stair",
+   "b": "laundry",
+   "at": [
+    23.907,
+    -3.0,
+    12.132
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "laundry",
+   "b": "servant-bedroom-1",
+   "at": [
+    26.665,
+    -3.0,
+    10.789
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "laundry",
+   "b": "servant-bedroom-2",
+   "at": [
+    30.059,
+    -3.0,
+    14.183
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 315.0,
+   "id": null
+  },
+  {
+   "kind": "door",
+   "a": "servant-bedroom-1",
+   "b": "servant-bedroom-2",
+   "at": [
+    29.069,
+    -3.0,
+    11.779
+   ],
+   "width": 0.8,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": null
+  },
+  {
+   "kind": "tudor",
+   "a": "arcade",
+   "b": "solarium",
+   "at": [
+    -17.1,
+    0.0,
+    -9.2
+   ],
+   "width": 2.3,
+   "height": 2.9,
+   "turn": 180.0,
+   "id": null
+  },
+  {
+   "kind": "tudor",
+   "a": "arcade",
+   "b": "solarium",
+   "at": [
+    -20.25,
+    0.0,
+    -9.2
+   ],
+   "width": 2.3,
+   "height": 2.9,
+   "turn": 180.0,
+   "id": null
+  },
+  {
+   "kind": "tudor",
+   "a": "arcade",
+   "b": "solarium",
+   "at": [
+    -23.4,
+    0.0,
+    -9.2
+   ],
+   "width": 2.3,
+   "height": 2.9,
+   "turn": 180.0,
+   "id": null
+  },
+  {
+   "kind": "archdoor",
+   "a": "arcade",
+   "b": "terrace",
+   "at": [
+    -26.1,
+    0.0,
+    -10.65
+   ],
+   "width": 1.7,
+   "height": 3.0,
+   "turn": 270.0,
+   "id": "arcade-door"
+  },
+  {
+   "kind": "window",
+   "a": "solarium",
+   "b": "west-lawn",
+   "at": [
+    -20.25,
+    0.0,
+    -3.0
+   ],
+   "width": 2.2,
+   "height": 1.9,
+   "turn": 180.0,
+   "id": "solarium-window",
+   "sill": 0.7
+  },
+  {
+   "kind": "open",
+   "a": "gallery-w",
+   "b": "gallery"
+  },
+  {
+   "kind": "open",
+   "a": "gallery",
+   "b": "gallery-e"
+  },
+  {
+   "kind": "open",
+   "a": "gallery-w",
+   "b": "west-hinge-0"
+  },
+  {
+   "kind": "open",
+   "a": "west-hinge-0",
+   "b": "w-corridor"
+  },
+  {
+   "kind": "open",
+   "a": "gallery-e",
+   "b": "east-hinge-0"
+  },
+  {
+   "kind": "open",
+   "a": "library-porch",
+   "b": "arcade"
+  },
+  {
+   "kind": "open",
+   "a": "upper-gallery-w",
+   "b": "upper-gallery"
+  },
+  {
+   "kind": "open",
+   "a": "upper-gallery",
+   "b": "upper-gallery-e"
+  },
+  {
+   "kind": "open",
+   "a": "upper-gallery-w",
+   "b": "west-hinge-1"
+  },
+  {
+   "kind": "open",
+   "a": "west-hinge-1",
+   "b": "w-upper-corridor"
+  },
+  {
+   "kind": "open",
+   "a": "upper-gallery-e",
+   "b": "east-hinge-1"
+  },
+  {
+   "kind": "open",
+   "a": "east-hinge-1",
+   "b": "e-upper-corridor"
+  },
+  {
+   "kind": "door",
+   "a": "breakfast-room",
+   "b": "east-lawn",
+   "at": [
+    18.3,
+    0.0,
+    -5.4
+   ],
+   "width": 0.9,
+   "height": 2.1,
+   "turn": 90.0,
+   "id": "breakfast-garden"
+  },
+  {
+   "kind": "door",
+   "a": "scullery",
+   "b": "east-lawn",
+   "at": [
+    32.958,
+    0.0,
+    17.082
+   ],
+   "width": 1.0,
+   "height": 2.1,
+   "turn": 45.0,
+   "id": "yard-door"
+  },
+  {
+   "kind": "door",
+   "a": "garage",
+   "b": "garage-court",
+   "at": [
+    -25.814,
+    -0.44,
+    92.472
+   ],
+   "width": 2.6,
+   "height": 2.1,
+   "turn": 24.0,
+   "id": "garage-8"
+  }
+ ],
+ "stairs": [
+  {
+   "id": "main-stair",
+   "fromLevel": 0,
+   "toLevel": 1,
+   "rooms": [
+    "stair-hall",
+    "stair-landing"
+   ],
+   "line": [
+    [
+     -2.7,
+     0.0,
+     0.2
+    ],
+    [
+     -2.7,
+     1.7,
+     3.25
+    ],
+    [
+     -7.0,
+     1.7,
+     3.8
+    ],
+    [
+     -7.0,
+     3.4,
+     0.35
+    ],
+    [
+     -7.0,
+     3.4,
+     -0.3
+    ]
+   ]
+  },
+  {
+   "id": "service-stair",
+   "fromLevel": 0,
+   "toLevel": 1,
+   "rooms": [
+    "service-stair",
+    "service-stair-up"
+   ],
+   "line": [
+    [
+     22.846,
+     0.0,
+     10.506
+    ],
+    [
+     24.826,
+     1.7,
+     8.526
+    ],
+    [
+     26.099,
+     1.7,
+     8.95
+    ],
+    [
+     23.907,
+     3.4,
+     11.142
+    ],
+    [
+     23.624,
+     3.4,
+     11.425
+    ]
+   ]
+  },
+  {
+   "id": "basement-stair",
+   "fromLevel": 0,
+   "toLevel": -1,
+   "rooms": [
+    "service-stair",
+    "basement-stair"
+   ],
+   "line": [
+    [
+     23.695,
+     0.0,
+     11.354
+    ],
+    [
+     26.17,
+     -3.0,
+     8.879
+    ],
+    [
+     25.675,
+     -3.0,
+     7.96
+    ]
+   ]
+  },
+  {
+   "id": "hearth-stair",
+   "fromLevel": 0,
+   "toLevel": -1,
+   "rooms": [
+    "inglenook",
+    "hearth-stair"
+   ],
+   "line": [
+    [
+     -1.7,
+     -0.36,
+     -13.05
+    ],
+    [
+     -1.15,
+     -0.36,
+     -13.05
+    ],
+    [
+     1.27,
+     -3.0,
+     -13.05
+    ],
+    [
+     1.8,
+     -3.0,
+     -13.05
+    ]
+   ],
+   "gate": "hearth-stone"
+  }
+ ],
+ "doors": [
+  {
+   "id": "door0",
+   "at": [
+    -11.2,
+    0.0,
+    -3.0
+   ],
+   "turn": 0.0,
+   "width": 1.1
+  },
+  {
+   "id": "door1",
+   "at": [
+    10.1,
+    0.0,
+    -3.0
+   ],
+   "turn": 0.0,
+   "width": 1.2
+  },
+  {
+   "id": "door2",
+   "at": [
+    15.9,
+    0.0,
+    -3.0
+   ],
+   "turn": 0.0,
+   "width": 1.0
+  },
+  {
+   "id": "front-door",
+   "at": [
+    0.2,
+    0.0,
+    3.6
+   ],
+   "turn": 0.0,
+   "width": 1.5
+  },
+  {
+   "id": "door4",
+   "at": [
+    3.3,
+    0.0,
+    -0.0
+   ],
+   "turn": 0.0,
+   "width": 0.8
+  },
+  {
+   "id": "door5",
+   "at": [
+    5.1,
+    0.0,
+    -0.0
+   ],
+   "turn": 0.0,
+   "width": 0.8
+  },
+  {
+   "id": "garden-door",
+   "at": [
+    7.7,
+    0.0,
+    2.6
+   ],
+   "turn": 0.0,
+   "width": 1.2
+  },
+  {
+   "id": "door7",
+   "at": [
+    7.7,
+    0.0,
+    -0.0
+   ],
+   "turn": 0.0,
+   "width": 1.0
+  },
+  {
+   "id": "door8",
+   "at": [
+    -15.5,
+    0.0,
+    -3.75
+   ],
+   "turn": 90.0,
+   "width": 0.9
+  },
+  {
+   "id": "door9",
+   "at": [
+    -15.5,
+    0.0,
+    -8.45
+   ],
+   "turn": 90.0,
+   "width": 0.9
+  },
+  {
+   "id": "door10",
+   "at": [
+    13.4,
+    0.0,
+    -5.4
+   ],
+   "turn": 90.0,
+   "width": 0.9
+  },
+  {
+   "id": "door11",
+   "at": [
+    -13.0,
+    3.4,
+    -3.0
+   ],
+   "turn": 0.0,
+   "width": 0.95
+  },
+  {
+   "id": "door12",
+   "at": [
+    -8.7,
+    3.4,
+    -3.0
+   ],
+   "turn": 0.0,
+   "width": 0.95
+  },
+  {
+   "id": "door13",
+   "at": [
+    10.1,
+    3.4,
+    -3.0
+   ],
+   "turn": 0.0,
+   "width": 0.95
+  },
+  {
+   "id": "door14",
+   "at": [
+    -15.5,
+    3.4,
+    -7.0
+   ],
+   "turn": 90.0,
+   "width": 0.9
+  },
+  {
+   "id": "door15",
+   "at": [
+    -10.6,
+    3.4,
+    -6.0
+   ],
+   "turn": 90.0,
+   "width": 0.95
+  },
+  {
+   "id": "door16",
+   "at": [
+    -10.6,
+    3.4,
+    -10.6
+   ],
+   "turn": 90.0,
+   "width": 0.8
+  },
+  {
+   "id": "door17",
+   "at": [
+    1.8,
+    -3.0,
+    -12.1
+   ],
+   "turn": 0.0,
+   "width": 0.8
+  },
+  {
+   "id": "door18",
+   "at": [
+    -16.631,
+    0.0,
+    0.394
+   ],
+   "turn": 225.0,
+   "width": 0.95
+  },
+  {
+   "id": "door19",
+   "at": [
+    -22.712,
+    0.0,
+    6.475
+   ],
+   "turn": 225.0,
+   "width": 0.95
+  },
+  {
+   "id": "door20",
+   "at": [
+    -24.692,
+    0.0,
+    7.324
+   ],
+   "turn": 315.0,
+   "width": 0.95
+  },
+  {
+   "id": "door21",
+   "at": [
+    -15.924,
+    0.0,
+    6.475
+   ],
+   "turn": 315.0,
+   "width": 0.8
+  },
+  {
+   "id": "door22",
+   "at": [
+    -20.167,
+    0.0,
+    7.889
+   ],
+   "turn": 315.0,
+   "width": 0.8
+  },
+  {
+   "id": "door23",
+   "at": [
+    -16.631,
+    3.4,
+    0.394
+   ],
+   "turn": 225.0,
+   "width": 0.95
+  },
+  {
+   "id": "door24",
+   "at": [
+    -22.147,
+    3.4,
+    5.91
+   ],
+   "turn": 225.0,
+   "width": 0.95
+  },
+  {
+   "id": "door25",
+   "at": [
+    -24.127,
+    3.4,
+    6.758
+   ],
+   "turn": 315.0,
+   "width": 0.95
+  },
+  {
+   "id": "door26",
+   "at": [
+    -17.833,
+    3.4,
+    5.415
+   ],
+   "turn": 315.0,
+   "width": 0.8
+  },
+  {
+   "id": "door27",
+   "at": [
+    -20.945,
+    3.4,
+    9.94
+   ],
+   "turn": 315.0,
+   "width": 0.9
+  },
+  {
+   "id": "door28",
+   "at": [
+    -22.995,
+    3.4,
+    9.021
+   ],
+   "turn": 225.0,
+   "width": 0.95
+  },
+  {
+   "id": "door29",
+   "at": [
+    17.119,
+    0.0,
+    1.243
+   ],
+   "turn": 45.0,
+   "width": 0.9
+  },
+  {
+   "id": "door30",
+   "at": [
+    19.594,
+    0.0,
+    3.718
+   ],
+   "turn": 45.0,
+   "width": 0.95
+  },
+  {
+   "id": "door31",
+   "at": [
+    21.927,
+    0.0,
+    10.435
+   ],
+   "turn": 45.0,
+   "width": 0.9
+  },
+  {
+   "id": "vault-door",
+   "at": [
+    26.028,
+    0.0,
+    6.334
+   ],
+   "turn": 45.0,
+   "width": 0.9
+  },
+  {
+   "id": "door33",
+   "at": [
+    25.109,
+    0.0,
+    12.627
+   ],
+   "turn": 315.0,
+   "width": 0.85
+  },
+  {
+   "id": "door34",
+   "at": [
+    26.665,
+    0.0,
+    14.183
+   ],
+   "turn": 315.0,
+   "width": 0.9
+  },
+  {
+   "id": "service-door",
+   "at": [
+    31.19,
+    0.0,
+    14.466
+   ],
+   "turn": 45.0,
+   "width": 0.95
+  },
+  {
+   "id": "door36",
+   "at": [
+    16.8,
+    3.4,
+    4.036
+   ],
+   "turn": 315.0,
+   "width": 0.8
+  },
+  {
+   "id": "door37",
+   "at": [
+    18.745,
+    3.4,
+    5.98
+   ],
+   "turn": 315.0,
+   "width": 0.95
+  },
+  {
+   "id": "door38",
+   "at": [
+    25.25,
+    3.4,
+    12.486
+   ],
+   "turn": 315.0,
+   "width": 0.85
+  },
+  {
+   "id": "door39",
+   "at": [
+    25.533,
+    3.4,
+    13.9
+   ],
+   "turn": 45.0,
+   "width": 0.95
+  },
+  {
+   "id": "door40",
+   "at": [
+    27.867,
+    3.4,
+    8.172
+   ],
+   "turn": 45.0,
+   "width": 0.8
+  },
+  {
+   "id": "door41",
+   "at": [
+    19.594,
+    -3.0,
+    3.718
+   ],
+   "turn": 45.0,
+   "width": 1.0
+  },
+  {
+   "id": "door42",
+   "at": [
+    23.412,
+    -3.0,
+    8.95
+   ],
+   "turn": 45.0,
+   "width": 1.0
+  },
+  {
+   "id": "door43",
+   "at": [
+    23.907,
+    -3.0,
+    12.132
+   ],
+   "turn": 45.0,
+   "width": 0.9
+  },
+  {
+   "id": "door44",
+   "at": [
+    26.665,
+    -3.0,
+    10.789
+   ],
+   "turn": 315.0,
+   "width": 0.9
+  },
+  {
+   "id": "door45",
+   "at": [
+    30.059,
+    -3.0,
+    14.183
+   ],
+   "turn": 315.0,
+   "width": 0.8
+  },
+  {
+   "id": "door46",
+   "at": [
+    29.069,
+    -3.0,
+    11.779
+   ],
+   "turn": 45.0,
+   "width": 0.8
+  },
+  {
+   "id": "arcade-door",
+   "at": [
+    -26.1,
+    0.0,
+    -10.65
+   ],
+   "turn": 270.0,
+   "width": 1.7
+  },
+  {
+   "id": "breakfast-garden",
+   "at": [
+    18.3,
+    0.0,
+    -5.4
+   ],
+   "turn": 90.0,
+   "width": 0.9
+  },
+  {
+   "id": "yard-door",
+   "at": [
+    32.958,
+    0,
+    17.082
+   ],
+   "turn": 45.0,
+   "width": 1.0
+  },
+  {
+   "id": "garage-1",
+   "at": [
+    -31.478,
+    -0.45,
+    94.994
+   ],
+   "turn": 24.0,
+   "width": 2.6
+  },
+  {
+   "id": "garage-4",
+   "at": [
+    -28.646,
+    -0.45,
+    93.733
+   ],
+   "turn": 24.0,
+   "width": 2.6
+  },
+  {
+   "id": "garage-8",
+   "at": [
+    -25.814,
+    -0.45,
+    92.472
+   ],
+   "turn": 24.0,
+   "width": 2.6
+  },
+  {
+   "id": "garage-11",
+   "at": [
+    -22.982,
+    -0.45,
+    91.211
+   ],
+   "turn": 24.0,
+   "width": 2.6
+  },
+  {
+   "id": "garage-14",
+   "at": [
+    -20.15,
+    -0.45,
+    89.95
+   ],
+   "turn": 24.0,
+   "width": 2.6
+  },
+  {
+   "id": "cottage-door",
+   "at": [
+    -15.611,
+    0,
+    89.572
+   ],
+   "turn": 24.0,
+   "width": 1.0
+  },
+  {
+   "id": "cottage-garage",
+   "at": [
+    -19.929,
+    0,
+    86.021
+   ],
+   "turn": 114.0,
+   "width": 1.0
+  },
+  {
+   "id": "pump-house",
+   "at": [
+    -10.205,
+    0,
+    80.816
+   ],
+   "turn": 114.0,
+   "width": 0.9
+  },
+  {
+   "id": "cell-gate",
+   "at": [
+    26.17,
+    -3.0,
+    8.031
+   ],
+   "turn": 315.0,
+   "width": 0.9
+  }
+ ],
+ "spots": [
+  {
+   "id": "journals",
+   "kind": "proof",
+   "room": "hidden-study",
+   "at": [
+    0.0,
+    -2.2,
+    -7.0
+   ],
+   "stand": [
+    0.0,
+    -5.95
+   ]
+  },
+  {
+   "id": "crest-vault",
+   "kind": "crest",
+   "room": "vault",
+   "at": [
+    27.536,
+    0.26,
+    7.841
+   ],
+   "stand": [
+    27.005,
+    7.311
+   ]
+  },
+  {
+   "id": "crest-library",
+   "kind": "crest",
+   "room": "library",
+   "at": [
+    -13.338,
+    1.3,
+    -3.31
+   ],
+   "stand": [
+    -12.878,
+    -3.903
+   ]
+  },
+  {
+   "id": "ledger",
+   "kind": "ledger",
+   "room": "library",
+   "at": [
+    -9.272,
+    1.0,
+    -3.31
+   ],
+   "stand": [
+    -9.695,
+    -3.93
+   ]
+  },
+  {
+   "id": "crest-sitting",
+   "kind": "crest",
+   "room": "mrs-glenn-sitting",
+   "at": [
+    -23.363,
+    3.66,
+    14.989
+   ],
+   "stand": [
+    -23.267,
+    14.245
+   ]
+  },
+  {
+   "id": "crest-cell",
+   "kind": "crest",
+   "room": "cellar-cell",
+   "at": [
+    27.499,
+    -2.74,
+    7.805
+   ],
+   "stand": [
+    26.969,
+    7.274
+   ]
+  },
+  {
+   "id": "butler-key",
+   "kind": "key",
+   "room": "butlers-pantry",
+   "at": [
+    20.613,
+    1.0,
+    0.223
+   ],
+   "stand": [
+    20.083,
+    0.753
+   ]
+  },
+  {
+   "id": "car-keys",
+   "kind": "key",
+   "room": "mr-glenn-bedroom",
+   "at": [
+    -15.108,
+    4.2,
+    -7.55
+   ],
+   "stand": [
+    -14.358,
+    -7.55
+   ]
+  },
+  {
+   "id": "safe-cabinet",
+   "kind": "loot",
+   "room": "servants-sitting",
+   "at": [
+    32.703,
+    1.0,
+    12.33
+   ],
+   "stand": [
+    31.964,
+    12.456
+   ]
+  },
+  {
+   "id": "front-bolt",
+   "kind": "bolt",
+   "room": "vestibule",
+   "at": [
+    0.2,
+    1.1,
+    3.5
+   ],
+   "stand": [
+    0.2,
+    2.75
+   ]
+  },
+  {
+   "id": "crest-sockets",
+   "kind": "sockets",
+   "room": "inglenook",
+   "at": [
+    0.0,
+    1.39,
+    -14.15
+   ],
+   "stand": [
+    1.55,
+    -13.25
+   ]
+  },
+  {
+   "id": "planks",
+   "kind": "planks",
+   "room": "coal-store",
+   "at": [
+    20.23,
+    -2.65,
+    0.041
+   ],
+   "stand": [
+    19.558,
+    0.712
+   ]
+  },
+  {
+   "id": "plant",
+   "kind": "plant",
+   "room": "furnace-room",
+   "at": [
+    23.179,
+    -1.6,
+    2.112
+   ],
+   "stand": [
+    22.613,
+    2.678
+   ]
+  },
+  {
+   "id": "fuel",
+   "kind": "fuel",
+   "room": "garage",
+   "at": [
+    -24.306,
+    0.0,
+    84.795
+   ],
+   "stand": [
+    -23.94,
+    85.617
+   ]
+  },
+  {
+   "id": "car",
+   "kind": "car",
+   "room": "forecourt",
+   "at": [
+    8.4,
+    0.3,
+    7.6
+   ],
+   "stand": [
+    7.8,
+    9.35
+   ]
+  },
+  {
+   "id": "kitchen-cupboard-1",
+   "kind": "loot",
+   "room": "kitchen",
+   "at": [
+    18.242,
+    1.0,
+    6.88
+   ],
+   "stand": [
+    18.969,
+    6.699
+   ]
+  },
+  {
+   "id": "kitchen-cupboard-2",
+   "kind": "loot",
+   "room": "kitchen",
+   "at": [
+    20.731,
+    1.0,
+    9.369
+   ],
+   "stand": [
+    20.967,
+    8.657
+   ]
+  },
+  {
+   "id": "kitchen-knife-block",
+   "kind": "loot",
+   "room": "kitchen",
+   "at": [
+    24.113,
+    1.0,
+    3.723
+   ],
+   "stand": [
+    23.583,
+    4.253
+   ]
+  },
+  {
+   "id": "kitchen-pantry-1",
+   "kind": "loot",
+   "room": "butlers-pantry",
+   "at": [
+    15.357,
+    1.0,
+    3.995
+   ],
+   "stand": [
+    16.026,
+    3.657
+   ]
+  },
+  {
+   "id": "kitchen-larder-1",
+   "kind": "loot",
+   "room": "larder",
+   "at": [
+    28.835,
+    1.0,
+    8.901
+   ],
+   "stand": [
+    28.305,
+    9.431
+   ]
+  },
+  {
+   "id": "bath-mr-glenn",
+   "kind": "loot",
+   "room": "mr-glenn-bath",
+   "at": [
+    -8.725,
+    4.4,
+    -11.665
+   ],
+   "stand": [
+    -8.725,
+    -10.915
+   ]
+  },
+  {
+   "id": "bath-mrs-glenn",
+   "kind": "loot",
+   "room": "mrs-glenn-bath",
+   "at": [
+    -17.056,
+    4.4,
+    8.031
+   ],
+   "stand": [
+    -17.586,
+    7.501
+   ]
+  },
+  {
+   "id": "bath-boys",
+   "kind": "loot",
+   "room": "boys-bath-a",
+   "at": [
+    20.407,
+    4.4,
+    0.429
+   ],
+   "stand": [
+    19.876,
+    0.96
+   ]
+  },
+  {
+   "id": "bath-panelled",
+   "kind": "loot",
+   "room": "panelled-bath",
+   "at": [
+    -16.419,
+    1.0,
+    7.394
+   ],
+   "stand": [
+    -16.95,
+    6.864
+   ]
+  },
+  {
+   "id": "bath-suite",
+   "kind": "loot",
+   "room": "suite-bath",
+   "at": [
+    -17.833,
+    1.0,
+    8.809
+   ],
+   "stand": [
+    -18.364,
+    8.278
+   ]
+  },
+  {
+   "id": "vault-case",
+   "kind": "loot",
+   "room": "vault",
+   "at": [
+    27.539,
+    1.0,
+    6.662
+   ],
+   "stand": [
+    27.008,
+    7.192
+   ]
+  },
+  {
+   "id": "cellar-furnace-tools",
+   "kind": "loot",
+   "room": "furnace-room",
+   "at": [
+    21.291,
+    -2.0,
+    9.714
+   ],
+   "stand": [
+    21.403,
+    8.972
+   ]
+  },
+  {
+   "id": "bedroom-glenn-nightstand",
+   "kind": "loot",
+   "room": "mr-glenn-bedroom",
+   "at": [
+    -11.09,
+    4.4,
+    -7.55
+   ],
+   "stand": [
+    -11.84,
+    -7.55
+   ]
+  },
+  {
+   "id": "garage-bench",
+   "kind": "loot",
+   "room": "garage",
+   "at": [
+    -32.944,
+    0.5,
+    88.75
+   ],
+   "stand": [
+    -32.578,
+    89.573
+   ]
+  },
+  {
+   "id": "garage-wall",
+   "kind": "loot",
+   "room": "garage",
+   "at": [
+    -28.457,
+    0.5,
+    86.534
+   ],
+   "stand": [
+    -28.091,
+    87.356
+   ]
+  },
+  {
+   "id": "board-library-window",
+   "kind": "board",
+   "room": "library-porch",
+   "at": [
+    -11.2,
+    1.55,
+    -12.1
+   ],
+   "stand": [
+    -11.2,
+    -11.3
+   ],
+   "window": "library-window"
+  },
+  {
+   "id": "board-dining-window",
+   "kind": "board",
+   "room": "dining-room",
+   "at": [
+    13.4,
+    1.65,
+    -9.9
+   ],
+   "stand": [
+    12.6,
+    -9.9
+   ],
+   "window": "dining-window"
+  },
+  {
+   "id": "board-guest-window",
+   "kind": "board",
+   "room": "guest-suite",
+   "at": [
+    -21.723,
+    1.65,
+    13.971
+   ],
+   "stand": [
+    -22.289,
+    13.405
+   ],
+   "window": "guest-window"
+  },
+  {
+   "id": "board-kitchen-window",
+   "kind": "board",
+   "room": "kitchen",
+   "at": [
+    19.169,
+    1.85,
+    8.667
+   ],
+   "stand": [
+    19.735,
+    8.101
+   ],
+   "window": "kitchen-window"
+  },
+  {
+   "id": "board-solarium-window",
+   "kind": "board",
+   "room": "solarium",
+   "at": [
+    -20.25,
+    1.65,
+    -3.0
+   ],
+   "stand": [
+    -20.25,
+    -3.8
+   ],
+   "window": "solarium-window"
+  }
+ ],
+ "holes": [
+  {
+   "id": "hearth-stone",
+   "level": 0,
+   "corners": [
+    [
+     -1.15,
+     -0.36,
+     -12.6
+    ],
+    [
+     0.85,
+     -0.36,
+     -12.6
+    ],
+    [
+     0.85,
+     -0.36,
+     -13.5
+    ],
+    [
+     -1.15,
+     -0.36,
+     -13.5
+    ]
+   ]
+  }
+ ]
+}

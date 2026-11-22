@@ -1,0 +1,56 @@
+{
+  "level": "Level 6 — Lights Out",
+  "note": "APPROVED by Josh 2026-10-14. CC-BY or CC0 only. The level's lamps are the kit's caged bulkhead and fluorescent batten (drawn dead), its pipes, valve handwheel (THE HANDWHEEL itself), drums, crates, lockers and tables are already in the prop kit, so this is only what the dark is missing: the sea hatch, the creature, rubble, a rusty shelf, and four photographed concrete surfaces. node scripts/assets/fetch.mjs scripts/assets/level6.json --dry",
+  "assets": [
+    {
+      "source": "sketchfab",
+      "uid": "514cf4b2872d484497425033eeec9c0a",
+      "name": "Naval Ship Door/Hatch",
+      "author": "Digital Goblin",
+      "license": "CC-BY",
+      "faces": 15088,
+      "use": "THE SEA HATCH — a riveted watertight door in its frame, with the empty hub hole the Handwheel fits into"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "9fb509d207d744babeb5d87a486f7de1",
+      "name": "Nightmare Creature 1#",
+      "author": "Mr.Prizz",
+      "license": "CC-BY",
+      "faces": 6718,
+      "animations": 22,
+      "use": "THE LISTENER — pale, eyeless, all mouth; light, rigged, 22 clips to choose idle / search / lunge / touch from"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "284ab0cef4fd4e0dbc963da2e52341b0",
+      "name": "Broken concrete debris - low poly",
+      "author": "kemsui",
+      "license": "CC-BY",
+      "faces": 7290,
+      "use": "broken wall slabs and fallen chunks — collapsed corners, half-blocked doorways"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "5986d1487d9443b883d67b121c2c903c",
+      "name": "Rubble Pile - Photoscan (Optimized)",
+      "author": "Coozy",
+      "license": "CC-BY",
+      "faces": 60545,
+      "use": "a heap of broken concrete and slabs on the floor (the references' rubble floors)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "3ce07d0518154759841236045efafd72",
+      "name": "Old Rusty Shelving Unit",
+      "author": "jimbogies",
+      "license": "CC-BY",
+      "faces": 160,
+      "use": "an empty rusted shelf for the store rooms (reference 15's shelving)"
+    },
+    { "source": "polyhaven", "id": "concrete_wall_006", "type": "texture", "use": "the level's main wall: stained grey poured concrete" },
+    { "source": "polyhaven", "id": "cracked_concrete_wall", "type": "texture", "use": "cracked, flaking plaster over concrete — the side rooms" },
+    { "source": "polyhaven", "id": "concrete_floor_damaged_01", "type": "texture", "use": "the main floor: broken, patched concrete" },
+    { "source": "polyhaven", "id": "damaged_concrete_floor", "type": "texture", "use": "a darker, stained floor for the Wet End under the water" }
+  ]
+}

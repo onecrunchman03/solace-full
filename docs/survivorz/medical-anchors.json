@@ -1,0 +1,1069 @@
+{
+ "about": "THE VAULT LOBBY's hand-off to the effects (EFFECTS.md section 5), written by scripts/survivorz/room-build.py: where its fixtures, vents, pipes, panels and puddles are, in world metres (x east, y up, z south). Each fixture's `at` is the light's own face (the panel's underside, the caged tube); `bank` is the order the power comes back in. The effects place beams, steam, drips and sparks from these; the room never wires effects in itself.",
+ "map": "halcyon-site-9-v2",
+ "fixtures": [
+  {
+   "id": "FIXTURE_e0",
+   "kind": "emergency",
+   "at": [
+    5.76,
+    2.62,
+    52.0
+   ],
+   "face": [
+    -1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "med-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e1",
+   "kind": "emergency",
+   "at": [
+    0.24,
+    2.62,
+    64.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "med-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x2",
+   "kind": "exit",
+   "at": [
+    3.0,
+    2.54,
+    46.15
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "med-corridor",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e3",
+   "kind": "emergency",
+   "at": [
+    8.0,
+    2.62,
+    75.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "med-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e4",
+   "kind": "emergency",
+   "at": [
+    22.0,
+    2.62,
+    75.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "med-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e5",
+   "kind": "emergency",
+   "at": [
+    36.0,
+    2.62,
+    75.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "med-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e6",
+   "kind": "emergency",
+   "at": [
+    50.0,
+    2.62,
+    75.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "med-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e7",
+   "kind": "emergency",
+   "at": [
+    62.0,
+    2.62,
+    75.76
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "med-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_x8",
+   "kind": "exit",
+   "at": [
+    3.0,
+    2.54,
+    70.15
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.36,
+    0.14
+   ],
+   "room": "med-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p9",
+   "kind": "panel",
+   "at": [
+    10,
+    2.87,
+    63.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "pharmacy",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p10",
+   "kind": "panel",
+   "at": [
+    14.5,
+    2.87,
+    63.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "pharmacy",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p11",
+   "kind": "panel",
+   "at": [
+    12,
+    2.87,
+    67.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "pharmacy",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e12",
+   "kind": "emergency",
+   "at": [
+    8.0,
+    2.82,
+    69.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "pharmacy",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p13",
+   "kind": "panel",
+   "at": [
+    21.5,
+    2.87,
+    63.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "exam-rooms",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p14",
+   "kind": "panel",
+   "at": [
+    25,
+    2.87,
+    63.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "exam-rooms",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p15",
+   "kind": "panel",
+   "at": [
+    28.5,
+    2.87,
+    63.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "exam-rooms",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p16",
+   "kind": "panel",
+   "at": [
+    25,
+    2.87,
+    67.6
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "exam-rooms",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e17",
+   "kind": "emergency",
+   "at": [
+    21.0,
+    2.82,
+    69.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "exam-rooms",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p18",
+   "kind": "panel",
+   "at": [
+    36,
+    2.87,
+    64
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "med-office",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p19",
+   "kind": "panel",
+   "at": [
+    40,
+    2.87,
+    64
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "med-office",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e20",
+   "kind": "emergency",
+   "at": [
+    34.0,
+    2.82,
+    69.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "med-office",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p21",
+   "kind": "panel",
+   "at": [
+    47,
+    2.87,
+    64
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "staff-lounge",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p22",
+   "kind": "panel",
+   "at": [
+    51,
+    2.87,
+    64
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "staff-lounge",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e23",
+   "kind": "emergency",
+   "at": [
+    46.0,
+    2.82,
+    69.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "staff-lounge",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c24",
+   "kind": "caged",
+   "at": [
+    57.5,
+    2.77,
+    62
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "safe-med",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c25",
+   "kind": "caged",
+   "at": [
+    62.5,
+    2.77,
+    65
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "safe-med",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p26",
+   "kind": "panel",
+   "at": [
+    9.5,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "quarantine",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p27",
+   "kind": "panel",
+   "at": [
+    16.5,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "quarantine",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p28",
+   "kind": "panel",
+   "at": [
+    9.5,
+    2.87,
+    84.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "quarantine",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p29",
+   "kind": "panel",
+   "at": [
+    16.5,
+    2.87,
+    84.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "quarantine",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e30",
+   "kind": "emergency",
+   "at": [
+    18.4,
+    2.82,
+    76.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "quarantine",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p31",
+   "kind": "panel",
+   "at": [
+    9,
+    2.67,
+    91
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "quarantine-cell",
+   "bank": 0,
+   "style": "dying",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p32",
+   "kind": "panel",
+   "at": [
+    23,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "ward",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p33",
+   "kind": "panel",
+   "at": [
+    23,
+    2.87,
+    84.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "ward",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p34",
+   "kind": "panel",
+   "at": [
+    28,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "ward",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p35",
+   "kind": "panel",
+   "at": [
+    28,
+    2.87,
+    84.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "ward",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p36",
+   "kind": "panel",
+   "at": [
+    33,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "ward",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p37",
+   "kind": "panel",
+   "at": [
+    33,
+    2.87,
+    84.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "ward",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e38",
+   "kind": "emergency",
+   "at": [
+    26.0,
+    2.82,
+    89.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "ward",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p39",
+   "kind": "panel",
+   "at": [
+    38,
+    2.87,
+    78
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "operating",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p40",
+   "kind": "panel",
+   "at": [
+    44,
+    2.87,
+    78
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "operating",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p41",
+   "kind": "panel",
+   "at": [
+    38,
+    2.87,
+    84
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "operating",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p42",
+   "kind": "panel",
+   "at": [
+    44,
+    2.87,
+    84
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "operating",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e43",
+   "kind": "emergency",
+   "at": [
+    44.0,
+    2.82,
+    85.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "operating",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p44",
+   "kind": "panel",
+   "at": [
+    49,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "morgue",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p45",
+   "kind": "panel",
+   "at": [
+    53,
+    2.87,
+    79.5
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "morgue",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_p46",
+   "kind": "panel",
+   "at": [
+    51,
+    2.87,
+    83
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "morgue",
+   "bank": 0,
+   "style": "failing",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e47",
+   "kind": "emergency",
+   "at": [
+    48.0,
+    2.82,
+    76.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "morgue",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_p48",
+   "kind": "panel",
+   "at": [
+    59,
+    2.67,
+    81
+   ],
+   "size": [
+    0.56,
+    0.56
+   ],
+   "room": "cold-storage",
+   "bank": 0,
+   "style": "dead",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m0",
+   "kind": "slot",
+   "at": [
+    1.4,
+    2.759,
+    58.0
+   ],
+   "size": [
+    0.06,
+    22.1
+   ],
+   "room": "med-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m1",
+   "kind": "slot",
+   "at": [
+    3.0,
+    2.759,
+    58.0
+   ],
+   "size": [
+    0.06,
+    22.1
+   ],
+   "room": "med-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m2",
+   "kind": "slot",
+   "at": [
+    4.6,
+    2.759,
+    58.0
+   ],
+   "size": [
+    0.06,
+    22.1
+   ],
+   "room": "med-corridor",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m3",
+   "kind": "slot",
+   "at": [
+    33.0,
+    2.759,
+    71.4
+   ],
+   "size": [
+    64.1,
+    0.06
+   ],
+   "room": "med-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m4",
+   "kind": "slot",
+   "at": [
+    33.0,
+    2.759,
+    73.0
+   ],
+   "size": [
+    64.1,
+    0.06
+   ],
+   "room": "med-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_m5",
+   "kind": "slot",
+   "at": [
+    33.0,
+    2.759,
+    74.6
+   ],
+   "size": [
+    64.1,
+    0.06
+   ],
+   "room": "med-hall",
+   "bank": 0,
+   "circuit": "mains"
+  }
+ ],
+ "vents": [
+  {
+   "at": [
+    1.4,
+    2.7,
+    58.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "med-corridor",
+   "size": [
+    0.06,
+    22.1
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    3.0,
+    2.7,
+    58.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "med-corridor",
+   "size": [
+    0.06,
+    22.1
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    4.6,
+    2.7,
+    58.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "med-corridor",
+   "size": [
+    0.06,
+    22.1
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    33.0,
+    2.7,
+    71.4
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "med-hall",
+   "size": [
+    64.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    33.0,
+    2.7,
+    73.0
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "med-hall",
+   "size": [
+    64.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  },
+  {
+   "at": [
+    33.0,
+    2.7,
+    74.6
+   ],
+   "facing": [
+    0,
+    -1,
+    0
+   ],
+   "room": "med-hall",
+   "size": [
+    64.1,
+    0.06
+   ],
+   "note": "a linear slot diffuser"
+  }
+ ],
+ "pipes": [],
+ "panels": [],
+ "puddles": []
+}

@@ -1,0 +1,191 @@
+{
+  "level": "Level 3 — Electrical Station",
+  "note": "Picked from a sourced search, 2026-10-09. node scripts/assets/fetch.mjs scripts/assets/level3.json --dry",
+  "assets": [
+    {
+      "source": "ambientcg",
+      "id": "Tiles140",
+      "use": "corroded industrial grid tiles — machine-room walls and floors"
+    },
+    {
+      "source": "ambientcg",
+      "id": "Tiles054",
+      "use": "dirty white tiles — service corridors"
+    },
+    {
+      "source": "ambientcg",
+      "id": "PaintedMetal006",
+      "use": "green painted metal with rust — switchgear cabinets"
+    },
+    {
+      "source": "ambientcg",
+      "id": "PaintedMetal014",
+      "use": "grey painted metal with rust — panels and doors"
+    },
+    {
+      "source": "ambientcg",
+      "id": "Metal027",
+      "use": "black powder-coated metal — electrical cabinets"
+    },
+    {
+      "source": "ambientcg",
+      "id": "Rubber004",
+      "use": "black rubber matting — insulated floor in front of panels"
+    },
+    {
+      "source": "ambientcg",
+      "id": "MetalPlates013",
+      "use": "rusted metal plates"
+    },
+    {
+      "source": "ambientcg",
+      "id": "DiamondPlate008C",
+      "use": "diamond plate — catwalks and floor covers"
+    },
+    {
+      "source": "ambientcg",
+      "id": "Sticker001",
+      "use": "hazard stripe tape (has opacity)"
+    },
+    {
+      "source": "ambientcg",
+      "id": "Sign009",
+      "use": "DANGER HIGH VOLTAGE sign decal (has opacity)"
+    },
+    {
+      "source": "ambientcg",
+      "id": "Asphalt025C",
+      "use": "wet dark surface — the electrified puddles"
+    },
+    {
+      "source": "polyhaven",
+      "type": "texture",
+      "id": "garage_floor",
+      "use": "chipped epoxy floor"
+    },
+    {
+      "source": "polyhaven",
+      "type": "texture",
+      "id": "dirty_tiles",
+      "use": "dirty tiles, second variant"
+    },
+    {
+      "source": "polyhaven",
+      "type": "texture",
+      "id": "rusty_painted_metal",
+      "use": "worn painted metal"
+    },
+    {
+      "source": "polyhaven",
+      "type": "texture",
+      "id": "green_metal_rust",
+      "use": "industrial green metal"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "power_box_01",
+      "use": "damaged power box with breakers and exposed wiring — the breaker stations"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "utility_box_01",
+      "use": "riveted cabinet with high-voltage stickers"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "utility_box_02",
+      "use": "wide riveted cabinet"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "modular_electric_cables",
+      "use": "cable runs, junction boxes, bends — the live wires"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "caged_hanging_light",
+      "use": "caged hanging lamp — fixture for the creature's flicker"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "industrial_caged_sconce",
+      "use": "caged wall lamp"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "mounted_fluorescent_lights",
+      "use": "fluorescent fixtures — service corridors"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "rollershutter_door",
+      "use": "heavy shutter — the exit to Level 4"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "WetFloorSign_01",
+      "use": "wet floor sign beside the live puddles"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "worn_metal_rack",
+      "use": "storage rack dressing"
+    },
+    {
+      "source": "polyhaven",
+      "type": "model",
+      "id": "fire_alarm",
+      "use": "wall dressing"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "374608f75c114b8a9bf41dbc02c51c50",
+      "use": "lever power switch — the six breakers"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "9ad62dc3bd694bf880be78e43530008e",
+      "use": "industrial switchgear"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "de13c96dad014bf098df03030f314fee",
+      "use": "industrial electrical box"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "615fe4b367314a72b7dffb8ec791f575",
+      "use": "electrical transformer"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "423cfdbd612c486aada7bb1bc44695a9",
+      "use": "diesel generator"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "8ba2c3ac7f5f41d588908750fdb24130",
+      "use": "cable tray"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "5a64c259a5a8410da7e39eb9e2acff75",
+      "use": "CREATURE candidate 1: Dover Demon (The Rake) v1 — pale, fanged, bloody; 9 clips incl. RetreatScream. PROVENANCE: from the Roblox game Whispering Pines"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "3d3fc31eddaa409a8f2df564823154e1",
+      "use": "CREATURE candidate 2: Smily horror monster — pale, toothy, bloody; 1 clip, needs animating"
+    }
+  ]
+}

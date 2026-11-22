@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The Solace mark: the logo's speech-bubble ring, peach→pink gradient. -->
+  <defs>
+    <linearGradient id="solace-g" x1="0.35" y1="0" x2="0.45" y2="1">
+      <stop offset="0" stop-color="#f8b04c"/>
+      <stop offset="0.55" stop-color="#f2907c"/>
+      <stop offset="1" stop-color="#ec6f92"/>
+    </linearGradient>
+  </defs>
+  <!-- open ring (gap at the top-right, like the wordmark) -->
+  <path d="M 53.1 18 A 22 22 0 1 0 55.7 32.8"
+        fill="none" stroke="url(#solace-g)" stroke-width="7" stroke-linecap="round"/>
+  <!-- the bubble's tail, pointing down-left -->
+  <path d="M 19 45 L 8 58" fill="none" stroke="url(#solace-g)" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Solace Satellite</title>
+<style>
+  :root {
+    --bg: #17131c; --panel: #201a28; --line: #372e44; --ink: #efe8f5;
+    --soft: #a99bb8; --accent: #e879b9; --ok: #6fbf73; --warn: #e0a458; --bad: #d9737a;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--bg); color: var(--ink); height: 100vh; overflow: hidden;
+    font: 15px/1.45 "Segoe UI", system-ui, sans-serif; display: flex; flex-direction: column;
+    user-select: none;
+  }
+  header {
+    display: flex; align-items: center; gap: 12px; padding: 16px 22px;
+    border-bottom: 1px solid var(--line); background: var(--panel);
+  }
+  .mark { font-size: 22px; }
+  h1 { font-size: 17px; letter-spacing: 0.02em; flex: 1; }
+  .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--soft); flex: none; }
+  .dot.ok { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+  .dot.warn { background: var(--warn); }
+  .dot.bad { background: var(--bad); }
+  #statusword { font-size: 13px; color: var(--soft); }
+  main { flex: 1; overflow-y: auto; padding: 22px; display: grid; gap: 16px; align-content: start; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .card h2 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
+  label { display: grid; gap: 5px; margin-bottom: 12px; font-size: 13px; color: var(--soft); }
+  input {
+    padding: 9px 11px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--ink); font: inherit; user-select: text;
+  }
+  input:focus { outline: none; border-color: var(--accent); }
+  button {
+    padding: 9px 16px; border-radius: 8px; border: none; background: var(--accent);
+    color: #1d1016; font-weight: 600; font-size: 14px; cursor: pointer;
+  }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .err { color: var(--bad); font-size: 13px; margin-top: 8px; min-height: 1.2em; }
+  .hint { color: var(--soft); font-size: 12.5px; margin-top: 10px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .stat { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+  .stat .v { font-size: 19px; font-weight: 650; }
+  .stat .k { font-size: 11.5px; color: var(--soft); letter-spacing: 0.05em; text-transform: uppercase; }
+  #log {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+    padding: 10px 12px; font: 12px/1.55 Consolas, monospace; color: var(--soft);
+    height: 160px; overflow-y: auto; white-space: pre-wrap; user-select: text;
+  }
+  .hidden { display: none !important; }
+  label.agree { grid-template-columns: auto 1fr; align-items: start; gap: 10px; color: var(--ink); line-height: 1.45; }
+  label.agree input { margin-top: 3px; accent-color: var(--accent); }
+  label.agree a { color: var(--accent); }
+  .warnbox { border-left: 3px solid var(--warn); padding: 8px 12px; background: var(--bg); border-radius: 6px; font-size: 13px; color: var(--soft); }
+  .row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+  .row:last-of-type { border-bottom: none; }
+  .rowlbl { flex: 1; }
+  .soft { color: var(--soft); font-size: 12px; }
+  .sel { padding: 6px 9px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; }
+  .mini2 {
+    padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg);
+    color: var(--ink); font-size: 12.5px; font-weight: 500;
+  }
+  .mini2:hover { border-color: var(--accent); }
+  .mini2.bad { color: var(--bad); }
+  .mini2.bad:hover { border-color: var(--bad); }
+  .row.danger .rowlbl { color: var(--bad); }
+  .upready { color: var(--ok); font-weight: 600; }
+  .tabs { display: flex; gap: 4px; margin-right: 8px; }
+  .tab {
+    padding: 6px 14px; border-radius: 8px; border: 1px solid transparent;
+    background: none; color: var(--soft); font-size: 13px; font-weight: 600;
+  }
+  .tab.on { background: var(--bg); border-color: var(--line); color: var(--ink); }
+  .gp { font-size: 13.5px; color: var(--ink); margin: 0 0 10px; line-height: 1.55; }
+  .gp b { color: var(--ink); }
+  .gt { border-collapse: collapse; margin: 4px 0 12px; font-size: 13px; }
+  .gt th, .gt td { border: 1px solid var(--line); padding: 6px 12px; text-align: left; }
+  .gt th { color: var(--soft); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .gl { margin: 0 0 10px; padding-left: 20px; font-size: 13.5px; line-height: 1.6; }
+  .gl li { margin-bottom: 6px; }
+  code { background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 12.5px; user-select: text; }
+</style>
+</head>
+<body>
+<header>
+  <span class="mark">🛰️</span>
+  <h1>Solace Satellite</h1>
+  <nav class="tabs">
+    <button id="tabStatus" class="tab on">Status</button>
+    <button id="tabDiag" class="tab">Diagnostics</button>
+    <button id="tabGuide" class="tab">Guide</button>
+  </nav>
+  <span id="statusword">starting…</span>
+  <span id="dot" class="dot"></span>
+</header>
+<main>
+<div id="statusView">
+  <!-- SETUP: shown until an identity exists. -->
+  <section id="setup" class="card hidden">
+    <h2>Host your community</h2>
+    <label>Solace server
+      <input id="hub" value="https://solace.zone" spellcheck="false" />
+    </label>
+    <label>Provisioning key <span style="text-transform:none;letter-spacing:0">(ask a Solace admin for one)</span>
+      <input id="key" placeholder="XXXXXXXXXXXXXXXXXXXX" spellcheck="false" autocomplete="off" style="letter-spacing:0.12em;text-transform:uppercase" />
+    </label>
+    <label>Community name
+      <input id="name" placeholder="My Corner" maxlength="60" />
+    </label>
+    <!-- THE HOST AGREEMENT: hosting makes you the operator of your community.
+         The box is required; the daemon and the hub both refuse without it. -->
+    <label class="agree">
+      <input id="agree" type="checkbox" style="width:18px;height:18px;padding:0" />
+      <span>I've read and agree to the <a id="hostLink" href="https://solace.zone/legal/hosting.html">Satellite Host Agreement</a> — my community's content is my responsibility, and the Solace operator can disconnect it at any time.</span>
+    </label>
+    <button id="go">Create my satellite</button>
+    <div id="setupErr" class="err"></div>
+    <p class="hint">Your community's messages will live on <b>this computer</b>. The key opens the door once — after that, this machine's own cryptographic identity is the credential, and it never leaves this box.</p>
+  </section>
+
+  <!-- STATUS: the running community. -->
+  <section id="run" class="card hidden">
+    <h2 id="commName">Community</h2>
+    <div class="stats">
+      <div class="stat"><div class="v" id="stMessages">–</div><div class="k">messages stored</div></div>
+      <div class="stat"><div class="v" id="stFiles">–</div><div class="k">files stored</div></div>
+      <div class="stat"><div class="v" id="stUptime">–</div><div class="k">uptime</div></div>
+      <div class="stat"><div class="v" id="stHub">–</div><div class="k">hub</div></div>
+      <div class="stat"><div class="v" id="stId">–</div><div class="k">satellite #</div></div>
+      <div class="stat"><div class="v" id="stVoice">–</div><div class="k">voice calls</div></div>
+    </div>
+    <div id="offlineNote" class="warnbox hidden" style="margin-top:12px"></div>
+    <p class="hint">Closing this window just hides it — your community stays online in the tray. To take it offline, right-click the tray icon and Quit; nothing is lost, and it returns when you're back.</p>
+  </section>
+
+  <!-- SETTINGS: host management (F4). -->
+  <section id="settingsCard" class="card hidden">
+    <h2>Settings</h2>
+    <div id="updRow" class="row">
+      <span class="rowlbl">App updates <span id="updVer" class="soft"></span></span>
+      <span id="updState" class="soft"></span>
+      <button id="updBtn" class="mini2">Check for updates</button>
+    </div>
+    <div class="row" id="autoRow">
+      <span class="rowlbl">Launch when Windows starts</span>
+      <input type="checkbox" id="autoStart" style="width:18px;height:18px;accent-color:var(--accent)" />
+    </div>
+    <div class="row">
+      <span class="rowlbl">Host voice calls on this PC <span class="soft">(needs port forwarding — see the Guide tab)</span></span>
+      <input type="checkbox" id="voiceOn" style="width:18px;height:18px;accent-color:var(--accent)" />
+    </div>
+    <div class="row">
+      <span class="rowlbl">Keep GIFs for</span>
+      <select id="setAnim" class="sel">
+        <option value="7">7 days</option><option value="14">14 days</option>
+        <option value="30">30 days</option><option value="60">60 days</option>
+        <option value="90">90 days</option>
+      </select>
+    </div>
+    <div class="row">
+      <span class="rowlbl">Keep images &amp; files for</span>
+      <select id="setStatic" class="sel">
+        <option value="30">30 days</option><option value="60">60 days</option>
+        <option value="90">90 days</option><option value="180">180 days</option>
+        <option value="365">1 year</option>
+      </select>
+    </div>
+    <div class="row" id="storRow">
+      <span class="rowlbl">Community storage <span id="storPath" class="soft"></span></span>
+      <button id="storMove" class="mini2">Move…</button>
+    </div>
+    <div id="storMoving" class="warnbox hidden" style="margin-top:10px">
+      Moving the community to its new home… this can take a while for a big library. Don't close the app.
+    </div>
+    <div class="row" id="bakRow">
+      <span class="rowlbl">Automatic daily backup <span id="bakPath" class="soft">off</span></span>
+      <button id="bakNow" class="mini2 hidden">Back up now</button>
+      <button id="bakPick" class="mini2">Choose folder…</button>
+      <button id="bakOff" class="mini2 bad hidden">Turn off</button>
+    </div>
+    <div id="bakLine" class="hint hidden" style="margin-top:2px"></div>
+    <div class="row" id="folderRow">
+      <span class="rowlbl">Community data <span class="soft">(identity lives here)</span></span>
+      <button id="openData" class="mini2">Open folder</button>
+    </div>
+    <div class="row danger">
+      <span class="rowlbl">Reset this satellite <span class="soft">(erases the identity and every stored message and file)</span></span>
+      <button id="resetBtn" class="mini2 bad">Reset…</button>
+    </div>
+    <div id="resetConfirm" class="warnbox hidden" style="margin-top:10px">
+      This erases the community from this computer — its identity, every message, every file. The hub will still
+      list the old satellite until an admin delists it. There is no undo.
+      <div style="margin-top:8px;display:flex;gap:8px">
+        <button id="resetYes" class="mini2 bad">Yes, erase everything</button>
+        <button id="resetNo" class="mini2">Keep it</button>
+      </div>
+    </div>
+    <div id="setErr" class="err"></div>
+  </section>
+
+  <section id="logCard" class="card hidden">
+    <h2>Engine log</h2>
+    <div id="log"></div>
+  </section>
+</div>
+
+<!-- DIAGNOSTICS (F6): what this PC is spending on the community. -->
+<div id="diagView" class="hidden">
+  <section class="card">
+    <h2>This PC</h2>
+    <div class="stats">
+      <div class="stat"><div class="v" id="dCpu">–</div><div class="k">cpu (machine)</div></div>
+      <div class="stat"><div class="v" id="dAppCpu">–</div><div class="k">cpu (this app)</div></div>
+      <div class="stat"><div class="v" id="dRam">–</div><div class="k">ram used</div></div>
+      <div class="stat"><div class="v" id="dAppRam">–</div><div class="k">ram (this app)</div></div>
+      <div class="stat"><div class="v" id="dDisk">–</div><div class="k">disk free</div></div>
+      <div class="stat"><div class="v" id="dNet">–</div><div class="k">network ↓ / ↑</div></div>
+    </div>
+    <p class="hint">Sampled every 10 seconds. Network is the whole machine, not just Solace.</p>
+  </section>
+  <section class="card">
+    <h2>The community</h2>
+    <div class="stats">
+      <div class="stat"><div class="v" id="dMsgs">–</div><div class="k">messages</div></div>
+      <div class="stat"><div class="v" id="dFiles">–</div><div class="k">files on disk</div></div>
+      <div class="stat"><div class="v" id="dVoice">–</div><div class="k">voice server</div></div>
+      <div class="stat"><div class="v" id="dInCall">–</div><div class="k">on calls here now</div></div>
+      <div class="stat"><div class="v" id="dVoiceTraffic">–</div><div class="k">call traffic ↓ / ↑</div></div>
+      <div class="stat"><div class="v" id="dErrQ">–</div><div class="k">error reports queued</div></div>
+    </div>
+    <div id="dVoiceWarn" class="warnbox hidden" style="margin-top:12px"></div>
+    <p class="hint">Error reports are collected by the Solace server automatically — a non-zero queue
+    just means it hasn't swept this box in the last few minutes.</p>
+  </section>
+</div>
+
+<!-- THE GUIDE (Josh: "give them a tab to go to for a how to guide"). -->
+<div id="guideView" class="hidden">
+  <section class="card">
+    <h2>How hosting works</h2>
+    <p class="gp">This app runs your community on this PC. Messages and files need <b>no setup at all</b> —
+    the app connects out to the Solace server and everything flows through that connection.</p>
+    <p class="gp">Only <b>voice calls</b> use your internet connection directly, and that needs two
+    port-forwarding rules on your router. Without them, calls still work — they just run on the main
+    server instead of your PC.</p>
+  </section>
+
+  <section class="card">
+    <h2>Port forwarding for voice</h2>
+    <p class="gp">Add these two rules in your router's settings, both pointing at
+    <b>this PC</b> (<code id="gLanIp">…</code>):</p>
+    <table class="gt">
+      <tr><th>Type</th><th>Port(s)</th><th>What it's for</th></tr>
+      <tr><td>TCP</td><td>7880</td><td>call setup (the Solace server connects here)</td></tr>
+      <tr><td>UDP</td><td>50000–50060</td><td>the voice and video itself</td></tr>
+      <tr><td>TCP</td><td>7881</td><td>backup path for viewers whose networks block UDP</td></tr>
+    </table>
+    <p class="gp">How, on most routers:</p>
+    <ol class="gl">
+      <li>Open your router's admin page — usually <code>192.168.1.1</code> or <code>192.168.0.1</code>
+        in a browser (the address and password are often printed on the router itself).</li>
+      <li>Find <b>Port Forwarding</b> (sometimes under Advanced, NAT, or Virtual Server).</li>
+      <li>Add the two rules above, with this PC's address as the target.</li>
+      <li>Give this PC a <b>reserved/static address</b> in the router's DHCP settings if you can —
+        otherwise the rules can stop working after a reboot when the PC gets a new address.</li>
+    </ol>
+    <p class="gp">The first time voice starts, <b>Windows Firewall</b> will ask to allow
+    <code>livekit-server</code> — allow it on private networks. The Status tab's voice line tells you
+    whether hosting is live.</p>
+  </section>
+
+  <section class="card">
+    <h2>Can this PC handle the bandwidth?</h2>
+    <p class="gp">When voice runs on this PC, every stream costs your <b>upload</b> its bitrate once
+    <b>per viewer</b>. Rough costs per person watching:</p>
+    <table class="gt">
+      <tr><th>What</th><th>Upload per viewer</th></tr>
+      <tr><td>Voice only</td><td>~0.05 Mbps</td></tr>
+      <tr><td>Camera</td><td>~1.5 Mbps</td></tr>
+      <tr><td>Screen share 1080p</td><td>~5–8 Mbps</td></tr>
+      <tr><td>Screen share 4K</td><td>~16 Mbps</td></tr>
+    </table>
+    <p class="gp">So one 1080p screen share with 4 viewers wants ~25 Mbps of upload. Check your plan's
+    <b>upload</b> speed (it's usually much lower than download).</p>
+    <p class="gp">Three protections are automatic: viewers on weak connections get served a
+    <b>lower-quality copy</b> instead of stalling everyone, quality adapts to what your connection can
+    actually push, and if this PC is unreachable entirely, calls quietly run on the main Solace server
+    instead. Watch the <b>Diagnostics</b> tab during a busy call — "call traffic" and the network line
+    show the real load, and a warning appears if this PC starts dropping packets.</p>
+  </section>
+
+  <section class="card">
+    <h2>Good to know</h2>
+    <ul class="gl">
+      <li><b>Closing the window</b> hides it to the tray; the community stays online. Quit from the
+        tray icon to take it offline. Turn on <i>Launch when Windows starts</i> in Settings and it
+        survives reboots.</li>
+      <li><b>Backups:</b> pick a folder in Settings → <i>Automatic daily backup</i> — a second drive or
+        a NAS share is ideal — and the app keeps a daily snapshot there (last 7 days of messages, all
+        files, and the community's identity) by itself. <b>Storage</b> can move too: Settings →
+        <i>Community storage</i> → Move puts the messages and files on any drive you choose.</li>
+      <li><b>Updates are automatic.</b> The app checks the server and offers "Install &amp; restart"
+        when a new version is ready.</li>
+      <li><b>New PC or lost machine?</b> Ask a Solace admin for a <i>rotation key</i> — paste it into
+        a fresh install and your community comes back under the same page (restore your backup first
+        to keep the history).</li>
+      <li><b>"Reconnecting…"</b> means the Solace server can't be reached — it retries by itself.
+        <b>"Delisted"</b> means the server has switched your satellite off; talk to an admin.</li>
+      <li>You manage the community itself — channels, joining rules, members — inside Solace, on your
+        page, like any manager.</li>
+    </ul>
+  </section>
+</div>
+</main>
+
+<script>
+  const API = "http://127.0.0.1:8765";
+  const $ = (id) => document.getElementById(id);
+  let wasSetup = false;
+
+  function fmtUptime(ms) {
+    const s = Math.floor(ms / 1000);
+    if (s < 90) return s + "s";
+    const m = Math.floor(s / 60);
+    if (m < 90) return m + "m";
+    const h = Math.floor(m / 60);
+    return h < 48 ? h + "h " + (m % 60) + "m" : Math.floor(h / 24) + "d";
+  }
+
+  function show(status) {
+    const dot = $("dot"), word = $("statusword");
+    if (!status) {
+      dot.className = "dot bad"; word.textContent = "engine not responding";
+      return;
+    }
+    $("logCard").classList.remove("hidden");
+    $("settingsCard").classList.remove("hidden");
+    $("log").textContent = (status.log || []).join("\n");
+    $("log").scrollTop = $("log").scrollHeight;
+    if (status.settings && !settingsSeeded) {
+      settingsSeeded = true;
+      $("setAnim").value = String(status.settings.animatedDays);
+      $("setStatic").value = String(status.settings.staticDays);
+      $("voiceOn").checked = status.settings.voice !== false;
+    }
+    $("stVoice").textContent = status.voiceHosting ? "this PC" : "the hub";
+    if (status.lanIp) $("gLanIp").textContent = status.lanIp;
+    paintStorage(status.storage);
+    paintDiag(status);
+    configured = !!status.configured;
+
+    if (!status.configured) {
+      $("setup").classList.remove("hidden");
+      $("run").classList.add("hidden");
+      dot.className = "dot warn"; word.textContent = "not set up yet";
+      return;
+    }
+    $("setup").classList.add("hidden");
+    $("run").classList.remove("hidden");
+    $("commName").textContent = status.name || "Community";
+    $("stMessages").textContent = String(status.messages ?? 0);
+    var fb = (status.files && status.files.bytes) || 0;
+    $("stFiles").textContent = (status.files ? status.files.count : 0) +
+      (fb ? " (" + (fb > 1048576 ? (fb / 1048576).toFixed(1) + " MB" : Math.ceil(fb / 1024) + " KB") + ")" : "");
+    $("stUptime").textContent = fmtUptime(status.uptimeMs || 0);
+    $("stHub").textContent = (status.hub || "").replace(/^https?:\/\//, "");
+    $("stId").textContent = "#" + (status.satelliteId ?? "?");
+    if (status.linked) {
+      dot.className = "dot ok"; word.textContent = "online — linked to the hub";
+      $("offlineNote").classList.add("hidden");
+    } else {
+      dot.className = "dot warn"; word.textContent = "reconnecting…";
+      const note = $("offlineNote");
+      note.classList.remove("hidden");
+      note.textContent = status.lastError && status.lastError.includes("delisted")
+        ? "The hub has delisted this satellite. Talk to a Solace admin."
+        : "Can't reach the hub right now — retrying automatically.";
+    }
+  }
+
+  async function poll() {
+    try {
+      const r = await fetch(API + "/api/status");
+      show(await r.json());
+    } catch {
+      show(null);
+    }
+  }
+
+  // The agreement link follows the server box (a private hub has its own copy).
+  $("hub").addEventListener("input", () => {
+    const h = $("hub").value.trim().replace(/\/+$/, "");
+    if (/^https?:\/\//.test(h)) $("hostLink").href = h + "/legal/hosting.html";
+  });
+  $("go").addEventListener("click", async () => {
+    const btn = $("go"), err = $("setupErr");
+    err.textContent = "";
+    if (!$("agree").checked) { err.textContent = "Read and tick the Host Agreement first — hosting makes you responsible for your community."; return; }
+    btn.disabled = true; btn.textContent = "Registering…";
+    try {
+      const r = await fetch(API + "/api/setup", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-sat-local": "1" },
+        body: JSON.stringify({
+          hub: $("hub").value.trim(),
+          key: $("key").value.trim().toUpperCase(),
+          name: $("name").value.trim() || "Unnamed community",
+          acceptHosting: $("agree").checked === true,
+        }),
+      });
+      const body = await r.json();
+      if (!r.ok || !body.ok) {
+        const why = body && body.error;
+        err.textContent =
+          why === "invalid_key" ? "That key was refused — expired, already used, or mistyped." :
+          why === "already_registered" ? "This computer already has a satellite identity." :
+          why === "bad_hub" ? "That server address doesn't look right." :
+          why === "hosting_agreement_required" ? "The server needs the Host Agreement accepted — tick the box." :
+          "Setup failed: " + (why || "unknown error") + ".";
+      } else {
+        await poll();
+      }
+    } catch {
+      err.textContent = "Couldn't reach the local engine.";
+    } finally {
+      btn.disabled = false; btn.textContent = "Create my satellite";
+    }
+  });
+
+  poll();
+  setInterval(poll, 1500);
+
+  // ---- SETTINGS (F4) --------------------------------------------------------
+  var settingsSeeded = false;
+  var configured = false;
+  var tauri = window.__TAURI__ && window.__TAURI__.core ? window.__TAURI__.core : null;
+
+  async function saveSettings() {
+    $("setErr").textContent = "";
+    try {
+      const r = await fetch(API + "/api/settings", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-sat-local": "1" },
+        body: JSON.stringify({
+          animatedDays: Number($("setAnim").value),
+          staticDays: Number($("setStatic").value),
+        }),
+      });
+      if (!r.ok) throw 0;
+    } catch {
+      $("setErr").textContent = "Couldn't save that setting.";
+    }
+  }
+  $("setAnim").addEventListener("change", saveSettings);
+  $("setStatic").addEventListener("change", saveSettings);
+  $("voiceOn").addEventListener("change", function () {
+    fetch(API + "/api/settings", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-sat-local": "1" },
+      body: JSON.stringify({ voice: $("voiceOn").checked }),
+    }).catch(function () { $("setErr").textContent = "Couldn't change the voice setting."; });
+  });
+
+  // Tabs: Status | Diagnostics | Guide.
+  function pickTab(which) {
+    $("statusView").classList.toggle("hidden", which !== "status");
+    $("diagView").classList.toggle("hidden", which !== "diag");
+    $("guideView").classList.toggle("hidden", which !== "guide");
+    $("tabStatus").classList.toggle("on", which === "status");
+    $("tabDiag").classList.toggle("on", which === "diag");
+    $("tabGuide").classList.toggle("on", which === "guide");
+  }
+  $("tabStatus").addEventListener("click", function () { pickTab("status"); });
+  $("tabDiag").addEventListener("click", function () { pickTab("diag"); });
+  $("tabGuide").addEventListener("click", function () { pickTab("guide"); });
+
+  // Diagnostics values, refreshed by the same status poll.
+  function fmtBytes(n) {
+    if (!n && n !== 0) return "–";
+    if (n >= 1073741824) return (n / 1073741824).toFixed(1) + " GB";
+    if (n >= 1048576) return (n / 1048576).toFixed(1) + " MB";
+    return Math.ceil(n / 1024) + " KB";
+  }
+  function fmtRate(n) {
+    if (n >= 1048576) return (n / 1048576).toFixed(1) + " MB/s";
+    if (n >= 1024) return Math.round(n / 1024) + " KB/s";
+    return Math.round(n) + " B/s";
+  }
+  function paintDiag(status) {
+    var d = status.diag;
+    if (d) {
+      $("dCpu").textContent = d.cpuPct.toFixed(0) + "%";
+      $("dAppCpu").textContent = d.daemonCpuPct.toFixed(1) + "%";
+      $("dRam").textContent = fmtBytes(d.ramTotal - d.ramFree) + " / " + fmtBytes(d.ramTotal);
+      $("dAppRam").textContent = fmtBytes(d.daemonRss);
+      $("dDisk").textContent = fmtBytes(d.diskFree);
+      $("dNet").textContent = fmtRate(d.netInBps) + " / " + fmtRate(d.netOutBps);
+    }
+    $("dMsgs").textContent = String(status.messages ?? 0);
+    $("dFiles").textContent = (status.files ? status.files.count : 0) + " (" + fmtBytes(status.files ? status.files.bytes : 0) + ")";
+    $("dVoice").textContent = status.voiceHosting ? "running" : "off";
+    $("dErrQ").textContent = String(status.errorQueue ?? 0);
+    var vs = status.voiceStats;
+    $("dInCall").textContent = vs ? String(vs.participants) : (status.voiceHosting ? "0" : "–");
+    $("dVoiceTraffic").textContent = vs ? fmtRate(vs.bytesInPerSec) + " / " + fmtRate(vs.bytesOutPerSec) : "–";
+    var vw = $("dVoiceWarn");
+    if (vs && vs.lossPct > 2 && vs.bytesOutPerSec > 10000) {
+      vw.classList.remove("hidden");
+      vw.textContent = "Calls hosted here are losing " + vs.lossPct.toFixed(1) + "% of packets — this PC or its " +
+        "internet connection is struggling to keep up. Viewers will see reduced quality.";
+    } else {
+      vw.classList.add("hidden");
+    }
+  }
+
+  // Launch on startup + Open folder: only real inside the app (dev browsers
+  // hide the rows rather than showing dead controls).
+  if (tauri) {
+    if (window.__TAURI__.app && window.__TAURI__.app.getVersion) {
+      window.__TAURI__.app.getVersion().then(function (v) { $("updVer").textContent = "v" + v; }).catch(function () {});
+    }
+    tauri.invoke("get_autostart").then(function (on) { $("autoStart").checked = !!on; }).catch(function () {});
+    $("autoStart").addEventListener("change", function () {
+      tauri.invoke("set_autostart", { on: $("autoStart").checked })
+        .then(function (on) { $("autoStart").checked = !!on; })
+        .catch(function () { $("setErr").textContent = "Couldn't change the startup setting."; });
+    });
+    $("openData").addEventListener("click", function () {
+      tauri.invoke("open_data_dir").catch(function () {});
+    });
+  } else {
+    $("autoRow").classList.add("hidden");
+    $("folderRow").classList.add("hidden");
+    // The folder pickers only exist inside the app.
+    $("storMove").classList.add("hidden");
+    $("bakPick").classList.add("hidden");
+  }
+
+  // ---- STORAGE & BACKUP (F7) ------------------------------------------------
+  // "Just in case they have a separate drive": the community (messages +
+  // files) can live in any folder, and a second folder gets a daily backup.
+  var movingNow = false;
+  var canPick = !!window.__TAURI__; // no picker outside the app
+  function paintStorage(s) {
+    if (!s) return;
+    if (s.storageError) {
+      // The drive is away: say so where the path lives — the daemon retries
+      // every 15s and the community stands back up when it returns.
+      $("storPath").textContent = (s.contentDir || "") + " — unreachable. Reattach the drive; the community is offline until it returns.";
+      $("storPath").style.color = "var(--bad)";
+    } else {
+      $("storPath").textContent = s.contentDir || "";
+      $("storPath").style.color = "";
+    }
+    $("storPath").title = s.contentDir || "";
+    if (!movingNow) $("storMoving").classList.toggle("hidden", !s.moving);
+    var hasBak = !!s.backupDir;
+    $("bakPath").textContent = hasBak ? s.backupDir : "off";
+    $("bakPath").title = s.backupDir || "";
+    $("bakNow").classList.toggle("hidden", !hasBak);
+    // Without the picker, "Turn off" is a one-way door — hide it too.
+    $("bakOff").classList.toggle("hidden", !hasBak || !canPick);
+    $("bakPick").textContent = hasBak ? "Change folder…" : "Choose folder…";
+    var line = $("bakLine");
+    if (hasBak && s.lastBackupError) {
+      line.classList.remove("hidden");
+      line.textContent = "Last backup failed: " + s.lastBackupError;
+      line.style.color = "var(--bad)";
+    } else if (hasBak && s.lastBackupAt) {
+      line.classList.remove("hidden");
+      line.textContent = "Last backup: " + new Date(s.lastBackupAt).toLocaleString();
+      line.style.color = "";
+    } else if (hasBak) {
+      line.classList.remove("hidden");
+      line.textContent = "First backup runs within the hour — or press Back up now.";
+      line.style.color = "";
+    } else {
+      line.classList.add("hidden");
+    }
+  }
+  // The OS folder picker (a file dialog, not a confirm — those stay in-app).
+  async function pickFolder(title) {
+    if (!window.__TAURI__) return null;
+    try {
+      if (window.__TAURI__.dialog && window.__TAURI__.dialog.open) {
+        return await window.__TAURI__.dialog.open({ directory: true, title: title });
+      }
+      return await tauri.invoke("plugin:dialog|open", { options: { directory: true, title: title } });
+    } catch { return null; }
+  }
+  $("storMove").addEventListener("click", async function () {
+    $("setErr").textContent = "";
+    const dir = await pickFolder("Where should the community live?");
+    if (!dir || typeof dir !== "string") return;
+    movingNow = true;
+    $("storMoving").classList.remove("hidden");
+    $("storMove").disabled = true;
+    function moveDone(msg) {
+      movingNow = false;
+      $("storMoving").classList.add("hidden");
+      $("storMove").disabled = false;
+      if (msg) $("setErr").textContent = msg;
+      poll();
+    }
+    try {
+      // The POST answers as soon as validation passes — the copy itself
+      // runs in the daemon's background (a big library used to outlive the
+      // fetch and report a move that later succeeded as failed).
+      const r = await fetch(API + "/api/storage", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-sat-local": "1" },
+        body: JSON.stringify({ contentDir: dir }),
+      });
+      const body = await r.json();
+      if (!r.ok) {
+        const why = body && body.error;
+        return moveDone(
+          why === "same_dir" ? "The community already lives there." :
+          why === "nested_dir" ? "Pick a folder outside the current storage folder." :
+          why === "busy" ? "A move or backup is already running — try again in a minute." :
+          why === "storage_missing" ? "The current storage folder is unreachable." :
+          "Couldn't move the storage: " + (why || "unknown error") + ".");
+      }
+      // Started — watch storage.moving until the copy lands.
+      var misses = 0;
+      var watch = setInterval(function () {
+        fetch(API + "/api/status")
+          .then(function (x) { return x.json(); })
+          .then(function (s) {
+            misses = 0;
+            var st = s && s.storage;
+            if (!st || st.moving) return; // still copying
+            clearInterval(watch);
+            if (st.lastMoveError) moveDone("Couldn't move the storage: " + st.lastMoveError + ".");
+            else { moveDone(""); paintStorage(st); }
+          })
+          .catch(function () {
+            // The swap window can miss a poll or two; a dead engine is
+            // thirty in a row.
+            misses++;
+            if (misses >= 30) { clearInterval(watch); moveDone("Lost contact with the local engine — check the Status tab."); }
+          });
+      }, 1000);
+    } catch {
+      // The kick-off itself is validation-only and instant — a rejection
+      // here is a real engine problem, not a long copy.
+      moveDone("Couldn't reach the local engine.");
+    }
+  });
+  $("bakPick").addEventListener("click", async function () {
+    $("setErr").textContent = "";
+    const dir = await pickFolder("Where should backups go?");
+    if (!dir || typeof dir !== "string") return;
+    fetch(API + "/api/settings", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-sat-local": "1" },
+      body: JSON.stringify({ backupDir: dir }),
+    }).then(function (r) {
+      if (!r.ok) $("setErr").textContent = "Couldn't save the backup folder.";
+      poll();
+    }).catch(function () { $("setErr").textContent = "Couldn't save the backup folder."; });
+  });
+  $("bakOff").addEventListener("click", function () {
+    fetch(API + "/api/settings", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-sat-local": "1" },
+      body: JSON.stringify({ backupDir: null }),
+    }).then(function (r) {
+      if (!r.ok) $("setErr").textContent = "Couldn't turn backups off.";
+      poll();
+    }).catch(function () { $("setErr").textContent = "Couldn't turn backups off."; });
+  });
+  $("bakNow").addEventListener("click", async function () {
+    $("setErr").textContent = "";
+    $("bakNow").disabled = true;
+    try {
+      const r = await fetch(API + "/api/backup", { method: "POST", headers: { "x-sat-local": "1" } });
+      const body = await r.json();
+      if (!r.ok) $("setErr").textContent = "Backup failed: " + ((body && body.error) || "unknown error") + ".";
+      else if (body.storage) paintStorage(body.storage);
+    } catch {
+      $("setErr").textContent = "Couldn't reach the local engine.";
+    } finally {
+      $("bakNow").disabled = false;
+    }
+  });
+
+  // The reset: two-step, in-page (no OS dialogs — the house rule).
+  $("resetBtn").addEventListener("click", function () { $("resetConfirm").classList.toggle("hidden"); });
+  $("resetNo").addEventListener("click", function () { $("resetConfirm").classList.add("hidden"); });
+  $("resetYes").addEventListener("click", async function () {
+    $("resetConfirm").classList.add("hidden");
+    $("setErr").textContent = "";
+    try {
+      const r = await fetch(API + "/api/reset", { method: "POST", headers: { "x-sat-local": "1" } });
+      if (!r.ok) throw 0;
+      settingsSeeded = false;
+      await poll();
+    } catch {
+      $("setErr").textContent = "Reset failed — see the engine log.";
+    }
+  });
+
+  // ---- AUTO-UPDATE (F4) -----------------------------------------------------
+  // The endpoint is identity-gated: the daemon signs a short-lived token and
+  // the hub checks it against this satellite's registered key. Checked at
+  // boot and every 6 hours; installing restarts the app into the new build.
+  var updReady = false;
+  async function updEndpoint() {
+    const r = await fetch(API + "/api/update-token");
+    if (!r.ok) return null;
+    const t = await r.json();
+    return t.hub + "/api/satellite/update/latest?tok=" + encodeURIComponent(t.token);
+  }
+  async function checkUpdates(manual) {
+    if (!tauri) { if (manual) $("updState").textContent = "updates run inside the app"; return; }
+    const st = $("updState"), btn = $("updBtn");
+    try {
+      const url = await updEndpoint();
+      if (!url) { if (manual) st.textContent = "set up first"; return; }
+      st.textContent = "checking…";
+      const v = await tauri.invoke("check_update", { url: url });
+      if (v) {
+        updReady = true;
+        st.textContent = "v" + v + " ready";
+        st.className = "upready";
+        btn.textContent = "Install & restart";
+      } else {
+        st.textContent = manual ? "up to date" : "";
+        st.className = "soft";
+      }
+    } catch (e) {
+      if (manual) st.textContent = "couldn't check";
+    }
+  }
+  $("updBtn").addEventListener("click", async function () {
+    if (!updReady) return checkUpdates(true);
+    const st = $("updState");
+    st.textContent = "installing…";
+    try {
+      const url = await updEndpoint();
+      if (url) await tauri.invoke("install_update", { url: url });
+    } catch (e) {
+      st.textContent = "update failed — try again";
+      st.className = "err";
+    }
+  });
+  setTimeout(function () { if (configured) checkUpdates(false); }, 5000);
+  setInterval(function () { if (configured) checkUpdates(false); }, 6 * 60 * 60 * 1000);
+</script>
+</body>
+</html>

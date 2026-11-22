@@ -1,0 +1,15 @@
+{
+  "name": "solace-desktop",
+  "private": true,
+  "version": "0.3.7",
+  "license": "AGPL-3.0-only",
+  "description": "Solace desktop shell (Tauri) — a thin native window around solace.zone.",
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.1.0"
+  }
+}

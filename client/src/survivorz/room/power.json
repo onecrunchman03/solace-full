@@ -1,0 +1,4059 @@
+{
+  "about": "POWER AND MAINTENANCE (docs/survivorz/ASSETS.md step D, zone 6). Written by scripts/survivorz/layout-power.mjs (edit that, not this); read by scripts/survivorz/room-build.py --set power and client/src/survivorz/room/lobby.ts.",
+  "rooms": [
+    "service-stairs",
+    "generator-hall",
+    "catwalks",
+    "safe-power",
+    "boiler",
+    "maint-lockup",
+    "workshop",
+    "pipe-gallery",
+    "pump-room"
+  ],
+  "roomRects": {
+    "service-stairs": {
+      "x": 32,
+      "z": 12,
+      "w": 10,
+      "h": 6,
+      "zone": "power"
+    },
+    "generator-hall": {
+      "x": 14,
+      "z": 18,
+      "w": 30,
+      "h": 20,
+      "zone": "power"
+    },
+    "catwalks": {
+      "x": 2,
+      "z": 18,
+      "w": 12,
+      "h": 20,
+      "zone": "power"
+    },
+    "safe-power": {
+      "x": 2,
+      "z": 38,
+      "w": 12,
+      "h": 10,
+      "zone": "power"
+    },
+    "boiler": {
+      "x": 14,
+      "z": 38,
+      "w": 14,
+      "h": 12,
+      "zone": "power"
+    },
+    "maint-lockup": {
+      "x": 28,
+      "z": 40,
+      "w": 6,
+      "h": 6,
+      "zone": "power"
+    },
+    "workshop": {
+      "x": 14,
+      "z": 50,
+      "w": 14,
+      "h": 10,
+      "zone": "power"
+    },
+    "pipe-gallery": {
+      "x": 44,
+      "z": 18,
+      "w": 6,
+      "h": 40,
+      "zone": "power"
+    },
+    "pump-room": {
+      "x": 50,
+      "z": 40,
+      "w": 12,
+      "h": 10,
+      "zone": "power"
+    }
+  },
+  "styles": {
+    "service-stairs": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "generator-hall": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.6,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "catwalks": {
+      "floor": "diamond-plate",
+      "ceiling": "slab",
+      "bands": [
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "safe-power": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "boiler": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.6,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "maint-lockup": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "workshop": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.6,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "pipe-gallery": {
+      "floor": "tunnel-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.6,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    },
+    "pump-room": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          1.6,
+          "wainscot"
+        ],
+        [
+          99,
+          "vault-wall"
+        ]
+      ]
+    }
+  },
+  "skins": {},
+  "arch": [
+    {
+      "what": "service stair landing",
+      "key": "steel-plate",
+      "box": [
+        32,
+        -0.3,
+        16.4,
+        42,
+        0,
+        18
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        41.575,
+        -0.5,
+        14.2,
+        42,
+        -0.2,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        41.15,
+        -0.7,
+        14.2,
+        41.575,
+        -0.4,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        40.725,
+        -0.9,
+        14.2,
+        41.15,
+        -0.6,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        40.3,
+        -1.1,
+        14.2,
+        40.725,
+        -0.8,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        39.875,
+        -1.3,
+        14.2,
+        40.3,
+        -1,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        39.45,
+        -1.5,
+        14.2,
+        39.875,
+        -1.2,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        39.025,
+        -1.7,
+        14.2,
+        39.45,
+        -1.4,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        38.6,
+        -1.9,
+        14.2,
+        39.025,
+        -1.6,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        38.175,
+        -2.1,
+        14.2,
+        38.6,
+        -1.8,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        37.75,
+        -2.3,
+        14.2,
+        38.175,
+        -2,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        37.325,
+        -2.5,
+        14.2,
+        37.75,
+        -2.2,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        36.9,
+        -2.7,
+        14.2,
+        37.325,
+        -2.4,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        36.475,
+        -2.9,
+        14.2,
+        36.9,
+        -2.6,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        36.05,
+        -3.1,
+        14.2,
+        36.475,
+        -2.8,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        35.625,
+        -3.3,
+        14.2,
+        36.05,
+        -3,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        35.2,
+        -3.5,
+        14.2,
+        35.625,
+        -3.2,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        34.775,
+        -3.7,
+        14.2,
+        35.2,
+        -3.4,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        34.35,
+        -3.9,
+        14.2,
+        34.775,
+        -3.6,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        33.925,
+        -4.1,
+        14.2,
+        34.35,
+        -3.8,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        33.5,
+        -4.3,
+        14.2,
+        33.925,
+        -4,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair landing",
+      "key": "steel-plate",
+      "box": [
+        32,
+        -4.3,
+        12,
+        33.5,
+        -4,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        33.5,
+        -4.5,
+        12,
+        33.925,
+        -4.2,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        33.925,
+        -4.7,
+        12,
+        34.35,
+        -4.4,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        34.35,
+        -4.9,
+        12,
+        34.775,
+        -4.6,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        34.775,
+        -5.1,
+        12,
+        35.2,
+        -4.8,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        35.2,
+        -5.3,
+        12,
+        35.625,
+        -5,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        35.625,
+        -5.5,
+        12,
+        36.05,
+        -5.2,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        36.05,
+        -5.7,
+        12,
+        36.475,
+        -5.4,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        36.475,
+        -5.9,
+        12,
+        36.9,
+        -5.6,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        36.9,
+        -6.1,
+        12,
+        37.325,
+        -5.8,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        37.325,
+        -6.3,
+        12,
+        37.75,
+        -6,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        37.75,
+        -6.5,
+        12,
+        38.175,
+        -6.2,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        38.175,
+        -6.7,
+        12,
+        38.6,
+        -6.4,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        38.6,
+        -6.9,
+        12,
+        39.025,
+        -6.6,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        39.025,
+        -7.1,
+        12,
+        39.45,
+        -6.8,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        39.45,
+        -7.3,
+        12,
+        39.875,
+        -7,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        39.875,
+        -7.5,
+        12,
+        40.3,
+        -7.2,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        40.3,
+        -7.7,
+        12,
+        40.725,
+        -7.4,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        40.725,
+        -7.9,
+        12,
+        41.15,
+        -7.6,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        41.15,
+        -8.1,
+        12,
+        41.575,
+        -7.8,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair stairs",
+      "key": "steel-plate",
+      "box": [
+        41.575,
+        -8.3,
+        12,
+        42,
+        -8,
+        14.2
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "steel-plate",
+      "box": [
+        32,
+        0,
+        16.35,
+        40.4,
+        1,
+        16.45
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        33.5,
+        -8,
+        14.15,
+        33.925,
+        -3,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        33.925,
+        -8,
+        14.15,
+        34.35,
+        -2.8,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        34.35,
+        -8,
+        14.15,
+        34.775,
+        -2.6,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        34.775,
+        -8,
+        14.15,
+        35.2,
+        -2.4,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        35.2,
+        -8,
+        14.15,
+        35.625,
+        -2.2,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        35.625,
+        -8,
+        14.15,
+        36.05,
+        -2,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        36.05,
+        -8,
+        14.15,
+        36.475,
+        -1.8,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        36.475,
+        -8,
+        14.15,
+        36.9,
+        -1.6,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        36.9,
+        -8,
+        14.15,
+        37.325,
+        -1.4,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        37.325,
+        -8,
+        14.15,
+        37.75,
+        -1.2,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        37.75,
+        -8,
+        14.15,
+        38.175,
+        -1,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        38.175,
+        -8,
+        14.15,
+        38.6,
+        -0.8,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        38.6,
+        -8,
+        14.15,
+        39.025,
+        -0.6,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        39.025,
+        -8,
+        14.15,
+        39.45,
+        -0.4,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        39.45,
+        -8,
+        14.15,
+        39.875,
+        -0.2,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair wall",
+      "key": "painted-wall",
+      "box": [
+        39.875,
+        -8,
+        14.15,
+        40.3,
+        0,
+        14.25
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        41.575,
+        -0.2,
+        16.36,
+        42,
+        0.75,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        41.15,
+        -0.4,
+        16.36,
+        41.575,
+        0.55,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        40.725,
+        -0.6,
+        16.36,
+        41.15,
+        0.35,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        40.3,
+        -0.8,
+        16.36,
+        40.725,
+        0.15,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        39.875,
+        -1,
+        16.36,
+        40.3,
+        -0.05,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        39.45,
+        -1.2,
+        16.36,
+        39.875,
+        -0.25,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        39.025,
+        -1.4,
+        16.36,
+        39.45,
+        -0.45,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        38.6,
+        -1.6,
+        16.36,
+        39.025,
+        -0.65,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        38.175,
+        -1.8,
+        16.36,
+        38.6,
+        -0.85,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        37.75,
+        -2,
+        16.36,
+        38.175,
+        -1.05,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        37.325,
+        -2.2,
+        16.36,
+        37.75,
+        -1.25,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        36.9,
+        -2.4,
+        16.36,
+        37.325,
+        -1.45,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        36.475,
+        -2.6,
+        16.36,
+        36.9,
+        -1.65,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        36.05,
+        -2.8,
+        16.36,
+        36.475,
+        -1.85,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        35.625,
+        -3,
+        16.36,
+        36.05,
+        -2.05,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        35.2,
+        -3.2,
+        16.36,
+        35.625,
+        -2.25,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        34.775,
+        -3.4,
+        16.36,
+        35.2,
+        -2.45,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        34.35,
+        -3.6,
+        16.36,
+        34.775,
+        -2.65,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        33.925,
+        -3.8,
+        16.36,
+        34.35,
+        -2.85,
+        16.4
+      ]
+    },
+    {
+      "what": "service stair balustrade",
+      "key": "steel",
+      "box": [
+        33.5,
+        -4,
+        16.36,
+        33.925,
+        -3.05,
+        16.4
+      ]
+    }
+  ],
+  "cutouts": [],
+  "props": [
+    {
+      "id": "genset",
+      "at": [
+        18.5,
+        -8,
+        22
+      ],
+      "yaw": 0,
+      "room": "generator-hall"
+    },
+    {
+      "id": "day-tank",
+      "at": [
+        19.9,
+        -8,
+        18.7
+      ],
+      "yaw": 0,
+      "room": "generator-hall"
+    },
+    {
+      "id": "genset",
+      "at": [
+        25.5,
+        -8,
+        22
+      ],
+      "yaw": 0,
+      "room": "generator-hall"
+    },
+    {
+      "id": "day-tank",
+      "at": [
+        26.9,
+        -8,
+        18.7
+      ],
+      "yaw": 0,
+      "room": "generator-hall"
+    },
+    {
+      "id": "genset",
+      "at": [
+        32,
+        -8,
+        22
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "note": "GEN 3: the one that tripped"
+    },
+    {
+      "id": "day-tank",
+      "at": [
+        33.4,
+        -8,
+        18.7
+      ],
+      "yaw": 0,
+      "room": "generator-hall"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        22,
+        -3.1,
+        26
+      ],
+      "yaw": 90,
+      "room": "generator-hall"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        28.75,
+        -3.1,
+        26
+      ],
+      "yaw": 90,
+      "room": "generator-hall"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        29,
+        -3.1,
+        34
+      ],
+      "yaw": 0,
+      "room": "generator-hall"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        32,
+        -3.1,
+        34
+      ],
+      "yaw": 0,
+      "room": "generator-hall"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        35,
+        -3.1,
+        34
+      ],
+      "yaw": 0,
+      "room": "generator-hall"
+    },
+    {
+      "id": "switchboard",
+      "at": [
+        27.6,
+        -8,
+        37.526
+      ],
+      "yaw": 90,
+      "room": "generator-hall"
+    },
+    {
+      "id": "breaker-cabinet",
+      "at": [
+        30.9,
+        -8,
+        37.45
+      ],
+      "yaw": 180,
+      "room": "generator-hall",
+      "note": "breaker-labs"
+    },
+    {
+      "id": "breaker-cabinet",
+      "at": [
+        31.9,
+        -8,
+        37.45
+      ],
+      "yaw": 180,
+      "room": "generator-hall",
+      "note": "breaker-medical"
+    },
+    {
+      "id": "breaker-cabinet",
+      "at": [
+        32.9,
+        -8,
+        37.45
+      ],
+      "yaw": 180,
+      "room": "generator-hall",
+      "note": "breaker-security"
+    },
+    {
+      "id": "breaker-cabinet",
+      "at": [
+        33.9,
+        -8,
+        37.45
+      ],
+      "yaw": 180,
+      "room": "generator-hall",
+      "note": "breaker-containment"
+    },
+    {
+      "id": "breaker-cabinet",
+      "at": [
+        34.9,
+        -8,
+        37.45
+      ],
+      "yaw": 180,
+      "room": "generator-hall",
+      "note": "breaker-deep"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        41.6,
+        -8,
+        36.6
+      ],
+      "yaw": 180,
+      "room": "generator-hall"
+    },
+    {
+      "id": "terminal",
+      "at": [
+        41.6,
+        -7.213,
+        36.75
+      ],
+      "yaw": 180,
+      "room": "generator-hall",
+      "note": "the generator-log terminal"
+    },
+    {
+      "id": "clipboard",
+      "at": [
+        40.95,
+        -7.213,
+        36.45
+      ],
+      "yaw": 205,
+      "room": "generator-hall"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        41.4,
+        -8,
+        35.4
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "rot": [
+        86,
+        140,
+        0
+      ]
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        43.834,
+        -7.4,
+        24
+      ],
+      "yaw": -90,
+      "room": "generator-hall"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        14.166,
+        -7.4,
+        33
+      ],
+      "yaw": 90,
+      "room": "generator-hall"
+    },
+    {
+      "id": "control-cabinet",
+      "at": [
+        43.359,
+        -8,
+        30
+      ],
+      "yaw": -180,
+      "room": "generator-hall"
+    },
+    {
+      "id": "wet-floor-sign",
+      "at": [
+        14.279,
+        -8,
+        22
+      ],
+      "yaw": 90,
+      "room": "generator-hall"
+    },
+    {
+      "id": "hand-truck",
+      "at": [
+        40.6,
+        -8,
+        31
+      ],
+      "yaw": 200,
+      "room": "generator-hall"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        40.2,
+        -8,
+        30.4
+      ],
+      "yaw": 30,
+      "room": "generator-hall"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        39.9,
+        -8,
+        30.6
+      ],
+      "yaw": 80,
+      "room": "generator-hall",
+      "rot": [
+        90,
+        80,
+        0
+      ]
+    },
+    {
+      "id": "catwalk",
+      "at": [
+        2.65,
+        -8,
+        20.6
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "catwalk",
+      "at": [
+        2.65,
+        -8,
+        24.6
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "catwalk",
+      "at": [
+        2.65,
+        -8,
+        28.6
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "catwalk",
+      "at": [
+        2.65,
+        -8,
+        32.6
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "ladder",
+      "at": [
+        3.3,
+        -8,
+        34.8
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        4.2,
+        -8,
+        18.33
+      ],
+      "yaw": 0,
+      "room": "catwalks"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        9.8,
+        -8,
+        18.33
+      ],
+      "yaw": 0,
+      "room": "catwalks"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        13.67,
+        -8,
+        21
+      ],
+      "yaw": -90,
+      "room": "catwalks"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        13.67,
+        -8,
+        33
+      ],
+      "yaw": -90,
+      "room": "catwalks"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        10.5,
+        -3.2,
+        21.5
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        10.5,
+        -3.2,
+        24.5
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        10.5,
+        -3.2,
+        27.5
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        10.5,
+        -3.2,
+        30.5
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        10.5,
+        -3.2,
+        33.5
+      ],
+      "yaw": 90,
+      "room": "catwalks"
+    },
+    {
+      "id": "barrel",
+      "at": [
+        12.8,
+        -8,
+        36.6
+      ],
+      "yaw": 0,
+      "room": "catwalks"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        12.2,
+        -8,
+        37.2
+      ],
+      "yaw": 40,
+      "room": "catwalks"
+    },
+    {
+      "id": "wire-coil",
+      "at": [
+        9,
+        -8,
+        36.8
+      ],
+      "yaw": 20,
+      "room": "catwalks"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        4.4,
+        -8,
+        47.455
+      ],
+      "yaw": 180,
+      "room": "safe-power"
+    },
+    {
+      "id": "shelter-bunk",
+      "at": [
+        7,
+        -8,
+        47.455
+      ],
+      "yaw": 180,
+      "room": "safe-power"
+    },
+    {
+      "id": "air-filter",
+      "at": [
+        13.62,
+        -7.4,
+        40.6
+      ],
+      "yaw": -90,
+      "room": "safe-power"
+    },
+    {
+      "id": "water-point",
+      "at": [
+        13.725,
+        -8,
+        45
+      ],
+      "yaw": -90,
+      "room": "safe-power"
+    },
+    {
+      "id": "workbench",
+      "at": [
+        2.45,
+        -8,
+        42.6
+      ],
+      "yaw": 0,
+      "room": "safe-power"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        11.2,
+        -8,
+        38.588
+      ],
+      "yaw": 0,
+      "room": "safe-power",
+      "note": "the team's linked storage box"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        2.377,
+        -8,
+        45.6
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        2.352,
+        -7.92,
+        45.596
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        2.362,
+        -7.92,
+        45.067
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "ration-pack",
+      "at": [
+        2.381,
+        -7.41,
+        46.142
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "ration-pack",
+      "at": [
+        2.379,
+        -7.41,
+        45.581
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "ration-pack",
+      "at": [
+        2.394,
+        -7.41,
+        45.051
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        2.384,
+        -7.02,
+        46.158
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        2.4,
+        -7.02,
+        45.591
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "medical-box",
+      "at": [
+        2.393,
+        -7.02,
+        45.039
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "first-aid-kit",
+      "at": [
+        2.359,
+        -6.64,
+        46.151
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "first-aid-kit",
+      "at": [
+        2.391,
+        -6.64,
+        45.587
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "first-aid-kit",
+      "at": [
+        2.4,
+        -6.64,
+        45.049
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        2.385,
+        -6.25,
+        46.163
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        2.356,
+        -6.25,
+        45.593
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        3.68,
+        -7.54,
+        47.455
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        3.68,
+        -6.84,
+        47.455
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        3.68,
+        -6.14,
+        47.455
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        6.28,
+        -7.54,
+        47.455
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        6.28,
+        -6.84,
+        47.455
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "bunk-pillow",
+      "at": [
+        6.28,
+        -6.14,
+        47.455
+      ],
+      "yaw": 90,
+      "room": "safe-power"
+    },
+    {
+      "id": "boiler",
+      "at": [
+        16.6,
+        -8,
+        44.4
+      ],
+      "yaw": 0,
+      "room": "boiler"
+    },
+    {
+      "id": "boiler",
+      "at": [
+        25,
+        -8,
+        44.4
+      ],
+      "yaw": 0,
+      "room": "boiler"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        17.5,
+        -8,
+        38.33
+      ],
+      "yaw": 0,
+      "room": "boiler"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        25.4,
+        -8,
+        38.33
+      ],
+      "yaw": 0,
+      "room": "boiler"
+    },
+    {
+      "id": "tool-chest",
+      "at": [
+        14.303,
+        -8,
+        48.6
+      ],
+      "yaw": 90,
+      "room": "boiler"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        26.2,
+        -8,
+        49.623
+      ],
+      "yaw": 180,
+      "room": "boiler"
+    },
+    {
+      "id": "gate-valve",
+      "at": [
+        23.2,
+        -8,
+        41.2
+      ],
+      "yaw": 90,
+      "room": "boiler"
+    },
+    {
+      "id": "water-filter",
+      "at": [
+        27.784,
+        -7.1,
+        47.8
+      ],
+      "yaw": -90,
+      "room": "boiler"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        31,
+        -8,
+        40.377
+      ],
+      "yaw": 0,
+      "room": "maint-lockup"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        33.423,
+        -8,
+        43
+      ],
+      "yaw": -90,
+      "room": "maint-lockup"
+    },
+    {
+      "id": "jerrycan",
+      "at": [
+        29,
+        -8,
+        44.8
+      ],
+      "yaw": 20,
+      "room": "maint-lockup"
+    },
+    {
+      "id": "wire-coil",
+      "at": [
+        30.2,
+        -8,
+        45.2
+      ],
+      "yaw": 0,
+      "room": "maint-lockup"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        32.4,
+        -8,
+        45
+      ],
+      "yaw": 15,
+      "room": "maint-lockup"
+    },
+    {
+      "id": "workbench",
+      "at": [
+        17.5,
+        -8,
+        58.654
+      ],
+      "yaw": 180,
+      "room": "workshop"
+    },
+    {
+      "id": "workbench",
+      "at": [
+        21.5,
+        -8,
+        58.654
+      ],
+      "yaw": 180,
+      "room": "workshop"
+    },
+    {
+      "id": "tool-chest",
+      "at": [
+        25,
+        -8,
+        59.697
+      ],
+      "yaw": 180,
+      "room": "workshop"
+    },
+    {
+      "id": "tool-chest",
+      "at": [
+        25.75,
+        -8,
+        59.697
+      ],
+      "yaw": 180,
+      "room": "workshop"
+    },
+    {
+      "id": "shelving-steel",
+      "at": [
+        27.623,
+        -8,
+        53.2
+      ],
+      "yaw": -90,
+      "room": "workshop"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        27.423,
+        -8,
+        55.4
+      ],
+      "yaw": -90,
+      "room": "workshop"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        14.271,
+        -8,
+        52.6
+      ],
+      "yaw": 90,
+      "room": "workshop"
+    },
+    {
+      "id": "gas-cylinder",
+      "at": [
+        14.271,
+        -8,
+        53
+      ],
+      "yaw": 90,
+      "room": "workshop"
+    },
+    {
+      "id": "prep-table",
+      "at": [
+        21,
+        -8,
+        55
+      ],
+      "yaw": 0,
+      "room": "workshop"
+    },
+    {
+      "id": "claw-hammer",
+      "at": [
+        20.6,
+        -7.1,
+        54.9
+      ],
+      "yaw": 30,
+      "room": "workshop",
+      "rot": [
+        90,
+        30,
+        0
+      ]
+    },
+    {
+      "id": "duct-tape",
+      "at": [
+        21.4,
+        -7.1,
+        55.2
+      ],
+      "yaw": 0,
+      "room": "workshop"
+    },
+    {
+      "id": "crowbar",
+      "at": [
+        21.2,
+        -7.1,
+        54.75
+      ],
+      "yaw": 70,
+      "room": "workshop",
+      "rot": [
+        90,
+        70,
+        0
+      ]
+    },
+    {
+      "id": "hand-truck",
+      "at": [
+        15.2,
+        -8,
+        57.8
+      ],
+      "yaw": 70,
+      "room": "workshop"
+    },
+    {
+      "id": "ladder",
+      "at": [
+        14.22,
+        -8,
+        55.6
+      ],
+      "yaw": 90,
+      "room": "workshop"
+    },
+    {
+      "id": "barrel",
+      "at": [
+        26.8,
+        -8,
+        51.2
+      ],
+      "yaw": 0,
+      "room": "workshop"
+    },
+    {
+      "id": "wire-coil",
+      "at": [
+        24,
+        -8,
+        51.4
+      ],
+      "yaw": 30,
+      "room": "workshop"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        20.5
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        24.6
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        32
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        36.1
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        40.2
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        44.3
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        48.4
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        52.5
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        44.33,
+        -8,
+        55.8
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        20.2
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        24.3
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        28.4
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        32.5
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        36.6
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        40.7
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        48.6
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        52.7
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        49.67,
+        -8,
+        55.8
+      ],
+      "yaw": -90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        48.4,
+        -8,
+        20.3
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        48.4,
+        -8,
+        24.4
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        48.4,
+        -8,
+        28.5
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        48.4,
+        -8,
+        32.6
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        48.4,
+        -8,
+        36.7
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        48.4,
+        -8,
+        40.8
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        48.4,
+        -8,
+        49.2
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pipe-main",
+      "at": [
+        48.4,
+        -8,
+        53.3
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "gate-valve",
+      "at": [
+        48.4,
+        -8,
+        26.4
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "gate-valve",
+      "at": [
+        48.4,
+        -8,
+        42.7
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "floor-grate",
+      "at": [
+        47,
+        -8,
+        55
+      ],
+      "yaw": 0,
+      "room": "pipe-gallery",
+      "note": "the maintenance grate (pipes-tunnels)"
+    },
+    {
+      "id": "valve-wheel",
+      "at": [
+        44.284,
+        -6.7,
+        29
+      ],
+      "yaw": 90,
+      "room": "pipe-gallery"
+    },
+    {
+      "id": "pump",
+      "at": [
+        53,
+        -8,
+        41.3
+      ],
+      "yaw": 0,
+      "room": "pump-room"
+    },
+    {
+      "id": "gate-valve",
+      "at": [
+        53.6,
+        -8,
+        40.7
+      ],
+      "yaw": 0,
+      "room": "pump-room"
+    },
+    {
+      "id": "pump",
+      "at": [
+        55.2,
+        -8,
+        41.3
+      ],
+      "yaw": 0,
+      "room": "pump-room"
+    },
+    {
+      "id": "gate-valve",
+      "at": [
+        55.8,
+        -8,
+        40.7
+      ],
+      "yaw": 0,
+      "room": "pump-room"
+    },
+    {
+      "id": "pump",
+      "at": [
+        57.4,
+        -8,
+        41.3
+      ],
+      "yaw": 0,
+      "room": "pump-room"
+    },
+    {
+      "id": "gate-valve",
+      "at": [
+        58,
+        -8,
+        40.7
+      ],
+      "yaw": 0,
+      "room": "pump-room"
+    },
+    {
+      "id": "pipe-rack",
+      "at": [
+        55.2,
+        -8,
+        40.33
+      ],
+      "yaw": 0,
+      "room": "pump-room"
+    },
+    {
+      "id": "pump-group",
+      "at": [
+        61.47,
+        -8,
+        45
+      ],
+      "yaw": 0,
+      "room": "pump-room"
+    },
+    {
+      "id": "control-cabinet",
+      "at": [
+        52,
+        -8,
+        49.547
+      ],
+      "yaw": 90,
+      "room": "pump-room"
+    },
+    {
+      "id": "locker",
+      "at": [
+        54.4,
+        -8,
+        49.689
+      ],
+      "yaw": 180,
+      "room": "pump-room",
+      "note": "pump-room-locker"
+    }
+  ],
+  "fixtures": [
+    {
+      "kind": "caged",
+      "at": [
+        37,
+        2.8,
+        15
+      ],
+      "yaw": 0,
+      "room": "service-stairs",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        33,
+        -4.5,
+        14
+      ],
+      "yaw": 0,
+      "room": "service-stairs",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        41.9,
+        -5.6,
+        13
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "service-stairs",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        32.1,
+        2.3,
+        17
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "service-stairs",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        18,
+        -1.7,
+        23
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        18,
+        -1.7,
+        32
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        25,
+        -1.7,
+        23
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        25,
+        -1.7,
+        32
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        32,
+        -1.7,
+        23
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        32,
+        -1.7,
+        32
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        39,
+        -1.7,
+        23
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        39,
+        -1.7,
+        32
+      ],
+      "yaw": 0,
+      "room": "generator-hall",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        17,
+        -4.8,
+        37.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "generator-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        30,
+        -4.8,
+        37.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "generator-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        42,
+        -4.8,
+        37.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "generator-hall",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        16,
+        -4.8,
+        18.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "generator-hall",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        8,
+        -1.7,
+        22
+      ],
+      "yaw": 0,
+      "room": "catwalks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        8,
+        -1.7,
+        30
+      ],
+      "yaw": 0,
+      "room": "catwalks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        8,
+        -1.7,
+        36
+      ],
+      "yaw": 0,
+      "room": "catwalks",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        13.9,
+        -5,
+        22
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "catwalks",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        2.1,
+        -5,
+        34
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "catwalks",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        5.5,
+        -5.2,
+        42.5
+      ],
+      "yaw": 0,
+      "room": "safe-power",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        10.5,
+        -5.2,
+        44.5
+      ],
+      "yaw": 0,
+      "room": "safe-power",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        17,
+        -5,
+        40.5
+      ],
+      "yaw": 0,
+      "room": "boiler",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        25,
+        -5,
+        40.5
+      ],
+      "yaw": 0,
+      "room": "boiler",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        21,
+        -5,
+        44
+      ],
+      "yaw": 0,
+      "room": "boiler",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        17,
+        -5,
+        48
+      ],
+      "yaw": 0,
+      "room": "boiler",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        25,
+        -5,
+        48
+      ],
+      "yaw": 0,
+      "room": "boiler",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        21,
+        -5.4,
+        38.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "boiler",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        31,
+        -5.2,
+        43
+      ],
+      "yaw": 0,
+      "room": "maint-lockup",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "dead"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        17.5,
+        -5,
+        53.5
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        24.5,
+        -5,
+        53.5
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        17.5,
+        -5,
+        57.5
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        24.5,
+        -5,
+        57.5
+      ],
+      "yaw": 0,
+      "room": "workshop",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        26,
+        -5.4,
+        50.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "workshop",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        47,
+        -2.2,
+        22
+      ],
+      "yaw": 0,
+      "room": "pipe-gallery",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        47,
+        -2.2,
+        30
+      ],
+      "yaw": 0,
+      "room": "pipe-gallery",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        47,
+        -2.2,
+        38
+      ],
+      "yaw": 0,
+      "room": "pipe-gallery",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        47,
+        -2.2,
+        46
+      ],
+      "yaw": 0,
+      "room": "pipe-gallery",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        47,
+        -2.2,
+        54
+      ],
+      "yaw": 0,
+      "room": "pipe-gallery",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        44.1,
+        -5,
+        36
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "pipe-gallery",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        49.9,
+        -5,
+        52
+      ],
+      "face": [
+        -1,
+        0,
+        0
+      ],
+      "room": "pipe-gallery",
+      "bank": 0
+    },
+    {
+      "kind": "caged",
+      "at": [
+        53,
+        -5,
+        43
+      ],
+      "yaw": 0,
+      "room": "pump-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        59,
+        -5,
+        43
+      ],
+      "yaw": 0,
+      "room": "pump-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "caged",
+      "at": [
+        56,
+        -5,
+        47.5
+      ],
+      "yaw": 0,
+      "room": "pump-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        55,
+        -5.4,
+        49.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "pump-room",
+      "bank": 0
+    }
+  ],
+  "decals": [
+    {
+      "tex": "plate-service-stairs",
+      "at": [
+        38.3,
+        1.6,
+        17.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-generator-hall",
+      "at": [
+        38.6,
+        -6.4,
+        17.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        37,
+        0.003,
+        17.85
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        10,
+        0.25
+      ],
+      "paint": true,
+      "repeat": [
+        10,
+        1
+      ]
+    },
+    {
+      "tex": "paint-gen-1",
+      "at": [
+        19.8,
+        -6.1,
+        23.012
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        1,
+        0.5
+      ],
+      "paint": true
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        18.5,
+        -7.997,
+        23.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        6.4,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        6,
+        1
+      ]
+    },
+    {
+      "tex": "paint-gen-2",
+      "at": [
+        26.8,
+        -6.1,
+        23.012
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        1,
+        0.5
+      ],
+      "paint": true
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        25.5,
+        -7.997,
+        23.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        6.4,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        6,
+        1
+      ]
+    },
+    {
+      "tex": "paint-gen-3",
+      "at": [
+        33.3,
+        -6.1,
+        23.012
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        1,
+        0.5
+      ],
+      "paint": true
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        32,
+        -7.997,
+        23.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        6.4,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        6,
+        1
+      ]
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        36.2,
+        -7.997,
+        28
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.1,
+        19.6
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        37.8,
+        -7.997,
+        28
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.1,
+        19.6
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        26,
+        -7.997,
+        27.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        23,
+        0.1
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "paint-walkway",
+      "at": [
+        26,
+        -7.997,
+        29.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        23,
+        0.1
+      ],
+      "rot": 0,
+      "paint": true
+    },
+    {
+      "tex": "breaker-labs",
+      "at": [
+        30.9,
+        -6.43,
+        37.391
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.44,
+        0.1
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "breaker-medical",
+      "at": [
+        31.9,
+        -6.43,
+        37.391
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.44,
+        0.1
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "breaker-security",
+      "at": [
+        32.9,
+        -6.43,
+        37.391
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.44,
+        0.1
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "breaker-containment",
+      "at": [
+        33.9,
+        -6.43,
+        37.391
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.44,
+        0.1
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "breaker-deep",
+      "at": [
+        34.9,
+        -6.43,
+        37.391
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.44,
+        0.1
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-high-voltage",
+      "at": [
+        33,
+        -5.4,
+        37.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.4,
+        0.56
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        30,
+        -7.997,
+        36.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        9.6,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        9,
+        1
+      ]
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        33.4,
+        -7.996,
+        24.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        2.2,
+        1.6
+      ],
+      "rot": 10
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        30,
+        -7.996,
+        28.4
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 180
+    },
+    {
+      "tex": "plate-safe-power",
+      "at": [
+        9.2,
+        -6.4,
+        37.9
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        6,
+        -7.996,
+        27
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.8,
+        1.4
+      ],
+      "rot": 60
+    },
+    {
+      "tex": "plate-maint-lockup",
+      "at": [
+        27.9,
+        -6.4,
+        44.4
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-boiler",
+      "at": [
+        22.3,
+        -6.4,
+        38.1
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        18.4,
+        -7.996,
+        47
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.8,
+        1.2
+      ],
+      "rot": 20
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        24.6,
+        -7.996,
+        47.5
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        1
+      ],
+      "rot": 120
+    },
+    {
+      "tex": "plate-workshop",
+      "at": [
+        22.3,
+        -6.4,
+        50.1
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        21,
+        -7.996,
+        57
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        1
+      ],
+      "rot": 60
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        47,
+        -7.997,
+        53.9
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.8,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        2,
+        1
+      ]
+    },
+    {
+      "tex": "paint-hazard",
+      "at": [
+        47,
+        -7.997,
+        56.1
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.8,
+        0.25
+      ],
+      "rot": 0,
+      "paint": true,
+      "repeat": [
+        2,
+        1
+      ]
+    },
+    {
+      "tex": "plate-pipe-gallery",
+      "at": [
+        44.1,
+        -6.4,
+        26.4
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-pump-room",
+      "at": [
+        49.9,
+        -6.4,
+        46.2
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        46.2,
+        -7.996,
+        34
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.6,
+        2.4
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        47.4,
+        -7.996,
+        50
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.2,
+        1.8
+      ],
+      "rot": 30
+    },
+    {
+      "tex": "grime-floor",
+      "at": [
+        55,
+        -7.996,
+        43.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        2.6,
+        1.4
+      ],
+      "rot": 0
+    }
+  ],
+  "cast": [],
+  "shots": {
+    "stairs": {
+      "at": [
+        40.6,
+        -6.35,
+        17.3
+      ],
+      "look": [
+        34,
+        -5.4,
+        13.4
+      ],
+      "label": "The service stairs, from the bottom"
+    },
+    "hall": {
+      "at": [
+        37.4,
+        -6.2,
+        20
+      ],
+      "look": [
+        20,
+        -6.8,
+        33
+      ],
+      "label": "The generator hall, from the stairs"
+    },
+    "gensets": {
+      "at": [
+        28.8,
+        -6.35,
+        29
+      ],
+      "look": [
+        22,
+        -6.8,
+        21
+      ],
+      "label": "The gensets"
+    },
+    "breakers": {
+      "at": [
+        33,
+        -6.35,
+        32
+      ],
+      "look": [
+        31.5,
+        -6.9,
+        37.9
+      ],
+      "label": "The switchboard and the zone breakers"
+    },
+    "catwalks": {
+      "at": [
+        13,
+        -6.35,
+        37
+      ],
+      "look": [
+        5,
+        -5.5,
+        20
+      ],
+      "label": "The catwalks"
+    },
+    "safe": {
+      "at": [
+        12,
+        -6.35,
+        39
+      ],
+      "look": [
+        5,
+        -7,
+        46
+      ],
+      "label": "The maintenance crew safe room"
+    },
+    "boiler": {
+      "at": [
+        21,
+        -6.35,
+        49.2
+      ],
+      "look": [
+        21,
+        -7,
+        40
+      ],
+      "label": "The boiler room"
+    },
+    "workshop": {
+      "at": [
+        16,
+        -6.35,
+        50.8
+      ],
+      "look": [
+        24,
+        -7.2,
+        59
+      ],
+      "label": "The workshop"
+    },
+    "gallery": {
+      "at": [
+        47,
+        -6.35,
+        19
+      ],
+      "look": [
+        47,
+        -6.5,
+        57
+      ],
+      "label": "The pipe gallery"
+    },
+    "grate": {
+      "at": [
+        46,
+        -6.35,
+        50.5
+      ],
+      "look": [
+        47,
+        -8,
+        55.5
+      ],
+      "label": "The maintenance grate"
+    },
+    "pumps": {
+      "at": [
+        51,
+        -6.35,
+        49
+      ],
+      "look": [
+        58,
+        -7.4,
+        41
+      ],
+      "label": "The pump room"
+    }
+  },
+  "tint": {},
+  "kit": {
+    "copies": []
+  },
+  "catcher": {
+    "at": [
+      32,
+      38
+    ],
+    "size": [
+      64,
+      48
+    ]
+  },
+  "shadowSpots": [],
+  "puddles": []
+}

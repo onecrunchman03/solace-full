@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Solace Survivorz banner</title>
+<!--
+  THE YOUTUBE BANNER (docs/survivorz/YOUTUBE.md §2). 2560×1440, rendered to banner.png by
+  scripts/survivorz/render-youtube-art.mjs. Everything that must be seen sits in the middle
+  1546×423 (phones); desktop shows the full-width 423 strip; only TVs see the rest.
+  GENERIC ON PURPOSE (Josh, 2026-11-01: "the channel is about AI made survivor stories"):
+  no cast, no facility names, so it outlives any one season. The cameras are the Survivorz
+  look-test renders, softened so they read as "somewhere dangerous", not a place.
+-->
+<style>
+  @font-face { font-family: "Inter"; font-weight: 100 900; src: url("../../../client/src/assets/fonts/inter-latin.woff2") format("woff2"); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 2560px; height: 1440px; background: #070809; overflow: hidden; }
+  body { position: relative; font-family: Inter, "Segoe UI", sans-serif; color: #e6e6e6; }
+
+  /* the camera bank: three feeds across the desktop strip */
+  .bank { position: absolute; left: 0; top: 480px; width: 2560px; height: 480px; display: flex; }
+  .cam { position: relative; flex: 1; height: 480px; overflow: hidden; border-right: 6px solid #070809; }
+  .cam:last-child { border-right: 0; }
+  .feed { position: absolute; inset: -8px; background-size: 2560px 1440px; filter: saturate(0.7) contrast(1.12) brightness(1.05) blur(2px); }
+  .cam::after { /* scanlines */
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0 2px, transparent 2px 5px);
+  }
+  .tag {
+    position: absolute; left: 24px; top: 44px; z-index: 2;
+    font: 700 22px/1 "Consolas", "Courier New", monospace; letter-spacing: 0.08em;
+    color: rgba(230,230,230,0.75); text-shadow: 0 1px 3px #000;
+  }
+  .tag.right { left: auto; right: 24px; }
+  /* (the middle feed carries no tag: the words sit on it, and the side tags stay outside the phone crop) */
+  .tag b { color: #ff3b30; font-weight: 700; }
+
+  /* the dark plate the words sit on, and the vignette at the strip's ends */
+  .plate {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 900px 300px at 50% 720px, rgba(7,8,9,0.93) 0%, rgba(7,8,9,0.82) 55%, rgba(7,8,9,0.25) 100%),
+      linear-gradient(90deg, rgba(7,8,9,0.7) 0%, transparent 14%, transparent 86%, rgba(7,8,9,0.7) 100%),
+      linear-gradient(180deg, #070809 0%, #070809 30%, rgba(7,8,9,0) 34%, rgba(7,8,9,0) 66%, #070809 70%, #070809 100%);
+  }
+  /* hazard edges above and below the bank (TV only) */
+  .hazard { position: absolute; left: 0; width: 2560px; height: 14px; opacity: 0.55;
+    background: repeating-linear-gradient(-45deg, #e8b04a 0 22px, #070809 22px 44px); }
+  .hazard.top { top: 452px; } .hazard.bottom { top: 974px; }
+  .stencil { position: absolute; left: 0; width: 2560px; text-align: center;
+    font: 900 64px/1 Inter, sans-serif; letter-spacing: 0.5em; color: rgba(232,176,74,0.07); }
+  .stencil.top { top: 300px; } .stencil.bottom { top: 1070px; }
+
+  /* the words, centred in the phone-safe box (507..2053 × 508..931) */
+  .words { position: absolute; left: 507px; top: 508px; width: 1546px; height: 423px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .kicker { font-weight: 900; font-size: 34px; letter-spacing: 0.32em; text-transform: uppercase;
+    background: linear-gradient(90deg, #f8b04c, #f2907c 55%, #ec6f92); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h1 { margin-top: 12px; font-weight: 900; font-size: 136px; line-height: 0.95; letter-spacing: -0.015em; color: #f3f3f3;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.6); }
+  .line { margin-top: 22px; font-weight: 500; font-size: 40px; color: #e6e6e6; }
+  .line b { color: #ff3b30; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="bank">
+    <div class="cam"><div class="feed" id="f0"></div><div class="tag"><b>●</b> CAM 01</div></div>
+    <div class="cam"><div class="feed" id="f1"></div></div>
+    <div class="cam"><div class="feed" id="f2"></div><div class="tag right"><b>●</b> CAM 04</div></div>
+  </div>
+  <div class="plate"></div>
+  <div class="hazard top"></div><div class="hazard bottom"></div>
+  <div class="stencil top">AI SURVIVAL STORIES</div>
+  <div class="stencil bottom">SOLACE TV</div>
+
+  <div class="words">
+    <div class="kicker">Solace TV</div>
+    <h1>SOLACE SURVIVORZ</h1>
+    <div class="line">Survival stories made by AI. Live, unscripted, no second chances.</div>
+  </div>
+
+<script>
+  // Each feed is one 640×360 tile of the look test's 1920×1080 contact sheet, shown at 853×480.
+  const SHEET = "../look15-containment-battery.jpg";
+  const TILES = [[0, 2], [1, 1], [2, 2]]; // [col,row] → tanks, the cell row, the single tank
+  TILES.forEach(([c, r], i) => {
+    const f = document.getElementById("f" + i);
+    f.style.backgroundImage = `url("${SHEET}")`;
+    f.style.backgroundPosition = `${-c * 853.33}px ${-r * 480}px`;
+  });
+
+</script>
+</body>
+</html>

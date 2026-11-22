@@ -1,0 +1,27 @@
+Solace casino floor - Classic Vegas assets (client/public/assets/casino/vegas)
+Models are CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/): credit required. Each was rescaled, re-oriented, re-encoded and had its materials adjusted (metallic 0, single-sided transparency, some tints/emissive) for Solace.
+
+MODELS (CC-BY 4.0)
+- "Roman Marble Column" by Ergin ERYILDIR (sketchfab.com/ergin3d.com) - CC BY 4.0 - https://sketchfab.com/3d-models/roman-marble-column-c17dfe2926ce48a6bbaca77dcc3a0d12
+    used as: vegas/column-marble.glb
+- "Casion slot-machine" by kritamb (the model file credits the same account as kvasium) - CC BY 4.0 - https://sketchfab.com/3d-models/casion-slot-machine-49fc3271878e4e148fed325439b53a1a
+    used as: vegas/slot-bulb-classic.glb (the Carousel)
+- "Slot Machine" by deepakyhr - CC BY 4.0 - https://sketchfab.com/3d-models/slot-machine-aff86b4e07fe4a22bc1b6bc3fa91d662
+    used as: vegas/slot-jackpot.glb (Crown Jackpot)
+- "Slot_machine" by morrrtu1o - CC BY 4.0 - https://sketchfab.com/3d-models/slot-machine-d58181162e154af2ab73e8667db2e81d
+    used as: vegas/slot-lucky-spin.glb (Lucky Sevens)
+- "Slot-machine" by nermin - CC BY 4.0 - https://sketchfab.com/3d-models/slot-machine-b853ed93538a4405949800ab501606d8
+    used as: vegas/slot-vegas-star.glb (Diamond Deluxe, and High Limit tinted gold)
+    The four slot cabinets also had their levers split onto pivots and their reel windows covered by Solace's own reels.
+
+TEXTURES (CC0 1.0 - no attribution required; listed as a courtesy)
+- tex/carpet-vegas-red/-midnight*: "Carpet013" - ambientCG - CC0 - https://ambientcg.com/view?id=Carpet013
+- tex/marble-cream*: "Marble014" - ambientCG - CC0 - https://ambientcg.com/view?id=Marble014
+- tex/marble-black-gold*: "Marble006" - ambientCG - CC0 - https://ambientcg.com/view?id=Marble006
+- tex/marble-black*: "Marble016" - ambientCG - CC0 - https://ambientcg.com/view?id=Marble016
+- tex/gold-polished*: "Metal048A" - ambientCG - CC0 - https://ambientcg.com/view?id=Metal048A
+- tex/jacquard-red*: "Quatrefoil Jacquard Fabric" - Poly Haven - CC0 - https://polyhaven.com/a/quatrefoil_jacquard_fabric
+- tex/wood-lacquer-cherry*: "Lacquered Cherry Wood" - Poly Haven - CC0 - https://polyhaven.com/a/lacquered_cherry_wood
+- The casino carpet PATTERN (carpet-vegas-*-color.jpg) is original artwork generated for Solace; only its pile detail comes from ambientCG Carpet013 (CC0).
+
+The other models fetched for this round (stanchions, cashier, neon, chips, a stool) are not used yet; they wait, with their credits, in the gitignored assets/downloads/casino-vegas-spare/.

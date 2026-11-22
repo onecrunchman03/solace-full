@@ -1,0 +1,11 @@
+THE LISTENER — Lights Out's creature (Solace, Backrooms Level 6)
+
+Model: "Nightmare Creature 1#"
+by Mr.Prizz, Sketchfab
+https://sketchfab.com/3d-models/nightmare-creature-1-9fb509d207d744babeb5d87a486f7de1
+License: Creative Commons Attribution 4.0 (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Changed for Solace: textures re-encoded to 1024px JPEG (scripts/shrink-glb.mjs);
+geometry, rig and animation unchanged. The game plays its walk, crawl, run,
+idle, attack and bite clips for the Listener's states.

@@ -1,0 +1,2646 @@
+/* Self-hosted Inter (variable, wght 100-900 — Google Fonts' v20 files, now
+   bundled so first paint makes zero third-party connections and the woff2s
+   ride the immutable /assets cache). Latin always loads (~47KB); latin-ext
+   only if extended-Latin glyphs actually render (unicode-range). Bonus over
+   the old <link>: that CSS only declared 400/500/600, so the app's 700/800
+   text was synthetic bold — the variable axis renders them for real. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./assets/fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./assets/fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Solace themes.
+   Each theme is just a set of these tokens. The theme picker (Settings →
+   Appearance) sets data-theme on <html>; "cozy" is the default. Components only
+   ever read these variables, so adding a theme = adding one block below — no
+   component changes. Keep every theme dark-first: the app's identity is a warm
+   room at night, and the variants shift its temperature, not its brightness. */
+
+/* Cozy — the original "Foundry" look: warm charcoal + ember. */
+:root,
+[data-theme="cozy"] {
+  --bg: #14110e;
+  --panel: #1b1712;
+  --panel-2: #241e18;
+  --line: #2f2820;
+  --line-2: #3a3128;
+  --ink: #d8d0c6;
+  --ink-soft: #968b7e;
+  --ink-dim: #6a6055;
+  --accent: #d98a4f;
+  --accent-soft: #b9723d;
+  --accent-ink: #241304;
+  --accent-glow: rgba(217, 138, 79, 0.5);
+  --danger: #cf6f5e;
+  --ok: #9bc47f;
+}
+
+/* Chill — cool and peaceful: blue-slate dusk + glacial accent. */
+[data-theme="chill"] {
+  --bg: #0f1319;
+  --panel: #141a22;
+  --panel-2: #1b232e;
+  --line: #26303d;
+  --line-2: #303c4c;
+  --ink: #d2dae4;
+  --ink-soft: #8a97a7;
+  --ink-dim: #5e6b7c;
+  --accent: #7ab3d9;
+  --accent-soft: #5d94ba;
+  --accent-ink: #0a1826;
+  --accent-glow: rgba(122, 179, 217, 0.45);
+  --danger: #d07070;
+  --ok: #82c0a0;
+}
+
+/* Shrub — nature vibe and calm: mossy forest + sage-leaf accent. */
+[data-theme="shrub"] {
+  --bg: #11150d;
+  --panel: #161b11;
+  --panel-2: #1e2517;
+  --line: #2b3421;
+  --line-2: #37412b;
+  --ink: #d5d8c9;
+  --ink-soft: #929b81;
+  --ink-dim: #656f56;
+  --accent: #96b464;
+  --accent-soft: #7a9a4d;
+  --accent-ink: #16200a;
+  --accent-glow: rgba(150, 180, 100, 0.4);
+  --danger: #c97460;
+  --ok: #a4c47f;
+}
+
+/* ---- Emporium themes, wave 1 (purchased from Sterling; server enforces
+   ownership on the prefs PATCH). Same dark-first contract as the base three.
+   Every premium theme is tuned against its reference image in
+   picture/themes/ — palette from the image, plus a scene layer (body::before)
+   and a texture layer (body::after) defined in the "atmosphere" section
+   below. Kidcore was retired (migration 27 refunded owners). */
+
+/* Vaporwave — magenta-violet sky, striped sun, neon grid, VHS shimmer.
+   Refs: grid+sun horizon · pixel-city anime VHS still · palm-ocean sunset. */
+[data-theme="vaporwave"] {
+  --bg: #1b1142;
+  --panel: #251856;
+  --panel-2: #2f1f6a;
+  --line: #453189;
+  --line-2: #563da4;
+  --ink: #f2e9fd;
+  --ink-soft: #b0a0da;
+  --ink-dim: #8072b2;
+  --accent: #ff43d7;
+  --accent-soft: #d232ae;
+  --accent-ink: #33062a;
+  --accent-glow: rgba(255, 67, 215, 0.55);
+  --danger: #ff5c8a;
+  --ok: #35e8c8;
+}
+
+/* Cyberpunk — black night street soaked in mixed neon: red, cyan, green.
+   Refs: teal-red alley · dense sign canyon · pink-neon strip at night. */
+[data-theme="cyberpunk"] {
+  --bg: #070d15;
+  --panel: #0c1622;
+  --panel-2: #12202f;
+  --line: #22394d;
+  --line-2: #2d4a62;
+  --ink: #d6e9f2;
+  --ink-soft: #7fa5b8;
+  --ink-dim: #547487;
+  --accent: #ff2e5f;
+  --accent-soft: #d02049;
+  --accent-ink: #24030c;
+  --accent-glow: rgba(255, 46, 95, 0.55);
+  --danger: #ff5540;
+  --ok: #2de2d5;
+}
+
+/* Dark Academia — charcoal-black library walls, brass chandeliers, cream
+   lampshades, leather. Refs: curiosity cabinet · slate library with brass ·
+   grand black study with arch window + fireplace. Oxblood held for danger. */
+[data-theme="darkacademia"] {
+  --bg: #11100a;
+  --panel: #1a1810;
+  --panel-2: #252214;
+  --line: #3a3420;
+  --line-2: #494128;
+  --ink: #eadfbe;
+  --ink-soft: #ab9c72;
+  --ink-dim: #7b6f50;
+  --accent: #c69a45;
+  --accent-soft: #a17a2f;
+  --accent-ink: #241703;
+  --accent-glow: rgba(198, 154, 69, 0.45);
+  --danger: #a83a30;
+  --ok: #77935e;
+}
+
+/* Frutiger Aero — the optimistic internet: luminous sky-and-water blue,
+   glossy glass, lime-green orbs. Refs: monitor-in-ocean · lime orbs on blue
+   water · grass hill + underwater split. Deliberately the BRIGHTEST theme —
+   its whole identity is daylight. */
+[data-theme="frutiger"] {
+  --bg: #0c5083;
+  --panel: #0f5c94;
+  --panel-2: #1469a6;
+  --line: #2a80bd;
+  --line-2: #3a91cf;
+  --ink: #f0fbff;
+  --ink-soft: #b6def2;
+  --ink-dim: #83b8d6;
+  --accent: #4fe3fb;
+  --accent-soft: #2fc3dd;
+  --accent-ink: #043038;
+  --accent-glow: rgba(79, 227, 251, 0.5);
+  --danger: #ff7e63;
+  --ok: #8ce838;
+}
+
+/* ---- Emporium cosmetics: global classes so any component can render another
+   member's equipped flair/border by id (class name == item id). ---- */
+
+/* Name flair */
+.flair-gilded {
+  background: linear-gradient(100deg, #fff0c4, #eab348 45%, #c8862c 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.flair-neon {
+  color: #ff71ce !important;
+  text-shadow: 0 0 9px rgba(255, 113, 206, 0.75);
+}
+.flair-ember {
+  color: #ffb066 !important;
+  text-shadow: 0 0 8px rgba(255, 140, 50, 0.6);
+}
+.flair-frost {
+  color: #bfe6ff !important;
+  text-shadow: 0 0 9px rgba(140, 210, 255, 0.75), 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.flair-toxic {
+  color: #8dff3a !important;
+  text-shadow: 0 0 9px rgba(140, 255, 60, 0.7);
+}
+.flair-royal {
+  background: linear-gradient(100deg, #c99ef7, #8d4fd6 45%, #eab348 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.flair-shadow {
+  color: #9aa0ab !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 0 14px rgba(0, 0, 0, 0.8);
+}
+/* Animated flair — the premium tier. Compositor-cheap only (background-
+   position + opacity), same rule as theme atmosphere. */
+.flair-molten {
+  background: linear-gradient(100deg, #ffd28a, #ff7a3c 30%, #e03a2a 55%, #ff7a3c 75%, #ffd28a);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: flair-molten-flow 3.2s linear infinite;
+}
+@keyframes flair-molten-flow {
+  to { background-position: -220% 0; }
+}
+.flair-glitch {
+  color: #d7fff3 !important;
+  text-shadow: 1.5px 0 rgba(255, 60, 90, 0.85), -1.5px 0 rgba(40, 190, 255, 0.85);
+  animation: flair-glitch-step 2.4s steps(1, end) infinite;
+}
+@keyframes flair-glitch-step {
+  0%, 88%, 100% { text-shadow: 1.5px 0 rgba(255, 60, 90, 0.85), -1.5px 0 rgba(40, 190, 255, 0.85); }
+  90% { text-shadow: -2px 0 rgba(255, 60, 90, 0.9), 2px 0 rgba(40, 190, 255, 0.9); }
+  93% { text-shadow: 2.5px 0.5px rgba(255, 60, 90, 0.9), -2.5px -0.5px rgba(40, 190, 255, 0.9); }
+}
+.flair-starlit {
+  background: linear-gradient(100deg, #cfd8ff 0%, #ffffff 46%, #ffe9b0 50%, #ffffff 54%, #cfd8ff 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: flair-starlit-glint 5.5s ease-in-out infinite;
+}
+@keyframes flair-starlit-glint {
+  0%, 60%, 100% { background-position: 0% 0; }
+  80% { background-position: -300% 0; }
+}
+
+/* Profile banners — the backdrop wash behind the profile header card. */
+.banner-sunset {
+  background:
+    linear-gradient(180deg, rgba(255, 122, 90, 0.32), rgba(150, 50, 130, 0.3) 60%, transparent),
+    radial-gradient(420px 130px at 78% 18%, rgba(255, 200, 90, 0.4), transparent 70%) !important;
+}
+.banner-deepsea {
+  background:
+    linear-gradient(180deg, rgba(10, 50, 90, 0.45), rgba(6, 24, 46, 0.4) 70%, transparent),
+    radial-gradient(300px 160px at 24% 0%, rgba(120, 220, 255, 0.28), transparent 70%) !important;
+}
+.banner-foundry {
+  background:
+    linear-gradient(180deg, rgba(40, 16, 6, 0.55), rgba(20, 8, 4, 0.4) 70%, transparent),
+    radial-gradient(360px 130px at 60% 100%, rgba(255, 120, 40, 0.42), transparent 70%),
+    radial-gradient(120px 60px at 30% 40%, rgba(255, 190, 90, 0.3), transparent 70%) !important;
+}
+.banner-starfield {
+  background:
+    radial-gradient(1.4px 1.4px at 15% 30%, #fff 98%, transparent),
+    radial-gradient(1.2px 1.2px at 42% 68%, rgba(255, 255, 255, 0.85) 98%, transparent),
+    radial-gradient(1.6px 1.6px at 66% 22%, #fff 98%, transparent),
+    radial-gradient(1.1px 1.1px at 84% 55%, rgba(255, 255, 255, 0.8) 98%, transparent),
+    radial-gradient(1.3px 1.3px at 28% 82%, #fff 98%, transparent),
+    radial-gradient(1.5px 1.5px at 92% 12%, rgba(255, 255, 255, 0.9) 98%, transparent),
+    linear-gradient(180deg, rgba(8, 12, 30, 0.6), rgba(6, 8, 20, 0.35) 75%, transparent) !important;
+}
+.banner-bloodmoon {
+  background:
+    radial-gradient(90px 90px at 80% 22%, rgba(214, 40, 40, 0.55), rgba(120, 14, 20, 0.4) 55%, transparent 72%),
+    linear-gradient(180deg, rgba(30, 8, 14, 0.55), rgba(16, 6, 10, 0.4) 70%, transparent) !important;
+}
+
+/* Bone Pit dice skins — glyph color for your cup and your dice in reveals.
+   The `*` variants reach the per-die spans, whose own color rule would beat
+   plain inheritance. */
+.dice-obsidian, .dice-obsidian * {
+  color: #b9a8e6 !important;
+  text-shadow: 0 0 8px rgba(120, 80, 220, 0.55), 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.dice-jade, .dice-jade * {
+  color: #6fdcae !important;
+  text-shadow: 0 0 8px rgba(50, 200, 140, 0.5), 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+.dice-blood, .dice-blood * {
+  color: #ff6a5e !important;
+  text-shadow: 0 0 8px rgba(220, 50, 40, 0.55), 0 2px 4px rgba(0, 0, 0, 0.75) !important;
+}
+.dice-gold, .dice-gold * {
+  color: #ffd97a !important;
+  text-shadow: 0 0 9px rgba(240, 190, 90, 0.6), 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Chat bubble tints — a soft wash behind that user's message text. */
+.bubble-ember {
+  background: linear-gradient(90deg, rgba(224, 118, 58, 0.13), rgba(224, 118, 58, 0.04) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+.bubble-twilight {
+  background: linear-gradient(90deg, rgba(140, 100, 230, 0.15), rgba(140, 100, 230, 0.05) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+.bubble-moss {
+  background: linear-gradient(90deg, rgba(110, 180, 110, 0.14), rgba(110, 180, 110, 0.05) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+
+/* @mentions — chips inside message text; .me is YOUR name being called. */
+.mention-chip {
+  display: inline;
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+  font-weight: 600;
+}
+.mention-chip.me {
+  background: color-mix(in srgb, var(--accent) 32%, transparent);
+  color: var(--accent-ink, #1d130a);
+  background-color: var(--accent);
+}
+/* A message that mentions me gets a warm left bar + wash across the row. */
+.row.mentioned {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 9%, transparent), transparent 75%);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+/* Epitaph scripts — engraving fonts on Graveyard tombstones. System font
+   stacks only (no webfont fetches for the dead). */
+.epitaph-copperplate {
+  font-family: "Segoe Script", "Brush Script MT", "Snell Roundhand", cursive !important;
+  letter-spacing: 0.02em;
+}
+.epitaph-gothic {
+  font-family: "Old English Text MT", "UnifrakturCook", "Luminari", Georgia, serif !important;
+  letter-spacing: 0.03em;
+}
+.epitaph-typewriter {
+  font-family: "Courier New", Courier, monospace !important;
+  letter-spacing: 0.01em;
+}
+
+/* Blackjack card backs — the face-down cards at your table. */
+.cardback-crimson {
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 7px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 7px),
+    linear-gradient(160deg, #8c1f26, #5c1015) !important;
+  border-color: #d8a04c !important;
+}
+.cardback-gilded {
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 220, 140, 0.22) 0 2px, transparent 2px 8px),
+    repeating-linear-gradient(-45deg, rgba(255, 220, 140, 0.22) 0 2px, transparent 2px 8px),
+    linear-gradient(160deg, #7a5a1c, #4a350e) !important;
+  border-color: #f0c96c !important;
+}
+.cardback-void {
+  background:
+    radial-gradient(60% 60% at 50% 45%, rgba(96, 38, 160, 0.35), transparent 75%),
+    linear-gradient(160deg, #17131f, #0a0810) !important;
+  border-color: #3a2a55 !important;
+}
+
+/* Avatar borders (applied to the Avatar wrapper) */
+.border-gilded {
+  box-shadow:
+    0 0 0 2px #eab348,
+    0 0 0 4px rgba(234, 179, 72, 0.35);
+  border-radius: 50%;
+}
+.border-ember {
+  box-shadow: 0 0 0 2px #e0763a, 0 0 10px 2px rgba(224, 118, 58, 0.55);
+  border-radius: 50%;
+  animation: ember-breathe 2.6s ease-in-out infinite;
+}
+@keyframes ember-breathe {
+  0%, 100% { box-shadow: 0 0 0 2px #e0763a, 0 0 8px 1px rgba(224, 118, 58, 0.4); }
+  50% { box-shadow: 0 0 0 2px #ff8c4a, 0 0 14px 4px rgba(255, 140, 74, 0.65); }
+}
+.border-neon {
+  box-shadow:
+    0 0 0 2px #ff71ce,
+    0 0 12px 2px rgba(1, 205, 254, 0.65);
+  border-radius: 50%;
+}
+.border-carved {
+  box-shadow:
+    0 0 0 3px #7a5426,
+    0 0 0 4px #3c2a12;
+  border-radius: 50%;
+}
+.border-aurora {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #67e8c5, 0 0 12px 2px rgba(103, 232, 197, 0.45);
+  animation: aurora-drift 6s ease-in-out infinite;
+}
+/* MIDAS — the achievement-only ring (The Institution: 1M silver wagered).
+   Molten gold, breathing slow. Award item; never in the shop rotation. */
+.border-midas {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2px #f5c542,
+    0 0 0 3px #8a6410,
+    0 0 14px 3px rgba(245, 197, 66, 0.55);
+  animation: midas-breathe 4.5s ease-in-out infinite;
+}
+@keyframes midas-breathe {
+  0%, 100% { box-shadow: 0 0 0 2px #f5c542, 0 0 0 3px #8a6410, 0 0 14px 3px rgba(245, 197, 66, 0.55); }
+  50% { box-shadow: 0 0 0 2px #ffe08a, 0 0 0 3px #a87c1a, 0 0 20px 5px rgba(255, 224, 138, 0.7); }
+}
+@keyframes aurora-drift {
+  0%, 100% { box-shadow: 0 0 0 2px #67e8c5, 0 0 12px 2px rgba(103, 232, 197, 0.45); }
+  33% { box-shadow: 0 0 0 2px #7aa8ff, 0 0 12px 2px rgba(122, 168, 255, 0.5); }
+  66% { box-shadow: 0 0 0 2px #c88bff, 0 0 12px 2px rgba(200, 139, 255, 0.5); }
+}
+.border-prism {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #ff6b6b, 0 0 10px 1px rgba(255, 255, 255, 0.25);
+  animation: prism-cycle 5s linear infinite;
+}
+@keyframes prism-cycle {
+  0% { box-shadow: 0 0 0 2px #ff6b6b, 0 0 10px 1px rgba(255, 107, 107, 0.4); }
+  25% { box-shadow: 0 0 0 2px #ffd166, 0 0 10px 1px rgba(255, 209, 102, 0.4); }
+  50% { box-shadow: 0 0 0 2px #55e6a5, 0 0 10px 1px rgba(85, 230, 165, 0.4); }
+  75% { box-shadow: 0 0 0 2px #6ea8ff, 0 0 10px 1px rgba(110, 168, 255, 0.4); }
+  100% { box-shadow: 0 0 0 2px #ff6b6b, 0 0 10px 1px rgba(255, 107, 107, 0.4); }
+}
+.border-bloodmoon {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2px #8c1d1d,
+    2px 3px 0 2px rgba(20, 4, 4, 0.85),
+    0 0 12px 2px rgba(190, 30, 30, 0.4);
+}
+.border-circuit {
+  border-radius: 50%;
+  outline: 2px dashed #35c9b0;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px #17605a;
+}
+.border-void {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px #000,
+    0 0 0 4px #2a1245,
+    0 0 14px 3px rgba(96, 38, 160, 0.55);
+}
+.border-halo {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #f5f2e8, 0 0 14px 4px rgba(255, 250, 230, 0.5);
+}
+.border-copper {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px #8c5a34,
+    0 0 0 4px #3e7a5e;
+}
+.border-midnight {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px #16203c,
+    0 0 0 4px #9aa8c8;
+}
+
+/* Wave-4 flair */
+.flair-blood {
+  color: #d84a3a !important;
+  text-shadow: 0 3px 6px rgba(150, 20, 12, 0.75), 0 1px 0 rgba(80, 8, 4, 0.9);
+}
+.flair-honey {
+  background: linear-gradient(100deg, #ffd98a, #e8a33c 55%, #b8762a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.flair-static {
+  color: #cfd4d8 !important;
+  text-shadow: 1px 0 rgba(255, 255, 255, 0.35), -1px 0 rgba(120, 130, 140, 0.5);
+  animation: flair-static-cut 3.1s steps(1, end) infinite;
+}
+@keyframes flair-static-cut {
+  0%, 91%, 100% { opacity: 1; }
+  93% { opacity: 0.35; }
+  95% { opacity: 0.85; }
+  96% { opacity: 0.4; }
+}
+
+/* Wave-4 banners */
+.banner-vapor {
+  background:
+    radial-gradient(70px 70px at 74% 30%, rgba(255, 120, 160, 0.5), rgba(255, 170, 90, 0.3) 60%, transparent 75%),
+    repeating-linear-gradient(0deg, rgba(150, 80, 220, 0.22) 0 1px, transparent 1px 11px),
+    repeating-linear-gradient(90deg, rgba(150, 80, 220, 0.18) 0 1px, transparent 1px 15px),
+    linear-gradient(180deg, rgba(40, 12, 60, 0.55), rgba(20, 8, 40, 0.35) 75%, transparent) !important;
+}
+.banner-meadow {
+  background:
+    radial-gradient(300px 120px at 20% 100%, rgba(110, 180, 90, 0.4), transparent 70%),
+    radial-gradient(260px 110px at 75% 100%, rgba(80, 150, 80, 0.35), transparent 70%),
+    linear-gradient(180deg, rgba(255, 200, 110, 0.28), rgba(60, 110, 60, 0.25) 70%, transparent) !important;
+}
+.banner-aurorasky {
+  background:
+    linear-gradient(115deg, transparent 15%, rgba(80, 230, 180, 0.3) 32%, transparent 44%,
+      rgba(110, 160, 255, 0.28) 58%, transparent 70%, rgba(190, 120, 255, 0.26) 84%, transparent 94%),
+    linear-gradient(180deg, rgba(8, 16, 34, 0.6), rgba(6, 10, 24, 0.35) 75%, transparent) !important;
+}
+.banner-voidscape {
+  background:
+    radial-gradient(200px 90px at 50% 30%, rgba(96, 38, 160, 0.4), transparent 75%),
+    linear-gradient(180deg, rgba(12, 4, 22, 0.65), rgba(8, 2, 16, 0.4) 75%, transparent) !important;
+}
+
+/* Wave-4 bubbles */
+.bubble-gold {
+  background: linear-gradient(90deg, rgba(234, 179, 72, 0.16), rgba(234, 179, 72, 0.05) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+.bubble-blood {
+  background: linear-gradient(90deg, rgba(190, 44, 34, 0.15), rgba(190, 44, 34, 0.05) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+.bubble-ice {
+  background: linear-gradient(90deg, rgba(130, 200, 255, 0.14), rgba(130, 200, 255, 0.05) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+
+/* Wave-4 dice */
+.dice-rose, .dice-rose * {
+  color: #ffb3c8 !important;
+  text-shadow: 0 0 8px rgba(255, 120, 170, 0.55), 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+.dice-void, .dice-void * {
+  color: #8a6ad0 !important;
+  text-shadow: 0 0 9px rgba(96, 38, 160, 0.65), 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.dice-silver, .dice-silver * {
+  color: #d8dde4 !important;
+  text-shadow: 0 0 7px rgba(200, 210, 225, 0.5), 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Wave-4 epitaph scripts */
+.epitaph-console {
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace !important;
+  color: #7ce68a !important;
+  text-shadow: 0 0 6px rgba(70, 200, 90, 0.5);
+}
+.epitaph-smallcaps {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-family: Georgia, serif !important;
+}
+.epitaph-elegant {
+  font-family: "Didot", "Bodoni MT", "Playfair Display", Georgia, serif !important;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+/* Wave-4 card backs */
+.cardback-royal {
+  background:
+    radial-gradient(40% 40% at 50% 42%, rgba(220, 200, 255, 0.3), transparent 70%),
+    linear-gradient(160deg, #4a2a78, #2a1548) !important;
+  border-color: #b9a8e6 !important;
+}
+.cardback-emerald {
+  background:
+    repeating-linear-gradient(45deg, rgba(180, 240, 200, 0.14) 0 2px, transparent 2px 8px),
+    linear-gradient(160deg, #1d6b40, #0c3a22) !important;
+  border-color: #6fdcae !important;
+}
+.cardback-bone {
+  background:
+    repeating-linear-gradient(-45deg, rgba(120, 110, 100, 0.12) 0 2px, transparent 2px 9px),
+    linear-gradient(160deg, #e8e2d4, #c4bcaa) !important;
+  border-color: #8c8272 !important;
+}
+
+/* ---- Emporium wave 6 (rotation pool deepener, July 2026) ---- */
+
+/* Wave-6 borders */
+.border-rosegold {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px #e8a58e,
+    0 0 0 4px #b06a58,
+    0 0 10px 2px rgba(238, 170, 150, 0.35);
+}
+.border-checker {
+  /* White dashes over a dark ring — the gaps read as the black squares. */
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #16161a;
+  outline: 3px dashed #ececec;
+  outline-offset: 0;
+}
+.border-ivy {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px #3f6d3a,
+    0 0 0 4px rgba(140, 190, 110, 0.55),
+    0 0 8px 2px rgba(90, 160, 80, 0.3);
+}
+.border-storm {
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px #47526b,
+    0 0 12px 3px rgba(150, 180, 255, 0.4);
+  animation: border-storm-flash 5.2s steps(1, end) infinite;
+}
+@keyframes border-storm-flash {
+  0%, 88%, 100% { opacity: 1; }
+  90% { opacity: 0.7; }
+  91.5% { opacity: 1; }
+  93% { opacity: 0.8; }
+}
+
+/* Wave-6 flair */
+.flair-vapor {
+  background: linear-gradient(100deg, #ff8ac4, #c98ae8 45%, #6ad4e8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.flair-sterling {
+  background: linear-gradient(100deg, #f0f3f8, #b8c2d0 45%, #8e9aac 70%, #dde4ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.flair-prism {
+  background: linear-gradient(100deg, #ff7a7a, #ffc36e 25%, #f2ea6e 42%, #7ee08a 60%, #6ec4ff 78%, #c98ae8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* Wave-6 banners */
+.banner-neoncity {
+  background:
+    repeating-linear-gradient(90deg, rgba(20, 26, 46, 0.75) 0 22px, rgba(30, 38, 66, 0.7) 22px 40px, rgba(16, 20, 38, 0.8) 40px 58px),
+    radial-gradient(120px 60px at 30% 20%, rgba(255, 90, 160, 0.35), transparent 70%),
+    radial-gradient(140px 70px at 78% 30%, rgba(80, 220, 255, 0.3), transparent 70%),
+    linear-gradient(180deg, rgba(30, 16, 50, 0.6), rgba(10, 8, 24, 0.5)) !important;
+}
+.banner-dune {
+  background:
+    radial-gradient(90px 90px at 72% 26%, rgba(255, 190, 100, 0.65), rgba(255, 150, 70, 0.25) 60%, transparent 75%),
+    radial-gradient(320px 110px at 22% 100%, rgba(190, 140, 70, 0.5), transparent 75%),
+    radial-gradient(300px 100px at 80% 100%, rgba(160, 110, 55, 0.45), transparent 70%),
+    linear-gradient(180deg, rgba(120, 70, 90, 0.4), rgba(90, 55, 35, 0.35)) !important;
+}
+.banner-storm {
+  background:
+    radial-gradient(200px 90px at 60% 0%, rgba(90, 100, 130, 0.55), transparent 75%),
+    radial-gradient(2px 26px at 44% 45%, rgba(220, 230, 255, 0.8), transparent 80%),
+    linear-gradient(180deg, rgba(40, 46, 66, 0.7), rgba(24, 26, 40, 0.5)) !important;
+  animation: banner-storm-bolt 6.5s steps(1, end) infinite;
+}
+@keyframes banner-storm-bolt {
+  0%, 90%, 100% { opacity: 1; }
+  92% { opacity: 0.75; }
+  93% { opacity: 1; }
+  95% { opacity: 0.85; }
+}
+.banner-casino {
+  background:
+    radial-gradient(5px 5px at 18% 35%, rgba(240, 200, 100, 0.8) 40%, transparent 60%),
+    radial-gradient(4px 4px at 42% 62%, rgba(240, 200, 100, 0.6) 40%, transparent 60%),
+    radial-gradient(6px 6px at 70% 30%, rgba(240, 200, 100, 0.7) 40%, transparent 60%),
+    radial-gradient(4px 4px at 88% 58%, rgba(240, 200, 100, 0.55) 40%, transparent 60%),
+    radial-gradient(400px 160px at 50% 120%, rgba(30, 110, 60, 0.65), transparent 80%),
+    linear-gradient(180deg, rgba(12, 40, 24, 0.7), rgba(8, 26, 16, 0.55)) !important;
+}
+
+/* Wave-6 bubbles */
+.bubble-vapor {
+  background: linear-gradient(90deg, rgba(255, 130, 190, 0.14), rgba(110, 200, 230, 0.08) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+.bubble-royal {
+  background: linear-gradient(90deg, rgba(140, 80, 220, 0.16), rgba(140, 80, 220, 0.05) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+.bubble-smoke {
+  background: linear-gradient(90deg, rgba(150, 150, 160, 0.16), rgba(150, 150, 160, 0.05) 70%, transparent);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  margin-left: -6px;
+}
+
+/* Wave-6 dice */
+.dice-ember, .dice-ember * {
+  color: #ffab5e !important;
+  text-shadow: 0 0 9px rgba(240, 120, 40, 0.6), 0 2px 4px rgba(0, 0, 0, 0.75) !important;
+}
+.dice-glacier, .dice-glacier * {
+  color: #bfe8ff !important;
+  text-shadow: 0 0 8px rgba(120, 190, 255, 0.55), 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+.dice-toxic, .dice-toxic * {
+  color: #8aff6e !important;
+  text-shadow: 0 0 9px rgba(90, 220, 60, 0.6), 0 2px 4px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Wave-6 epitaph scripts (system stacks only) */
+.epitaph-brush {
+  font-family: "Segoe Script", "Brush Script MT", "Savoye LET", cursive !important;
+  font-size: 1.08em;
+}
+.epitaph-scrawl {
+  font-family: "Segoe Print", "Comic Sans MS", "Chalkboard SE", cursive !important;
+}
+.epitaph-block {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Wave-6 card backs */
+.cardback-miami {
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 10px),
+    linear-gradient(160deg, #d9488c, #7a3f9e 55%, #2b7f9e) !important;
+  border-color: #ff9ecb !important;
+}
+.cardback-serpent {
+  background:
+    repeating-linear-gradient(60deg, rgba(200, 255, 190, 0.14) 0 3px, transparent 3px 8px),
+    repeating-linear-gradient(-60deg, rgba(30, 70, 30, 0.35) 0 3px, transparent 3px 8px),
+    linear-gradient(160deg, #3f7a35, #1c3d18) !important;
+  border-color: #8fd07a !important;
+}
+.cardback-star {
+  background:
+    radial-gradient(2px 2px at 28% 30%, rgba(255, 255, 255, 0.9) 40%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 62% 55%, rgba(255, 255, 255, 0.7) 40%, transparent 60%),
+    radial-gradient(2px 2px at 45% 78%, rgba(255, 255, 255, 0.8) 40%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 78% 24%, rgba(255, 255, 255, 0.65) 40%, transparent 60%),
+    linear-gradient(160deg, #1e2c5c, #101838) !important;
+  border-color: #7c90d8 !important;
+}
+
+/* ---- THE DE-CLASH (Sep 2026): twelve Emporium items that replaced the
+   gold / silver / copper / rainbow lookalikes retired by migration 94. ---- */
+.border-thorns {
+  border-radius: 50%;
+  outline: 2px dashed #4a3620;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 4px #1f160c, 0 0 0 5px #3a5a2a, 3px -3px 0 4px #b8232a;
+}
+.border-sonar {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #35d27a, 0 0 0 2px rgba(53, 210, 122, 0.4);
+  animation: sonar-ping 3.5s ease-out infinite;
+}
+@keyframes sonar-ping {
+  0% { box-shadow: 0 0 0 2px #35d27a, 0 0 0 2px rgba(53, 210, 122, 0.55); }
+  60% { box-shadow: 0 0 0 2px #35d27a, 0 0 0 12px rgba(53, 210, 122, 0); }
+  100% { box-shadow: 0 0 0 2px #35d27a, 0 0 0 12px rgba(53, 210, 122, 0); }
+}
+.border-inkwell {
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #101a3a, 0 0 0 4px #4a2a8a, 0 0 10px 2px rgba(120, 60, 200, 0.45);
+}
+.border-frostbite {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #cfefff, 0 0 0 4px rgba(160, 220, 255, 0.35), 0 0 12px 3px rgba(220, 245, 255, 0.55);
+}
+.border-static {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #cfd4d8, 0 0 0 3px #5a6168;
+  animation: flair-static-cut 3.1s steps(1, end) infinite;
+}
+.flair-jade {
+  background: linear-gradient(100deg, #c9f5dc, #3fb984 45%, #1f7a58 80%, #9fe6c2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.flair-inkwell {
+  background: linear-gradient(100deg, #1c2a5a, #2a3a8a 45%, #6a3ab0 80%, #a070d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-shadow: none;
+}
+.flair-ashen {
+  background: linear-gradient(100deg, #d8cfc4, #8a7f74 50%, #e0563a 82%, #b8ab9a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.flair-coral {
+  background: linear-gradient(100deg, #ff8fa3, #ff7a59 50%, #ffb27a 80%, #ff8fa3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+.dice-bone, .dice-bone * {
+  color: #efe6cf !important;
+  text-shadow: 0 0 6px rgba(239, 230, 207, 0.4), 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.dice-bone { --dice-a: #f3ebd6; --dice-b: #c9bda0; --dice-c: #6f6552; }
+.dice-cobalt, .dice-cobalt * {
+  color: #7fb0ff !important;
+  text-shadow: 0 0 9px rgba(60, 120, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.75) !important;
+}
+.dice-cobalt { --dice-a: #4f82e6; --dice-b: #1f3f9a; --dice-c: #0e1f52; }
+.cardback-oak {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(60, 35, 12, 0.7) 23% 27%, transparent 28% 34%, rgba(60, 35, 12, 0.45) 35% 37%, transparent 38%),
+    repeating-linear-gradient(95deg, rgba(40, 22, 8, 0.28) 0 1px, transparent 1px 5px, rgba(40, 22, 8, 0.18) 5px 6px, transparent 6px 11px),
+    linear-gradient(160deg, #a8733c, #6e4620 60%, #4a2e12) !important;
+  border-color: #3a2410 !important;
+}
+
+/* ---- THE VIP ROOM (Sep 2026) ----------------------------------------------
+   The ✦ before a VIP title, tier-coloured: copper · silver · gold · the
+   mythic shimmer. Drawn by Roster/Profile from vipMark(). */
+.vipmark { display: inline-block; margin-right: 4px; font-size: 0.95em; line-height: 1; }
+.vipmark.t1 { color: #d4874a; text-shadow: 0 0 6px rgba(212, 135, 74, 0.7); }
+.vipmark.t2 { color: #d9dde6; text-shadow: 0 0 6px rgba(217, 221, 230, 0.7); }
+.vipmark.t3 { color: #ffd35c; text-shadow: 0 0 7px rgba(255, 211, 92, 0.75); }
+.vipmark.t4 {
+  background: linear-gradient(90deg, #ff7ac6, #7fe6ec, #ffd35c);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: none;
+}
+
+/* The Copper Deck — the Room's Tier-1 card back: copper foil, the anvil
+   crest struck in as a ring. */
+.cardback-vip1-copper {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(255, 220, 170, 0.55) 23% 27%, transparent 28% 34%, rgba(255, 220, 170, 0.35) 35% 37%, transparent 38%),
+    repeating-linear-gradient(45deg, rgba(255, 200, 150, 0.16) 0 2px, transparent 2px 7px),
+    linear-gradient(160deg, #b5642f, #6b3414 60%, #45200c) !important;
+  border-color: #e8a86a !important;
+}
+
+/* The Silver Deck — Tier 2: brushed steel, the crest in relief. */
+.cardback-vip2-silver {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(255, 255, 255, 0.7) 23% 27%, transparent 28% 34%, rgba(255, 255, 255, 0.45) 35% 37%, transparent 38%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 3px),
+    linear-gradient(160deg, #d9dde6, #8e96a6 55%, #4e5563) !important;
+  border-color: #f2f4f8 !important;
+}
+
+/* ---- THE GOLD SHELF (Tier 3) ---- */
+/* The Gold Ring — an avatar ring with a slow glint (midas's shape). */
+.border-vip3-gold {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #ffd35c, 0 0 0 3px #7a5510, 0 0 12px 2px rgba(255, 211, 92, 0.5);
+  animation: vipgold-glint 5s ease-in-out infinite;
+}
+@keyframes vipgold-glint {
+  0%, 100% { box-shadow: 0 0 0 2px #ffd35c, 0 0 0 3px #7a5510, 0 0 12px 2px rgba(255, 211, 92, 0.5); }
+  50% { box-shadow: 0 0 0 2px #fff0b0, 0 0 0 3px #9a6d14, 0 0 18px 4px rgba(255, 240, 176, 0.65); }
+}
+/* Gold Name — the name in gold with a slow shimmer running across it. */
+.flair-vip3-gold {
+  background: linear-gradient(100deg, #8a5f10, #ffd35c 30%, #fff3c0 50%, #ffd35c 70%, #8a5f10);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: vipgold-shimmer 6s linear infinite;
+}
+@keyframes vipgold-shimmer {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+/* The Magnate's Dice — the Pit's glyphs and the craps table's tones. */
+.dice-vip3-gold, .dice-vip3-gold * {
+  color: #ffd35c !important;
+  text-shadow: 0 0 10px rgba(255, 211, 92, 0.7), 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+.dice-vip3-gold { --dice-a: #ffe08a; --dice-b: #c08a1c; --dice-c: #6b4a0c; }
+/* The Gold Deck. */
+.cardback-vip3-gold {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(255, 245, 200, 0.75) 23% 27%, transparent 28% 34%, rgba(255, 245, 200, 0.45) 35% 37%, transparent 38%),
+    repeating-linear-gradient(45deg, rgba(255, 240, 180, 0.22) 0 2px, transparent 2px 7px),
+    linear-gradient(160deg, #d9a628, #7a5510 60%, #4a330a) !important;
+  border-color: #ffe08a !important;
+}
+
+/* ---- THE MYTHIC SHELF (Tier 4) ---- */
+.border-vip4-prism {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #ff7ac6, 0 0 12px 2px rgba(255, 122, 198, 0.5);
+  animation: vipprism-ring 6s linear infinite;
+}
+@keyframes vipprism-ring {
+  0%, 100% { box-shadow: 0 0 0 2px #ff7ac6, 0 0 12px 2px rgba(255, 122, 198, 0.5); }
+  33% { box-shadow: 0 0 0 2px #7fe6ec, 0 0 12px 2px rgba(127, 230, 236, 0.5); }
+  66% { box-shadow: 0 0 0 2px #ffd35c, 0 0 12px 2px rgba(255, 211, 92, 0.5); }
+}
+.flair-vip4-prism {
+  background: linear-gradient(100deg, #ff7ac6, #ffd35c 25%, #7fe6ec 50%, #b48cff 75%, #ff7ac6);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: vipgold-shimmer 8s linear infinite;
+}
+.dice-vip4-prism, .dice-vip4-prism * {
+  color: #ff9ad8 !important;
+  text-shadow: 0 0 6px rgba(127, 230, 236, 0.8), 0 0 12px rgba(255, 122, 198, 0.6), 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+}
+.dice-vip4-prism { --dice-a: #ff9ad8; --dice-b: #7fa8ff; --dice-c: #4a2a7a; }
+.cardback-vip4-prism {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(255, 255, 255, 0.75) 23% 27%, transparent 28% 34%, rgba(255, 255, 255, 0.45) 35% 37%, transparent 38%),
+    linear-gradient(160deg, #ff7ac6, #ffd35c 30%, #7fe6ec 60%, #b48cff) !important;
+  border-color: #ffffff !important;
+}
+
+/* THE DECK AT THE TABLE (Josh: "card skins … visible for everyone"): a
+   face-up card carries its owner's deck as an edge glow, so the table
+   knows whose deck is in play. One --deck per card back. */
+.deckface {
+  border: 2px solid var(--deck, transparent) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45), 0 0 9px color-mix(in srgb, var(--deck, transparent) 55%, transparent) !important;
+}
+.deck-crimson { --deck: #d8a04c; }
+.deck-gilded { --deck: #f0c96c; }
+.deck-void { --deck: #8a5fd0; }
+.deck-royal { --deck: #b9a8e6; }
+.deck-emerald { --deck: #6fdcae; }
+.deck-bone { --deck: #b8ad98; }
+.deck-miami { --deck: #ff9ecb; }
+.deck-serpent { --deck: #8fd07a; }
+.deck-star { --deck: #7c90d8; }
+.deck-vip1-copper { --deck: #e8a86a; }
+.deck-vip2-silver { --deck: #e4e8ef; }
+.deck-vip3-gold { --deck: #ffe08a; }
+.deck-vip4-prism { --deck: #7fe6ec; }
+.deck-oak { --deck: #c08a4a; }
+
+/* THE DICE AT THE TABLE: the craps dice wear the SHOOTER's skin (three
+   tones per skin — the die's gradient reads them; the Pit's glyph dice keep
+   the colour rules above). */
+.dice-obsidian { --dice-a: #6a58a0; --dice-b: #33235c; --dice-c: #180f30; }
+.dice-jade { --dice-a: #4fc79a; --dice-b: #1f7a58; --dice-c: #11402c; }
+.dice-blood { --dice-a: #d0302a; --dice-b: #7a1410; --dice-c: #3e0806; }
+.dice-gold { --dice-a: #e8bd52; --dice-b: #a67a1a; --dice-c: #5c400c; }
+.dice-rose { --dice-a: #e88aa8; --dice-b: #a8425f; --dice-c: #5e1f33; }
+.dice-void { --dice-a: #3a2a55; --dice-b: #1a1226; --dice-c: #08060c; }
+.dice-silver { --dice-a: #dfe3ea; --dice-b: #8e96a6; --dice-c: #4e5563; }
+.dice-ember { --dice-a: #f58a36; --dice-b: #b04a12; --dice-c: #5e2206; }
+.dice-glacier { --dice-a: #a6def2; --dice-b: #4aa0c8; --dice-c: #235a78; }
+.dice-toxic { --dice-a: #97f04a; --dice-b: #4aa312; --dice-c: #225406; }
+
+/* ---- Emporium themes, wave 2. ---- */
+
+/* Y2K Futurism — liquid chrome on electric blue, white tech-grid, blobby
+   plastic. Refs: lavender club stair · chrome splash + chevrons on blue ·
+   chrome spheres over ocean sky. */
+/* Y2K Futurism — CHROME, not blue (Josh, Sep 2026: it sat in a cluster with
+   Frutiger's ocean and Utopian's navy and read as "another blue"). The
+   reference is the iMac/Nokia/CD-case era: brushed graphite panels, liquid
+   silver, and an IRIDESCENT violet edge where light hits the chrome —
+   periwinkle-violet is the one accent none of the other fifteen use. */
+[data-theme="y2k"] {
+  --bg: #111320;
+  --panel: #191c2b;
+  --panel-2: #222639;
+  --line: #353a52;
+  --line-2: #464c68;
+  --ink: #f3f5ff;
+  --ink-soft: #b9c0d8;
+  --ink-dim: #7f879f;
+  --accent: #bfb0ff;
+  --accent-soft: #9a88ee;
+  --accent-ink: #191238;
+  --accent-glow: rgba(191, 176, 255, 0.6);
+  --danger: #ff6f91;
+  --ok: #6fe8d8;
+}
+
+/* Cassette Futurism — Syd Mead lounge: warm beige panels, HERO ORANGE,
+   charcoal decks, tape reels. Refs: bone ship corridor · orange-beige
+   lounge with reel-to-reel wall · cozy cluttered ship nook. */
+[data-theme="cassette"] {
+  --bg: #161006;
+  --panel: #211a0c;
+  --panel-2: #2d2411;
+  --line: #46391c;
+  --line-2: #574725;
+  --ink: #f4e3b2;
+  --ink-soft: #b7a375;
+  --ink-dim: #86764f;
+  --accent: #ffb042;
+  --accent-soft: #d68e2c;
+  --accent-ink: #291903;
+  --accent-glow: rgba(255, 176, 66, 0.5);
+  --danger: #d05540;
+  --ok: #7fa8d0;
+}
+
+/* Liminal Backrooms — yellow everything: mustard walls, glowing ceiling
+   panels, dead carpet. Refs: office corridor · the classic 3D rooms ·
+   the original empty office. Mono-yellow on purpose. */
+[data-theme="backrooms"] {
+  --bg: #211c07;
+  --panel: #2d260c;
+  --panel-2: #393112;
+  --line: #524818;
+  --line-2: #635722;
+  --ink: #f1e9bd;
+  --ink-soft: #b6ad77;
+  --ink-dim: #857d4e;
+  --accent: #ffe14a;
+  --accent-soft: #d6ba35;
+  --accent-ink: #262001;
+  --accent-glow: rgba(255, 225, 74, 0.45);
+  --danger: #c96f5e;
+  --ok: #9fb554;
+}
+
+/* Tactical HUD — phosphor green wireframes on true black, cyan callouts.
+   Ref: the military HUD sheet; everything is a reticle. */
+[data-theme="tactical"] {
+  --bg: #040705;
+  --panel: #08100a;
+  --panel-2: #0d1910;
+  --line: #1a2e1f;
+  --line-2: #243d29;
+  --ink: #c6e8cf;
+  --ink-soft: #7cab88;
+  --ink-dim: #53785e;
+  --accent: #39f08e;
+  --accent-soft: #24c470;
+  --accent-ink: #03230f;
+  --accent-glow: rgba(57, 240, 142, 0.45);
+  --danger: #ff5540;
+  --ok: #38e0f0;
+}
+
+/* Acid Wave — blacklight violet base, toxic green burn, hot-pink flare.
+   Ref: the four-panel psychedelic swirl. Bring earplugs. */
+[data-theme="acid"] {
+  --bg: #150a22;
+  --panel: #1d0f30;
+  --panel-2: #281642;
+  --line: #3c245c;
+  --line-2: #4b2e72;
+  --ink: #eee2ff;
+  --ink-soft: #ab95d4;
+  --ink-dim: #7a68a4;
+  --accent: #b6ff2e;
+  --accent-soft: #90d41f;
+  --accent-ink: #172601;
+  --accent-glow: rgba(182, 255, 46, 0.45);
+  --danger: #ff3fa0;
+  --ok: #35e6c8;
+}
+
+/* ---- Emporium themes, wave 3. ---- */
+
+/* Utopian Scholastic — the Encarta dream: deep textbook cerulean, museum
+   gold, floating geometry, everything mid-explanation. */
+[data-theme="utopian"] {
+  --bg: #0d3b6e;
+  --panel: #114679;
+  --panel-2: #175288;
+  --line: #29669e;
+  --line-2: #3678b2;
+  --ink: #eef6ff;
+  --ink-soft: #a9c8e8;
+  --ink-dim: #7aa3c9;
+  --accent: #ffd34e;
+  --accent-soft: #d9ae32;
+  --accent-ink: #2b2003;
+  --accent-glow: rgba(255, 211, 78, 0.5);
+  --danger: #ff7e63;
+  --ok: #6ede8a;
+}
+
+/* Atompunk — 1958's tomorrow: warm charcoal diner, cherry red, atomic
+   turquoise, cream trim, starbursts on everything. */
+[data-theme="atompunk"] {
+  --bg: #191411;
+  --panel: #221b16;
+  --panel-2: #2e241d;
+  --line: #43352a;
+  --line-2: #524234;
+  --ink: #f2e7d5;
+  --ink-soft: #b5a48c;
+  --ink-dim: #857661;
+  --accent: #ff4f58;
+  --accent-soft: #d63b44;
+  --accent-ink: #2b0305;
+  --accent-glow: rgba(255, 79, 88, 0.45);
+  --danger: #e0763f;
+  --ok: #3fd4c4;
+}
+
+/* De Stijl — Mondrian's house rules: gallery greys, THICK black lines,
+   primary red/blue/yellow and nothing else. Even the online dot goes
+   blue — De Stijl has no green. */
+[data-theme="destijl"] {
+  --bg: #1d1d20;
+  --panel: #26262a;
+  --panel-2: #303036;
+  --line: #0c0c0e;
+  --line-2: #08080a;
+  --ink: #f2f2ee;
+  --ink-soft: #b3b3ac;
+  --ink-dim: #83837c;
+  --accent: #e03a2e;
+  --accent-soft: #b82c22;
+  --accent-ink: #ffffff;
+  --accent-glow: rgba(224, 58, 46, 0.4);
+  --danger: #f7c928;
+  --ok: #3a6ad4;
+}
+
+/* Tuscan — the villa at dusk: terracotta, olive, wheat, stucco walls,
+   cypress on the hills. */
+[data-theme="tuscan"] {
+  --bg: #1c130c;
+  --panel: #261a10;
+  --panel-2: #322317;
+  --line: #4a3421;
+  --line-2: #5a412a;
+  --ink: #f2e2c8;
+  --ink-soft: #b59d7c;
+  --ink-dim: #857057;
+  --accent: #d97f42;
+  --accent-soft: #b26430;
+  --accent-ink: #2b1503;
+  --accent-glow: rgba(217, 127, 66, 0.45);
+  --danger: #c04b35;
+  --ok: #96a85a;
+}
+
+/* ---- Theme atmosphere — a scene layer (body::before) and a texture layer
+   (body::after) per premium theme, both fixed, non-interactive, painted OVER
+   the UI at low opacity so they read as air, not obstruction. Pure CSS
+   gradients, no image assets. The only animations are compositor-cheap
+   (opacity flickers, one slow transform) — never filters. Each theme's
+   layers are built from its three reference images in picture/themes/. ---- */
+
+[data-theme="cozy"] body::before,
+[data-theme="chill"] body::before,
+[data-theme="shrub"] body::before,
+[data-theme="vaporwave"] body::before,
+[data-theme="vaporwave"] body::after,
+[data-theme="cyberpunk"] body::before,
+[data-theme="cyberpunk"] body::after,
+[data-theme="darkacademia"] body::before,
+[data-theme="darkacademia"] body::after,
+[data-theme="frutiger"] body::before,
+[data-theme="frutiger"] body::after,
+[data-theme="y2k"] body::before,
+[data-theme="y2k"] body::after,
+[data-theme="cassette"] body::before,
+[data-theme="cassette"] body::after,
+[data-theme="backrooms"] body::before,
+[data-theme="backrooms"] body::after,
+[data-theme="tactical"] body::before,
+[data-theme="tactical"] body::after,
+[data-theme="acid"] body::before,
+[data-theme="acid"] body::after,
+[data-theme="utopian"] body::before,
+[data-theme="utopian"] body::after,
+[data-theme="atompunk"] body::before,
+[data-theme="atompunk"] body::after,
+[data-theme="destijl"] body::before,
+[data-theme="tuscan"] body::before,
+[data-theme="tuscan"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+}
+
+/* THE MODAL FLOOR. The atmosphere above floats at 9990 so it reads as air
+   OVER the app's translucent panels — but that means any overlay meant to
+   command the screen (a modal scrim, a full-screen takeover) must sit ABOVE
+   it, or the theme's sun/grid/rain bleeds through the scrim (vaporwave was
+   the visible offender, Sep 2026). Every app-shell overlay uses >= 10000;
+   confirm dialogs, which can be summoned from inside another modal, sit
+   highest. The 3D games (casino/backrooms/escape) mount under `.casino`,
+   which kills the atmosphere entirely, so their own menus stay in the low
+   hundreds — this floor is only for the themed app shell. */
+:root {
+  --z-modal: 10000;   /* modal scrims + full-screen takeovers */
+  --z-modal-top: 10050; /* confirm dialogs — above any modal that spawned them */
+}
+
+/* ---- The base three get gentle weather too — quieter than any premium
+   theme, but no longer flat. ---- */
+
+/* Cozy: the foundry at night — a hearth glow low-centre, a few embers
+   drifting above it, a soft warm vignette. */
+[data-theme="cozy"] body::before {
+  background:
+    radial-gradient(1.5px 1.5px at 46% 72%, rgba(255, 170, 90, 0.9), transparent 100%),
+    radial-gradient(1px 1px at 55% 64%, rgba(255, 150, 70, 0.8), transparent 100%),
+    radial-gradient(1.5px 1.5px at 51% 56%, rgba(255, 130, 60, 0.6), transparent 100%),
+    radial-gradient(1px 1px at 43% 60%, rgba(255, 170, 90, 0.5), transparent 100%),
+    radial-gradient(ellipse 42% 24% at 50% 102%, rgba(217, 138, 79, 0.55), transparent 70%),
+    radial-gradient(ellipse 80% 75% at 50% 40%, transparent 50%, rgba(10, 6, 2, 0.8) 100%);
+  opacity: 0.07;
+}
+
+/* Chill: a faint aurora across the dusk, and a scatter of cold stars. */
+[data-theme="chill"] body::before {
+  background:
+    linear-gradient(112deg, transparent 28%, rgba(122, 200, 220, 0.5) 40%, rgba(140, 150, 255, 0.35) 50%, transparent 62%),
+    linear-gradient(104deg, transparent 48%, rgba(130, 192, 160, 0.35) 58%, transparent 70%),
+    radial-gradient(1.5px 1.5px at 14% 12%, rgba(230, 240, 255, 0.9), transparent 100%),
+    radial-gradient(1px 1px at 38% 6%, rgba(230, 240, 255, 0.7), transparent 100%),
+    radial-gradient(1.5px 1.5px at 71% 10%, rgba(230, 240, 255, 0.6), transparent 100%),
+    radial-gradient(1px 1px at 88% 18%, rgba(230, 240, 255, 0.8), transparent 100%),
+    /* a pale winter moon */
+    radial-gradient(circle 30px at 84% 86px, rgba(230, 240, 255, 0.85) 0 55%, rgba(230, 240, 255, 0.25) 72%, transparent 74%);
+  opacity: 0.06;
+}
+
+/* Shrub: sun dapple filtering through the canopy, fireflies lower down. */
+[data-theme="shrub"] body::before {
+  background:
+    radial-gradient(ellipse 26% 18% at 22% 0%, rgba(214, 232, 160, 0.6), transparent 75%),
+    radial-gradient(ellipse 20% 14% at 58% 0%, rgba(214, 232, 160, 0.5), transparent 75%),
+    radial-gradient(ellipse 24% 16% at 88% 0%, rgba(214, 232, 160, 0.45), transparent 75%),
+    radial-gradient(2px 2px at 30% 68%, rgba(214, 255, 140, 0.9), transparent 100%),
+    radial-gradient(1.5px 1.5px at 64% 78%, rgba(214, 255, 140, 0.8), transparent 100%),
+    radial-gradient(2px 2px at 82% 62%, rgba(214, 255, 140, 0.7), transparent 100%),
+    radial-gradient(1.5px 1.5px at 12% 84%, rgba(214, 255, 140, 0.75), transparent 100%),
+    /* canopy shadow leaning in from the top corners */
+    radial-gradient(ellipse 30% 14% at 0% 0%, rgba(20, 34, 12, 0.9), transparent 72%),
+    radial-gradient(ellipse 26% 12% at 100% 0%, rgba(20, 34, 12, 0.85), transparent 72%);
+  opacity: 0.07;
+}
+
+/* ---- Vaporwave. Scene: perspective grid floor climbing from the bottom
+   (the ref's magenta floor). Texture: striped sun low on the sky, stars,
+   and full-screen VHS scanlines (ref 2's tape shimmer). ---- */
+[data-theme="vaporwave"] body::before {
+  inset: auto -40% -30vh -40%;
+  height: 66vh;
+  background:
+    repeating-linear-gradient(to right, rgba(255, 67, 215, 0.55) 0 2px, transparent 2px 84px),
+    repeating-linear-gradient(to top, rgba(255, 67, 215, 0.55) 0 2px, transparent 2px 60px);
+  transform: perspective(430px) rotateX(58deg);
+  transform-origin: 50% 0;
+  opacity: 0.15;
+}
+[data-theme="vaporwave"] body::after {
+  background-image:
+    /* VHS scanlines over everything */
+    repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0 1px, transparent 1px 4px),
+    /* stars */
+    radial-gradient(1.5px 1.5px at 12% 14%, rgba(255, 255, 255, 0.9), transparent 100%),
+    radial-gradient(1px 1px at 33% 7%, rgba(255, 255, 255, 0.8), transparent 100%),
+    radial-gradient(1.5px 1.5px at 57% 18%, rgba(255, 255, 255, 0.7), transparent 100%),
+    radial-gradient(1px 1px at 8% 34%, rgba(255, 255, 255, 0.6), transparent 100%),
+    radial-gradient(1px 1px at 90% 12%, rgba(255, 255, 255, 0.8), transparent 100%),
+    /* stripe cuts across the sun disc */
+    repeating-linear-gradient(to bottom, transparent 0 16px, rgba(27, 17, 66, 0.95) 16px 22px),
+    /* mountain silhouettes cutting into the sun's flanks (conic peaks) */
+    conic-gradient(from 148deg at 50% 0%, rgba(12, 7, 46, 0.97) 0 64deg, transparent 64deg),
+    conic-gradient(from 150deg at 50% 0%, rgba(9, 5, 38, 0.97) 0 60deg, transparent 60deg),
+    /* the sun itself: yellow top melting to hot pink */
+    radial-gradient(circle 130px at 50% 130px, #ffd75e 0%, #ff9e4a 38%, #ff43a5 72%, transparent 73%),
+    /* its shimmer on the water below (ref 3's ocean) */
+    repeating-linear-gradient(to bottom, rgba(255, 120, 190, 0.55) 0 2px, transparent 2px 10px);
+  background-size: auto, auto, auto, auto, auto, auto, 320px 260px, 320px 170px, 360px 150px, auto, 190px 120px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, calc(50% + 0px) 26px, calc(50% - 130px) 148px, calc(50% + 135px) 168px, 0 0, 50% 272px;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  opacity: 0.12;
+}
+
+/* ---- Cyberpunk. Scene: a real city — a skyline of tower silhouettes with
+   lit window-floors rising from the bottom of the viewport, a neon haze
+   horizon behind them, sign-glows down both edges, wet-street reflection
+   pools, all on a slow electrical flicker. Texture: rain + a faint
+   cyan/red chromatic raster. ---- */
+[data-theme="cyberpunk"] body::before {
+  background-image:
+    /* edge signage */
+    radial-gradient(ellipse 130px 60px at 2% 14%, rgba(45, 226, 213, 0.8), transparent 70%),
+    radial-gradient(ellipse 110px 46px at 0% 32%, rgba(57, 240, 142, 0.7), transparent 70%),
+    radial-gradient(ellipse 140px 62px at 98% 20%, rgba(255, 46, 95, 0.85), transparent 70%),
+    radial-gradient(ellipse 110px 48px at 100% 42%, rgba(255, 84, 220, 0.7), transparent 70%),
+    /* vertical sign strips — the hanging kanji-board silhouette */
+    repeating-linear-gradient(to bottom, rgba(45, 226, 213, 0.6) 0 12px, transparent 12px 18px),
+    repeating-linear-gradient(to bottom, rgba(255, 84, 220, 0.55) 0 11px, transparent 11px 17px),
+    /* rooftop spires with red beacon lights */
+    radial-gradient(circle 2.5px at 50% 3px, rgba(255, 70, 70, 0.95), transparent 70%),
+    linear-gradient(rgba(140, 170, 190, 0.5), rgba(140, 170, 190, 0.5)),
+    radial-gradient(circle 2.5px at 50% 3px, rgba(255, 70, 70, 0.9), transparent 70%),
+    linear-gradient(rgba(140, 170, 190, 0.45), rgba(140, 170, 190, 0.45)),
+    /* wet street pools over the towers' feet */
+    radial-gradient(ellipse 30% 12% at 14% 100%, rgba(45, 226, 213, 0.55), transparent 75%),
+    radial-gradient(ellipse 32% 13% at 86% 100%, rgba(255, 46, 95, 0.6), transparent 75%),
+    /* the skyline: each tower is one layer of lit window-floors */
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 9px, rgba(255, 205, 120, 0.35) 9px 11px),
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 11px, rgba(120, 220, 255, 0.32) 11px 13px),
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 8px, rgba(255, 205, 120, 0.3) 8px 10px),
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 10px, rgba(255, 120, 190, 0.3) 10px 12px),
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 9px, rgba(120, 220, 255, 0.3) 9px 11px),
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 12px, rgba(255, 205, 120, 0.35) 12px 14px),
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 9px, rgba(120, 220, 255, 0.3) 9px 11px),
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 10px, rgba(255, 205, 120, 0.32) 10px 12px),
+    repeating-linear-gradient(to top, rgba(5, 9, 14, 0.97) 0 8px, rgba(120, 220, 255, 0.28) 8px 10px),
+    /* neon haze horizon behind the towers */
+    linear-gradient(to top, rgba(255, 46, 95, 0.3) 0%, rgba(255, 84, 220, 0.16) 14%, rgba(45, 226, 213, 0.12) 30%, transparent 52%);
+  background-size:
+    auto, auto, auto, auto,
+    7px 140px, 7px 120px,
+    9px 9px, 2px 7vh, 9px 9px, 2px 6vh,
+    auto, auto,
+    72px 24vh, 96px 33vh, 60px 19vh, 84px 29vh, 70px 22vh, 104px 36vh, 64px 26vh, 88px 31vh, 76px 21vh,
+    auto;
+  background-position:
+    0 0, 0 0, 0 0, 0 0,
+    4% 22%, 96% 30%,
+    57% calc(100% - 43vh - 6px), 57% calc(100% - 43vh), 15% calc(100% - 39vh - 6px), 15% calc(100% - 39vh),
+    0 0, 0 0,
+    7% 100%, 15% 100%, 26% 100%, 35% 100%, 46% 100%, 57% 100%, 69% 100%, 80% 100%, 91% 100%,
+    0 0;
+  background-repeat: no-repeat;
+  opacity: 0.14;
+  animation: cp-flicker 7s steps(1, end) infinite;
+}
+@keyframes cp-flicker {
+  0%, 91%, 94%, 100% { opacity: 0.14; }
+  92% { opacity: 0.08; }
+  93% { opacity: 0.13; }
+  96% { opacity: 0.1; }
+  97% { opacity: 0.14; }
+}
+/* The rain FALLS — the layer is oversized and loops a vertical translate
+   equal to the streak pattern's period (transform-only, composited). The
+   chromatic raster rides along, drifting like a weak signal. */
+[data-theme="cyberpunk"] body::after {
+  inset: -80px;
+  background:
+    repeating-linear-gradient(169deg, transparent 0 22px, rgba(190, 225, 255, 0.5) 22px 23px, transparent 23px 61px),
+    repeating-linear-gradient(to bottom, rgba(45, 226, 213, 0.28) 0 1px, transparent 1px 6px, rgba(255, 46, 95, 0.18) 6px 7px, transparent 7px 12px);
+  opacity: 0.05;
+  animation: cp-rain 0.9s linear infinite;
+}
+@keyframes cp-rain {
+  to { transform: translateY(62px); }
+}
+
+/* ---- Dark Academia. Scene: BOOKS — floor-to-ceiling shelf bands flank
+   both edges of the app (colored spines between dark shelf boards, like
+   the stacks in every reference), chandelier lamplight pooling from
+   above, a fireplace ember glow low-right, and a deep candlelit
+   vignette. Texture: paper grain + a faint tweed weave. ---- */
+[data-theme="darkacademia"] body::before {
+  background-image:
+    /* lamplight + hearth + vignette (over the shelves) */
+    radial-gradient(ellipse 22% 26% at 30% 0%, rgba(255, 214, 130, 0.5), transparent 75%),
+    radial-gradient(ellipse 22% 26% at 72% 0%, rgba(255, 214, 130, 0.42), transparent 75%),
+    radial-gradient(ellipse 22% 16% at 86% 100%, rgba(255, 122, 40, 0.45), transparent 75%),
+    radial-gradient(ellipse 72% 68% at 50% 40%, transparent 42%, rgba(8, 5, 2, 0.9) 100%),
+    /* the rolling ladder against the right stack: rails + rungs */
+    linear-gradient(90deg, rgba(150, 116, 62, 0.75) 0 3px, transparent 3px 29px, rgba(150, 116, 62, 0.75) 29px 32px),
+    repeating-linear-gradient(to bottom, rgba(150, 116, 62, 0.7) 0 3px, transparent 3px 36px),
+    /* left + right stacks: shelf boards … */
+    repeating-linear-gradient(to bottom, transparent 0 112px, rgba(16, 11, 5, 0.95) 112px 122px),
+    repeating-linear-gradient(to bottom, transparent 0 112px, rgba(16, 11, 5, 0.95) 112px 122px),
+    /* … and the spines behind them */
+    repeating-linear-gradient(90deg,
+      rgba(122, 44, 36, 0.6) 0 13px, rgba(12, 8, 4, 0.9) 13px 15px,
+      rgba(74, 82, 44, 0.55) 15px 28px, rgba(12, 8, 4, 0.9) 28px 30px,
+      rgba(46, 58, 82, 0.55) 30px 42px, rgba(12, 8, 4, 0.9) 42px 44px,
+      rgba(112, 78, 38, 0.6) 44px 59px, rgba(12, 8, 4, 0.9) 59px 61px,
+      rgba(52, 78, 52, 0.55) 61px 73px, rgba(12, 8, 4, 0.9) 73px 75px,
+      rgba(140, 108, 60, 0.55) 75px 91px, rgba(12, 8, 4, 0.9) 91px 93px),
+    repeating-linear-gradient(90deg,
+      rgba(46, 58, 82, 0.55) 0 12px, rgba(12, 8, 4, 0.9) 12px 14px,
+      rgba(122, 44, 36, 0.6) 14px 29px, rgba(12, 8, 4, 0.9) 29px 31px,
+      rgba(140, 108, 60, 0.55) 31px 44px, rgba(12, 8, 4, 0.9) 44px 46px,
+      rgba(52, 78, 52, 0.55) 46px 58px, rgba(12, 8, 4, 0.9) 58px 60px,
+      rgba(112, 78, 38, 0.6) 60px 76px, rgba(12, 8, 4, 0.9) 76px 78px,
+      rgba(74, 82, 44, 0.55) 78px 90px, rgba(12, 8, 4, 0.9) 90px 92px);
+  background-size: auto, auto, auto, auto, 32px 52vh, 32px 52vh, 148px 100%, 148px 100%, 148px 100%, 148px 100%;
+  background-position: 0 0, 0 0, 0 0, 0 0, calc(100% - 52px) 100%, calc(100% - 52px) 100%, left top, right top, left top, right top;
+  background-repeat: no-repeat;
+  opacity: 0.32;
+}
+[data-theme="darkacademia"] body::after {
+  background-image:
+    repeating-linear-gradient(55deg, rgba(233, 221, 192, 0.35) 0 1px, transparent 1px 7px),
+    radial-gradient(1px 1px at 21% 33%, rgba(233, 221, 192, 0.9), transparent 100%),
+    radial-gradient(1px 1px at 63% 71%, rgba(233, 221, 192, 0.7), transparent 100%),
+    radial-gradient(1px 1px at 84% 17%, rgba(233, 221, 192, 0.8), transparent 100%);
+  background-size: auto, 137px 149px, 157px 131px, 121px 163px;
+  opacity: 0.04;
+}
+/* The stacks read in serif — headings only, body text stays legible Inter.
+   Casino-gated like every materials rule: the floor keeps its own type. */
+html[data-theme="darkacademia"]:not(.casino) h1,
+html[data-theme="darkacademia"]:not(.casino) h2,
+html[data-theme="darkacademia"]:not(.casino) h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.02em;
+}
+/* Panel headers become bookplate captions. */
+html[data-theme="darkacademia"]:not(.casino) .layout > aside:not(.roster) .top strong,
+html[data-theme="darkacademia"]:not(.casino) .roster .rheader {
+  font-family: Georgia, "Times New Roman", serif;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  color: #c69a45;
+}
+
+/* ---- Frutiger Aero. Scene: glossy two-tone glass orbs (lime over blue,
+   ref 2), cloud wisps up top, water-ring caustics along the bottom.
+   Texture: the big diagonal gloss sheen every Aero wallpaper has. ---- */
+[data-theme="frutiger"] body::before {
+  background-image:
+    /* clouds */
+    radial-gradient(ellipse 30% 12% at 18% 6%, rgba(255, 255, 255, 0.85), transparent 75%),
+    radial-gradient(ellipse 24% 10% at 68% 3%, rgba(255, 255, 255, 0.7), transparent 75%),
+    /* glass orbs: white specular, lime cap, deep-blue base */
+    radial-gradient(circle 44px at 14% 80%, rgba(255, 255, 255, 0.95) 0 9%, rgba(140, 232, 56, 0.9) 26% 48%, rgba(12, 80, 131, 0.95) 74%, transparent 76%),
+    radial-gradient(circle 26px at 26% 92%, rgba(255, 255, 255, 0.9) 0 9%, rgba(140, 232, 56, 0.85) 26% 48%, rgba(12, 80, 131, 0.9) 74%, transparent 76%),
+    radial-gradient(circle 54px at 88% 86%, rgba(255, 255, 255, 0.9) 0 8%, rgba(140, 232, 56, 0.85) 25% 47%, rgba(12, 80, 131, 0.9) 74%, transparent 76%),
+    radial-gradient(circle 20px at 76% 70%, rgba(255, 255, 255, 0.9) 0 10%, rgba(140, 232, 56, 0.8) 28% 50%, rgba(12, 80, 131, 0.85) 75%, transparent 77%),
+    /* water-ring caustics */
+    repeating-radial-gradient(circle at 30% 115%, transparent 0 46px, rgba(255, 255, 255, 0.5) 46px 48px, transparent 48px 110px),
+    repeating-radial-gradient(circle at 78% 118%, transparent 0 54px, rgba(255, 255, 255, 0.4) 54px 56px, transparent 56px 128px),
+    /* a four-point lens sparkle high in the water column */
+    linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+    linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+    radial-gradient(circle 4px at 50% 50%, rgba(255, 255, 255, 0.95), transparent 75%);
+  background-size: auto, auto, auto, auto, auto, auto, auto, auto, 2px 30px, 30px 2px, 14px 14px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 63% 106px, calc(63% + 6px) 120px, calc(63% + 1px) 114px;
+  background-repeat: no-repeat;
+  opacity: 0.13;
+}
+[data-theme="frutiger"] body::after {
+  background:
+    linear-gradient(172deg, rgba(234, 252, 255, 0.65) 0%, transparent 24%),
+    linear-gradient(118deg, transparent 42%, rgba(255, 255, 255, 0.45) 50%, transparent 58%);
+  opacity: 0.1;
+}
+
+/* ---- Y2K. Scene: liquid-chrome blobs + a fine white tech-grid (ref 2's
+   engineering backdrop). Texture: two hard chrome sheen streaks sweeping
+   diagonally, like light off a polished sphere. ---- */
+[data-theme="y2k"] body::before {
+  background:
+    /* THE LENS FLARE — the signature. A hot white core high-left, its
+       horizontal streak across the whole width, and a chain of ghost
+       discs marching down the diagonal (violet, cyan, mint) the way a
+       flare walks across a lens. */
+    radial-gradient(circle 4px at 60% 10%, #fff 0 60%, transparent 100%),
+    radial-gradient(ellipse 200px 5px at 60% 10%, rgba(255, 255, 255, 0.95), transparent 70%),
+    radial-gradient(ellipse 6px 140px at 60% 10%, rgba(255, 255, 255, 0.7), transparent 70%),
+    radial-gradient(ellipse 24% 20% at 60% 10%, rgba(230, 236, 255, 0.85), transparent 70%),
+    /* the ghost chain runs from the core down to the chrome sphere */
+    radial-gradient(circle 34px at 66% 28%, transparent 0 74%, rgba(191, 176, 255, 0.75) 78% 84%, transparent 88%),
+    radial-gradient(circle 14px at 71% 42%, rgba(140, 230, 255, 0.55), transparent 72%),
+    radial-gradient(circle 52px at 76% 56%, transparent 0 78%, rgba(150, 255, 214, 0.55) 82% 86%, transparent 90%),
+    radial-gradient(circle 9px at 81% 70%, rgba(255, 255, 255, 0.7), transparent 72%),
+    radial-gradient(circle 70px at 30% 70%, transparent 0 80%, rgba(191, 176, 255, 0.5) 84% 87%, transparent 91%),
+    /* a chrome sphere low-right with its iridescent rim — every Y2K render had one */
+    radial-gradient(circle 120px at 88% 88%, rgba(255, 255, 255, 0.7) 0 22%, rgba(191, 176, 255, 0.45) 46%, rgba(120, 220, 255, 0.35) 70%, transparent 100%),
+    radial-gradient(ellipse 210px 60px at 88% 88%, transparent 0 63%, rgba(255, 255, 255, 0.6) 65% 67%, transparent 69%),
+    /* the digital sky: a fine silver grid */
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px 46px);
+  opacity: 0.11;
+}
+/* Texture: two hard chrome sheen streaks sweeping diagonally, like light
+   off a polished sphere — brighter than before, this is a metal now. */
+[data-theme="y2k"] body::after {
+  background:
+    linear-gradient(55deg, transparent 30%, rgba(255, 255, 255, 0.9) 38%, transparent 43%),
+    linear-gradient(55deg, transparent 62%, rgba(191, 176, 255, 0.7) 68%, transparent 72%);
+  opacity: 0.08;
+}
+
+/* ---- Cassette Futurism. Scene: the dark 80s ship cabin — two glowing
+   CRT terminals (amber raster low-left, green phosphor upper-right, each
+   with a halo), tape reels on the wall, and the Mead sunset-amber wash
+   pouring in from the right. Texture: the whole app is seen through a
+   CRT tube — darkened rounded corners, amber raster scan, panel seams. ---- */
+[data-theme="cassette"] body::before {
+  background-image:
+    /* amber terminal, low left: raster lines + halo */
+    repeating-linear-gradient(to bottom, rgba(255, 176, 66, 0.7) 0 2px, rgba(50, 32, 6, 0.75) 2px 5px),
+    radial-gradient(ellipse 190px 130px at 11% 82%, rgba(255, 176, 66, 0.5), transparent 70%),
+    /* green phosphor terminal, upper right */
+    repeating-linear-gradient(to bottom, rgba(126, 224, 144, 0.6) 0 2px, rgba(14, 40, 18, 0.75) 2px 5px),
+    radial-gradient(ellipse 150px 100px at 92% 20%, rgba(126, 224, 144, 0.4), transparent 70%),
+    /* tape reels on the wall */
+    radial-gradient(circle 34px at 30% 12%, transparent 0 24px, rgba(244, 227, 178, 0.6) 25px 27px, transparent 28px),
+    radial-gradient(circle 6px at 30% 12%, rgba(244, 227, 178, 0.6) 0 5px, transparent 6px),
+    radial-gradient(circle 34px at 38% 12%, transparent 0 24px, rgba(244, 227, 178, 0.5) 25px 27px, transparent 28px),
+    radial-gradient(circle 6px at 38% 12%, rgba(244, 227, 178, 0.5) 0 5px, transparent 6px),
+    /* console indicator lights under the amber terminal */
+    repeating-linear-gradient(to right, rgba(126, 224, 144, 0.85) 0 5px, transparent 5px 14px, rgba(255, 176, 66, 0.85) 14px 19px, transparent 19px 28px, rgba(255, 84, 60, 0.8) 28px 33px, transparent 33px 42px),
+    /* the ceiling light tube (ref 3's cabin strip light) + its glow */
+    linear-gradient(rgba(255, 235, 190, 0.85), rgba(255, 235, 190, 0.85)),
+    radial-gradient(ellipse 220px 40px at 38% 16px, rgba(255, 235, 190, 0.45), transparent 75%),
+    /* cabin sunset wash */
+    radial-gradient(ellipse 55% 70% at 100% 45%, rgba(255, 150, 54, 0.5), transparent 70%);
+  background-size: 168px 104px, auto, 132px 86px, auto, auto, auto, auto, auto, 84px 5px, 330px 3px, auto, auto;
+  background-position: 6% 84%, 0 0, 94% 18%, 0 0, 0 0, 0 0, 0 0, 0 0, 7% 91%, 34% 12px, 0 0, 0 0;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  animation: crt-breathe 8s ease-in-out infinite;
+}
+@keyframes crt-breathe {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.1; }
+}
+[data-theme="cassette"] body::after {
+  background:
+    /* CRT tube: darkened rounded corners */
+    radial-gradient(ellipse 115% 115% at 50% 50%, transparent 60%, rgba(8, 5, 0, 0.9) 100%),
+    /* panel seams */
+    repeating-linear-gradient(to bottom, transparent 0 128px, rgba(244, 227, 178, 0.5) 128px 130px),
+    repeating-linear-gradient(to right, transparent 0 250px, rgba(244, 227, 178, 0.35) 250px 252px),
+    /* amber raster over everything */
+    repeating-linear-gradient(to bottom, transparent 0 3px, rgba(255, 176, 66, 0.4) 3px 4px);
+  opacity: 0.07;
+}
+
+/* ---- Backrooms. Scene: an actual ROOM — a row of soft glowing ceiling
+   panels (repeat-x tile, humming and flickering), glare cones fanning
+   down from them, and a carpet band with a baseboard line along the
+   floor. The wallpaper pattern lives on the wall panels (see materials),
+   NOT here — one pattern, one scale, no moiré. Texture: sparse carpet
+   mottle. ---- */
+[data-theme="backrooms"] body::before {
+  background-image:
+    /* the light panels: one glowing tile, repeated across the ceiling */
+    radial-gradient(ellipse 66px 11px at 115px 14px, rgba(255, 248, 200, 0.95) 0 55%, rgba(255, 240, 170, 0.45) 75%, transparent 100%),
+    /* glare cones under three of them */
+    radial-gradient(ellipse 110px 260px at 22% 0%, rgba(255, 240, 180, 0.4), transparent 70%),
+    radial-gradient(ellipse 110px 260px at 54% 0%, rgba(255, 240, 180, 0.38), transparent 70%),
+    radial-gradient(ellipse 110px 260px at 85% 0%, rgba(255, 240, 180, 0.34), transparent 70%),
+    /* the EXIT sign — someone has to find the way out */
+    linear-gradient(rgba(90, 230, 120, 0.9), rgba(90, 230, 120, 0.9)),
+    radial-gradient(ellipse 54px 26px at 50% 50%, rgba(90, 230, 120, 0.5), transparent 75%),
+    /* light pools on the carpet under the glare cones */
+    radial-gradient(ellipse 140px 24px at 22% 94%, rgba(255, 240, 180, 0.4), transparent 75%),
+    radial-gradient(ellipse 140px 24px at 54% 94%, rgba(255, 240, 180, 0.38), transparent 75%),
+    radial-gradient(ellipse 120px 22px at 85% 94%, rgba(255, 240, 180, 0.34), transparent 75%),
+    /* a doorway in the far wall — dark, frame catching the light */
+    linear-gradient(rgba(255, 225, 74, 0.3), rgba(255, 225, 74, 0.3)),
+    linear-gradient(rgba(18, 14, 3, 0.9), rgba(18, 14, 3, 0.9)),
+    /* the floor: carpet band + baseboard line */
+    linear-gradient(to top, rgba(48, 40, 12, 0.9) 0%, rgba(48, 40, 12, 0.75) 9%, rgba(255, 232, 120, 0.35) 9.2%, rgba(255, 232, 120, 0.35) 9.6%, transparent 10.4%);
+  background-size: 230px 30px, auto, auto, auto, 28px 11px, 90px 44px, auto, auto, auto, 72px 188px, 62px 180px, auto;
+  background-position: 0 0, 0 0, 0 0, 0 0, 71% 44px, 71% 28px, 0 0, 0 0, 0 0, 66% 86%, calc(66% + 1px) 86.4%, 0 0;
+  background-repeat: repeat-x, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  opacity: 0.09;
+  animation: br-hum 9s steps(1, end) infinite;
+}
+@keyframes br-hum {
+  0%, 88%, 92%, 100% { opacity: 0.09; }
+  89% { opacity: 0.055; }
+  90% { opacity: 0.08; }
+  91% { opacity: 0.06; }
+}
+[data-theme="backrooms"] body::after {
+  background-image: radial-gradient(rgba(241, 233, 189, 0.45) 0.5px, transparent 1px);
+  background-size: 9px 9px;
+  opacity: 0.035;
+}
+
+/* ---- Tactical HUD. Scene: corner reticle brackets, radar rings with a
+   crosshair bottom right (ref 3), a readout block of data dashes under
+   the top-left bracket, and a little bar-chart low-left — the whole HUD
+   breathes on a slow scan pulse. Texture: dot grid + scanlines. ---- */
+[data-theme="tactical"] body::before {
+  background-image:
+    /* corner brackets */
+    linear-gradient(#39f08e, #39f08e), linear-gradient(#39f08e, #39f08e),
+    linear-gradient(#39f08e, #39f08e), linear-gradient(#39f08e, #39f08e),
+    linear-gradient(#39f08e, #39f08e), linear-gradient(#39f08e, #39f08e),
+    linear-gradient(#39f08e, #39f08e), linear-gradient(#39f08e, #39f08e),
+    /* radar: rings + crosshair, lower right */
+    repeating-radial-gradient(circle at calc(100% - 150px) calc(100% - 130px), transparent 0 42px, rgba(56, 224, 240, 0.6) 42px 44px, transparent 44px 86px),
+    linear-gradient(rgba(56, 224, 240, 0.5), rgba(56, 224, 240, 0.5)),
+    linear-gradient(rgba(56, 224, 240, 0.5), rgba(56, 224, 240, 0.5)),
+    /* readout dashes under the top-left bracket */
+    repeating-linear-gradient(to bottom, rgba(57, 240, 142, 0.65) 0 2px, transparent 2px 9px),
+    /* bar chart, low left */
+    linear-gradient(rgba(57, 240, 142, 0.7), rgba(57, 240, 142, 0.7)),
+    linear-gradient(rgba(57, 240, 142, 0.55), rgba(57, 240, 142, 0.55)),
+    linear-gradient(rgba(57, 240, 142, 0.75), rgba(57, 240, 142, 0.75)),
+    linear-gradient(rgba(57, 240, 142, 0.5), rgba(57, 240, 142, 0.5)),
+    /* compass tick strip along the top centre, with a heading caret */
+    repeating-linear-gradient(to right, rgba(57, 240, 142, 0.6) 0 1px, transparent 1px 18px),
+    linear-gradient(rgba(56, 224, 240, 0.8), rgba(56, 224, 240, 0.8));
+  background-size:
+    46px 2px, 2px 46px, 46px 2px, 2px 46px, 46px 2px, 2px 46px, 46px 2px, 2px 46px,
+    320px 300px, 220px 1px, 1px 200px,
+    58px 42px,
+    5px 16px, 5px 26px, 5px 11px, 5px 20px,
+    306px 7px, 2px 12px;
+  background-position:
+    16px 14px, 16px 14px,
+    calc(100% - 16px) 14px, calc(100% - 16px) 14px,
+    16px calc(100% - 14px), 16px calc(100% - 14px),
+    calc(100% - 16px) calc(100% - 14px), calc(100% - 16px) calc(100% - 14px),
+    calc(100% - 0px) calc(100% - 0px),
+    calc(100% - 40px) calc(100% - 130px),
+    calc(100% - 150px) calc(100% - 30px),
+    24px 30px,
+    24px calc(100% - 40px), 33px calc(100% - 50px), 42px calc(100% - 35px), 51px calc(100% - 44px),
+    50% 10px, 50% 6px;
+  background-repeat: no-repeat;
+  opacity: 0.16;
+  animation: tact-pulse 7s ease-in-out infinite;
+}
+@keyframes tact-pulse {
+  0%, 100% { opacity: 0.13; }
+  50% { opacity: 0.19; }
+}
+[data-theme="tactical"] body::after {
+  background:
+    radial-gradient(rgba(57, 240, 142, 0.9) 1px, transparent 1.5px),
+    repeating-linear-gradient(to bottom, transparent 0 3px, rgba(57, 240, 142, 0.4) 3px 4px);
+  background-size: 36px 36px, auto;
+  opacity: 0.05;
+}
+
+/* ---- Acid Wave. Scene: one giant liquid-marble pour, rotating slower
+   than the eye tracks (transform only — compositor-cheap). Texture: a
+   static counter-swirl so the colors never sit still relative to each
+   other. ---- */
+[data-theme="acid"] body::before {
+  inset: -35%;
+  background:
+    radial-gradient(ellipse 40% 34% at 24% 26%, rgba(182, 255, 46, 0.75), transparent 66%),
+    radial-gradient(ellipse 38% 32% at 78% 22%, rgba(255, 63, 160, 0.75), transparent 66%),
+    radial-gradient(ellipse 42% 36% at 70% 78%, rgba(255, 148, 46, 0.7), transparent 66%),
+    radial-gradient(ellipse 36% 30% at 18% 78%, rgba(53, 230, 200, 0.65), transparent 66%),
+    radial-gradient(ellipse 30% 26% at 50% 50%, rgba(122, 94, 255, 0.6), transparent 66%),
+    conic-gradient(from 210deg at 50% 50%, rgba(182, 255, 46, 0.3), rgba(255, 63, 160, 0.3), rgba(94, 120, 255, 0.3), rgba(255, 148, 46, 0.3), rgba(53, 230, 200, 0.3), rgba(182, 255, 46, 0.3));
+  opacity: 0.12;
+  animation: acid-pour 120s linear infinite;
+}
+@keyframes acid-pour {
+  to { transform: rotate(360deg); }
+}
+[data-theme="acid"] body::after {
+  background-image:
+    /* paint melting down from the top edge — two offset scallop rows */
+    radial-gradient(circle 16px at 30px 0px, rgba(182, 255, 46, 0.7) 0 14px, transparent 15px),
+    radial-gradient(circle 13px at 37px 0px, rgba(255, 63, 160, 0.6) 0 11px, transparent 12px),
+    radial-gradient(ellipse 26% 22% at 40% 12%, rgba(255, 63, 160, 0.5), transparent 70%),
+    radial-gradient(ellipse 24% 20% at 12% 46%, rgba(255, 148, 46, 0.45), transparent 70%),
+    radial-gradient(ellipse 26% 22% at 88% 60%, rgba(182, 255, 46, 0.45), transparent 70%);
+  background-size: 60px 24px, 74px 18px, auto, auto, auto;
+  background-repeat: repeat-x, repeat-x, no-repeat, no-repeat, no-repeat;
+  opacity: 0.07;
+}
+
+/* ---- Utopian Scholastic. Scene: an Encarta cover — clouds, a gridded
+   globe with its orbit ring, a floating gold pyramid and marble sphere,
+   light rays from above. Texture: faint graph-paper diagram grid. ---- */
+[data-theme="utopian"] body::before {
+  background-image:
+    /* clouds */
+    radial-gradient(ellipse 28% 10% at 20% 5%, rgba(255, 255, 255, 0.85), transparent 75%),
+    radial-gradient(ellipse 22% 9% at 74% 3%, rgba(255, 255, 255, 0.7), transparent 75%),
+    /* light rays */
+    linear-gradient(112deg, transparent 30%, rgba(255, 255, 255, 0.4) 38%, transparent 45%),
+    linear-gradient(104deg, transparent 55%, rgba(255, 211, 78, 0.3) 62%, transparent 68%),
+    /* the globe: specular highlight + sphere + orbit ring */
+    radial-gradient(circle 8px at 45% 42%, rgba(255, 255, 255, 0.9), transparent 75%),
+    radial-gradient(circle 54px at 50% 50%, rgba(133, 193, 255, 0.9) 0 40%, rgba(38, 108, 180, 0.9) 72%, transparent 74%),
+    radial-gradient(ellipse 170px 50px at 86% 78%, transparent 0 62%, rgba(255, 255, 255, 0.6) 64% 66%, transparent 68%),
+    /* floating solids: gold pyramid + marble sphere */
+    conic-gradient(from 152deg at 50% 0%, rgba(255, 211, 78, 0.85) 0 56deg, transparent 56deg),
+    radial-gradient(circle 20px at 12% 66%, rgba(255, 255, 255, 0.9) 0 30%, rgba(169, 200, 232, 0.85) 68%, transparent 72%);
+  background-size: auto, auto, auto, auto, 116px 116px, 116px 116px, auto, 90px 74px, auto;
+  background-position: 0 0, 0 0, 0 0, 0 0, calc(86% + 6px) 72%, calc(86% + 6px) 72%, 0 0, 8% 78%, 0 0;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  animation: utopian-shine 11s ease-in-out infinite;
+}
+@keyframes utopian-shine {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.14; }
+}
+[data-theme="utopian"] body::after {
+  background:
+    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.4) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0 1px, transparent 1px 40px),
+    linear-gradient(172deg, rgba(255, 255, 255, 0.5) 0%, transparent 18%);
+  opacity: 0.05;
+}
+
+/* ---- Atompunk. Scene: the friendly atom — a starburst clock of spokes
+   with tip dots, an atom with crossed electron orbits, a warm diner
+   lamp glow. Texture: sparse cream/turquoise/cherry confetti dots. ---- */
+[data-theme="atompunk"] body::before {
+  background-image:
+    /* the starburst: radiating spokes + centre dot */
+    repeating-conic-gradient(from 8deg at 50% 50%, rgba(242, 231, 213, 0.7) 0 1.6deg, transparent 1.6deg 30deg),
+    radial-gradient(circle 7px at 50% 50%, rgba(255, 79, 88, 0.95), transparent 75%),
+    /* the atom, lower left: two crossed orbits + nucleus + electron */
+    radial-gradient(ellipse 64px 24px at 50% 50%, transparent 0 62%, rgba(63, 212, 196, 0.75) 64% 68%, transparent 70%),
+    radial-gradient(ellipse 24px 64px at 50% 50%, transparent 0 62%, rgba(63, 212, 196, 0.65) 64% 68%, transparent 70%),
+    radial-gradient(circle 6px at 50% 50%, rgba(255, 79, 88, 0.9), transparent 75%),
+    radial-gradient(circle 3px at 50% 24%, rgba(242, 231, 213, 0.95), transparent 75%),
+    /* diner lamp glow */
+    radial-gradient(ellipse 45% 35% at 78% 108%, rgba(255, 176, 96, 0.5), transparent 70%);
+  background-size: 150px 150px, 150px 150px, 150px 150px, 150px 150px, 150px 150px, 150px 150px, auto;
+  background-position: 84% 14%, 84% 14%, 9% 76%, 9% 76%, 9% 76%, 9% 76%, 0 0;
+  background-repeat: no-repeat;
+  opacity: 0.11;
+  animation: atompunk-hum 8s ease-in-out infinite;
+}
+@keyframes atompunk-hum {
+  0%, 100% { opacity: 0.09; }
+  50% { opacity: 0.13; }
+}
+[data-theme="atompunk"] body::after {
+  background-image:
+    radial-gradient(circle 1.5px at 10px 14px, rgba(242, 231, 213, 0.7), transparent 100%),
+    radial-gradient(circle 1.5px at 42px 44px, rgba(63, 212, 196, 0.6), transparent 100%),
+    radial-gradient(circle 1.5px at 74px 20px, rgba(255, 79, 88, 0.55), transparent 100%);
+  background-size: 96px 82px, 96px 82px, 96px 82px;
+  opacity: 0.05;
+}
+
+/* ---- De Stijl. Scene: a Mondrian composition laid over the edges —
+   thick black lines, one red field, one blue, one small yellow. No
+   texture layer; the grid IS the texture. ---- */
+[data-theme="destijl"] body::before {
+  background-image:
+    /* the primary fields, tucked into the line intersections */
+    linear-gradient(rgba(224, 58, 46, 0.75), rgba(224, 58, 46, 0.75)),
+    linear-gradient(rgba(42, 82, 200, 0.75), rgba(42, 82, 200, 0.75)),
+    linear-gradient(rgba(247, 201, 40, 0.8), rgba(247, 201, 40, 0.8)),
+    /* the black armature: two verticals, two horizontals */
+    linear-gradient(rgba(5, 5, 6, 0.95), rgba(5, 5, 6, 0.95)),
+    linear-gradient(rgba(5, 5, 6, 0.95), rgba(5, 5, 6, 0.95)),
+    linear-gradient(rgba(5, 5, 6, 0.95), rgba(5, 5, 6, 0.95)),
+    linear-gradient(rgba(5, 5, 6, 0.95), rgba(5, 5, 6, 0.95));
+  background-size:
+    7% 13%, 9% 15%, 4% 6%,
+    7px 100%, 7px 100%, 100% 7px, 100% 7px;
+  background-position:
+    0 0, 100% 100%, 100% 0,
+    7% 0, 91% 0, 0 13%, 0 87%;
+  background-repeat: no-repeat;
+  opacity: 0.14;
+}
+
+/* ---- Tuscan. Scene: the villa view — rolling hills, cypress trees,
+   the low golden sun, a warm haze. Texture: stucco grain + vignette. ---- */
+[data-theme="tuscan"] body::before {
+  background-image:
+    /* the low sun + its haze */
+    radial-gradient(circle 44px at 82% 120px, rgba(255, 205, 110, 0.9) 0 55%, rgba(255, 170, 80, 0.4) 75%, transparent 78%),
+    radial-gradient(ellipse 40% 30% at 82% 16%, rgba(255, 170, 80, 0.4), transparent 70%),
+    /* cypress trees standing on the hills */
+    radial-gradient(ellipse 11px 54px at 50% 50%, rgba(24, 34, 14, 0.95) 0 62%, transparent 68%),
+    radial-gradient(ellipse 9px 44px at 50% 50%, rgba(24, 34, 14, 0.9) 0 62%, transparent 68%),
+    radial-gradient(ellipse 12px 58px at 50% 50%, rgba(24, 34, 14, 0.92) 0 62%, transparent 68%),
+    /* rolling hills along the bottom */
+    radial-gradient(ellipse 60% 16% at 18% 104%, rgba(58, 66, 30, 0.85), transparent 70%),
+    radial-gradient(ellipse 64% 18% at 86% 106%, rgba(46, 54, 24, 0.9), transparent 70%);
+  background-size: auto, auto, 40px 120px, 36px 100px, 44px 130px, auto, auto;
+  background-position: 0 0, 0 0, 14% calc(100% - 60px), 24% calc(100% - 44px), 76% calc(100% - 66px), 0 0, 0 0;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  animation: tuscan-dusk 13s ease-in-out infinite;
+}
+@keyframes tuscan-dusk {
+  0%, 100% { opacity: 0.11; }
+  50% { opacity: 0.14; }
+}
+[data-theme="tuscan"] body::after {
+  background-image:
+    radial-gradient(rgba(242, 226, 200, 0.5) 0.5px, transparent 1px),
+    radial-gradient(rgba(28, 19, 12, 0.6) 0.5px, transparent 1px),
+    radial-gradient(ellipse 80% 75% at 50% 42%, transparent 55%, rgba(16, 10, 4, 0.8) 100%);
+  background-size: 11px 11px, 17px 17px, auto;
+  opacity: 0.05;
+}
+
+/* THE ATMOSPHERE SHOWS IN CHAT AND DMS ONLY (Josh, Sep 2026). App.svelte
+   stamps .casino on <html> for every other view — casino, market,
+   graveyard, leaderboards, backrooms, profile, admin, manual, feedback —
+   and for the signed-out Login screen — with NO exception, not even a live
+   theme try-on. The class name is historical (it began as the Rumble
+   floor's opt-out); read it as "no theme scenery here". */
+html.casino body::before,
+html.casino body::after {
+  content: none;
+  animation: none;
+}
+
+/* ---- Theme materials ----
+   Per-theme dressing of the app's structural chrome, so a theme reads as a
+   PLACE, not a hue shift: wood grain in the academia rail, glass gloss on
+   the aero panels, a safety stripe on the cassette rail, HUD brackets
+   around the tactical wordmark. These rules couple to stable class names:
+   App.svelte (.rail/.brand), Chat.svelte (.layout), Sidebar (bare aside),
+   Roster (.roster), Composer (.composer) — renaming those means updating
+   this section. The html[data-theme] prefix out-specifies scoped component
+   styles for the few properties overridden here.
+
+   THE CASINO GATE (re-affirmed by Josh, Sep 2026: "make none of the themes
+   bleed through pages they are not supposed to"): EVERY materials selector,
+   rail and brand included, keeps the `:not(.casino)` guard. The casino
+   floor, the Backrooms, the Market, the Graveyard and the Leaderboards paint
+   their own scenery, and on those views the frame shows palette tokens only
+   — no wordmark treatment, no rail dressing. Un-gating the rail was tried
+   and rejected in the same round. ---- */
+
+/* Vaporwave: chrome-pink wordmark, neon rail edge, sunset wash on panels. */
+html[data-theme="vaporwave"]:not(.casino) .brand {
+  background: linear-gradient(100deg, #7deeff 0%, #ff9ff0 45%, #ff43d7 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 10px rgba(255, 67, 215, 0.4));
+}
+html[data-theme="vaporwave"]:not(.casino) .rail {
+  box-shadow: inset -1px 0 0 rgba(255, 67, 215, 0.3);
+}
+html[data-theme="vaporwave"]:not(.casino) .roster {
+  background-image: linear-gradient(200deg, rgba(255, 67, 215, 0.09), transparent 45%);
+}
+html[data-theme="vaporwave"]:not(.casino) .layout > aside:not(.roster) {
+  background-image: linear-gradient(160deg, rgba(125, 238, 255, 0.07), transparent 40%);
+}
+html[data-theme="vaporwave"]:not(.casino) .composer {
+  box-shadow: 0 -16px 36px -24px rgba(255, 67, 215, 0.65);
+}
+
+/* Cyberpunk: the wordmark is a glitched hologram — chromatic red/cyan
+   split, flickering like a dying sign; cyan/red tube edges on the chrome. */
+html[data-theme="cyberpunk"]:not(.casino) .brand {
+  color: #e9f5fb;
+  letter-spacing: 0.05em;
+  text-shadow:
+    -1.6px 0 rgba(45, 226, 213, 0.85),
+    1.6px 0 rgba(255, 46, 95, 0.85),
+    0 0 16px rgba(255, 46, 95, 0.35);
+  animation: neon-sign 9s steps(1, end) infinite;
+}
+@keyframes neon-sign {
+  0%, 92%, 95%, 100% { opacity: 1; }
+  93% { opacity: 0.5; }
+  94% { opacity: 0.85; }
+  97% { opacity: 0.7; }
+  98% { opacity: 1; }
+}
+html[data-theme="cyberpunk"]:not(.casino) .rail {
+  box-shadow: inset -1px 0 0 rgba(45, 226, 213, 0.25);
+}
+html[data-theme="cyberpunk"]:not(.casino) .roster {
+  box-shadow: inset 1px 0 0 rgba(255, 46, 95, 0.22);
+  background-image: linear-gradient(200deg, rgba(255, 46, 95, 0.07), transparent 40%);
+}
+html[data-theme="cyberpunk"]:not(.casino) .layout > aside:not(.roster) {
+  background-image: linear-gradient(160deg, rgba(45, 226, 213, 0.06), transparent 38%);
+}
+html[data-theme="cyberpunk"]:not(.casino) .composer {
+  box-shadow: 0 -14px 32px -24px rgba(255, 46, 95, 0.7);
+}
+
+/* Dark Academia: wood-grain panels, brass hairlines, a serif wordmark. */
+html[data-theme="darkacademia"]:not(.casino) .rail,
+html[data-theme="darkacademia"]:not(.casino) .roster,
+html[data-theme="darkacademia"]:not(.casino) .dm > .list,
+html[data-theme="darkacademia"]:not(.casino) .layout > aside:not(.roster) {
+  background-image:
+    linear-gradient(180deg, rgba(255, 214, 130, 0.05), transparent 18%),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.16) 0 2px, transparent 2px 9px, rgba(255, 255, 255, 0.018) 9px 11px, transparent 11px 27px);
+}
+html[data-theme="darkacademia"]:not(.casino) .rail {
+  box-shadow: inset -1px 0 0 rgba(207, 156, 66, 0.28);
+}
+html[data-theme="darkacademia"]:not(.casino) .brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: 0.09em;
+  color: #c69a45;
+  border-bottom: 3px double rgba(198, 154, 69, 0.45);
+  margin: 0 10px 8px;
+  padding-left: 0;
+  padding-right: 0;
+}
+html[data-theme="darkacademia"]:not(.casino) .composer {
+  box-shadow: 0 -1px 0 rgba(207, 156, 66, 0.35);
+}
+
+/* Frutiger Aero: everything is glass — glossy top sheen on every panel,
+   an aqua glow under the composer. */
+html[data-theme="frutiger"]:not(.casino) .rail,
+html[data-theme="frutiger"]:not(.casino) .roster,
+html[data-theme="frutiger"]:not(.casino) .dm > .list,
+html[data-theme="frutiger"]:not(.casino) .layout > aside:not(.roster) {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.04) 20%, transparent 52%);
+}
+html[data-theme="frutiger"]:not(.casino) .brand {
+  color: #fff;
+  filter: drop-shadow(0 0 9px rgba(79, 227, 251, 0.6));
+}
+html[data-theme="frutiger"]:not(.casino) .composer {
+  box-shadow:
+    0 -12px 30px -20px rgba(79, 227, 251, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+/* Y2K: brushed-chrome panels, a liquid-chrome wordmark. Casino-gated like
+   every other theme's materials (y2k was the one violator — chrome rails on
+   the Rumble floor). */
+html[data-theme="y2k"]:not(.casino) .rail,
+html[data-theme="y2k"]:not(.casino) .roster,
+html[data-theme="y2k"]:not(.casino) .dm > .list,
+html[data-theme="y2k"]:not(.casino) .layout > aside:not(.roster) {
+  /* brushed chrome: a bright specular band at the top, a fine horizontal
+     brush grain down the panel, a second dimmer band low */
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(191, 176, 255, 0.07) 14%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.07) 76%,
+      transparent 100%
+    ),
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 3px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+html[data-theme="y2k"]:not(.casino) .brand {
+  /* liquid chrome: white hot on top, silver, a violet iridescent seam, silver */
+  background: linear-gradient(180deg, #ffffff 10%, #d9dcea 40%, #bfb0ff 54%, #8f96b8 62%, #f2f4ff 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 4px rgba(191, 176, 255, 0.6));
+}
+html[data-theme="y2k"]:not(.casino) .composer {
+  box-shadow: 0 -10px 26px -20px rgba(191, 176, 255, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* Cassette Futurism: chunky plastic bezel on the rail (with the
+   safety-orange stripe), terminal-readout headers, and the wordmark as
+   an amber prompt with a blinking cursor. */
+html[data-theme="cassette"]:not(.casino) .rail {
+  background-image:
+    linear-gradient(90deg, rgba(255, 176, 66, 0.6) 0 3px, transparent 3px),
+    linear-gradient(180deg, transparent 0 62px, rgba(244, 227, 178, 0.13) 62px 64px, transparent 64px);
+  box-shadow:
+    inset 0 1px 0 rgba(244, 227, 178, 0.1),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.45),
+    inset -1px 0 0 rgba(255, 176, 66, 0.2);
+}
+html[data-theme="cassette"]:not(.casino) .roster,
+html[data-theme="cassette"]:not(.casino) .dm > .list,
+html[data-theme="cassette"]:not(.casino) .layout > aside:not(.roster) {
+  background-image: linear-gradient(180deg, transparent 0 46px, rgba(244, 227, 178, 0.12) 46px 48px, transparent 48px);
+  box-shadow:
+    inset 0 1px 0 rgba(244, 227, 178, 0.08),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.4);
+}
+html[data-theme="cassette"]:not(.casino) .brand {
+  font-family: ui-monospace, Consolas, "Cascadia Mono", monospace;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #ffb042;
+  text-shadow: 0 0 10px rgba(255, 176, 66, 0.4);
+}
+html[data-theme="cassette"]:not(.casino) .brand::after {
+  content: "_";
+  animation: crt-cursor 1.1s steps(1, end) infinite;
+}
+@keyframes crt-cursor {
+  0%, 49%, 100% { opacity: 1; }
+  50%, 99% { opacity: 0; }
+}
+/* Panel headers read as terminal callouts. */
+html[data-theme="cassette"]:not(.casino) .layout > aside:not(.roster) .top strong,
+html[data-theme="cassette"]:not(.casino) .roster .rheader {
+  font-family: ui-monospace, Consolas, "Cascadia Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffb042;
+}
+html[data-theme="cassette"]:not(.casino) .composer {
+  box-shadow: 0 -1px 0 rgba(255, 176, 66, 0.4);
+}
+
+/* Backrooms: the walls wear the wallpaper — vertical damask stripes with
+   a diamond lattice, ONE pattern at ONE scale (the overlay carries no
+   competing copy), plus a dim fluorescent wash from above. */
+html[data-theme="backrooms"]:not(.casino) .rail,
+html[data-theme="backrooms"]:not(.casino) .roster,
+html[data-theme="backrooms"]:not(.casino) .dm > .list,
+html[data-theme="backrooms"]:not(.casino) .layout > aside:not(.roster) {
+  background-image:
+    linear-gradient(180deg, rgba(255, 245, 190, 0.07), transparent 16%),
+    repeating-linear-gradient(90deg, rgba(255, 225, 74, 0.055) 0 2px, transparent 2px 18px),
+    repeating-linear-gradient(45deg, rgba(255, 225, 74, 0.04) 0 2px, transparent 2px 36px),
+    repeating-linear-gradient(-45deg, rgba(255, 225, 74, 0.04) 0 2px, transparent 2px 36px);
+}
+html[data-theme="backrooms"]:not(.casino) .brand {
+  color: #d6ba35;
+  text-shadow: 0 0 12px rgba(255, 225, 74, 0.3);
+}
+html[data-theme="backrooms"]:not(.casino) .composer {
+  box-shadow: 0 -1px 0 rgba(255, 225, 74, 0.3);
+}
+
+/* Tactical HUD: phosphor frames around the chrome, the wordmark becomes a
+   bracketed monospace callsign. */
+html[data-theme="tactical"]:not(.casino) .rail,
+html[data-theme="tactical"]:not(.casino) .roster,
+html[data-theme="tactical"]:not(.casino) .dm > .list,
+html[data-theme="tactical"]:not(.casino) .layout > aside:not(.roster) {
+  box-shadow: inset 0 0 0 1px rgba(57, 240, 142, 0.14);
+}
+html[data-theme="tactical"]:not(.casino) .brand {
+  font-family: ui-monospace, Consolas, "Cascadia Mono", monospace;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #39f08e;
+  text-shadow: 0 0 10px rgba(57, 240, 142, 0.5);
+}
+html[data-theme="tactical"]:not(.casino) .brand::before {
+  content: "[ ";
+  color: rgba(57, 240, 142, 0.5);
+}
+html[data-theme="tactical"]:not(.casino) .brand::after {
+  content: " ]";
+  color: rgba(57, 240, 142, 0.5);
+}
+html[data-theme="tactical"]:not(.casino) .composer {
+  box-shadow: 0 -1px 0 rgba(57, 240, 142, 0.35);
+}
+
+/* Acid Wave: iridescent border seams and a slowly cycling rainbow wordmark. */
+html[data-theme="acid"]:not(.casino) .rail {
+  border-image: linear-gradient(180deg, #b6ff2e, #ff3fa0, #5e78ff, #35e6c8) 1;
+}
+html[data-theme="acid"]:not(.casino) .roster {
+  border-image: linear-gradient(180deg, #35e6c8, #ff3fa0, #b6ff2e) 1;
+}
+html[data-theme="acid"]:not(.casino) .brand {
+  background: linear-gradient(100deg, #b6ff2e, #ff3fa0 40%, #5e78ff 70%, #35e6c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: acid-brand 14s linear infinite;
+}
+@keyframes acid-brand {
+  to { filter: hue-rotate(360deg); }
+}
+html[data-theme="acid"]:not(.casino) .composer {
+  background-image: linear-gradient(90deg, #b6ff2e, #ff3fa0, #5e78ff, #35e6c8);
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+/* ---- Wave-3 materials. ---- */
+
+/* Utopian Scholastic: museum-plaque wordmark in gold, glossy white sheen
+   on the panels (the laminated-textbook look). */
+html[data-theme="utopian"]:not(.casino) .brand {
+  background: linear-gradient(100deg, #fff3cf, #ffd34e 55%, #d9ae32);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 5px rgba(255, 211, 78, 0.45));
+}
+html[data-theme="utopian"]:not(.casino) .rail,
+html[data-theme="utopian"]:not(.casino) .roster,
+html[data-theme="utopian"]:not(.casino) .dm > .list,
+html[data-theme="utopian"]:not(.casino) .layout > aside:not(.roster) {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03) 22%, transparent 55%);
+}
+html[data-theme="utopian"]:not(.casino) .composer {
+  box-shadow: 0 -12px 30px -22px rgba(255, 211, 78, 0.7);
+}
+html[data-theme="utopian"]:not(.casino) .messages .day-sep span {
+  color: #ffd34e;
+  letter-spacing: 0.12em;
+}
+
+/* Atompunk: the wordmark gets its atomic starburst; panels wear sparse
+   polka dots; a turquoise trim line under the rail's top edge. */
+html[data-theme="atompunk"]:not(.casino) .brand {
+  color: #f2e7d5;
+  letter-spacing: 0.06em;
+}
+html[data-theme="atompunk"]:not(.casino) .brand::after {
+  content: " ✦";
+  color: #ff4f58;
+  text-shadow: 0 0 8px rgba(255, 79, 88, 0.6);
+}
+html[data-theme="atompunk"]:not(.casino) .rail,
+html[data-theme="atompunk"]:not(.casino) .roster,
+html[data-theme="atompunk"]:not(.casino) .dm > .list,
+html[data-theme="atompunk"]:not(.casino) .layout > aside:not(.roster) {
+  background-image:
+    linear-gradient(180deg, rgba(63, 212, 196, 0.25) 0 2px, transparent 2px),
+    radial-gradient(circle 1px at 13px 17px, rgba(242, 231, 213, 0.5), transparent 100%);
+  background-size: auto, 52px 46px;
+}
+html[data-theme="atompunk"]:not(.casino) .composer {
+  box-shadow: 0 -1px 0 rgba(63, 212, 196, 0.35);
+}
+html[data-theme="atompunk"]:not(.casino) .messages .day-sep span {
+  color: #3fd4c4;
+  letter-spacing: 0.12em;
+}
+html[data-theme="atompunk"]:not(.casino) .messages .day-sep::before,
+html[data-theme="atompunk"]:not(.casino) .messages .day-sep::after {
+  background: rgba(255, 79, 88, 0.3);
+}
+
+/* De Stijl: THICK black armature on every panel seam; the wordmark is
+   set between a red field and a yellow one. */
+html[data-theme="destijl"]:not(.casino) .rail {
+  box-shadow: inset -4px 0 0 #050506;
+}
+html[data-theme="destijl"]:not(.casino) .roster {
+  box-shadow: inset 4px 0 0 #050506;
+}
+html[data-theme="destijl"]:not(.casino) .layout > aside:not(.roster) {
+  box-shadow: inset -4px 0 0 #050506;
+}
+html[data-theme="destijl"]:not(.casino) .dm > .list {
+  box-shadow: inset -4px 0 0 #050506;
+}
+html[data-theme="destijl"]:not(.casino) .brand {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.92rem;
+  color: #f2f2ee;
+}
+html[data-theme="destijl"]:not(.casino) .brand::before {
+  content: "▪ ";
+  color: #e03a2e;
+}
+html[data-theme="destijl"]:not(.casino) .brand::after {
+  content: " ▪";
+  color: #f7c928;
+}
+html[data-theme="destijl"]:not(.casino) .composer {
+  box-shadow: 0 -4px 0 #050506;
+}
+html[data-theme="destijl"]:not(.casino) .messages .day-sep::before,
+html[data-theme="destijl"]:not(.casino) .messages .day-sep::after {
+  background: #050506;
+  height: 3px;
+}
+
+/* Tuscan: stucco-grain panels with a wrought-iron hairline, a trattoria
+   wordmark in serif italic. */
+html[data-theme="tuscan"]:not(.casino) .rail,
+html[data-theme="tuscan"]:not(.casino) .roster,
+html[data-theme="tuscan"]:not(.casino) .dm > .list,
+html[data-theme="tuscan"]:not(.casino) .layout > aside:not(.roster) {
+  background-image:
+    linear-gradient(180deg, rgba(255, 205, 110, 0.05), transparent 20%),
+    radial-gradient(rgba(242, 226, 200, 0.35) 0.5px, transparent 1px);
+  background-size: auto, 13px 13px;
+}
+html[data-theme="tuscan"]:not(.casino) .rail {
+  box-shadow: inset -1px 0 0 rgba(20, 12, 6, 0.8), inset -2px 0 0 rgba(217, 127, 66, 0.2);
+}
+html[data-theme="tuscan"]:not(.casino) .brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  color: #d97f42;
+}
+html[data-theme="tuscan"]:not(.casino) .composer {
+  box-shadow: 0 -1px 0 rgba(217, 127, 66, 0.4);
+}
+html[data-theme="tuscan"]:not(.casino) .messages .day-sep span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  color: #d97f42;
+}
+
+/* ---- Interactive materials: the rail buttons answer the cursor in each
+   theme's own voice (a hairline of the theme's light on hover). ---- */
+html[data-theme="cozy"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(217, 138, 79, 0.28); }
+html[data-theme="chill"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(122, 179, 217, 0.28); }
+html[data-theme="shrub"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(150, 180, 100, 0.3); }
+html[data-theme="vaporwave"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(255, 67, 215, 0.3); }
+html[data-theme="cyberpunk"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(255, 46, 95, 0.3); }
+html[data-theme="darkacademia"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(198, 154, 69, 0.32); }
+html[data-theme="frutiger"]:not(.casino) .item:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 0 0 1px rgba(79, 227, 251, 0.28);
+}
+html[data-theme="y2k"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(191, 176, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25); }
+html[data-theme="cassette"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(255, 176, 66, 0.32); }
+html[data-theme="backrooms"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(255, 225, 74, 0.26); }
+html[data-theme="tactical"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(57, 240, 142, 0.32); }
+html[data-theme="acid"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(182, 255, 46, 0.32); }
+html[data-theme="utopian"]:not(.casino) .item:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(255, 211, 78, 0.3);
+}
+html[data-theme="atompunk"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(255, 79, 88, 0.32); }
+html[data-theme="destijl"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 2px #050506; }
+html[data-theme="tuscan"]:not(.casino) .item:hover { box-shadow: inset 0 0 0 1px rgba(217, 127, 66, 0.32); }
+
+/* ---- Day separators speak each room's language. ---- */
+html[data-theme="darkacademia"]:not(.casino) .messages .day-sep span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-variant: small-caps;
+  text-transform: none;
+  letter-spacing: 0.16em;
+  color: #c69a45;
+}
+html[data-theme="darkacademia"]:not(.casino) .messages .day-sep::before,
+html[data-theme="darkacademia"]:not(.casino) .messages .day-sep::after {
+  background: rgba(198, 154, 69, 0.3);
+}
+html[data-theme="tactical"]:not(.casino) .messages .day-sep span {
+  font-family: ui-monospace, Consolas, "Cascadia Mono", monospace;
+  color: #39f08e;
+  text-shadow: 0 0 8px rgba(57, 240, 142, 0.4);
+}
+html[data-theme="tactical"]:not(.casino) .messages .day-sep::before,
+html[data-theme="tactical"]:not(.casino) .messages .day-sep::after {
+  background: rgba(57, 240, 142, 0.22);
+}
+html[data-theme="cassette"]:not(.casino) .messages .day-sep span {
+  font-family: ui-monospace, Consolas, "Cascadia Mono", monospace;
+  color: #ffb042;
+}
+html[data-theme="cassette"]:not(.casino) .messages .day-sep::before,
+html[data-theme="cassette"]:not(.casino) .messages .day-sep::after {
+  background: rgba(255, 176, 66, 0.25);
+}
+html[data-theme="cyberpunk"]:not(.casino) .messages .day-sep span {
+  color: #2de2d5;
+  text-shadow: 0 0 8px rgba(45, 226, 213, 0.4);
+}
+
+/* ---- The login card and the Settings modal wear the theme too — the
+   first impression, and the room where themes are chosen. ---- */
+html .wrap > .card,
+html .scrim > .panel {
+  box-shadow:
+    0 24px 70px -24px color-mix(in srgb, var(--accent) 35%, transparent),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="tactical"]:not(.casino) .wrap > .card,
+html[data-theme="tactical"]:not(.casino) .scrim > .panel {
+  box-shadow:
+    inset 0 0 0 1px rgba(57, 240, 142, 0.2),
+    0 24px 70px -24px rgba(57, 240, 142, 0.4),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="darkacademia"]:not(.casino) .wrap > .card,
+html[data-theme="darkacademia"]:not(.casino) .scrim > .panel {
+  border: 1px solid rgba(198, 154, 69, 0.35);
+  box-shadow:
+    0 0 0 4px var(--panel),
+    0 0 0 5px rgba(198, 154, 69, 0.25),
+    0 24px 70px -24px rgba(198, 154, 69, 0.4),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="cassette"]:not(.casino) .wrap > .card,
+html[data-theme="cassette"]:not(.casino) .scrim > .panel {
+  box-shadow:
+    inset 0 1px 0 rgba(244, 227, 178, 0.12),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.45),
+    0 24px 70px -24px rgba(255, 176, 66, 0.45),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="destijl"]:not(.casino) .wrap > .card,
+html[data-theme="destijl"]:not(.casino) .scrim > .panel {
+  box-shadow:
+    inset 0 0 0 3px #050506,
+    10px 10px 0 -3px rgba(224, 58, 46, 0.5),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="utopian"]:not(.casino) .wrap > .card,
+html[data-theme="utopian"]:not(.casino) .scrim > .panel {
+  border: 1px solid rgba(255, 211, 78, 0.4);
+  box-shadow:
+    0 0 0 4px var(--panel),
+    0 0 0 5px rgba(255, 211, 78, 0.3),
+    0 24px 70px -24px rgba(255, 211, 78, 0.45),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="atompunk"]:not(.casino) .wrap > .card,
+html[data-theme="atompunk"]:not(.casino) .scrim > .panel {
+  box-shadow:
+    inset 0 2px 0 rgba(63, 212, 196, 0.3),
+    0 24px 70px -24px rgba(255, 79, 88, 0.5),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="tuscan"]:not(.casino) .wrap > .card,
+html[data-theme="tuscan"]:not(.casino) .scrim > .panel {
+  border: 1px solid rgba(20, 12, 6, 0.9);
+  box-shadow:
+    inset 0 0 0 1px rgba(217, 127, 66, 0.22),
+    0 24px 70px -24px rgba(217, 127, 66, 0.5),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ---- The composer answers focus in the theme's accent. ---- */
+html .composer textarea:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* ---- The message stream, gently in-theme. Readability first: type and
+   hairlines only, never backgrounds behind body text. ---- */
+html .messages .row:hover {
+  box-shadow: inset 2px 0 0 color-mix(in srgb, var(--accent) 60%, transparent);
+}
+html[data-theme="darkacademia"]:not(.casino) .messages .author {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.02em;
+}
+html[data-theme="tactical"]:not(.casino) .messages .time,
+html[data-theme="tactical"]:not(.casino) .messages .hovertime {
+  font-family: ui-monospace, Consolas, "Cascadia Mono", monospace;
+  color: rgba(57, 240, 142, 0.65);
+}
+html[data-theme="cassette"]:not(.casino) .messages .time,
+html[data-theme="cassette"]:not(.casino) .messages .hovertime {
+  font-family: ui-monospace, Consolas, "Cascadia Mono", monospace;
+}
+/* A theme may glow a name — but NEVER a flaired one. A paid flair is either
+   a gradient clipped to the glyphs (color: transparent, so a text-shadow
+   paints a blurred blob where the letters should be — Josh, Sep 2026:
+   "some themes blur out the persons name if they have a special name") or
+   its own glow, which the theme's would overwrite. The flair is the name's
+   look; the theme keeps its hands off it. */
+html[data-theme="cyberpunk"]:not(.casino) .messages .author:not([class*="flair-"]) {
+  text-shadow: 0 0 8px rgba(45, 226, 213, 0.35);
+}
+
+/* ---- Base-three wordmark touches — quiet, but present. ---- */
+html[data-theme="cozy"]:not(.casino) .brand {
+  background: linear-gradient(100deg, #f0c896, #d98a4f 55%, #b9723d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+html[data-theme="chill"]:not(.casino) .brand {
+  color: #d8ecfa;
+  filter: drop-shadow(0 0 8px rgba(122, 179, 217, 0.45));
+}
+html[data-theme="shrub"]:not(.casino) .brand {
+  color: #d6e4bc;
+  filter: drop-shadow(0 0 8px rgba(150, 180, 100, 0.4));
+}
+
+/* Chat font preference (Settings → Appearance). Only message bodies and the
+   composer read --chat-font, so the app chrome stays in Inter regardless. */
+:root,
+[data-font="inter"] {
+  --chat-font: inherit;
+}
+[data-font="serif"] {
+  --chat-font: Georgia, "Iowan Old Style", "Times New Roman", serif;
+}
+[data-font="mono"] {
+  --chat-font: ui-monospace, "Cascadia Code", Consolas, "SF Mono", Menlo, monospace;
+}
+[data-font="hand"] {
+  --chat-font: "Segoe Print", "Comic Sans MS", "Comic Sans", "Bradley Hand", cursive;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* THE PAGE ITSELF NEVER SCROLLS, SO IT MUST NEVER PRETEND TO (Josh, Sep 2026:
+   "sometimes I have this issue where I scroll and it drags the browser window
+   and doesn't scroll up or down").
+
+   Solace is an app shell: `.shell` is exactly 100dvh and every view scrolls
+   ONE inner pane (the message list, `.hub`, `.shop`, a settings column). The
+   document's own scrollHeight therefore equals its clientHeight on every
+   screen — measured, on every phone view.
+
+   That is precisely the condition that produces the symptom. Those panes were
+   all `overscroll-behavior: auto`, so reaching the end of one CHAINS the
+   scroll outward to the document; the document cannot move, so the browser
+   runs its own overscroll gesture instead — rubber-band on iOS, pull-to-
+   refresh on Android. The finger keeps moving and the content does not, which
+   reads exactly as "it drags the window". It only happens at the end of a
+   pane, or when the swipe starts somewhere that does not scroll at all (a
+   header, the tab bar, the gap between cards) — hence "sometimes".
+
+   `none` on the document kills the gesture at the root. It also disables
+   pull-to-refresh, which is right here: the client already reloads itself
+   when a deploy lands (lib/appupdate.svelte.ts), so the only thing that
+   gesture ever did was interrupt people mid-conversation. */
+html,
+body {
+  overscroll-behavior: none;
+}
+
+/* And stop the chain one level earlier, so a scroll inside a drawer, sheet or
+   modal cannot move the view behind it either. These are the app's scroll
+   panes by name; a new one should join the list. */
+.msgs,
+.hub,
+.shop,
+.view,
+.drawer,
+.sheet,
+.roster,
+aside {
+  overscroll-behavior: contain;
+}
+
+#app {
+  min-height: 100dvh;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* Slim, unobtrusive scrollbars — thumb carries a whisper of the theme
+   accent, so even the scrollbars dress for the room. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 18%, var(--line)) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 18%, var(--line));
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--accent) 32%, var(--line-2));
+  background-clip: content-box;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Keyboard focus rings follow the theme accent everywhere. */
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 85%, transparent);
+  outline-offset: 2px;
+}
+
+/* ---- Mobile fundamentals ---------------------------------------------- */
+
+/* iOS Safari zooms the whole page when a focused field's font is under 16px.
+   On phone-width screens, force every text field up to 16px — the visual
+   difference is tiny, the zoom jump it prevents is not. Landscape phones
+   too (Oct 2026 review): they are wider than 820px. */
+@media (max-width: 820px), (max-height: 500px) and (pointer: coarse) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Don't let mobile Safari inflate text on rotation. */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* THE TOUCH FLOOR (Josh, Sep 2026: "make sure the ui is easily navigable for
+   a touch screen"). When the casino, the Market, the Leaderboards and the
+   Admin Panel opened up to phones, a sweep at 390px found the PRIMARY action
+   in several views sitting at 36-38px — the buttons that sell your
+   collection, take a seat at a table, or stake an emoji. Big enough to hit
+   most of the time is the wrong bar for a control that moves money.
+   44px is Apple's figure and the one a thumb actually wants.
+
+   THE FIRST CUT WAS AN ALLOW-LIST AND THAT WAS THE BUG (fixed the round
+   after, when Josh asked for a polish-and-bug pass over the phone UI). It
+   listed four class names — .go, .counter, .tc-join, .tc-watch — on the
+   theory that they were "the app's own vocabulary for the button that does
+   the thing". A 390px sweep of every phone-reachable view found that theory
+   is simply false: the Nightly Draw's only action is .buy (39px), Direct
+   Trade's is .new (38px), and the recovery-secret gate — which every new
+   account must clear before it can do ANYTHING — had an unclassed button at
+   37px. An allow-list of four names cannot cover a hundred components, and
+   each miss is invisible until somebody measures it.
+
+   So the floor is now a FLOOR: every button gets it, and the exceptions are
+   named. That inverts the failure mode — a new view is safe by default, and
+   the only way to ship a small target is to deliberately opt out below.
+
+   The exceptions are all the same shape: controls that sit INSIDE dense
+   content and have a bigger way in beside them. A message author's name
+   (press-and-hold opens the sheet; the avatar is the other target), the
+   little avatar links in a feed, the tab bar's own buttons (already 56px and
+   laid out on a fixed grid), and anything in a tight numeric grid where 44px
+   would push the grid off the screen and cost more than it buys. Scoped to
+   phone width so desktop density is untouched; min-height only ever raises,
+   so anything already taller keeps its height. */
+@media (max-width: 760px), (max-height: 500px) and (pointer: coarse) {
+  button,
+  [role="button"],
+  summary,
+  select {
+    min-height: 44px;
+  }
+  /* Named exceptions — dense controls with a bigger target beside them. */
+  .tabbtn,
+  .author,
+  .av-link,
+  .avabtn,
+  .react-chip,
+  .reaction,
+  .seen button,
+  .tier-row button {
+    min-height: 0;
+  }
+  /* The roulette board is the one place a grid stays narrow: three columns of
+     numbers across 390px give 37px each, and widening them to 44 would push
+     the outside bets off the screen. It takes the floor on HEIGHT instead —
+     37x44, with the payout showing which number you actually landed on — and
+     it is the exception precisely because a mis-tap here costs silver. */
+  .cell.num {
+    min-height: 44px;
+  }
+  /* Text fields get the same floor. The 16px rule above stops iOS zooming on
+     focus; this stops the field being a 36px sliver you have to aim at.
+     Checkboxes, radios, ranges and colour swatches are excluded — they have
+     their own sizes and a 44px checkbox is just a big checkbox. */
+  input[type="text"],
+  input[type="number"],
+  input[type="search"],
+  input[type="password"],
+  input[type="email"],
+  input:not([type]),
+  textarea {
+    min-height: 44px;
+  }
+}
+
+/* GRADIENT FLAIR IS NEVER SHADOWED. These clip a gradient to transparent
+   glyphs, so ANY text-shadow — a theme's, a heading's, a component's — draws
+   a smeared copy of the name behind letters that aren't painted: the
+   "blurred name" bug. Pinned here with !important so no future theme rule
+   can reintroduce it; the glowing flairs (neon, ember, frost…) keep their
+   own shadows and aren't listed. A new clip-text flair joins this list. */
+.flair-gilded, .flair-royal, .flair-molten, .flair-starlit,
+.flair-vapor, .flair-sterling, .flair-prism,
+.flair-jade, .flair-inkwell, .flair-ashen, .flair-coral,
+.flair-vip3-gold, .flair-vip4-prism {
+  text-shadow: none !important;
+}
+
+/* Theme motion (rain, flickers, pulses, the acid pour) stands down for
+   anyone whose OS asks for reduced motion — the scenery stays, still. The
+   same courtesy covers animated COSMETICS (flair/border/banner classes):
+   glitching text in chat is exactly what the setting exists to stop. */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .brand,
+  .brand::after,
+  [class*="flair-"],
+  [class*="flair-"]::before,
+  [class*="flair-"]::after,
+  [class*="border-"],
+  [class*="border-"]::before,
+  [class*="border-"]::after,
+  [class*="banner-"],
+  [class*="banner-"]::before,
+  [class*="banner-"]::after {
+    animation: none !important;
+  }
+}
+
+/* Smooth token transitions when the user switches themes (but never on load —
+   the .theme-anim class is added only around an interactive switch). */
+:root.theme-anim,
+:root.theme-anim body,
+:root.theme-anim * {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}

@@ -1,0 +1,54 @@
+/* SolaceBackrooms — the shell aesthetic. Black room, yellow light leaking
+   in from somewhere you can't see, fluorescent flicker. The 3D world takes
+   over the viewport later; these styles dress every menu around it. */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --void: #060504;
+  --panel: #0e0c08;
+  --panel-2: #16130c;
+  --line: #2b2413;
+  --ink: #d8cfae;
+  --ink-soft: #9a8f6c;
+  --ink-dim: #5d5540;
+  --yellow: #c9b26a;
+  --yellow-hot: #e8d386;
+  --danger: #c25a3a;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--void);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+#app {
+  height: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+/* The fluorescent flicker — used sparingly (title glyphs, door numerals). */
+@keyframes buzz {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.55; }
+  94% { opacity: 0.9; }
+  96% { opacity: 0.65; }
+  97% { opacity: 1; }
+}
+
+/* A slow breathing vignette behind every screen. */
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.8; }
+}

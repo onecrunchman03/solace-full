@@ -1,0 +1,61 @@
+<!doctype html>
+<!--
+  SURVIVORZ: the gun bench — measures a gun model before it goes in a survivor's hands. A
+  side-on ORTHOGRAPHIC render on a centimetre grid (1 px = 1 mm at the default size), so the
+  pistol grip, the trigger, the fore-end / pump and the muzzle can be read off in the model's
+  own units; plus every mesh's box. scripts/survivorz/guns.mjs keeps what was read here.
+  ?gun=/assets/downloads/survivorz/originals/gun-pack/glb/shotgun.glb&view=z (look down -z)
+  window.bench.render(view, centre[x,y,z], mmPerPx) -> data URL;  window.bench.parts() -> boxes
+-->
+<meta charset="utf-8" />
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>html,body{margin:0;background:#fff}canvas{display:block}</style>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  const q = new URLSearchParams(location.search);
+  const W = Number(q.get("w") || 1200), H = Number(q.get("h") || 500);
+  const B = (window.bench = { ready: false, error: null });
+  try {
+    const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    renderer.setSize(W, H); renderer.setPixelRatio(1); document.body.append(renderer.domElement);
+    const scene = new THREE.Scene(); scene.background = new THREE.Color(0xffffff);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x888888, 2.2));
+    const sun = new THREE.DirectionalLight(0xffffff, 1.4); sun.position.set(1, 2, 3); scene.add(sun);
+    const g = await new GLTFLoader().loadAsync(q.get("gun"));
+    const gun = g.scene; scene.add(gun);
+    // &move=pump:0,0,-0.09 shifts a named part (a pump racked back) to check it splits cleanly
+    for (const m of (q.get("move") || "").split(";").filter(Boolean)) { const [n, v] = m.split(":"); gun.getObjectByName(n)?.position.add(new THREE.Vector3(...v.split(",").map(Number))); }
+    gun.updateMatrixWorld(true);
+    const box = new THREE.Box3().setFromObject(gun);
+    B.box = { min: box.min.toArray(), max: box.max.toArray() };
+    B.parts = () => { const out = []; gun.traverse((o) => { if (o.isMesh) { const b = new THREE.Box3().setFromObject(o); out.push({ name: o.name, min: b.min.toArray().map((v) => +v.toFixed(4)), max: b.max.toArray().map((v) => +v.toFixed(4)) }); } }); return out; };
+    // a grid every `step` model units, in the view plane, drawn over the gun
+    let grid = null;
+    B.render = (view = "z", centre = box.getCenter(new THREE.Vector3()).toArray(), unitsPerPx = 0.001, step = 0.01) => {
+      const c = new THREE.Vector3(...centre), hw = (W / 2) * unitsPerPx, hh = (H / 2) * unitsPerPx;
+      const cam = new THREE.OrthographicCamera(-hw, hw, hh, -hh, -100, 100);
+      const dirs = { z: [0, 0, 1], "-z": [0, 0, -1], x: [1, 0, 0], "-x": [-1, 0, 0], y: [0, 1, 0] };
+      cam.position.copy(c).add(new THREE.Vector3(...dirs[view]).multiplyScalar(10)); cam.up.set(...(view === "y" ? [0, 0, -1] : [0, 1, 0])); cam.lookAt(c);
+      if (grid) scene.remove(grid);
+      const pts = [], n = Math.ceil(Math.max(hw, hh) / step) + 1;
+      const right = new THREE.Vector3(1, 0, 0).applyQuaternion(cam.quaternion), up = new THREE.Vector3(0, 1, 0).applyQuaternion(cam.quaternion);
+      const fwd = new THREE.Vector3().crossVectors(right, up), at = c.clone().addScaledVector(fwd, 5);
+      const snap = (v) => Math.round(v / step) * step;
+      for (let i = -n; i <= n; i++) {
+        const a = snap(i * step);
+        pts.push(at.clone().addScaledVector(right, a).addScaledVector(up, -hh * 2), at.clone().addScaledVector(right, a).addScaledVector(up, hh * 2));
+        pts.push(at.clone().addScaledVector(up, a).addScaledVector(right, -hw * 2), at.clone().addScaledVector(up, a).addScaledVector(right, hw * 2));
+      }
+      grid = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: 0xff3030, transparent: true, opacity: 0.25 }));
+      scene.add(grid);
+      renderer.render(scene, cam);
+      return renderer.domElement.toDataURL("image/png");
+    };
+    B.ready = true;
+  } catch (e) { B.error = String(e && e.stack || e); B.ready = true; }
+</script>

@@ -1,0 +1,75 @@
+<!doctype html>
+<!--
+  SURVIVORZ PROPS BENCH: one packed prop (assets/downloads/survivorz/props/<id>.glb)
+  standing on a half-metre grid beside a 1.8 m figure, lit plainly, from a three-quarter
+  view sized to whichever is bigger. scripts/survivorz/props-bench.mjs drives it and
+  writes a contact sheet; the page also works by hand:  ?id=bunk-bed&w=640&h=480
+-->
+<meta charset="utf-8" />
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>html,body{margin:0;background:#2a2c30}canvas{display:block}</style>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+  import { KTX2Loader } from "three/addons/loaders/KTX2Loader.js";
+  import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+  const q = new URLSearchParams(location.search);
+  const W = Number(q.get("w") || 640), H = Number(q.get("h") || 480);
+  const r = (window.r = { ready: false, error: null });
+  try {
+    const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    renderer.setSize(W, H); renderer.setPixelRatio(1);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    document.body.append(renderer.domElement);
+    const scene = new THREE.Scene(); scene.background = new THREE.Color(0x2a2c30);
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environmentIntensity = 0.6;
+    const sun = new THREE.DirectionalLight(0xffffff, 2.2); sun.position.set(3, 6, 4); scene.add(sun);
+    scene.add(new THREE.HemisphereLight(0xdfe6ee, 0x3a3630, 0.6));
+
+    const ktx2 = new KTX2Loader().setTranscoderPath("/client/public/basis/").detectSupport(renderer);
+    const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).setKTX2Loader(ktx2);
+    const gltf = await loader.loadAsync(q.get("url") || `/assets/downloads/survivorz/props/${q.get("id")}.glb`);
+    const prop = gltf.scene; scene.add(prop);
+    const box = new THREE.Box3().setFromObject(prop), size = box.getSize(new THREE.Vector3());
+
+    // a 1.8 m figure beside it, and a half-metre grid under both
+    const fig = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 1.36, 4, 12), new THREE.MeshStandardMaterial({ color: 0x5f87b5, roughness: 0.8 }));
+    fig.position.set(box.max.x + 0.45, 0.9, 0); scene.add(fig);
+    const span = Math.max(size.x + 0.9, 1.9, size.z, size.y);
+    const grid = new THREE.GridHelper(Math.ceil(span * 2) + 2, (Math.ceil(span * 2) + 2) * 2, 0x55595f, 0x3d4045);
+    scene.add(grid);
+
+    // frame the prop alone when it is much smaller than the figure, so a battery is visible
+    const small = q.has("close") || Math.max(size.x, size.y, size.z) < 0.35;
+    const target = small ? box.getCenter(new THREE.Vector3()) : new THREE.Box3().setFromObject(prop).union(new THREE.Box3().setFromObject(fig)).getCenter(new THREE.Vector3());
+    const extent = small ? Math.max(size.x, size.y, size.z) : span;
+    const cam = new THREE.PerspectiveCamera(35, W / H, 0.005, 500);
+    const dist = extent / (2 * Math.tan(THREE.MathUtils.degToRad(35) / 2)) * 1.35;
+    cam.position.copy(target).add(new THREE.Vector3(0.75, 0.55, 1).normalize().multiplyScalar(dist));
+    cam.lookAt(target);
+    if (small) fig.visible = false;
+    // ?grip=1: the hand's grip from props.json, a red ball at the fist and a line to the working end
+    if (q.has("grip")) {
+      const g = (await (await fetch("/assets/downloads/survivorz/props/props.json")).json())[q.get("id")]?.grip;
+      if (g) {
+        const red = new THREE.MeshBasicMaterial({ color: 0xff2020, depthTest: false });
+        const ball = new THREE.Mesh(new THREE.SphereGeometry(0.012, 12, 8), red); ball.position.fromArray(g.at); ball.renderOrder = 9; scene.add(ball);
+        const dir = new THREE.Vector3().fromArray(g.axis);
+        const arrow = new THREE.ArrowHelper(dir, new THREE.Vector3().fromArray(g.at), 0.1, 0xff2020, 0.025, 0.015);
+        arrow.traverse((o) => { if (o.material) { o.material.depthTest = false; o.renderOrder = 9; } }); scene.add(arrow);
+      }
+    }
+    renderer.render(scene, cam);
+    r.info = { size: size.toArray().map((v) => +v.toFixed(3)), small, textures: renderer.info.memory.textures, calls: renderer.info.render.calls };
+    r.ready = true;
+  } catch (e) { r.error = String(e?.stack || e); }
+</script>

@@ -1,0 +1,417 @@
+<title>The Eshai Script</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --void: #0a0c17;
+    --panel: #111427;
+    --line: #232848;
+    --glyph: #bfe9f2;
+    --glyph-dim: #4b5383;
+    --ink: #d7dbee;
+    --ink-soft: #8990b4;
+    --bruise: #8a6cb8;
+    --ember: #d98a4f;
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  html { background: var(--void); }
+  body {
+    background: radial-gradient(1200px 600px at 70% -10%, #1a1640 0%, transparent 60%), var(--void);
+    color: var(--ink);
+    font: 15px/1.6 var(--sans);
+    padding-inline: max(16px, 4vw);
+    padding-block: 48px 72px;
+  }
+  main { max-width: 1040px; margin-inline: auto; display: grid; gap: 64px; }
+  h1, h2 { font-family: var(--serif); font-weight: 400; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: 1.05; }
+  h2 { font-size: 1.9rem; line-height: 1.15; }
+  p { margin: 0; max-width: 64ch; color: var(--ink-soft); }
+  .eyebrow { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--bruise); }
+  section { display: grid; gap: 20px; }
+  .head { display: grid; gap: 8px; }
+  code, .mono { font-family: var(--mono); }
+
+  /* glyph primitives */
+  svg.g { height: 1em; width: auto; overflow: visible; vertical-align: middle; }
+  svg.g * { vector-effect: non-scaling-stroke; }
+  .word { display: inline-flex; align-items: center; gap: 0.08em; color: var(--glyph); line-height: 1; }
+  .seam { display: inline-block; width: 0.16em; height: 0.16em; background: currentColor; transform: rotate(45deg); margin-inline: 0.1em; opacity: 0.7; }
+  .clit { display: inline-block; width: 0.28em; height: 0.06em; background: currentColor; margin-inline: 0.06em; align-self: flex-end; margin-bottom: 0.18em; opacity: 0.7; }
+  .gap { display: inline-block; width: 0.45em; }
+
+  /* hero */
+  .hero { display: grid; gap: 22px; }
+  .phrase { font-size: clamp(34px, 6vw, 58px); display: flex; flex-wrap: wrap; gap: 0.25em 0.55em; }
+  .phrase .word { color: var(--ember); filter: drop-shadow(0 0 10px rgba(217,138,79,0.35)); }
+  .gloss { font-family: var(--mono); font-size: 0.9rem; color: var(--ink-soft); }
+  .gloss em { font-style: normal; color: var(--ink); }
+
+  /* specimen grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 10px; }
+  .cell {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+    display: grid; justify-items: center; gap: 8px; padding: 18px 8px 12px;
+  }
+  .cell .word { font-size: 54px; }
+  .cell .rom { font: 500 0.95rem/1 var(--mono); color: var(--ink); }
+  .cell .note { font: 0.7rem/1.2 var(--mono); color: var(--ink-soft); text-align: center; }
+  .pairs { display: grid; grid-template-columns: repeat(auto-fill, minmax(216px, 1fr)); gap: 10px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; }
+  .pair .cell { background: none; border: 0; border-radius: 0; }
+  .pair .cell + .cell { border-left: 1px dashed var(--line); }
+  .sub { font: 500 0.78rem/1 var(--mono); color: var(--ink-soft); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 8px; }
+
+  /* numerals */
+  .bits { font: 0.72rem/1 var(--mono); color: var(--bruise); letter-spacing: 0.2em; }
+
+  /* names */
+  .names { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .name { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .name .word { font-size: 32px; flex-wrap: wrap; }
+  .name .rom { font-family: var(--serif); font-size: 1.35rem; color: var(--ink); }
+  .name .mean { color: var(--ink-soft); font-size: 0.9rem; }
+  .name .mean b { color: var(--ink); font-weight: 500; }
+  @media (max-width: 640px) {
+    .name { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* timestamp */
+  .stamp { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 18px; display: grid; gap: 12px; overflow-x: auto; }
+  .stamp .row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .stamp .word { font-size: 26px; }
+  .stamp .lab { font: 500 0.72rem/1 var(--mono); color: var(--ink-soft); letter-spacing: 0.1em; text-transform: uppercase; width: 9ch; }
+  .stamp .oct { font: 0.85rem var(--mono); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .grp { display: inline-flex; gap: 0.06em; margin-right: 0.35em; }
+
+  /* decipher demo */
+  .demo { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 22px; display: grid; gap: 18px; }
+  .demo .line { display: flex; flex-wrap: wrap; gap: 14px 22px; font-size: 44px; }
+  .demo .slot { display: inline-grid; justify-items: center; gap: 4px; }
+  .demo .slot .word { transition: color 0.25s ease; }
+  .demo .slot small { font: 500 12px/1 var(--mono); color: var(--ink); min-height: 12px; transition: opacity 0.25s ease; }
+  .demo .locked .word { color: var(--glyph-dim); }
+  .demo .locked small { opacity: 0; }
+  .demo .wd { display: inline-flex; gap: 2px; align-items: flex-end; }
+  .ctl { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font: 0.85rem var(--mono); color: var(--ink-soft); }
+  input[type=range] { flex: 1 1 220px; accent-color: var(--glyph); }
+  input[type=range]:focus-visible { outline: 2px solid var(--glyph); outline-offset: 4px; }
+  .count { color: var(--glyph); font-variant-numeric: tabular-nums; }
+
+  .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .rules div { display: grid; gap: 6px; }
+  .rules h3 { margin: 0; font: 500 0.9rem/1.3 var(--sans); color: var(--ink); }
+  .rules p { font-size: 0.88rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<main>
+  <header class="hero">
+    <span class="eyebrow">Naa'shenai · the Eshai script · design sheet for sign-off</span>
+    <h1>The Eshai script</h1>
+    <div class="phrase" id="phrase"></div>
+    <p class="gloss"><em>Vhaal'ith sorrun ke-tahl. Oveth naa'ir.</em> — "The door beneath listens still. I answer from the far shore." The keystone handshake, already shipped as the Stone of the Abyss's phrase.</p>
+    <p>Twenty-six letters and eight numerals. Each glyph is built from a few strokes on a shared grid, and related sounds share a shape, so a patient player can work out the system as well as the individual letters.</p>
+  </header>
+
+  <section>
+    <div class="head">
+      <span class="eyebrow">Vowels · 8</span>
+      <h2>The eyes</h2>
+      <p>Every vowel is a curve: rings, almonds, cups and domes. A bar underneath makes it long. A dot inside marks the rounded and gliding vowels.</p>
+    </div>
+    <div class="grid" id="vowels"></div>
+  </section>
+
+  <section>
+    <div class="head">
+      <span class="eyebrow">Consonants · 18</span>
+      <h2>The stems</h2>
+      <p>Every consonant is a stroke, usually a single upright stem with a branch. Where two sounds are close, the second is the first with a dot underneath (<span class="mono">t → th</span>, <span class="mono">s → sh</span>). That pattern is the first real rule a player can discover.</p>
+    </div>
+    <span class="sub">Paired by the dot</span>
+    <div class="pairs" id="pairs"></div>
+    <span class="sub">Branches, arches, rings and the wave</span>
+    <div class="grid" id="singles"></div>
+  </section>
+
+  <section>
+    <div class="head">
+      <span class="eyebrow">Numerals · base 8</span>
+      <h2>Four fingers, eight digits</h2>
+      <p>Every numeral hangs from a roof. The three posts under it are the three binary places of an octal digit, read left to right as 4, 2 and 1. Zero is the roof and an empty ring. A scientific people counting in base 8 would write it this way, and a player who spots the posts has the whole number system.</p>
+    </div>
+    <div class="grid" id="numerals"></div>
+  </section>
+
+  <section>
+    <div class="head">
+      <span class="eyebrow">Timestamps</span>
+      <h2>Counting the hydrogen line</h2>
+      <p>One tick is one period of hydrogen's 21&nbsp;cm line, 1/1,420,405,751.768 of a second. A timestamp is the tick count from their epoch: 28 octal digits, grouped in threes from the right. The two below are illustrative. Their difference is about 8<sup>27</sup> ticks, or roughly 54 million years.</p>
+    </div>
+    <div class="stamp" id="stamp"></div>
+  </section>
+
+  <section>
+    <div class="head">
+      <span class="eyebrow">Names</span>
+      <h2>Places, people and the thing that came</h2>
+      <p>Every name is written in the script, so for most of the game these are only shapes on a roster and in a channel list.</p>
+    </div>
+    <div class="names" id="names"></div>
+  </section>
+
+  <section>
+    <div class="head">
+      <span class="eyebrow">How it reads during the dig</span>
+      <h2>One glyph at a time</h2>
+      <p>Locked glyphs keep their shape in a dim tone; an unlocked glyph lights up everywhere at once. Drag to decipher the phrase in the order a player might crack it.</p>
+    </div>
+    <div class="demo">
+      <div class="line" id="demo"></div>
+      <div class="ctl">
+        <label for="unlock">Glyphs deciphered</label>
+        <input type="range" id="unlock" min="0" max="12" value="5">
+        <span class="count" id="count"></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <span class="eyebrow">Rules the sheet encodes</span>
+      <h2>What a player can deduce</h2>
+    </div>
+    <div class="rules">
+      <div><h3>Curves are vowels, stems are consonants</h3><p>Visible from the first screen, before anything is unlocked. Counting curves against stems in a word starts the frequency work.</p></div>
+      <div><h3>A dot underneath softens a consonant</h3><p>Six pairs. Crack <span class="mono">t</span> and the shape of <span class="mono">th</span> is a strong guess.</p></div>
+      <div><h3>A bar underneath lengthens a vowel</h3><p><span class="mono">aa</span> and <span class="mono">ee</span>. Our spelling writes the long a as <span class="mono">aa</span> or <span class="mono">ah</span>; the glyph is the same.</p></div>
+      <div><h3>Diamonds and dashes are not letters</h3><p>The diamond joins roots (<span class="mono">Naa'shenai</span>), the low dash marks a prefix (<span class="mono">ke-tahl</span>). Both give word structure for free.</p></div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const STEM = "M50 16 V84";
+  const P = (d) => ["p", d];
+  const C = (x, y, r) => ["c", x, y, r];
+  const D = (x, y) => ["d", x, y];
+  const DOT = D(50, 101);          // aspiration dot, beneath
+  const BAR = P("M30 101 H70");    // length bar, beneath
+  const RING = C(50, 50, 26);
+  const ALMOND = P("M16 50 Q50 16 84 50 Q50 84 16 50");
+
+  const G = {
+    a:  [RING],
+    aa: [RING, BAR],
+    e:  [ALMOND],
+    ee: [ALMOND, BAR],
+    i:  [P("M22 28 Q50 96 78 28")],
+    o:  [RING, D(50, 50)],
+    u:  [P("M22 78 Q50 8 78 78")],
+    ai: [ALMOND, D(50, 50)],
+
+    p:  [P(STEM), P("M50 16 L80 40")],
+    t:  [P(STEM), P("M50 16 L20 40")],
+    k:  [P(STEM), P("M28 24 L72 40")],
+    s:  [P(STEM), P("M50 84 L80 60")],
+    d:  [P(STEM), P("M50 84 L20 60")],
+    v:  [P(STEM), P("M50 50 H76 V70")],
+    n:  [P("M34 84 V44 Q52 12 72 38")],
+    h:  [P(STEM), P("M28 60 L72 40")],
+    m:  [P("M26 84 V44 Q50 6 74 44 V84")],
+    r:  [P("M50 42 V84"), C(50, 28, 12)],
+    l:  [P("M50 16 V58"), C(50, 71, 12)],
+    y:  [P(STEM), C(70, 50, 11)],
+    w:  [P("M14 50 Q32 22 50 50 T86 50")],
+  };
+  for (const [soft, base] of [["kh","k"],["th","t"],["sh","s"],["vh","v"],["ng","n"]]) G[soft] = [...G[base], DOT];
+
+  const NUM = [];
+  for (let n = 0; n < 8; n++) {
+    const parts = [P("M18 18 H82")];
+    [[4, 30], [2, 50], [1, 70]].forEach(([bit, x]) => { if (n & bit) parts.push(P(`M${x} 18 V66`)); });
+    if (n === 0) parts.push(C(50, 50, 13));
+    NUM.push(parts);
+  }
+
+  const NS = "http://www.w3.org/2000/svg";
+  function svg(parts, label) {
+    const s = document.createElementNS(NS, "svg");
+    s.setAttribute("viewBox", "0 0 100 112");
+    s.setAttribute("class", "g");
+    s.setAttribute("role", "img");
+    s.setAttribute("aria-label", label);
+    for (const [kind, a, b, c] of parts) {
+      let el;
+      if (kind === "p") { el = document.createElementNS(NS, "path"); el.setAttribute("d", a); }
+      else if (kind === "c") { el = document.createElementNS(NS, "circle"); el.setAttribute("cx", a); el.setAttribute("cy", b); el.setAttribute("r", c); }
+      else { el = document.createElementNS(NS, "circle"); el.setAttribute("cx", a); el.setAttribute("cy", b); el.setAttribute("r", 5.5); }
+      if (kind === "d") { el.setAttribute("fill", "currentColor"); }
+      else {
+        el.setAttribute("fill", "none");
+        el.setAttribute("stroke", "currentColor");
+        el.setAttribute("stroke-width", "2.6");
+        el.setAttribute("stroke-linecap", "round");
+        el.setAttribute("stroke-linejoin", "round");
+      }
+      s.appendChild(el);
+    }
+    return s;
+  }
+
+  // our romanisation -> glyph ids ("ah" before a consonant is aa; "uu" is u)
+  const MULTI = ["aa","ee","ai","kh","sh","th","vh","ng"];
+  function tokens(text) {
+    const s = text.toLowerCase().replace(/uu/g, "u").replace(/ah(?![aeiou])/g, "aa");
+    const out = [];
+    for (let i = 0; i < s.length;) {
+      const two = s.slice(i, i + 2);
+      if (MULTI.includes(two)) { out.push(two); i += 2; continue; }
+      const ch = s[i];
+      if (G[ch]) out.push(ch);
+      else if (ch === "'") out.push("'");
+      else if (ch === "-") out.push("-");
+      else if (ch === " ") out.push(" ");
+      i += 1;
+    }
+    return out;
+  }
+  function word(text, extraClass) {
+    const w = document.createElement("span");
+    w.className = "word" + (extraClass ? " " + extraClass : "");
+    w.setAttribute("aria-label", text);
+    for (const t of tokens(text)) {
+      if (t === "'") { const x = document.createElement("span"); x.className = "seam"; w.appendChild(x); }
+      else if (t === "-") { const x = document.createElement("span"); x.className = "clit"; w.appendChild(x); }
+      else if (t === " ") { const x = document.createElement("span"); x.className = "gap"; w.appendChild(x); }
+      else w.appendChild(svg(G[t], t));
+    }
+    return w;
+  }
+  function cell(parts, rom, note) {
+    const c = document.createElement("div");
+    c.className = "cell";
+    const w = document.createElement("span"); w.className = "word"; w.appendChild(svg(parts, rom));
+    c.appendChild(w);
+    const r = document.createElement("span"); r.className = "rom"; r.textContent = rom; c.appendChild(r);
+    if (note) { const n = document.createElement("span"); n.className = "note"; n.textContent = note; c.appendChild(n); }
+    return c;
+  }
+  const $ = (id) => document.getElementById(id);
+
+  // hero
+  for (const w of ["Vhaal'ith", "sorrun", "ke-tahl.", "Oveth", "naa'ir."]) $("phrase").appendChild(word(w));
+
+  // vowels
+  const VN = { a: "ring", aa: "ring, long", e: "almond", ee: "almond, long", i: "cup", o: "ring, dot", u: "dome", ai: "almond, dot" };
+  for (const v of ["a","aa","e","ee","i","o","u","ai"]) $("vowels").appendChild(cell(G[v], v, VN[v]));
+
+  // consonant pairs
+  for (const [a, b] of [["k","kh"],["t","th"],["s","sh"],["v","vh"],["n","ng"]]) {
+    const p = document.createElement("div"); p.className = "pair";
+    p.appendChild(cell(G[a], a)); p.appendChild(cell(G[b], b, "+ dot"));
+    $("pairs").appendChild(p);
+  }
+  const SN = { p: "branch up-right", d: "branch down-left", h: "slash, middle", m: "arch", r: "ring above", l: "ring below", y: "ring beside", w: "wave" };
+  for (const c of ["p","d","h","m","r","l","y","w"]) $("singles").appendChild(cell(G[c], c, SN[c]));
+
+  // numerals
+  NUM.forEach((parts, n) => {
+    const c = cell(parts, String(n));
+    const b = document.createElement("span"); b.className = "bits";
+    b.textContent = n.toString(2).padStart(3, "0").replace(/0/g, "·").replace(/1/g, "|");
+    c.appendChild(b);
+    $("numerals").appendChild(c);
+  });
+
+  // timestamps (illustrative 27-digit octal counts)
+  function stampRow(label, oct) {
+    const row = document.createElement("div"); row.className = "row";
+    const l = document.createElement("span"); l.className = "lab"; l.textContent = label; row.appendChild(l);
+    const w = document.createElement("span"); w.className = "word"; w.setAttribute("aria-label", oct);
+    oct.split(" ").forEach((grp) => {
+      const g = document.createElement("span"); g.className = "grp";
+      for (const d of grp) g.appendChild(svg(NUM[+d], d));
+      w.appendChild(g);
+    });
+    row.appendChild(w);
+    const o = document.createElement("span"); o.className = "oct"; o.textContent = oct; row.appendChild(o);
+    return row;
+  }
+  $("stamp").appendChild(stampRow("Last plea", "2 041 377 260 514 062 715 403 226 157"));
+  $("stamp").appendChild(stampRow("Now", "3 041 377 260 514 062 716 125 031 640"));
+
+  // names
+  const NAMES = [
+    ["Naa'shenai", "<b>Their Solace.</b> “The far, together.”"],
+    ["Eshai", "<b>The race.</b> “The ones who look.”"],
+    ["Ilumaar", "<b>The cluster.</b> “The lit many.”"],
+    ["Nul'ir", "<b>The hidden galaxy.</b> “The empty shore.”"],
+    ["Ormaa", "<b>The star that still powers the hall.</b>"],
+    ["Makaal", "<b>The dark force.</b> “The unmaking.”"],
+    ["Khaa'vhaal", "<b>The wormhole.</b> “The dark door.”"],
+    ["Tharvend", "<b>The custodian.</b> “Keeper of the count.”"],
+    ["onnith", "<b>A keystone.</b> The stone in your inventory."],
+    ["Theruun", "Galaxy. First to go dark."],
+    ["Oshkaa", "Galaxy. Second."],
+    ["Paaruk", "Galaxy. Third."],
+    ["Senwe", "Galaxy. Fourth."],
+    ["Yulenai", "Galaxy. Fifth."],
+    ["Maalith", "Galaxy. Home. Last."],
+    ["Oruun Vael", "Curator of the digest."],
+    ["Senneth Ilaar", "Fold physicist. Measures Makaal."],
+    ["Tamruk Hesh", "Fleet veteran. “The fleet will handle it.”"],
+    ["Hethra Maal", "Fleet navigator. The only eyewitness."],
+    ["Yulen Dar", "From Theruun. The first rumour."],
+    ["Paelu", "The student."],
+    ["Nemaai", "The warm one. The last star-map."],
+  ];
+  for (const [n, m] of NAMES) {
+    const row = document.createElement("div"); row.className = "name";
+    row.appendChild(word(n));
+    const r = document.createElement("span"); r.className = "rom"; r.textContent = n; row.appendChild(r);
+    const mm = document.createElement("span"); mm.className = "mean"; mm.innerHTML = m; row.appendChild(mm);
+    $("names").appendChild(row);
+  }
+
+  // decipher demo: the phrase, unlocked in rough frequency order
+  const ORDER = ["aa","r","n","l","e","o","vh","i","s","u","k","t"];
+  const demoWords = ["Vhaal'ith", "sorrun", "ke-tahl", "Oveth", "naa'ir"].map((w) => {
+    const wrap = document.createElement("span"); wrap.className = "wd";
+    const slots = [];
+    for (const t of tokens(w)) {
+      if (t === "'" || t === "-") {
+        const x = document.createElement("span"); x.className = "word";
+        const m = document.createElement("span"); m.className = t === "'" ? "seam" : "clit";
+        x.appendChild(m); wrap.appendChild(x); continue;
+      }
+      const slot = document.createElement("span"); slot.className = "slot";
+      const g = document.createElement("span"); g.className = "word"; g.appendChild(svg(G[t], t));
+      const s = document.createElement("small"); s.textContent = t;
+      slot.append(g, s); wrap.appendChild(slot);
+      slots.push([t, slot]);
+    }
+    $("demo").appendChild(wrap);
+    return slots;
+  }).flat();
+  // any glyph in the phrase not in ORDER unlocks with the last step
+  const inPhrase = [...new Set(demoWords.map(([t]) => t))];
+  for (const t of inPhrase) if (!ORDER.includes(t)) ORDER.push(t);
+  $("unlock").max = ORDER.length;
+  function paint() {
+    const n = +$("unlock").value;
+    const open = new Set(ORDER.slice(0, n));
+    for (const [t, slot] of demoWords) slot.classList.toggle("locked", !open.has(t));
+    $("count").textContent = `${n} of ${ORDER.length} in this line`;
+  }
+  $("unlock").addEventListener("input", paint);
+  paint();
+})();
+</script>

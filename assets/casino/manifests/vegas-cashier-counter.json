@@ -1,0 +1,137 @@
+{
+ "file": "vegas/cashier-counter.glb",
+ "id": "cashier-counter",
+ "what": "L-shaped teller counter: wood base, stone cap, bronze-framed glass windows (cashier cage front)",
+ "size": [
+  6.87,
+  2.3,
+  2.633
+ ],
+ "minY": 0,
+ "frontFaces": "+Z",
+ "tris": 18632,
+ "drawCalls": 4,
+ "bytes": 749328,
+ "materials": [
+  {
+   "name": "Stone_texture",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 1,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "Wood",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.456,
+   "emissive": null,
+   "textures": [
+    "base"
+   ]
+  },
+  {
+   "name": "BronzeTexture",
+   "alpha": "OPAQUE",
+   "doubleSided": true,
+   "metallic": 0,
+   "roughness": 0.096,
+   "emissive": null,
+   "textures": [
+    "base",
+    "orm"
+   ]
+  },
+  {
+   "name": "WindowGlass",
+   "alpha": "BLEND",
+   "doubleSided": false,
+   "metallic": 0,
+   "roughness": 0,
+   "emissive": null,
+   "textures": []
+  }
+ ],
+ "credit": {
+  "title": "Bank Teller Cubical",
+  "author": "abdillaamy",
+  "license": "CC Attribution",
+  "url": "https://sketchfab.com/3d-models/bank-teller-cubical-237f5748963644779985f550257fd8a6"
+ },
+ "sourceScale": 0.072,
+ "objects": [
+  {
+   "name": "cashier-counter_0",
+   "dim": [
+    6.797,
+    1.459,
+    2.633
+   ],
+   "loc": [
+    0,
+    1.57,
+    0
+   ],
+   "tris": 7048,
+   "mats": [
+    "Stone_texture"
+   ]
+  },
+  {
+   "name": "cashier-counter_1",
+   "dim": [
+    6.87,
+    1.073,
+    2.548
+   ],
+   "loc": [
+    0,
+    0.536,
+    -0.043
+   ],
+   "tris": 4708,
+   "mats": [
+    "Wood"
+   ]
+  },
+  {
+   "name": "cashier-counter_2",
+   "dim": [
+    5.949,
+    1.031,
+    0.278
+   ],
+   "loc": [
+    0,
+    1.407,
+    0.942
+   ],
+   "tris": 2796,
+   "mats": [
+    "BronzeTexture"
+   ]
+  },
+  {
+   "name": "cashier-counter_3",
+   "dim": [
+    5.897,
+    0.797,
+    0.008
+   ],
+   "loc": [
+    0,
+    1.352,
+    0.939
+   ],
+   "tris": 4080,
+   "mats": [
+    "WindowGlass"
+   ]
+  }
+ ]
+}

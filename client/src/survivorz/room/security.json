@@ -1,0 +1,3474 @@
+{
+  "about": "THE SECURITY WING (docs/survivorz/ASSETS.md step D, zone 5). Written by scripts/survivorz/layout-security.mjs (edit that, not this); read by scripts/survivorz/room-build.py --set security and client/src/survivorz/room/lobby.ts.",
+  "rooms": [
+    "sec-corridor",
+    "sec-lockers",
+    "interview",
+    "sec-office",
+    "control-room",
+    "armoury",
+    "camera-room",
+    "holding",
+    "holding-cell"
+  ],
+  "roomRects": {
+    "sec-corridor": {
+      "x": 66,
+      "z": 70,
+      "w": 40,
+      "h": 6,
+      "zone": "security"
+    },
+    "sec-lockers": {
+      "x": 66,
+      "z": 60,
+      "w": 12,
+      "h": 10,
+      "zone": "security"
+    },
+    "interview": {
+      "x": 78,
+      "z": 60,
+      "w": 10,
+      "h": 10,
+      "zone": "security"
+    },
+    "sec-office": {
+      "x": 88,
+      "z": 60,
+      "w": 12,
+      "h": 10,
+      "zone": "security"
+    },
+    "control-room": {
+      "x": 66,
+      "z": 76,
+      "w": 14,
+      "h": 12,
+      "zone": "security"
+    },
+    "armoury": {
+      "x": 80,
+      "z": 76,
+      "w": 10,
+      "h": 10,
+      "zone": "security"
+    },
+    "camera-room": {
+      "x": 90,
+      "z": 76,
+      "w": 10,
+      "h": 10,
+      "zone": "security"
+    },
+    "holding": {
+      "x": 100,
+      "z": 76,
+      "w": 12,
+      "h": 10,
+      "zone": "security"
+    },
+    "holding-cell": {
+      "x": 112,
+      "z": 78,
+      "w": 6,
+      "h": 6,
+      "zone": "security"
+    }
+  },
+  "styles": {
+    "sec-corridor": {
+      "floor": "polished-concrete",
+      "ceiling": "ceiling-white",
+      "bands": [
+        [
+          99,
+          "panel-white"
+        ]
+      ],
+      "skin": "hall"
+    },
+    "control-room": {
+      "floor": "carpet-tile",
+      "ceiling": "office-ceiling",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          1.1,
+          "panel-dark"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "sec-office": {
+      "floor": "carpet-tile",
+      "ceiling": "office-ceiling",
+      "bands": [
+        [
+          0.12,
+          "plinth"
+        ],
+        [
+          99,
+          "lab-wall"
+        ]
+      ]
+    },
+    "interview": {
+      "floor": "kitchen-floor",
+      "ceiling": "office-ceiling",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "panel-white"
+        ]
+      ]
+    },
+    "sec-lockers": {
+      "floor": "rubber-floor",
+      "ceiling": "office-ceiling",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "armoury": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          1.2,
+          "steel-plate"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "camera-room": {
+      "floor": "raised-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "holding": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          0.12,
+          "skirting"
+        ],
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    },
+    "holding-cell": {
+      "floor": "painted-floor",
+      "ceiling": "slab",
+      "bands": [
+        [
+          99,
+          "painted-wall"
+        ]
+      ]
+    }
+  },
+  "skins": {
+    "sec-corridor": {
+      "room": "sec-corridor",
+      "ceilY": 3,
+      "slotAxis": "x",
+      "slotPitch": 1.6,
+      "slotZ0": 73,
+      "slotInset": 0.8,
+      "slotWidth": 0.06
+    }
+  },
+  "arch": [
+    {
+      "what": "chief office front west pane",
+      "glass": [
+        88.34,
+        0,
+        69.988,
+        93.51,
+        2.7,
+        70.012
+      ]
+    },
+    {
+      "what": "chief office front west frame",
+      "key": "steel",
+      "box": [
+        88.3,
+        -0.06,
+        69.89,
+        93.55,
+        0,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office front west frame",
+      "key": "steel",
+      "box": [
+        88.3,
+        2.7,
+        69.89,
+        93.55,
+        2.7600000000000002,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office front west frame",
+      "key": "steel",
+      "box": [
+        88.26,
+        0,
+        69.89,
+        88.34,
+        2.7,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office front west frame",
+      "key": "steel",
+      "box": [
+        93.51,
+        0,
+        69.89,
+        93.59,
+        2.7,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office front east pane",
+      "glass": [
+        94.49,
+        0,
+        69.988,
+        99.66,
+        2.7,
+        70.012
+      ]
+    },
+    {
+      "what": "chief office front east frame",
+      "key": "steel",
+      "box": [
+        94.45,
+        -0.06,
+        69.89,
+        99.7,
+        0,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office front east frame",
+      "key": "steel",
+      "box": [
+        94.45,
+        2.7,
+        69.89,
+        99.7,
+        2.7600000000000002,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office front east frame",
+      "key": "steel",
+      "box": [
+        94.41,
+        0,
+        69.89,
+        94.49,
+        2.7,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office front east frame",
+      "key": "steel",
+      "box": [
+        99.66,
+        0,
+        69.89,
+        99.74,
+        2.7,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office door transom pane",
+      "glass": [
+        93.59,
+        2.1,
+        69.988,
+        94.41,
+        2.7,
+        70.012
+      ]
+    },
+    {
+      "what": "chief office door transom frame",
+      "key": "steel",
+      "box": [
+        93.55,
+        2.04,
+        69.89,
+        94.45,
+        2.1,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office door transom frame",
+      "key": "steel",
+      "box": [
+        93.55,
+        2.7,
+        69.89,
+        94.45,
+        2.7600000000000002,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office door transom frame",
+      "key": "steel",
+      "box": [
+        93.51,
+        2.1,
+        69.89,
+        93.59,
+        2.7,
+        70.11
+      ]
+    },
+    {
+      "what": "chief office door transom frame",
+      "key": "steel",
+      "box": [
+        94.41,
+        2.1,
+        69.89,
+        94.49,
+        2.7,
+        70.11
+      ]
+    },
+    {
+      "what": "control room front west pane",
+      "glass": [
+        66.34,
+        0,
+        75.988,
+        71.86,
+        2.7,
+        76.012
+      ]
+    },
+    {
+      "what": "control room front west frame",
+      "key": "steel",
+      "box": [
+        66.3,
+        -0.06,
+        75.89,
+        71.9,
+        0,
+        76.11
+      ]
+    },
+    {
+      "what": "control room front west frame",
+      "key": "steel",
+      "box": [
+        66.3,
+        2.7,
+        75.89,
+        71.9,
+        2.7600000000000002,
+        76.11
+      ]
+    },
+    {
+      "what": "control room front west frame",
+      "key": "steel",
+      "box": [
+        66.26,
+        0,
+        75.89,
+        66.34,
+        2.7,
+        76.11
+      ]
+    },
+    {
+      "what": "control room front west frame",
+      "key": "steel",
+      "box": [
+        71.86,
+        0,
+        75.89,
+        71.94,
+        2.7,
+        76.11
+      ]
+    },
+    {
+      "what": "control room front east pane",
+      "glass": [
+        74.14,
+        0,
+        75.988,
+        79.66,
+        2.7,
+        76.012
+      ]
+    },
+    {
+      "what": "control room front east frame",
+      "key": "steel",
+      "box": [
+        74.1,
+        -0.06,
+        75.89,
+        79.7,
+        0,
+        76.11
+      ]
+    },
+    {
+      "what": "control room front east frame",
+      "key": "steel",
+      "box": [
+        74.1,
+        2.7,
+        75.89,
+        79.7,
+        2.7600000000000002,
+        76.11
+      ]
+    },
+    {
+      "what": "control room front east frame",
+      "key": "steel",
+      "box": [
+        74.06,
+        0,
+        75.89,
+        74.14,
+        2.7,
+        76.11
+      ]
+    },
+    {
+      "what": "control room front east frame",
+      "key": "steel",
+      "box": [
+        79.66,
+        0,
+        75.89,
+        79.74,
+        2.7,
+        76.11
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "painted-wall",
+      "box": [
+        103.39,
+        0,
+        82.6,
+        103.51,
+        3.2,
+        85.9
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "painted-wall",
+      "box": [
+        106.79,
+        0,
+        82.6,
+        106.91,
+        3.2,
+        85.9
+      ]
+    },
+    {
+      "what": "cell partition",
+      "key": "painted-wall",
+      "box": [
+        110.25,
+        0,
+        82.6,
+        111.9,
+        3.2,
+        85.9
+      ]
+    },
+    {
+      "what": "observation partition",
+      "key": "panel-white",
+      "box": [
+        78.1,
+        0,
+        63.14,
+        78.3,
+        3.2,
+        63.26
+      ]
+    },
+    {
+      "what": "observation partition",
+      "key": "panel-white",
+      "box": [
+        79.3,
+        0,
+        63.14,
+        81,
+        3.2,
+        63.26
+      ]
+    },
+    {
+      "what": "observation partition",
+      "key": "panel-white",
+      "box": [
+        86,
+        0,
+        63.14,
+        87.9,
+        3.2,
+        63.26
+      ]
+    },
+    {
+      "what": "observation partition",
+      "key": "panel-white",
+      "box": [
+        78.3,
+        2.1,
+        63.14,
+        79.3,
+        3.2,
+        63.26
+      ]
+    },
+    {
+      "what": "observation partition",
+      "key": "panel-white",
+      "box": [
+        81,
+        0,
+        63.14,
+        86,
+        0.9,
+        63.26
+      ]
+    },
+    {
+      "what": "observation partition",
+      "key": "panel-white",
+      "box": [
+        81,
+        2.1,
+        63.14,
+        86,
+        3.2,
+        63.26
+      ]
+    },
+    {
+      "what": "observation glass pane",
+      "glass": [
+        81.04,
+        0.9,
+        63.188,
+        85.96,
+        2.1,
+        63.212
+      ]
+    },
+    {
+      "what": "observation glass frame",
+      "key": "steel",
+      "box": [
+        81,
+        0.8400000000000001,
+        63.09,
+        86,
+        0.9,
+        63.31
+      ]
+    },
+    {
+      "what": "observation glass frame",
+      "key": "steel",
+      "box": [
+        81,
+        2.1,
+        63.09,
+        86,
+        2.16,
+        63.31
+      ]
+    },
+    {
+      "what": "observation glass frame",
+      "key": "steel",
+      "box": [
+        80.96,
+        0.9,
+        63.09,
+        81.04,
+        2.1,
+        63.31
+      ]
+    },
+    {
+      "what": "observation glass frame",
+      "key": "steel",
+      "box": [
+        85.96,
+        0.9,
+        63.09,
+        86.04,
+        2.1,
+        63.31
+      ]
+    }
+  ],
+  "cutouts": [
+    {
+      "axis": "z",
+      "c": 70,
+      "a0": 88.3,
+      "a1": 99.7,
+      "y0": 0,
+      "y1": 2.7
+    },
+    {
+      "axis": "z",
+      "c": 76,
+      "a0": 66.3,
+      "a1": 71.9,
+      "y0": 0,
+      "y1": 2.7
+    },
+    {
+      "axis": "z",
+      "c": 76,
+      "a0": 74.1,
+      "a1": 79.7,
+      "y0": 0,
+      "y1": 2.7
+    }
+  ],
+  "props": [
+    {
+      "id": "office-chair",
+      "at": [
+        72.4,
+        0,
+        74.9
+      ],
+      "yaw": 0,
+      "room": "sec-corridor",
+      "rot": [
+        88,
+        40,
+        0
+      ]
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        73.7,
+        0,
+        75.1
+      ],
+      "yaw": 0,
+      "room": "sec-corridor",
+      "rot": [
+        84,
+        200,
+        0
+      ]
+    },
+    {
+      "id": "canteen-table",
+      "at": [
+        73,
+        0,
+        74.3
+      ],
+      "yaw": 0,
+      "room": "sec-corridor",
+      "rot": [
+        86,
+        8,
+        0
+      ]
+    },
+    {
+      "id": "riot-shield",
+      "at": [
+        75.6,
+        0,
+        74.6
+      ],
+      "yaw": 0,
+      "room": "sec-corridor",
+      "rot": [
+        86,
+        120,
+        0
+      ]
+    },
+    {
+      "id": "riot-shield",
+      "at": [
+        70.6,
+        0,
+        75.5
+      ],
+      "yaw": 182,
+      "room": "sec-corridor"
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        74.034,
+        0,
+        72.839
+      ],
+      "yaw": 171.26,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        28.60457008704543,
+        0
+      ]
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        70.439,
+        0,
+        72.007
+      ],
+      "yaw": 267.528,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        346.5468667913228,
+        0
+      ]
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        68.3,
+        0,
+        73.53
+      ],
+      "yaw": 246.644,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        324.00599939748645,
+        0
+      ]
+    },
+    {
+      "id": "mag-rifle",
+      "at": [
+        67.797,
+        0,
+        71.532
+      ],
+      "yaw": 107.036,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        84.23769352957606,
+        0
+      ]
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        68.497,
+        0,
+        71.848
+      ],
+      "yaw": 120.693,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        5.357958599925041,
+        0
+      ]
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        69.6,
+        0,
+        71.068
+      ],
+      "yaw": 174.222,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        63.67576581425965,
+        0
+      ]
+    },
+    {
+      "id": "mag-rifle",
+      "at": [
+        71.416,
+        0,
+        71.976
+      ],
+      "yaw": 326.537,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        123.6786787211895,
+        0
+      ]
+    },
+    {
+      "id": "mag-rifle",
+      "at": [
+        74.016,
+        0,
+        73.274
+      ],
+      "yaw": 334.539,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        163.942068843171,
+        0
+      ]
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        74.151,
+        0,
+        71.733
+      ],
+      "yaw": 321.618,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        44.05776193365455,
+        0
+      ]
+    },
+    {
+      "id": "shotgun-shells",
+      "at": [
+        68.833,
+        0,
+        73.126
+      ],
+      "yaw": 125.658,
+      "room": "sec-corridor"
+    },
+    {
+      "id": "shotgun-shells",
+      "at": [
+        74.651,
+        0,
+        72.258
+      ],
+      "yaw": 175.409,
+      "room": "sec-corridor"
+    },
+    {
+      "id": "shotgun-shells",
+      "at": [
+        71.114,
+        0,
+        72.651
+      ],
+      "yaw": 233.271,
+      "room": "sec-corridor"
+    },
+    {
+      "id": "shotgun-shells",
+      "at": [
+        70.186,
+        0,
+        71.702
+      ],
+      "yaw": 243.831,
+      "room": "sec-corridor"
+    },
+    {
+      "id": "tactical-helmet",
+      "at": [
+        69.2,
+        0,
+        71.6
+      ],
+      "yaw": 140,
+      "room": "sec-corridor",
+      "rot": [
+        0,
+        140,
+        80
+      ]
+    },
+    {
+      "id": "walkie",
+      "at": [
+        77.4,
+        0,
+        72
+      ],
+      "yaw": 30,
+      "room": "sec-corridor",
+      "rot": [
+        90,
+        30,
+        0
+      ]
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        80,
+        0.6,
+        70.187
+      ],
+      "yaw": 0,
+      "room": "sec-corridor"
+    },
+    {
+      "id": "water-dispenser",
+      "at": [
+        91,
+        0,
+        75.691
+      ],
+      "yaw": 180,
+      "room": "sec-corridor"
+    },
+    {
+      "id": "video-wall",
+      "at": [
+        70.55,
+        1.15,
+        87.84
+      ],
+      "yaw": 180,
+      "room": "control-room"
+    },
+    {
+      "id": "video-wall",
+      "at": [
+        75.45,
+        1.15,
+        87.84
+      ],
+      "yaw": 180,
+      "room": "control-room"
+    },
+    {
+      "id": "wall-tv",
+      "at": [
+        79.866,
+        1.8,
+        84
+      ],
+      "yaw": -90,
+      "room": "control-room"
+    },
+    {
+      "id": "wall-tv",
+      "at": [
+        79.866,
+        1.8,
+        82.6
+      ],
+      "yaw": -90,
+      "room": "control-room"
+    },
+    {
+      "id": "control-console",
+      "at": [
+        71.1,
+        0,
+        81.2
+      ],
+      "yaw": 180,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        70.228,
+        0,
+        80.171
+      ],
+      "yaw": -9.546,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        71.938,
+        0,
+        80.092
+      ],
+      "yaw": -9.564,
+      "room": "control-room"
+    },
+    {
+      "id": "control-console",
+      "at": [
+        74.9,
+        0,
+        81.2
+      ],
+      "yaw": 180,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        74.096,
+        0,
+        80.208
+      ],
+      "yaw": -19.053,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        75.781,
+        0,
+        80.226
+      ],
+      "yaw": 14.73,
+      "room": "control-room"
+    },
+    {
+      "id": "control-console",
+      "at": [
+        71.1,
+        0,
+        84.4
+      ],
+      "yaw": 180,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        70.29,
+        0,
+        83.4
+      ],
+      "yaw": -2.828,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        71.951,
+        0,
+        83.261
+      ],
+      "yaw": -1.685,
+      "room": "control-room"
+    },
+    {
+      "id": "control-console",
+      "at": [
+        74.9,
+        0,
+        84.4
+      ],
+      "yaw": 180,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        73.957,
+        0,
+        83.417
+      ],
+      "yaw": 5.95,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        75.81,
+        0,
+        83.281
+      ],
+      "yaw": 3.718,
+      "room": "control-room"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        77.4,
+        0,
+        78
+      ],
+      "yaw": 180,
+      "room": "control-room"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        77.7,
+        0.787,
+        78.25
+      ],
+      "yaw": 180,
+      "room": "control-room",
+      "note": "the control-terminal"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        77.05,
+        0.787,
+        78.25
+      ],
+      "yaw": 165,
+      "room": "control-room"
+    },
+    {
+      "id": "notebook",
+      "at": [
+        76.85,
+        0.787,
+        77.85
+      ],
+      "yaw": 200,
+      "room": "control-room",
+      "note": "the incident log, stopping mid-line"
+    },
+    {
+      "id": "desk-phone",
+      "at": [
+        78.15,
+        0.787,
+        77.95
+      ],
+      "yaw": 210,
+      "room": "control-room"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        76.55,
+        0.787,
+        78.1
+      ],
+      "yaw": 180,
+      "room": "control-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        77.5,
+        0,
+        77.2
+      ],
+      "yaw": 0,
+      "room": "control-room",
+      "rot": [
+        86,
+        160,
+        0
+      ]
+    },
+    {
+      "id": "override-console",
+      "at": [
+        66.83,
+        0,
+        85.6
+      ],
+      "yaw": 90,
+      "room": "control-room",
+      "note": "the vault override"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        66.468,
+        0,
+        79.2
+      ],
+      "yaw": 90,
+      "room": "control-room"
+    },
+    {
+      "id": "security-camera",
+      "at": [
+        79.6,
+        2.6,
+        76.297
+      ],
+      "yaw": 0,
+      "room": "control-room"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        72.018,
+        0,
+        82.73
+      ],
+      "yaw": 188.73,
+      "room": "control-room"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        71.306,
+        0,
+        82.66
+      ],
+      "yaw": 111.955,
+      "room": "control-room"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        73.1,
+        0,
+        83.172
+      ],
+      "yaw": 1.433,
+      "room": "control-room"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        73.476,
+        0,
+        82.764
+      ],
+      "yaw": 33.302,
+      "room": "control-room"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        71.868,
+        0,
+        82.725
+      ],
+      "yaw": 52.191,
+      "room": "control-room"
+    },
+    {
+      "id": "weapon-rack",
+      "at": [
+        81,
+        0,
+        85.68
+      ],
+      "yaw": 180,
+      "room": "armoury"
+    },
+    {
+      "id": "weapon-rack",
+      "at": [
+        82.25,
+        0,
+        85.68
+      ],
+      "yaw": 180,
+      "room": "armoury"
+    },
+    {
+      "id": "weapon-rack",
+      "at": [
+        83.5,
+        0,
+        85.68
+      ],
+      "yaw": 180,
+      "room": "armoury"
+    },
+    {
+      "id": "weapon-rack",
+      "at": [
+        84.75,
+        0,
+        85.68
+      ],
+      "yaw": 180,
+      "room": "armoury"
+    },
+    {
+      "id": "weapon-rack",
+      "at": [
+        86,
+        0,
+        85.68
+      ],
+      "yaw": 180,
+      "room": "armoury"
+    },
+    {
+      "id": "weapon-rack",
+      "at": [
+        87.25,
+        0,
+        85.68
+      ],
+      "yaw": 180,
+      "room": "armoury"
+    },
+    {
+      "id": "cleaning-bench",
+      "at": [
+        81.3,
+        0,
+        76.45
+      ],
+      "yaw": 0,
+      "room": "armoury"
+    },
+    {
+      "id": "pharmacy-cage",
+      "at": [
+        89.258,
+        0,
+        80.6
+      ],
+      "yaw": -90,
+      "room": "armoury"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        89.25,
+        0,
+        80.6
+      ],
+      "yaw": 90,
+      "room": "armoury"
+    },
+    {
+      "id": "military-crate",
+      "at": [
+        89.25,
+        0.3,
+        80.4
+      ],
+      "yaw": 94,
+      "room": "armoury"
+    },
+    {
+      "id": "ammo-can",
+      "at": [
+        89,
+        0,
+        79.6
+      ],
+      "yaw": 93.121,
+      "room": "armoury"
+    },
+    {
+      "id": "ammo-can",
+      "at": [
+        89,
+        0,
+        81.2
+      ],
+      "yaw": 87.278,
+      "room": "armoury"
+    },
+    {
+      "id": "ammo-can",
+      "at": [
+        87.4,
+        0,
+        81.2
+      ],
+      "yaw": 30,
+      "room": "armoury",
+      "rot": [
+        90,
+        30,
+        0
+      ]
+    },
+    {
+      "id": "gear-rail",
+      "at": [
+        80.18,
+        1.62,
+        81.4
+      ],
+      "yaw": 90,
+      "room": "armoury"
+    },
+    {
+      "id": "armor-vest",
+      "at": [
+        80.4,
+        1.05,
+        80.9
+      ],
+      "yaw": 90,
+      "room": "armoury"
+    },
+    {
+      "id": "armor-vest",
+      "at": [
+        80.4,
+        1.05,
+        81.6
+      ],
+      "yaw": 90,
+      "room": "armoury"
+    },
+    {
+      "id": "tactical-helmet",
+      "at": [
+        80.35,
+        0,
+        83.2
+      ],
+      "yaw": 90,
+      "room": "armoury"
+    },
+    {
+      "id": "duty-belt",
+      "at": [
+        83.6,
+        0,
+        82.4
+      ],
+      "yaw": 70,
+      "room": "armoury"
+    },
+    {
+      "id": "holster",
+      "at": [
+        85.2,
+        0,
+        83.6
+      ],
+      "yaw": 200,
+      "room": "armoury"
+    },
+    {
+      "id": "riot-shield",
+      "at": [
+        80.2,
+        0,
+        79
+      ],
+      "yaw": 90,
+      "room": "armoury",
+      "rot": [
+        -12,
+        90,
+        0
+      ]
+    },
+    {
+      "id": "ammo-box-pistol",
+      "at": [
+        84.067,
+        0,
+        81.579
+      ],
+      "yaw": 339.296,
+      "room": "armoury"
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        84.55,
+        0,
+        81.915
+      ],
+      "yaw": 115.476,
+      "room": "armoury"
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        85.937,
+        0,
+        82.09
+      ],
+      "yaw": 201.052,
+      "room": "armoury"
+    },
+    {
+      "id": "mag-pistol",
+      "at": [
+        83.973,
+        0,
+        84.422
+      ],
+      "yaw": 283.518,
+      "room": "armoury"
+    },
+    {
+      "id": "ammo-box-pistol",
+      "at": [
+        84.145,
+        0,
+        82.13
+      ],
+      "yaw": 314.523,
+      "room": "armoury"
+    },
+    {
+      "id": "ammo-box-pistol",
+      "at": [
+        83.754,
+        0,
+        82.969
+      ],
+      "yaw": 207.848,
+      "room": "armoury"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        99.362,
+        0,
+        79
+      ],
+      "yaw": -90,
+      "room": "camera-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        99.362,
+        0,
+        79.6
+      ],
+      "yaw": -90,
+      "room": "camera-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        99.362,
+        0,
+        80.2
+      ],
+      "yaw": -90,
+      "room": "camera-room"
+    },
+    {
+      "id": "server-rack",
+      "at": [
+        99.362,
+        0,
+        80.8
+      ],
+      "yaw": -90,
+      "room": "camera-room"
+    },
+    {
+      "id": "ups-cabinet",
+      "at": [
+        99.395,
+        0,
+        82.2
+      ],
+      "yaw": -90,
+      "room": "camera-room"
+    },
+    {
+      "id": "cable-tray",
+      "at": [
+        98,
+        2.85,
+        80.2
+      ],
+      "yaw": 90,
+      "room": "camera-room"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        90.573,
+        0,
+        80.6
+      ],
+      "yaw": 90,
+      "room": "camera-room"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        90.323,
+        0.787,
+        81.05
+      ],
+      "yaw": 90,
+      "room": "camera-room",
+      "note": "the camera-terminal"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        90.323,
+        0.787,
+        80.4
+      ],
+      "yaw": 80,
+      "room": "camera-room"
+    },
+    {
+      "id": "crt-monitor",
+      "at": [
+        90.373,
+        0.787,
+        79.85
+      ],
+      "yaw": 70,
+      "room": "camera-room"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        91.65,
+        0,
+        80.4
+      ],
+      "yaw": -86.167,
+      "room": "camera-room"
+    },
+    {
+      "id": "wall-tv",
+      "at": [
+        90.134,
+        1.25,
+        79.9
+      ],
+      "yaw": 90,
+      "room": "camera-room"
+    },
+    {
+      "id": "wall-tv",
+      "at": [
+        90.134,
+        1.25,
+        81
+      ],
+      "yaw": 90,
+      "room": "camera-room"
+    },
+    {
+      "id": "wall-tv",
+      "at": [
+        90.134,
+        1.95,
+        79.9
+      ],
+      "yaw": 90,
+      "room": "camera-room"
+    },
+    {
+      "id": "wall-tv",
+      "at": [
+        90.134,
+        1.95,
+        81
+      ],
+      "yaw": 90,
+      "room": "camera-room"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        93,
+        0,
+        85.423
+      ],
+      "yaw": 180,
+      "room": "camera-room"
+    },
+    {
+      "id": "shelving-boxes",
+      "at": [
+        95,
+        0,
+        85.423
+      ],
+      "yaw": 180,
+      "room": "camera-room"
+    },
+    {
+      "id": "cardboard-box",
+      "at": [
+        96.6,
+        0,
+        84.9
+      ],
+      "yaw": 20,
+      "room": "camera-room"
+    },
+    {
+      "id": "binder",
+      "at": [
+        94,
+        0,
+        83.6
+      ],
+      "yaw": 60,
+      "room": "camera-room"
+    },
+    {
+      "id": "steel-counter",
+      "at": [
+        106,
+        0,
+        79.2
+      ],
+      "yaw": 0,
+      "room": "holding"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        105.65,
+        1.05,
+        79
+      ],
+      "yaw": 0,
+      "room": "holding"
+    },
+    {
+      "id": "plastic-crate",
+      "at": [
+        106.4,
+        1.05,
+        79.15
+      ],
+      "yaw": 15,
+      "room": "holding",
+      "note": "the property bin"
+    },
+    {
+      "id": "clipboard-pen",
+      "at": [
+        106.05,
+        1.05,
+        79.3
+      ],
+      "yaw": 10,
+      "room": "holding"
+    },
+    {
+      "id": "metal-stool",
+      "at": [
+        106.3,
+        0,
+        80.2
+      ],
+      "yaw": 0,
+      "room": "holding"
+    },
+    {
+      "id": "cell-bars",
+      "at": [
+        101.75,
+        0,
+        82.68
+      ],
+      "yaw": 0,
+      "room": "holding"
+    },
+    {
+      "id": "cell-bars",
+      "at": [
+        105.15,
+        0,
+        82.68
+      ],
+      "yaw": 0,
+      "room": "holding"
+    },
+    {
+      "id": "cell-bars",
+      "at": [
+        108.55,
+        0,
+        82.68
+      ],
+      "yaw": 0,
+      "room": "holding"
+    },
+    {
+      "id": "cell-bench",
+      "at": [
+        101.15,
+        0,
+        85.69
+      ],
+      "yaw": 180,
+      "room": "holding"
+    },
+    {
+      "id": "prison-toilet",
+      "at": [
+        102.9,
+        0,
+        85.485
+      ],
+      "yaw": 180,
+      "room": "holding"
+    },
+    {
+      "id": "cell-bench",
+      "at": [
+        104.55,
+        0,
+        85.69
+      ],
+      "yaw": 180,
+      "room": "holding"
+    },
+    {
+      "id": "prison-toilet",
+      "at": [
+        106.3,
+        0,
+        85.485
+      ],
+      "yaw": 180,
+      "room": "holding"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        104.75,
+        0,
+        84
+      ],
+      "yaw": 30,
+      "room": "holding"
+    },
+    {
+      "id": "cell-bench",
+      "at": [
+        107.95,
+        0,
+        85.69
+      ],
+      "yaw": 180,
+      "room": "holding"
+    },
+    {
+      "id": "prison-toilet",
+      "at": [
+        109.7,
+        0,
+        85.485
+      ],
+      "yaw": 180,
+      "room": "holding"
+    },
+    {
+      "id": "food-tray",
+      "at": [
+        108.2,
+        0,
+        84
+      ],
+      "yaw": 20,
+      "room": "holding"
+    },
+    {
+      "id": "handcuffs",
+      "at": [
+        104.2,
+        0,
+        81.4
+      ],
+      "yaw": 80,
+      "room": "holding"
+    },
+    {
+      "id": "fire-extinguisher",
+      "at": [
+        101,
+        0.6,
+        76.166
+      ],
+      "yaw": 0,
+      "room": "holding"
+    },
+    {
+      "id": "cell-bench",
+      "at": [
+        115.2,
+        0,
+        78.31
+      ],
+      "yaw": 0,
+      "room": "holding-cell"
+    },
+    {
+      "id": "prison-toilet",
+      "at": [
+        117.485,
+        0,
+        79.4
+      ],
+      "yaw": -90,
+      "room": "holding-cell"
+    },
+    {
+      "id": "bunk-blanket",
+      "at": [
+        114.2,
+        0,
+        82.6
+      ],
+      "yaw": 120,
+      "room": "holding-cell"
+    },
+    {
+      "id": "food-tray",
+      "at": [
+        116.6,
+        0,
+        82.8
+      ],
+      "yaw": 60,
+      "room": "holding-cell",
+      "rot": [
+        0,
+        60,
+        90
+      ]
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        66.9,
+        0,
+        60.385
+      ],
+      "yaw": 0,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "staff-lockers-open",
+      "at": [
+        68.5,
+        0,
+        60.565
+      ],
+      "yaw": 0,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        70.1,
+        0,
+        60.385
+      ],
+      "yaw": 0,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        71.7,
+        0,
+        60.385
+      ],
+      "yaw": 0,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "staff-lockers-open",
+      "at": [
+        73.3,
+        0,
+        60.565
+      ],
+      "yaw": 0,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        74.9,
+        0,
+        60.385
+      ],
+      "yaw": 0,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "staff-lockers",
+      "at": [
+        66.385,
+        0,
+        64
+      ],
+      "yaw": 90,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "staff-lockers-open",
+      "at": [
+        66.565,
+        0,
+        65.6
+      ],
+      "yaw": 90,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "gear-rail",
+      "at": [
+        77.82,
+        1.62,
+        64.5
+      ],
+      "yaw": -90,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "armor-vest",
+      "at": [
+        77.6,
+        1.05,
+        63.8
+      ],
+      "yaw": -90,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "armor-vest",
+      "at": [
+        77.6,
+        1.05,
+        64.5
+      ],
+      "yaw": -90,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "tactical-helmet",
+      "at": [
+        77.6,
+        0,
+        66.4
+      ],
+      "yaw": -90,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "stepover-bench",
+      "at": [
+        72,
+        0,
+        63.4
+      ],
+      "yaw": 0,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "stepover-bench",
+      "at": [
+        72,
+        0,
+        66
+      ],
+      "yaw": 0,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "duty-belt",
+      "at": [
+        71.6,
+        0.45,
+        63.4
+      ],
+      "yaw": 20,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "walkie",
+      "at": [
+        72.6,
+        0.45,
+        63.3
+      ],
+      "yaw": 80,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "clothes-folded",
+      "at": [
+        70.4,
+        0,
+        65
+      ],
+      "yaw": 40,
+      "room": "sec-lockers",
+      "rot": [
+        0,
+        40,
+        6
+      ],
+      "note": "a uniform shirt"
+    },
+    {
+      "id": "sneakers",
+      "at": [
+        73.6,
+        0,
+        66.6
+      ],
+      "yaw": 120,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "towel-folded",
+      "at": [
+        72.4,
+        0.45,
+        66
+      ],
+      "yaw": 10,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "backpack-small",
+      "at": [
+        69.2,
+        0,
+        61.4
+      ],
+      "yaw": 200,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "notice-board",
+      "at": [
+        77.3,
+        1.1,
+        67.6
+      ],
+      "yaw": -90,
+      "room": "sec-lockers"
+    },
+    {
+      "id": "interview-table",
+      "at": [
+        84.3,
+        0,
+        66.6
+      ],
+      "yaw": 0,
+      "room": "interview"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        84.3,
+        0,
+        65.8
+      ],
+      "yaw": 0,
+      "room": "interview"
+    },
+    {
+      "id": "canteen-chair",
+      "at": [
+        84.5,
+        0,
+        67.5
+      ],
+      "yaw": 175,
+      "room": "interview"
+    },
+    {
+      "id": "handcuffs",
+      "at": [
+        84.1,
+        0.75,
+        66.5
+      ],
+      "yaw": 30,
+      "room": "interview"
+    },
+    {
+      "id": "coffee-cup",
+      "at": [
+        84.8,
+        0.75,
+        66.9
+      ],
+      "yaw": 0,
+      "room": "interview"
+    },
+    {
+      "id": "security-camera",
+      "at": [
+        87.703,
+        2.65,
+        69.4
+      ],
+      "yaw": -90,
+      "room": "interview"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        83,
+        0,
+        62.66
+      ],
+      "yaw": 180,
+      "room": "interview"
+    },
+    {
+      "id": "cassette-player",
+      "at": [
+        83.4,
+        0.787,
+        62.81
+      ],
+      "yaw": 180,
+      "room": "interview",
+      "note": "the interview-recorder, still running"
+    },
+    {
+      "id": "desk-phone",
+      "at": [
+        82.5,
+        0.787,
+        62.76
+      ],
+      "yaw": 200,
+      "room": "interview"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        83.85,
+        0.787,
+        62.91
+      ],
+      "yaw": 195,
+      "room": "interview"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        83.4,
+        0,
+        61.4
+      ],
+      "yaw": 0,
+      "room": "interview",
+      "rot": [
+        88,
+        210,
+        0
+      ]
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        86.8,
+        0,
+        60.468
+      ],
+      "yaw": 0,
+      "room": "interview"
+    },
+    {
+      "id": "office-desk",
+      "at": [
+        94,
+        0,
+        63.2
+      ],
+      "yaw": 180,
+      "room": "sec-office"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        94.3,
+        0.787,
+        63.45
+      ],
+      "yaw": 180,
+      "room": "sec-office",
+      "note": "the chief-terminal"
+    },
+    {
+      "id": "flat-monitor",
+      "at": [
+        93.65,
+        0.787,
+        63.45
+      ],
+      "yaw": 165,
+      "room": "sec-office"
+    },
+    {
+      "id": "desk-lamp",
+      "at": [
+        94.85,
+        0.787,
+        63.4
+      ],
+      "yaw": 180,
+      "room": "sec-office"
+    },
+    {
+      "id": "walkie",
+      "at": [
+        93.4,
+        0.787,
+        63.05
+      ],
+      "yaw": 220,
+      "room": "sec-office"
+    },
+    {
+      "id": "file-folder",
+      "at": [
+        93.85,
+        0.787,
+        63
+      ],
+      "yaw": 190,
+      "room": "sec-office"
+    },
+    {
+      "id": "office-chair",
+      "at": [
+        94.1,
+        0,
+        62.1
+      ],
+      "yaw": -5.842,
+      "room": "sec-office"
+    },
+    {
+      "id": "lobby-armchair",
+      "at": [
+        93,
+        0,
+        65.4
+      ],
+      "yaw": 170,
+      "room": "sec-office"
+    },
+    {
+      "id": "lobby-armchair",
+      "at": [
+        95.2,
+        0,
+        65.5
+      ],
+      "yaw": 195,
+      "room": "sec-office"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        92,
+        0,
+        60.468
+      ],
+      "yaw": 0,
+      "room": "sec-office"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        92.4,
+        0,
+        60.468
+      ],
+      "yaw": 0,
+      "room": "sec-office"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        95.8,
+        0,
+        60.468
+      ],
+      "yaw": 0,
+      "room": "sec-office"
+    },
+    {
+      "id": "filing-cabinet",
+      "at": [
+        96.2,
+        0,
+        60.468
+      ],
+      "yaw": 0,
+      "room": "sec-office"
+    },
+    {
+      "id": "frame-charter",
+      "at": [
+        93.4,
+        1.4,
+        60.108
+      ],
+      "yaw": 0,
+      "room": "sec-office"
+    },
+    {
+      "id": "frame-charter",
+      "at": [
+        94.6,
+        1.4,
+        60.108
+      ],
+      "yaw": 0,
+      "room": "sec-office"
+    },
+    {
+      "id": "coat-stand",
+      "at": [
+        99.551,
+        0,
+        61.2
+      ],
+      "yaw": -90,
+      "room": "sec-office"
+    },
+    {
+      "id": "dead-plant",
+      "at": [
+        99.537,
+        0,
+        68.8
+      ],
+      "yaw": -90,
+      "room": "sec-office"
+    },
+    {
+      "id": "briefcase",
+      "at": [
+        96.8,
+        0,
+        62.6
+      ],
+      "yaw": 70,
+      "room": "sec-office"
+    }
+  ],
+  "fixtures": [
+    {
+      "kind": "emergency",
+      "at": [
+        70,
+        2.62,
+        75.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "sec-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        84,
+        2.62,
+        75.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "sec-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        98,
+        2.62,
+        75.88
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "sec-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "exit",
+      "at": [
+        66.12,
+        2.45,
+        73
+      ],
+      "face": [
+        1,
+        0,
+        0
+      ],
+      "room": "sec-corridor",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        69.5,
+        3.2,
+        79.5
+      ],
+      "room": "control-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        73,
+        3.2,
+        79.5
+      ],
+      "room": "control-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        76.5,
+        3.2,
+        79.5
+      ],
+      "room": "control-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        69.5,
+        3.2,
+        84
+      ],
+      "room": "control-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        73,
+        3.2,
+        84
+      ],
+      "room": "control-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        76.5,
+        3.2,
+        84
+      ],
+      "room": "control-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        68,
+        2.75,
+        87.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "control-room",
+      "bank": 0
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        78,
+        2.75,
+        87.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "control-room",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        83,
+        3.2,
+        79
+      ],
+      "room": "armoury",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        87,
+        3.2,
+        79
+      ],
+      "room": "armoury",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        83,
+        3.2,
+        83
+      ],
+      "room": "armoury",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        87,
+        3.2,
+        83
+      ],
+      "room": "armoury",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        82,
+        2.75,
+        76.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "armoury",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        93,
+        3.2,
+        80
+      ],
+      "room": "camera-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        97,
+        3.2,
+        80
+      ],
+      "room": "camera-room",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        95,
+        3.2,
+        83.5
+      ],
+      "room": "camera-room",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        92,
+        2.75,
+        76.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "camera-room",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        103,
+        3.2,
+        79
+      ],
+      "room": "holding",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        108,
+        3.2,
+        79
+      ],
+      "room": "holding",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        105.5,
+        3.2,
+        84.2
+      ],
+      "room": "holding",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        110,
+        2.75,
+        76.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "holding",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        115,
+        3,
+        81
+      ],
+      "room": "holding-cell",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        69,
+        3.2,
+        63.5
+      ],
+      "room": "sec-lockers",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        74,
+        3.2,
+        63.5
+      ],
+      "room": "sec-lockers",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        71.5,
+        3.2,
+        67.2
+      ],
+      "room": "sec-lockers",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        68,
+        2.75,
+        69.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "sec-lockers",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        83.5,
+        3.2,
+        65.5
+      ],
+      "room": "interview",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        83.5,
+        3.2,
+        68
+      ],
+      "room": "interview",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        80.5,
+        3.2,
+        61.6
+      ],
+      "room": "interview",
+      "bank": 0,
+      "circuit": "mains",
+      "style": "failing"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        86.5,
+        2.75,
+        69.9
+      ],
+      "face": [
+        0,
+        0,
+        -1
+      ],
+      "room": "interview",
+      "bank": 0
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        91.5,
+        3.2,
+        64
+      ],
+      "room": "sec-office",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        96.5,
+        3.2,
+        64
+      ],
+      "room": "sec-office",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "panel-flush",
+      "at": [
+        94,
+        3.2,
+        67.5
+      ],
+      "room": "sec-office",
+      "bank": 0,
+      "circuit": "mains"
+    },
+    {
+      "kind": "emergency",
+      "at": [
+        98.5,
+        2.75,
+        60.1
+      ],
+      "face": [
+        0,
+        0,
+        1
+      ],
+      "room": "sec-office",
+      "bank": 0
+    }
+  ],
+  "decals": [
+    {
+      "tex": "plate-sec-corridor",
+      "at": [
+        67.4,
+        1.6,
+        70.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-sec-lockers",
+      "at": [
+        72.9,
+        1.6,
+        70.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-interview",
+      "at": [
+        83.9,
+        1.6,
+        70.12
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-control-room",
+      "at": [
+        72.22,
+        1.6,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-armoury",
+      "at": [
+        86.45,
+        1.6,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-camera-room",
+      "at": [
+        95.9,
+        1.6,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "plate-holding",
+      "at": [
+        103.9,
+        1.6,
+        75.88
+      ],
+      "n": [
+        0,
+        0,
+        -1
+      ],
+      "size": [
+        0.3,
+        0.15
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "smear",
+      "at": [
+        70.4,
+        0.004,
+        73.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1,
+        2.6
+      ],
+      "rot": 70
+    },
+    {
+      "tex": "prints-shoes",
+      "at": [
+        76.5,
+        0.004,
+        72.4
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        1.4,
+        1
+      ],
+      "rot": 0
+    },
+    {
+      "tex": "smear",
+      "at": [
+        81,
+        0.004,
+        74.6
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.8,
+        1.6
+      ],
+      "rot": 20
+    },
+    {
+      "tex": "sign-biohazard",
+      "at": [
+        66.1,
+        2.25,
+        85.6
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        0.3,
+        0.3
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "sign-clear-weapons",
+      "at": [
+        83.85,
+        1.45,
+        76.1
+      ],
+      "n": [
+        0,
+        0,
+        1
+      ],
+      "size": [
+        0.28,
+        0.39
+      ],
+      "opaque": true
+    },
+    {
+      "tex": "smear",
+      "at": [
+        89.9,
+        1,
+        83
+      ],
+      "n": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        0.7,
+        1.8
+      ],
+      "rot": 6
+    },
+    {
+      "tex": "smear",
+      "at": [
+        88.6,
+        0.004,
+        83.4
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.9,
+        1.8
+      ],
+      "rot": 40
+    },
+    {
+      "tex": "smear",
+      "at": [
+        105,
+        0.004,
+        84.2
+      ],
+      "n": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        0.8,
+        1.4
+      ],
+      "rot": 10
+    },
+    {
+      "tex": "map-pinned",
+      "at": [
+        88.1,
+        1.55,
+        64.6
+      ],
+      "n": [
+        1,
+        0,
+        0
+      ],
+      "size": [
+        1.6,
+        1
+      ],
+      "opaque": true
+    }
+  ],
+  "cast": [],
+  "shots": {
+    "corridor": {
+      "at": [
+        67.2,
+        1.65,
+        73
+      ],
+      "look": [
+        100,
+        1.2,
+        73
+      ],
+      "label": "The security corridor"
+    },
+    "barricade": {
+      "at": [
+        79,
+        1.65,
+        71.4
+      ],
+      "look": [
+        72.5,
+        0.6,
+        75
+      ],
+      "label": "The barricade at the control room"
+    },
+    "control": {
+      "at": [
+        73,
+        1.65,
+        76.8
+      ],
+      "look": [
+        73,
+        1.4,
+        87.5
+      ],
+      "label": "The control room"
+    },
+    "override": {
+      "at": [
+        76,
+        1.65,
+        82
+      ],
+      "look": [
+        66.5,
+        1,
+        85.6
+      ],
+      "label": "The vault override"
+    },
+    "armoury": {
+      "at": [
+        85,
+        1.65,
+        76.7
+      ],
+      "look": [
+        85,
+        0.9,
+        85.5
+      ],
+      "label": "The armoury"
+    },
+    "cameras": {
+      "at": [
+        95,
+        1.65,
+        76.7
+      ],
+      "look": [
+        92,
+        1,
+        82
+      ],
+      "label": "The camera room"
+    },
+    "holding": {
+      "at": [
+        103,
+        1.65,
+        76.7
+      ],
+      "look": [
+        106,
+        0.9,
+        85.5
+      ],
+      "label": "Holding"
+    },
+    "cell": {
+      "at": [
+        112.8,
+        1.65,
+        81
+      ],
+      "look": [
+        117,
+        0.6,
+        81
+      ],
+      "label": "Holding Cell 2"
+    },
+    "lockers": {
+      "at": [
+        72,
+        1.65,
+        69.4
+      ],
+      "look": [
+        70,
+        1,
+        61
+      ],
+      "label": "The guard lockers"
+    },
+    "interview": {
+      "at": [
+        87,
+        1.65,
+        69.2
+      ],
+      "look": [
+        82.5,
+        1.2,
+        63.2
+      ],
+      "label": "Interview, the glass"
+    },
+    "observation": {
+      "at": [
+        80,
+        1.65,
+        60.6
+      ],
+      "look": [
+        86,
+        1,
+        66
+      ],
+      "label": "Observation"
+    },
+    "office": {
+      "at": [
+        94,
+        1.65,
+        69.4
+      ],
+      "look": [
+        92,
+        1.2,
+        61
+      ],
+      "label": "The chief's office"
+    }
+  },
+  "tint": {
+    "carpet-tile": [
+      0.5,
+      0.52,
+      0.56
+    ]
+  },
+  "kit": {
+    "copies": []
+  },
+  "catcher": {
+    "at": [
+      92,
+      74
+    ],
+    "size": [
+      56,
+      32
+    ]
+  },
+  "shadowSpots": [],
+  "puddles": []
+}

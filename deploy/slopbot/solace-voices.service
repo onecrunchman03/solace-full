@@ -1,0 +1,43 @@
+# THE VOICE AGENT on slopbot's RTX 3080: scripts/rollo/agent.py voices the
+# Solace Survivorz show's survivors with Chatterbox (voice_server.py, its own
+# venv, started by the agent). Speaking only (ROLLO_EARS=0) since the casino
+# regulars were removed in Nov 2026 — the 3080 is the show's. Installed by
+# deploy/slopbot/setup-voices.sh; the code lives in
+# /data/solace-ai/solace/scripts/rollo (copied, not a git checkout).
+[Unit]
+Description=Solace Survivorz: the survivors' cloned voices
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=josh
+WorkingDirectory=/data/solace-ai/solace
+Environment=PYTHONIOENCODING=utf-8
+Environment=HF_HOME=/data/solace-ai/models/hf
+Environment=HF_HUB_OFFLINE=1
+Environment=ROLLO_MODELS=/data/solace-ai/models
+Environment=ROLLO_VOICES_DIR=/data/solace-ai/models/voices
+Environment=ROLLO_VOICE_REF=/data/solace-ai/models/rollo-voice/queens-1.mp3
+Environment=ROLLO_CLONE_PY=/data/solace-ai/voice-venv/bin/python
+Environment=ROLLO_HEARTBEAT=/data/solace-ai/solace/heartbeat
+# faster-whisper's GPU libraries come from pip (nvidia-cublas/cudnn); the
+# setup script writes their path here
+EnvironmentFile=-/data/solace-ai/solace/voices.env
+ExecStart=/data/solace-ai/rollo-venv/bin/python -u scripts/rollo/agent.py
+Restart=always
+RestartSec=5
+# the agent and the voice server it started go down (and come back) together
+KillMode=control-group
+# A CEILING (Oct 21 2026). The voice servers leaked ~19 MB of RAM a line until
+# one reached 27 GB, slopbot thrashed (load 66, SSH timing out — and it is the
+# house's DNS) and the kernel's OOM killer took it. The leak is fixed in
+# voice_server.py; this keeps any future one inside the service: past 14 GB
+# the service alone is killed and Restart=always brings it back in ~90 s,
+# instead of the whole box grinding through swap. Normal is ~7 GB (the agent
+# under 1 GB, each voice server ~3 GB).
+MemoryHigh=12G
+MemoryMax=14G
+MemorySwapMax=0
+
+[Install]
+WantedBy=multi-user.target

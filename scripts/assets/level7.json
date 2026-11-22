@@ -1,0 +1,56 @@
+{
+  "level": "Level 7 — Thalassophobia",
+  "note": "PROPOSED, waiting on Josh's approval. CC-BY or CC0 only. The level's water, roofs and buildings are drawn by the renderer and the prop kit already has crates, drums, pallets and lamps; this is what a drowned city is missing: the Diving Helmet itself, the subway entrance at the bottom of the square, rooftop clutter (air-conditioning units, a water tank), and two photographed surfaces (gravel roofing, the street bottom). node scripts/assets/fetch.mjs scripts/assets/level7.json --dry",
+  "assets": [
+    {
+      "source": "sketchfab",
+      "uid": "eff849bb58864ce19987fe9b7b5e28cc",
+      "name": "Old Diving Helmet",
+      "author": "Kingy",
+      "license": "CC-BY",
+      "faces": 28756,
+      "use": "THE DIVING HELMET — the key: lies on its roof, carried in the hand (drawn as a simple brass shape until this is in)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "35c02eee93ea4a2f80af8acb84351d8c",
+      "name": "Subway Entrance [Street Assets Vol. 01]",
+      "author": "Alt",
+      "license": "CC-BY",
+      "faces": 6242,
+      "use": "THE SUBWAY STAIR — the railed stair going down at the bottom of the sunken square (drawn from boxes until this is in)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "6dfa32e7ec614362a29fd950b87212ca",
+      "name": "Rooftop Ventilations, Air Conditioning Units",
+      "author": "Oskar3D_",
+      "license": "CC-BY",
+      "faces": 3480,
+      "use": "rooftop clutter: AC units and vents on the dry roofs, the things you climb out of the water onto"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "1745c92e50b441c6bf6588e11cdba538",
+      "name": "Overhead Water tank",
+      "author": "Nodeaxis Interactive",
+      "license": "CC-BY",
+      "faces": 508,
+      "use": "a rooftop water tank on legs — the city's skyline silhouette in the fog"
+    },
+    {
+      "source": "polyhaven",
+      "id": "gravel_concrete_02",
+      "type": "texture",
+      "license": "CC0",
+      "use": "the roofs: gravel set in old concrete (now stained concrete)"
+    },
+    {
+      "source": "polyhaven",
+      "id": "asphalt_03",
+      "type": "texture",
+      "license": "CC0",
+      "use": "the street bottom under six metres of water (now wet asphalt)"
+    }
+  ]
+}

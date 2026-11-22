@@ -1,0 +1,87 @@
+<!doctype html>
+<!--
+  SURVIVORZ KIT BENCH (Oct 28 2026): one packed survivor body playing a clip, with the show's WORN
+  equipment on it — a backpack on the chest bone, the stowed weapons — placed by the very numbers the
+  show uses (client/src/survivorz/show/kit.ts, imported straight from the client). For looking at a fit
+  from any side; scripts/survivorz/kit-fit.mjs measures the same fit headless.
+    node scripts/serve-root.mjs 8795
+    http://127.0.0.1:8795/scripts/survivorz/kit-bench.html?body=carla&clip=ual1-walk-loop&pack=backpack-small&stow=crowbar,pistol
+  window.k: use(clip) · frame(t, view) → jpeg data url · set({pack, stow})
+-->
+<meta charset="utf-8" />
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>html,body{margin:0;background:#26282b}canvas{display:block}</style>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+  import { KTX2Loader } from "three/addons/loaders/KTX2Loader.js";
+  import { packMatrix, stowMatrix, stowSlot, setKitFit, trimIndex } from "/client/src/survivorz/show/kit.ts";
+  // (a browser runs no TypeScript: kit-bench.cjs serves kit.ts with its types stripped)
+  setKitFit(await (await fetch("/client/src/survivorz/show/kit-fit.json")).json());
+  const q = new URLSearchParams(location.search);
+  const size = Number(q.get("size") || 360);
+  const k = (window.k = { ready: false, error: null });
+  try {
+    const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    renderer.setSize(size, size); renderer.setPixelRatio(1); renderer.outputColorSpace = THREE.SRGBColorSpace;
+    document.body.append(renderer.domElement);
+    const scene = new THREE.Scene(); scene.background = new THREE.Color(0x26282b);
+    scene.add(new THREE.HemisphereLight(0xdfe6ee, 0x3a3530, 1.8));
+    const key = new THREE.DirectionalLight(0xffffff, 2.0); key.position.set(1.5, 4, 2); scene.add(key);
+    const rim = new THREE.DirectionalLight(0x9fb6d8, 1.2); rim.position.set(-2, 3, -3); scene.add(rim);
+    const grid = new THREE.GridHelper(10, 20, 0xb8bec6, 0x6a7078); scene.add(grid);
+    const camera = new THREE.PerspectiveCamera(30, 1, 0.05, 50);
+    const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+    const ktx = new KTX2Loader().setTranscoderPath("/client/node_modules/three/examples/jsm/libs/basis/").detectSupport(renderer); loader.setKTX2Loader(ktx);
+    const body = q.get("body") || "carla";
+    const gltf = await loader.loadAsync(`/assets/downloads/survivorz/game/${body}.glb`);
+    const root = gltf.scene; scene.add(root);
+    root.traverse((o) => { if (/body_proxy/.test(o.name)) o.visible = false; if (o.isMesh) o.frustumCulled = false; });
+    const mixer = new THREE.AnimationMixer(root);
+    const clips = Object.fromEntries(gltf.animations.map((c) => [c.name, c]));
+    const bone = (n) => { let h; root.traverse((o) => { if (!h && (o.name === n || o.name.endsWith("_" + n))) h = o; }); return h; };
+    const props = {};
+    const loadProp = async (id) => (props[id] ??= (await loader.loadAsync(`/assets/downloads/survivorz/props/${["pistol", "hk416", "shotgun"].includes(id) ? "guns/" : ""}${id}.glb`)).scene);
+    let pack = null, stows = [];
+    k.set = async ({ pack: p, stow = [] }) => {
+      if (pack) scene.remove(pack); pack = null;
+      for (const s of stows) scene.remove(s.o); stows = [];
+      if (p) {
+        pack = (await loadProp(p)).clone(); pack.userData.id = p;
+        // the pack trimmed as the show trims it (kit.ts PACK_TRIM), its vertices read in the pack's own space
+        pack.updateMatrixWorld(true);
+        pack.traverse((m) => { if (!m.isMesh) return; const g = m.geometry, P = g.attributes.position, v = new THREE.Vector3();
+          const keep = trimIndex(p, (i) => v.fromBufferAttribute(P, i).applyMatrix4(m.matrixWorld).toArray(), g.index ? g.index.array : null, g.index ? g.index.count : P.count);
+          if (keep) { m.geometry = g.clone(); m.geometry.setIndex(keep); } });
+        pack.matrixAutoUpdate = false; scene.add(pack);
+      }
+      for (const id of stow) { const o = (await loadProp(id)).clone(); o.matrixAutoUpdate = false; scene.add(o); stows.push({ id, o }); }
+    };
+    let action = null;
+    k.use = (name) => { if (action) action.stop(); action = mixer.clipAction(clips[name]); action.reset().play(); return clips[name].duration; };
+    const place = () => {
+      root.updateMatrixWorld(true);
+      if (pack) { pack.visible = packMatrix(body, pack.userData.id, bone, pack.matrix); pack.matrixWorldNeedsUpdate = true; }
+      for (const s of stows) { s.o.visible = stowMatrix(body, stowSlot(s.id, pack ? pack.userData.id : null), bone, s.o.matrix); s.o.matrixWorldNeedsUpdate = true; }
+    };
+    k.frame = (t, view = "back") => {
+      mixer.setTime(t); place();
+      const hip = bone("hip").getWorldPosition(new THREE.Vector3());
+      const dirs = { back: [0.6, 0.25, -1], side: [-1, 0.2, -0.15], front: [0.5, 0.2, 1], top: [0.3, 1.6, -0.6], rside: [1, 0.2, -0.15], hipback: [0.5, 0.15, -1], hipside: [1, 0.1, -0.4] };
+      const close = view.startsWith("hip");
+      const d = new THREE.Vector3(...dirs[view]).normalize();
+      const c = hip.clone(); c.y += close ? 0.0 : 0.25;
+      camera.position.copy(c).addScaledVector(d, close ? 1.1 : 2.6); camera.lookAt(c);
+      renderer.render(scene, camera); return renderer.domElement.toDataURL("image/jpeg", 0.85);
+    };
+    if (q.get("clip")) k.use(q.get("clip"));
+    await k.set({ pack: q.get("pack"), stow: (q.get("stow") || "").split(",").filter(Boolean) });
+    k.clips = () => Object.keys(clips);
+    k.ready = true;
+  } catch (e) { k.error = String(e && e.stack || e); k.ready = true; }
+</script>

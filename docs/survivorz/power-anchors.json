@@ -1,0 +1,797 @@
+{
+ "about": "THE VAULT LOBBY's hand-off to the effects (EFFECTS.md section 5), written by scripts/survivorz/room-build.py: where its fixtures, vents, pipes, panels and puddles are, in world metres (x east, y up, z south). Each fixture's `at` is the light's own face (the panel's underside, the caged tube); `bank` is the order the power comes back in. The effects place beams, steam, drips and sparks from these; the room never wires effects in itself.",
+ "map": "halcyon-site-9-v2",
+ "fixtures": [
+  {
+   "id": "FIXTURE_c0",
+   "kind": "caged",
+   "at": [
+    37,
+    2.77,
+    15
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "service-stairs",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c1",
+   "kind": "caged",
+   "at": [
+    33,
+    -4.53,
+    14
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "service-stairs",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e2",
+   "kind": "emergency",
+   "at": [
+    41.78,
+    -5.33,
+    13.0
+   ],
+   "face": [
+    -1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "service-stairs",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e3",
+   "kind": "emergency",
+   "at": [
+    32.22,
+    2.57,
+    17.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "service-stairs",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c4",
+   "kind": "caged",
+   "at": [
+    18,
+    -1.73,
+    23
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c5",
+   "kind": "caged",
+   "at": [
+    18,
+    -1.73,
+    32
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c6",
+   "kind": "caged",
+   "at": [
+    25,
+    -1.73,
+    23
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c7",
+   "kind": "caged",
+   "at": [
+    25,
+    -1.73,
+    32
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c8",
+   "kind": "caged",
+   "at": [
+    32,
+    -1.73,
+    23
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c9",
+   "kind": "caged",
+   "at": [
+    32,
+    -1.73,
+    32
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c10",
+   "kind": "caged",
+   "at": [
+    39,
+    -1.73,
+    23
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c11",
+   "kind": "caged",
+   "at": [
+    39,
+    -1.73,
+    32
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "generator-hall",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e12",
+   "kind": "emergency",
+   "at": [
+    17.0,
+    -4.53,
+    37.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "generator-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e13",
+   "kind": "emergency",
+   "at": [
+    30.0,
+    -4.53,
+    37.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "generator-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e14",
+   "kind": "emergency",
+   "at": [
+    42.0,
+    -4.53,
+    37.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "generator-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e15",
+   "kind": "emergency",
+   "at": [
+    16.0,
+    -4.53,
+    18.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "generator-hall",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c16",
+   "kind": "caged",
+   "at": [
+    8,
+    -1.73,
+    22
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "catwalks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c17",
+   "kind": "caged",
+   "at": [
+    8,
+    -1.73,
+    30
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "catwalks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c18",
+   "kind": "caged",
+   "at": [
+    8,
+    -1.73,
+    36
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "catwalks",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e19",
+   "kind": "emergency",
+   "at": [
+    13.78,
+    -4.73,
+    22.0
+   ],
+   "face": [
+    -1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "catwalks",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e20",
+   "kind": "emergency",
+   "at": [
+    2.22,
+    -4.73,
+    34.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "catwalks",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c21",
+   "kind": "caged",
+   "at": [
+    5.5,
+    -5.23,
+    42.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "safe-power",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c22",
+   "kind": "caged",
+   "at": [
+    10.5,
+    -5.23,
+    44.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "safe-power",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c23",
+   "kind": "caged",
+   "at": [
+    17,
+    -5.03,
+    40.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "boiler",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c24",
+   "kind": "caged",
+   "at": [
+    25,
+    -5.03,
+    40.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "boiler",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c25",
+   "kind": "caged",
+   "at": [
+    21,
+    -5.03,
+    44
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "boiler",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c26",
+   "kind": "caged",
+   "at": [
+    17,
+    -5.03,
+    48
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "boiler",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c27",
+   "kind": "caged",
+   "at": [
+    25,
+    -5.03,
+    48
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "boiler",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e28",
+   "kind": "emergency",
+   "at": [
+    21.0,
+    -5.13,
+    38.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "boiler",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c29",
+   "kind": "caged",
+   "at": [
+    31,
+    -5.23,
+    43
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "maint-lockup",
+   "bank": 0,
+   "style": "dead",
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c30",
+   "kind": "caged",
+   "at": [
+    17.5,
+    -5.03,
+    53.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c31",
+   "kind": "caged",
+   "at": [
+    24.5,
+    -5.03,
+    53.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c32",
+   "kind": "caged",
+   "at": [
+    17.5,
+    -5.03,
+    57.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c33",
+   "kind": "caged",
+   "at": [
+    24.5,
+    -5.03,
+    57.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "workshop",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e34",
+   "kind": "emergency",
+   "at": [
+    26.0,
+    -5.13,
+    50.22
+   ],
+   "face": [
+    0,
+    0,
+    1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "workshop",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c35",
+   "kind": "caged",
+   "at": [
+    47,
+    -2.23,
+    22
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "pipe-gallery",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c36",
+   "kind": "caged",
+   "at": [
+    47,
+    -2.23,
+    30
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "pipe-gallery",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c37",
+   "kind": "caged",
+   "at": [
+    47,
+    -2.23,
+    38
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "pipe-gallery",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c38",
+   "kind": "caged",
+   "at": [
+    47,
+    -2.23,
+    46
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "pipe-gallery",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c39",
+   "kind": "caged",
+   "at": [
+    47,
+    -2.23,
+    54
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "pipe-gallery",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e40",
+   "kind": "emergency",
+   "at": [
+    44.22,
+    -4.73,
+    36.0
+   ],
+   "face": [
+    1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "pipe-gallery",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_e41",
+   "kind": "emergency",
+   "at": [
+    49.78,
+    -4.73,
+    52.0
+   ],
+   "face": [
+    -1,
+    0,
+    0
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "pipe-gallery",
+   "bank": 0
+  },
+  {
+   "id": "FIXTURE_c42",
+   "kind": "caged",
+   "at": [
+    53,
+    -5.03,
+    43
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "pump-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c43",
+   "kind": "caged",
+   "at": [
+    59,
+    -5.03,
+    43
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "pump-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_c44",
+   "kind": "caged",
+   "at": [
+    56,
+    -5.03,
+    47.5
+   ],
+   "size": [
+    1.0,
+    0.12
+   ],
+   "room": "pump-room",
+   "bank": 0,
+   "circuit": "mains"
+  },
+  {
+   "id": "FIXTURE_e45",
+   "kind": "emergency",
+   "at": [
+    55.0,
+    -5.13,
+    49.78
+   ],
+   "face": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    0.1
+   ],
+   "room": "pump-room",
+   "bank": 0
+  }
+ ],
+ "vents": [],
+ "pipes": [],
+ "panels": [],
+ "puddles": []
+}

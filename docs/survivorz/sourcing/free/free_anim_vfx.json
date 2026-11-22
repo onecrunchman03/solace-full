@@ -1,0 +1,282 @@
+[
+  {
+    "name": "CMU Graphics Lab Motion Capture Database (original)",
+    "author": "Carnegie Mellon University Graphics Lab (NSF EIA-0196217)",
+    "url": "http://mocap.cs.cmu.edu/",
+    "licence": "COMMERCIAL OK. Verbatim from mocap.cs.cmu.edu/faqs.php (read 2026-10-20): 'This data is free for use in research projects. You may include this data in commercially-sold products, but you may not resell this data directly, even in converted form.' Using it to drive characters in a livestream is fine; redistributing the raw/converted files (e.g. shipping them in a public repo or an asset pack) is not.",
+    "credit": "Not required for products. Requested for publications: 'The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.' Polite to put that line in stream/credits.",
+    "category": "animation",
+    "fills": "Verified trial IDs (subject_trial) from the site's full motion index (2,435 trials): CRY 79_72, 80_45, 80_46 · COLD/SHIVER 79_68 'cold', 80_41, 80_42 'freezing' · HAMMER 62_07, 62_08 'hammering a nail', 62_10 'hammering sequence', 62_09 'pulling a nail', 62_03 'sawing, hand saw', 62_04/05 'screwing', 62_06 'unscrewing', 62_21 'coiling a rope', 62_18-20 open/close/move a box · SWEEP 13_23-25, 14_16 'sweep floor', 79_55, 80_61 'sweeping', 80_19 'pushing broom', 143_28 'Sweeping, Push Broom', 86_12 'dragging, sweeping, dustpan, wipe window, wipe mirror' · EAT 79_12 'eating dinner', 79_15 'eating a sandwich', 79_42, 80_33 'eating soup', 80_24 'eating' · DRINK 13_07-09, 14_04/05/37 (unscrew cap, drink soda), 79_38 'drinking water', 79_40 'drinking a soda', 80_40 'drinking from bottle', 62_12 'hard days drink' · PUSH 81_05 'push heavy object', 81_06 'push heavy box', 81_10/11 'push object high in air', 82_06/07 'Pushing on heavy object' · PULL/DRAG 81_08/09 'drag heavy object', 62_09 · LIFT/CARRY 70_01-13 carry suitcase (5.5/12.5/19.5 lb), 69_68-75 walk up, squat/lean, pick up, set down, 115_01 'Pick up box, bend from waist', 26_09-11 bend/pick up/lift · DIG/CHOP 79_04 'digging', 80_05 'digging a hole', 79_01, 80_71 'chopping wood', 79_10, 80_02 'chopping onions' · FIGHT 13_17/18, 14_01-03, 15_13, 17_10, 79_08 'boxing', 2_05 'punch/strike', 76_01 'walk backwards then attack with a punch', 111_19 'Punch Kick', 56_02-08 vignettes incl. 'angrily grab, smash against wall', 2_07-09 'swordplay' · TWO-PERSON (paired subjects 18/19, 20/21, 22/23 — A and B files captured together): 18_01/02 'walk, shake hands', 18_03/04 'A pulls B; B resists', 18_05/06 'A pulls B by the elbow; B resists', 18_08/09 'conversation - explain with hand gestures', 18_10/11 'quarrel - angry hand gestures', 22_01/02 'B sits; A pulls up B', 22_03 'A sits, holds face in hands; B kneels, comforts A', 22_04-07 comfort with one/both hands on shoulder(s), 22_08 'hold hands, swing arms, walk', 22_13 'A passes soda to B; both drink', 22_17 'rush up, arm wrestle', 22_20 'violence - A picks up high stool, threatens to strike B', 22_22-25 catch keys/wallet thrown, 18_13/14 'run, scramble for last seat', 20_08/21_08 'zombie march' · INJURED 77_19-24 'limping, hurt right leg', 77_33 'creeping with limp', 91_16, 105_16 'Limp', 91_24/105_24 'HurtLegWalk', 91_26/105_26 'HurtStomachWalk', 91_25/105_25 'DragBadLegWalk', 139_19-24 'Walk Wounded Leg' · CAREFUL/SEARCH 77_01/04 'looking around', 77_05 'look around with flashlight', 77_06 'searching ground', 77_25-27 'careful walk and search', 91_18/105_18 'CarefulWalk LookingAround', 139_01/03/04 'Looking Around' · SNEAK 139_11 'Run To Sneak', 139_14/15 'Sneak Sideways', 139_29-33 'Sneaking' · CRAWL 111_03 'Crawling', 133_01/02 'Walk Crawl' · ZOMBIE 104_41 'ZombieWalk', 104_42, 104_43, 120_22 'Zombie', 91_05/105_05 'Mummy Walk' · EMOTION 79_71 'sad', 79_73 'scared', 91_32/105_32 'ScaredWalk', 142_15 'Sad', 142_16/17 'Scared', 80_48 'arguing' · MISC 79_96, 80_03 'shooting a gun', 139_05 'Pulling a Gun', 79_85 'typing on a laptop', 79_89 'holding a baby', 141_13 'Stretch and Yawn', 40_10/11 'wait for bus', 13_33 'climb ladder', 90_16 'fall on face', 91_09/105_09 'DrunkWalk'.",
+    "notes": "NOT IN THE DATABASE (searched every description): hug/embrace, cough, bandaging/first aid, injecting, prying (crowbar), grappling/wrestling on the ground, sleeping, hiding, knocking/opening doors, barricading. Gotchas: raw files are ASF/AMC/C3D (no BVH from CMU itself — use a conversion, see next entry); ~31-joint skeleton with NO finger data; mostly 120 fps; subjects 79/80 are an actor miming everyday tasks with NO props (hands close on air — you must attach and align props yourself); paired-subject files must be loaded as A+B and placed in the same world origin to stay in contact; long takes need trimming; foot sliding/noise in some trials. The site's https certificate fails validation — read it over http. A 2024 FBX conversion on data.4tu.nl is tagged CC BY-NC 4.0 (see separate entry) — avoid that one and use the original or the cgspeed BVH."
+  },
+  {
+    "name": "cgspeed BVH conversions of the CMU database (MotionBuilder-friendly / Daz-friendly releases)",
+    "author": "Bruce Hahne (cgspeed)",
+    "url": "https://www.sites.google.com/a/cgspeed.com/cgspeed/motion-capture/the-daz-friendly-bvh-release-of-cmus-motion-capture-database",
+    "licence": "COMMERCIAL OK, subject to CMU's own terms (above). The release readme (v1.00, 2008, as quoted in mirrors) says the converter adds no restrictions beyond CMU's. CMU's CURRENT terms forbid reselling the data even converted, so never redistribute these files.",
+    "credit": "Credit CMU (mocap.cs.cmu.edu) as above; crediting cgspeed is courteous.",
+    "category": "animation",
+    "fills": "The same 2,548 CMU motions as BVH — the practical input for a BVH retargeter. MotionBuilder-friendly release is the right one for a generic retarget (the Daz release is pre-rotated for Daz V4/A4 figures). A motions-list document ships with each ZIP.",
+    "notes": "Downloads are split ZIPs on MediaFire, which the page itself warns is unreliable (retry after 24h). Gaps in subject numbering are expected. A commercial seller (Truebones) claims these conversions lack hand data and have retarget issues — consistent with CMU having no fingers. The Daz-friendly page was readable; the MotionBuilder sub-page URL I tried 404'd, it is reachable from the site navigation."
+  },
+  {
+    "name": "100STYLE locomotion dataset",
+    "author": "Ian Mason, Sebastian Starke, Taku Komura (2022)",
+    "url": "https://www.ianxmason.com/100style/",
+    "licence": "COMMERCIAL OK — CC BY 4.0 (stated on the official page and in the Zenodo record 8127870's license field, cc-by-4.0).",
+    "credit": "Required (CC BY). The authors' suggested credit for creative/commercial work: 'The 100STYLE Dataset - Ian Mason'. Cite the paper 'Real-Time Style Modelling of Human Locomotion via Feature-Wise Transformations and Local Motion Phases' for academic use.",
+    "category": "animation",
+    "fills": "100 locomotion STYLES, each with forward/backward/sidestep walk + run, idle and transitions (BR, BW, FR, FW, ID, SR, SW, TR1+). Directly useful for a survival show: LimpLeft, LimpRight, DragLeftLeg, DragRightLeg, Zombie, Crouched, OnToesCrouched, Old, Depressed, Drunk, InTheDark (feeling the way), Followed (looking over shoulder), Rushed, ShieldedLeft/ShieldedRight, Swat, BentForward, Heavyset, WalkingStickLeft/Right, Tiptoe, LookUp, ArmsFolded, HandsInPockets, OnPhoneLeft/Right, CrowdAvoidance, Punch, Kick, KarateChop, Angry, Proud, Elated, Stiff, StartStop, Waving.",
+    "notes": "Raw BVH, 28-bone skeleton rooted at Hips, Xsens inertial capture at 60 fps. Every take starts and ends in a T-pose with extra frames — trim with the supplied Frame_Cuts.csv. ~16 GB on Zenodo. Locomotion only: no object interaction. Inertial capture means occasional foot drift."
+  },
+  {
+    "name": "Quaternius Universal Animation Library (UAL 1)",
+    "author": "Quaternius",
+    "url": "https://quaternius.com/packs/universalanimationlibrary.html",
+    "licence": "COMMERCIAL OK — CC0 1.0 ('Free to use in personal, educational and commercial projects'). The free Standard tier is CC0; the itch page does not state the licence text for the paid Pro/Source tiers.",
+    "credit": "Not required (CC0). 'Quaternius' is customary.",
+    "category": "animation",
+    "fills": "120+ clips total, 45 in the FREE Standard pack. Listed categories: 8-direction locomotion, jog, sprint, PUSH, CRAWLING, swimming, SITTING, DEATH, combat, gun, emotes.",
+    "notes": "Hand-keyed (not mocap) — clean but stylised. Universal humanoid rig, stated compatible with Mixamo-style rigs; FBX + GLB (GLB loads straight into three.js). v3.0 adds root motion to locomotion; versions with and without root motion are offered. Individual clip names are only shown in the canvas-based animviewer (not readable as text); open the zip to get names. Pro tier is $9.99+."
+  },
+  {
+    "name": "Quaternius Universal Animation Library 2 (UAL 2)",
+    "author": "Quaternius",
+    "url": "https://quaternius.com/packs/universalanimationlibrary2.html",
+    "licence": "COMMERCIAL OK — CC0 1.0 (same wording as UAL 1).",
+    "credit": "Not required (CC0).",
+    "category": "animation",
+    "fills": "130+ clips (Jan 2026), roughly 70% in the free Standard tier per press coverage. Categories: ZOMBIE LOCOMOTION, melee and armed combos (3- and 4-hit combos split into single hits with recoveries), parkour movement, farming, fishing.",
+    "notes": "Same rig as UAL 1, so the two combine. Zombie clips are deliberately exaggerated. Clip-by-clip list not available as text."
+  },
+  {
+    "name": "Quaternius 'Animated Human Low Poly'",
+    "author": "Quaternius",
+    "url": "https://opengameart.org/content/animated-human-low-poly",
+    "licence": "COMMERCIAL OK — CC0.",
+    "credit": "Not required.",
+    "category": "animation",
+    "fills": "Idle, jump, punch, run, walk, WORK and death animations (a generic 'work' loop is useful for background labour).",
+    "notes": "Old low-poly rig; mostly useful as filler, superseded by UAL 1/2."
+  },
+  {
+    "name": "Adobe Mixamo",
+    "author": "Adobe",
+    "url": "https://www.mixamo.com/",
+    "licence": "COMMERCIAL OK. Adobe's Mixamo FAQ (helpx.adobe.com/creative-cloud/faq/mixamo-faq.html, text confirmed via search index; the page itself blocks automated fetches) says characters and animations may be used royalty free for personal, commercial and non-profit projects, giving films and video games as examples. Restriction (from an Adobe staff community post on Mixamo licensing): you may not distribute the RAW character/animation files (e.g. as an asset pack).",
+    "credit": "Not required.",
+    "category": "animation",
+    "fills": "Large hand-cleaned mocap library (zombie set, injured/hurt walks, deaths, hit reactions, crouch/sneak, carrying, sitting, talking/arguing gestures, etc.).",
+    "notes": "Requires a free Adobe ID to browse or download (I did not sign in, so specific clip names were NOT verified here). Not available to Enterprise/Federated IDs. Mixamo is in maintenance mode — library has not grown in years. Mixamo rig ('mixamorig:' bone prefix) is what the user's retargeter already accepts. Never commit raw Mixamo FBX to a public repo."
+  },
+  {
+    "name": "Rokoko Motion Library — free assets",
+    "author": "Rokoko (+ 50 free clips from SuperAlloy Interactive / Eric Jacobus)",
+    "url": "https://www.rokoko.com/products/motion-library",
+    "licence": "PARTIALLY VERIFIED. Rokoko's page currently advertises '100 free mocap assets' plus 50 free SuperAlloy clips; 2020 launch coverage (CG Channel) states the free moves are licensed for use in commercial projects. I could not locate the current licence text publicly (Rokoko's /legal URLs 404) — read the licence shown inside Rokoko Studio before use.",
+    "credit": "Unknown — check in-app licence.",
+    "category": "animation",
+    "fills": "Professional optical/inertial mocap; SuperAlloy's free set is action/stunt oriented (the performer played Kratos in God of War). Exports FBX/BVH/CSV.",
+    "notes": "Requires installing Rokoko Studio and a free account to browse and export — not browsable on the web, so contents could not be listed. Treat as 'probably fine, confirm the licence in the app'."
+  },
+  {
+    "name": "Truebones free mocap packs",
+    "author": "Truebones Motions Animation Studios",
+    "url": "https://truebones.gumroad.com/l/vlvPq",
+    "licence": "COMMERCIAL OK. Truebones' 'Royalty Free Terms of Usage' (Gumroad 'FREE READ ME', dated 01/01/2019): products are royalty free and 'can be used for any and all purposes even commercial' (films, games, VR/AR, research, education). Redistribution or resale of Truebones files in FBX/BVH/iClone form is prohibited.",
+    "credit": "Requested: 'Please provide credit to Truebones when using Truebones.'",
+    "category": "animation",
+    "fills": "Free listings on their Gumroad include an 'Unreal Engine Free Mocap Library' in FBX and BVH (truebones.gumroad.com/p/free-truebones-unreal-engine-complete-mocap-library-in-fbx-format) and a free 4-file FBX/BVH/iClone sample.",
+    "notes": "Contents/motion counts of the free packs could NOT be read (Gumroad pages render client-side). Gumroad 'free' is usually a $0 checkout that asks for an email. Some free codes are time-limited. Their big packs are paid."
+  },
+  {
+    "name": "Kenney Animated Characters (1, Protagonists, Survivors, Retro)",
+    "author": "Kenney",
+    "url": "https://kenney.nl/assets/animated-characters-survivors",
+    "licence": "COMMERCIAL OK — CC0.",
+    "credit": "Not required.",
+    "category": "animation",
+    "fills": "Low-poly rigged characters with a small animation set (Animated Characters 1: idle, jump, running — no walk). 'Survivors' is tagged zombie/survivor/survival.",
+    "notes": "Animation set is tiny and stylised; only useful as placeholders. Kenney's site does not list the clip names for Survivors."
+  },
+  {
+    "name": "Sketchfab downloadable animated models",
+    "author": "Various (per model)",
+    "url": "https://sketchfab.com/search?features=downloadable+animated&type=models",
+    "licence": "VARIES PER MODEL. Sketchfab's help/blog: downloadable models carry a Creative Commons licence (or the Sketchfab Standard licence on some). CC0, CC BY, CC BY-SA and Standard allow commercial use; CC BY-NC / NC-SA / NC-ND do NOT.",
+    "credit": "CC BY / BY-SA require attribution to the author (Sketchfab's 'crediting users' help article gives the format).",
+    "category": "animation",
+    "fills": "Occasional animated props/creatures and some character clips; mostly useful for props, not humanoid motion.",
+    "notes": "Check the licence badge on EACH model page and keep a record — the author can change it later, but the licence you downloaded under prevails. Downloads require a Sketchfab account."
+  },
+  {
+    "name": "EXCLUDED — Bandai Namco Research Motion Dataset 1 & 2",
+    "author": "Bandai Namco Research Inc.",
+    "url": "https://github.com/BandaiNamcoResearchInc/Bandai-Namco-Research-Motiondataset",
+    "licence": "COMMERCIAL NOT OK — CC BY-NC 4.0 for both datasets (repo README License section).",
+    "credit": "n/a",
+    "category": "animation",
+    "fills": "Dataset 1: walk, run, dash, walk-back/right/left, bow, bye, guide, byebye, respond, call, kick, slash, dance, punch in 15 styles (happy, sad, angry, proud, not-confident, masculine, feminine, children, old, tired, active, musical, giant, chimpira…). Dataset 2: locomotion + hand actions in 7 styles. BVH.",
+    "notes": "A monetised/sponsored livestream is commercial use — do not use. Listed so it is not picked up later by mistake."
+  },
+  {
+    "name": "EXCLUDED — Ubisoft La Forge Animation Dataset (LaFAN1)",
+    "author": "Ubisoft La Forge",
+    "url": "https://github.com/ubisoft/ubisoft-laforge-animation-dataset",
+    "licence": "COMMERCIAL NOT OK — CC BY-NC-ND 4.0 (README).",
+    "credit": "n/a",
+    "category": "animation",
+    "fills": "Locomotion, fighting, falls, crawling, obstacles (BVH).",
+    "notes": "NoDerivatives also forbids retargeting. Do not use."
+  },
+  {
+    "name": "EXCLUDED — Epic 'Game Animation Sample' (Fab)",
+    "author": "Epic Games",
+    "url": "https://www.cgchannel.com/2024/06/get-500-free-game-ready-animations-for-use-in-unreal-engine",
+    "licence": "NOT OK FOR three.js — the Fab listing carries the tag 'UE-Only Content - Licensed for Use Only with Unreal Engine-based Products'. Commercial use is allowed only inside Unreal-based products.",
+    "credit": "n/a",
+    "category": "animation",
+    "fills": "500+ locomotion/traversal animations for the UE5 mannequin.",
+    "notes": "Exporting to FBX is technically possible but the licence forbids use in a non-Unreal renderer. Same tag on Epic's older Animation Starter Pack. Fab's Standard licence (third-party sellers) is different and does allow other tools — check each listing's licence tag."
+  },
+  {
+    "name": "EXCLUDED — 'FBX Conversion of the CMU Graphics Lab Motion Capture Database' (4TU.ResearchData)",
+    "author": "Ward Dewaele (cMonkeys) et al.",
+    "url": "https://data.4tu.nl/datasets/0448aab2-3332-449f-a8e2-d208cb58c7df/1",
+    "licence": "CONFLICTING — record is tagged CC BY-NC 4.0 while also quoting CMU's commercial-OK text.",
+    "credit": "n/a",
+    "category": "animation",
+    "fills": "CMU data as FBX for Unity with some categorisation.",
+    "notes": "Avoid; use the original CMU data or the cgspeed BVH, whose terms are unambiguous."
+  },
+  {
+    "name": "Kenney Particle Pack",
+    "author": "Kenney",
+    "url": "https://kenney.nl/assets/particle-pack",
+    "licence": "COMMERCIAL OK — CC0.",
+    "credit": "Not required ('Kenney.nl' appreciated).",
+    "category": "vfx",
+    "fills": "80 single-frame 512x512 PNG sprites (file list verified from the CC0 mirror github.com/Calinou/kenney-particle-pack): muzzle_01-05 (MUZZLE FLASHES, plus rotated variants), spark_01-07 (SPARKS), smoke_01-10, fire_01-02, flame_01-06, flare_01, light_01-03 (light cookies), scorch_01-03 (scorch decals), dirt_01-03 (dust/debris), scratch_01, slash_01-04, trace_01-07 (tracers/streaks), circle_01-05, star_01-09, magic_01-05, twirl_01-03, symbol_01-02, window_01-04 (window light cookies for fake light shafts). Also tilesheet + vector sources.",
+    "notes": "Single frames, not flipbooks — animate by randomised rotation/scale/alpha, or alternate the 5 muzzle frames. White/greyscale, so tint in the shader. No blood or water."
+  },
+  {
+    "name": "Kenney Smoke Particles",
+    "author": "Kenney",
+    "url": "https://kenney.nl/assets/smoke-particles",
+    "licence": "COMMERCIAL OK — CC0.",
+    "credit": "Not required.",
+    "category": "vfx",
+    "fills": "Smoke sprites in 5 styles: black smoke, explosion, fart, flash (a smoke-based flash, not a muzzle flash), white puff. Kenney's page lists 70 files; the OpenGameArt mirror says 77 sprites.",
+    "notes": "Frame sequences per style (separate PNGs), 2014, drawn/stylised rather than photoreal."
+  },
+  {
+    "name": "Unity Labs — Free VFX Image Sequences & Flipbooks",
+    "author": "Unity Technologies (Unity Labs), made in Houdini",
+    "url": "https://unity.com/blog/engine-platform/free-vfx-image-sequences-flipbooks",
+    "licence": "COMMERCIAL OK — CC0 1.0, no engine restriction. Note the blog's wording: 'some of these sequences' are released under CC0 — every asset on the page is presented together under that statement, but keep the page archived.",
+    "credit": "Not required.",
+    "category": "vfx",
+    "fills": "28 photoreal simulated sequences: CandleSmoke01, Cloud01-04, DiscSmoke01, Explosion00, Explosion01 (+ -light, -light-nofire, -nofire), Explosion02, Explosion02HD, FireBall01-04, Flame02 (+ -temperature), Flame03 (+ -hollow), SmallFlame01 (mini/smaller/temperature variants), WispySmoke01-03, WispySmoke03b. Each as pre-assembled flipbook sheets, HDR linear EXR sequence, or uncompressed TGA sequence.",
+    "notes": "Downloads are direct ZIPs at unity3d.com/files/labs/downloads/vfx/assets01/<Name>/<Name>-flipbooks.zip (HEAD-checked: still 200 OK). The 'temperature' variants are for shader-driven colour ramps. EXR frames need converting (e.g. to KTX2/PNG) for the web; 'Unity 5.5' requirement only applies to Unity's own Image Sequencer tool. Best free realistic fire/smoke/explosion in this list."
+  },
+  {
+    "name": "Brackeys VFX Bundle",
+    "author": "Brackeys (compiling third-party creators, credited on the page)",
+    "url": "https://brackeysgames.itch.io/brackeys-vfx-bundle",
+    "licence": "COMMERCIAL OK — CC0 per the itch page.",
+    "credit": "Not required (the page credits the original creators of the textures and flipbooks).",
+    "category": "vfx",
+    "fills": "26 MB of particle textures, flipbooks and pre-drawn sprite sheets — previews show explosions, flames, smoke, sparks.",
+    "notes": "Itch 'name your own price' (can be $0; may ask for an email). Contents beyond the previews not itemised; no blood or muzzle flash mentioned."
+  },
+  {
+    "name": "JangaFX free VDB simulations (EmberGen)",
+    "author": "JangaFX",
+    "url": "https://jangafx.com/software/embergen/download/free-vdb-animations",
+    "licence": "COMMERCIAL OK — CC0 ('free to use them however you want').",
+    "credit": "Not required.",
+    "category": "vfx",
+    "fills": "~17 volumetric sims: Aerial Explosion (120 frames, 6.6 GB), Fire Plume (250 frames), Ground Explosion, Simple Fire, Industrial Chimney Smoke, High-Res Smoke Plume, implosions, tornado, etc., several with EmberGen presets.",
+    "notes": "These are OpenVDB VOLUMES, not flipbooks — three.js can't use them directly. Render them to flipbook sheets offline (e.g. Blender Cycles with an orthographic camera, 8x8 grid) and ship the sheets. Very large files. JangaFX's announced 'CC0 Flipbook Texture Pack For Games' (explosions, fire, smoke, BLOOD SPLATTERS, WATER SPLASHES) is on their roadmap marked DELAYED (posted 2026-01-02, no release) — watch it, don't plan on it."
+  },
+  {
+    "name": "'Animations - Blood, Hit and Both' (OpenGameArt)",
+    "author": "Sinestesia",
+    "url": "https://opengameart.org/node/81933",
+    "licence": "COMMERCIAL OK — CC0.",
+    "credit": "Not required.",
+    "category": "vfx",
+    "fills": "3 PNG sprite sheets with alpha, 16 frames each at 512x512 (2048x2048 sheet): a hit, a BLOOD SPLASH, and both combined.",
+    "notes": "Splash rather than directional spray; works as a camera-facing billboard on impact. Which file is which is not stated (0/1/2.png). Hand-drawn style — test against the show's realistic look."
+  },
+  {
+    "name": "'Bloodsplatter and Bloodsplash Animation' (OpenGameArt)",
+    "author": "overcrafted",
+    "url": "https://opengameart.org/node/51056",
+    "licence": "COMMERCIAL OK — CC0.",
+    "credit": "Not required.",
+    "category": "vfx",
+    "fills": "Blood SPLASH animation (frames + sprite sheet) and a blood SPLATTER image (decal), GIMP source included.",
+    "notes": "Small (517 KB zip); frame size not stated. The splatter frame suits a floor/wall decal."
+  },
+  {
+    "name": "CGHEVEN free VFX library",
+    "author": "CGHEVEN (Ammar Khan)",
+    "url": "https://cgheven.com/download-free-vfx-packages-without-watermark",
+    "licence": "SELF-DECLARED CC0 — the site states every VFX asset is CC0 and usable commercially, including monetised videos. Not independently verified.",
+    "credit": "Not required per the site.",
+    "category": "vfx",
+    "fills": "Claims 1,000+ assets: flipbooks, VDBs, VFX elements (fire, smoke, explosions, etc.).",
+    "notes": "Third-party aggregator — confirm the licence on each asset page and keep a copy. 'Most' assets download without login."
+  },
+  {
+    "name": "three.js official examples — volumetric light, fog, godrays, particles",
+    "author": "three.js authors",
+    "url": "https://github.com/mrdoob/three.js/tree/dev/examples",
+    "licence": "COMMERCIAL OK — MIT (code). Texture files inside the repo may come from elsewhere; check before reusing images.",
+    "credit": "Keep the MIT notice with copied code.",
+    "category": "vfx",
+    "fills": "WebGLRenderer: webgl_postprocessing_godrays (screen-space light shafts), webgl_volume_cloud, webgl_volume_perlin, webgl_volume_instancing (raymarched volumes), webgl_lights_spotlight(s). WebGPURenderer/TSL: webgpu_volume_lighting (+ _rectarea, _traa) — real volumetric fog lit by lights/shadows, webgpu_custom_fog_scattering, webgpu_fog_height, webgpu_postprocessing_fog, webgpu_volume_fire, webgpu_compute_particles_rain (rain + splashes), webgpu_compute_particles_snow, webgpu_particles_soft (soft particles = no hard edges where smoke meets geometry), webgpu_postprocessing_godrays.",
+    "notes": "The best volumetric-light examples are WebGPU/TSL: they need WebGPURenderer (which has a WebGL2 fallback backend), not the classic WebGLRenderer + onBeforeCompile shaders — porting is real work. Dust motes are cheapest as THREE.Points with a soft disc sprite drifting through a spotlight cone."
+  },
+  {
+    "name": "three-good-godrays",
+    "author": "Casey Primozic (Ameobea), adapted from N8python's goodGodRays",
+    "url": "https://github.com/Ameobea/three-good-godrays",
+    "licence": "COMMERCIAL OK — zlib licence (LICENSE file: 'Permission is granted to anyone to use this software for any purpose, including commercial applications').",
+    "credit": "Not required; keep the notice in source distributions.",
+    "category": "vfx",
+    "fills": "Screen-space RAYMARCHED godrays that respect shadow maps (light shafts through windows/doors, fog-lit flashlight beams) — better than the occlusion-blur godrays in three.js examples.",
+    "notes": "Built on pmndrs/postprocessing (next entry); works with point and directional lights casting shadows. Small, last updated a while ago — test against the current three version."
+  },
+  {
+    "name": "pmndrs/postprocessing",
+    "author": "pmndrs (Raoul van Rüschen et al.)",
+    "url": "https://github.com/pmndrs/postprocessing",
+    "licence": "COMMERCIAL OK — zlib.",
+    "credit": "Not required.",
+    "category": "vfx",
+    "fills": "Effect composer with GodRaysEffect, BloomEffect/SelectiveBloomEffect (muzzle flash and spark glow), SSAOEffect, DepthOfFieldEffect, NoiseEffect (film grain), VignetteEffect, ChromaticAberrationEffect, ToneMappingEffect, LUT3DEffect (colour grade), ShockWaveEffect (explosion distortion), GlitchEffect.",
+    "notes": "Merges effects into fewer passes than three's EffectComposer. Mixing it with an existing EffectComposer chain means choosing one."
+  },
+  {
+    "name": "three.quarks",
+    "author": "Alchemist0823",
+    "url": "https://github.com/Alchemist0823/three.quarks",
+    "licence": "COMMERCIAL OK — MIT.",
+    "credit": "Keep the MIT notice.",
+    "category": "vfx",
+    "fills": "General-purpose particle/VFX engine for three.js: billboards, velocity-stretched billboards (sparks, blood droplets, rain streaks, tracers), mesh particles, sprite-sheet (flipbook) animation, emitters/behaviours, batched rendering — the runtime to play the flipbooks above.",
+    "notes": "Has a visual editor; actively maintained (pushed 2026-05)."
+  },
+  {
+    "name": "three-nebula",
+    "author": "creativelifeform",
+    "url": "https://github.com/creativelifeform/three-nebula",
+    "licence": "COMMERCIAL OK — MIT.",
+    "credit": "Keep the MIT notice.",
+    "category": "vfx",
+    "fills": "Alternative WebGL particle engine for three.js (emitters, behaviours, sprite renderer) with a JSON system format and editor.",
+    "notes": "Pick one of quarks/nebula; quarks is closer to Unity-style VFX authoring."
+  }
+]

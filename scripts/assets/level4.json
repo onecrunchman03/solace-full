@@ -1,0 +1,52 @@
+{
+  "level": "Level 4 — The Abandoned Office",
+  "note": "Picked 2026-10-12 against the 20 references (docs/backrooms/REFERENCES.md → Level 4). CC-BY or CC0 only. node scripts/assets/fetch.mjs scripts/assets/level4.json --dry",
+  "assets": [
+    {
+      "source": "sketchfab",
+      "uid": "e39ee21828ff4779b4c93ea600f30577",
+      "name": "Peeling Wood Mannequin",
+      "use": "THE TEMP's body — pale, cracked store mannequin; it carries a skeleton and one animation, sampled at different moments for its frozen poses"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "fd8d344f83394987aff12a30d91013fb",
+      "name": "Simple Keycard",
+      "use": "THE SECURITY KEYCARD — the way down"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "dadca97505214b9481d35e22c48e18df",
+      "name": "90s Retro Office Pack",
+      "use": "cubicle partitions, a CRT workstation, printer and boxes — the cubicle farms"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "f26853d4d55c4a86af33788fb13653c9",
+      "name": "Copy Machine",
+      "use": "the copy room"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "d62a741a00e04d84bc45b6ccb039cf8a",
+      "name": "Vending Machine",
+      "use": "the break room (canon: vending machines with almond water)"
+    },
+    {
+      "source": "sketchfab",
+      "uid": "5addf1256a404b7a82c380bb2d22f186",
+      "name": "ID Card Model",
+      "use": "a relic — an employee's lanyard ID"
+    },
+    {
+      "source": "ambientcg",
+      "id": "Carpet001",
+      "use": "the office's dark grey carpet"
+    },
+    {
+      "source": "ambientcg",
+      "id": "PaintedPlaster017",
+      "use": "painted drywall, tinted beige in-game"
+    }
+  ]
+}

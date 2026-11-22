@@ -1,0 +1,208 @@
+<!doctype html>
+<!--
+  SURVIVORZ STREAM TEST — the stage. Phase 3 (SURVIVORZ.md §13): one survivor
+  (Rick, on Eric's body) walking a stand-in lab corridor with a zombie in it,
+  the show's overlay on top, lines from the real 26B, and this TAB captured,
+  encoded and handed to scripts/survivorz/streamer.mjs, which feeds ffmpeg.
+
+  It exists to measure, not to look finished: the 3090 Ti rendering and
+  thinking at once, the encoder, and 24 hours without falling over.
+  Opened by streamer.mjs; ?capture=0 opens it to look at by hand.
+-->
+<meta charset="utf-8" />
+<title>Solace Survivorz — stream test</title>
+<script type="importmap">
+  { "imports": {
+      "three": "/client/node_modules/three/build/three.module.js",
+      "three/addons/": "/client/node_modules/three/examples/jsm/" } }
+</script>
+<style>
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+  canvas { display: block; }
+  .ov { position: fixed; color: #e9e4d8; font: 600 22px/1.25 "Segoe UI", system-ui, sans-serif; text-shadow: 0 2px 6px #000c; }
+  #brand { left: 40px; top: 32px; letter-spacing: 0.18em; font-size: 26px; }
+  #brand small { display: block; font-size: 15px; letter-spacing: 0.3em; color: #c9473f; margin-top: 4px; }
+  #clock { right: 40px; top: 32px; text-align: right; font-variant-numeric: tabular-nums; }
+  #clock small { display: block; font-size: 14px; color: #9a958a; }
+  #sub { left: 50%; bottom: 72px; transform: translateX(-50%); max-width: 1200px; text-align: center;
+    background: #0009; padding: 12px 22px; border-radius: 6px; font-weight: 500; opacity: 0; transition: opacity 0.4s; }
+  #sub b { color: #e8b04a; margin-right: 10px; }
+  #sub.on { opacity: 1; }
+  #stats { left: 40px; bottom: 28px; font: 500 13px ui-monospace, monospace; color: #8d897f; }
+</style>
+<div id="brand" class="ov">SOLACE SURVIVORZ<small>STREAM TEST · HALCYON SITE 9</small></div>
+<div id="clock" class="ov">--:--<small>running 0h 00m</small></div>
+<div id="sub" class="ov"><b>RICK</b><span></span></div>
+<div id="stats" class="ov"></div>
+<script type="module">
+  import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+
+  const P = new URLSearchParams(location.search);
+  const W = 1920, H = 1080;
+  const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+  renderer.setPixelRatio(1); renderer.setSize(W, H);
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+  document.body.prepend(renderer.domElement);
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x0b0d0e);
+  scene.fog = new THREE.Fog(0x0b0d0e, 8, 30);
+  const camera = new THREE.PerspectiveCamera(40, W / H, 0.1, 80);
+
+  // ---- the corridor: 4m wide, 3m high, 28m long, a fluorescent fitting every 3.5m
+  const LEN = 28, WID = 4, HGT = 3;
+  const mat = (c, r = 0.85) => new THREE.MeshStandardMaterial({ color: c, roughness: r, metalness: 0 });
+  const add = (geo, m, x, y, z, ry = 0) => { const o = new THREE.Mesh(geo, m); o.position.set(x, y, z); o.rotation.y = ry; o.receiveShadow = true; o.castShadow = true; scene.add(o); return o; };
+  const floor = add(new THREE.PlaneGeometry(WID, LEN), mat(0x3a3f40, 0.6), 0, 0, 0); floor.rotation.x = -Math.PI / 2;
+  const ceil = add(new THREE.PlaneGeometry(WID, LEN), mat(0x9ea3a1), 0, HGT, 0); ceil.rotation.x = Math.PI / 2;
+  for (const s of [-1, 1]) {
+    add(new THREE.BoxGeometry(0.1, HGT, LEN), mat(0xc9cdc6), s * WID / 2, HGT / 2, 0);
+    add(new THREE.BoxGeometry(0.12, 0.12, LEN), mat(0xb8a238, 0.5), s * (WID / 2 - 0.02), 1.0, 0); // the yellow handrail line
+    add(new THREE.BoxGeometry(0.11, 0.3, LEN), mat(0x2f3433), s * (WID / 2 - 0.01), 0.15, 0); // kick plate
+  }
+  for (let z = -LEN / 2 + 1.75; z < LEN / 2; z += 3.5) {
+    const lit = Math.abs(z - 5.25) > 0.1; // one dead fitting, for the mood
+    add(new THREE.BoxGeometry(0.4, 0.06, 1.3), new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: lit ? 0xf2f6ff : 0x111111, emissiveIntensity: lit ? 2.2 : 1 }), 0, HGT - 0.04, z);
+    if (!lit) continue;
+    const l = new THREE.PointLight(0xe8eeff, 7, 7.5, 1.6); l.position.set(0, HGT - 0.25, z); scene.add(l);
+  }
+  const key = new THREE.SpotLight(0xffffff, 40, 20, 0.7, 0.6, 1.2); key.position.set(0, HGT - 0.1, -4); key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048); key.target.position.set(0, 0, 2); scene.add(key, key.target);
+  scene.add(new THREE.HemisphereLight(0x8a9095, 0x1a1c1d, 0.6));
+  // a few crates so there is something to rummage through
+  for (const [x, z] of [[1.4, -6], [-1.3, 2.5], [1.35, 9]]) add(new THREE.BoxGeometry(0.8, 0.7, 0.8), mat(0x6a5a3c), x, 0.35, z, 0.3);
+
+  // ---- the bodies
+  const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+  async function body(url, height) {
+    const g = await loader.loadAsync(url);
+    const root = g.scene; root.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.frustumCulled = false; } });
+    const mixer = new THREE.AnimationMixer(root);
+    const clips = new Map(g.animations.map((a) => [a.name, a]));
+    // the clip set is already in place (travel stripped), so scale the body to its real height
+    const b = new THREE.Box3().setFromObject(root); root.scale.multiplyScalar(height / (b.max.y - b.min.y));
+    const holder = new THREE.Group(); holder.add(root); scene.add(holder);
+    let current = null;
+    const play = (name, fade = 0.35) => {
+      const c = clips.get(name); if (!c) return console.warn("no clip", name);
+      const a = mixer.clipAction(c); if (current === a) return;
+      a.reset().fadeIn(fade).play(); current?.fadeOut(fade); current = a;
+    };
+    return { holder, mixer, play };
+  }
+  const rick = await body("/assets/downloads/survivorz/game/eric.glb", 1.83);
+  const zed = await body("/assets/downloads/survivorz/game/zombie-m05.glb", 1.75);
+
+  // Rick walks the corridor's waypoints, stops at each crate and searches it
+  const ROUTE = [[0.4, -11, null], [0.6, -6, "mx-rummaging"], [-0.5, 2.5, "ual2-chest-open"], [0.5, 9, "mx-looking-through-files-low"], [0, 12, "ual1-idle-talking-loop"]];
+  let leg = 0, waitUntil = 0, dir = 1;
+  rick.holder.position.set(ROUTE[0][0], 0, ROUTE[0][1]);
+  const WALK = 1.25; // metres a second, matches ual1-walk-loop's stride
+  function tickRick(now, dt) {
+    if (now < waitUntil) return;
+    const [tx, tz, act] = ROUTE[leg];
+    const d = new THREE.Vector2(tx - rick.holder.position.x, tz - rick.holder.position.z);
+    if (d.length() < 0.08) {
+      if (act) { rick.play(act); waitUntil = now + 6 + Math.random() * 4; }
+      leg += dir; if (leg === ROUTE.length || leg < 0) { dir = -dir; leg += 2 * dir; }
+      return;
+    }
+    rick.play("ual1-walk-loop");
+    const step = Math.min(d.length(), WALK * dt); d.normalize();
+    rick.holder.position.x += d.x * step; rick.holder.position.z += d.y * step;
+    const want = Math.atan2(d.x, d.y);
+    let dy = want - rick.holder.rotation.y; dy = Math.atan2(Math.sin(dy), Math.cos(dy));
+    rick.holder.rotation.y += dy * Math.min(1, dt * 6);
+  }
+  // the zombie shambles up and down the far end, never reaching him
+  let zz = 13, zdir = -1;
+  zed.holder.position.set(-0.9, 0, zz); zed.play("hw-01-zombie-walk-01");
+  function tickZed(dt) {
+    zz += zdir * 0.45 * dt; if (zz < 9.5 || zz > 13.5) { zdir = -zdir; zz = Math.max(9.5, Math.min(13.5, zz)); }
+    zed.holder.position.z = zz; zed.holder.rotation.y += ((zdir < 0 ? Math.PI : 0) - zed.holder.rotation.y) * Math.min(1, dt * 2);
+  }
+
+  // the camera: a slow follow from behind-and-above, the security-camera feel
+  const camPos = new THREE.Vector3(1.6, 2.3, -15), look = new THREE.Vector3();
+  function tickCam(dt) {
+    const r = rick.holder.position;
+    const want = new THREE.Vector3(r.x + 1.4, 2.2, r.z - 4.2 * dir);
+    camPos.lerp(want, Math.min(1, dt * 0.8)); camera.position.copy(camPos);
+    look.lerp(new THREE.Vector3(r.x, 1.25, r.z + 1.5 * dir), Math.min(1, dt * 2)); camera.lookAt(look);
+  }
+
+  // ---- the overlay
+  const t0 = Date.now(), $ = (s) => document.querySelector(s);
+  let frames = 0, worst = 0, lastStat = performance.now(), fps = 0;
+  function overlay() {
+    const d = new Date(), up = Math.floor((Date.now() - t0) / 60000);
+    $("#clock").innerHTML = `${d.toTimeString().slice(0, 8)}<small>running ${Math.floor(up / 60)}h ${String(up % 60).padStart(2, "0")}m</small>`;
+    $("#stats").textContent = `${fps} fps · worst frame ${worst.toFixed(1)} ms · ${renderer.info.render.calls} draws`;
+  }
+  let subTimer = 0;
+  function say(text) {
+    $("#sub span").textContent = text; $("#sub").classList.add("on");
+    clearTimeout(subTimer); subTimer = setTimeout(() => $("#sub").classList.remove("on"), 4000 + text.length * 60);
+  }
+  window.stage = { say };
+
+  // ---- room tone, so the stream carries an audio track like the show will
+  let audio = null;
+  function roomTone() {
+    const ctx = new AudioContext(); const out = ctx.createGain(); out.gain.value = 0.05; out.connect(ctx.destination);
+    for (const [f, g] of [[60, 1], [120, 0.5], [180, 0.15]]) { const o = ctx.createOscillator(); o.frequency.value = f; const gg = ctx.createGain(); gg.gain.value = g; o.connect(gg).connect(out); o.start(); }
+    audio = ctx; return ctx;
+  }
+
+  // ---- capture: this tab → MediaRecorder → the streamer's /ingest socket
+  async function capture() {
+    const ctl = new WebSocket(`ws://${location.host}/ctl`);
+    ctl.onmessage = (e) => { const m = JSON.parse(e.data); if (m.type === "say") say(m.text); };
+    window.stage.ctl = ctl;
+    if (P.get("capture") === "0") return;
+    roomTone();
+    const stream = await navigator.mediaDevices.getDisplayMedia({
+      video: { width: W, height: H, frameRate: 60 }, audio: { suppressLocalAudioPlayback: false },
+      preferCurrentTab: true, selfBrowserSurface: "include", systemAudio: "include",
+    });
+    window.stage.stream = stream;
+  }
+  // recording starts SEPARATELY, after the streamer has refitted the window for
+  // the "sharing this tab" bar — so the first frame is already 1920x1080
+  async function record() {
+    const stream = window.stage.stream;
+    const mime = ["video/webm;codecs=h264,opus", "video/x-matroska;codecs=avc1,opus", "video/webm;codecs=vp8,opus"].find((m) => MediaRecorder.isTypeSupported(m));
+    // Edge encodes H.264 on the GPU itself; ffmpeg only copies it, so the keyframe
+    // spacing YouTube wants (every 2s) has to be asked for here
+    const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 7e6, audioBitsPerSecond: 160e3, videoKeyFrameIntervalDuration: 2000 });
+    const ws = new WebSocket(`ws://${location.host}/ingest`); ws.binaryType = "arraybuffer";
+    await new Promise((r) => (ws.onopen = r));
+    // what the capture REALLY delivers (settings report the constraint, not the frame)
+    const probe = new MediaStreamTrackProcessor({ track: stream.getVideoTracks()[0].clone() }).readable.getReader();
+    const { value: f0 } = await probe.read(); const real = `${f0.displayWidth}x${f0.displayHeight}`; f0.close(); probe.cancel();
+    ws.send(JSON.stringify({ mime, real, inner: `${innerWidth}x${innerHeight}`, outer: `${outerWidth}x${outerHeight}`, tracks: stream.getTracks().map((t) => `${t.kind}:${JSON.stringify(t.getSettings())}`) }));
+    rec.ondataavailable = async (e) => { if (e.data.size && ws.readyState === 1) ws.send(await e.data.arrayBuffer()); };
+    rec.start(250);
+    window.stage.capturing = { mime };
+  }
+
+  let last = performance.now();
+  // the stream is 60fps: on a faster monitor, skip the frames it would throw away
+  const FRAME_MS = 1000 / 60 - 1.5;
+  function frame(now) {
+    if (now - last < FRAME_MS) { requestAnimationFrame(frame); return; }
+    const dt = Math.min(0.1, (now - last) / 1000); const ft = now - last; last = now;
+    tickRick(now / 1000, dt); tickZed(dt); tickCam(dt);
+    rick.mixer.update(dt); zed.mixer.update(dt);
+    renderer.render(scene, camera);
+    frames++; worst = Math.max(worst, ft);
+    if (now - lastStat > 1000) { fps = frames; frames = 0; window.stage.stats = { fps, worst }; worst = 0; lastStat = now; overlay(); }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  window.stage.start = capture;
+  window.stage.record = record;
+  window.stage.ready = true;
+</script>
