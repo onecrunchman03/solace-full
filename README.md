@@ -3,6 +3,9 @@
 A self-hosted, Discord-style chat app for a small group of friends, with a game
 economy built in.
 
+> This is the full edition. For just the chat, without the casino, economy and
+> 3D worlds, see [Solace Chat](https://github.com/onecrunchman03/solace-chat).
+
 - **Chat:** channels and sub-channels, communities ("pages") with roles, DMs,
   replies, reactions, attachments, search, mentions, unread badges, presence.
 - **Voice and video:** voice rooms, cameras and screen share through a
